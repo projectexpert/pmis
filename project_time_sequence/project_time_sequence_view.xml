@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+#---------------------------------------------------------------------------------------------------------
+#   Extend the task
+#---------------------------------------------------------------------------------------------------------
+      
+        <record id="view_task_tree2" model="ir.ui.view">
+            <field name="name">project.task.tree</field>
+            <field name="model">project.task</field>
+            <field name="type">tree</field>
+            <field eval="2" name="priority"/>
+            <field name="inherit_id" ref="project.view_task_tree2"/>
+            <field name="arch" type="xml">
+            	<field name="name" position="after">
+            		<field name="predecessor_ids_str"/>    
+            		<button groups="base.group_extended" name="%(action_project_task_link_predecessors)d" states="pending,open,draft" string="Link" type="action" icon="gtk-sort-descending" help="For linking to a predecessor task"/>        		
+            	</field>            	            	            	            	                    		
+            </field>
+        </record>	
+
+ 		<record id="view_task_form2" model="ir.ui.view">
+            <field name="name">project.task.form</field>
+            <field name="model">project.task</field>
+            <field name="type">form</field>
+            <field eval="2" name="priority"/>
+            <field name="inherit_id" ref="project.view_task_form2"/>       
+            <field name="arch" type="xml">        
+        		<xpath expr="//page[@string='Delegations']" position="replace">        		        			
+					<page groups="base.group_extended" string="Relationships">
+                        <separator string="Predecessor Activities" colspan="4"/>
+                        <field colspan="4" height="150" name="parent_ids" nolabel="1"/>
+                        <separator string="Successor Activities" colspan="4"/>
+                        <field colspan="4" height="150" name="child_ids" nolabel="1"/>                            
+                    </page>                    
+        		</xpath>              	        		        		
+            </field>
+        </record>
+
+
+
+    </data>
+</openerp>

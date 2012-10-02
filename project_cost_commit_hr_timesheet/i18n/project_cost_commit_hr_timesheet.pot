@@ -1,0 +1,57 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* project_cost_commit_hr_timesheet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.3\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2012-06-25 12:10+0000\n"
+"PO-Revision-Date: 2012-06-25 14:16+0100\n"
+"Last-Translator: Jordi Ballester <jordi.ballester@eficent.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: project_cost_commit_hr_timesheet
+#: model:ir.model,name:project_cost_commit_hr_timesheet.model_account_analytic_line_commit
+msgid "Analytic Line Commitment"
+msgstr "Línea Analítica de Comprometido"
+
+#. module: project_cost_commit_hr_timesheet
+#: field:hr.analytic.timesheet,line_commit_id:0
+msgid "Commitment Analytic line"
+msgstr "Línea Analítica de Comprometido"
+
+#. module: project_cost_commit_hr_timesheet
+#: constraint:hr.employee:0
+msgid "Error ! You cannot select a department for which the employee is the manager."
+msgstr "Error! No puedes seleccionar un departamento para el que el empleado es el director"
+
+#. module: project_cost_commit_hr_timesheet
+#: field:account.analytic.line.commit,hr_timesheet_id:0
+msgid "Timesheet"
+msgstr "Hoja de Tiempos"
+
+#. module: project_cost_commit_hr_timesheet
+#: model:ir.model,name:project_cost_commit_hr_timesheet.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: project_cost_commit_hr_timesheet
+#: field:hr.employee,commitment_journal_id:0
+msgid "Analytic Commitment Journal"
+msgstr "Diario Analítico para Comprometidos"
+
+#. module: project_cost_commit_hr_timesheet
+#: model:ir.model,name:project_cost_commit_hr_timesheet.model_hr_analytic_timesheet
+msgid "Timesheet Line"
+msgstr "Línea de Hoja de Trabajo"
+
+#. module: project_cost_commit_hr_timesheet
+#: constraint:hr.employee:0
+msgid "Error ! You cannot create recursive Hierarchy of Employees."
+msgstr "Error! No puedes crear una jerarquía de empleados recursiva."
+

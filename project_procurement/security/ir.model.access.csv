@@ -1,0 +1,15 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_purchase_order_project_user","purchase.order project user","purchase.model_purchase_order","project.group_project_user",1,0,0,0
+"access_purchase_order_project_manager","purchase.order project manager","purchase.model_purchase_order","project.group_project_manager",1,1,1,1
+"access_purchase_order_line_project_user","purchase.order.line project user","purchase.model_purchase_order_line","project.group_project_user",1,1,1,1
+"access_purchase_order_line_project_manager","purchase.order.line project manager","purchase.model_purchase_order_line","project.group_project_manager",1,1,1,1
+"access_purchase_requisition_project_user","purchase.requisition project user","purchase_requisition.model_purchase_requisition","project.group_project_user",1,1,1,1
+"access_purchase_requisition_line_project_user","purchase.requisition.line project user","purchase_requisition.model_purchase_requisition_line","project.group_project_user",1,1,1,1
+"access_purchase_requisition_project_manager","purchase.requisition project manager","purchase_requisition.model_purchase_requisition","project.group_project_manager",1,1,1,1
+"access_purchase_requisition_line_project_manager","purchase.requisition.line project manager","purchase_requisition.model_purchase_requisition_line","project.group_project_manager",1,1,1,1
+"access_account_invoice_project_user","account_invoice project user","account.model_account_invoice","project.group_project_user",1,1,1,1
+"access_account_invoice_project_manager","account_invoice project manager","account.model_account_invoice","project.group_project_manager",1,1,1,1
+"access_account_invoice_line_project_user","account_invoice.line project user","account.model_account_invoice_line","project.group_project_user",1,1,1,1
+"access_account_invoice_line_project_manager","account_invoice.line project manager","account.model_account_invoice_line","project.group_project_manager",1,1,1,1
+
+

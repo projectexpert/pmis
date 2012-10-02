@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	
+#---------------------------------------------------------------------------------------------------------
+#   Extend the menus
+#---------------------------------------------------------------------------------------------------------
+		<menuitem id="project_hr_stakeholder_menu" 
+			name="Stakeholders" 
+			parent="project.menu_project_management" 
+			sequence="2"
+			groups="project.group_project_manager,project.group_project_user" />
+		
+		<menuitem id="project_hr_stakeholder_menu_project_config_address_book" 
+			name="Stakeholders" 
+			parent="project.menu_definitions" 
+			sequence="2"
+            groups="project.group_project_manager"/>
+
+        <menuitem action="base.action_partner_customer_form"
+            id="base.project_hr_stakeholder_menu_customer_form"
+            parent="project_hr_stakeholder_menu"
+            groups="project.group_project_manager,project.group_project_user"
+            sequence="1"/>    
+
+        <menuitem action="base.action_partner_supplier_form"
+            id="base.project_hr_stakeholder_menu_supplier_form"
+            parent="project_hr_stakeholder_menu"
+            groups="project.group_project_manager,project.group_project_user"
+            sequence="2"/>    
+
+        <menuitem action="base.action_partner_address_form" 
+        	id="base.project_hr_stakeholder_menu_project_partner_address_form"
+        	parent="project_hr_stakeholder_menu" 
+            groups="project.group_project_manager,project.group_project_user"
+            sequence="3"/>
+                    
+                        
+
+#---------------------------------------------------------------------------------------------------------
+#   Extend the project
+#---------------------------------------------------------------------------------------------------------
+
+
+		<record id="edit_project" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+            	<page string='Administration' position="after">
+					<page groups="base.group_extended" string="Stakeholders">                        
+                        <field name="stakeholder_ids" nolabel="1" context="{'default_project_id': active_id}">
+                        	<tree string="Stakeholders">       
+			                	<field name="partner_id"/>
+			                	<field name="contact_id"/>             
+			                    <field name="roles_name_str"/>                                        
+								<field name="responsibilities_name_str"/>
+								<field name="influence"/>
+			                </tree>
+	                        <form string="Stakeholders">
+			                	<group colspan="4" col="4">
+				                    <field name="project_id" readonly="1"/>
+				                    <field name="name"/>                    
+				                    <field name="partner_id"/>
+			                		<field name="contact_id" domain="[('partner_id','=',partner_id)]"/>	                    
+								</group>
+								<newline/>						                                        
+			                    <group colspan="6" col="6">
+			                    	<separator string="Roles and responsibilities" colspan="6"/>
+				                    <field name="role_ids" mode="tree,form" colspan="6"/>      
+				                    <field name="responsibility_ids" mode="tree,form" colspan="6"/>
+				                </group>									                
+				                <group colspan="6" col="6">	                                        
+				                    <field name="influence"/>	                    
+								</group>				                	        
+			                </form>
+                        </field>                                                    
+                    </page> 	            		
+				</page>	 				                            	                        
+            </field>            	        
+        </record>   	
+             
+    </data>
+</openerp>

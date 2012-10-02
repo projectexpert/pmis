@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Analytic Account Line of Business -->
+        
+        <record id="view_account_analytic_lob_search" model="ir.ui.view">
+            <field name="name">account.analytic.lob.search</field>
+            <field name="model">account.analytic.lob</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Line of Business">                    
+                    <field name="code"/>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>        
+        
+        <record id="view_account_analytic_lob_edit" model="ir.ui.view">
+            <field name="name">account.analytic.lob.form</field>
+            <field name="model">account.analytic.lob</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Line of Business">
+                    <field name="code" select="1"/>
+                    <field name="name" select="1"/>                    
+                </form>
+            </field>
+        </record>
+
+        <record id="view_account_analytic_lob_tree" model="ir.ui.view">
+            <field name="name">account.analytic.lob.tree</field>
+            <field name="model">account.analytic.lob</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Line of Business">   
+					<field name="code"/>                	                 
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_account_analytic_lob_tree" model="ir.actions.act_window">
+            <field name="name">Line of Business</field>
+            <field name="res_model">account.analytic.lob</field>
+            <field name="view_id" ref="view_account_analytic_lob_tree"/>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_account_analytic_lob_search"/>     
+            <field name="help">Define the Lines of Business.</field>
+        </record>
+
+        <menuitem id="menu_account_analytic_lob_config" 
+        	name="Line of Business" 
+        	parent="account.menu_analytic_accounting" 
+        	sequence="1"
+        	/>
+        	
+        <menuitem 
+        	action="action_account_analytic_lob_tree" 
+        	id="menu_account_analytic_lob_view" 
+        	parent="menu_account_analytic_lob_config" 
+        	sequence="1"
+        	groups="analytic.group_analytic_accounting"
+        	/>                  	                    
+    </data>
+</openerp>

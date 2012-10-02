@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="project_progress_report_view" model="ir.ui.view">
+            <field name="name">Project Progress</field>
+            <field name="model">project.progress</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+			<form string="Select sections to print">
+    				<group colspan="4" col="6">
+    					<field name="show_milestones"/>
+    					<newline/>
+    					<field name="show_tasks"/>
+    					<newline/>
+    					<field name="show_meetings"/>
+    					<newline/>
+    					<field name="show_issues"/>        
+               		</group>
+               		<separator colspan="4"/>
+    				<group colspan="4" col="6">
+	     				<button special="cancel" string="Cancel" icon="gtk-cancel"/>
+	               		<button name="check_report" string="Print" type="object" icon="gtk-print"/>
+               		</group>
+			</form>
+            </field>
+        </record>
+
+		<record id="action_project_progress_report" model="ir.actions.act_window">
+            <field name="name">Project Progress</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">project.progress</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="project_progress_report_view"/>
+            <field name="target">new</field>
+    	</record>
+
+		<record model="ir.values" id="project_progress_values">
+            <field name="model_id" ref="project.model_project_project" />
+            <field name="object" eval="1" />
+            <field name="name">Project Progress</field>
+            <field name="key2">client_print_multi</field>
+            <field name="value" eval="'ir.actions.act_window,' + str(ref('action_project_progress_report'))" />
+            <field name="key">action</field>
+            <field name="model">project.project</field>
+        </record>
+
+    </data>
+</openerp>
+

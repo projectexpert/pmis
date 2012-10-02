@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+#---------------------------------------------------------------------------------------------------------
+#   Extend the menus
+#---------------------------------------------------------------------------------------------------------  	
+      <!--product menu-->
+      <menuitem id="project_procurement_menu_product" name="Products"
+          parent="project.menu_project_management"
+          groups="project.group_project_manager,project.group_project_user"/>
+
+      <menuitem name="Products by Category" id="project_procurement_menu_product_by_category_purchase_form" action="product.product_category_action"
+           parent="project_procurement_menu_product" sequence="10"/>          
+			
+      <menuitem name="Products" id="project_procurement_menu_procurement_partner_contact_form" action="product.product_normal_action_puchased"
+          parent="project_procurement_menu_product"/>
+
+      <menuitem id="project_procurement_menu_procurement" name="Procurement"
+          parent="project.menu_project_management"
+          groups="project.group_project_manager,project.group_project_user"/>
+        
+        
+	  <menuitem action="purchase.purchase_rfq" 
+	  	id="project_procurement_menu_purchase_rfq" 
+	  	parent="project_procurement_menu_procurement"/>
+                            
+	  <menuitem action="purchase.purchase_form_action" 
+	  	id="project_procurement_menu_purchase_form_action" 
+	  	parent="project_procurement_menu_procurement" />          
+
+      <menuitem action="purchase_requisition.action_purchase_requisition"
+        id="project_procurement_menu_purchase_requisition_pro_mgt"
+        parent="project_procurement_menu_procurement"
+        />
+			
+#---------------------------------------------------------------------------------------------------------
+#   Extend the project
+#---------------------------------------------------------------------------------------------------------  	
+		
+  		<record id="edit_project" model="ir.ui.view">
+  			<field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+            	<page string='Administration' position="after">
+	            	<page string="Procurement">
+	            		<field colspan="4" name="purchase_requisitions" nolabel="1"  mode="tree,form" context="{'default_project_id': active_id}"/>
+	                    <field colspan="4" name="purchase_orders" nolabel="1"  mode="tree,form" context="{'default_project_id': active_id}"/>
+	                </page>            			                   
+				</page>	 
+            </field>            	        
+        </record>   	
+        		   	     
+        		   	     
+	<act_window			            
+            domain="[('order_project_id', '=', active_id)]"
+            id="act_project_2_purchase_order_lines"
+            name="Purchase Lines Not Invoiced"
+            res_model="purchase.order.line"
+            src_model="project.project"
+            groups="project.group_project_manager,project.group_project_user"/>        
+	                    
+    </data>
+</openerp>

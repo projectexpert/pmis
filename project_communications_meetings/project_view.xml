@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+#---------------------------------------------------------------------------------------------------------
+#   Extend the menus
+#---------------------------------------------------------------------------------------------------------
+
+    <menuitem name="Meetings" id="menu_project_meeting"
+        parent="project.menu_project_management" sequence="3"/>
+                    
+    <menuitem id="menu_project_meeting_categories_act"
+    	name="Meetings" 
+        parent="menu_project_meeting"
+        sequence="10" action="crm.crm_case_categ_meet"
+        groups="project.group_project_manager,project.group_project_user"/>
+
+            
+    <menuitem id="menu_project_attendee_invitations_act"
+            name="Meeting Invitations" parent="menu_project_meeting"
+            sequence="20" action="crm.action_view_attendee_form"
+            groups="project.group_project_manager,project.group_project_user" />
+            
+            
+
+    <menuitem id="menu_project_meeting_categories_def_act"
+            name="Meeting Categories" parent="project.menu_definitions"
+            sequence="10" action="crm.crm_meeting_categ_action"
+            groups="project.group_project_manager" />
+
+
+		<menuitem id="project_menu_google" 
+			name="Google Import-Export" 
+			parent="project.menu_project_management"/>
+		
+		<menuitem name="Synchronize Events" 
+			id="project_menu_tools_google_calendar_synch" 
+			parent="project_menu_google" 
+			action="google_calendar.wizard_google_calendar_synch"
+			type="wizard"/>
+    	
+
+
+#---------------------------------------------------------------------------------------------------------
+#   Extend the project
+#---------------------------------------------------------------------------------------------------------
+		<record id="edit_project" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+            	<page string='Administration' position="after">
+	            	<page string="Meetings">
+	                        <field colspan="4" name="crm_meetings" nolabel="1"  mode="tree,form" context="{'default_project_id': active_id}"/>
+	                </page>  
+				</page>	 
+				
+				                            	                        
+            </field>            	        
+        </record>   	
+
+            
+    </data>
+</openerp>

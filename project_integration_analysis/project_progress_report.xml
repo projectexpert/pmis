@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report auto="True" id="project_progress_report"
+            model="project.project" name="project.progress"
+            rml="project_integration_analysis/report/project_progress.rml" string="Project Progress"
+            groups="project.group_project_manager,project.group_project_user"/>
+
+    </data>
+</openerp>

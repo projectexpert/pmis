@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	
+
+
+        <!-- Task -->
+ 		<record id="view_task_form2" model="ir.ui.view">
+            <field name="name">project.task.form</field>
+            <field name="model">project.task</field>
+            <field name="type">form</field>
+            <field eval="2" name="priority"/>
+            <field name="inherit_id" ref="project.view_task_form2"/>       
+            <field name="arch" type="xml">       
+            	<field name="name" position="after">
+            		<field name="milestone"/>            		  
+            	</field>
+            	
+	            <page string='Extra Info' position="after">
+	            	<page groups="base.group_extended" string="Milestone" attrs="{'readonly':[('milestone','=',False)]}">
+	            		<group colspan="3" col="3">    
+	            			<field name="public_milestone"/>                          
+							<field name="project_poc"/>
+							<field name="invoice_percentage"/>          						
+						</group>
+	            	</page>
+	         	</page>    
+            </field>
+        </record>
+        
+
+        <record id="action_view_milestone" model="ir.actions.act_window">
+            <field name="name">Milestones</field>
+            <field name="res_model">project.task</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,gantt,graph</field>
+            <field eval="False" name="filter"/>
+            <field name="inherit_id" ref="project.view_task_tree2"/>   
+            <field name="domain">[('milestone', '=', True)]</field>
+            <field name="context">{"search_default_user_id":uid, "search_default_current": 1,'milestone': True}</field>
+            <field name="search_view_id" ref="project.view_task_search_form"/>
+            <field name="help">Manage Project milestones</field>
+        </record>
+        <menuitem action="action_view_milestone" id="menu_action_view_milestone" parent="project.menu_project_management" sequence="4"/>
+
+	 	
+        <record id="project.action_view_task" model="ir.actions.act_window">
+            <field name="domain">[('milestone', '=', False)]</field>
+            <field name="context">{"search_default_user_id":uid, "search_default_current": 1,'milestone': True}</field>            
+        </record>
+
+		<record id="edit_project" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">                
+            	<page string='Administration' position="after">
+	            	<page string="Milestones">
+	                        <field colspan="4" name="milestones" nolabel="1"  mode="tree,form" context="{'default_project_id': active_id}">
+	                            <tree string="Milestones">
+	                            	<field name="id"/>
+	                                <field name="name"/>
+	                                <field name="date_early_start"/>
+	                                <field name="date_late_finish"/>
+									<field name="project_poc"/>
+									<field name="invoice_percentage"/> 	                                
+	                                <field name="state"/>
+	                                <button name="do_ready" states="draft,pending,open" string="Ready to start" type="object" icon="gtk-ok"/>
+									<button name="do_cancel" states="draft,ready,open,pending" string="Cancel" type="object" icon="gtk-cancel"/>
+	                                <button name="do_draft" states="ready" string="Draft" type="object" icon="gtk-indent"/>
+	                                <button name="do_open" states="ready,pending" string="Start Task" type="object" icon="gtk-execute"/>
+	                                <button name="%(project.action_project_task_reevaluate)d" states="done,cancelled" string="Reactivate" type="action" icon="gtk-convert" context="{'button_reactivate':True}" />
+	                                <button name="do_pending" states="ready, open" string="Pending" type="object" icon="gtk-media-pause"/>
+	                                <button groups="base.group_extended" name="%(project.action_project_task_delegate)d" states="pending,open,draft" string="Delegate" type="action" icon="gtk-sort-descending" help="For changing to delegate state"/>                                
+	                                <button name="action_close" states="pending,open" string="Done" type="object" icon="terp-dialog-close"/>	                                                                
+	                            </tree>
+	                         </field>
+	                 </page>       
+				</page>  	 
+			</field>                      	
+    	</record>
+   
+                               	
+    </data>
+</openerp>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    	<record id="view_project_task_link_predecessors" model="ir.ui.view">
+            <field name="name">Project Task Link Predecessors</field>
+            <field name="model">project.task.link.predecessors</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+              	<form string="Project Task Link Predecessors">
+                      <separator string="Predecessor Tasks" colspan="4"/>
+                      <field colspan="4" height="200" name="parent_ids" nolabel="1"/>
+                      <button string="_Cancel" icon="gtk-cancel" special="cancel" />
+                      <button name="link_predecessors" type="object" string="Save" icon="gtk-ok" />
+			  	</form>
+            </field>
+		</record>
+
+		<record id="action_project_task_link_predecessors" model="ir.actions.act_window">
+	           <field name="name">Project Task add Predecessors</field>
+	           <field name="type">ir.actions.act_window</field>
+	           <field name="res_model">project.task.link.predecessors</field>
+	           <field name="view_type">form</field>
+	           <field name="view_mode">form</field>
+	           <field name="view_id" ref="view_project_task_link_predecessors"/>
+		       <field name="context">{'record_id' : active_id}</field>
+	           <field name="target">new</field>
+    	</record>
+    	
+    	<record id="view_project_task_link_predecessors_str" model="ir.ui.view">
+            <field name="name">Project Task Link Predecessors</field>
+            <field name="model">project.task.link.predecessors.str</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+              	<form string="Project Task Link Predecessors">
+              		<group col="4">
+                      <field name="predecessor_ids_str" colspan="4"/>
+                      <button string="_Cancel" icon="gtk-cancel" special="cancel" colspan="2"/>
+                      <button name="link_predecessors_str" type="object" string="Save" icon="gtk-ok" colspan="2" />
+			  		</group>
+			  	</form>
+            </field>
+		</record>
+
+		<record id="action_project_task_link_predecessors_str" model="ir.actions.act_window">
+	           <field name="name">Project Task add Predecessors</field>
+	           <field name="type">ir.actions.act_window</field>
+	           <field name="res_model">project.task.link.predecessors.str</field>
+	           <field name="view_type">form</field>
+	           <field name="view_mode">form</field>
+	           <field name="view_id" ref="view_project_task_link_predecessors_str"/>
+		       <field name="context">{'record_id' : active_id}</field>
+	           <field name="target">new</field>
+    	</record>
+
+    </data>
+</openerp>

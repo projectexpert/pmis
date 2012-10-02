@@ -1,0 +1,24 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_account_analytic_line_plan_project_user","account.analytic.line.plan project user","model_account_analytic_line_plan","project.group_project_user",1,1,1,1
+"access_account_period_project_user","account.period project user","account.model_account_period","project.group_project_user",1,0,0,0
+"access_account_period_project_manager","account.period project manager","account.model_account_period","project.group_project_manager",1,0,0,0
+"access_account_analytic_line_plan_project_manager","account.analytic.line.plan project manager","model_account_analytic_line_plan","project.group_project_manager",1,1,1,1
+"access_account_analytic_line_plan","account.analytic.line.plan","model_account_analytic_line_plan","account.group_account_user",1,1,1,1
+"access_account_analytic_line_plan_manager","account.analytic.line.plan.manager","model_account_analytic_line_plan","account.group_account_manager",1,1,1,1
+"access_account_analytic_journal_plan","account.analytic.journal.plan","model_account_analytic_journal_plan","account.group_account_user",1,1,1,1
+"access_account_analytic_journal_plan_manager","account.analytic.journal.plan","model_account_analytic_journal_plan","account.group_account_manager",1,1,1,1
+"access_account_analytic_journal_plan_project_user","account.analytic.journal.plan project user","model_account_analytic_journal_plan","project.group_project_user",1,0,0,0
+"access_account_analytic_journal_plan_project_manager","account.analytic.journal.plan project manager","model_account_analytic_journal_plan","project.group_project_manager",1,0,0,0
+"access_account_period_project_user","account.period project user","account.model_account_period","project.group_project_user",1,0,0,0
+"access_account_period_project_manager","account.period project manager","account.model_account_period","project.group_project_manager",1,0,0,0
+"access_account_analytic_line_commit_project_user","account.analytic.line.commit project user","model_account_analytic_line_commit","project.group_project_user",1,1,1,1
+"access_account_period_project_user","account.period project user","account.model_account_period","project.group_project_user",1,0,0,0
+"access_account_period_project_manager","account.period project manager","account.model_account_period","project.group_project_manager",1,0,0,0
+"access_account_analytic_line_commit_project_manager","account.analytic.line.commit project manager","model_account_analytic_line_commit","project.group_project_manager",1,1,1,1
+"access_account_analytic_line_commit","account.analytic.line.commit","model_account_analytic_line_commit","account.group_account_user",1,1,1,1
+"access_account_analytic_line_commit_manager","account.analytic.line.commit.manager","model_account_analytic_line_commit","account.group_account_manager",1,1,1,1
+"access_account_analytic_journal_commit","account.analytic.journal.commit","model_account_analytic_journal_commit","account.group_account_user",1,1,1,1
+"access_account_analytic_journal_commit_manager","account.analytic.journal.commit","model_account_analytic_journal_commit","account.group_account_manager",1,1,1,1
+"access_account_analytic_journal_commit_project_user","account.analytic.journal.commit project user","model_account_analytic_journal_commit","project.group_project_user",1,0,0,0
+"access_account_analytic_journal_commit_project_manager","account.analytic.journal.commit project manager","model_account_analytic_journal_commit","project.group_project_manager",1,0,0,0
+

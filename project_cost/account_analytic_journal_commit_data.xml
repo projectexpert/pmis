@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="analytic_journal_commit_sale" model="account.analytic.journal.commit">
+            <field name="code">SAL</field>
+            <field name="name">Sales</field>
+            <field name="type">sale</field>
+        </record>
+        <record id="analytic_journal_commit_purchase" model="account.analytic.journal.commit">
+            <field name="code">PUR</field>
+            <field name="name">Purchases</field>
+            <field name="type">purchase</field>
+        </record>
+        <record id="analytic_journal_commit_time" model="account.analytic.journal.commit">
+            <field name="code">TS</field>
+            <field name="name">Timesheet</field>
+            <field name="type">general</field>
+        </record>        
+
+    </data>
+</openerp>

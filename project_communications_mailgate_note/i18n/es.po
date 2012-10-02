@@ -1,0 +1,286 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* project_communications_mailgate_note
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.3\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2011-09-03 11:48+0000\n"
+"PO-Revision-Date: 2011-09-03 20:03+0100\n"
+"Last-Translator: Jordi Ballester Alomar (Avangard Enterprise Information Systems) <jordi.ballester@avangard-eis.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: project_communications_mailgate_note
+#: selection:project.add.note,state:0
+#: selection:project.send.mail,state:0
+msgid "In Progress"
+msgstr "En curso"
+
+#. module: project_communications_mailgate_note
+#: help:project.send.mail,email_cc:0
+msgid "These addresses will receive a copy of this email. To modify the permanent CC list, edit the global CC field of this case"
+msgstr "Estas direcciones recibirán una copia de este correo electrónico. Para modificar la lista de CC permanente, edite el campo CC global de este caso"
+
+#. module: project_communications_mailgate_note
+#: field:project.send.mail,email_from:0
+msgid "From"
+msgstr "De"
+
+#. module: project_communications_mailgate_note
+#: view:project.project:0
+msgid "History Information"
+msgstr "Información de la Historia"
+
+#. module: project_communications_mailgate_note
+#: help:project.send.mail,html:0
+msgid "Select this if you want to send email with HTML formatting."
+msgstr "Seleccione esta opción si desea enviar correo electrónico con formato HTML."
+
+#. module: project_communications_mailgate_note
+#: field:project.send.mail.attachment,wizard_id:0
+msgid "Wizard"
+msgstr "Asistente"
+
+#. module: project_communications_mailgate_note
+#: code:addons/project_communications_mailgate_note/wizard/project_communications_add_note.py:38
+#: view:project.add.note:0
+#, python-format
+msgid "Note"
+msgstr "Nota"
+
+#. module: project_communications_mailgate_note
+#: field:project.send.mail,email_to:0
+msgid "To"
+msgstr "Para"
+
+#. module: project_communications_mailgate_note
+#: view:project.project:0
+msgid "Send New Email"
+msgstr "Enviar nuevo mensaje"
+
+#. module: project_communications_mailgate_note
+#: model:ir.actions.act_window,name:project_communications_mailgate_note.action_project_add_note
+#: view:project.add.note:0
+msgid "Add Note"
+msgstr "Añadir nota"
+
+#. module: project_communications_mailgate_note
+#: selection:project.add.note,state:0
+#: selection:project.send.mail,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: project_communications_mailgate_note
+#: view:project.add.note:0
+#: view:project.send.mail:0
+#: field:project.send.mail.attachment,binary:0
+msgid "Attachment"
+msgstr "Fichero adjunto"
+
+#. module: project_communications_mailgate_note
+#: view:project.project:0
+msgid "Reply"
+msgstr "Respuesta"
+
+#. module: project_communications_mailgate_note
+#: field:project.send.mail,html:0
+msgid "HTML formatting?"
+msgstr "Formato HTML?"
+
+#. module: project_communications_mailgate_note
+#: selection:project.add.note,state:0
+#: selection:project.send.mail,state:0
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: project_communications_mailgate_note
+#: view:project.send.mail:0
+msgid " "
+msgstr " "
+
+#. module: project_communications_mailgate_note
+#: field:project.add.note,attachment_ids:0
+#: field:project.send.mail,attachment_ids:0
+msgid "unknown"
+msgstr "desconocido"
+
+#. module: project_communications_mailgate_note
+#: code:addons/project_communications_mailgate_note/wizard/project_communications_add_note.py:24
+#, python-format
+msgid "Can not add note!"
+msgstr "No se puede agregar la nota!"
+
+#. module: project_communications_mailgate_note
+#: model:ir.actions.act_window,name:project_communications_mailgate_note.action_project_reply_mail
+#: view:project.send.mail:0
+msgid "Reply to last Mail"
+msgstr "Responder al último e-mail"
+
+#. module: project_communications_mailgate_note
+#: model:ir.module.module,description:project_communications_mailgate_note.module_meta_information
+msgid "This module allows to add a note or send an email from the history tab in the task form view."
+msgstr "Este módulo permite agregar una nota o enviar un correo electrónico de la ficha de la historia en la vista Formulario de tareas."
+
+#. module: project_communications_mailgate_note
+#: help:project.send.mail,reply_to:0
+msgid "Reply-to of the Sales team defined on this case"
+msgstr "Responder al equipo de ventas que se define en este caso"
+
+#. module: project_communications_mailgate_note
+#: code:addons/project_communications_mailgate_note/wizard/project_communications_send_email.py:143
+#, python-format
+msgid "Unable to send mail. Please check SMTP is configured properly."
+msgstr "No se puede enviar por correo. Por favor, compruebe que el SMTP está configurado correctamente."
+
+#. module: project_communications_mailgate_note
+#: field:project.send.mail,subject:0
+msgid "Subject"
+msgstr "Asunto"
+
+#. module: project_communications_mailgate_note
+#: model:ir.model,name:project_communications_mailgate_note.model_project_add_note
+#: view:project.project:0
+msgid "Add Internal Note"
+msgstr "Añadir nota interna"
+
+#. module: project_communications_mailgate_note
+#: field:project.send.mail.attachment,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: project_communications_mailgate_note
+#: field:project.send.mail,email_cc:0
+msgid "CC"
+msgstr "CC"
+
+#. module: project_communications_mailgate_note
+#: model:ir.actions.act_window,name:project_communications_mailgate_note.action_project_send_mail
+#: view:project.send.mail:0
+msgid "Send Mail"
+msgstr "Enviar correo"
+
+#. module: project_communications_mailgate_note
+#: code:addons/project_communications_mailgate_note/wizard/project_communications_send_email.py:143
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: project_communications_mailgate_note
+#: code:addons/project_communications_mailgate_note/wizard/project_communications_add_note.py:24
+#: code:addons/project_communications_mailgate_note/wizard/project_communications_send_email.py:74
+#: code:addons/project_communications_mailgate_note/wizard/project_communications_send_email.py:169
+#: code:addons/project_communications_mailgate_note/wizard/project_communications_send_email.py:288
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: project_communications_mailgate_note
+#: selection:project.add.note,state:0
+#: selection:project.send.mail,state:0
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: project_communications_mailgate_note
+#: field:project.add.note,body:0
+msgid "Note Body"
+msgstr "Cuerpo de la Nota"
+
+#. module: project_communications_mailgate_note
+#: view:project.send.mail:0
+msgid "_Send Reply"
+msgstr "_Enviar Respuesta"
+
+#. module: project_communications_mailgate_note
+#: model:ir.module.module,shortdesc:project_communications_mailgate_note.module_meta_information
+msgid "Project Mailgate Note for Projects"
+msgstr "Project Mailgate Note for Projects"
+
+#. module: project_communications_mailgate_note
+#: view:project.project:0
+msgid "History"
+msgstr "Historia"
+
+#. module: project_communications_mailgate_note
+#: view:project.add.note:0
+#: view:project.project:0
+#: view:project.send.mail:0
+msgid "Attachments"
+msgstr "Ficheros Adjuntos"
+
+#. module: project_communications_mailgate_note
+#: model:ir.model,name:project_communications_mailgate_note.model_project_send_mail_attachment
+msgid "project.send.mail.attachment"
+msgstr "project.send.mail.attachment"
+
+#. module: project_communications_mailgate_note
+#: view:project.send.mail:0
+msgid "_Send"
+msgstr "_Enviar"
+
+#. module: project_communications_mailgate_note
+#: code:addons/project_communications_mailgate_note/wizard/project_communications_send_email.py:74
+#: code:addons/project_communications_mailgate_note/wizard/project_communications_send_email.py:169
+#: code:addons/project_communications_mailgate_note/wizard/project_communications_send_email.py:288
+#, python-format
+msgid "Can not send mail!"
+msgstr "No se puede enviar el correo!"
+
+#. module: project_communications_mailgate_note
+#: selection:project.add.note,state:0
+#: selection:project.send.mail,state:0
+msgid "Unchanged"
+msgstr "Sin cambios"
+
+#. module: project_communications_mailgate_note
+#: field:project.send.mail,body:0
+msgid "Message Body"
+msgstr "Cuerpo del Mensaje"
+
+#. module: project_communications_mailgate_note
+#: model:ir.model,name:project_communications_mailgate_note.model_project_send_mail
+msgid "Send new email"
+msgstr "Enviar nuevo email"
+
+#. module: project_communications_mailgate_note
+#: view:project.add.note:0
+msgid "_Add"
+msgstr "_Añadir"
+
+#. module: project_communications_mailgate_note
+#: field:project.add.note,state:0
+#: field:project.send.mail,state:0
+msgid "Set New State To"
+msgstr "Fijar Nuevo Estado A"
+
+#. module: project_communications_mailgate_note
+#: view:project.add.note:0
+#: view:project.send.mail:0
+msgid "_Cancel"
+msgstr "_Cancelar"
+
+#. module: project_communications_mailgate_note
+#: selection:project.add.note,state:0
+#: selection:project.send.mail,state:0
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: project_communications_mailgate_note
+#: view:project.send.mail:0
+msgid "Message"
+msgstr "Mensaje"
+
+#. module: project_communications_mailgate_note
+#: field:project.send.mail,reply_to:0
+msgid "Reply To"
+msgstr "Responder A"
+
+#. module: project_communications_mailgate_note
+#: view:project.project:0
+msgid "Details"
+msgstr "Detalles"
+

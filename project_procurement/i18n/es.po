@@ -1,0 +1,154 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* project_procurement
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.3\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2012-02-07 20:30+0000\n"
+"PO-Revision-Date: 2012-02-07 21:31+0100\n"
+"Last-Translator: Jordi Ballester <jordi.ballester@eficent.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: project_procurement
+#: model:ir.model,name:project_procurement.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Línea pedido de compra"
+
+#. module: project_procurement
+#: code:addons/project_procurement/purchase_order_line.py:61
+#, python-format
+msgid "You cannot cancel a purchase order line that has already been invoiced !"
+msgstr "No puedes cancelar una línea de pedido de compra que ya ha sido facturada !"
+
+#. module: project_procurement
+#: model:ir.model,name:project_procurement.model_purchase_requisition
+msgid "Purchase Requisition"
+msgstr "Solicitud de compra"
+
+#. module: project_procurement
+#: constraint:project.project:0
+msgid "Error! project start-date must be lower then project end-date."
+msgstr "¡Error! La fecha de inicio del proyecto debe ser anterior a la fecha final del proyecto."
+
+#. module: project_procurement
+#: code:addons/project_procurement/purchase_order_line.py:66
+#, python-format
+msgid "You must first cancel stock moves attached to this purchase order line."
+msgstr "Debes cancelar en primer lugar los movimientos de stock asociados a esta línea de pedido de compra."
+
+#. module: project_procurement
+#: sql_constraint:purchase.order:0
+msgid "Order Reference must be unique !"
+msgstr "¡La referencia del pedido debe ser única!"
+
+#. module: project_procurement
+#: field:purchase.order,project_manager:0
+msgid "Project Manager"
+msgstr "Responsable de Proyecto"
+
+#. module: project_procurement
+#: model:ir.actions.act_window,name:project_procurement.act_project_2_purchase_requisition
+#: field:project.project,purchase_requisitions:0
+msgid "Purchase requisitions"
+msgstr "Solicitudes de compra"
+
+#. module: project_procurement
+#: model:ir.module.module,description:project_procurement.module_meta_information
+msgid ""
+"Extensions for the Project management module.     \n"
+"    "
+msgstr "Extensiones para el módulo de gestión de proyectos."
+
+#. module: project_procurement
+#: view:project.project:0
+msgid "Members"
+msgstr "Miembros"
+
+#. module: project_procurement
+#: constraint:project.project:0
+msgid "Error! You cannot assign escalation to the same project!"
+msgstr "¡Error! No puede asignar un escalado al mismo proyecto."
+
+#. module: project_procurement
+#: code:addons/project_procurement/purchase_order_line.py:61
+#, python-format
+msgid "Invalid action !"
+msgstr "Acción inválida !"
+
+#. module: project_procurement
+#: model:ir.ui.menu,name:project_procurement.project_procurement_menu_purchase_requisition_pro_mgt
+msgid "Purchase Requisitions"
+msgstr "Solicitudes de compra"
+
+#. module: project_procurement
+#: model:ir.ui.menu,name:project_procurement.project_procurement_menu_product_by_category_purchase_form
+msgid "Products by Category"
+msgstr "Productos por categoría"
+
+#. module: project_procurement
+#: model:ir.model,name:project_procurement.model_purchase_order
+msgid "Purchase Order"
+msgstr "Pedido de compra"
+
+#. module: project_procurement
+#: model:ir.model,name:project_procurement.model_project_project
+#: field:purchase.order,project_id:0
+#: field:purchase.order.line,order_project_id:0
+#: field:purchase.requisition,project_id:0
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: project_procurement
+#: model:ir.ui.menu,name:project_procurement.project_procurement_menu_procurement
+#: view:project.project:0
+msgid "Procurement"
+msgstr "Adquisiciones"
+
+#. module: project_procurement
+#: model:ir.ui.menu,name:project_procurement.project_procurement_menu_procurement_partner_contact_form
+#: model:ir.ui.menu,name:project_procurement.project_procurement_menu_product
+msgid "Products"
+msgstr "Productos"
+
+#. module: project_procurement
+#: code:addons/project_procurement/purchase_order_line.py:65
+#, python-format
+msgid "Could not cancel purchase order line!"
+msgstr "No fue posible cancelar la línea de pedido de compra !"
+
+#. module: project_procurement
+#: model:ir.model,name:project_procurement.model_purchase_requisition_partner
+msgid "Purchase Requisition Partner"
+msgstr "Proveedor de solicitud de compra"
+
+#. module: project_procurement
+#: model:ir.module.module,shortdesc:project_procurement.module_meta_information
+msgid "Project Management"
+msgstr "Proyectos"
+
+#. module: project_procurement
+#: field:project.project,purchase_orders:0
+msgid "Purchase orders"
+msgstr "Pedidos de compra"
+
+#. module: project_procurement
+#: model:ir.ui.menu,name:project_procurement.project_procurement_menu_purchase_rfq
+msgid "Requests for Quotation"
+msgstr "Solicitudes de presupuesto"
+
+#. module: project_procurement
+#: model:ir.actions.act_window,name:project_procurement.act_project_2_purchase_order_lines
+msgid "Purchase Lines Not Invoiced"
+msgstr "Líneas de compra no facturadas"
+
+#. module: project_procurement
+#: model:ir.ui.menu,name:project_procurement.project_procurement_menu_purchase_form_action
+msgid "Purchase Orders"
+msgstr "Pedidos de compra"
+

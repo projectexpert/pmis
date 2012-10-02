@@ -1,0 +1,120 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* project_cost_plan_time
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.3\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2012-09-02 18:40+0000\n"
+"PO-Revision-Date: 2012-09-02 18:40+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_cost_plan_time
+#: view:account.analytic.line.plan:0
+#: model:ir.actions.act_window,name:project_cost_plan_time.action_project_time_line_plan_open_form
+#: model:ir.ui.menu,name:project_cost_plan_time.project_time_line_plan_entries
+msgid "Project time plans"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: code:addons/project_cost_plan_time/account_analytic_line_plan.py:60
+#, python-format
+msgid "The selected supplier only sells this product by %s"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: code:addons/project_cost_plan_time/account_analytic_line_plan.py:150
+#: code:addons/project_cost_plan_time/account_analytic_line_plan.py:159
+#, python-format
+msgid "Error !"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: model:ir.actions.act_window,name:project_cost_plan_time.act_project_2_project_time_line_plan
+msgid "Time Plan"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: view:account.analytic.line.plan:0
+msgid "Edit"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: code:addons/project_cost_plan_time/account_analytic_line_plan.py:151
+#, python-format
+msgid "There is no expense account defined for this product: \"%s\" (id:%d)"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: view:account.analytic.line.plan:0
+msgid "Notes"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: view:account.analytic.line.plan:0
+msgid "Search project time plans"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: field:account.analytic.line.plan,time_amount:0
+msgid "Time Amount"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: model:ir.model,name:project_cost_plan_time.model_project_project
+msgid "Project"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: field:account.analytic.line.plan,employee_id:0
+msgid "Employee"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: code:addons/project_cost_plan_time/account_analytic_line_plan.py:60
+#, python-format
+msgid "Warning"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: code:addons/project_cost_plan_time/account_analytic_line_plan.py:160
+#, python-format
+msgid "There is no income account defined for this product: \"%s\" (id:%d)"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: constraint:project.project:0
+msgid "Error! You cannot assign escalation to the same project!"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: model:ir.model,name:project_cost_plan_time.model_account_analytic_line_plan
+msgid "Analytic Line Plan"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: view:account.analytic.line.plan:0
+msgid "Total"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: model:ir.model,name:project_cost_plan_time.model_project_time_line_plan
+msgid "Planned Time Lines for Project"
+msgstr ""
+
+#. module: project_cost_plan_time
+#: constraint:project.project:0
+msgid "Error! project start-date must be lower then project end-date."
+msgstr ""
+
+#. module: project_cost_plan_time
+#: view:account.analytic.line.plan:0
+msgid "Analytic Information"
+msgstr ""
+

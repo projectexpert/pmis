@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+        <record id="view_account_analytic_resource_usage_product_tree" model="ir.ui.view">
+            <field name="name">report.account.analytic.resource.usage.product.tree</field>
+            <field name="model">report.account.analytic.resource.usage.product</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Resource usage" colors="red:((amount_credit_plan_real &lt; 0) or (amount_credit_commit_real &lt; 0))">                	
+                    <field name="product_id"/>                                        
+                    <field name="amount_credit_plan" sum='Planned Credit'/>
+                    <field name="amount_debit_plan" sum='Planned Debit'/>                                                        
+                    <field name="amount_credit_commit" sum='Commited Credit'/>
+                    <field name="amount_debit_commit" sum='Commited Debit'/>                                                            
+                    <field name="amount_credit_real" sum='Real Credit'/>
+                    <field name="amount_debit_real" sum='Real Debit'/>                                        
+                    <field name="amount_credit_plan_real"/>
+                    <field name="amount_credit_plan_commit"/>
+                    <field name="amount_credit_commit_real"/>  
+                    <field name="amount_real_plan" sum='Real-Plan dev.'/>             
+                    <field name="amount_plan" sum='Planned Balance'/>
+                    <field name="unit_amount_plan" sum='Planned Quantity'/>
+                    <field name="amount_commit" sum='Commited Balance'/>
+                    <field name="unit_amount_commit" sum='Commited Quantity'/>       
+                    <field name="amount_real" sum='Real Balance'/>   
+ 					<field name="unit_amount_real" sum='Real Quantity'/>                                    
+                    <field name="account_id"/>                   
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_account_analytic_resource_usage_product_quantities_graph" model="ir.ui.view">
+            <field name="name">report.account.analytic.resource.usage.product.quantities.graph</field>
+            <field name="model">report.account.analytic.resource.usage.product</field>
+            <field name="type">graph</field>
+            <field name="arch" type="xml">
+                <graph string="Resource Usage - Planned Quantities" type="bar">
+                     <field name="unit_amount_plan" operator="+"/>
+                     <field name="unit_amount_commit" operator="+"/>
+                     <field name="unit_amount_real" operator="+"/>
+                </graph>
+             </field>
+        </record>
+        
+        <record id="view_account_analytic_resource_usage_product_amounts_graph" model="ir.ui.view">
+            <field name="name">report.account.analytic.resource.usage.product.amounts.graph</field>
+            <field name="model">report.account.analytic.resource.usage.product</field>
+            <field name="type">graph</field>
+            <field name="arch" type="xml">
+                <graph string="Resource Usage - Planned Amounts" type="bar">
+                     <field name="amount_plan" operator="+"/>
+                     <field name="amount_commit" operator="+"/>
+                     <field name="amount_real" operator="+"/>
+                </graph>
+             </field>
+        </record>        
+
+        <record id="view_account_analytic_resource_usage_product_search" model="ir.ui.view">
+            <field name="name">report.account.analytic.resource.usage.product.search</field>
+            <field name="model">report.account.analytic.resource.usage.product</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Resource usage">        
+                	<group colspan="5" col="5">                                
+	                    <field name="account_id"/>
+	                    <field name="product_id"/>
+                   
+                    </group> 
+                    <newline/>                   
+                    <group expand="1" string="Group By..." colspan="7" col="8">
+                        <filter string="Account" name="account_id" icon="terp-folder-violet" context="{'group_by':'account_id'}"/>
+						<filter string="Product" name="product_id" icon="terp-folder-violet" context="{'group_by':'product_id'}"/>                                                                      
+                        <filter string="UoM" icon="terp-stage" context="{'group_by':'product_uom_id'}" />                        
+                    </group>
+                </search>
+            </field>
+        </record>
+
+       <record id="action_account_analytic_resource_usage_product_tree" model="ir.actions.act_window">
+            <field name="name">Resource Usage Analysis by Product</field>
+            <field name="res_model">report.account.analytic.resource.usage.product</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,graph</field>
+            <field name="view_id" ref="view_account_analytic_resource_usage_product_tree"/>
+            <field name="search_view_id" ref="view_account_analytic_resource_usage_product_search"/>            
+            <field name="help">This report allows you to anlalyze and control the planned usage of resources of your projects by product.</field>
+        </record>
+        
+       <record id="action_account_analytic_resource_usage_product_quantities_graph" model="ir.actions.act_window">
+            <field name="name">Resource Usage by Product (Quantities)</field>
+            <field name="res_model">report.account.analytic.resource.usage.product</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">graph,tree</field>
+            <field name="view_id" ref="view_account_analytic_resource_usage_product_quantities_graph"/>
+            <field name="search_view_id" ref="view_account_analytic_resource_usage_product_search"/>            
+            <field name="help">This report allows you to anlalyze and control the planned usage of resources of your projects by product.</field>
+        </record>        
+
+       <record id="action_account_analytic_resource_usage_product_amounts_graph" model="ir.actions.act_window">
+            <field name="name">Resource Usage by product (Amounts)</field>
+            <field name="res_model">report.account.analytic.resource.usage.product</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">graph,tree</field>
+            <field name="view_id" ref="view_account_analytic_resource_usage_product_amounts_graph"/>
+            <field name="search_view_id" ref="view_account_analytic_resource_usage_product_search"/>            
+            <field name="help">This report allows you to anlalyze and control the planned usage of resources of your projects by product.</field>
+        </record>           
+        
+ <record model="ir.ui.view" id="board_project_resource_usage_product">
+            <field name="name">Project Resource Usage by Product Form</field>
+            <field name="model">board.board</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Dashboard">
+                    <hpaned>
+                        <child1>
+                            <action
+                                string="Resource Usage by Product Graph (Amounts)"
+                                name="%(action_account_analytic_resource_usage_product_amounts_graph)d"
+                                colspan="4"
+                                height="200"
+                                width="250"/>
+
+                            <action
+                                string="Resource Usage by Product Graph (Quantities)"
+                                name="%(action_account_analytic_resource_usage_product_quantities_graph)d"
+                                height="200"
+                                colspan="4"/>
+
+                        </child1>
+                    </hpaned>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="open_board_resource_usage_product">
+            <field name="name">Project Resource Usage by Product</field>
+            <field name="res_model">board.board</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="usage">menu</field>
+            <field name="view_id" ref="board_project_resource_usage_product"/>
+        </record>        
+
+
+		<menuitem action="action_account_analytic_resource_usage_product_tree" id="menu_action_account_analytic_resource_usage_pr_tree" parent="base.menu_project_report"/>        
+		<menuitem action="action_account_analytic_resource_usage_product_amounts_graph" id="menu_action_account_analytic_resource_usage_pr_amts_graph" parent="base.menu_project_report"/>        
+		<menuitem action="action_account_analytic_resource_usage_product_quantities_graph" id="menu_action_account_analytic_resource_usage_pr_quants_graph" parent="base.menu_project_report"/>        
+
+
+        <menuitem
+            name="Resource Usage by Product Dashboard" parent="project.next_id_86"
+            action="open_board_resource_usage_product"
+            sequence="0"
+            id="menu_board_resource_usage_product"
+            icon="terp-graph"/>
+            
+  
+    </data>
+</openerp>
