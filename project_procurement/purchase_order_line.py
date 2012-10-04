@@ -37,7 +37,7 @@ class purchase_order_line(osv.osv):
     _inherit = "purchase.order.line"
   
     _columns = {
-        'order_project_id': fields.related('order_id', 'project_id', type='many2one', relation='project.project', store=True, string='Project'),
+        'order_project_id': fields.related('order_id', 'project_id', type='many2one', relation='project.project', string='Project',readonly=True),
     }
 
    

@@ -242,7 +242,11 @@ class project(osv.osv):
             data = []
             proj = project
             while proj:
-                data.insert(0, proj.name)
+                if proj.name:
+                    data.insert(0, proj.name)
+                else:
+                    data.insert(0, '')
+                    
                 proj = proj.parent_id
             data = ' / '.join(data)
             res2 = self.code_get(cr, uid, [project.id], context=None)

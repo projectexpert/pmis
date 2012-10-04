@@ -26,7 +26,7 @@ class purchase_order(osv.osv):
     _inherit = "purchase.order"
     
     _columns = {
-        'project_id':fields.many2one('project.project', 'Project'),   
+        'project_id':fields.many2one('project.project', 'Project', states={'confirmed':[('readonly',True)],'approved':[('readonly',True)],'done':[('readonly',True)]}),   
         'project_manager': fields.related('project_id', 'user_id', readonly=True, string='Project Manager', type='many2one', relation="res.users", store=True),
     }
     
