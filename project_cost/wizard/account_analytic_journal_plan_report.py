@@ -23,7 +23,7 @@ import time
 from osv import osv, fields
 
 class account_analytic_journal_plan_report(osv.osv_memory):
-    _name = 'account.analytic.Journal.plan.report'
+    _name = 'account.analytic.journal.plan.report'
     _description = 'Account Analytic Planning Journal'
 
     _columns = {

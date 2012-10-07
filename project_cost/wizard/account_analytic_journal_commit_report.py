@@ -23,7 +23,7 @@ import time
 from osv import osv, fields
 
 class account_analytic_journal_commit_report(osv.osv_memory):
-    _name = 'account.analytic.Journal.commit.report'
+    _name = 'account.analytic.journal.commit.report'
     _description = 'Account Analytic Commitment Journal'
 
     _columns = {
