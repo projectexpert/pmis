@@ -41,15 +41,15 @@
  
     """,
     "init_xml": [],
-    "update_xml": [            
-        "account_analytic_account_view.xml",
+    "update_xml": [
         "account_analytic_journal_plan_view.xml",
         "account_analytic_journal_commit_view.xml",
+        "account_analytic_journal_plan_report.xml", 
+        "account_analytic_journal_commit_report.xml",                                  
         "account_analytic_line_view.xml",        
         "account_analytic_line_plan_view.xml",
-        "account_analytic_line_commit_view.xml",
-        "account_analytic_journal_plan_report.xml", 
-        "account_analytic_journal_commit_report.xml",                
+        "account_analytic_line_commit_view.xml",           
+        "account_analytic_account_view.xml",             
         "wizard/account_analytic_journal_plan_report_view.xml", 
         "wizard/account_analytic_journal_commit_report_view.xml",       
         "project_view.xml",       
