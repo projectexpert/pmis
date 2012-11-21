@@ -48,35 +48,38 @@ class task(osv.osv):
         task_br = self.browse(cr,uid,ids)
         for t in task_br:
             project = t.project_id
-            subject = _("Task '%s' is ready to start") % t.name
-            if t.user_id and t.user_id.address_id and t.user_id.address_id.email:
-                to_adr = t.user_id.address_id.email                
-                signature = t.user_id.signature
-            else:
-                raise osv.except_osv(_('Error'), _("Couldn't send mail because your email address is not configured!"))
+#            subject = _("Task '%s' is ready to start") % t.name
+#            if t.user_id and t.user_id.address_id and t.user_id.address_id.email:
+#                to_adr = t.user_id.address_id.email                
+#                signature = t.user_id.signature
+#            else:
+#                raise osv.except_osv(_('Error'), _("Couldn't send mail because your email address is not configured!"))
+#            
+#            from_adr = tools.config.get('email_from', False) or t.user_id.address_id.email
+#            
+#            
+#            task_name = u'Task name: %s' %(tools.ustr(t.name))
+#            project_code = u'Project code: %s' %(tools.ustr(t.project_complete_wbs_name))
+#            task_id = u'Task id: %s' %(tools.ustr(t.id))
+#            
+#            vals = [task_name, project_code, task_id]
+#
+#            
+#            header = u'\n'.join(vals)
+#            footer = ''
+#            body = u'%s\n%s\n%s\n\n-- \n%s' % (header, t.description, footer, signature)
+#            
+#            mail_id = tools.email_send(from_adr, to_adr, subject, tools.ustr(body), email_bcc=[from_adr])
+#                        
+#            if not mail_id:
+#                raise osv.except_osv(_('Error'), _("Couldn't send mail! Check the email ids and smtp configuration settings"))
             
-            from_adr = tools.config.get('email_from', False) or t.user_id.address_id.email
+#            msg_dict = {'new': 'Send', 'reply': 'Reply', 'forward': 'Forward'}
             
-            
-            task_name = u'Task name: %s' %(tools.ustr(t.name))
-            project_code = u'Project code: %s' %(tools.ustr(t.project_complete_wbs_name))
-            task_id = u'Task id: %s' %(tools.ustr(t.id))
-            
-            vals = [task_name, project_code, task_id]
-
-            
-            header = u'\n'.join(vals)
-            footer = ''
-            body = u'%s\n%s\n%s\n\n-- \n%s' % (header, t.description, footer, signature)
-            
-            mail_id = tools.email_send(from_adr, to_adr, subject, tools.ustr(body), email_bcc=[from_adr])
-                        
-            if not mail_id:
-                raise osv.except_osv(_('Error'), _("Couldn't send mail! Check the email ids and smtp configuration settings"))
-            
-            msg_dict = {'new': 'Send', 'reply': 'Reply', 'forward': 'Forward'}
-            
-            self.history(cr, uid,[t], _(msg_dict['new']), history=True,email=to_adr, details=body,subject=subject, email_from=from_adr, message_id=None, references=None, attach=None)
+ #           self.history(cr, uid,[t], _(msg_dict['new']), history=True,email=to_adr, details=body,subject=subject, email_from=from_adr, message_id=None, references=None, attach=None)
+            email_template_ids = self.pool.get('email.template').search(cr,uid,[('object_name.name','=','Task'),('name','=','Project task ready to start')],context=None)
+            for email_template_id in email_template_ids:
+                self.pool.get('email.template').generate_mail(cr,uid,email_template_id,ids,context=None)
             
         return {}    
     

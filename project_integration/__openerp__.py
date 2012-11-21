@@ -37,7 +37,8 @@
                 "project_cost",
                 "project_procurement",
                 "project",               
-                "project_communications_mailgate",             
+                "project_communications_mailgate",
+                "email_template",             
                 ],
     "description": """Extensions for the Project management module.     
     """,
@@ -45,7 +46,8 @@
                 ],
     "update_xml": [            
         "project_integration_view.xml",
-        "process/project_task_process.xml",    
+        "process/project_task_process.xml",
+        "email_template_view.xml",    
         "security/ir.model.access.csv", 
     ],
     'demo_xml': [
