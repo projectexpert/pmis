@@ -181,10 +181,9 @@ class account_analytic_account(osv.osv):
 #            # Let the search method manage this.
 #            args += [('id', 'in', project_ids)]
 #            return self.name_get(cr, uid, project_ids, context=context)
-        account = self.search(cr, uid, [('complete_wbs_code', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)
-        if not account:
-            account = self.search(cr, uid, [('complete_wbs_name', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)
-
+        accountbycode = self.search(cr, uid, [('complete_wbs_code', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)        
+        accountbyname = self.search(cr, uid, [('complete_wbs_name', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)
+        account = accountbycode + accountbyname
 
         return self.name_get(cr, uid, account, context=context)
     
@@ -242,7 +241,7 @@ class project(osv.osv):
             data = []
             proj = project
             while proj:
-                if proj.name:
+                if proj and proj.name:
                     data.insert(0, proj.name)
                 else:
                     data.insert(0, '')
@@ -316,9 +315,9 @@ class project(osv.osv):
 #            # Let the search method manage this.
 #            args += [('id', 'in', project_ids)]
 #            return self.name_get(cr, uid, project_ids, context=context)
-        project = self.search(cr, uid, [('complete_wbs_code', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)
-        if not project:
-            project = self.search(cr, uid, [('complete_wbs_name', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)
+        projectbycode = self.search(cr, uid, [('complete_wbs_code', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)
+        projectbyname = self.search(cr, uid, [('complete_wbs_name', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)
+        project = projectbycode + projectbyname
 #            newproj = project
 #            while newproj:
 #                newproj = self.search(cr, uid, [('parent_id', 'in', newproj)]+args, limit=limit, context=context)
