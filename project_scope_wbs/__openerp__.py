@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2011 Eficent (<http://www.eficent.com/>)
-#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
+#              <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,13 +21,13 @@
 
 
 {
-    "name": "Project Management",
+    "name": "Project Scope Management - Work Breakdown Structure",
     "version": "1.0",
-    "author": "Jordi Ballester (Eficent)",
+    "author": "Eficent",
     "website": "http://www.eficent.com",
     "category": "Generic Modules/Projects & Services",
     "depends": ["project","analytic"],
-    "description": """Eficent Project Management. Project Scope  
+    "description": """ 
     - The hierarchy of a project is considered the WBS (Work Breakdown Structure)
     - The analytic accounts in the project hierarchies are considered WBS components 
     - The analytic account code is shown in the project

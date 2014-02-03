@@ -28,6 +28,7 @@ class report_account_analytic_resource_usage_product(osv.osv):
     _auto = False
     _columns = {        
         'account_id': fields.many2one('account.analytic.account', 'Analytic Account', readonly=True),
+        'user_id': fields.many2one('res.users', 'Account Manager'),
         'product_id': fields.many2one('product.product', 'Product', readonly=True),
         'product_uom_id': fields.many2one('product.uom', 'UoM', readonly=True),        
         'amount_real': fields.float('Real Balance', readonly=True, help='Calculated by multiplying the quantity and the price given in the Product\'s cost price. Always expressed in the company main currency.'),        
@@ -50,6 +51,7 @@ class report_account_analytic_resource_usage_product(osv.osv):
         'amount_credit_commit_real': fields.float('Commit to Real credit deviation', readonly=True),
         'amount_real_plan': fields.float('Real to Planned deviation', readonly=True),         
     }
+    
 
 
     def init(self, cr):
@@ -151,6 +153,7 @@ class report_account_analytic_resource_usage_product(osv.osv):
                          END)
                          ) as amount_debit_plan_commit,                    
                     tot.account_id,
+                    tot.user_id,
                     tot.product_uom_id,                   
                     tot.product_id
                 FROM
@@ -161,10 +164,17 @@ class report_account_analytic_resource_usage_product(osv.osv):
                          CAST( amount AS FLOAT) AS amount_real, 
                          CAST( 0 AS FLOAT) AS amount_plan,
                          CAST( 0 AS FLOAT) AS amount_commit,                          
-                         account_id, 
+                         account_id,
+                         user_id, 
                          product_id, 
                          product_uom_id
                     FROM account_analytic_line 
+                    WHERE journal_id IN (
+                        SELECT id 
+                        FROM 
+                            account_analytic_journal
+                        WHERE
+                            type in ('sale','purchase','general'))                    
 
                 UNION ALL
                     SELECT 
@@ -174,10 +184,17 @@ class report_account_analytic_resource_usage_product(osv.osv):
                         CAST( 0 AS FLOAT) AS amount_real, 
                         CAST( amount AS FLOAT) AS amount_plan, 
                         CAST( 0 AS FLOAT) AS amount_commit,
-                        account_id, 
+                        account_id,
+                        user_id, 
                         product_id, 
                         product_uom_id
                     FROM account_analytic_line_plan
+                    WHERE journal_id in (
+                        SELECT id 
+                        FROM 
+                            account_analytic_journal_plan
+                        WHERE
+                            type in ('sale','purchase','general'))
                 UNION ALL
                     SELECT 
                         CAST( 0 AS FLOAT) AS unit_amount_real,
@@ -186,16 +203,24 @@ class report_account_analytic_resource_usage_product(osv.osv):
                         CAST( 0 AS FLOAT) AS amount_real, 
                         CAST( 0 AS FLOAT) AS amount_plan,
                         CAST( amount AS FLOAT) AS amount_commit, 
-                        account_id, 
+                        account_id,
+                        user_id, 
                         product_id, 
-                        product_uom_id                        
-                    FROM account_analytic_line_commit                    
+                        product_uom_id                    
+                    FROM account_analytic_line_commit
+                    WHERE journal_id in (
+                        SELECT id 
+                        FROM 
+                            account_analytic_journal_commit
+                        WHERE
+                            type in ('sale','purchase','general'))
                     
                 ) AS tot
                 GROUP BY 
                     tot.account_id,
+                    tot.user_id,
                     tot.product_uom_id,
-                    tot.product_id 
+                    tot.product_id
                     
                 ORDER BY tot.account_id
 

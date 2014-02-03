@@ -26,6 +26,7 @@
                     <field name="unit_amount_commit" sum='Commited Quantity'/>       
                     <field name="amount_real" sum='Real Balance'/>   
  					<field name="unit_amount_real" sum='Real Quantity'/>                                    
+                    <field name="user_id"/>
                     <field name="account_id"/>                   
                 </tree>
             </field>
@@ -66,6 +67,7 @@
                 	<group colspan="5" col="5">                                
 	                    <field name="account_id"/>
 	                    <field name="product_id"/>
+	                    <field name="user_id"/>
                    
                     </group> 
                     <newline/>                   

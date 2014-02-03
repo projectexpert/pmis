@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2011 Avangard Enterprise Information Systems (<http://www.avangard-eis.com/>)
-#              Jordi Ballester <jordi.ballester@avangard-eis.com>
+#    Copyright (C) 2011 Eficent (<http://www.eficent.com/>)
+#               <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,9 +21,9 @@
 
 
 {
-    "name": "Project Management",
+    "name": "Project Integration Management - Sales Orders",
     "version": "1.0",
-    "author": "Jordi Ballester (Eficent)",
+    "author": "Eficent",
     "website": "http://www.eficent.com",
     "category": "Generic Modules/Projects & Services",
     "depends": ["account", "analytic", "product", "project", "sale"],

@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2011 Eficent (<http://www.eficent.com/>)
-#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
+#              <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    "name": "Project Management",
+    "name": "Project Cost Management",
     "version": "1.0",
     "author": "Jordi Ballester (Eficent)",
     "website": "http://www.eficent.com",
@@ -41,15 +41,15 @@
  
     """,
     "init_xml": [],
-    "update_xml": [
+    "update_xml": [            
+        "account_analytic_line_plan_view.xml",
+        "account_analytic_line_commit_view.xml",        
+        "account_analytic_account_view.xml",
         "account_analytic_journal_plan_view.xml",
         "account_analytic_journal_commit_view.xml",
-        "account_analytic_journal_plan_report.xml", 
-        "account_analytic_journal_commit_report.xml",                                  
         "account_analytic_line_view.xml",        
-        "account_analytic_line_plan_view.xml",
-        "account_analytic_line_commit_view.xml",           
-        "account_analytic_account_view.xml",             
+        "account_analytic_journal_plan_report.xml", 
+        "account_analytic_journal_commit_report.xml",                
         "wizard/account_analytic_journal_plan_report_view.xml", 
         "wizard/account_analytic_journal_commit_report_view.xml",       
         "project_view.xml",       

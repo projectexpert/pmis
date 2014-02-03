@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2011 Eficent (<http://www.eficent.com/>)
-#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
+#              Eficent <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -183,8 +183,8 @@ class account_analytic_account(osv.osv):
 #            return self.name_get(cr, uid, project_ids, context=context)
         accountbycode = self.search(cr, uid, [('complete_wbs_code', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)        
         accountbyname = self.search(cr, uid, [('complete_wbs_name', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)
-        account = accountbycode + accountbyname
-
+        account = list(set(accountbycode + accountbyname))
+        
         return self.name_get(cr, uid, account, context=context)
     
     def code_get(self, cr, uid, ids, context=None):
@@ -316,8 +316,9 @@ class project(osv.osv):
 #            args += [('id', 'in', project_ids)]
 #            return self.name_get(cr, uid, project_ids, context=context)
         projectbycode = self.search(cr, uid, [('complete_wbs_code', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)
-        projectbyname = self.search(cr, uid, [('complete_wbs_name', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)
-        project = projectbycode + projectbyname
+        projectbyname = self.search(cr, uid, [('complete_wbs_name', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)        
+        project = list(set(projectbycode + projectbyname))
+        
 #            newproj = project
 #            while newproj:
 #                newproj = self.search(cr, uid, [('parent_id', 'in', newproj)]+args, limit=limit, context=context)

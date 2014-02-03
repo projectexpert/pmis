@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-08-29 23:32+0000\n"
-"PO-Revision-Date: 2012-08-29 23:32+0000\n"
+"POT-Creation-Date: 2012-12-27 08:36+0000\n"
+"PO-Revision-Date: 2012-12-27 08:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -65,8 +65,8 @@ msgid "Analytic Journal"
 msgstr ""
 
 #. module: project_cost
-#: field:account.analytic.Journal.commit.report,date1:0
-#: field:account.analytic.Journal.plan.report,date1:0
+#: field:account.analytic.journal.commit.report,date1:0
+#: field:account.analytic.journal.plan.report,date1:0
 msgid "Start of period"
 msgstr ""
 
@@ -102,6 +102,11 @@ msgid "Planning Analytic Journals"
 msgstr ""
 
 #. module: project_cost
+#: field:account.analytic.line.plan,notes:0
+msgid "Notes"
+msgstr ""
+
+#. module: project_cost
 #: field:account.analytic.account,debit_plan:0
 msgid "Planned Debit"
 msgstr ""
@@ -134,7 +139,20 @@ msgid "Analytic Journal Plan"
 msgstr ""
 
 #. module: project_cost
+#: report:account.analytic.account.journal.commit:0
+#: report:account.analytic.account.journal.plan:0
+msgid "Account n°"
+msgstr ""
+
+#. module: project_cost
+#: report:account.analytic.account.journal.commit:0
+#: report:account.analytic.account.journal.plan:0
+msgid "Move Name"
+msgstr ""
+
+#. module: project_cost
 #: field:account.analytic.line.plan,journal_id:0
+#: model:ir.actions.report.xml,name:project_cost.account_analytic_journal_plan_print
 msgid "Planning Analytic Journal"
 msgstr ""
 
@@ -174,8 +192,8 @@ msgid "Analytic Journal Commitment Items"
 msgstr ""
 
 #. module: project_cost
-#: view:account.analytic.Journal.commit.report:0
-#: view:account.analytic.Journal.plan.report:0
+#: view:account.analytic.journal.commit.report:0
+#: view:account.analytic.journal.plan.report:0
 msgid "Print"
 msgstr ""
 
@@ -220,7 +238,6 @@ msgstr ""
 
 #. module: project_cost
 #: model:ir.actions.act_window,name:project_cost.action_account_analytic_journal_commit_tree
-#: model:ir.ui.menu,name:project_cost.account_analytic_journal_commit_print
 msgid "Print Commitment Analytic Journals"
 msgstr ""
 
@@ -251,6 +268,7 @@ msgstr ""
 
 #. module: project_cost
 #: model:ir.model,name:project_cost.model_account_analytic_Journal_commit_report
+#: model:ir.model,name:project_cost.model_account_analytic_journal_commit_report
 msgid "Account Analytic Commitment Journal"
 msgstr ""
 
@@ -258,10 +276,13 @@ msgstr ""
 #: field:account.analytic.account,plan_line_ids:0
 #: view:account.analytic.line.commit:0
 #: view:account.analytic.line.plan:0
+#: model:ir.ui.menu,name:project_cost.account_analytic_journal_entries
 msgid "Analytic Entries"
 msgstr ""
 
 #. module: project_cost
+#: report:account.analytic.account.journal.commit:0
+#: report:account.analytic.account.journal.plan:0
 #: field:account.analytic.line.commit,currency_id:0
 msgid "Currency"
 msgstr ""
@@ -310,6 +331,12 @@ msgid "Actual Analytic journal"
 msgstr ""
 
 #. module: project_cost
+#: report:account.analytic.account.journal.commit:0
+#: report:account.analytic.account.journal.plan:0
+msgid "Period to"
+msgstr ""
+
+#. module: project_cost
 #: model:ir.model,name:project_cost.model_account_analytic_line
 msgid "Analytic Line"
 msgstr ""
@@ -326,6 +353,8 @@ msgid "Commitments Journal Code"
 msgstr ""
 
 #. module: project_cost
+#: report:account.analytic.account.journal.commit:0
+#: report:account.analytic.account.journal.plan:0
 #: field:account.analytic.line.commit,date:0
 #: field:account.analytic.line.plan,date:0
 msgid "Date"
@@ -356,8 +385,8 @@ msgid "Analytic Accounts"
 msgstr ""
 
 #. module: project_cost
-#: model:ir.model,name:project_cost.model_account_analytic_line_commit
-msgid "Analytic Line Commitment"
+#: report:account.analytic.account.journal.plan:0
+msgid "Planning Analitic Journal"
 msgstr ""
 
 #. module: project_cost
@@ -383,8 +412,8 @@ msgid "Error! The currency has to be the same as the currency of the selected co
 msgstr ""
 
 #. module: project_cost
-#: field:account.analytic.Journal.commit.report,date2:0
-#: field:account.analytic.Journal.plan.report,date2:0
+#: field:account.analytic.journal.commit.report,date2:0
+#: field:account.analytic.journal.plan.report,date2:0
 msgid "End of period"
 msgstr ""
 
@@ -412,6 +441,8 @@ msgid "General Account"
 msgstr ""
 
 #. module: project_cost
+#: report:account.analytic.account.journal.commit:0
+#: report:account.analytic.account.journal.plan:0
 #: field:account.analytic.line.commit,code:0
 #: field:account.analytic.line.plan,code:0
 msgid "Code"
@@ -425,6 +456,14 @@ msgid "Period"
 msgstr ""
 
 #. module: project_cost
+#: report:account.analytic.account.journal.commit:0
+#: report:account.analytic.account.journal.plan:0
+msgid "Period from"
+msgstr ""
+
+#. module: project_cost
+#: report:account.analytic.account.journal.commit:0
+#: report:account.analytic.account.journal.plan:0
 #: selection:account.analytic.journal.commit,type:0
 #: selection:account.analytic.journal.plan,type:0
 msgid "General"
@@ -437,13 +476,12 @@ msgstr ""
 
 #. module: project_cost
 #: model:ir.actions.act_window,name:project_cost.action_account_analytic_journal_plan_tree
-#: model:ir.ui.menu,name:project_cost.account_analytic_journal_plan_print
 msgid "Print Planning Analytic Journals"
 msgstr ""
 
 #. module: project_cost
-#: view:account.analytic.Journal.commit.report:0
-#: view:account.analytic.Journal.plan.report:0
+#: view:account.analytic.journal.commit.report:0
+#: view:account.analytic.journal.plan.report:0
 msgid "Cancel"
 msgstr ""
 
@@ -483,6 +521,12 @@ msgid "Planned analytic lines"
 msgstr ""
 
 #. module: project_cost
+#: report:account.analytic.account.journal.commit:0
+#: report:account.analytic.account.journal.plan:0
+msgid "Analytic"
+msgstr ""
+
+#. module: project_cost
 #: field:account.analytic.line.commit,product_id:0
 #: field:account.analytic.line.plan,product_id:0
 msgid "Product"
@@ -505,7 +549,14 @@ msgstr ""
 
 #. module: project_cost
 #: model:ir.model,name:project_cost.model_account_analytic_Journal_plan_report
+#: model:ir.model,name:project_cost.model_account_analytic_journal_plan_report
 msgid "Account Analytic Planning Journal"
+msgstr ""
+
+#. module: project_cost
+#: report:account.analytic.account.journal.commit:0
+#: report:account.analytic.account.journal.plan:0
+msgid "-"
 msgstr ""
 
 #. module: project_cost
@@ -531,14 +582,19 @@ msgid "Analytic Planning Journal"
 msgstr ""
 
 #. module: project_cost
-#: view:account.analytic.Journal.commit.report:0
-#: view:account.analytic.Journal.plan.report:0
+#: view:account.analytic.journal.commit.report:0
+#: view:account.analytic.journal.plan.report:0
 msgid "Select Period"
 msgstr ""
 
 #. module: project_cost
 #: view:account.analytic.line.plan:0
 msgid "Edit"
+msgstr ""
+
+#. module: project_cost
+#: model:ir.model,name:project_cost.model_account_analytic_line_commit
+msgid "Analytic Line Commitment"
 msgstr ""
 
 #. module: project_cost
@@ -557,6 +613,12 @@ msgstr ""
 #: selection:account.analytic.journal.commit,type:0
 #: selection:account.analytic.journal.plan,type:0
 msgid "Sale"
+msgstr ""
+
+#. module: project_cost
+#: report:account.analytic.account.journal.commit:0
+#: model:ir.actions.report.xml,name:project_cost.account_analytic_journal_commit_print
+msgid "Commitments Analytic Journal"
 msgstr ""
 
 #. module: project_cost

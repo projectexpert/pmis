@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2011 Eficent (<http://www.eficent.com/>)
-#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
+#               <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -23,7 +23,7 @@
 {
     "name": "Project MailGateWay for Projects",
     "version": "1.0",
-    "author": "Jordi Ballester (Eficent)",
+    "author": "Eficent",
     "website": "http://www.eficent.com",
     "category": "Generic Modules/Projects & Services",
     "depends": ["project", "mail_gateway"],

@@ -2,5 +2,76 @@
 <openerp><data>
 
 
+    <record id="analytic_journal_plan_comp_rule" model="ir.rule">
+        <field name="name">Analytic Planning journal multi-company</field>
+        <field model="ir.model" name="model_id" ref="model_account_analytic_journal_plan"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <record id="analytic_journal_plan_comp_rule_false" model="ir.rule">
+        <field name="name">Analytic Plan journal multi-company</field>
+        <field model="ir.model" name="model_id" ref="model_account_analytic_journal_plan"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <record id="analytic_journal_commit_comp_rule" model="ir.rule">
+        <field name="name">Analytic Commitment journal multi-company</field>
+        <field model="ir.model" name="model_id" ref="model_account_analytic_journal_commit"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <record id="analytic_journal_commit_comp_rule_false" model="ir.rule">
+        <field name="name">Analytic Commit journal multi-company</field>
+        <field model="ir.model" name="model_id" ref="model_account_analytic_journal_commit"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <record id="analytic_line_plan_comp_rule" model="ir.rule">
+        <field name="name">Analytic Plan line multi-company</field>
+        <field model="ir.model" name="model_id" ref="model_account_analytic_line_plan"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">['|',('journal_id.company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <record id="analytic_line_plan_comp_rule_false" model="ir.rule">
+        <field name="name">Analytic Plan line journal multi-company</field>
+        <field model="ir.model" name="model_id" ref="model_account_analytic_line_plan"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">['|',('journal_id.company_id','=',False),('journal_id.company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+
+    <record id="analytic_line_commit_comp_rule" model="ir.rule">
+        <field name="name">Analytic Commit line multi-company</field>
+        <field model="ir.model" name="model_id" ref="model_account_analytic_line_commit"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">['|',('journal_id.company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <record id="analytic_line_commit_comp_rule_false" model="ir.rule">
+        <field name="name">Analytic Commit line journal multi-company</field>
+        <field model="ir.model" name="model_id" ref="model_account_analytic_line_commit"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">['|',('journal_id.company_id','=',False),('journal_id.company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <record id="analytic_line_comp_rule" model="ir.rule">
+        <field name="name">Analytic line multi-company</field>
+        <field model="ir.model" name="model_id" ref="model_account_analytic_line"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">['|',('journal_id.company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+    <record id="analytic_line_comp_rule_false" model="ir.rule">
+        <field name="name">Analytic line journal multi-company</field>
+        <field model="ir.model" name="model_id" ref="model_account_analytic_line"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">['|',('journal_id.company_id','=',False),('journal_id.company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
 
 </data></openerp>

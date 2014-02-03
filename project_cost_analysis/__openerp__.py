@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2011 Eficent (<http://www.eficent.com/>)
-#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
+#              <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,12 +21,12 @@
 
 
 {
-    "name": "Project Management",
+    "name": "Project Cost Analysis",
     "version": "1.0",
-    "author": "Jordi Ballester (Eficent)",
+    "author": "Eficent",
     "website": "http://www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["account","account_budget", "product", "analytic", "board", "project","project_scope_wbs","project_cost"],
+    "depends": ["account","product", "analytic", "boar@jbeficent_erpd", "project","project_scope_wbs","project_cost"],
     "description": """Eficent Project Management. Project Cost Analysis
         - The aim is to enable the project manager can see at all times the relationshipbetween the planned cost, budget, 
         current theoretical cost actual cost of the project.

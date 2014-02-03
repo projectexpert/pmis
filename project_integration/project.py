@@ -43,43 +43,43 @@ class project(osv.osv):
         self.write(cr, uid, ids, {'state': 'open'})        
         return True
     
-    def set_open(self, cr, uid, ids, *args):
+    #def set_open(self, cr, uid, ids, *args):
         
-        res = super(project,self).set_open(cr, uid, ids, *args)
+        # res = super(project,self).set_open(cr, uid, ids, *args)
         
-        for proj in self.browse(cr, uid, ids, context=None):
-            analytic_account_id = proj.analytic_account_id.id
+        # for proj in self.browse(cr, uid, ids, context=None):
+        #    analytic_account_id = proj.analytic_account_id.id
             
-        account_analytic_line_plan_obj=self.pool.get('account.analytic.line.plan')
-        account_analytic_line_plan_ids = account_analytic_line_plan_obj.search(cr, uid, [('account_id', '=', analytic_account_id)], context=None)
+        # account_analytic_line_plan_obj=self.pool.get('account.analytic.line.plan')
+        # account_analytic_line_plan_ids = account_analytic_line_plan_obj.search(cr, uid, [('account_id', '=', analytic_account_id)], context=None)
         
-        product_obj=self.pool.get('product.product')
+        # product_obj=self.pool.get('product.product')
         
-        purchase_order_obj=self.pool.get('purchase.order')
-        purchase_order_ids = purchase_order_obj.search(cr, uid, [('project_id', '=', proj.id),('state','<>','cancel')], context=None)
+        # purchase_order_obj=self.pool.get('purchase.order')
+        # purchase_order_ids = purchase_order_obj.search(cr, uid, [('project_id', '=', proj.id),('state','<>','cancel')], context=None)
 
-        purchase_order_line_obj=self.pool.get('purchase.order.line')
+        #purchase_order_line_obj=self.pool.get('purchase.order.line')
         
                 
-        for account_analytic_line_plan_id in account_analytic_line_plan_ids:
-            account_analytic_line_plan=account_analytic_line_plan_obj.browse(cr, uid, account_analytic_line_plan_id, context=None)
-            
-            journal_type = account_analytic_line_plan.journal_id and account_analytic_line_plan.journal_id.type or False             
-            
-            if account_analytic_line_plan.product_id:
-                product=product_obj.browse(cr, uid, account_analytic_line_plan.product_id.id, context=None)
-                if product.supply_method == 'buy' and journal_type == 'purchase':
-                    for purchase_order_id in purchase_order_ids:
-                        purchase_order_line_ids = purchase_order_line_obj.search(cr, uid, [('order_id', '=', purchase_order_id),('product_id','=',account_analytic_line_plan.product_id.id)], context=None)
-                    
-                    if not purchase_order_ids or not purchase_order_line_ids:
-                        raise osv.except_osv(_('User Error'),
-                        _('You cannot start the project.\n'\
-                          'The project contains a cost estimate for the product "%s" which has as supply method "buy".\n'\
-                          'You must create a purchase order linked to this project to procure this product.')
-                         % (product.name))      
+        #for account_analytic_line_plan_id in account_analytic_line_plan_ids:
+        #    account_analytic_line_plan=account_analytic_line_plan_obj.browse(cr, uid, account_analytic_line_plan_id, context=None)
+        #    
+        #    journal_type = account_analytic_line_plan.journal_id and account_analytic_line_plan.journal_id.type or False             
+        #    
+            #if account_analytic_line_plan.product_id:
+            #    product=product_obj.browse(cr, uid, account_analytic_line_plan.product_id.id, context=None)
+            #    if product.supply_method == 'buy' and journal_type == 'purchase':
+            #        for purchase_order_id in purchase_order_ids:
+            #            purchase_order_line_ids = purchase_order_line_obj.search(cr, uid, [('order_id', '=', purchase_order_id),('product_id','=',account_analytic_line_plan.product_id.id)], context=None)
+            #        
+            #        if not purchase_order_ids or not purchase_order_line_ids:
+            #            raise osv.except_osv(_('User Error'),
+            #            _('You cannot start the project.\n'\
+            #              'The project contains a cost estimate for the product "%s" which has as supply method "buy".\n'\
+            #              'You must create a purchase order linked to this project to procure this product.')
+            #             % (product.name))      
              
-        return res
+        #return res
     
         
     def set_ready(self, cr, uid, ids, *args):
@@ -94,11 +94,11 @@ class project(osv.osv):
         for p in project_br:
             
 #            subject = _("'%s' is ready to start") % p.complete_wbs_name
-#            if p.user_id and p.user_id.address_id and p.user_id.address_id.email:
-#                to_adr = p.user_id.address_id.email
-#                signature = p.user_id.signature
-#            else:
-#                raise osv.except_osv(_('Error'), _("Couldn't send mail because the project manager email address is not configured!"))
+            if p.user_id and p.user_id.address_id and p.user_id.address_id.email:
+                to_adr = p.user_id.address_id.email
+                #signature = p.user_id.signature
+            else:
+                raise osv.except_osv(_('Error'), _("Couldn't send mail because the project manager email address is not configured!"))
 #
 #            from_adr = tools.config.get('email_from', False) or p.user_id.address_id.email
 #
@@ -146,7 +146,7 @@ class project(osv.osv):
                     
         for proj in projects:
             purchase_order_obj=self.pool.get('purchase.order')
-            purchase_order_ids = purchase_order_obj.search(cr, uid, [('project_id', '=', proj.id),('state','not in',['cancel','done','approve'])], context=None)
+            purchase_order_ids = purchase_order_obj.search(cr, uid, [('project_id', '=', proj.id),('state','not in',['cancel','done','approved'])], context=None)
             
             if purchase_order_ids:                    
                 raise osv.except_osv(_('User Error'), _('You must complete all active purchase orders related to this project before closing it.'))

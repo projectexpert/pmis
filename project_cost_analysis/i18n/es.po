@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-08-29 22:52+0000\n"
-"PO-Revision-Date: 2012-08-30 00:55+0100\n"
+"POT-Creation-Date: 2013-02-10 23:42+0000\n"
+"PO-Revision-Date: 2013-02-11 00:43+0100\n"
 "Last-Translator: Jordi Ballester <jordi.ballester@eficent.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -52,13 +52,9 @@ msgid "Plan to Commit debit deviation"
 msgstr "I. plan-compro."
 
 #. module: project_cost_analysis
-#: model:ir.actions.act_window,name:project_cost_analysis.open_board_resource_usage_product
-msgid "Tablero de análisis de rentabilidad"
-msgstr "Tablero de análisis de rentabilidad"
-
-#. module: project_cost_analysis
 #: view:report.account.analytic.resource.usage:0
 #: field:report.account.analytic.resource.usage,unit_amount_commit:0
+#: view:report.account.analytic.resource.usage.product:0
 #: field:report.account.analytic.resource.usage.product,unit_amount_commit:0
 msgid "Commited Quantity"
 msgstr "Cantidad Comprometida"
@@ -89,6 +85,11 @@ msgid "Commited"
 msgstr "Comprometido"
 
 #. module: project_cost_analysis
+#: model:ir.actions.act_window,name:project_cost_analysis.open_board_resource_usage_product
+msgid "Project Resource Usage by Product"
+msgstr "Project Resource Usage by Product"
+
+#. module: project_cost_analysis
 #: view:report.account.analytic.resource.usage.product:0
 #: field:report.account.analytic.resource.usage.product,amount_debit_plan:0
 msgid "Planned Debit"
@@ -103,7 +104,7 @@ msgstr "Código"
 #: model:ir.actions.act_window,name:project_cost_analysis.action_account_analytic_resource_usage_amounts_graph
 #: model:ir.ui.menu,name:project_cost_analysis.menu_action_account_analytic_resource_usage_amounts_graph
 msgid "Resource Usage (Amounts)"
-msgstr "Análisis de Rentabilidad (Importes)"
+msgstr "Uso de Recursos (Importes)"
 
 #. module: project_cost_analysis
 #: model:ir.actions.act_window,help:project_cost_analysis.action_account_analytic_resource_usage_amounts_graph
@@ -150,11 +151,9 @@ msgid "Real to Planned deviation"
 msgstr "Bal. real-plan"
 
 #. module: project_cost_analysis
-#: model:ir.actions.act_window,help:project_cost_analysis.action_account_analytic_resource_usage_product_amounts_graph
-#: model:ir.actions.act_window,help:project_cost_analysis.action_account_analytic_resource_usage_product_quantities_graph
-#: model:ir.actions.act_window,help:project_cost_analysis.action_account_analytic_resource_usage_product_tree
-msgid "Este informe permite analizar y controlar el uso planificado de recursos de tus proyectos en base a los productos."
-msgstr "Este informe permite analizar y controlar el uso planificado de recursos de tus proyectos en base a los productos."
+#: field:report.account.analytic.resource.usage.product,user_id:0
+msgid "Account Manager"
+msgstr "Responsable proyecto"
 
 #. module: project_cost_analysis
 #: report:account.analytic.balance.plan:0
@@ -171,7 +170,7 @@ msgstr "Balance de Cuenta Analítica para Planificación"
 #: view:report.account.analytic.resource.usage:0
 #: view:report.account.analytic.resource.usage.product:0
 msgid "Resource Usage - Planned Amounts"
-msgstr "Análisis de Rentabilidad - Importes Planificados"
+msgstr "Uso de Recursos - Importes Planificados"
 
 #. module: project_cost_analysis
 #: report:account.analytic.balance.plan:0
@@ -179,13 +178,9 @@ msgid ";Status:"
 msgstr ";Estado:"
 
 #. module: project_cost_analysis
-#: view:account.analytic.balance.plan:0
-msgid "Print"
-msgstr "Imprimir"
-
-#. module: project_cost_analysis
 #: view:report.account.analytic.resource.usage:0
 #: field:report.account.analytic.resource.usage,unit_amount_plan:0
+#: view:report.account.analytic.resource.usage.product:0
 #: field:report.account.analytic.resource.usage.product,unit_amount_plan:0
 msgid "Planned Quantity"
 msgstr "Cantidad Planificada"
@@ -218,6 +213,11 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: project_cost_analysis
+#: model:ir.module.module,shortdesc:project_cost_analysis.module_meta_information
+msgid "Project Management"
+msgstr "Proyectos"
+
+#. module: project_cost_analysis
 #: report:account.analytic.balance.plan:0
 msgid "Start Date:"
 msgstr "Fecha comienzo:"
@@ -226,7 +226,7 @@ msgstr "Fecha comienzo:"
 #: view:report.account.analytic.resource.usage:0
 #: view:report.account.analytic.resource.usage.product:0
 msgid "Resource Usage - Planned Quantities"
-msgstr "Análisis de Rentabilidad - Cantidades Planificadas"
+msgstr "Uso de Recursos - Cantidades Planificadas"
 
 #. module: project_cost_analysis
 #: selection:report.account.analytic.resource.usage,month:0
@@ -245,10 +245,11 @@ msgid "Month"
 msgstr "Mes"
 
 #. module: project_cost_analysis
+#: model:ir.actions.act_window,name:project_cost_analysis.action_account_analytic_resource_usage_product_tree
 #: model:ir.model,name:project_cost_analysis.model_report_account_analytic_resource_usage_product
 #: model:ir.ui.menu,name:project_cost_analysis.menu_action_account_analytic_resource_usage_pr_tree
 msgid "Resource Usage Analysis by Product"
-msgstr "Análisis de Rentabilidad"
+msgstr "Resource Usage Analysis by Product"
 
 #. module: project_cost_analysis
 #: view:report.account.analytic.resource.usage:0
@@ -260,7 +261,7 @@ msgstr "Usuario"
 #: view:report.account.analytic.resource.usage:0
 #: view:report.account.analytic.resource.usage.product:0
 msgid "Resource usage"
-msgstr "Análisis de Rentabilidad"
+msgstr "Uso de Recursos"
 
 #. module: project_cost_analysis
 #: field:report.account.analytic.resource.usage.product,amount_debit_real_commit:0
@@ -268,10 +269,17 @@ msgid "Commit to Real debit deviation"
 msgstr "I. Compro.-Real"
 
 #. module: project_cost_analysis
+#: model:ir.actions.act_window,help:project_cost_analysis.action_account_analytic_resource_usage_product_amounts_graph
+#: model:ir.actions.act_window,help:project_cost_analysis.action_account_analytic_resource_usage_product_quantities_graph
+#: model:ir.actions.act_window,help:project_cost_analysis.action_account_analytic_resource_usage_product_tree
+msgid "This report allows you to anlalyze and control the planned usage of resources of your projects by product."
+msgstr "This report allows you to anlalyze and control the planned usage of resources of your projects by product."
+
+#. module: project_cost_analysis
 #: model:ir.actions.act_window,name:project_cost_analysis.action_account_analytic_resource_usage_tree
 #: model:ir.ui.menu,name:project_cost_analysis.menu_action_account_analytic_resource_usage_tree
 msgid "Resource Usage Analysis"
-msgstr "Análisis de Rentabilidad"
+msgstr "Análisis de Uso de Recursos"
 
 #. module: project_cost_analysis
 #: selection:report.account.analytic.resource.usage,month:0
@@ -281,7 +289,7 @@ msgstr "Agosto"
 #. module: project_cost_analysis
 #: model:ir.actions.act_window,name:project_cost_analysis.open_board_resource_usage
 msgid "Project Resource Usage"
-msgstr "Análisis de Rentabilidad de Proyectos"
+msgstr "Project Resource Usage"
 
 #. module: project_cost_analysis
 #: selection:report.account.analytic.resource.usage,month:0
@@ -291,7 +299,7 @@ msgstr "Junio"
 #. module: project_cost_analysis
 #: model:ir.ui.menu,name:project_cost_analysis.menu_board_resource_usage
 msgid "Resource Usage Dashboard"
-msgstr "Tablero de Análisis de Rentabiliad"
+msgstr "Tablero de Uso de Recursos"
 
 #. module: project_cost_analysis
 #: view:report.account.analytic.resource.usage.product:0
@@ -313,11 +321,6 @@ msgstr "Plan"
 #: field:report.account.analytic.resource.usage,date:0
 msgid "Date"
 msgstr "Fecha"
-
-#. module: project_cost_analysis
-#: model:ir.actions.act_window,name:project_cost_analysis.action_account_analytic_resource_usage_product_amounts_graph
-msgid "Análisis de Rentabilidad (Importes)"
-msgstr "Análisis de Rentabilidad (Importes)"
 
 #. module: project_cost_analysis
 #: selection:report.account.analytic.resource.usage,month:0
@@ -363,6 +366,7 @@ msgstr "Enero"
 #. module: project_cost_analysis
 #: view:report.account.analytic.resource.usage:0
 #: field:report.account.analytic.resource.usage,unit_amount_real:0
+#: view:report.account.analytic.resource.usage.product:0
 #: field:report.account.analytic.resource.usage.product,unit_amount_real:0
 msgid "Real Quantity"
 msgstr "Cantidad Real"
@@ -387,11 +391,6 @@ msgstr "Tablero"
 #: field:account.analytic.balance.plan,date2:0
 msgid "End of period"
 msgstr "Fin de periodo"
-
-#. module: project_cost_analysis
-#: model:ir.actions.act_window,name:project_cost_analysis.action_account_analytic_resource_usage_product_tree
-msgid "Análisis de Rentabilidad"
-msgstr "Análisis de Rentabilidad"
 
 #. module: project_cost_analysis
 #: report:account.analytic.balance.plan:0
@@ -426,9 +425,10 @@ msgid "Period"
 msgstr "Periodo"
 
 #. module: project_cost_analysis
+#: model:ir.actions.act_window,name:project_cost_analysis.action_account_analytic_resource_usage_product_quantities_graph
 #: model:ir.ui.menu,name:project_cost_analysis.menu_action_account_analytic_resource_usage_pr_quants_graph
 msgid "Resource Usage by Product (Quantities)"
-msgstr "Análisis de Rentabilidad (Cantidades)"
+msgstr "Resource Usage by Product (Quantities)"
 
 #. module: project_cost_analysis
 #: view:report.account.analytic.resource.usage.product:0
@@ -442,9 +442,9 @@ msgid "Commit to Real credit deviation"
 msgstr "G. compro-real"
 
 #. module: project_cost_analysis
-#: model:ir.actions.act_window,name:project_cost_analysis.action_account_analytic_resource_usage_product_quantities_graph
-msgid "Análisis de Rentabilidad (Cantidades)"
-msgstr "Análisis de Rentabilidad (Cantidades)"
+#: view:account.analytic.balance.plan:0
+msgid "Print"
+msgstr "Imprimir"
 
 #. module: project_cost_analysis
 #: report:account.analytic.balance.plan:0
@@ -452,9 +452,10 @@ msgid "Account Name"
 msgstr "Nombre de Cuenta"
 
 #. module: project_cost_analysis
+#: model:ir.actions.act_window,name:project_cost_analysis.action_account_analytic_resource_usage_product_amounts_graph
 #: model:ir.ui.menu,name:project_cost_analysis.menu_action_account_analytic_resource_usage_pr_amts_graph
 msgid "Resource Usage by product (Amounts)"
-msgstr "Análisis de Rentabilidad (Importes)"
+msgstr "Resource Usage by product (Amounts)"
 
 #. module: project_cost_analysis
 #: field:report.account.analytic.resource.usage.product,amount_debit_real_plan:0
@@ -477,13 +478,42 @@ msgstr "Mayo"
 #. module: project_cost_analysis
 #: view:board.board:0
 msgid "Resource Usage by Product Graph (Amounts)"
-msgstr "Gráfico de Análisis de Rentabilidad (Importes)"
+msgstr "Gráfico de Uso de Recursos por Producto (Importes)"
 
 #. module: project_cost_analysis
 #: view:report.account.analytic.resource.usage:0
 #: field:report.account.analytic.resource.usage,amount_plan:0
 msgid "Planned Amount"
 msgstr "Importe Planificado"
+
+#. module: project_cost_analysis
+#: model:ir.module.module,description:project_cost_analysis.module_meta_information
+msgid ""
+"Eficent Project Management. Project Cost Analysis\n"
+"        - The aim is to enable the project manager can see at all times the relationshipbetween the planned cost, budget, \n"
+"        current theoretical cost actual cost of the project.\n"
+"        - A report for analytic account Cost Analysis is provided. For each analytical account associated (taking into account the child accounts) breaks down the following information:\n"
+"            * Analytical Account Code\n"
+"            * Analytical Account Name\n"
+"            * Planned Cost\n"
+"            * Budgeted Cost\n"
+"            * Current theoretical cost\n"
+"            * Current Actual Cost\n"
+"        - A report view to display the analytic resource usage. That is, comparing the planned and actual costs with the possibility to group by product, analytic account, period,... \n"
+"    "
+msgstr ""
+"Eficent Project Management. Project Cost Analysis\n"
+"        - The aim is to enable the project manager can see at all times the relationshipbetween the planned cost, budget, \n"
+"        current theoretical cost actual cost of the project.\n"
+"        - A report for analytic account Cost Analysis is provided. For each analytical account associated (taking into account the child accounts) breaks down the following information:\n"
+"            * Analytical Account Code\n"
+"            * Analytical Account Name\n"
+"            * Planned Cost\n"
+"            * Budgeted Cost\n"
+"            * Current theoretical cost\n"
+"            * Current Actual Cost\n"
+"        - A report view to display the analytic resource usage. That is, comparing the planned and actual costs with the possibility to group by product, analytic account, period,... \n"
+"    "
 
 #. module: project_cost_analysis
 #: report:account.analytic.balance.plan:0
@@ -504,7 +534,7 @@ msgstr "Febrero"
 #: model:ir.actions.act_window,name:project_cost_analysis.action_account_analytic_resource_usage_quantities_graph
 #: model:ir.ui.menu,name:project_cost_analysis.menu_action_account_analytic_resource_usage_quantities_graph
 msgid "Resource Usage (Quantities)"
-msgstr "Análisis de Rentabilidad (Cantidades)"
+msgstr "Uso de Recursos (Cantidades)"
 
 #. module: project_cost_analysis
 #: selection:report.account.analytic.resource.usage,month:0
@@ -526,7 +556,7 @@ msgstr "G. real"
 #. module: project_cost_analysis
 #: model:ir.model,name:project_cost_analysis.model_report_account_analytic_resource_usage
 msgid "Resouce Usage Analysis"
-msgstr "Análisis de Rentabilidad"
+msgstr "Análisos de Uso de Recursos"
 
 #. module: project_cost_analysis
 #: view:report.account.analytic.resource.usage:0

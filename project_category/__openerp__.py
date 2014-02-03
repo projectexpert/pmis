@@ -21,7 +21,7 @@
 
 
 {
-    "name": "Project Management",
+    "name": "Project Categorization",
     "version": "1.0",
     "author": "Eficent",
     "website": "http://www.eficent.com",
@@ -30,7 +30,7 @@
                 "base",
                 "project",                       
                 ],
-    "description": """ This module intrododuces the possibility to associate categories to analytic accounts and projects.
+    "description": """ This module introduces the possibility to associate categories to analytic accounts and projects.
         Manage the analytic account categories in order to better classify them for tracking and analysis purposes. 
         An analytic account may belong to several categories and categories have a hierarchy structure: an analytic account belonging to a category also belong to her parent category.
     """,

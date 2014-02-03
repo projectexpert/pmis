@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2011 Eficent (<http://www.eficent.com/>)
-#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
+#              <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,13 +20,13 @@
 ##############################################################################
 
 {
-    "name": "Project Management",
+    "name": "Project Cost Management - Plan timesheet costs",
     "version": "1.0",
-    "author": "Jordi Ballester (Eficent)",
+    "author": "Eficent",
     "website": "http://www.eficent.com",
     "category": "Generic Modules/Projects & Services",
     "depends": ["project_cost"],
-    "description": """Eficent Project Management. Maintain analytic planned costs associated to internal time        
+    "description": """Maintain analytic planned costs associated to internal time        
     """,
     "init_xml": [],
     "update_xml": [        

@@ -48,6 +48,9 @@ class task(osv.osv):
         'total_float': fields.integer('Total float', help='Number of hours that the activity can be delayed without delaying the project.'),
         'free_float': fields.integer('Free float', help='Number of hours that the activity can be delayed without delaying the next subsequent activity.'),
         }
+    
+
+
 
     def onchange_duration(self, cr, uid, ids, duration):
         result = {}

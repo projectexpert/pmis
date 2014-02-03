@@ -105,7 +105,7 @@ class project_sale_plan_make_sale(osv.osv_memory):
                     else:
                         account_id = line_account_id
                     
-                    project_ids = project_obj.search(cr, uid, [('analytic_account_id','=',account_id)],limit=1)                    
+                    project_ids = project_obj.search(cr, uid, [('analytic_account_id','=',account_id)])                    
                     project_id = False                    
                     if project_ids:
                         project_id = project_ids[0]
@@ -120,7 +120,8 @@ class project_sale_plan_make_sale(osv.osv_memory):
                             'product_id': line.product_id.id,
                             'product_uom': uom_id.id,
                             'price_unit': price_unit,
-                            'notes': line.notes,                          
+                            'notes': line.notes,
+                            'type': line.product_id.procure_method,                          
                     }
                     taxes_ids = False
                     taxes = False

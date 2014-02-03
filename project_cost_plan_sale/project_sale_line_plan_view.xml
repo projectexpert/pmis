@@ -99,7 +99,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">[('journal_id.type','=','sale')]</field>            
-            <field name="context" eval="'{\'default_journal_id\': ' + str(ref('project_cost.analytic_journal_plan_sale')) +'}'"/>
+            <!-- <field name="context" eval="'{\'default_journal_id\': ' + str(ref('project_cost.analytic_journal_plan_sale')) +'}'"/> -->
             <field name="search_view_id" ref="view_project_sale_line_plan_filter" />
         </record>
         

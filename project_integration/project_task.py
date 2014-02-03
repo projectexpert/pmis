@@ -49,11 +49,11 @@ class task(osv.osv):
         for t in task_br:
             project = t.project_id
 #            subject = _("Task '%s' is ready to start") % t.name
-#            if t.user_id and t.user_id.address_id and t.user_id.address_id.email:
-#                to_adr = t.user_id.address_id.email                
+            if t.user_id and t.user_id.address_id and t.user_id.address_id.email:
+                to_adr = t.user_id.address_id.email                
 #                signature = t.user_id.signature
-#            else:
-#                raise osv.except_osv(_('Error'), _("Couldn't send mail because your email address is not configured!"))
+            else:
+                raise osv.except_osv(_('Error'), _("Couldn't send mail because your email address is not configured!"))
 #            
 #            from_adr = tools.config.get('email_from', False) or t.user_id.address_id.email
 #            

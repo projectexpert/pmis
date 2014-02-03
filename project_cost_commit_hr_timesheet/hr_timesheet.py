@@ -109,7 +109,8 @@ class hr_analytic_timesheet(osv.osv):
         toremove = {}
         for obj in self.browse(cr, uid, ids, context=context):
             if obj.line_commit_id:
-                toremove[obj.line_commit_id.id] = True
+                for line in obj.line_commit_id:
+                    toremove[line.id] = True
         if toremove:
             self.pool.get('account.analytic.line.commit').unlink(cr, uid, toremove.keys(), context=context)
         return super(hr_analytic_timesheet, self).unlink(cr, uid, ids, context=context)

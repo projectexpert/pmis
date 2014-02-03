@@ -2,17 +2,6 @@
 <openerp>
     <data>
 
-        <record id="invoice_tree" model="ir.ui.view">
-            <field name="name">account.invoice.tree</field>
-            <field name="model">account.invoice</field>
-            <field name="type">tree</field>
-            <field name="inherit_id" ref="account.invoice_tree" />
-            <field name="arch" type="xml">
-            	<xpath expr="//tree[@string='Invoice']/field[@name='name']" position="after">
-           		 	<field name="project"/>
-           		</xpath>
-            </field>
-        </record>
 
         <record id="invoice_supplier_form" model="ir.ui.view">
             <field name="name">account.invoice.supplier.form</field>
@@ -21,9 +10,6 @@
             <field name="priority">2</field>
             <field name="inherit_id" ref="account.invoice_supplier_form" />
             <field name="arch" type="xml">
-            	<xpath expr="//form[@string='Supplier Invoice']//field[@name='period_id']" position="after">
-                	<field name="project_id"/>          
-                </xpath>   
                 <form string="Supplier Invoice">
                     <group col="8" colspan="4">
                         <field name="journal_id" on_change="onchange_journal_id(journal_id)" widget="selection"/>

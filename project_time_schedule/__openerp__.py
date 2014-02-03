@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2011 Eficent (<http://www.eficent.com/>)
-#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
+#              <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,13 +21,13 @@
 
 
 {
-    "name": "Project Management",
+    "name": "Project Time Management - Activity Scheduling",
     "version": "1.0",
-    "author": "Jordi Ballester (Eficent)",
+    "author": "Eficent",
     "website": "http://www.eficent.com",
     "category": "Generic Modules/Projects & Services",
     "depends": ["project"],
-    "description": """Eficent Project Management. Project Time Management. Activity Scheduling
+    "description": """
         - The user accesses from Project - Project – Tasks to the list of tasks and milestones. A new tab "Scheduling" appears. 
         This tab displays attributes relating to the task scheduling.
         - The network diagram is first determined, based on the relationships between activities.

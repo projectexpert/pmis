@@ -19,6 +19,11 @@
             action="action_account_analytic_journal_plan_open_form"
             id="account_analytic_journal_plan_entries_2"
             parent="project_cost_analytic_account_menu"/>   
+            
+		<menuitem groups="analytic.group_analytic_accounting"
+            action="account.action_account_analytic_line_form"
+            id="account_analytic_journal_entries"
+            parent="project_cost_analytic_account_menu"/>               
 			
 ---------------------------------------------------------------------------------------------------------
 #   Extend the analytic account

@@ -87,7 +87,7 @@ class account_analytic_line_plan(osv.osv):
             prod = product_obj.browse(cr, uid, prod_id, context=context)
                                 
         if not journal_id:
-            j_ids = self.pool.get('account.analytic.journal.plan').search(cr, uid, [('type','=','sale')])
+            j_ids = self.pool.get('account.analytic.journal.plan').search(cr, uid, [('type','=','sale')], context=context)
             journal_id = j_ids and j_ids[0] or False
         if not journal_id or not prod_id:
             return result

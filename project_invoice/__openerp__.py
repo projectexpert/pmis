@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2011 Eficent (<http://www.eficent.com/>)
-#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
+#              <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,7 +21,7 @@
 
 
 {
-    'name': 'Search analytic accounts in invoices',
+    'name': 'Project Cost Management - Search analytic accounts in invoices',
     'version': '1.0',
     'category': 'Generic Modules/Projects & Services',
     'description': """
