@@ -21,7 +21,7 @@
 
 
 {
-    "name": "Project Integration Management - Analysis"
+    "name": "Project Integration Management - Analysis",
     "version": "1.0",
     "author": "Eficent",
     "website": "http://www.eficent.com",
