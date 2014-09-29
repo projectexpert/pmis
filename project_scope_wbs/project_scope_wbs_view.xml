@@ -120,7 +120,7 @@
             <field name="name">account.analytic.account.form</field>
             <field name="model">account.analytic.account</field>
             <field name="type">form</field>
-            <field name="inherit_id" ref="account.view_account_analytic_account_form"/>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
             <field name="arch" type="xml">
             	<field name="name" position="after">
             		<field name="class" string="Class"/>            		

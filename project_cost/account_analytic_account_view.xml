@@ -52,9 +52,9 @@
             <field name="name">account.analytic.account.form</field>
             <field name="model">account.analytic.account</field>
             <field name="type">form</field>
-            <field name="inherit_id" ref="account.view_account_analytic_account_form"/>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
             <field name="arch" type="xml">
-            	<page string='Description' position="after">
+            	<notebook position="inside">
 	            	<page string="Costs">
 	            			<field colspan="4" name="line_ids" nolabel="1" context="{'default_account_id': active_id}"/>
 	                        <field colspan="4" name="plan_line_ids" nolabel="1" context="{'default_account_id': active_id}">
@@ -142,9 +142,9 @@
 				                        <field name="move_id" readonly="1"/>
 				                    </group>
 	                            </form>
-	                         </field>	                         
+	                         </field>
 	                 </page>  
-				</page>	 
+				</notebook>	 
             </field>            	        
         </record>   						        	            	        
          	                    
