@@ -22,7 +22,7 @@
 
 
 from openerp.osv import osv, fields
-import netsvc
+from openerp import netsvc
 from openerp.tools.translate import _
 
 
