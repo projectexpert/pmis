@@ -19,8 +19,8 @@
 #
 ##############################################################################
 
-from osv import fields,osv
-import tools
+from openerp.osv import fields,osv
+from openerp import tools
 
 class report_account_analytic_resource_usage(osv.osv):
     _name = "report.account.analytic.resource.usage"

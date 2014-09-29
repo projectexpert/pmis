@@ -18,11 +18,9 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import time
 from datetime import datetime
-from osv import osv
-from tools.translate import _
-import netsvc
+from openerp.osv import osv
+from openerp.tools.translate import _
 
 class project_sale_plan_make_sale(osv.osv_memory):
     _name = "project.sale.plan.make.sale"

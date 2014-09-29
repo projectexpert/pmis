@@ -19,9 +19,8 @@
 #
 ##############################################################################
 
-from osv import fields,osv
-from tools.translate import _
-import binascii
+from openerp.osv import fields,osv
+from openerp.tools.translate import _
 
 
 class project_communications_mailgate(osv.osv):

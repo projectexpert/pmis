@@ -19,14 +19,11 @@
 #
 ##############################################################################
 
-from lxml import etree
 import time
-from datetime import datetime, date, timedelta
-import decimal_precision as dp
-from tools.translate import _
-from osv import fields, osv
-import netsvc
-import tools
+from datetime import date
+import openerp.addons.decimal_precision as dp
+from openerp.tools.translate import _
+from openerp.osv import fields, osv
 
 
 class account_analytic_line_plan(osv.osv):

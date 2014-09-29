@@ -19,13 +19,9 @@
 #
 ##############################################################################
 
-from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta
-import time
 
-from osv import fields, osv
-from tools.translate import _
-import decimal_precision as dp
+from openerp.osv import fields, osv
+from openerp.tools.translate import _
 import netsvc
 
 class sale_order(osv.osv):

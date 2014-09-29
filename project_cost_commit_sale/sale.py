@@ -20,16 +20,8 @@
 ##############################################################################
 
 
-import time
-from datetime import datetime
-from dateutil.relativedelta import relativedelta
 
-from osv import osv, fields
-import netsvc
-import pooler
-from tools.translate import _
-import decimal_precision as dp
-from osv.orm import browse_record, browse_null
+from openerp.osv import osv, fields
 
 #
 # Model definition

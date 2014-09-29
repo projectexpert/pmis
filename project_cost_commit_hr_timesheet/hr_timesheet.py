@@ -19,11 +19,9 @@
 #
 ##############################################################################
 
-import time
 
-from osv import fields
-from osv import osv
-from tools.translate import _
+from openerp.osv import fields
+from openerp.osv import osv
 
 
 class hr_employee(osv.osv):

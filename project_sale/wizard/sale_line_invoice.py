@@ -19,8 +19,8 @@
 #
 ##############################################################################
 
-from osv import osv
-from tools.translate import _
+from openerp.osv import osv
+from openerp.tools.translate import _
 import netsvc
 
 class sale_order_line_make_invoice(osv.osv_memory):

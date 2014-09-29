@@ -20,11 +20,11 @@
 #
 ##############################################################################
 
-from osv import osv, fields
-from tools.translate import _
+from openerp.osv import osv, fields
+from openerp.tools.translate import _
 import base64
 import itertools
-import tools
+from openerp import tools
 import re
 
 

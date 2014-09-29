@@ -19,11 +19,9 @@
 #
 ##############################################################################
 
-from lxml import etree
 
-import tools
-from tools.translate import _
-from osv import fields, osv, orm
+from openerp.tools.translate import _
+from openerp.osv import fields, osv, orm
 
 class project_task_link_predecessors_str(osv.osv_memory):
     _name = 'project.task.link.predecessors.str'

@@ -20,7 +20,7 @@
 ##############################################################################
 import time
 
-from osv import osv, fields
+from openerp.osv import osv, fields
 
 class account_analytic_journal_plan_report(osv.osv_memory):
     _name = 'account.analytic.journal.plan.report'

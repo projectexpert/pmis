@@ -20,8 +20,7 @@
 ##############################################################################
 
 import time
-import pooler
-from report import report_sxw
+from openerp.report import report_sxw
 from datetime import datetime
 import operator
 

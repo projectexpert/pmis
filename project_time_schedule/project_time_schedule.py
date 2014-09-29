@@ -19,16 +19,12 @@
 #
 ##############################################################################
 
-from lxml import etree
 import time
 from datetime import datetime, date, timedelta
-import decimal_precision as dp
-from tools.translate import _
-from osv import fields, osv
+from openerp.tools.translate import _
+from openerp.osv import fields, osv
 from dijkstra import *
-import netsvc
-import tools
-import time
+from openerp import netsvc
 from dateutil.rrule import *
 
 

@@ -19,15 +19,9 @@
 #
 ##############################################################################
 
-from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta
-import time
 
-from osv import fields, osv
-from tools.translate import _
-import decimal_precision as dp
-import netsvc
-import tools
+from openerp.osv import fields, osv
+from openerp import tools
 
 class account_invoice(osv.osv):
     _inherit = "account.invoice"

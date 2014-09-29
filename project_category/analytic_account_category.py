@@ -19,9 +19,7 @@
 #
 ##############################################################################
 
-import tools
-from osv import fields, osv
-from tools.translate import _
+from openerp.osv import fields, osv
 
     
 class analytic_account_category(osv.osv):

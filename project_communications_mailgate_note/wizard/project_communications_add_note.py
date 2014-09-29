@@ -1,5 +1,5 @@
-from osv import fields, osv
-from tools.translate import _
+from openerp.osv import fields, osv
+from openerp.tools.translate import _
 import base64
 
 AVAILABLE_STATES = [('draft', 'Draft'),('open', 'In Progress'),('pending', 'Pending'), ('cancelled', 'Cancelled'), ('close', 'Close'), ('unchanged', 'Unchanged')]

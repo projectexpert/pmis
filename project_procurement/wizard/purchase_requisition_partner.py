@@ -19,12 +19,9 @@
 #
 ##############################################################################
 
-import time
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from osv import fields, osv
-from osv.orm import browse_record, browse_null
-from tools.translate import _
+from openerp.osv import  osv
 
 class purchase_requisition_partner(osv.osv_memory):
     _inherit = "purchase.requisition.partner"
