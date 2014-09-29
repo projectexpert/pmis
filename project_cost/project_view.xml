@@ -17,7 +17,7 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
-            	<page string='Administration' position="after">
+            	<notebook position="inside">
 	            	<page string="Costs">
 							<field colspan="4" name="line_ids" nolabel="1" readonly="True" context="{'default_account_id': active_id}"/>
 	                        <field colspan="4" name="plan_line_ids" nolabel="1" context="{'default_account_id': active_id}">
@@ -109,7 +109,7 @@
 	                            </form>
 	                         </field>	                         
 	                 </page>  
-				</page>	 
+				</notebook>	 
                 	                        
             </field>            	        
         </record>   	

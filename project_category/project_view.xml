@@ -41,11 +41,11 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
-            	<page string="Administration" position="after">	
+            	<notebook position="inside">	
 	                <page string="Categories">	                        
 	                	<field  colspan="4" name="category_id" nolabel="1"/>
 	                </page>       		            				            	
-            	</page>
+            	</notebook>
             </field>            	        
         </record>  
 

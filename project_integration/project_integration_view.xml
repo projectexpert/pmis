@@ -30,7 +30,7 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">	
-            	<page string='Administration' position="after">
+            	<notebook position="inside">
 					<page groups="base.group_extended" string="Relationships">
                         <separator string="Predecessor Projects" colspan="4"/>
                         <field colspan="4" height="150" name="predecessor_ids" nolabel="1"/>
@@ -57,7 +57,7 @@
 	                            </tree>
 	                         </field>
 	                 </page>  
-				</page>	 
+				</notebook>
 				
 				                            	                        
             </field>            	        

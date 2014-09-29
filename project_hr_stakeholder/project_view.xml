@@ -48,7 +48,7 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
-            	<page string='Administration' position="after">
+            	<notebook position="inside">
 					<page groups="base.group_extended" string="Stakeholders">                        
                         <field name="stakeholder_ids" nolabel="1" context="{'default_project_id': active_id}">
                         	<tree string="Stakeholders">       
@@ -77,7 +77,7 @@
 			                </form>
                         </field>                                                    
                     </page> 	            		
-				</page>	 				                            	                        
+				</notebook>	 				                            	                        
             </field>            	        
         </record>   	
              

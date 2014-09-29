@@ -53,14 +53,14 @@
             		<field name="code" string="Code"/>
             		<field name="complete_wbs_code" string="WBS Path code" readonly="1"/>            				            		
             	</field>
-            	<page string="Administration" position="after">
+            	<notebook position="inside">
 	            	<page string="WBS Components">
 	            		<field colspan="4" name="project_child_complete_ids" nolabel="1" 
 	            			context="{'form_view_ref':'view_project','tree_view_ref':'edit_project'}">
 	            		</field>
 
-	              </page>    
-	             </page>	              	
+	              </page>
+	             </notebook>
             </field>            	        
         </record>  
 

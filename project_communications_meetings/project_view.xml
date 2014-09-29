@@ -50,11 +50,11 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
-            	<page string='Administration' position="after">
+            	<notebook position="inside">
 	            	<page string="Meetings">
 	                        <field colspan="4" name="crm_meetings" nolabel="1"  mode="tree,form" context="{'default_project_id': active_id}"/>
-	                </page>  
-				</page>	 
+	                </page>
+				</notebook>
 				
 				                            	                        
             </field>            	        
