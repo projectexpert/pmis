@@ -51,7 +51,7 @@
             <field name="help">Define the roles for stakeholders in projects.</field>
         </record>
 
-        <menuitem id="menu_roles_config" name="Roles" parent="project.menu_definitions" sequence="1"/>
+        <menuitem id="menu_roles_config" name="Roles" parent="base.menu_definitions" sequence="1"/>
         <menuitem action="action_project_hr_role_tree" id="menu_project_hr_role_view" parent="menu_roles_config" sequence="1"/>                  	                    
     </data>
 </openerp>

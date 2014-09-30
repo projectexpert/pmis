@@ -24,7 +24,7 @@
             
 
     <menuitem id="menu_project_meeting_categories_def_act"
-            name="Meeting Categories" parent="project.menu_definitions"
+            name="Meeting Categories" parent="base.menu_definitions"
             sequence="10" action="crm.crm_meeting_categ_action"
             groups="project.group_project_manager" />
 

@@ -48,7 +48,7 @@
             <field name="help">Define the project lifecycle stages.</field>
         </record>
 
-        <menuitem id="menu_project_lifecycle_config" name="Lifecycle" parent="project.menu_definitions" sequence="1"/>
+        <menuitem id="menu_project_lifecycle_config" name="Lifecycle" parent="base.menu_definitions" sequence="1"/>
         <menuitem action="action_project_lifecycle_tree" id="menu_project_lifecycle_view" parent="menu_project_lifecycle_config" sequence="1"/>                  	                    
     </data>
 </openerp>

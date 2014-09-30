@@ -13,7 +13,7 @@
 		
 		<menuitem id="project_hr_stakeholder_menu_project_config_address_book" 
 			name="Stakeholders" 
-			parent="project.menu_definitions" 
+			parent="base.menu_definitions" 
 			sequence="2"
             groups="project.group_project_manager"/>
 

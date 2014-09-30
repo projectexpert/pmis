@@ -73,7 +73,7 @@
         </record>
 
         <menuitem action="action_analytic_account_category_form" id="menu_analytic_account_category_form" name="Analytic Account Categories" sequence="4" parent="account.menu_analytic_accounting"/>
-        <menuitem action="action_analytic_account_category_form" id="menu_project_category_form" name="Project Categories" sequence="4" parent="project.menu_definitions"/>
+        <menuitem action="action_analytic_account_category_form" id="menu_project_category_form" name="Project Categories" sequence="4" parent="base.menu_definitions"/>
 
 
     </data>
