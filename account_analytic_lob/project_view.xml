@@ -13,7 +13,7 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
-            	<xpath expr="//page[@string='Administration']/group[@name='misc']/field[@name='warn_manager']" position="before">	
+                <xpath expr="//notebook/page[@string='Other Info']/group[@name='misc']/field[@name='active']" position="before">	
             		<field name="lob"/>          				            		
             	</xpath>
             </field>            	        
@@ -32,7 +32,7 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
             <field name="arch" type="xml">
-				<xpath expr="//page[@string='Account Data']/field[@name='partner_id']" position="after">	
+				<xpath expr="//page[@string='Contract Information']/separator[@name='description']" position="before">	
             		<field name="lob"/>          				            		
             	</xpath>      				            		            	              
             </field>
