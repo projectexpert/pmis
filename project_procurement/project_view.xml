@@ -13,7 +13,7 @@
       <menuitem name="Products by Category" id="project_procurement_menu_product_by_category_purchase_form" action="product.product_category_action"
            parent="project_procurement_menu_product" sequence="10"/>          
 			
-      <menuitem name="Products" id="project_procurement_menu_procurement_partner_contact_form" action="product.product_normal_action_puchased"
+      <menuitem name="Products" id="project_procurement_menu_procurement_partner_contact_form" action="purchase.product_normal_action_puchased"
           parent="project_procurement_menu_product"/>
 
       <menuitem id="project_procurement_menu_procurement" name="Procurement"
