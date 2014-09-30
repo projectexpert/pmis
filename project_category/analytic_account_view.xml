@@ -50,7 +50,7 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
             <field name="arch" type="xml">
-            	 <page string="Account Data" position="after">
+            	 <page string="Contract Information" position="after">
 	                <page string="Categories">	                        
 	                	<field  colspan="4" name="category_id" nolabel="1"/>
 	                </page>
