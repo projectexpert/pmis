@@ -14,7 +14,9 @@
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
                 <xpath expr="//notebook/page[@string='Other Info']/group[@name='misc']/field[@name='active']" position="before">	
-            		<field name="lob"/>          				            		
+                    <group colspan="4">
+                        <field name="lob"/>          				            		
+                    </group>
             	</xpath>
             </field>            	        
         </record>  
@@ -33,7 +35,9 @@
             <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
             <field name="arch" type="xml">
 				<xpath expr="//page[@string='Contract Information']/separator[@name='description']" position="before">	
-            		<field name="lob"/>          				            		
+                    <group colspan="4">
+                        <field name="lob"/>          				            		
+                    </group>
             	</xpath>      				            		            	              
             </field>
         </record>         
