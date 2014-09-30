@@ -110,55 +110,11 @@
             <field name="help">This report allows you to anlalyze and control the planned usage of resources of your projects by product.</field>
         </record>           
         
- <record model="ir.ui.view" id="board_project_resource_usage_product">
-            <field name="name">Project Resource Usage by Product Form</field>
-            <field name="model">board.board</field>
-            <field name="type">form</field>
-            <field name="arch" type="xml">
-                <form string="Dashboard">
-                    <hpaned>
-                        <child1>
-                            <action
-                                string="Resource Usage by Product Graph (Amounts)"
-                                name="%(action_account_analytic_resource_usage_product_amounts_graph)d"
-                                colspan="4"
-                                height="200"
-                                width="250"/>
-
-                            <action
-                                string="Resource Usage by Product Graph (Quantities)"
-                                name="%(action_account_analytic_resource_usage_product_quantities_graph)d"
-                                height="200"
-                                colspan="4"/>
-
-                        </child1>
-                    </hpaned>
-                </form>
-            </field>
-        </record>
-        
-        <record model="ir.actions.act_window" id="open_board_resource_usage_product">
-            <field name="name">Project Resource Usage by Product</field>
-            <field name="res_model">board.board</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">form</field>
-            <field name="usage">menu</field>
-            <field name="view_id" ref="board_project_resource_usage_product"/>
-        </record>        
-
-
 		<menuitem action="action_account_analytic_resource_usage_product_tree" id="menu_action_account_analytic_resource_usage_pr_tree" parent="base.menu_project_report"/>        
 		<menuitem action="action_account_analytic_resource_usage_product_amounts_graph" id="menu_action_account_analytic_resource_usage_pr_amts_graph" parent="base.menu_project_report"/>        
 		<menuitem action="action_account_analytic_resource_usage_product_quantities_graph" id="menu_action_account_analytic_resource_usage_pr_quants_graph" parent="base.menu_project_report"/>        
 
 
-        <menuitem
-            name="Resource Usage by Product Dashboard" parent="project.next_id_86"
-            action="open_board_resource_usage_product"
-            sequence="0"
-            id="menu_board_resource_usage_product"
-            icon="terp-graph"/>
-            
   
     </data>
 </openerp>
