@@ -53,7 +53,6 @@
                         <field name="stakeholder_ids" nolabel="1" context="{'default_project_id': active_id}">
                         	<tree string="Stakeholders">       
 			                	<field name="partner_id"/>
-			                	<field name="contact_id"/>             
 			                    <field name="roles_name_str"/>                                        
 								<field name="responsibilities_name_str"/>
 								<field name="influence"/>
@@ -63,7 +62,6 @@
 				                    <field name="project_id" readonly="1"/>
 				                    <field name="name"/>                    
 				                    <field name="partner_id"/>
-			                		<field name="contact_id" domain="[('partner_id','=',partner_id)]"/>	                    
 								</group>
 								<newline/>						                                        
 			                    <group colspan="6" col="6">

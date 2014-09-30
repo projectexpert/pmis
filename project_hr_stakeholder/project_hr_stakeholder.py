@@ -85,7 +85,6 @@ class project_hr_stakeholder(osv.osv):
         
         'name': fields.char('Description', required=True, size=64),
         'partner_id':fields.many2one('res.partner', 'Partner', required=True),
-        'contact_id': fields.many2one('res.partner.contact', 'Contact'),                
         'project_id': fields.many2one('project.project', 'Project', ondelete='cascade'),
         
         'role_ids': fields.many2many('project.hr.role', 'stakeholder_role_rel', 'stakeholder_id', 'role_id', 'Roles',

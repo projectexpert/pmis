@@ -14,7 +14,6 @@
                 	<group colspan="4" col="4">
 	                    <field name="project_id"/>	                                
 	                    <field name="partner_id"/>
-                		<field name="contact_id" domain="[('partner_id','=',partner_id)]"/>
                 		<field name="name"/>        	                    
 					</group>
 					<newline/>						                                        
@@ -38,7 +37,6 @@
                 <tree string="Stakeholders">   
                 	<field name="project_id"/>                   	  
                 	<field name="partner_id"/>
-                	<field name="contact_id"/>   
                 	<field name="name"/>              
                     <field name="roles_name_str"/>                                        
 					<field name="responsibilities_name_str"/>
@@ -56,7 +54,6 @@
                 <tree string="Stakeholders">
                 	<field name="project_id"/>                 	         
                 	<field name="partner_id"/>
-                	<field name="contact_id"/>
                 	<field name="name"/>               
                     <field name="roles_name_str"/>                                        
 					<field name="responsibilities_name_str"/>
@@ -75,7 +72,6 @@
                 	<group col="3" colspan="3">
                 		<field name="project_id"/>                   		       
                 		<field name="partner_id"/>
-                		<field name="contact_id"/> 
                 		<field name="name"/>  
                 	</group>
                 	<newline/>
