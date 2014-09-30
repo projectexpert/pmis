@@ -26,7 +26,7 @@
     "author": "Eficent",
     "website": "http://www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["account","product", "analytic", "boar@jbeficent_erpd", "project","project_scope_wbs","project_cost"],
+    "depends": ["account","account_budget", "product", "analytic", "project","project_scope_wbs","project_cost"],
     "description": """Eficent Project Management. Project Cost Analysis
         - The aim is to enable the project manager can see at all times the relationshipbetween the planned cost, budget, 
         current theoretical cost actual cost of the project.
