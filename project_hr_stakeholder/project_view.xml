@@ -29,12 +29,6 @@
             groups="project.group_project_manager,project.group_project_user"
             sequence="2"/>    
 
-        <menuitem action="base.action_partner_address_form" 
-        	id="base.project_hr_stakeholder_menu_project_partner_address_form"
-        	parent="project_hr_stakeholder_menu" 
-            groups="project.group_project_manager,project.group_project_user"
-            sequence="3"/>
-                    
                         
 
 #---------------------------------------------------------------------------------------------------------
