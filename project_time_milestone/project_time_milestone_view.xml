@@ -65,15 +65,7 @@
 	                                <field name="date_late_finish"/>
 									<field name="project_poc"/>
 									<field name="invoice_percentage"/> 	                                
-	                                <field name="state"/>
-	                                <button name="do_ready" states="draft,pending,open" string="Ready to start" type="object" icon="gtk-ok"/>
-									<button name="do_cancel" states="draft,ready,open,pending" string="Cancel" type="object" icon="gtk-cancel"/>
-	                                <button name="do_draft" states="ready" string="Draft" type="object" icon="gtk-indent"/>
-	                                <button name="do_open" states="ready,pending" string="Start Task" type="object" icon="gtk-execute"/>
-	                                <button name="%(project.action_project_task_reevaluate)d" states="done,cancelled" string="Reactivate" type="action" icon="gtk-convert" context="{'button_reactivate':True}" />
-	                                <button name="do_pending" states="ready, open" string="Pending" type="object" icon="gtk-media-pause"/>
-	                                <button groups="base.group_extended" name="%(project.action_project_task_delegate)d" states="pending,open,draft" string="Delegate" type="action" icon="gtk-sort-descending" help="For changing to delegate state"/>                                
-	                                <button name="action_close" states="pending,open" string="Done" type="object" icon="terp-dialog-close"/>	                                                                
+	                                <button groups="base.group_extended" name="%(project.action_project_task_delegate)d" string="Delegate" type="action" icon="gtk-sort-descending" help="For changing to delegate state"/>                                
 	                            </tree>
 	                         </field>
 	                 </page>       

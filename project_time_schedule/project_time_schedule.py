@@ -59,9 +59,14 @@ class task(osv.osv):
     def get_network(self, cr, uid, ids, d_activities, *args):
         
         read_data = []
-        read_data = self.read(cr, uid, ids[0], ['duration', 'child_ids', 'parent_ids', 'date_earliest_start', 'date_latest_finish', 'date_start', 'date_end', 'state'])            
+        read_data = self.read(cr, uid, ids[0], ['duration', 'child_ids', 'parent_ids', 'date_earliest_start', 'date_latest_finish', 'date_start', 'date_end', 'stage_id'])
+        task_stage_obj = self.pool.get('project.task.type')
+        closed = True
+        if read_data['stage_id']:
+            stage_data = task_stage_obj.read(cr, uid, read_data['stage_id'], ['fold'])
+            closed = stage_data['fold']
         
-        if read_data['state'] in ('cancelled', 'done'):
+        if closed:
             replan_duration = 0
         else:
             replan_duration = read_data['duration']
@@ -71,7 +76,7 @@ class task(osv.osv):
 
         # If task has started we consider it a start restriction
         
-        if read_data['date_end'] and read_data['state'] in ('cancelled', 'done'):
+        if read_data['date_end'] and closed:
             date_earliest_start = read_data['date_end']
         elif read_data['date_start']:
             date_earliest_start = read_data['date_start']        
@@ -79,7 +84,7 @@ class task(osv.osv):
             date_earliest_start = read_data['date_earliest_start']
         
         # If task has finish we consider it a finish restriction    
-        if read_data['date_end'] and read_data['state'] in ('cancelled', 'done'):
+        if read_data['date_end'] and closed:
             date_latest_finish = read_data['date_end']
         else:
             date_latest_finish = read_data['date_latest_finish']
@@ -270,7 +275,7 @@ class task(osv.osv):
         if context is None:
             context = {}
         res = super(task, self).write(cr, uid, ids, vals, context)
-        if not context.get('calculate_network') and ids and (vals.get('duration') or vals.get('state') or vals.get('date_latest_finish') or vals.get('date_earliest_start') or vals.get('parent_ids') or vals.get('child_ids')):
+        if not context.get('calculate_network') and ids and (vals.get('duration') or vals.get('stage_id') or vals.get('date_latest_finish') or vals.get('date_earliest_start') or vals.get('parent_ids') or vals.get('child_ids')):
             if not isinstance(ids, list):
                 ids = [ids]
             self.calculate_network(cr, uid, ids, context)

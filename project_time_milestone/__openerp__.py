@@ -26,7 +26,7 @@
     "author": "Eficent",
     "website": "http://www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["project"],
+    "depends": ["project", "project_time_schedule"],
     "description": """
         This module introduces the possibility to classify tasks as milestones.
         - It is possible to introduce the Project Percentage of Completion and the invoice percentage,

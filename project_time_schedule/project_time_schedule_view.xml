@@ -16,10 +16,7 @@
             <field eval="2" name="priority"/>
             <field name="inherit_id" ref="project.view_task_form2"/>       
             <field name="arch" type="xml">       
-            	<xpath expr="//form[@string='Task edition']//notebook//page[@string='Extra Info']//separator[@string='Dates']" position="replace"/>
-        		<xpath expr="//form[@string='Task edition']//notebook//page[@string='Extra Info']//field[@name='date_start']" position="replace"/>
-        		<xpath expr="//form[@string='Task edition']//notebook//page[@string='Extra Info']//field[@name='date_end']" position="replace"/>
-        		<xpath expr="//form[@string='Task edition']//notebook//page[@string='Extra Info']//field[@name='create_date']" position="replace"/>
+                <xpath expr="//sheet[@string='Task']//page[@string='Extra Info']//group[@string='Gantt View']" position="replace"/>
         		<xpath expr="//field[@name='planned_hours']" position="replace"/>            	            	
             	<xpath expr="//field[@name='remaining_hours']" position="replace"/>
            		<xpath expr="//field[@name='effective_hours']" position="replace"/>
