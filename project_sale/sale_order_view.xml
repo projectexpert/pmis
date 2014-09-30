@@ -7,7 +7,7 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="sale.view_order_form" />
             <field name="arch" type="xml">
-            	<xpath expr="//form[@string='Sales Order']//page[@string='Sales Order']//field[@name='project_id']" position="replace">
+            	<xpath expr="//form[@string='Sales Order']//field[@name='project_id']" position="replace">
                 	<field name="project"/>      
                 	<field name="project_manager"/>    
                 </xpath>            
@@ -42,8 +42,6 @@
 	                        <field name="discount"/>
 	                        <field name="price_subtotal"/>
 	                    </group>
-	                    <separator colspan="4" string="Notes"/>
-	                    <field colspan="4" name="notes" nolabel="1"/>
 	                    <separator colspan="4"/>
 	                    <field name="state"/>
 	                    <group col="4" colspan="2">
