@@ -16,9 +16,9 @@
 		      <field name="type">form</field>
 		      <field name="inherit_id" ref="project.edit_project"/>
 		      <field name="arch" type="xml">
-		      			<xpath expr="/form/notebook/page[@string='Billing']/field[@name='warn_customer']" position='after'>
-                        	<field name="order_count"/>
-                        </xpath>
+                  <xpath expr="//notebook/page[@string='Other Info']/group[@name='misc']/field[@name='active']" position='after'>
+                    <field name="order_count"/>
+                </xpath>
       		  </field>
     	</record>
     	
