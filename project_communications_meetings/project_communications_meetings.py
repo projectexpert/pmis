@@ -28,19 +28,16 @@ class project(osv.osv):
     _inherit = "project.project"
  
     _columns = {                                       
-            'crm_meetings': fields.one2many('crm.meeting','project_id','Meetings'),                        
+            'crm_meetings': fields.one2many('calendar.event','project_id','Meetings'),                        
     }
 
     
-project()
-
-class crm_meeting(osv.osv):
+class calendar_event(osv.osv):
     """ CRM Meeting Cases """
 
-    _inherit = 'crm.meeting'
+    _inherit = 'calendar.event'
 
     _columns = {    
         'project_id':fields.many2one('project.project', 'Project'),
     }
 
-crm_meeting()    

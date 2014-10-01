@@ -10,7 +10,7 @@
             domain="[('project_id', '=', active_id)]"
             id="act_project_2_meeting"
             name="Meetings"
-            res_model="crm.meeting"
+            res_model="calendar.event"
             src_model="project.project"
             groups="project.group_project_manager,project.group_project_user" />    
 
@@ -18,8 +18,8 @@
 
     <record model="ir.ui.view" id="crm_case_form_view_meet_avg">
         <field name="name">CRM - Meetings Form</field>
-        <field name="model">crm.meeting</field>
-		<field name="inherit_id" ref="crm.crm_case_form_view_meet" />        
+        <field name="model">calendar.event</field>
+		<field name="inherit_id" ref="crm.view_crm_meeting_form" />        
         <field name="type">form</field>
         <field name="arch" type="xml">
         	<field name="categ_id" position="after">
@@ -32,9 +32,9 @@
 
     <record id="view_crm_case_meetings_filter_avg" model="ir.ui.view">
         <field name="name">CRM - Meetings Search</field>
-        <field name="model">crm.meeting</field>
+        <field name="model">calendar.event</field>
         <field name="type">search</field>
-        <field name="inherit_id" ref="crm.view_crm_case_meetings_filter" />
+        <field name="inherit_id" ref="calendar.view_calendar_event_search" />
         <field name="arch" type="xml">
         	<field name="categ_id" position="after">
         		<field name="project_id" select="2"/>
