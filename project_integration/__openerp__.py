@@ -37,7 +37,6 @@
                 "project_cost",
                 "project_procurement",
                 "project",               
-                "project_communications_mailgate",
                 "email_template",             
                 ],
     "description": """Extensions for the Project management module.     
