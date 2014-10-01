@@ -34,7 +34,7 @@
 
         		<page string='Extra Info' position="after">
 
-        			<page groups="base.group_extended" string="Scheduling" attrs="{'readonly':[('state','=','done')]}">
+        			<page  string="Scheduling" attrs="{'readonly':[('state','=','done')]}">
 							<group colspan="2" col="2">
                                 <separator string="Limitations" colspan="2"/>
            						<field name="date_earliest_start"/>

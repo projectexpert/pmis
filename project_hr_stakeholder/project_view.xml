@@ -43,7 +43,7 @@
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
             	<notebook position="inside">
-					<page groups="base.group_extended" string="Stakeholders">                        
+					<page  string="Stakeholders">                        
                         <field name="stakeholder_ids" nolabel="1" context="{'default_project_id': active_id}">
                         	<tree string="Stakeholders">       
 			                	<field name="partner_id"/>

@@ -33,7 +33,7 @@
 	                        <field name="product_uom_qty" readonly="1"/>
 	                        <field name="product_uom"/>
 	
-	                        <field colspan="4" name="name" groups="base.group_extended"/>
+	                        <field colspan="4" name="name" />
 	                        <field name="company_id" groups="base.group_multi_company" readonly="1"/>
 	                    </group>
 	                    <separator colspan="4" string="Price"/>

@@ -34,7 +34,7 @@
                         <field name="product_uom_id" colspan="2" nolabel="1"/>
                         <field name="user_id" colspan="2"/>
                     </group>
-                    <group colspan="2" col="2" groups="base.group_extended">
+                    <group colspan="2" col="2" >
                         <separator string="General Accounting" colspan="2"/>
                         <field name="general_account_id"/>
                         <field name="move_id" readonly="1"/>
@@ -72,7 +72,7 @@
                 	    <filter name="edit"
                             string="Edit"  context="{'set_editable':True,'seq_visible': True}"
                             icon="gtk-execute"
-                            groups="base.group_extended"/>
+                            />
                         <field name="date"/>
                         <field name="name"/>
                         <field name="account_id"/>

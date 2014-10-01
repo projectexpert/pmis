@@ -17,7 +17,7 @@
             	</field>
             	
 	            <page string='Extra Info' position="after">
-	            	<page groups="base.group_extended" string="Milestone" attrs="{'readonly':[('milestone','=',False)]}">
+	            	<page  string="Milestone" attrs="{'readonly':[('milestone','=',False)]}">
 	            		<group colspan="3" col="3">    
 	            			<field name="public_milestone"/>                          
 							<field name="project_poc"/>
@@ -65,7 +65,7 @@
 	                                <field name="date_late_finish"/>
 									<field name="project_poc"/>
 									<field name="invoice_percentage"/> 	                                
-	                                <button groups="base.group_extended" name="%(project.action_project_task_delegate)d" string="Delegate" type="action" icon="gtk-sort-descending" help="For changing to delegate state"/>                                
+	                                <button  name="%(project.action_project_task_delegate)d" string="Delegate" type="action" icon="gtk-sort-descending" help="For changing to delegate state"/>                                
 	                            </tree>
 	                         </field>
 	                 </page>       

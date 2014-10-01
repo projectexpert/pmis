@@ -31,7 +31,7 @@
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">	
             	<notebook position="inside">
-					<page groups="base.group_extended" string="Relationships">
+					<page  string="Relationships">
                         <separator string="Predecessor Projects" colspan="4"/>
                         <field colspan="4" height="150" name="predecessor_ids" nolabel="1"/>
                         <separator string="Successor Projects" colspan="4"/>
@@ -52,7 +52,7 @@
 	                                <button name="do_open" states="ready,pending" string="Start Task" type="object" icon="gtk-execute"/>
 	                                <button name="%(project.action_project_task_reevaluate)d" states="done,cancelled" string="Reactivate" type="action" icon="gtk-convert" context="{'button_reactivate':True}" />
 	                                <button name="do_pending" states="ready, open" string="Pending" type="object" icon="gtk-media-pause"/>
-	                                <button groups="base.group_extended" name="%(project.action_project_task_delegate)d" states="pending,open,draft" string="Delegate" type="action" icon="gtk-sort-descending" help="For changing to delegate state"/>                                
+	                                <button  name="%(project.action_project_task_delegate)d" states="pending,open,draft" string="Delegate" type="action" icon="gtk-sort-descending" help="For changing to delegate state"/>                                
 	                                <button name="action_close" states="pending,open" string="Done" type="object" icon="terp-dialog-close"/>	                                                                
 	                            </tree>
 	                         </field>

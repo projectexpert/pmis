@@ -14,7 +14,7 @@
                     <group colspan="4" col="6">                        
                         <field name="account_id"/>
                         <field name="customer_id" on_change="onchange_customer_id(customer_id)" context="{'search_default_supplier':1}"/>
-                        <field name="pricelist_id" domain="[('type','=','sale')]" groups="base.group_extended"/>
+                        <field name="pricelist_id" domain="[('type','=','sale')]" />
                         <!--<field name="account_id"/>-->
                     </group>                    
                     <group colspan="2" col="4">                                                
@@ -27,16 +27,16 @@
                         
                                                 
                     </group>
-                    <group colspan="2" col="2" groups="base.group_extended">
+                    <group colspan="2" col="2" >
                         <separator string="Sale Order Information" colspan="2"/>
                         <field name="sale_order_id"/>
                         <field name="sale_line_id"/>
                     </group>
-                    <group colspan="2" col="2" groups="base.group_extended">
+                    <group colspan="2" col="2" >
                         <separator string="Notes" colspan="2"/>
                         <field name="notes" nolabel="1"/>
                     </group>
-                    <group colspan="2" col="2" groups="base.group_extended">
+                    <group colspan="2" col="2" >
                         <separator string="Analytic Information" colspan="2"/>   
                         <field name="journal_id"/>
                         <field name="date"/>
@@ -80,11 +80,11 @@
                 	    <filter name="edit"
                             string="Edit"  context="{'seq_visible': True, 'set_editable':True}"
                             icon="gtk-execute"
-                            groups="base.group_extended"/>   
+                            />   
                          <filter name="no_po"
                             string="Non-ordered"  domain="[('sale_line_id','=','')]"
                             icon="gtk-execute"
-                            groups="base.group_extended"/>                                                 
+                            />                                                 
                         <field name="account_id"/>
                         <field name="product_id"/>
                         <field name="customer_id" on_change="onchange_partner_id(customer_id)" context="{'search_default_supplier':1}"/>                             

@@ -14,7 +14,7 @@
             <field name="arch" type="xml">
                 <form string="Analytic Account Category">
                     <field name="name" select="1"/>
-                    <field name="active" groups="base.group_extended"/>
+                    <field name="active" />
                     <field name="parent_id"/>
                     <separator colspan="4" string="Analytic Accounts"/>
                     <field colspan="4" name="account_ids" nolabel="1"/>

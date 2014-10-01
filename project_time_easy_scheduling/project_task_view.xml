@@ -17,7 +17,7 @@
                         <filter name="edit"
                             string="Edit"  context="{'set_editable':True,'seq_visible': True}"
                             icon="gtk-execute"
-                            groups="base.group_extended"/>
+                            />
                         <separator orientation="vertical"/>	
                         <field name="id" select="1"/>					
                         <field name="name" select="1"/>
@@ -62,7 +62,7 @@
                     <field name="project_complete_wbs_name" string="WBS Path name" />                                        
                     -->
                     
-                    <button groups="base.group_extended" name="%(project_time_sequence.action_project_task_link_predecessors_str)d" states="pending,open,draft,ready" string="Link" type="action" icon="gtk-sort-descending" help="For linking to a predecessor task"/>
+                    <button  name="%(project_time_sequence.action_project_task_link_predecessors_str)d" states="pending,open,draft,ready" string="Link" type="action" icon="gtk-sort-descending" help="For linking to a predecessor task"/>
                     
                     <field name="predecessor_ids_str" readonly ="1"/>    
                     <field name="predecessor_names_str" readonly ="1"/>
@@ -117,7 +117,7 @@
                         <filter name="edit"
                             string="Edit"  context="{'set_editable':True,'seq_visible': True}"
                             icon="gtk-execute"
-                            groups="base.group_extended"/>
+                            />
                         <separator orientation="vertical"/>
                         <field name="id" select="1"/>
                         <field name="name" select="1"/>
@@ -157,7 +157,7 @@
                   	<field name="date_latest_finish"/>   
                   	<field name="predecessor_ids_str" readonly ="1"/>    
                     <field name="predecessor_names_str" readonly ="1"/>                    
-                    <button groups="base.group_extended" name="%(project_time_sequence.action_project_task_link_predecessors_str)d" states="pending,open,draft,ready" string="Link" type="action" icon="gtk-sort-descending" help="For linking to a predecessor task"/>                                        
+                    <button  name="%(project_time_sequence.action_project_task_link_predecessors_str)d" states="pending,open,draft,ready" string="Link" type="action" icon="gtk-sort-descending" help="For linking to a predecessor task"/>                                        
                     <field name="milestone"/>                                       
                     <button name="do_cancel" states="draft,ready,open,pending" string="Cancel" type="object" icon="gtk-cancel" help="For cancelling the task"/>
                     <button name="do_open" states="pending,draft,ready,done,cancelled" string="Start Activity" type="object" icon="gtk-new" help="For changing to open state" invisible="context.get('set_visible',False)"/>

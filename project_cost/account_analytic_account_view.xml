@@ -93,7 +93,7 @@
 				                        <field name="unit_amount" colspan="2" on_change="on_change_unit_amount(product_id, unit_amount, company_id, product_uom_id, journal_id)"/>
 				                        <field name="product_uom_id" colspan="2" nolabel="1" on_change="on_change_unit_amount(product_id, unit_amount, company_id, product_uom_id, journal_id)"/>
 				                    </group>
-				                    <group colspan="2" col="2" groups="base.group_extended">
+				                    <group colspan="2" col="2" >
 				                        <separator string="General Accounting" colspan="2"/>
 				                        <field name="general_account_id"/>
 				                        <field name="move_id" readonly="1"/>
@@ -136,7 +136,7 @@
 				                        <field name="unit_amount" colspan="2" on_change="on_change_unit_amount(product_id, unit_amount, company_id, product_uom_id, journal_id)"/>
 				                        <field name="product_uom_id" colspan="2" nolabel="1" on_change="on_change_unit_amount(product_id, unit_amount, company_id, product_uom_id, journal_id)"/>
 				                    </group>
-				                    <group colspan="2" col="2" groups="base.group_extended">
+				                    <group colspan="2" col="2" >
 				                        <separator string="General Accounting" colspan="2"/>
 				                        <field name="general_account_id"/>
 				                        <field name="move_id" readonly="1"/>

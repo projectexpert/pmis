@@ -20,7 +20,7 @@
                         <newline/>
                         <field string="Supplier" name="partner_id" on_change="onchange_partner_id(type,partner_id,date_invoice,payment_term, partner_bank_id,company_id)" context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1}"/>
                         <field domain="[('partner_id','=',partner_id)]" name="address_invoice_id"/>
-                        <field name="fiscal_position" groups="base.group_extended" widget="selection"/>
+                        <field name="fiscal_position"  widget="selection"/>
                         <newline/>
                         <field name="date_invoice"/>
                         <field name="period_id" domain="[('state', '=', 'draft')]" groups="account.group_account_user" widget="selection"/>
@@ -89,24 +89,24 @@
                             <field name="payment_term" widget="selection"/>
                             <field name="name"/>
                             <newline/>
-                            <field name="origin" groups="base.group_extended"/>
-                            <field domain="[('partner_id','=',partner_id)]" name="address_contact_id" groups="base.group_extended"/>
+                            <field name="origin" />
+                            <field domain="[('partner_id','=',partner_id)]" name="address_contact_id" />
                             <field name="user_id"/>
                             <field name="move_id" groups="account.group_account_user"/>
                             <separator colspan="4" string="Additional Information"/>
                             <field colspan="4" name="comment" nolabel="1"/>
                         </page>
-                        <page string="Payments" groups="base.group_extended">
+                        <page string="Payments" >
                             <field name="payment_ids" colspan="4" nolabel="1" >
                                 <tree string="Payments">
                                     <field name="date" string="Payment Date"/>
                                     <field name="ref"/>
-                                    <field name="name" groups="base.group_extended"/>
+                                    <field name="name" />
                                     <field name="journal_id"/>
                                     <field name="debit"/>
                                     <field name="credit"/>
-                                    <field name="amount_currency" groups="base.group_extended"/>
-                                    <field name="currency_id" groups="base.group_extended"/>
+                                    <field name="amount_currency" />
+                                    <field name="currency_id" />
                                 </tree>
                             </field>
                         </page>
@@ -130,7 +130,7 @@
                     <newline/>
                     <field string="Customer" name="partner_id" on_change="onchange_partner_id(type,partner_id,date_invoice,payment_term, partner_bank_id,company_id)" groups="base.group_user" context="{'search_default_customer': 1}"/>
                     <field domain="[('partner_id','=',partner_id)]" name="address_invoice_id"/>
-                    <field name="fiscal_position" groups="base.group_extended" widget="selection"/>
+                    <field name="fiscal_position"  widget="selection"/>
                     <newline/>
                     <field name="date_invoice"/>
                     <field name="period_id" domain="[('state', '=', 'draft')]" groups="account.group_account_user" widget="selection"/>
@@ -186,10 +186,10 @@
                             <field name="user_id"/>
                             <newline/>
                             <field domain="[('partner_id.ref_companies', 'in', [company_id])]" name="partner_bank_id"
-                                groups="base.group_extended"/>
+                                />
                             <field name="origin"/>
                             <field colspan="4" domain="[('partner_id','=',partner_id)]" name="address_contact_id"
-                                groups="base.group_extended"/>
+                                />
                             <field name="move_id" groups="account.group_account_user"/>
                             <separator colspan="4" string="Additional Information"/>
                             <field colspan="4" name="comment" nolabel="1"/>
