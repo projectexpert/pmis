@@ -178,16 +178,13 @@ class task(osv.osv):
             if stop_activity.is_stop:
                 break
         
-        #stop_activity.late_finish = stop_activity.early_finish
         stop_activity.date_late_finish = stop_activity.date_early_finish
         
-        #stop_activity.late_start = stop_activity.late_finish - stop_activity.replan_duration
         stop_activity.date_late_start = network_activity.sub_work_days(stop_activity.date_late_finish, stop_activity.replan_duration)
         
         
         network_activity.walk_list_aback(stop_activity)
         
-        #start_activity.late_finish = start_activity.early_finish
         start_activity.date_late_finish = start_activity.date_early_finish        
         start_activity.date_late_start = network_activity.sub_work_days(start_activity.date_late_finish, start_activity.replan_duration)
         
@@ -199,11 +196,7 @@ class task(osv.osv):
                 l_successor_date_early_start.append(successor.date_early_start)
             if l_successor_date_early_start:
                 [act.free_float, rr] = network_activity.work_days_diff(act.date_early_finish, min(l_successor_date_early_start))
-#            
             [act.total_float, rr] = network_activity.work_days_diff(act.date_early_start, act.date_late_start) 
-#            
-#            if (act.date_early_finish == act.date_late_finish and act.date_early_start == act.date_late_start):
-#                act.is_critical_path = True
                 
         
     
@@ -224,15 +217,6 @@ class task(osv.osv):
                             d_neighbours[other_act] = succ_act.total_float                            
             d_graph[act] = d_neighbours
                 
-#        d_graph = {}        
-#        for act in d_activities.keys():
-#            d_predecessors = {}        
-#            for pred_act in d_activities[act].predecessors:
-#                d_predecessors[pred_act.activity_id] = pred_act.replan_duration
-#            d_graph[act] = d_predecessors
-
-
-        
         l_spath = []
         try: 
             l_spath = shortestPath(d_graph, 'start', 'stop')
@@ -397,7 +381,6 @@ class network_activity(object):
         #If the calculated date is later than the early start date, then the calculated date is used.
         
         if position.date_earliest_start:
-#            if position.date_early_start < position.date_earliest_start:
             position.date_early_start = position.date_earliest_start
                     
         if position.is_start:                        
@@ -408,8 +391,7 @@ class network_activity(object):
         for successor in position.successors:
             
             if successor.date_earliest_start:
-#                if successor.date_early_start < successor.date_earliest_start:
-                    successor.date_early_start = successor.date_earliest_start            
+                successor.date_early_start = successor.date_earliest_start            
             
             for predecessor in successor.predecessors:
                 if successor.date_early_start < predecessor.date_early_finish:
@@ -418,7 +400,6 @@ class network_activity(object):
                     
             
             
-#          successor.date_early_finish = successor.date_early_start + successor.replan_duration
             successor.date_early_finish = network_activity.add_work_days(successor.date_early_start, successor.replan_duration)     
                 
         for successor in position.successors:
@@ -436,7 +417,6 @@ class network_activity(object):
                 activity.date_late_finish = activity.date_latest_finish
         
         if activity.is_stop:            
-            #activity.date_late_start = activity.date_late_finish - activity.replan_duration
             activity.date_late_start = network_activity.sub_work_days(activity.date_late_finish, activity.replan_duration)
                         
         #In calculating backward through the finish-to-start network, 
@@ -444,8 +424,7 @@ class network_activity(object):
         #as the latest finish for a predecessor task                        
         for predecessor in activity.predecessors:
             if predecessor.date_latest_finish:
-#                if predecessor.date_late_finish > predecessor.date_latest_finish:
-                    predecessor.date_late_finish = predecessor.date_latest_finish
+                predecessor.date_late_finish = predecessor.date_latest_finish
             
             for successor in predecessor.successors:
                 if predecessor.date_late_finish <= DATE_INIT:
@@ -454,7 +433,6 @@ class network_activity(object):
                     predecessor.date_late_finish = successor.date_late_start
             
             
-            #predecessor.date_late_start = predecessor.date_late_finish - predecessor.replan_duration
             predecessor.date_late_start = network_activity.sub_work_days(predecessor.date_late_finish, predecessor.replan_duration)
                        
         for predecessor in activity.predecessors:
