@@ -24,8 +24,11 @@ from datetime import datetime, date, timedelta
 from openerp.tools.translate import _
 from openerp.osv import fields, osv
 from dijkstra import *
-from openerp import netsvc
 from dateutil.rrule import *
+import logging
+
+
+_logger = logging.getLogger(__name__)
 
 
 class task(osv.osv):
@@ -63,7 +66,7 @@ class task(osv.osv):
         task_stage_obj = self.pool.get('project.task.type')
         closed = True
         if read_data['stage_id']:
-            stage_data = task_stage_obj.read(cr, uid, read_data['stage_id'], ['fold'])
+            stage_data = task_stage_obj.read(cr, uid, read_data['stage_id'][0], ['fold'])
             closed = stage_data['fold']
         
         if closed:
@@ -230,13 +233,11 @@ class task(osv.osv):
 
 
         
-        logger = netsvc.Logger()
-        
         l_spath = []
         try: 
             l_spath = shortestPath(d_graph, 'start', 'stop')
         except Exception as e:
-            logger.notifyChannel("warning", netsvc.LOG_WARNING,
+            _logger.warning(
                 "Could not calculate the critical path due to existing negative floats in one or more of the network activities.")
         
         
