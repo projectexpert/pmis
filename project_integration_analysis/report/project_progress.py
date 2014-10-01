@@ -148,8 +148,8 @@ class project_progress(report_sxw.rml_parse):
 
     def _get_project_meetings(self, project_id):
         
-        tsk_ids = self.pool.get('crm.meeting').search(self.cr, self.uid, [('project_id', '=', project_id)])
-        read_data = self.pool.get('crm.meeting').read(self.cr, self.uid, tsk_ids,
+        tsk_ids = self.pool.get('calendar.event').search(self.cr, self.uid, [('project_id', '=', project_id)])
+        read_data = self.pool.get('calendar.event').read(self.cr, self.uid, tsk_ids,
                                                        ['name',
                                                         'user_id',
                                                         'categ_id',
