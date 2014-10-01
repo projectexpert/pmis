@@ -42,45 +42,6 @@ class project(osv.osv):
         self.write(cr, uid, ids, {'state': 'open'})        
         return True
     
-    #def set_open(self, cr, uid, ids, *args):
-        
-        # res = super(project,self).set_open(cr, uid, ids, *args)
-        
-        # for proj in self.browse(cr, uid, ids, context=None):
-        #    analytic_account_id = proj.analytic_account_id.id
-            
-        # account_analytic_line_plan_obj=self.pool.get('account.analytic.line.plan')
-        # account_analytic_line_plan_ids = account_analytic_line_plan_obj.search(cr, uid, [('account_id', '=', analytic_account_id)], context=None)
-        
-        # product_obj=self.pool.get('product.product')
-        
-        # purchase_order_obj=self.pool.get('purchase.order')
-        # purchase_order_ids = purchase_order_obj.search(cr, uid, [('project_id', '=', proj.id),('state','<>','cancel')], context=None)
-
-        #purchase_order_line_obj=self.pool.get('purchase.order.line')
-        
-                
-        #for account_analytic_line_plan_id in account_analytic_line_plan_ids:
-        #    account_analytic_line_plan=account_analytic_line_plan_obj.browse(cr, uid, account_analytic_line_plan_id, context=None)
-        #    
-        #    journal_type = account_analytic_line_plan.journal_id and account_analytic_line_plan.journal_id.type or False             
-        #    
-            #if account_analytic_line_plan.product_id:
-            #    product=product_obj.browse(cr, uid, account_analytic_line_plan.product_id.id, context=None)
-            #    if product.supply_method == 'buy' and journal_type == 'purchase':
-            #        for purchase_order_id in purchase_order_ids:
-            #            purchase_order_line_ids = purchase_order_line_obj.search(cr, uid, [('order_id', '=', purchase_order_id),('product_id','=',account_analytic_line_plan.product_id.id)], context=None)
-            #        
-            #        if not purchase_order_ids or not purchase_order_line_ids:
-            #            raise osv.except_osv(_('User Error'),
-            #            _('You cannot start the project.\n'\
-            #              'The project contains a cost estimate for the product "%s" which has as supply method "buy".\n'\
-            #              'You must create a purchase order linked to this project to procure this product.')
-            #             % (product.name))      
-             
-        #return res
-    
-        
     def set_ready(self, cr, uid, ids, *args):
         self.write(cr, uid, ids, {'state': 'ready'})
         self.send_ready(cr, uid, ids)
@@ -92,40 +53,15 @@ class project(osv.osv):
         project_br = self.browse(cr,uid,ids)
         for p in project_br:
             
-#            subject = _("'%s' is ready to start") % p.complete_wbs_name
             if p.user_id and p.user_id.address_id and p.user_id.address_id.email:
                 to_adr = p.user_id.address_id.email
-                #signature = p.user_id.signature
             else:
                 raise osv.except_osv(_('Error'), _("Couldn't send mail because the project manager email address is not configured!"))
-#
-#            from_adr = tools.config.get('email_from', False) or p.user_id.address_id.email
-#
-#
-#            
-#            project_name = u'Project name: %s' %(tools.ustr(p.name))
-#            user_id = u'Project manager: %s' %(tools.ustr(p.user_id.name)) 
-#            complete_wbs_code = u'WBS code: %s' %(tools.ustr(p.complete_wbs_code)) 
-#            complete_wbs_name = u'WBS path: %s' %(tools.ustr(p.complete_wbs_name)) 
-#            
-#            vals = [project_name, user_id, complete_wbs_code, complete_wbs_name]
-#            
-#            header = u'\n'.join(vals)
-#            footer = ''
-#            body = u'%s\n%s\n%s\n\n-- \n%s' % (header, p.description, footer, signature)
-#            
-#            mail_id = tools.email_send(from_adr, to_adr, subject, tools.ustr(body), email_bcc=[from_adr])
             
             email_template_ids = self.pool.get('email.template').search(cr,uid,[('object_name.name','=','Project'),('name','=','Project status change')],context=None)
             for email_template_id in email_template_ids:
                 self.pool.get('email.template').generate_mail(cr,uid,email_template_id,ids,context=None)
                         
-            #if not mail_id:
-            #    raise osv.except_osv(_('Error'), _("Couldn't send mail! Check the email ids and smtp configuration settings"))
-#            
-#            msg_dict = {'new': 'Send', 'reply': 'Reply', 'forward': 'Forward'}
-#            
-#            self.history(cr, uid,[p], _(msg_dict['new']), history=True,email=to_adr, details=body,subject=subject, email_from=from_adr, message_id=None, references=None, attach=None)
             
         return {}    
     
