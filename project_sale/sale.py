@@ -21,8 +21,6 @@
 
 
 from openerp.osv import fields, osv
-from openerp.tools.translate import _
-from openerp import netsvc
 
 class sale_order(osv.osv):
     
