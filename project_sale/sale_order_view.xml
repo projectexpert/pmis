@@ -14,62 +14,6 @@
             </field>
         </record>
 
-    	<record id="view_order_line_form2" model="ir.ui.view">
-            <field name="name">sale.order.line.form2</field>
-            <field name="model">sale.order.line</field>
-            <field name="type">form</field>
-            <field name="inherit_id" ref="sale.view_order_line_form2" />
-            <field name="arch" type="xml">
-        		<xpath expr="//form[@string='Sales Order Lines']" position="replace">
-        			<form string="Sales Order Lines">
-	                    <group colspan="4" col="6">
-	                        <field name="order_id"/>
-	                        <field name="order_project" readonly="1"/>
-	                        <field name="order_project_manager" readonly="1"/>
-	                        <field name="order_partner_id" readonly="1"/>
-	                        <field name="invoiced"/>
-	
-	                        <field name="product_id" readonly="1"/>
-	                        <field name="product_uom_qty" readonly="1"/>
-	                        <field name="product_uom"/>
-	
-	                        <field colspan="4" name="name" />
-	                        <field name="company_id" groups="base.group_multi_company" readonly="1"/>
-	                    </group>
-	                    <separator colspan="4" string="Price"/>
-	                    <group colspan="4" col="6">
-	                        <field name="price_unit"/>
-	                        <field name="discount"/>
-	                        <field name="price_subtotal"/>
-	                    </group>
-	                    <separator colspan="4"/>
-	                    <field name="state"/>
-	                    <group col="4" colspan="2">
-	                        <button name="button_cancel"
-	                            string="Cancel" type="object"
-	                            icon="gtk-cancel"
-	                            states="confirmed,exception"/>
-	                        <button colspan="1"
-	                            name="%(sale.action_view_sale_order_line_make_invoice)d"
-	                            string="Create Invoice"
-	                            type="action"
-	                            states="done"
-	                            icon="gtk-go-forward"
-	                            groups="account.group_account_user"
-	                            attrs="{'invisible': [('invoiced', '=', 1)]}"/>
-	                        <button name="button_done"
-	                            string="Done" type="object"
-	                            states="confirmed,exception"
-	                            icon="gtk-go-forward" />
-	                        <button name="button_confirm"
-	                            string="Confirmed" type="object"
-	                            states="done,exception"
-	                            icon="gtk-go-forward" />    
-	                    </group>
-           			</form>
-           		</xpath>
-        	</field>
-     	</record>	
 
 		<record id="view_order_line_tree" model="ir.ui.view">
             <field name="name">sale.order.line.tree</field>
@@ -138,23 +82,5 @@
         </record>
 
 
-
-        <act_window name="Make Invoices"		    
-		    res_model="sale.order.line.make.invoice"
-		    view_mode="form"
-		    view_type="form"
-		    target="new"        
-            key2="client_action_multi"    
-		    id="sale.action_view_sale_order_line_make_invoice"
-		    view_id="sale.view_sale_order_line_make_invoice"
-		    groups="account.group_account_user"/>
-
-          <menuitem
-            action="sale.action_order_line_tree2"
-            id="menu_sale_line_order_draft"
-            groups="account.group_account_user"
-            parent="account.menu_finance_receivables"
-            sequence="0"/>
-		    
    </data>
 </openerp>
