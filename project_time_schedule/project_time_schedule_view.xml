@@ -34,7 +34,7 @@
 
         		<page string='Extra Info' position="after">
 
-        			<page  string="Scheduling" attrs="{'readonly':[('state','=','done')]}">
+        			<page  string="Scheduling">
 							<group colspan="2" col="2">
                                 <separator string="Limitations" colspan="2"/>
            						<field name="date_earliest_start"/>
@@ -75,5 +75,6 @@
         		</page>              	        		        		
             </field>
         </record>
+        <!-- FIXME: override view_task_gantt to hook in our date fields to the gantt chart. -->
     </data>
 </openerp>
