@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+#---------------------------------------------------------------------------------------------------------
+#   Extend the analytic account
+#---------------------------------------------------------------------------------------------------------
+
+
+        <record model="ir.actions.act_window" id="act_purchase_order_lines">            
+            <field name="domain">[('account_analytic_id','child_of', active_id)]</field>
+            <field name="name">Purchase order lines</field>
+            <field name="res_model">purchase.order.line</field>
+            <field name="src_model">account.analytic.account</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <record id="view_account_analytic_account_form_purch" model="ir.ui.view">
+            <field name="name">account.analytic.account.form.purch</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//div[@name="buttons"]' position='inside'>
+                    <button string="Purchase order lines"
+                        name="%(act_purchase_order_lines)d"
+                        type="action"/>
+                </xpath>                              
+            </field>
+        </record>
+ 
+    </data>
+</openerp>

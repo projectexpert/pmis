@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+#---------------------------------------------------------------------------------------------------------
+#   Analytic Journal
+#---------------------------------------------------------------------------------------------------------
+        <record id="view_account_analytic_plan_journal_tree" model="ir.ui.view">
+            <field name="name">account.analytic.plan.journal.tree</field>
+            <field name="model">account.analytic.plan.journal</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Analytic Journal">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="analytic_journal"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_account_analytic_plan_journal_search" model="ir.ui.view">
+            <field name="name">account.analytic.plan.journal.search</field>
+            <field name="model">account.analytic.plan.journal</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Analytic Journals">
+                  <group>
+                      <field name="code"/>
+                      <field name="name"/>
+                      <field name="type"/>
+                      <field name="analytic_journal"/>
+                  </group>
+                  <newline/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Type" icon="terp-stock_symbol-selection" domain="[]" context="{'group_by':'type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_account_analytic_plan_journal_form" model="ir.ui.view">
+            <field name="name">account.analytic.plan.journal.form</field>
+            <field name="model">account.analytic.plan.journal</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Analytic Journal">
+                    <field name="name" select="1"/>
+                    <field name="code" select="1"/>
+                    <field name="type" select="2"/>
+                    <field name="active" select="2"/>
+                    <field name="company_id" groups="base.group_multi_company" widget="selection"/>
+                    <field name="analytic_journal"/>
+                </form>
+            </field>
+        </record>
+        <record id="action_account_analytic_plan_journal_form" model="ir.actions.act_window">
+            <field name="name">Planning Analytic Journals</field>
+            <field name="res_model">account.analytic.plan.journal</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_account_analytic_plan_journal_search" />
+        </record>
+        <menuitem groups="analytic.group_analytic_accounting" 
+        	action="action_account_analytic_plan_journal_form"
+        	id="account_def_analytic_plan_journal"
+        	parent="account.menu_analytic_accounting" sequence="6"/>
+
+
+#---------------------------------------------------------------------------------------------------------
+#   Reporting
+#---------------------------------------------------------------------------------------------------------
+        
+        <record id="action_account_analytic_plan_journal_tree" model="ir.actions.act_window">
+            <field name="name">Print Planning Analytic Journals</field>
+            <field name="res_model">account.analytic.plan.journal</field>
+            <field name="view_type">tree</field>
+            <field name="help">To print a planning analytics (or costs) journal for a given period. The report give code, move name, account number, general amount and analytic amount.</field>
+        </record>
+        <menuitem groups="analytic.group_analytic_accounting"
+            action="action_account_analytic_plan_journal_tree"
+            id="account_analytic_plan_journal_print" parent="account.next_id_40"/>
+        	            	        
+         	                    
+    </data>
+</openerp>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+#---------------------------------------------------------------------------------------------------------
+#   Extend the menus
+#---------------------------------------------------------------------------------------------------------
+		<menuitem id="analytic_plan_analytic_account_menu"
+			name="Analytic Accounting" 
+			parent="project.menu_project_management" 
+			sequence="2"
+			groups="analytic.group_analytic_accounting"/>
+		
+		<menuitem action="account.action_account_analytic_account_form" id="account_analytic_def_account"
+            parent="analytic_plan_analytic_account_menu"
+            groups="analytic.group_analytic_accounting"/>
+
+		<menuitem groups="analytic.group_analytic_accounting"
+            action="action_account_analytic_plan_journal_open_form"
+            id="account_analytic_plan_journal_entries_2"
+            parent="analytic_plan_analytic_account_menu"/>
+			
+#---------------------------------------------------------------------------------------------------------
+#   Extend the analytic account
+#---------------------------------------------------------------------------------------------------------
+          
+
+		<record id="view_account_analytic_account_tree_inh" model="ir.ui.view">
+            <field name="name">account.analytic.account.tree</field>
+            <field name="model">account.analytic.account</field>
+            <field name="type">tree</field>
+            <field name="field_parent">child_complete_ids</field>
+            <field name="inherit_id" ref="account.view_account_analytic_account_tree"/>
+            <field name="arch" type="xml">         	   
+            	<field name="balance" position="after">    
+            	    <field name="debit_plan"/>            	   
+                    <field name="credit_plan"/>                    
+                    <field name="balance_plan"/>
+            	</field>            	
+            </field>
+        </record>            	
+
+        <record model="ir.actions.act_window" id="act_analytic_plan_cost_revenue">            
+            <field name="domain">[('account_id','child_of', active_id)]</field>
+            <field name="name">Planned Costs &amp; Revenues</field>
+            <field name="res_model">account.analytic.line.plan</field>
+            <field name="src_model">account.analytic.account</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html">
+              <p>
+                No activity yet on this contract.
+              </p><p>
+                In OpenERP, contracts and projects are implemented using
+                analytic account. So, you can track costs and revenues to analyse
+                your margins easily.
+              </p>
+            </field>
+        </record>
+
+        <record id="view_account_analytic_account_form_analytic_plan" model="ir.ui.view">
+            <field name="name">account.analytic.account.form.proj.cost</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//div[@name="buttons"]' position='inside'>
+                    <button string="Planned costs and revenues"
+                        name="%(act_analytic_plan_cost_revenue)d"
+                        type="action"
+                        context="{'default_account_id': active_id,'search_default_account_id': active_id}"
+                        groups="analytic.group_analytic_accounting"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
