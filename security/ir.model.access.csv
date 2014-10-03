@@ -1,0 +1,13 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_account_analytic_line_plan_project_user","account.analytic.line.plan project user","model_account_analytic_line_plan","project.group_project_user",1,1,1,1
+"access_account_analytic_line_plan_project_manager","account.analytic.line.plan project manager","model_account_analytic_line_plan","project.group_project_manager",1,1,1,1
+"access_account_analytic_line_plan","account.analytic.line.plan","model_account_analytic_line_plan","account.group_account_user",1,1,1,1
+"access_account_analytic_line_plan_manager","account.analytic.line.plan.manager","model_account_analytic_line_plan","account.group_account_manager",1,1,1,1
+"access_account_analytic_plan_journal","account.analytic.plan.journal","model_account_analytic_plan_journal","account.group_account_user",1,0,0,0
+"access_account_analytic_plan_journal_manager","account.analytic.plan.journal","model_account_analytic_plan_journal","account.group_account_manager",1,1,1,1
+"access_account_analytic_plan_journal_project_user","account.analytic.plan.journal project user","model_account_analytic_plan_journal","project.group_project_user",1,0,0,0
+"access_account_analytic_plan_journal_project_manager","account.analytic.plan.journal project manager","model_account_analytic_plan_journal","project.group_project_manager",1,0,0,0
+"access_account_analytic_plan_version","account.analytic.plan.version","model_account_analytic_plan_version","account.group_account_user",1,0,0,0
+"access_account_analytic_plan_version_manager","account.analytic.plan.version","model_account_analytic_plan_version","account.group_account_manager",1,1,1,1
+"access_account_analytic_plan_version_project_user","account.analytic.plan.version project user","model_account_analytic_plan_version","project.group_project_user",1,0,0,0
+"access_account_analytic_plan_version_project_manager","account.analytic.plan.version project manager","model_account_analytic_plan_version","project.group_project_manager",1,0,0,0

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="analytic_plan_journal_sale" model="account.analytic.plan.journal">
+            <field name="code">SAL</field>
+            <field name="name">Sales</field>
+            <field name="type">sale</field>            
+        </record>
+        <record id="analytic_plan_journal_purchase" model="account.analytic.plan.journal">
+            <field name="code">PUR</field>
+            <field name="name">Purchases</field>
+            <field name="type">purchase</field>
+        </record>
+        <record id="analytic_plan_journal_time" model="account.analytic.plan.journal">
+            <field name="code">TS</field>
+            <field name="name">Timesheet</field>
+            <field name="type">general</field>
+        </record>        
+
+    </data>
+</openerp>
