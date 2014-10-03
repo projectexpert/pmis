@@ -21,29 +21,25 @@
 
 
 {
-    "name": "Purchase Requisition Analytic extension",
+    "name": "Purchase Requisition Analytic",
     "version": "1.0",
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["purchase_requisition"],
+    "depends": ["analytic", "purchase_requisition"],
     "description": """
-    
-     == Extends purchase requisition with analytic capabilities ==
-    Eficent brings you this module to better manage the procurement process within your projects and contracts.
-  
-              
-   == More information and assistance ==
-   
-   If you are interested in this module and seek further assistance to use it please visit us at www.eficent.com or conact us at contact@eficent.com
-
-        
-    """,
+Organizations often require to integrate purchase requisitions with projects or contracts,
+and to find requisitions by searching by it the project/contract code, name or project/contract manager.
+This module adds the following features to purchase requisitions:
+- Adds the analytic account to the purchase requisition lines,
+- When the purchase order is created from the purchase requisition, it copies the analytic account.
+- Introduces the possibility to search purchase requisitions by analytic account or by project manager.
+- Introduces a new menu entry in Purchasing to list purchase requisition lines.
+""",
     "init_xml": [
                 ],
     "update_xml": [                    
-        "purchase_requisition_view.xml",           
-        "security/ir.model.access.csv",        
+        "purchase_requisition_view.xml",
     ],
     'demo_xml': [
 
@@ -54,4 +50,3 @@
     'active': False,
     'certificate': '',
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

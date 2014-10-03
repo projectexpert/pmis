@@ -20,30 +20,22 @@
 ##############################################################################
 
 {
-    "name": "Analytic Plan - Initiate purchase requisitions from analytic planning lines",
+    "name": "Purchase Order Analytic Search",
     "version": "1.0",
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["analytic_plan", "purchase_requisition", "purchase_requisition_analytic"],
+    "depends": ["analytic", "purchase"],
     "description": """
-     == Record  planned costs and create purchase requisitions  ==
-
-    Eficent brings you this module to create purchase requisitions from analytic planning lines.
-
-            
-   == More information and assistance ==
-   
-   If you are interested in this module and seek further assistance to use it please visit us at www.eficent.com or conact us at contact@eficent.com
-
-          
-    """,
-    "init_xml": [],
-    "update_xml": [        
-        "wizard/analytic_resource_plan_line_make_purchase_requisition.xml",
-        "account_analytic_resource_plan_line_view.xml",
-        "account_analytic_account_view.xml",
-        
+Organizations often require to quickly find the purchase orders associated to a project
+or to an analytic account, searching by it's code, name or project/account manager.
+This module introduces the possibility search purchase orders by analytic account or by project manager.
+It also introduces a new menu entry in Purchasing to list purchase order lines.
+""",
+    "init_xml": [
+                ],
+    "update_xml": [            
+        "purchase_order_view.xml",
     ],
     'demo_xml': [
 

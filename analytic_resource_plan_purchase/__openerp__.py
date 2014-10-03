@@ -25,7 +25,7 @@
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["purchase", "analytic_plan", "purchase_order_analytic"],
+    "depends": ["purchase", "analytic_plan"],
     "description": """
      == Record  planned costs and create purchase orders  ==
     

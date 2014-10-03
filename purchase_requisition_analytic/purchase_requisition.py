@@ -25,12 +25,20 @@ from osv import fields, osv
 class purchase_requisition(osv.osv):
     _inherit = "purchase.requisition"
 
-    _columns = {                    
-                'account_analytic_ids': fields.related('line_ids','account_analytic_id', type='many2many', relation='account.analytic.account', string='Analytic Account'),
-                'account_analytic_user_ids': fields.related('line_ids','account_analytic_user_id', type='many2many', relation='res.users', string='Project Manager'),                
+    _columns = {
+        'account_analytic_ids': fields.related('line_ids',
+                                               'account_analytic_id',
+                                               type='many2many',
+                                               relation='account.analytic.account',
+                                               string='Analytic Account',
+                                               readonly=True),
+        'account_analytic_user_ids': fields.related('line_ids',
+                                                    'account_analytic_user_id',
+                                                    type='many2many',
+                                                    relation='res.users',
+                                                    string='Project Manager',
+                                                    readonly=True),
     }    
-
-
 
     def make_purchase_order(self, cr, uid, ids, partner_id, context=None):
         """
@@ -47,20 +55,25 @@ class purchase_requisition(osv.osv):
         supplier_pricelist = supplier.property_product_pricelist_purchase or False
         res = {}
         for requisition in self.browse(cr, uid, ids, context=context):
-            if supplier.id in filter(lambda x: x, [rfq.state <> 'cancel' and rfq.partner_id.id or None for rfq in requisition.purchase_ids]):
-                 raise osv.except_osv(_('Warning!'), _('You have already one %s purchase order for this partner, you must cancel this purchase order to create a new quotation.') % rfq.state)
+            if supplier.id in filter(lambda x: x,
+                                     [rfq.state != 'cancel'
+                                      and rfq.partner_id.id or None
+                                      for rfq in requisition.purchase_ids]):
+                raise osv.except_osv(_('Warning!'),
+                                     _('You have already one %s purchase order for this partner, '
+                                       'you must cancel this purchase order to create a new quotation.') % rfq.state)
             location_id = requisition.warehouse_id.lot_input_id.id
-            purchase_id = purchase_order.create(cr, uid, {
-                        'origin': requisition.name,
-                        'partner_id': supplier.id,
-                        'pricelist_id': supplier_pricelist.id,
-                        'location_id': location_id,
-                        'company_id': requisition.company_id.id,
-                        'fiscal_position': supplier.property_account_position and supplier.property_account_position.id or False,
-                        'requisition_id':requisition.id,
-                        'notes':requisition.description,
-                        'warehouse_id':requisition.warehouse_id.id ,
-            })
+            purchase_id = purchase_order.create(cr, uid,
+                                                {'origin': requisition.name,
+                                                 'partner_id': supplier.id,
+                                                 'pricelist_id': supplier_pricelist.id,
+                                                 'location_id': location_id,
+                                                 'company_id': requisition.company_id.id,
+                                                 'fiscal_position': supplier.property_account_position and supplier.property_account_position.id or False,
+                                                 'requisition_id': requisition.id,
+                                                 'notes': requisition.description,
+                                                 'warehouse_id': requisition.warehouse_id.id,
+                                                 })
             res[requisition.id] = purchase_id
             for line in requisition.line_ids:
                 product = line.product_id
@@ -81,6 +94,3 @@ class purchase_requisition(osv.osv):
                 
         return res            
 purchase_requisition()
-
-
-

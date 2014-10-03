@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2011 Eficent (<http://www.eficent.com/>)
+#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
 #              <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,12 +22,11 @@
 from osv import fields, osv
 
 
-class purchase_requisition_line(osv.osv):
+class purchase_order_line(osv.osv):
     
-    _inherit = "purchase.requisition.line"
+    _inherit = "purchase.order.line"
 
     _columns = {
-        'account_analytic_id': fields.many2one('account.analytic.account', 'Analytic Account'),
         'account_analytic_user_id': fields.related('account_analytic_id',
                                                    'user_id',
                                                    type='many2one',
@@ -35,17 +34,6 @@ class purchase_requisition_line(osv.osv):
                                                    string='Project Manager',
                                                    store=True,
                                                    readonly=True),
-        'requisition_name': fields.related('requisition_id', 'name', type='char',
-                                           relation='purchase.requisition',
-                                           string='Requisition Reference',
-                                           store=True, readonly=True),
-        'requisition_state': fields.related('requisition_id', 'state',
-                                            type='selection',
-                                            selection=[('draft', 'New'), ('in_progress', 'Sent to Suppliers'), ('cancel','Cancelled'),('done','Purchase Done')],
-                                            relation='purchase.requisition',
-                                            string='Requisition state',
-                                            store=True,
-                                            readonly=True),
     }    
     
-purchase_requisition_line()
+purchase_order_line()
