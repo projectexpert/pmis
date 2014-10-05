@@ -36,9 +36,25 @@
             	    <field name="debit_plan"/>            	   
                     <field name="credit_plan"/>                    
                     <field name="balance_plan"/>
-            	</field>            	
+            	</field>
+                <field name="debit" position="before">
+                    <field name="active_analytic_planning_version" string="Active Plan Version"/>
+                </field>
             </field>
-        </record>            	
+        </record>
+
+
+        <record id="view_account_analytic_account_form_inh" model="ir.ui.view">
+            <field name="name">account.analytic.account.form</field>
+            <field name="model">account.analytic.account</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="arch" type="xml">
+            	<field name="code" position="after">
+            		<field name="active_analytic_planning_version" string="Active Plan Version"/>
+            	</field>
+            </field>
+        </record>
 
         <record model="ir.actions.act_window" id="act_analytic_plan_cost_revenue">            
             <field name="domain">[('account_id','child_of', active_id)]</field>
@@ -67,7 +83,9 @@
                     <button string="Planned costs and revenues"
                         name="%(act_analytic_plan_cost_revenue)d"
                         type="action"
-                        context="{'default_account_id': active_id,'search_default_account_id': active_id}"
+                        context="{'default_account_id': active_id,
+                        'search_default_account_id': active_id,
+                        'default_version_id': active_analytic_planning_version}"
                         groups="analytic.group_analytic_accounting"/>
                 </xpath>
             </field>
