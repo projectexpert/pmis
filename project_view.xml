@@ -1,48 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-
-        <act_window			            
-            domain="[('account_id', '=', analytic_account_id),('journal_id.type','=','purchase')]"
-            id="act_project_2_project_purchase_line_plan"
-            name="Resource Plan"
-            res_model="account.analytic.resource.plan.line"
-            src_model="project.project"
-            groups="project.group_project_manager,project.group_project_user"/>        				        
-
-		<record id="view_account_analytic_account_form_project_cost" model="ir.ui.view">
-            <field name="name">account.analytic.account.form.proj.cost</field>
-            <field name="model">account.analytic.account</field>
-            <field name="type">form</field>
-            <field name="inherit_id" ref="project_cost.view_account_analytic_account_form_project_cost"/>
+        <record id="edit_project" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
-            <xpath expr='//field[@name="plan_line_ids"]' position='replace'>
-            	<field colspan="4" name="plan_line_ids" nolabel="1" widget="one2many_list" mode="tree" context="{'default_account_id': active_id}">
-		        	<tree string="Planned costs" editable="top">
-		                <field name="date"/>                    
-		                <field name="name"/>
-		                <field name="journal_id"/>  
-		                <field name="version_id"/>                  
-						<field name="supplier_id" on_change="onchange_supplier_id(pricelist_id, product_id, company_id, purchase_amount, product_uom_id, amount, journal_id, date,price_unit, supplier_id)" context="{'search_default_supplier':1}"/>						                           		                	                	                	              	                		                
-		                <field name="product_id" colspan="4" on_change="product_id_change_purchase(pricelist_id,product_id,purchase_amount,company_id,product_uom_id,purchase_amount,journal_id,supplier_id,date,price_unit)"/>	                
-                        <field name="pricelist_id" domain="[('type','=','purchase')]" groups="base.group_erp_manager"/>		                
-		                <field name="unit_amount" colspan="2" required="True" on_change="on_change_unit_amount_purchase(price_unit,product_id, unit_amount, company_id, product_uom_id, journal_id)"/>
-    	                <field name="price_unit" colspan="2" required="True" on_change="on_change_unit_amount_purchase(price_unit,product_id, unit_amount, company_id, product_uom_id, journal_id)"/>
-        	            <field name="product_uom_id" colspan="2" required="True" on_change="product_uom_change_purchase(pricelist_id, product_id, company_id, unit_amount, product_uom_id, price_unit, journal_id, supplier_id, price_unit)"/>                        
-            	        <field name="purchase_amount" colspan="2" required="True" on_change="on_change_purchase_amount(purchase_amount)" sum="Total"/>                                                
-		                <field name="amount" sum="Total" invisible="False"/>						
-						<button name="%(project_cost_plan_purchase.action_view_project_purchase_plan_make_purchase)d" string="Create purchase requisition" icon="terp-gtk-jump-to-rtl" type="action" />
-	                    <field name="purchase_order_id"/>
-	                    <field name="purchase_line_id"/>	                
-		                <field name="company_id" invisible="True"/>
-		            </tree>      
-	            </field>      
-            </xpath>
+                <xpath expr='//div[@name="buttons"]' position='inside'>
+                    <button string="Resource plan"
+                        name="%(action_account_analytic_resource_plan_line_open_form)d"
+                        type="action"
+                        context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
+                        groups="project.group_project_manager"/>
+                </xpath>
             </field>
         </record>
+    </data>
 
-
-
-
-	</data>
 </openerp>

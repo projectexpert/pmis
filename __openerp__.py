@@ -27,16 +27,29 @@
     "category": "Generic Modules/Projects & Services",
     "depends": ["purchase", "analytic_plan"],
     "description": """
-Resource Plan
+Analytic Resource Planning
 ====================================
-    An effective planning of costs and revenues associated to projects or to other analytic accounts
+    An effective planning of the resources required for a project or analytic account
+    becomes essential in organizations that are run by projects, or profit center accounting.
+    The process of resource planning generally follows an rolling wave planning approach, in which
+    the level of detail of the planned resources increases over time, as the details of the work required
+    are known to the planning group.
 
+    Resources planned for a project/analytic account have an impact on the planned costs.
+    If the resources are procured internally, the standard cost is determined.
+    If the resources are procured externally, the user can indicate the supplier, and the planned costs
+    are then determined on the basis of the supplier's price list.
+
+    Multiple planning versions can be maintained for a resource plan, so that the organization can create
+    a first rough-cut resource plan, that can then be refined as the project progresses.
 
     """,
     "init_xml": [],
     "update_xml": [
         "account_analytic_resource_plan_view.xml",
         "account_analytic_account_view.xml",
+        "product_view.xml",
+        "project_view.xml",
         "security/ir.model.access.csv",
         
     ],
@@ -49,4 +62,3 @@ Resource Plan
     'active': False,
     'certificate': '',
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
