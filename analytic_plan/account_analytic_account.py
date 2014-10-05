@@ -21,10 +21,21 @@
 import decimal_precision as dp
 from osv import fields, osv
 
+
 class account_analytic_account(osv.osv):
     
     _inherit = 'account.analytic.account'
-    
+
+    def _get_active_analytic_planning_version(self, cr, uid, ids, context=None):
+
+        planning_versions = self.pool.get('account.analytic.plan.version').search(cr, uid,
+                                                              [('default_plan', '=', True)],
+                                                              context=None),
+        if planning_versions:
+            return planning_versions[0][0]
+        else:
+            return False
+
     def _compute_level_tree_plan(self, cr, uid, ids, child_ids, res, field_names, context=None):
         currency_obj = self.pool.get('res.currency')
         recres = {}
@@ -92,10 +103,9 @@ class account_analytic_account(osv.osv):
                      COALESCE(SUM(l.amount),0) AS balance_plan,
                      COALESCE(SUM(l.unit_amount),0) AS quantity_plan
               FROM account_analytic_account a
-                  LEFT JOIN account_analytic_line_plan l ON (a.id = l.account_id) 
-                  LEFT JOIN account_analytic_plan_version v ON (l.version_id = v.id)
+                  LEFT JOIN account_analytic_line_plan l ON (a.id = l.account_id)
               WHERE a.id IN %s
-              AND v.default_plan = True
+              AND a.active_analytic_planning_version = l.version_id
               """ + where_date + """             
               GROUP BY a.id""", where_clause_args)
         
@@ -106,12 +116,7 @@ class account_analytic_account(osv.osv):
         return self._compute_level_tree_plan(cr, uid, ids, child_ids, res, fields, context)
 
     _columns = {   
-        
-        #In case that the parent is deleted, we also delete this entity
-        'parent_id': fields.many2one('account.analytic.account',
-                                     'Parent Analytic Account',
-                                     select=2, ondelete='cascade'),
-                         
+
         'balance_plan': fields.function(_debit_credit_bal_qtty_plan,
                                         method=True,
                                         type='float',
@@ -136,37 +141,19 @@ class account_analytic_account(osv.osv):
                                          string='Quantity Debit',
                                          multi='debit_credit_bal_qtty_plan',
                                          digits_compute=dp.get_precision('Account')),
-        'state': fields.selection([('draft', 'Draft'),
-                                   ('ready', 'Ready'),
-                                   ('open', 'Open'),
-                                   ('pending', 'Pending'),
-                                   ('cancelled', 'Cancelled'),
-                                   ('close', 'Closed'),
-                                   ('template', 'Template')],
-                                  'State', required=True,
-                                  help='* When an account is created its in \'Draft\' state.\
-                                  \n* When is ready to be used, it can be in \'Ready\' state.\
-                                  \n* If any associated partner is there, it can be in \'Open\' state.\
-                                  \n* If any pending balance is there it can be in \'Pending\'. \
-                                  \n* And finally when all the transactions are over, it can be in \'Close\' state. \
-                                  \n* The project can be in either if the states \'Template\' and \'Running\'.'
-                                       '\n If it is template then we can make projects based on the template projects. '
-                                       'If its in \'Running\' state it is a normal project.\
-                                  \n If it is to be reviewed then the state is \'Pending\'.'
-                                       '\n When the project is completed the state is set to \'Done\'.'),
         'plan_line_ids': fields.one2many('account.analytic.line.plan',
                                          'account_id',
                                          'Analytic Entries'),
-     }
-    
-    _defaults = {
-        'state': 'draft',
+
+        'active_analytic_planning_version': fields.many2one('account.analytic.plan.version',
+                                                            'Active planning Version', required=True),
     }
-    
-    def set_ready(self, cr, uid, ids, context=None):
-        self.write(cr, uid, ids, {'state': 'ready'}, context=context)
-        return True
-    
+
+    _defaults = {
+
+        'active_analytic_planning_version': _get_active_analytic_planning_version
+    }
+
     def copy(self, cr, uid, id, default=None, context=None):
         if default is None:
             default = {}        

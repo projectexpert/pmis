@@ -26,6 +26,7 @@ from datetime import datetime, date
 from tools.translate import _
 from osv import fields, osv
 
+
 class task(osv.osv):
     _inherit = 'project.task'
 
@@ -202,7 +203,7 @@ class account_analytic_account(osv.osv):
                 if acc.code:
                     data.insert(0, acc.code)
                 else:
-                    data.insert(0,'')   
+                    data.insert(0, '')
                 
                 acc = acc.parent_id
             data = ' / '.join(data)
@@ -213,13 +214,13 @@ class account_analytic_account(osv.osv):
 
         if not ids:
             return []
-        if type(ids) is int: ids = [ids]
+        if type(ids) is int:ids = [ids]
 
-        lista_nueva = []
+        new_list = []
         for i in ids:
-            if i not in lista_nueva:
-                lista_nueva.append(i)
-        ids = lista_nueva
+            if i not in new_list:
+                new_list.append(i)
+        ids = new_list
 
         res = []
         for account in self.browse(cr, uid, ids, context=context):
@@ -229,17 +230,14 @@ class account_analytic_account(osv.osv):
                 if acc.name:
                     data.insert(0, acc.name)
                 else:
-                    data.insert(0,'')                   
+                    data.insert(0, '')
                 acc = acc.parent_id
                 
             data = ' / '.join(data)
             res2 = self.code_get(cr, uid, [account.id], context=None)
             if res2:
                 data = '[' + res2[0][1] + '] ' + data            
-            #if project.partner_id.name:
-            #    data = data + ' ('+ project.partner_id.name + ')'
 
-            
             res.append((account.id, data))
         return res
     
@@ -250,22 +248,53 @@ class project(osv.osv):
     _name = "project.project"
     _inherit = "project.project"
 
+    def _get_children(self, cr, uid, ids, context=None):
+
+        read_data = self.pool.get('project.project').read(cr, uid, ids,
+                                                          ['id', 'analytic_account_id',
+                                                           'project_child_complete_ids',
+                                                           'state'])
+        for data in read_data:
+            if data['id'] not in self.project_ids:
+                self.projects_data[data['id']] = data['analytic_account_id'][0]
+                self.project_ids.append(data['id'])
+                if data['state'] not in ('template', 'cancelled'):
+                    self.read_data.append(data)
+                    if data['project_child_complete_ids']:
+                        self._get_children(cr, uid, data['project_child_complete_ids'], context=context)
+        return True
+
+    def _get_project_analytic_wbs(self, cr, uid, ids, context=None):
+
+        self.read_data = []
+        self.project_ids = []
+        self.projects_data = {}
+        self._get_children(cr, uid, ids, context=context)
+
+        return self.projects_data
+
+    def _get_project_wbs(self, cr, uid, ids, name, arg, context=None):
+
+        projects_data = self._get_project_analytic_wbs(cr, uid, ids, context=context)
+
+        return projects_data.keys()
+
     def name_get(self, cr, uid, ids, context=None):
 
         if not ids:
             return []
-        if type(ids) is int: ids = [ids]
+        if type(ids) is int:ids = [ids]
         res = []
 
-        lista_nueva = []
+        new_list = []
         for i in ids:
-            if i not in lista_nueva:
-                lista_nueva.append(i)
-        ids = lista_nueva
+            if i not in new_list:
+                new_list.append(i)
+        ids = new_list
 
-        for project in self.browse(cr, uid, ids, context=context):
+        for project_item in self.browse(cr, uid, ids, context=context):
             data = []
-            proj = project
+            proj = project_item
 
             while proj:
                 if proj and proj.name:
@@ -275,47 +304,43 @@ class project(osv.osv):
 
                 proj = proj.parent_id
             data = ' / '.join(data)
-            res2 = self.code_get(cr, uid, [project.id], context=None)
+            res2 = self.code_get(cr, uid, [project_item.id], context=None)
             if res2:
                 data = '[' + res2[0][1] + '] ' + data            
-            #if project.partner_id.name:
-            #    data = data + ' ('+ project.partner_id.name + ')'
 
-            
-            res.append((project.id, data))        
+            res.append((project_item.id, data))
         return res
 
     def code_get(self, cr, uid, ids, context=None):        
         if not ids:
             return []
         res = []
-        for project in self.browse(cr, uid, ids, context=context):
+        for project_item in self.browse(cr, uid, ids, context=context):
             data = []
-            proj = project
+            proj = project_item
             while proj:
                 if proj.code:
                     data.insert(0, proj.code)
                 else:
-                    data.insert(0,'')   
+                    data.insert(0, '')
 
                 proj = proj.parent_id                    
                 
             data = ' / '.join(data)
-            res.append((project.id, data))
+            res.append((project_item.id, data))
         return res
 
- 
     def _child_compute(self, cr, uid, ids, name, arg, context=None):
 
         result = {}
-        project_child_ids = []
         if context is None:
             context = {}
-        
-        for project in self.browse(cr, uid, ids, context=context):
-            child_ids = self.search(cr, uid, [('parent_id','=', project.analytic_account_id.id)], context=context)            
-                    
-            result[project.id] = child_ids
+
+        for project_item in self.browse(cr, uid, ids, context=context):
+            child_ids = self.search(cr, uid, [('parent_id', '=', project_item.analytic_account_id.id)],
+                                    context=context)
+
+            result[project_item.id] = child_ids
 
         return result
 

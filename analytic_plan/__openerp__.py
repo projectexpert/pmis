@@ -20,42 +20,64 @@
 ##############################################################################
 
 {
-    "name": "Analytic Plan - Cost and revenue planning",
+    "name": "Analytic Plan",
     "version": "1.0",
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
     "depends": ["account", "analytic", "project"],
     "description": """
-    == Manage analytic planned costs on your analytic accounts ==
-    
-    Eficent brings you this module to better manage the planne costs of your projects or cost centers.
-  
-    This module defines a new structure to record planning analytic lines of the analytic accounts.
-    
-    == New planning journal ==
-    
-    A planning journal is created. It is similar to the analytic journal, but used for planning purposes.
-    
-    The planning analytic journals can be configured.
-    
-    A planning analytic journal lines object is created, with the exceptions of referencing to the planning analytic journal instead of the analytic journal, and considering  that the general account is not a required entry.
-  
-    The new object is visible as a separate entity, accesible from the Accounting area, with the corresponding search, tree, form views.
+Analytic Plan
+====================================
+    An effective planning of costs and revenues associated to projects or to other analytic accounts
+    becomes essential in organizations that are run by projects, or profit center accounting.
+    The process of cost planning generally follows an rolling wave planning approach, in which
+    the level of detail of the planned costs is increases over time, as the details of the work required
+    are known to the planning group.
 
-    New analytic account planning attributes: cumulated planned costs, cummulated planned earnings and cumulated balance. The attributes are calculated based on the planning analytic journal lines.   
+    The module 'Analytic Pla' provides the foundation for the planning of analytic costs and revenues, and it is
+    used by other modules that can originate planned costs or revenues during the business process
+    execution.
 
-    The new attributes are visible on the following views: Analytic account forms: cumulated planned costs, cumulated planned earnings and cumulated balance; Budget positions: cumulated planned costs
-    
-    A report exists to create a PDF with the corresponding journal entries.
+Define Planning Versions:
+------------------------------------
+    Organizations typically maintain different versions of their planned costs (rough cut, detailed,
+    approved budget, committed,...).
+    A Planning Version is defined by the following attributes:
+        * Name
+        * Code
+        * Active: The planning version is active for use in the cost planning
+        * Default version for committed costs: This planning version should be used for committed costs
+        * Default planning version: This version is proposed by default
 
-    == New planning versions ==
-    You can define multiple planning versions for the analytic planning lines.
+Define Analytic Planning Journals:
+------------------------------------
+    The Analytic Planning Journal serves as an attribute to classify the costs or revenue by the it's origin.
+    It is equivalent to the Analytic Journal.
 
 
-   == More information and assistance ==
-   
-   If you are interested in this module and seek further assistance to use it please visit us at www.eficent.com or conact us at contact@eficent.com
+Define Analytic Planning Lines:
+------------------------------------
+    The analytic planning lines are used to capture the planned cost or revenue, for a given planning version.
+    They are equivalent to the analytic lines, used to capture the actual cost or revenue.
+
+Changes to the Analytic Account:
+------------------------------------------------------------------
+    The analytic account incorporates new analytic account planning attributes:
+        * Cumulated planned costs. Adds up all the planned costs of this analytic account as well as the child analytic accounts.
+        * Cumulated planned revenues. Adds up all the planned revenues of this analytic account as well as the child analytic accounts.
+        * Cumulated balance. Provides the difference between cumulated costs and revenues.
+
+    The attributes are calculated, for an analytic account, based on the planning analytic journal lines
+       and based on the active planning version defined on that analytic account.
+
+    Users with permissions to access to analytic accounts can navigate from the analytic account to the
+     to the associated Analytic Planning Lines.
+
+More information and assistance:
+-----------------------------------
+    If you are interested in this module and seek further assistance to use it please visit
+    us at www.eficent.com or conact us at contact@eficent.com.
 
     """,
     "init_xml": [],

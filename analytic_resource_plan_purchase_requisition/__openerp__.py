@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    "name": "Analytic Plan - Initiate purchase requisitions from analytic planning lines",
+    "name": "Resource Plan Purchase Requisition",
     "version": "1.0",
     "author": "Eficent",
     "website": "www.eficent.com",

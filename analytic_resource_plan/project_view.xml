@@ -5,8 +5,8 @@
         <act_window			            
             domain="[('account_id', '=', analytic_account_id),('journal_id.type','=','purchase')]"
             id="act_project_2_project_purchase_line_plan"
-            name="Purchasing Plan"
-            res_model="account.analytic.line.plan"
+            name="Resource Plan"
+            res_model="account.analytic.resource.plan.line"
             src_model="project.project"
             groups="project.group_project_manager,project.group_project_user"/>        				        
 

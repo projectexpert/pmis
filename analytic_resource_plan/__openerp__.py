@@ -27,6 +27,10 @@
     "category": "Generic Modules/Projects & Services",
     "depends": ["purchase", "analytic_plan"],
     "description": """
+Resource Plan
+====================================
+    An effective planning of costs and revenues associated to projects or to other analytic accounts
+
 
     """,
     "init_xml": [],
