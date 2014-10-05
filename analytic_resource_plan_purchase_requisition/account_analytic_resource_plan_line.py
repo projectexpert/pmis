@@ -27,9 +27,9 @@ class account_analytic_resource_plan_line(osv.osv):
 
     _columns = {
         'requisition_line_ids': fields.many2many('purchase.requisition.line',
-                                           'analytic_resource_plan_line_requisition_line_rel',
-                                           'requisition_line_id',
-                                           'resource_plan_line_id'),
+                                                 'analytic_resource_plan_line_requisition_line_rel',
+                                                 'requisition_line_id',
+                                                 'resource_plan_line_id'),
     }
 
 account_analytic_resource_plan_line()

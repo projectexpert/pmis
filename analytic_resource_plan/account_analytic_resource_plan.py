@@ -24,6 +24,7 @@ from tools.translate import _
 from openerp.osv import fields, osv
 import decimal_precision as dp
 
+
 class account_analytic_resource_plan_line(osv.osv):
 
     _name = 'account.analytic.resource.plan.line'
@@ -31,41 +32,14 @@ class account_analytic_resource_plan_line(osv.osv):
     _inherits = {'account.analytic.line.plan': "analytic_line_plan_id"}
 
     _columns = {
-        'purchase_line_id': fields.many2one('purchase.order.line', 'Purchase Order Line', select=True),
-        'purchase_order_id':fields.related('purchase_line_id', 'order_id', type='many2one', relation='purchase.order', string='Purchase Order', store=True, readonly=True),
         'supplier_id': fields.many2one('res.partner', 'Supplier', required=False, domain=[('supplier', '=', True)]),
         'pricelist_id': fields.many2one('product.pricelist', 'Purchasing Pricelist', required=False),
         'price_unit': fields.float('Purchasing Unit Price', required=False, digits_compute= dp.get_precision('Purchase Price')),
         'analytic_line_plan_id': fields.many2one('account.analytic.line.plan', 'Planning analytic lines', ondelete="cascade", required=True),
     }
 
-    def copy(self, cr, uid, id, default=None, context=None):        
-        if context is None:
-            context = {}
-        
-        if default is None:
-            default = {}        
-                
-        default['purchase_line_id'] = False
-        
-        res = super(account_analytic_resource_plan_line, self).copy(cr, uid, id, default, context)
-        return res
-
-    def copy_data(self, cr, uid, id, default=None, context=None):        
-
-        if context is None:
-            context = {}
-        
-        if default is None:
-            default = {}   
-                
-        default['purchase_line_id'] = False
-        
-        res = super(account_analytic_resource_plan_line, self).copy_data(cr, uid, id, default, context)
-        return res
-
     def get_general_account_id_resource(self, cr, uid, id, prod_id, qty, company_id,
-            unit=False, journal_id=False, context=None):        
+                                        unit=False, journal_id=False, context=None):
 
         result = False
         
@@ -123,7 +97,6 @@ class account_analytic_resource_plan_line(osv.osv):
 
         return res
 
-
     def on_change_unit_amount_resource(self, cr, uid, id,                                         
                                        product_id, 
                                        partner_id,
@@ -152,10 +125,10 @@ class account_analytic_resource_plan_line(osv.osv):
 
         if pricelist_id and product_id and product_uom_id:
             price_unit = pricelist_obj.price_get(cr, uid, [pricelist_id],
-                                            product_id, unit_amount or 1.0, partner_id,
-                                            {'uom': product_uom_id,
-                                             'date': time.strftime('%Y-%m-%d'),
-                                             })[pricelist_id]
+                                                 product_id, unit_amount or 1.0, partner_id,
+                                                 {'uom': product_uom_id,
+                                                  'date': time.strftime('%Y-%m-%d'),
+                                                  })[pricelist_id]
             pricelist = pricelist_obj.browse(cr, uid, pricelist_id, context=context)
 
             amount_currency = -1 * price_unit * unit_amount
@@ -199,7 +172,7 @@ class account_analytic_resource_plan_line(osv.osv):
     
     def onchange_supplier_id(self, cr, uid, ids, product_id, company_id, qty,
                              currency_id, uom, journal_id, partner_id, context=None):
-        pricelist = False
+        pricelist_id = False
         pricelist_obj = self.pool.get('product.pricelist')
 
         if partner_id:
@@ -219,16 +192,17 @@ class account_analytic_resource_plan_line(osv.osv):
         
         return res
 
-
     def on_change_product_id_resource(self, cr, uid, ids, pricelist, product_id,
                                       company_id, qty, currency_id, uom, journal_id,
                                       partner_id, context=None):
 
         general_account_id = False
+        journal_id = False
 
         if product_id:
             prod = self.pool.get('product.product').browse(cr, uid, product_id, context=context)
             prod_uom_po = prod.uom_po_id and prod.uom_po_id.id or False
+            journal_id = prod.expense_analytic_plan_journal_id and prod.expense_analytic_plan_journal_id.id or False
 
             general_account_id = self.get_general_account_id_resource(cr,
                                                                       uid,
@@ -243,7 +217,6 @@ class account_analytic_resource_plan_line(osv.osv):
         else:
             prod_uom_po = uom
 
-
         res = self.on_change_unit_amount_resource(cr, uid, id,
                                                   product_id,
                                                   partner_id,
@@ -255,16 +228,16 @@ class account_analytic_resource_plan_line(osv.osv):
                                                   journal_id,
                                                   context)
 
-
         vals = {
             'product_uom_id': prod_uom_po,
             'general_account_id': general_account_id,
+            'journal_id': journal_id,
         }
 
         if 'value' in res:
             res['value'].update(vals)
         else:
-            res.update({'value': vals })
+            res.update({'value': vals})
 
         return res
 

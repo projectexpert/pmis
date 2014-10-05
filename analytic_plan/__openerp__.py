@@ -35,7 +35,7 @@ Analytic Plan
     the level of detail of the planned costs is increases over time, as the details of the work required
     are known to the planning group.
 
-    The module 'Analytic Pla' provides the foundation for the planning of analytic costs and revenues, and it is
+    The module 'Analytic Plan' provides the foundation for the planning of analytic costs and revenues, and it is
     used by other modules that can originate planned costs or revenues during the business process
     execution.
 

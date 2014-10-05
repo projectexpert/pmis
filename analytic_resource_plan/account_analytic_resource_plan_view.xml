@@ -30,7 +30,7 @@
                             <field name="amount_currency" required="True"/>
                             <field name="currency_id" required="True"/>
                         </group>
-                        <group colspan="2" col="4"  string="Analytic Information">
+                        <group colspan="2" col="4"  string="Analytic Information" groups="analytic.group_analytic_accounting">
                             <field name="version_id"/>
                             <field name="journal_id"/>
                             <field name="ref"/>
@@ -54,20 +54,21 @@
             <field name="arch" type="xml">
 				<tree string="Analytic resource plan line" editable="top">
 	                <field name="account_id"/>
-                    <field name="journal_id"/>
 	                <field name="date"/>
-					<field name="supplier_id" on_change="onchange_supplier_id(product_id, company_id, unit_amount, currency_id, product_uom_id, journal_id, supplier_id)" context="{'search_default_supplier':1}"/>
-					<field name="pricelist_id" on_change="on_change_product_id_resource(pricelist_id, product_id, company_id, unit_amount, currency_id, product_uom_id, journal_id, supplier_id)" domain="[('type','=','purchase')]"/>
+                    <field name="name"/>
 	                <field name="product_id" colspan="4" on_change="on_change_product_id_resource(pricelist_id, product_id, company_id, unit_amount, currency_id, product_uom_id, journal_id, supplier_id)" required="True"/>
-	                <field name="name"/>
 					<field name="unit_amount" colspan="2" required="True" on_change="on_change_unit_amount_resource(product_id, supplier_id, pricelist_id, unit_amount, currency_id, company_id, product_uom_id, journal_id)"/>
                     <field name="product_uom_id" colspan="2" required="True" on_change="on_change_product_uom_resource(pricelist_id, product_id, company_id, unit_amount, currency_id, product_uom_id, journal_id, supplier_id, date)"/>
-                    <field name="price_unit" required="True" on_change="on_change_price_unit(price_unit, unit_amount)"/>
-                    <field name="amount_currency" required="True"/>
-                    <field name="currency_id" required="True"/>
+					<field name="supplier_id" invisible="True"/>
+					<field name="pricelist_id" invisible="True"/>
+                    <field name="price_unit" invisible="True"/>
+                    <field name="amount_currency" invisible="True"/>
+                    <field name="currency_id" invisible="True"/>
                     <field name="amount" invisible="True"/>   
                     <field name="version_id" invisible="True"/>
                     <field name="company_id" invisible="True"/>
+                    <field name="journal_id" invisible="True"/>
+                    <field name="version_id" invisible="True"/>
 	            </tree>
             </field>
         </record>
@@ -110,7 +111,7 @@
 
 		<menuitem id="analytic_resource_plan_menu" name="Resource planning"
           parent="project.menu_project_management"
-          groups="project.group_project_manager,project.group_project_user"/>
+          groups="project.group_project_manager"/>
 
         <menuitem groups="project.group_project_manager,project.group_project_user"
             action="action_account_analytic_resource_plan_line_open_form"

@@ -20,12 +20,12 @@
 ##############################################################################
 
 {
-    "name": "Resource Plan Purchase Requisition",
+    "name": "Analytic Resource Planning - Purchase Requisitions",
     "version": "1.0",
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["analytic_plan", "purchase_requisition", "purchase_requisition_analytic"],
+    "depends": ["analytic_resource_plan", "purchase_requisition", "purchase_requisition_analytic"],
     "description": """
      == Record  planned costs and create purchase requisitions  ==
 

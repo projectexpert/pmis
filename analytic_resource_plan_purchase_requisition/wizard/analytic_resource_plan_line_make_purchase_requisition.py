@@ -126,7 +126,6 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
                     }
                     if purchase_id is False:
                         purchase_id = requisition_obj.create(cr, uid, {
-                            'name': requisition_name,
                             'origin': '',
                             'exclusive': make_requisition.requisition_type,
                             'company_id': company_id,                            

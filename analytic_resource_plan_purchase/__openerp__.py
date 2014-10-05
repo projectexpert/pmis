@@ -20,20 +20,39 @@
 ##############################################################################
 
 {
-    "name": "Analytic Plan - Initiate purchase orders from analytic planning lines",
+    "name": "Analytic Resource Planning - Purchase Orders",
     "version": "1.0",
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["purchase", "analytic_plan"],
+    "depends": ["purchase", "analytic_resource_plan"],
     "description": """
-     == Record  planned costs and create purchase orders  ==
-    
-    Eficent brings you this module to create purchase orders from analytic planning lines.
+Resource Plan
+====================================
+    An effective planning of costs and revenues associated to projects or to other analytic accounts
+    becomes essential in organizations that are run by projects, or profit center accounting.
+    The process of cost planning generally follows an rolling wave planning approach, in which
+    the level of detail of the planned costs is increases over time, as the details of the work required
+    are known to the planning group.
 
-   == More information and assistance ==
-   
-   If you are interested in this module and seek further assistance to use it please visit us at www.eficent.com or conact us at contact@eficent.com
+    The module 'Resource Plan' makes it possible to plan the resources required for a project and determines
+    the cost associated with them. It provides also the possibility to create purchase orders f
+
+Define Planning Versions:
+------------------------------------
+    Organizations typically maintain different versions of their planned costs (rough cut, detailed,
+    approved budget, committed,...).
+    A Planning Version is defined by the following attributes:
+        * Name
+        * Code
+        * Active: The planning version is active for use in the cost planning
+        * Default version for committed costs: This planning version should be used for committed costs
+        * Default planning version: This version is proposed by default
+
+Define Analytic Planning Journals:
+------------------------------------
+    The Analytic Planning Journal serves as an attribute to classify the costs or revenue by the it's origin.
+    It is equivalent to the Analytic Journal.
 
     """,
     "init_xml": [],

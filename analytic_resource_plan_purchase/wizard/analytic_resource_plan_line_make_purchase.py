@@ -90,12 +90,9 @@ class analytic_resource_plan_line_make_purchase(orm.TransientModel):
             supplier_data = False
             company_id = False
             purchase_id = False
-            make_order = self.browse(cr, uid, ids[0], context=context) 
-            
+
             for line in line_plan_obj.browse(cr, uid, record_ids, context=context):
-                                                        
-                    uom_id = line.product_uom_id
-                    
+
                     if not line.supplier_id:
                         raise osv.except_osv(
                             _('Could not create purchase order !'),
@@ -111,9 +108,7 @@ class analytic_resource_plan_line_make_purchase(orm.TransientModel):
                     address_id = partner_obj.address_get(cr, uid, [line.supplier_id.id], ['delivery'])['delivery']
                     newdate = datetime.today()
                     partner = line.supplier_id
-                    pricelist_id = partner.property_product_pricelist_purchase and partner.\
-                        property_product_pricelist_purchase.id or False
-                    line_company_id = line.company_id and line.company_id.id or False  
+                    line_company_id = line.company_id and line.company_id.id or False
                     if company_id is not False and line_company_id != company_id:
                         raise osv.except_osv(
                             _('Could not create purchase order !'),
@@ -179,7 +174,6 @@ class analytic_resource_plan_line_make_purchase(orm.TransientModel):
                     })
                     
                     order_line_id = order_line_obj.create(cr, uid, purchase_order_line, context=context)
-                    values = {}
                     values['order_line_ids'] = [(4, order_line_id)]
                     line_plan_obj.write(cr, uid, [line.id], values, context=context)
                     res.append(order_line_id)

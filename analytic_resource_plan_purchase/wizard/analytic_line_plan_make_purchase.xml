@@ -34,7 +34,7 @@
         <record model="ir.values" id="analytic_resource_plan_line_make_purchase">
             <field name="model_id" ref="analytic_resource_plan.model_account_analytic_resource_plan_line" />
             <field name="object" eval="1" />
-            <field name="name">Create Puchase Order</field>
+            <field name="name">Create Purchase Order</field>
             <field name="key2">client_action_multi</field>
             <field name="value" eval="'ir.actions.act_window,' + str(ref('action_analytic_resource_plan_line_make_purchase'))" />
             <field name="key">action</field>
