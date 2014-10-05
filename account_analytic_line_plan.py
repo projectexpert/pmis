@@ -43,7 +43,7 @@ class account_analytic_line_plan(osv.osv):
         return company.currency_id and company.currency_id.id or False
 
     _columns = {
-        'name': fields.char('Description', size=256, required=True),
+        'name': fields.char('Activity description', size=256, required=True),
         'date': fields.date('Date', required=True, select=True),
         'amount': fields.float('Amount', required=True,
                                help='Calculated by multiplying the quantity '
