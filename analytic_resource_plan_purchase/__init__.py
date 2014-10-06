@@ -18,5 +18,5 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import account_analytic_resource_plan_line
+import analytic_resource_plan_line
 import wizard

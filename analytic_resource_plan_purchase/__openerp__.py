@@ -57,9 +57,9 @@ Define Analytic Planning Journals:
     """,
     "init_xml": [],
     "update_xml": [        
-        "wizard/analytic_line_plan_make_purchase.xml",
-        "account_analytic_resource_plan_line_view.xml",
-        "account_analytic_account_view.xml",             
+        "wizard/analytic_resource_plan_line_make_purchase.xml",
+        "analytic_resource_plan_line_view.xml",
+        "analytic_account_view.xml",
         
     ],
     'demo_xml': [

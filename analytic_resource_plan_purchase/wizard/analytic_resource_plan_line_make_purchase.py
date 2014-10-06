@@ -39,7 +39,7 @@ class analytic_resource_plan_line_make_purchase(orm.TransientModel):
 
         if record_ids:
             order_line_ids = []
-            line_plan_obj = self.pool.get('account.analytic.resource.plan.line')
+            line_plan_obj = self.pool.get('analytic.resource.plan.line')
 
             for line in line_plan_obj.browse(cr, uid, record_ids, context=context):
                     for order_line in line.order_line_ids:
@@ -79,7 +79,7 @@ class analytic_resource_plan_line_make_purchase(orm.TransientModel):
         record_ids = context and context.get('active_ids', False)
         res = []
         if record_ids:            
-            line_plan_obj = self.pool.get('account.analytic.resource.plan.line')
+            line_plan_obj = self.pool.get('analytic.resource.plan.line')
             order_obj = self.pool.get('purchase.order')
             order_line_obj = self.pool.get('purchase.order.line')
             partner_obj = self.pool.get('res.partner')                                            

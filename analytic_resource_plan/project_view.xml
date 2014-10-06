@@ -7,8 +7,8 @@
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
                 <xpath expr='//div[@name="buttons"]' position='inside'>
-                    <button string="Resource plan"
-                        name="%(action_account_analytic_resource_plan_line_open_form)d"
+                    <button string="Resource planning lines"
+                        name="%(action_analytic_resource_plan_line_open_form)d"
                         type="action"
                         context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
                         groups="project.group_project_manager"/>

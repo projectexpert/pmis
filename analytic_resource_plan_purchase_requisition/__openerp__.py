@@ -41,8 +41,8 @@
     "init_xml": [],
     "update_xml": [        
         "wizard/analytic_resource_plan_line_make_purchase_requisition.xml",
-        "account_analytic_resource_plan_line_view.xml",
-        "account_analytic_account_view.xml",
+        "analytic_resource_plan_line_view.xml",
+        "analytic_account_view.xml",
         
     ],
     'demo_xml': [
