@@ -19,7 +19,7 @@
 #
 ##############################################################################
 import product
-import account_analytic_resource_plan
+import analytic_resource_plan
 
 
 
