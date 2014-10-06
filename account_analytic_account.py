@@ -31,10 +31,11 @@ class account_analytic_account(osv.osv):
         planning_versions = self.pool.get('account.analytic.plan.version').search(cr, uid,
                                                               [('default_plan', '=', True)],
                                                               context=None),
-        if planning_versions:
-            return planning_versions[0][0]
-        else:
-            return False
+        for planning_version in planning_versions:
+            if planning_version:
+                return planning_version[0]
+
+        return False
 
     def _compute_level_tree_plan(self, cr, uid, ids, child_ids, res, field_names, context=None):
         currency_obj = self.pool.get('res.currency')
