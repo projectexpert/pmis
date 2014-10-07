@@ -84,9 +84,25 @@
             <field name="inherit_id" ref="project.view_task_gantt"/>       
             <field name="arch" type="xml">
                 <xpath expr="//gantt" position="replace">
-                    <gantt date_start="date_early_start" date_stop="date_early_finish" progress="progress" string="Test" default_group_by="project_id">
+                    <gantt date_start="date_early_start" date_stop="date_early_finish" progress="progress" string="Tasks" default_group_by="project_id">
 
                     </gantt>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_task_calendar2" model="ir.ui.view">
+            <field name="name">project.task.calendar2</field>
+            <field name="model">project.task</field>
+            <field name="type">calendar</field>
+            <field eval="2" name="priority"/>
+            <field name="inherit_id" ref="project.view_task_calendar"/>       
+            <field name="arch" type="xml">
+                <xpath expr="//calendar" position="replace">
+                    <calendar color="user_id" date_start="date_early_start" date_stop="date_early_finish" string="Tasks">
+                        <field name="name"/>
+                        <field name="project_id"/>
+                    </calendar>
                 </xpath>
             </field>
         </record>
