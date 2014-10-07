@@ -25,7 +25,7 @@
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["purchase", "analytic_plan"],
+    "depends": ["account", "purchase", "analytic_plan"],
     "description": """
 Analytic Resource Planning
 ====================================

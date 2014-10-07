@@ -140,8 +140,9 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
                                                                       uid,
                                                                       purchase_requisition_line,
                                                                       context=context)
-                    values = {}
-                    values['requisition_line_ids'] = [(4, requisition_line_id)]
+                    values = {
+                        'requisition_line_ids': [(4, requisition_line_id)]
+                    }
                     line_plan_obj.write(cr, uid, [line.id], values, context=context)
                     res.append(requisition_line_id)
 

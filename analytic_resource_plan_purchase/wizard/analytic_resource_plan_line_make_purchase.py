@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import time
+
 from datetime import datetime
 from openerp.osv import fields, osv, orm
 from tools.translate import _
@@ -174,7 +174,9 @@ class analytic_resource_plan_line_make_purchase(orm.TransientModel):
                     })
                     
                     order_line_id = order_line_obj.create(cr, uid, purchase_order_line, context=context)
-                    values['order_line_ids'] = [(4, order_line_id)]
+                    values = {
+                        'order_line_ids': [(4, order_line_id)]
+                    }
                     line_plan_obj.write(cr, uid, [line.id], values, context=context)
                     res.append(order_line_id)
 
