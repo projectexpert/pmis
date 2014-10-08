@@ -81,8 +81,6 @@ class task(osv.osv):
         
         if read_data['date_end'] and closed:
             date_earliest_start = read_data['date_end']
-        elif read_data['date_start']:
-            date_earliest_start = read_data['date_start']        
         else:
             date_earliest_start = read_data['date_earliest_start']
         
