@@ -16,5 +16,5 @@ WIP Port to Odoo v8 of eficent-openerp-project-management from Launchpad
 They're all ported as far as not complaining about ImportErrors, but other than that your mileage may vary.
 
 There's a known issue with `project_integration` not installing:
-* Issue #6
+* Issue #6 - https://github.com/OpusVL/odoo-project-management/issues/6
 
