@@ -3,6 +3,8 @@ odoo-project-management
 
 WIP Port to Odoo v8 of eficent-openerp-project-management from Launchpad
 
+There is more detailed information on the project wiki page here:
+* https://github.com/OpusVL/odoo-project-management/wiki
 
 ## Modules we're reasonably happy work as advertised
 
