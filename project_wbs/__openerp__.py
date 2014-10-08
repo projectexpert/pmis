@@ -26,7 +26,7 @@
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["account","project","analytic"],
+    "depends": ["project","analytic"],
     "description": """Project Scope  
     - The hierarchy of a project is considered the WBS (Work Breakdown Structure)
     - The analytic accounts in the project hierarchies are considered WBS components 

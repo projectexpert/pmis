@@ -163,12 +163,10 @@ class account_analytic_account(osv.osv):
                  'account.analytic.account': (get_child_accounts, ['name', 'code', 'parent_id'], 20),                 
                  }),                                                                                                          
         'account_class': fields.selection([('project','Project'),('subproject','Subproject'), ('phase','Phase'), ('deliverable','Deliverable'), ('work_package','Work Package')], 'Class', help='The classification allows you to create a proper project Work Breakdown Structure'),
-        'lifecycle_stage': fields.many2one('project.lifecycle','Lifecycle Stage'),                
-        'child_projects': fields.one2many('project.project', 'parent_id', 'WBS Components'),
+        'lifecycle_stage': fields.many2one('project.lifecycle','Lifecycle Stage'),
 
      }
- 
-     
+
     def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):        
         if not args:
             args = []
@@ -176,15 +174,6 @@ class account_analytic_account(osv.osv):
             context = {}
         
         args = args[:]
-#        if context.get('current_model') == 'project.project':
-#            cr.execute("select analytic_account_id from project_project ")
-#            project_ids = [x[0] for x in cr.fetchall()]
-#            # We cannot return here with normal project_ids, the following process also has to be followed.
-#            # The search should consider the name inhere, earlier it was just bypassing it.
-#            # Hence, we added the args and let the below mentioned procedure do the trick
-#            # Let the search method manage this.
-#            args += [('id', 'in', project_ids)]
-#            return self.name_get(cr, uid, project_ids, context=context)
         accountbycode = self.search(cr, uid, [('complete_wbs_code', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)        
         accountbyname = self.search(cr, uid, [('complete_wbs_name', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)
         account = accountbycode + accountbyname
@@ -344,9 +333,19 @@ class project(osv.osv):
 
         return result
 
+    def _has_child(self, cr, uid, ids, fields, args, context=None):
+
+        if context is None:
+            context = {}
+
+        for project_item in self.browse(cr, uid, ids, context=context):
+            if project_item.child_ids:
+                return True
+
+        return False
+
     _columns = {        
         'project_child_complete_ids': fields.function(_child_compute, relation='project.project', method=True, string="Project Hierarchy", type='many2many'),
-                                               
     }
     
     def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):       
@@ -357,23 +356,61 @@ class project(osv.osv):
             context = {}
         
         args = args[:]
-#        if context.get('current_model') == 'project.project':
-#            cr.execute("select analytic_account_id from project_project ")
-#            project_ids = [x[0] for x in cr.fetchall()]
-#            # We cannot return here with normal project_ids, the following process also has to be followed.
-#            # The search should consider the name inhere, earlier it was just bypassing it.
-#            # Hence, we added the args and let the below mentioned procedure do the trick
-#            # Let the search method manage this.
-#            args += [('id', 'in', project_ids)]
-#            return self.name_get(cr, uid, project_ids, context=context)
+
         projectbycode = self.search(cr, uid, [('complete_wbs_code', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)
         projectbyname = self.search(cr, uid, [('complete_wbs_name', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)
         project = projectbycode + projectbyname
-#            newproj = project
-#            while newproj:
-#                newproj = self.search(cr, uid, [('parent_id', 'in', newproj)]+args, limit=limit, context=context)
-#                project += newproj
 
         return self.name_get(cr, uid, project, context=context)
 
+    # Override the standard behaviour of duplicate_template not introducing the (copy) string
+    # to the copied projects.
+    def duplicate_template(self, cr, uid, ids, context=None):
+        if context is None:
+            context = {}
+        data_obj = self.pool.get('ir.model.data')
+        result = []
+        for proj in self.browse(cr, uid, ids, context=context):
+            parent_id = context.get('parent_id', False)
+            context.update({'analytic_project_copy': True})
+            new_date_start = time.strftime('%Y-%m-%d')
+            new_date_end = False
+            if proj.date_start and proj.date:
+                start_date = date(*time.strptime(proj.date_start, '%Y-%m-%d')[:3])
+                end_date = date(*time.strptime(proj.date, '%Y-%m-%d')[:3])
+                new_date_end = (datetime(*time.strptime(new_date_start, '%Y-%m-%d')[:3])+(end_date-start_date)).strftime('%Y-%m-%d')
+            context.update({'copy': True})
+            new_id = self.copy(cr, uid, proj.id, default={
+                'name': _("%s") % (proj.name),
+                'state': 'open',
+                'date_start': new_date_start,
+                'date': new_date_end,
+                'parent_id': parent_id}, context=context)
+            result.append(new_id)
+
+            child_ids = self.search(cr, uid, [('parent_id', '=', proj.analytic_account_id.id)], context=context)
+            parent_id = self.read(cr, uid, new_id, ['analytic_account_id'])['analytic_account_id'][0]
+            if child_ids:
+                self.duplicate_template(cr, uid, child_ids, context={'parent_id': parent_id})
+
+        if result and len(result):
+            res_id = result[0]
+            form_view_id = data_obj._get_id(cr, uid, 'project', 'edit_project')
+            form_view = data_obj.read(cr, uid, form_view_id, ['res_id'])
+            tree_view_id = data_obj._get_id(cr, uid, 'project', 'view_project')
+            tree_view = data_obj.read(cr, uid, tree_view_id, ['res_id'])
+            search_view_id = data_obj._get_id(cr, uid, 'project', 'view_project_project_filter')
+            search_view = data_obj.read(cr, uid, search_view_id, ['res_id'])
+            return {
+                'name': _('Projects'),
+                'view_type': 'form',
+                'view_mode': 'form,tree',
+                'res_model': 'project.project',
+                'view_id': False,
+                'res_id': res_id,
+                'views': [(form_view['res_id'], 'form'), (tree_view['res_id'], 'tree')],
+                'type': 'ir.actions.act_window',
+                'search_view_id': search_view['res_id'],
+                'nodestroy': True
+            }
 project()

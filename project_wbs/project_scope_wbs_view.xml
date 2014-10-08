@@ -57,8 +57,17 @@
 						</group>
 					</group>
             	</group>
+                <notebook position="inside">
+                    <page string="WBS">
+                        <field name="project_child_complete_ids"/>
+                    </page>
+                </notebook>
             </field>
         </record>
+
+
+
+
 
         <record model="ir.ui.view" id="view_project_kanban_wbs">
             <field name="name">project.project.kanban.wbs</field>
