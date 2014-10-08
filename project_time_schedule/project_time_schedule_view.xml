@@ -51,6 +51,11 @@
            						<field name="duration" on_change="onchange_duration(duration)"/>
            						<field name="planned_hours" widget="float_time"/>
                                 <field name="effective_hours" widget="float_time" />           														        						           						
+                                <label for="remaining_hours" string="Remaining"/>
+                                <div>
+                                    <field name="remaining_hours" widget="float_time"/>
+                                </div>
+
 							</group>
 							<group colspan="2" col="2">                						
            						<separator string="Early dates" colspan="2"/>           						
