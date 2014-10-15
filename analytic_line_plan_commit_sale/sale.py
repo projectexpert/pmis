@@ -179,7 +179,7 @@ class sale_order_line(osv.osv):
             if 'product_qty' in data:
                 product_qty = vals['product_qty']
             else:
-                product_qty = so_line.product_qty    
+                product_qty = so_line.product_uom_qty
             
             if 'name' in data:
                 vals_line['name'] = data['name']
@@ -198,7 +198,7 @@ class sale_order_line(osv.osv):
             if 'account_analytic_id' in data:                                        
                 vals_line['account_id'] = data['account_analytic_id']
             else:
-                vals_line['account_id'] = so_line.account_analytic_id and so_line.account_analytic_id.id
+                vals_line['account_id'] = so_line.order_id and so_line.order_id.project and so_line.order_id.project.id
                             
             vals_line['company_id'] = order.company_id and order.company_id.id or False
             

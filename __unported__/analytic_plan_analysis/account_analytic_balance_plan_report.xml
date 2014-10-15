@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
-        <report auto="False" id="account_analytic_balance_plan_print" menu="False"
-            model="account.analytic.account" name="account.analytic.balance.plan"
-            rml="analytic_plan_analysis/report/analytic_balance_plan.rml" string="Account Analytic Planning Balance"/>
-
-    </data>
-</openerp>
