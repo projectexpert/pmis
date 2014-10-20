@@ -120,6 +120,9 @@ class hr_analytic_timesheet(osv.osv):
         if 'user_id' in vals:
             vals_line['user_id'] = vals['user_id']
 
+        if isinstance(ids, (long, int)):
+            ids = [ids]
+
         for hr_timesheet in self.browse(cr, uid, ids, context=context):
             if hr_timesheet.analytic_line_plan:
                 line_plan_obj.write(cr, uid, [hr_timesheet.analytic_line_plan.id], vals_line, context)
