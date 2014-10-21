@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+       <record id="view_analytic_resource_plan_line_form" model="ir.ui.view">
+            <field name="name">analytic.resource.plan.line.form</field>
+            <field name="model">analytic.resource.plan.line</field>
+           <field name="inherit_id" ref="analytic_resource_plan.view_analytic_resource_plan_line_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="account_id" position="after">
+                    <field name="task_id"/>
+                </field>
+            </field>
+        </record>
+       <record id="view_analytic_resource_plan_line_tree" model="ir.ui.view">
+            <field name="name">analytic.resource.plan.line.tree</field>
+            <field name="model">analytic.resource.plan.line</field>
+            <field name="inherit_id" ref="analytic_resource_plan.view_analytic_resource_plan_line_tree"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="account_id" position="after">
+                    <field name="task_id" invisible="True"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_analytic_resource_plan_line_filter" model="ir.ui.view">
+            <field name="name">analytic.resource.plan.line.select</field>
+            <field name="model">analytic.resource.plan.line</field>
+            <field name="inherit_id" ref="analytic_resource_plan.view_analytic_resource_plan_line_filter"/>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <field name="account_id" position="after">
+                    <field name="task_id" on_change="on_change_task_id_resource(account_id, task_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                </field>
+            </field>
+        </record>
+
+	</data>
+
+</openerp>

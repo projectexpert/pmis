@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+#---------------------------------------------------------------------------------------------------------
+#   Add Project purchase line planning entries
+#---------------------------------------------------------------------------------------------------------
+       <record id="view_analytic_resource_plan_line_form" model="ir.ui.view">
+            <field name="name">analytic.resource.plan.line.form</field>
+            <field name="model">analytic.resource.plan.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+				<form string="Analytic resource plan line" version="7.0">
+                    <group>
+                        <group colspan="3" col="4">
+                            <field name="account_id" on_change="on_change_account_id_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                            <field name="name"/>
+                            <field name="date" on_change="on_change_date_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                        </group>
+                        <group colspan="2" col="4" string="Purchase Order Information">
+                            <field name="supplier_id" on_change="onchange_supplier_id(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                            <field name="pricelist_id" on_change="on_change_pricelist_id_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                        </group>
+                        <group colspan="2" col="4" string="Product Information">
+                            <field name="product_id" required="True" on_change="on_change_product_id_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                            <field name="unit_amount" required="True" on_change="on_change_unit_amount_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                            <field name="product_uom_id" required="True" on_change="on_change_product_uom_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                            <field name="price_unit" required="True" on_change="on_change_price_unit_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                            <field name="amount_currency" required="True" on_change="on_change_amount_currency_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                            <field name="currency_id" required="True" on_change="on_change_currency_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                        </group>
+                        <group colspan="2" col="4"  string="Analytic Information" groups="analytic.group_analytic_accounting">
+                            <field name="version_id"/>
+                            <field name="journal_id"/>
+                            <field name="ref"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="amount" colspan="4"/>
+                            <field name="general_account_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        <record id="view_analytic_resource_plan_line_tree" model="ir.ui.view">
+            <field name="name">analytic.resource.plan.line.tree</field>
+            <field name="model">analytic.resource.plan.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+				<tree string="Analytic resource plan line" editable="top">
+                    <field name="account_id" on_change="on_change_account_id_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                    <field name="date" on_change="on_change_date_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                    <field name="name"/>
+	                <field name="product_id" colspan="4" required="True" on_change="on_change_product_id_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+					<field name="unit_amount" colspan="2" required="True" on_change="on_change_unit_amount_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                    <field name="product_uom_id" required="True" on_change="on_change_product_uom_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+					<field name="version_id"/>
+                    <field name="supplier_id" invisible="True"/>
+					<field name="pricelist_id" invisible="True"/>
+                    <field name="price_unit" invisible="True"/>
+                    <field name="amount_currency" invisible="True"/>
+                    <field name="currency_id" invisible="True"/>
+                    <field name="amount" invisible="True"/>
+                    <field name="company_id" invisible="True"/>
+                    <field name="journal_id" invisible="True"/>
+                    <field name="ref" invisible="True"/>
+                    <field name="general_account_id" invisible="True"/>
+	            </tree>
+            </field>
+        </record>
+        <record id="view_analytic_resource_plan_line_filter" model="ir.ui.view">
+            <field name="name">analytic.resource.plan.line.select</field>
+            <field name="model">analytic.resource.plan.line</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search resource plan lines">
+                    <group col='6' colspan='5'>
+                        <field name="account_id"/>
+                        <field name="product_id"/>
+                        <field name="supplier_id"/>
+                        <field name="name"/>
+                        <field name="version_id"/>
+                        <field name="journal_id"/>
+                        <field name="general_account_id"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_analytic_resource_plan_line_open_form" model="ir.actions.act_window">
+            <field name="name">Plan resources</field>
+            <field name="res_model">analytic.resource.plan.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_analytic_resource_plan_line_filter" />
+        </record>
+        
+		<record model="ir.actions.act_window.view" id="action_analytic_resource_plan_line_tree">
+	        <field name="sequence" eval="1"/>
+	        <field name="view_mode">tree</field>
+	        <field name="view_id" ref="view_analytic_resource_plan_line_tree"/>
+	        <field name="act_window_id" ref="action_analytic_resource_plan_line_open_form"/>
+	   	</record>
+	   	
+	   	<record model="ir.actions.act_window.view" id="action_analytic_resource_plan_line_form2">
+	        <field name="sequence" eval="1"/>
+	        <field name="view_mode">form</field>
+	        <field name="view_id" ref="view_analytic_resource_plan_line_form"/>
+	        <field name="act_window_id" ref="action_analytic_resource_plan_line_open_form"/>
+	   	</record>
+
+		<menuitem id="analytic_resource_plan_menu" name="Resource planning"
+          parent="project.menu_project_management"
+          groups="project.group_project_manager"/>
+
+        <menuitem groups="project.group_project_manager,project.group_project_user"
+            action="action_analytic_resource_plan_line_open_form"
+            id="analytic_resource_plan_line_entries"
+            parent="analytic_resource_plan.analytic_resource_plan_menu"
+            sequence="1"/>
+
+	</data>
+
+</openerp>
