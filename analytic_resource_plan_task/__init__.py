@@ -20,4 +20,5 @@
 ##############################################################################
 import task
 import analytic_resource_plan
+import project
 

@@ -31,10 +31,6 @@ class project_task(osv.osv):
         'default_resource_plan_line': fields.many2one('analytic.resource.plan.line', 'Default resource plan line',
                                                       required=False, help='Resource plan line associated to the '
                                                                            'employee assigned to the task'),
-        'analytic_account_id': fields.related('project_id', 'analytic_account_id',
-                                              type='many2one', relation='account.analytic.account',
-                                              string='Analytic Account', store=True),
-
     }
 
     def _prepare_resource_plan_line(self, cr, uid, plan_input, context=None):
@@ -128,102 +124,156 @@ class project_task(osv.osv):
         task = super(project_task, self).create(cr, uid, vals, *args, **kwargs)
         new_vals = {}
         resource_plan_line_obj = self.pool.get('analytic.resource.plan.line')
-        if 'state' in vals:
-            if vals['state'] != 'cancelled' \
-                    and vals['planned_hours'] > 0.0 \
-                    and vals['user_id'] \
-                    and not vals['delegated_user_id'] \
-                    and vals['project_id']:
+        stage_obj = self.pool.get('project.task.type')
+        if 'stage_id' in vals:
+            stage = stage_obj.browse(cr, uid, vals['stage_id'])
+            state = stage.state
+            if state != 'cancelled':
+                if 'planned_hours' in vals and vals['planned_hours']:
+                    if 'user_id' in vals and vals['user_id']:
+                        if 'project_id' in vals and vals['project_id']:
+                            if (not 'delegated_user_id' in vals) or ('delegated_user_id'
+                                                                     in vals and not vals['delegated_user_id']):
+                                plan_output = self._prepare_resource_plan_line(cr, uid, vals, context=context)
+                                plan_output['task_id'] = task
+                                new_plan_line_id = resource_plan_line_obj.create(cr, uid,
+                                                                                 vals=plan_output,
+                                                                                 context=context)
 
-                plan_output = self._prepare_resource_plan_line(cr, uid, vals, context=context)
-                plan_output['task_id'] = task
-                new_plan_line_id = resource_plan_line_obj.create(cr, uid,
-                                                                 vals=plan_output,
-                                                                 context=context)
-
-                new_vals['default_resource_plan_line'] = new_plan_line_id
-        self.write(cr, uid, [task], new_vals, context=context)
+                                new_vals['default_resource_plan_line'] = new_plan_line_id
+                                self.write(cr, uid, [task], new_vals, context=context)
         return task
 
     def write(self, cr, uid, ids, vals, context=None):
         if context is None:
             context = {}
         resource_plan_line_obj = self.pool.get('analytic.resource.plan.line')
+        stage_obj = self.pool.get('project.task.type')
 
         if isinstance(ids, (long, int)):
             ids = [ids]
 
-        for t in self.browse(cr, uid, ids, context=context):
+        if 'stage_id' in vals or 'planned_hours' in vals or 'user_id' in vals or 'delegated_user_id' in vals or 'project_id' in vals:
 
-            plan_input = {}
+            for t in self.browse(cr, uid, ids, context=context):
 
-            if 'state' in vals:
-                plan_input['state'] = vals['state']
-            else:
-                plan_input['state'] = t.state
+                plan_input = {}
 
-            if 'planned_hours' in vals:
-                plan_input['planned_hours'] = vals['planned_hours']
-            else:
-                plan_input['planned_hours'] = t.planned_hours
-
-            if 'user_id' in vals:
-                plan_input['user_id'] = vals['user_id']
-            else:
-                plan_input['user_id'] = t.user_id and t.user_id.id or False
-
-            if 'delegated_user_id' in vals:
-                plan_input['delegated_user_id'] = vals['delegated_user_id']
-            else:
-                plan_input['delegated_user_id'] = t.delegated_user_id and t.delegated_user_id.id or False
-
-            if 'name' in vals:
-                plan_input['name'] = vals['name']
-            else:
-                plan_input['name'] = t.name
-
-            if 'date_start' in vals:
-                plan_input['date_start'] = vals['date_start']
-            elif t.date_start:
-                plan_input['date_start'] = t.date_start
-
-            if 'date_end' in vals:
-                plan_input['date_end'] = vals['date_end']
-            elif t.date_end:
-                plan_input['date_end'] = t.date_end
-
-            if 'project_id' in vals:
-                plan_input['project_id'] = vals['project_id']
-            else:
-                plan_input['project_id'] = t.project_id and t.project_id.id or False
-
-            if 'company_id' in vals:
-                plan_input['company_id'] = vals['company_id']
-            else:
-                plan_input['company_id'] = t.company_id and t.company_id.id or False
-
-            if plan_input['state'] != 'cancelled' \
-                    and plan_input['planned_hours'] > 0.0 \
-                    and plan_input['user_id'] \
-                    and not plan_input['delegated_user_id'] \
-                    and plan_input['project_id']:
-                #Add or update the resource plan line
-                plan_output = self._prepare_resource_plan_line(cr, uid, plan_input, context=context)
-                plan_output['task_id'] = t.id
-                if t.default_resource_plan_line:
-                    resource_plan_line_obj.write(cr, uid, [t.default_resource_plan_line.id],
-                                                 plan_output, context)
+                if 'stage_id' in vals:
+                    plan_input['stage_id'] = vals['stage_id']
                 else:
-                    new_resource_plan_line_id = resource_plan_line_obj.create(cr, uid,
-                                                                              plan_output,
-                                                                              context=context)
-                    vals['default_resource_plan_line'] = new_resource_plan_line_id
+                    plan_input['stage_id'] = t.stage_id
 
-            else:
-                #Remove the resource plan line
-                if t.default_resource_plan_line:
-                    resource_plan_line_obj.unlink(cr, uid, [t.default_resource_plan_line.id], context)
+                if 'planned_hours' in vals:
+                    plan_input['planned_hours'] = vals['planned_hours']
+                else:
+                    plan_input['planned_hours'] = t.planned_hours
 
-            return super(project_task, self).write(cr, uid, ids, vals, context=context)
+                if 'user_id' in vals:
+                    plan_input['user_id'] = vals['user_id']
+                else:
+                    plan_input['user_id'] = t.user_id and t.user_id.id or False
+
+                if 'delegated_user_id' in vals:
+                    plan_input['delegated_user_id'] = vals['delegated_user_id']
+                else:
+                    plan_input['delegated_user_id'] = t.delegated_user_id and t.delegated_user_id.id or False
+
+                if 'name' in vals:
+                    plan_input['name'] = vals['name']
+                else:
+                    plan_input['name'] = t.name
+
+                if 'date_start' in vals:
+                    plan_input['date_start'] = vals['date_start']
+                elif t.date_start:
+                    plan_input['date_start'] = t.date_start
+
+                if 'date_end' in vals:
+                    plan_input['date_end'] = vals['date_end']
+                elif t.date_end:
+                    plan_input['date_end'] = t.date_end
+
+                if 'project_id' in vals:
+                    plan_input['project_id'] = vals['project_id']
+                else:
+                    plan_input['project_id'] = t.project_id and t.project_id.id or False
+
+                if 'company_id' in vals:
+                    plan_input['company_id'] = vals['company_id']
+                else:
+                    plan_input['company_id'] = t.company_id and t.company_id.id or False
+
+                stage = stage_obj.browse(cr, uid, plan_input['stage_id'])
+                state = stage.state
+
+                if state != 'cancelled' \
+                        and plan_input['planned_hours'] > 0.0 \
+                        and plan_input['user_id'] \
+                        and not plan_input['delegated_user_id'] \
+                        and plan_input['project_id']:
+                    #Add or update the resource plan line
+                    plan_output = self._prepare_resource_plan_line(cr, uid, plan_input, context=context)
+                    plan_output['task_id'] = t.id
+                    if t.default_resource_plan_line:
+                        resource_plan_line_obj.write(cr, uid, [t.default_resource_plan_line.id],
+                                                     plan_output, context)
+                    else:
+                        new_resource_plan_line_id = resource_plan_line_obj.create(cr, uid,
+                                                                                  plan_output,
+                                                                                  context=context)
+                        vals['default_resource_plan_line'] = new_resource_plan_line_id
+
+                else:
+                    #Remove the resource plan line
+                    if t.default_resource_plan_line:
+                        resource_plan_line_obj.unlink(cr, uid, [t.default_resource_plan_line.id], context)
+
+        return super(project_task, self).write(cr, uid, ids, vals, context=context)
+
+    def map_resource_plan_lines(self, cr, uid, old_task_id, new_task_id, context=None):
+        """ copy and map tasks from old to new project """
+        if context is None:
+            context = {}
+        map_resource_plan_line_id = {}
+        default = {}
+        resource_plan_line_obj = self.pool.get('analytic.resource.plan.line')
+
+
+        task = self.browse(cr, uid, old_task_id, context=context)
+        new_task = self.browse(cr, uid, new_task_id, context=context)
+        default['account_id'] = \
+            new_task.project_id and \
+            new_task.project_id.analytic_account_id and \
+            new_task.project_id.analytic_account_id.id or False
+
+        default['task_id'] = new_task.id
+
+        for resource_plan_line in task.resource_plan_lines:
+                default_resource_plan_line = \
+                    task.default_resource_plan_line \
+                    and task.default_resource_plan_line.id \
+                    or False
+                if resource_plan_line.id is not default_resource_plan_line:
+                    new_resource_plan_line = resource_plan_line_obj.copy(cr, uid,
+                                                                         resource_plan_line.id, default,
+                                                                         context=context)
+                    if new_resource_plan_line:
+                        map_resource_plan_line_id[resource_plan_line.id] = new_resource_plan_line
+
+        self.write(cr, uid, [new_task_id], {'resource_plan_lines': [(6, 0, map_resource_plan_line_id.values())]})
+        return True
+
+    def copy(self, cr, uid, id, default=None, context=None):
+        if context is None:
+            context = {}
+        if default is None:
+            default = {}
+
+        default['default_resource_plan_line'] = False
+        default['resource_plan_lines'] = []
+        res = super(project_task, self).copy(cr, uid, id, default, context)
+        self.map_resource_plan_lines(cr, uid, id, res, context)
+        return res
 
 project_task()

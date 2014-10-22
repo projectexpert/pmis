@@ -27,33 +27,17 @@ class analytic_resource_plan_line(osv.osv):
 
     _inherit = 'analytic.resource.plan.line'
 
-    def _check_task_project(self, cr, uid, ids):
-        for line in self.browse(cr, uid, ids):
-            if line.task_id and line.task_id.project_id and line.account_id:
-                task_account_id = line.task_id.project_id \
-                                  and line.task_id.project_id.analytic_account_id \
-                                  and line.task_id.project_id.analytic_account_id.id or False
-
-                if task_account_id != line.account_id.id:
-                    return False
-        return True
-
     _columns = {
         'task_id': fields.many2one('project.task', 'Task', required=False, ondelete='cascade'),
     }
 
-    _constraints = [
-        (_check_task_project, _('Error! Task must belong to the project.'),
-         ['task_id', 'account_id']),
-    ]
-
     def on_change_task_id_resource(self,
-                                      cr, uid, ids, account_id,
-                                      task_id, name, date, supplier_id,
-                                      pricelist_id, product_id, unit_amount,
-                                      product_uom_id, price_unit, amount_currency,
-                                      currency_id, version_id, journal_id,
-                                      ref, company_id, amount, general_account_id, context=None):
+                                   cr, uid, ids, account_id,
+                                   task_id, name, date, supplier_id,
+                                   pricelist_id, product_id, unit_amount,
+                                   product_uom_id, price_unit, amount_currency,
+                                   currency_id, version_id, journal_id,
+                                   ref, company_id, amount, general_account_id, context=None):
         res = {}
         res['value'] = {}
         #Change in task_id affects:
@@ -79,5 +63,19 @@ class analytic_resource_plan_line(osv.osv):
             return res
         else:
             return {}
+
+    def create(self, cr, uid, vals, *args, **kwargs):
+        context = kwargs.get('context', {})
+        task_obj = self.pool.get('project.task')
+
+        if 'task_id' in vals and vals['task_id']:
+            task = task_obj.browse(cr, uid, vals['task_id'], context=context)
+            vals['account_id'] = \
+                task.project_id \
+                and task.project_id.analytic_account_id \
+                and task.project_id.analytic_account_id.id \
+                or False
+        return super(analytic_resource_plan_line, self).create(cr, uid, vals, *args, **kwargs)
+
 
 analytic_resource_plan_line()

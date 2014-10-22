@@ -75,21 +75,20 @@ class task(osv.osv):
                 res.append((task.id, ''))
         return dict(res)  
 
-    
-
-    
     _columns = {
-        'project_complete_wbs_name': fields.function(_project_complete_wbs_name, method=True, type='char', string='WBS path name', size=250, help='Project Complete WBS path name',
-            store={
-                'project.task': (lambda self, cr, uid, ids, c=None: ids, ['project_id'], 10),               
-            }),   
-        'project_complete_wbs_code': fields.function(_project_complete_wbs_code, method=True, type='char', string='WBS path code', size=250, help='Project Complete WBS path code',
-            store={
-                'project.task': (lambda self, cr, uid, ids, c=None: ids, ['project_id'], 10),               
-            }),    
-                            
-     }    
 
+        'analytic_account_id': fields.related('project_id', 'analytic_account_id',
+                                              type='many2one', relation='account.analytic.account',
+                                              string='Analytic Account', store=True, readonly=True),
+
+        'project_complete_wbs_code': fields.related('analytic_account_id', 'complete_wbs_code',
+                                            type='char', size=250,
+                                            string='Full WBS Code', readonly=True),
+        'project_complete_wbs_name': fields.related('analytic_account_id', 'complete_wbs_name',
+                                            type='char', size=250,
+                                            string='Full WBS Name', readonly=True),
+
+     }
 
 task()
 
@@ -149,9 +148,52 @@ class account_analytic_account(osv.osv):
                 
             data = ' / '.join(data)
             res.append((account.id, data))
-        return dict(res)     
+        return dict(res)
 
- 
+    def _child_count(self, cr, uid, ids, account_class, arg, context=None):
+        if context is None:
+            context = {}
+        res = dict.fromkeys(ids, 0)
+        ctx = context.copy()
+        ctx['active_test'] = False
+        for analytic_account in self.browse(cr, uid, ids, context=context):
+            deliverable_ids = self.pool.get('account.analytic.account').search(cr, uid,
+                                                                      [('parent_id', '=', analytic_account.id),
+                                                                       ('account_class', '=', account_class)],
+                                                                      context=ctx)
+            if deliverable_ids:
+                res[analytic_account.id] = len(deliverable_ids)
+            else:
+                res[analytic_account.id] = 0
+
+        return res
+
+    def _child_project_count(self, cr, uid, ids, field_name, arg, context=None):
+        if context is None:
+            context = {}
+        return self._child_count(cr, uid, ids, 'project', arg, context=context)
+
+    def _child_phase_count(self, cr, uid, ids, field_name, arg, context=None):
+        if context is None:
+            context = {}
+        return self._child_count(cr, uid, ids, 'phase', arg, context=context)
+
+    def _child_deliverable_count(self, cr, uid, ids, field_name, arg, context=None):
+        if context is None:
+            context = {}
+        return self._child_count(cr, uid, ids, 'deliverable', arg, context=context)
+
+    def _child_work_package_count(self, cr, uid, ids, field_name, arg, context=None):
+        if context is None:
+            context = {}
+        return self._child_count(cr, uid, ids, 'work_package', arg, context=context)
+
+    def _child_unclassified_count(self, cr, uid, ids, field_name, arg, context=None):
+        if context is None:
+            context = {}
+        return self._child_count(cr, uid, ids, '', arg, context=context)
+
+
     _columns = {   
                                  
         'complete_wbs_code': fields.function(_complete_wbs_code_calc, method=True, type='char', string='Full WBS Code', size=250, help='The full WBS code describes the full path of this component within the project WBS hierarchy',
@@ -162,8 +204,13 @@ class account_analytic_account(osv.osv):
             store={
                  'account.analytic.account': (get_child_accounts, ['name', 'code', 'parent_id'], 20),                 
                  }),                                                                                                          
-        'account_class': fields.selection([('project','Project'),('subproject','Subproject'), ('phase','Phase'), ('deliverable','Deliverable'), ('work_package','Work Package')], 'Class', help='The classification allows you to create a proper project Work Breakdown Structure'),
+        'account_class': fields.selection([('project','Project'),('phase','Phase'), ('deliverable','Deliverable'), ('work_package','Work Package')], 'Class', help='The classification allows you to create a proper project Work Breakdown Structure'),
         'lifecycle_stage': fields.many2one('project.lifecycle','Lifecycle Stage'),
+        'child_project_count': fields.function(_child_project_count, type='integer', string="Projects"),
+        'child_phase_count': fields.function(_child_phase_count, type='integer', string="Phases"),
+        'child_deliverable_count': fields.function(_child_deliverable_count, type='integer', string="Deliverables"),
+        'child_work_package_count': fields.function(_child_work_package_count, type='integer', string="Work Packages"),
+        'child_unclassified_count': fields.function(_child_unclassified_count, type='integer', string="Unclassified projects"),
 
      }
 
@@ -413,4 +460,19 @@ class project(osv.osv):
                 'search_view_id': search_view['res_id'],
                 'nodestroy': True
             }
+
+    def action_openProjectView(self, cr, uid, ids, context=None):
+        """
+        :return dict: dictionary value for created view
+        """
+        project = self.browse(cr, uid, ids[0], context)
+        res = self.pool.get('ir.actions.act_window').for_xml_id(cr, uid, 'project', 'open_view_project_all', context)
+        res['context'] = {
+            'search_default_parent_id': project.analytic_account_id and project.analytic_account_id.id,
+            'default_parent_id': project.analytic_account_id and project.analytic_account_id.id,
+        }
+
+        res['nodestroy'] = True
+
+        return res
 project()

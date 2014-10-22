@@ -17,6 +17,7 @@
             			<field name="complete_wbs_code" string="WBS code"/>
 						<field name="account_class" string="Class"/>
 						<field name="lifecycle_stage" string="Stage" attrs="{'readonly':[('class','in',['deliverable', 'work_package'])]}"/>
+                        <field name="parent_id"/>
             	</field>
             </field>
         </record>
@@ -65,8 +66,12 @@
             </field>
         </record>
 
-
-
+        <record id="act_project_project_2_deliverable_all" model="ir.actions.act_window">
+            <field name="name">Deliverables</field>
+            <field name="res_model">project.project</field>
+            <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
+            <field name="search_view_id" ref="view_project_project_filter"/>
+        </record>
 
 
         <record model="ir.ui.view" id="view_project_kanban_wbs">
@@ -87,6 +92,11 @@
                     <field name="date"/>
                     <field name="color"/>
                     <field name="task_count"/>
+                    <field name="child_project_count"/>
+                    <field name="child_phase_count"/>
+                    <field name="child_deliverable_count"/>
+                    <field name="child_work_package_count"/>
+                    <field name="child_unclassified_count"/>
                     <field name="alias_id"/>
                     <field name="alias_domain"/>
                     <field name="doc_count"/>
@@ -106,7 +116,22 @@
                                     <h4><field name="complete_wbs_name"/></h4>
                                     <field name="complete_wbs_code"/>
                                     <div class="oe_kanban_project_list">
-                                        <a t-if="record.use_tasks.raw_value" name="%(project.act_project_project_2_project_task_all)d" type="action" style="margin-right: 10px"> 
+                                        <a name="action_openProjectView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'project','search_default_account_class': 'project'}">
+                                            <span t-if="record.child_project_count.raw_value gt 0"><field name="child_project_count"/> Project(s)</span>
+                                        </a>
+                                        <a name="action_openProjectView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'phase','search_default_account_class': 'phase'}">
+                                            <span t-if="record.child_phase_count.raw_value gt 0"><field name="child_phase_count"/> Phase(s)</span>
+                                        </a>
+                                        <a name="action_openProjectView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'deliverable','search_default_account_class': 'deliverable'}">
+                                            <span t-if="record.child_deliverable_count.raw_value gt 0"><field name="child_deliverable_count"/> Deliverable(s)</span>
+                                        </a>
+                                        <a name="action_openProjectView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'work_package','search_default_account_class': 'work_package'}">
+                                            <span t-if="record.child_work_package_count.raw_value gt 0"><field name="child_work_package_count"/> Work Package(s)</span>
+                                        </a>
+                                        <a name="action_openProjectView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'work_package','search_default_account_class': 'work_package'}">
+                                            <span t-if="record.child_unclassified_count.raw_value gt 0"><field name="child_unclassified_count"/> Unclassified project(s)</span>
+                                        </a>
+                                        <a t-if="record.use_tasks.raw_value" name="%(project.act_project_project_2_project_task_all)d" type="action" style="margin-right: 10px">
                                             <span t-if="record.task_count.raw_value gt 1"><field name="task_count"/> Tasks</span>
                                             <span t-if="record.task_count.raw_value lt 2"><field name="task_count"/> Task</span>
                                         </a>

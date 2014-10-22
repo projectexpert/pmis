@@ -89,7 +89,6 @@
                     <field name="user_id"/>
                     <group string="Group By..." expand="0">
                         <filter string="Analytic Account" context="{'group_by':'account_id'}"/>
-                        <filter string="Project Task" context="{'group_by':'task_id'}"/>
                         <filter string="Fin. Account" context="{'group_by':'general_account_id'}"/>
                         <filter string="Journal" context="{'group_by':'journal_id'}" name="group_journal"/>
                         <filter string="Version" context="{'group_by':'version_id'}" name="group_version"/>

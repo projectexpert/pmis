@@ -25,7 +25,7 @@
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["project", "hr", "analytic_resource_plan"],
+    "depends": ["project", "hr", "analytic_resource_plan", "project_wbs"],
     "description": """
 Analytic Resource Planning
 ====================================
