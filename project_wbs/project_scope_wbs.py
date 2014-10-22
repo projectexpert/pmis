@@ -129,8 +129,7 @@ class account_analytic_account(osv.osv):
             
             res.append((account.id, data))
         return dict(res)                                 
-    
-        
+
     def _complete_wbs_name_calc(self, cr, uid, ids, prop, unknow_none, unknow_dict):        
         if not ids:
             return []
@@ -193,26 +192,59 @@ class account_analytic_account(osv.osv):
             context = {}
         return self._child_count(cr, uid, ids, '', arg, context=context)
 
+    def _read_group_lifecycle_stage_ids(self, cr, uid, ids, domain, read_group_order=None, access_rights_uid=None, context=None):
+        lifecycle_stage_obj = self.pool.get('project.lifecycle')
+        order = lifecycle_stage_obj._order
+        access_rights_uid = access_rights_uid or uid
+        if read_group_order == 'stage_id desc':
+            order = '%s desc' % order
+        search_domain = []
+        search_domain += [('id', 'in', ids)]
+        lifecycle_stage_ids = lifecycle_stage_obj._search(cr, uid, search_domain, order=order, access_rights_uid=access_rights_uid, context=context)
+        result = lifecycle_stage_obj.name_get(cr, access_rights_uid, lifecycle_stage_ids, context=context)
+        # restore order of the search
+        result.sort(lambda x, y: cmp(lifecycle_stage_ids.index(x[0]), lifecycle_stage_ids.index(y[0])))
 
-    _columns = {   
-                                 
-        'complete_wbs_code': fields.function(_complete_wbs_code_calc, method=True, type='char', string='Full WBS Code', size=250, help='The full WBS code describes the full path of this component within the project WBS hierarchy',
-            store={
-                 'account.analytic.account': (get_child_accounts, ['name', 'code', 'parent_id'], 20),                 
-                 }),      
-        'complete_wbs_name': fields.function(_complete_wbs_name_calc, method=True, type='char', string='Full WBS path', size=250, help='Full path in the WBS hierarchy',
-            store={
-                 'account.analytic.account': (get_child_accounts, ['name', 'code', 'parent_id'], 20),                 
-                 }),                                                                                                          
-        'account_class': fields.selection([('project','Project'),('phase','Phase'), ('deliverable','Deliverable'), ('work_package','Work Package')], 'Class', help='The classification allows you to create a proper project Work Breakdown Structure'),
-        'lifecycle_stage': fields.many2one('project.lifecycle','Lifecycle Stage'),
+        fold = {}
+        for stage in lifecycle_stage_obj.browse(cr, access_rights_uid, lifecycle_stage_ids, context=context):
+            fold[stage.id] = stage.fold or False
+        return result, fold
+
+    _columns = {
+        'complete_wbs_code': fields.function(_complete_wbs_code_calc, method=True, type='char',
+                                             string='Full WBS Code', size=250,
+                                             help='The full WBS code describes the full path of this '
+                                                  'component within the project WBS hierarchy',
+                                             store={
+                                                 'account.analytic.account': (get_child_accounts,
+                                                                              ['name', 'code', 'parent_id'], 20)
+                                            }),
+
+        'complete_wbs_name': fields.function(_complete_wbs_name_calc, method=True, type='char',
+                                             string='Full WBS path', size=250,
+                                             help='Full path in the WBS hierarchy',
+                                             store={'account.analytic.account': (get_child_accounts,
+                                                                                  ['name', 'code', 'parent_id'], 20)
+                                                    }),
+
+        'account_class': fields.selection([('project', 'Project'), ('phase', 'Phase'),
+                                           ('deliverable', 'Deliverable'),
+                                           ('work_package','Work Package')], 'Class',
+                                          help='The classification allows you to create a proper project '
+                                               'Work Breakdown Structure'),
+
+        'lifecycle_stage': fields.many2one('project.lifecycle', 'Lifecycle Stage'),
         'child_project_count': fields.function(_child_project_count, type='integer', string="Projects"),
         'child_phase_count': fields.function(_child_phase_count, type='integer', string="Phases"),
         'child_deliverable_count': fields.function(_child_deliverable_count, type='integer', string="Deliverables"),
         'child_work_package_count': fields.function(_child_work_package_count, type='integer', string="Work Packages"),
-        'child_unclassified_count': fields.function(_child_unclassified_count, type='integer', string="Unclassified projects"),
+        'child_unclassified_count': fields.function(_child_unclassified_count, type='integer',
+                                                    string="Unclassified projects"),
+    }
 
-     }
+    _group_by_full = {
+        'lifecycle_stage': _read_group_lifecycle_stage_ids,
+    }
 
     def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):        
         if not args:
@@ -319,7 +351,7 @@ class project(osv.osv):
 
         if not ids:
             return []
-        if type(ids) is int:ids = [ids]
+        if type(ids) is int: ids = [ids]
         res = []
 
         new_list = []
@@ -391,10 +423,32 @@ class project(osv.osv):
 
         return False
 
+    def _read_group_lifecycle_stage_ids(self, cr, uid, ids, domain, read_group_order=None, access_rights_uid=None, context=None):
+        lifecycle_stage_obj = self.pool.get('project.lifecycle')
+        order = lifecycle_stage_obj._order
+        access_rights_uid = access_rights_uid or uid
+        if read_group_order == 'lifecycle_stage desc':
+            order = '%s desc' % order
+        search_domain = []
+        #search_domain += [('id', 'in', ids)]
+        lifecycle_stage_ids = lifecycle_stage_obj._search(cr, uid, search_domain, order=order, access_rights_uid=access_rights_uid, context=context)
+        result = lifecycle_stage_obj.name_get(cr, access_rights_uid, lifecycle_stage_ids, context=context)
+        # restore order of the search
+        result.sort(lambda x, y: cmp(lifecycle_stage_ids.index(x[0]), lifecycle_stage_ids.index(y[0])))
+
+        fold = {}
+        for stage in lifecycle_stage_obj.browse(cr, access_rights_uid, lifecycle_stage_ids, context=context):
+            fold[stage.id] = stage.fold or False
+        return result, fold
+
     _columns = {        
         'project_child_complete_ids': fields.function(_child_compute, relation='project.project', method=True, string="Project Hierarchy", type='many2many'),
     }
-    
+
+    _group_by_full = {
+        'lifecycle_stage': _read_group_lifecycle_stage_ids,
+    }
+
     def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):       
 
         if not args:
@@ -461,18 +515,40 @@ class project(osv.osv):
                 'nodestroy': True
             }
 
-    def action_openProjectView(self, cr, uid, ids, context=None):
+
+    def action_openView(self, cr, uid, ids, module, act_window, context=None):
         """
         :return dict: dictionary value for created view
         """
         project = self.browse(cr, uid, ids[0], context)
-        res = self.pool.get('ir.actions.act_window').for_xml_id(cr, uid, 'project', 'open_view_project_all', context)
+        res = self.pool.get('ir.actions.act_window').for_xml_id(cr, uid, module , act_window, context)
         res['context'] = {
             'search_default_parent_id': project.analytic_account_id and project.analytic_account_id.id,
             'default_parent_id': project.analytic_account_id and project.analytic_account_id.id,
         }
-
         res['nodestroy'] = True
-
         return res
+
+    def action_openProjectsView(self, cr, uid, ids, context=None):
+
+        return self.action_openView(cr, uid, ids, 'project_wbs', 'open_view_project_projects', context=context)
+
+    def action_openPhasesView(self, cr, uid, ids, context=None):
+
+        return self.action_openView(cr, uid, ids, 'project_wbs', 'open_view_project_phases', context=context)
+
+    def action_openDeliverablesView(self, cr, uid, ids, context=None):
+
+        return self.action_openView(cr, uid, ids, 'project_wbs', 'open_view_project_deliverables', context=context)
+
+    def action_openWorkPackagesView(self, cr, uid, ids, context=None):
+
+        return self.action_openView(cr, uid, ids, 'project_wbs', 'open_view_project_work_packages', context=context)
+
+    def action_openUnclassifiedView(self, cr, uid, ids, context=None):
+
+        return self.action_openView(cr, uid, ids, 'project', 'open_view_project_all', context=context)
+
+
+
 project()

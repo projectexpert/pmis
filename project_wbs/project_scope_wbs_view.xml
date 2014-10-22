@@ -3,6 +3,81 @@
     <data>
 
 #---------------------------------------------------------------------------------------------------------
+#  Extend the menus of the project
+#---------------------------------------------------------------------------------------------------------
+
+         <record id="open_view_project_projects" model="ir.actions.act_window">
+            <field name="name">Projects</field>
+            <field name="res_model">project.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">kanban,tree,form,gantt</field>
+            <field name="view_id" ref="project.view_project_kanban"/>
+            <field name="search_view_id" ref="view_project_project_filter"/>
+            <field name="context">{'search_default_Current': 1, 'search_default_account_class':'project', 'default_account_class':'project'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                  Click to start a new project.
+                </p>
+            </field>
+        </record>
+
+        <record id="open_view_project_phases" model="ir.actions.act_window">
+            <field name="name">Phases</field>
+            <field name="res_model">project.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">kanban,tree,form,gantt</field>
+            <field name="view_id" ref="project.view_project_kanban"/>
+            <field name="search_view_id" ref="view_project_project_filter"/>
+            <field name="context">{'search_default_Current': 1, 'search_default_account_class':'phase', 'default_account_class':'phase'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                  Click to start a new phase.
+                </p>
+            </field>
+        </record>
+
+        <record id="open_view_project_deliverables" model="ir.actions.act_window">
+            <field name="name">Deliverables</field>
+            <field name="res_model">project.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">kanban,tree,form,gantt</field>
+            <field name="view_id" ref="project.view_project_kanban"/>
+            <field name="search_view_id" ref="view_project_project_filter"/>
+            <field name="context">{'search_default_Current': 1, 'search_default_account_class':'deliverable', 'default_account_class':'deliverable'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                  Click to start a new deliverable.
+                </p>
+            </field>
+        </record>
+
+        <record id="open_view_project_work_packages" model="ir.actions.act_window">
+            <field name="name">Work Packages</field>
+            <field name="res_model">project.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">kanban,tree,form,gantt</field>
+            <field name="view_id" ref="project.view_project_kanban"/>
+            <field name="search_view_id" ref="view_project_project_filter"/>
+            <field name="context">{'search_default_Current': 1, 'search_default_account_class':'work_package', 'default_account_class':'work_package'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                  Click to start a new work package.
+                </p>
+            </field>
+        </record>
+
+        <menuitem action="project.open_view_project_all" id="project.menu_projects" name="All WBS" parent="project.menu_project_management" sequence="1"/>
+        <menuitem action="open_view_project_projects" id="menu_project_projects" name="Projects" parent="project.menu_project_management" sequence="2"/>
+        <menuitem action="open_view_project_phases" id="menu_project_phases" name="Phases" parent="project.menu_project_management" sequence="3"/>
+        <menuitem action="open_view_project_deliverables" id="menu_project_deliverables" name="Deliverables" parent="project.menu_project_management" sequence="4"/>
+        <menuitem action="open_view_project_work_packages" id="menu_project_work_packages" name="Work Packages" parent="project.menu_project_management" sequence="5"/>
+
+
+#---------------------------------------------------------------------------------------------------------
 #   Extend the project
 #---------------------------------------------------------------------------------------------------------
 
@@ -80,7 +155,7 @@
             <field name="inherit_id" ref="project.view_project_kanban"/>
             <field name="arch" type="xml">
 		        <kanban position="replace">
-		        	<kanban version="7.0" class="oe_background_grey" default_group_by="lifecycle_stage" quick_create="1">	
+		        	<kanban default_group_by="lifecycle_stage">
 	            	<field name="complete_wbs_code"/>
 	            	<field name="complete_wbs_name"/>
                     <field name="effective_hours"/>
@@ -116,19 +191,19 @@
                                     <h4><field name="complete_wbs_name"/></h4>
                                     <field name="complete_wbs_code"/>
                                     <div class="oe_kanban_project_list">
-                                        <a name="action_openProjectView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'project','search_default_account_class': 'project'}">
+                                        <a name="action_openProjectsView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'project','search_default_account_class': 'project'}">
                                             <span t-if="record.child_project_count.raw_value gt 0"><field name="child_project_count"/> Project(s)</span>
                                         </a>
-                                        <a name="action_openProjectView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'phase','search_default_account_class': 'phase'}">
+                                        <a name="action_openPhasesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'phase','search_default_account_class': 'phase'}">
                                             <span t-if="record.child_phase_count.raw_value gt 0"><field name="child_phase_count"/> Phase(s)</span>
                                         </a>
-                                        <a name="action_openProjectView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'deliverable','search_default_account_class': 'deliverable'}">
+                                        <a name="action_openDeliverablesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'deliverable','search_default_account_class': 'deliverable'}">
                                             <span t-if="record.child_deliverable_count.raw_value gt 0"><field name="child_deliverable_count"/> Deliverable(s)</span>
                                         </a>
-                                        <a name="action_openProjectView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'work_package','search_default_account_class': 'work_package'}">
+                                        <a name="action_openWorkPackagesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'work_package','search_default_account_class': 'work_package'}">
                                             <span t-if="record.child_work_package_count.raw_value gt 0"><field name="child_work_package_count"/> Work Package(s)</span>
                                         </a>
-                                        <a name="action_openProjectView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'work_package','search_default_account_class': 'work_package'}">
+                                        <a name="action_openUnclassifiedView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'work_package','search_default_account_class': 'work_package'}">
                                             <span t-if="record.child_unclassified_count.raw_value gt 0"><field name="child_unclassified_count"/> Unclassified project(s)</span>
                                         </a>
                                         <a t-if="record.use_tasks.raw_value" name="%(project.act_project_project_2_project_task_all)d" type="action" style="margin-right: 10px">
@@ -155,8 +230,8 @@
                                         </t>
                                     </div>
                                 </div>
+                                <div class="oe_clear"></div>
                             </div>
-                        
                         </t>
                     </templates>	            	
 	            	</kanban>            	
@@ -164,7 +239,7 @@
 			</field>
 		</record>
 
- 
+
 
 #---------------------------------------------------------------------------------------------------------
 #   Extend the analytic account

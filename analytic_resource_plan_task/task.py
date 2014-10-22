@@ -29,8 +29,10 @@ class project_task(osv.osv):
     _columns = {
         'resource_plan_lines': fields.one2many('analytic.resource.plan.line', 'task_id', "Planned resources"),
         'default_resource_plan_line': fields.many2one('analytic.resource.plan.line', 'Default resource plan line',
-                                                      required=False, help='Resource plan line associated to the '
-                                                                           'employee assigned to the task'),
+                                                      required=False,
+                                                      help='Resource plan line associated to the '
+                                                           'employee assigned to the task',
+                                                      ondelete="cascade"),
     }
 
     def _prepare_resource_plan_line(self, cr, uid, plan_input, context=None):
@@ -126,9 +128,13 @@ class project_task(osv.osv):
         resource_plan_line_obj = self.pool.get('analytic.resource.plan.line')
         stage_obj = self.pool.get('project.task.type')
         if 'stage_id' in vals:
-            stage = stage_obj.browse(cr, uid, vals['stage_id'])
-            state = stage.state
-            if state != 'cancelled':
+            if vals['stage_id']:
+                stage = stage_obj.browse(cr, uid, vals['stage_id'])
+                state = stage.state
+            else:
+                state = False
+
+            if not state and state != 'cancelled':
                 if 'planned_hours' in vals and vals['planned_hours']:
                     if 'user_id' in vals and vals['user_id']:
                         if 'project_id' in vals and vals['project_id']:

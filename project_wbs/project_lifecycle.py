@@ -33,13 +33,17 @@ class project_lifecycle(osv.osv):
     
     _columns = {        
         'name': fields.char('Stage Name', size=32, required=True, translate=True),
-        'sequence': fields.integer('Sequence'),     
+        'sequence': fields.integer('Sequence'),
+        'fold': fields.boolean('Folded by Default',
+                help="This stage is not visible, for example in status bar or kanban view, when there are no records in that stage to display."),
+
     }
 
     _defaults = {
-        'sequence': 1
-    }    
+        'sequence': 1,
+        'fold': False,
+    }
 
+    _order = 'sequence'
 
 project_lifecycle()
-
