@@ -69,12 +69,12 @@
                 </p>
             </field>
         </record>
-
-        <menuitem action="project.open_view_project_all" id="project.menu_projects" name="All WBS" parent="project.menu_project_management" sequence="1"/>
-        <menuitem action="open_view_project_projects" id="menu_project_projects" name="Projects" parent="project.menu_project_management" sequence="2"/>
-        <menuitem action="open_view_project_phases" id="menu_project_phases" name="Phases" parent="project.menu_project_management" sequence="3"/>
-        <menuitem action="open_view_project_deliverables" id="menu_project_deliverables" name="Deliverables" parent="project.menu_project_management" sequence="4"/>
-        <menuitem action="open_view_project_work_packages" id="menu_project_work_packages" name="Work Packages" parent="project.menu_project_management" sequence="5"/>
+        <menuitem id="menu_project_wbs" name="Project WBS" parent="base.menu_main_pm" sequence="2"/>
+        <menuitem action="project.open_view_project_all" id="menu_project_wbs_all" name="All WBS" parent="menu_project_wbs" sequence="1"/>
+        <menuitem action="open_view_project_projects" id="menu_project_wbs_projects" name="Projects" parent="menu_project_wbs" sequence="2"/>
+        <menuitem action="open_view_project_phases" id="menu_project_wbs_phases" name="Phases" parent="menu_project_wbs" sequence="3"/>
+        <menuitem action="open_view_project_deliverables" id="menu_project_wbs_deliverables" name="Deliverables" parent="menu_project_wbs" sequence="4"/>
+        <menuitem action="open_view_project_work_packages" id="menu_project_work_packages" name="Work Packages" parent="menu_project_wbs" sequence="5"/>
 
 
 #---------------------------------------------------------------------------------------------------------
