@@ -25,6 +25,7 @@ from datetime import datetime, date
 
 from tools.translate import _
 from osv import fields, osv
+from openerp.addons.base_status.base_stage import base_stage
 
 
 class task(osv.osv):
@@ -93,7 +94,7 @@ class task(osv.osv):
 task()
 
 
-class account_analytic_account(osv.osv):
+class account_analytic_account(base_stage, osv.osv):
     
     _inherit = 'account.analytic.account'
 
@@ -192,21 +193,43 @@ class account_analytic_account(osv.osv):
             context = {}
         return self._child_count(cr, uid, ids, '', arg, context=context)
 
-    def _read_group_lifecycle_stage_ids(self, cr, uid, ids, domain, read_group_order=None, access_rights_uid=None, context=None):
-        lifecycle_stage_obj = self.pool.get('project.lifecycle')
-        order = lifecycle_stage_obj._order
+    def _resolve_analytic_account_id_from_context(self, cr, uid, context=None):
+        """ Returns ID of parent analytic account based on the value of 'default_parent_id'
+            context key, or None if it cannot be resolved to a single
+            account.analytic.account
+        """
+        if context is None:
+            context = {}
+        if type(context.get('default_parent_id')) in (int, long):
+            return context['default_parent_id']
+        if isinstance(context.get('default_parent_id'), basestring):
+            analytic_account_name = context['default_parent_id']
+            analytic_account_ids = self.pool.get('account.analytic.account').name_search(cr, uid,
+                                                                                         name=analytic_account_name,
+                                                                                         context=context)
+            if len(analytic_account_ids) == 1:
+                return analytic_account_ids[0][0]
+        return None
+
+    def _read_group_stage_ids(self, cr, uid, ids, domain, read_group_order=None, access_rights_uid=None, context=None):
+        stage_obj = self.pool.get('analytic.account.stage')
+        order = stage_obj._order
         access_rights_uid = access_rights_uid or uid
         if read_group_order == 'stage_id desc':
             order = '%s desc' % order
         search_domain = []
+        analytic_account_id = self._resolve_analytic_account_id_from_context(cr, uid, context=context)
+        if analytic_account_id:
+            search_domain += ['|', ('analytic_account_ids', '=', analytic_account_id)]
         search_domain += [('id', 'in', ids)]
-        lifecycle_stage_ids = lifecycle_stage_obj._search(cr, uid, search_domain, order=order, access_rights_uid=access_rights_uid, context=context)
-        result = lifecycle_stage_obj.name_get(cr, access_rights_uid, lifecycle_stage_ids, context=context)
+        stage_ids = stage_obj._search(cr, uid, search_domain, order=order,
+                                      access_rights_uid=access_rights_uid, context=context)
+        result = stage_obj.name_get(cr, access_rights_uid, stage_ids, context=context)
         # restore order of the search
-        result.sort(lambda x, y: cmp(lifecycle_stage_ids.index(x[0]), lifecycle_stage_ids.index(y[0])))
+        result.sort(lambda x, y: cmp(stage_ids.index(x[0]), stage_ids.index(y[0])))
 
         fold = {}
-        for stage in lifecycle_stage_obj.browse(cr, access_rights_uid, lifecycle_stage_ids, context=context):
+        for stage in stage_obj.browse(cr, access_rights_uid, stage_ids, context=context):
             fold[stage.id] = stage.fold or False
         return result, fold
 
@@ -232,8 +255,11 @@ class account_analytic_account(osv.osv):
                                            ('work_package','Work Package')], 'Class',
                                           help='The classification allows you to create a proper project '
                                                'Work Breakdown Structure'),
-
-        'lifecycle_stage': fields.many2one('project.lifecycle', 'Lifecycle Stage'),
+        'stage_id': fields.many2one('analytic.account.stage', 'Stage', track_visibility='onchange',
+                                    domain="['&', ('fold', '=', False), ('analytic_account_ids', '=', parent_id)]"),
+        'child_stage_ids': fields.many2many('analytic.account.stage', 'analytic_account_stage_rel',
+                                      'analytic_account_id', 'stage_id', 'Child Stages',
+                                      states={'close': [('readonly', True)], 'cancelled': [('readonly', True)]}),
         'child_project_count': fields.function(_child_project_count, type='integer', string="Projects"),
         'child_phase_count': fields.function(_child_phase_count, type='integer', string="Phases"),
         'child_deliverable_count': fields.function(_child_deliverable_count, type='integer', string="Deliverables"),
@@ -243,7 +269,7 @@ class account_analytic_account(osv.osv):
     }
 
     _group_by_full = {
-        'lifecycle_stage': _read_group_lifecycle_stage_ids,
+        'stage_id': _read_group_stage_ids,
     }
 
     def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):        
@@ -312,7 +338,7 @@ class account_analytic_account(osv.osv):
 account_analytic_account()
 
 
-class project(osv.osv):
+class project(base_stage, osv.osv):
     _name = "project.project"
     _inherit = "project.project"
 
@@ -423,21 +449,43 @@ class project(osv.osv):
 
         return False
 
-    def _read_group_lifecycle_stage_ids(self, cr, uid, ids, domain, read_group_order=None, access_rights_uid=None, context=None):
-        lifecycle_stage_obj = self.pool.get('project.lifecycle')
-        order = lifecycle_stage_obj._order
+    def _resolve_analytic_account_id_from_context(self, cr, uid, context=None):
+        """ Returns ID of parent analytic account based on the value of 'default_parent_id'
+            context key, or None if it cannot be resolved to a single
+            account.analytic.account
+        """
+        if context is None:
+            context = {}
+        if type(context.get('default_parent_id')) in (int, long):
+            return context['default_parent_id']
+        if isinstance(context.get('default_parent_id'), basestring):
+            analytic_account_name = context['default_parent_id']
+            analytic_account_ids = self.pool.get('account.analytic.account').name_search(cr, uid,
+                                                                                         name=analytic_account_name,
+                                                                                         context=context)
+            if len(analytic_account_ids) == 1:
+                return analytic_account_ids[0][0]
+        return None
+
+    def _read_group_stage_ids(self, cr, uid, ids, domain, read_group_order=None, access_rights_uid=None, context=None):
+        stage_obj = self.pool.get('analytic.account.stage')
+        order = stage_obj._order
         access_rights_uid = access_rights_uid or uid
-        if read_group_order == 'lifecycle_stage desc':
+        if read_group_order == 'stage_id desc':
             order = '%s desc' % order
         search_domain = []
-        #search_domain += [('id', 'in', ids)]
-        lifecycle_stage_ids = lifecycle_stage_obj._search(cr, uid, search_domain, order=order, access_rights_uid=access_rights_uid, context=context)
-        result = lifecycle_stage_obj.name_get(cr, access_rights_uid, lifecycle_stage_ids, context=context)
+        analytic_account_id = self._resolve_analytic_account_id_from_context(cr, uid, context=context)
+        if analytic_account_id:
+            search_domain += ['|', ('analytic_account_ids', '=', analytic_account_id)]
+        search_domain += [('id', 'in', ids)]
+        stage_ids = stage_obj._search(cr, uid, search_domain, order=order,
+                                      access_rights_uid=access_rights_uid, context=context)
+        result = stage_obj.name_get(cr, access_rights_uid, stage_ids, context=context)
         # restore order of the search
-        result.sort(lambda x, y: cmp(lifecycle_stage_ids.index(x[0]), lifecycle_stage_ids.index(y[0])))
+        result.sort(lambda x, y: cmp(stage_ids.index(x[0]), stage_ids.index(y[0])))
 
         fold = {}
-        for stage in lifecycle_stage_obj.browse(cr, access_rights_uid, lifecycle_stage_ids, context=context):
+        for stage in stage_obj.browse(cr, access_rights_uid, stage_ids, context=context):
             fold[stage.id] = stage.fold or False
         return result, fold
 
@@ -446,7 +494,7 @@ class project(osv.osv):
     }
 
     _group_by_full = {
-        'lifecycle_stage': _read_group_lifecycle_stage_ids,
+        'stage_id': _read_group_stage_ids,
     }
 
     def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):       

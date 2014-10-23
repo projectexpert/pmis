@@ -251,7 +251,7 @@ class project_task(osv.osv):
                     if t.default_resource_plan_line:
                         resource_plan_line_obj.unlink(cr, uid, [t.default_resource_plan_line.id], context)
 
-                return super(project_task, self).write(cr, uid, ids, vals, context=context)
+        return super(project_task, self).write(cr, uid, ids, vals, context=context)
 
 
     def map_resource_plan_lines(self, cr, uid, old_task_id, new_task_id, context=None):

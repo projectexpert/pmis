@@ -38,12 +38,12 @@
     - It is possible to search tasks by project complete WBS path code & name
     - The WBS components can be classified as project, phase, deliverable, work package. 
     - The classification is shown in the project and analytic account views
-    - A project lifecycle attribute is incorporated in the analytic account and displayed in the project and analytic account views.
+    - A project stage attribute is incorporated in the analytic account and displayed in the project and analytic account views.
      
     """,
     "init_xml": [],
-    "update_xml": [    
-        "project_lifecycle_view.xml",
+    "update_xml": [
+        "analytic_account_stage_view.xml",
         "project_scope_wbs_view.xml",     
         "security/ir.model.access.csv",
     ],

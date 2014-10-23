@@ -91,7 +91,7 @@
             			<field name="complete_wbs_name" string="WBS name"/>
             			<field name="complete_wbs_code" string="WBS code"/>
 						<field name="account_class" string="Class"/>
-						<field name="lifecycle_stage" string="Stage" attrs="{'readonly':[('class','in',['deliverable', 'work_package'])]}"/>
+                        <field name="stage_id"/>
                         <field name="parent_id"/>
             	</field>
             </field>
@@ -109,6 +109,7 @@
             		<field name="complete_wbs_name" string="WBS name"/>					
             		<field name="complete_wbs_code" string="WBS code"/>
             		<field name="account_class" string="Class"/>
+                    <field name="stage_id"/>
             	</field>
             </field>
         </record>
@@ -121,11 +122,16 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
+                <xpath expr='//field[@name="state"]' position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr='//field[@name="state"]' position="after">
+                    <field name="stage_id" widget="statusbar" clickable="True"/>
+                </xpath>
             	<group position="after">
 					<group string="Project configuration">
 						<group>
 							<field name="account_class" string="Class"/>
-							<field name="lifecycle_stage" string="Life Cycle"/>
 						</group>
 						<group>
 							<field name="code" string="Code"/>
@@ -136,6 +142,9 @@
                 <notebook position="inside">
                     <page string="WBS">
                         <field name="project_child_complete_ids"/>
+                    </page>
+                    <page string="Child Stages" name="child_stages">
+                         <field name="child_stage_ids"/>
                     </page>
                 </notebook>
             </field>
@@ -155,7 +164,7 @@
             <field name="inherit_id" ref="project.view_project_kanban"/>
             <field name="arch" type="xml">
 		        <kanban position="replace">
-		        	<kanban default_group_by="lifecycle_stage">
+		        	<kanban default_group_by="stage_id">
 	            	<field name="complete_wbs_code"/>
 	            	<field name="complete_wbs_name"/>
                     <field name="effective_hours"/>
@@ -192,19 +201,23 @@
                                     <field name="complete_wbs_code"/>
                                     <div class="oe_kanban_project_list">
                                         <a name="action_openProjectsView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'project','search_default_account_class': 'project'}">
-                                            <span t-if="record.child_project_count.raw_value gt 0"><field name="child_project_count"/> Project(s)</span>
+                                            <span t-if="record.child_project_count.raw_value gt 1"><field name="child_project_count"/> Projects</span>
+                                            <span t-if="record.child_project_count.raw_value lt 2"><field name="child_project_count"/> Project</span>
                                         </a>
                                         <a name="action_openPhasesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'phase','search_default_account_class': 'phase'}">
-                                            <span t-if="record.child_phase_count.raw_value gt 0"><field name="child_phase_count"/> Phase(s)</span>
+                                            <span t-if="record.child_phase_count.raw_value gt 1"><field name="child_phase_count"/> Phases</span>
+                                            <span t-if="record.child_phase_count.raw_value lt 2"><field name="child_phase_count"/> Phase</span>
                                         </a>
                                         <a name="action_openDeliverablesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'deliverable','search_default_account_class': 'deliverable'}">
-                                            <span t-if="record.child_deliverable_count.raw_value gt 0"><field name="child_deliverable_count"/> Deliverable(s)</span>
+                                            <span t-if="record.child_deliverable_count.raw_value gt 1"><field name="child_deliverable_count"/> Deliverables</span>
+                                            <span t-if="record.child_deliverable_count.raw_value lt 2"><field name="child_deliverable_count"/> Deliverable</span>
                                         </a>
                                         <a name="action_openWorkPackagesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'work_package','search_default_account_class': 'work_package'}">
-                                            <span t-if="record.child_work_package_count.raw_value gt 0"><field name="child_work_package_count"/> Work Package(s)</span>
+                                            <span t-if="record.child_work_package_count.raw_value gt 1"><field name="child_work_package_count"/> Work Packages</span>
+                                            <span t-if="record.child_work_package_count.raw_value lt 2"><field name="child_work_package_count"/> Work Package</span>
                                         </a>
                                         <a name="action_openUnclassifiedView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'work_package','search_default_account_class': 'work_package'}">
-                                            <span t-if="record.child_unclassified_count.raw_value gt 0"><field name="child_unclassified_count"/> Unclassified project(s)</span>
+                                            <span t-if="record.child_unclassified_count.raw_value gt 0"><field name="child_unclassified_count"/> Unclassified projects</span>
                                         </a>
                                         <a t-if="record.use_tasks.raw_value" name="%(project.act_project_project_2_project_task_all)d" type="action" style="margin-right: 10px">
                                             <span t-if="record.task_count.raw_value gt 1"><field name="task_count"/> Tasks</span>
@@ -253,7 +266,7 @@
             <field name="arch" type="xml">
                 <field name="code" position="after">
             		<field name="account_class" string="Class" attrs="{'invisible':[('type','not in',['contract','template'])]}"/>
-            		<field name="lifecycle_stage" string="Life Cycle"/>
+            		<field name="stage_id"/>
             	</field>
             </field>
         </record>
@@ -268,7 +281,7 @@
             		<field name="complete_wbs_name" string="WBS name"/>
             		<field name="complete_wbs_code" string="WBS code"/>
 					<field name="account_class" string="Class"/>
-					<field name="lifecycle_stage" string="Life Cycle"/>
+					<field name="stage_id"/>
             	</field>
             </field>
         </record>
@@ -283,7 +296,7 @@
             	<field name="code" position="after">
             		<field name="complete_wbs_code" string="WBS code"/>
 					<field name="account_class" string="Class"/>
-					<field name="lifecycle_stage" string="Life Cycle"/>
+                    <field name="stage_id"/>
             	</field>
             </field>
         </record>
@@ -296,9 +309,15 @@
             <field name="arch" type="xml">
             	<field name="code" position="after">
             		<field name="account_class" string="Class"/>
-            		<field name="lifecycle_stage" string="Life Cycle"/>
+                    <field name="stage_id"/>
+                    <field name="state" invisible="True"/>
             		<field name="complete_wbs_code" string="WBS code" readonly="1"/>
             	</field>
+                <notebook position="inside">
+                    <page string="Child Stages" name="child_stages">
+                        <field name="child_stage_ids"/>
+                    </page>
+                </notebook>
             </field>
         </record>
 
