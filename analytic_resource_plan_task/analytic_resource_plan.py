@@ -83,27 +83,18 @@ class analytic_resource_plan_line(osv.osv):
 
         if isinstance(ids, (long, int)):
             ids = [ids]
+        for p in self.browse(cr, uid, ids, context=context):
 
-        if 'task_id' in vals:
-            task_id = vals['task_id']
-        else:
-            task_id = p.task_id and p.task_id.id or False
+            if 'task_id' in vals:
+                task_id = vals['task_id']
+            else:
+                task_id = p.task_id and p.task_id.id or False
 
-        if task_id:
-            task_obj = self.pool.get('project.task')
-            task = task_obj.browse(cr, uid, task_id, context=context)
+            if task_id:
+                task_obj = self.pool.get('project.task')
+                task = task_obj.browse(cr, uid, task_id, context=context)
 
-        if 'account_id' in vals:
-            for p in self.browse(cr, uid, ids, context=context):
-                if task.project_id and \
-                        task.analytic_account_id and \
-                        task.analytic_account_id.id != p.account_id and p.account_id.id:
-
-                    raise osv.except_osv(_('Error !'),
-                                         _('The analytic account is different from that of the task.'))
-
-        if 'unit_amount' in vals:
-            for p in self.browse(cr, uid, ids, context=context):
+            if 'unit_amount' in vals:
                 if task.default_resource_plan_line and task.default_resource_plan_line.id == p.id:
                     if task.planned_hours != vals['unit_amount']:
                         raise osv.except_osv(_('Error !'),

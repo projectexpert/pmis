@@ -159,10 +159,14 @@ class project_task(osv.osv):
         if isinstance(ids, (long, int)):
             ids = [ids]
 
-        if 'stage_id' in vals or 'planned_hours' in vals or 'user_id' in vals or 'delegated_user_id' in vals or 'project_id' in vals:
+        if 'stage_id' in vals \
+                or 'planned_hours' in vals \
+                or 'user_id' in vals \
+                or 'delegated_user_id' in vals \
+                or 'project_id' in vals \
+                or 'default_resource_plan_line' in vals:
 
             for t in self.browse(cr, uid, ids, context=context):
-
                 plan_input = {}
 
                 if 'stage_id' in vals:
@@ -210,6 +214,12 @@ class project_task(osv.osv):
                 else:
                     plan_input['company_id'] = t.company_id and t.company_id.id or False
 
+                if 'default_resource_plan_line' in vals:
+                    plan_input['default_resource_plan_line'] = vals['default_resource_plan_line']
+                else:
+                    plan_input['default_resource_plan_line'] = \
+                        t.default_resource_plan_line and t.default_resource_plan_line.id or False
+
                 stage = stage_obj.browse(cr, uid, plan_input['stage_id'])
                 state = stage.state
 
@@ -221,21 +231,28 @@ class project_task(osv.osv):
                     #Add or update the resource plan line
                     plan_output = self._prepare_resource_plan_line(cr, uid, plan_input, context=context)
                     plan_output['task_id'] = t.id
-                    if t.default_resource_plan_line:
-                        resource_plan_line_obj.write(cr, uid, [t.default_resource_plan_line.id],
+                    if plan_input['default_resource_plan_line']:
+
+                        res = super(project_task, self).write(cr, uid, ids, vals, context=context)
+
+                        resource_plan_line_obj.write(cr, uid, [plan_input['default_resource_plan_line']],
                                                      plan_output, context)
+                        return res
+
                     else:
                         new_resource_plan_line_id = resource_plan_line_obj.create(cr, uid,
                                                                                   plan_output,
                                                                                   context=context)
                         vals['default_resource_plan_line'] = new_resource_plan_line_id
+                        return super(project_task, self).write(cr, uid, ids, vals, context=context)
 
                 else:
                     #Remove the resource plan line
                     if t.default_resource_plan_line:
                         resource_plan_line_obj.unlink(cr, uid, [t.default_resource_plan_line.id], context)
 
-        return super(project_task, self).write(cr, uid, ids, vals, context=context)
+                return super(project_task, self).write(cr, uid, ids, vals, context=context)
+
 
     def map_resource_plan_lines(self, cr, uid, old_task_id, new_task_id, context=None):
         """ copy and map tasks from old to new project """
@@ -254,20 +271,26 @@ class project_task(osv.osv):
             new_task.project_id.analytic_account_id.id or False
 
         default['task_id'] = new_task.id
-
+        task_vals = {}
         for resource_plan_line in task.resource_plan_lines:
+                new_resource_plan_line = resource_plan_line_obj.copy(cr, uid,
+                                                                     resource_plan_line.id, default,
+                                                                     context=context)
+                if new_resource_plan_line:
+                    map_resource_plan_line_id[resource_plan_line.id] = new_resource_plan_line
+
                 default_resource_plan_line = \
                     task.default_resource_plan_line \
                     and task.default_resource_plan_line.id \
                     or False
-                if resource_plan_line.id is not default_resource_plan_line:
-                    new_resource_plan_line = resource_plan_line_obj.copy(cr, uid,
-                                                                         resource_plan_line.id, default,
-                                                                         context=context)
-                    if new_resource_plan_line:
-                        map_resource_plan_line_id[resource_plan_line.id] = new_resource_plan_line
+                if resource_plan_line.id == default_resource_plan_line:
+                    task_vals['default_resource_plan_line'] = new_resource_plan_line
+        if map_resource_plan_line_id:
+            task_vals['resource_plan_lines'] = [(6, 0, map_resource_plan_line_id.values())]
 
-        self.write(cr, uid, [new_task_id], {'resource_plan_lines': [(6, 0, map_resource_plan_line_id.values())]})
+        if task_vals:
+            self.write(cr, uid, [new_task_id], task_vals, context=context)
+
         return True
 
     def copy(self, cr, uid, id, default=None, context=None):
