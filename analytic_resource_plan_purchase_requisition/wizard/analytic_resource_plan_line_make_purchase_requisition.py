@@ -63,6 +63,8 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
                                                   " On confirmation of a purchase order it does "
                                                   "not cancel the remaining orders"""),
 
+        'date_end': fields.datetime('Requisition Deadline'),
+
         'requisition_line_ids': fields.many2many('purchase.requisition.line',
                                                  'make_purchase_requisition_line_rel',
                                                  'requisition_line_id',
@@ -128,6 +130,7 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
                         purchase_id = requisition_obj.create(cr, uid, {
                             'origin': '',
                             'exclusive': make_requisition.requisition_type,
+                            'date_end': make_requisition.date_end,
                             'company_id': company_id,                            
                   
                         

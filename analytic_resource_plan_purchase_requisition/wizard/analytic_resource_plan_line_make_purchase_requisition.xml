@@ -13,9 +13,11 @@
                         <field name="requisition_line_ids" nolabel="1" readonly="True"/>
                      </group>
                      <group colspan="2">
-                         <separator string="Select the requisition type:"/>
+                         <separator string="Requisition details:"/>
                          <newline/>
-                         <field name = "requisition_type" nolabel="1"/>
+                         <field name = "requisition_type"/>
+                         <newline/>
+                         <field name = "date_end"/>
                      </group>
                      <newline/>
                      <group colspan="2">
@@ -26,7 +28,7 @@
             </field>
         </record>
 
-        <record id="action_view_analytic_resource_plan_line_make_purchase_requisition" model="ir.actions.act_window">
+        <record id="action_view_analytic_resource_plan_line_make_requisition" model="ir.actions.act_window">
             <field name="name">Create purchase requisition</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">analytic.resource.plan.line.make.purchase.requisition</field>
@@ -41,7 +43,7 @@
             <field name="object" eval="1" />
             <field name="name">Create Purchase Requisition</field>
             <field name="key2">client_action_multi</field>
-            <field name="value" eval="'ir.actions.act_window,' + str(ref('action_view_analytic_resource_plan_line_make_purchase_requisition'))" />
+            <field name="value" eval="'ir.actions.act_window,' + str(ref('action_view_analytic_resource_plan_line_make_requisition'))" />
             <field name="key">action</field>
             <field name="model">analytic.resource.plan.line</field>
         </record>
