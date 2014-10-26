@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+#---------------------------------------------------------------------------------------------------------
+#   Extend the menus
+#---------------------------------------------------------------------------------------------------------
+
+#---------------------------------------------------------------------------------------------------------
+#   Extend the analytic account
+#---------------------------------------------------------------------------------------------------------
+
+        <record id="view_account_analytic_account_wip_tree" model="ir.ui.view">
+            <field name="name">account.analytic.account.wip.tree</field>
+            <field name="model">account.analytic.account</field>
+            <field name="field_parent">child_complete_ids</field>
+            <field name="arch" type="xml">
+                <tree colors="blue:state=='pending';grey:state in ('close','cancelled');blue:type=='view'" string="Analytic account" toolbar="1">
+                    <field name="name" invisible="1"/>
+                    <field name="complete_name"/>
+                    <field name="code"/>
+                    <field name="total_value"/>
+                    <field name="actual_billings"/>
+                    <field name="actual_costs"/>
+                    <field name="total_estimated_costs"/>
+                    <field name="estimated_costs_to_complete"/>
+                    <field name="estimated_gross_profit"/>
+                    <field name="percent_complete"/>
+                    <field name="earned_revenue"/>
+                    <field name="over_billings"/>
+                    <field name="under_billings"/>
+                    <field name="state" invisible="1"/>
+                    <field name="currency_id" groups="base.group_multi_currency"/>
+                    <field name="date" invisible="1"/>
+                    <field name="user_id" invisible="1"/>
+                    <field name="partner_id" invisible="1"/>
+                    <field name="parent_id" invisible="1"/>
+                    <field name="type"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="template_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_account_analytic_account_wip_form" model="ir.actions.act_window">
+            <field name="name">Analytic Accounts (WIP)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.analytic.account</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_account_analytic_account_wip_tree"/>
+            <field name="search_view_id" ref="account.view_account_analytic_account_search"/>
+        </record>
+        <menuitem action="action_account_analytic_account_wip_form" id="account_analytic_account_wip"
+            parent="account.menu_analytic_accounting"
+            groups="analytic.group_analytic_accounting"/>
+
+    </data>
+</openerp>

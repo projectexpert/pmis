@@ -266,7 +266,7 @@
             <field name="arch" type="xml">
                 <field name="code" position="after">
             		<field name="account_class" string="Class" attrs="{'invisible':[('type','not in',['contract','template'])]}"/>
-            		<field name="stage_id"/>
+            		
             	</field>
             </field>
         </record>
@@ -281,7 +281,7 @@
             		<field name="complete_wbs_name" string="WBS name"/>
             		<field name="complete_wbs_code" string="WBS code"/>
 					<field name="account_class" string="Class"/>
-					<field name="stage_id"/>
+
             	</field>
             </field>
         </record>
@@ -296,7 +296,7 @@
             	<field name="code" position="after">
             		<field name="complete_wbs_code" string="WBS code"/>
 					<field name="account_class" string="Class"/>
-                    <field name="stage_id"/>
+
             	</field>
             </field>
         </record>
@@ -309,7 +309,7 @@
             <field name="arch" type="xml">
             	<field name="code" position="after">
             		<field name="account_class" string="Class"/>
-                    <field name="stage_id"/>
+
                     <field name="state" invisible="True"/>
             		<field name="complete_wbs_code" string="WBS code" readonly="1"/>
             	</field>

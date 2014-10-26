@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report auto="False" id="analytic_wip_report_print"
+            model="account.analytic.account" name="analytic.wip"
+            rml="analytic_wip_report/report/analytic_wip_report.rml" string="Work In Progress Statement"
+            groups="project.group_project_manager"
+            usage="default"/>
+    </data>
+</openerp>
