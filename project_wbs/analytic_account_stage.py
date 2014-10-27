@@ -37,10 +37,14 @@ class analytic_account_stage(osv.osv):
                                help="This stage is not visible, "
                                     "for example in status bar or kanban view, "
                                     "when there are no records in that stage to display."),
+        'case_default': fields.boolean('Default for New Projects',
+                        help="If you check this field, this stage will be proposed by default on each new project. It will not assign this stage to existing projects."),
+
     }
     _defaults = {
         'sequence': 1,
         'fold': False,
+        'case_default': False,
     }
 
     _order = 'sequence'

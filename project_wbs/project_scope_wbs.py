@@ -268,8 +268,16 @@ class account_analytic_account(base_stage, osv.osv):
                                                     string="Unclassified projects"),
     }
 
+    def _get_type_common(self, cr, uid, context):
+        ids = self.pool.get('analytic.account.stage').search(cr, uid, [('case_default','=',1)], context=context)
+        return ids
+
     _group_by_full = {
         'stage_id': _read_group_stage_ids,
+    }
+
+    _defaults = {
+        'child_stage_ids': _get_type_common,
     }
 
     def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):        

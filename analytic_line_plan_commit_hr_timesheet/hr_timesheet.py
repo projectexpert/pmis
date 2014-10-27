@@ -71,6 +71,7 @@ class hr_analytic_timesheet(osv.osv):
         vals_line['name'] = vals['name']
         vals_line['date'] = vals['date']
         vals_line['amount'] = vals['amount']
+        vals_line['amount_currency'] = vals['amount']
         vals_line['unit_amount'] = vals['unit_amount']
         vals_line['account_id'] = vals['account_id']
         vals_line['company_id'] = self.pool.get('res.company')._company_default_get(cr, uid,
@@ -105,6 +106,7 @@ class hr_analytic_timesheet(osv.osv):
             vals_line['date'] = vals['date']
         if 'amount' in vals:
             vals_line['amount'] = vals['amount']
+            vals_line['amount_currency'] = vals['amount']
         if 'unit_amount' in vals:
             vals_line['unit_amount'] = vals['unit_amount']
         if 'account_id' in vals:

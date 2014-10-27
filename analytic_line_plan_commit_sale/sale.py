@@ -21,7 +21,7 @@
 
 from osv import osv, fields
 from tools.translate import _
-
+from datetime import date
 
 class sale_order(osv.osv):
     
@@ -101,7 +101,7 @@ class sale_order_line(osv.osv):
                 raise osv.except_osv(_('Error!'), _('Please define an analytic planning version '
                                                     'as default for committed costs.'))
             
-            j_ids = plan_journal_obj.search(cr, uid,[('type', '=', 'sale')])
+            j_ids = plan_journal_obj.search(cr, uid, [('type', '=', 'sale')])
             journal_id = j_ids and j_ids[0] or False
             if not journal_id:
                 raise osv.except_osv(_('Error!'), _('Please define an analytic planning journal for sales.'))
@@ -111,10 +111,13 @@ class sale_order_line(osv.osv):
                 order = sale_order_obj.browse(cr, uid, vals['order_id'], context=context)
             
             vals_line['name'] = vals['name']
-            vals_line['date'] = order.date_confirm or False
+            vals_line['date'] = order.date_confirm or date.today()
             vals_line['amount'] = 0
+            vals_line['amount_currency'] = 0
+            if order.currency_id:
+                vals_line['currency_id'] = order.currency_id.id
             vals_line['unit_amount'] = 0
-            vals_line['account_id'] = vals['account_analytic_id']
+            vals_line['account_id'] = order.project_id and order.project_id.id or False
             vals_line['company_id'] = order.company_id and order.company_id.id or False
             vals_line['product_uom_id'] = vals['product_uos']
             vals_line['product_id'] = vals['product_id']
@@ -170,14 +173,14 @@ class sale_order_line(osv.osv):
                 line_state = data['state']
             else:
                 line_state = so_line.state
-            
+
             if 'price_subtotal' in data:
-                price_subtotal = vals['price_subtotal']
+                price_subtotal = data['price_subtotal']
             else:
                 price_subtotal = so_line.price_subtotal
                 
             if 'product_qty' in data:
-                product_qty = vals['product_qty']
+                product_qty = data['product_qty']
             else:
                 product_qty = so_line.product_uom_qty
             
@@ -186,29 +189,45 @@ class sale_order_line(osv.osv):
             else:
                 vals_line['name'] = so_line.name
             
-            vals_line['date'] = order.date_confirm
+            vals_line['date'] = order.date_confirm or date.today()
 
-            if line_state in ('confirmed','done'):
-                vals_line['amount'] = price_subtotal
+            if line_state in ('confirmed', 'done'):
+                vals_line['amount_currency'] = price_subtotal
+                if order.currency_id:
+                    vals_line['currency_id'] = order.currency_id.id
+
+                currency_obj = self.pool.get('res.currency')
+                company_obj = self.pool.get('res.company')
+
+                if order.company_id:
+                    company = company_obj.browse(cr, uid, order.company_id.id, context=context)
+                    if order.currency_id and company.currency_id:
+                        company_currency_id = company.currency_id.id
+                        vals_line['amount'] = currency_obj.compute(cr, uid,
+                                                                   order.currency_id.id,
+                                                                   company_currency_id,
+                                                                   price_subtotal,
+                                                                   context=context)
                 vals_line['unit_amount'] = product_qty
             else:
                 vals_line['amount'] = 0
+                vals_line['amount_currency'] = 0
                 vals_line['unit_amount'] = 0
                                                  
             if 'account_analytic_id' in data:                                        
                 vals_line['account_id'] = data['account_analytic_id']
             else:
-                vals_line['account_id'] = so_line.order_id and so_line.order_id.project and so_line.order_id.project.id
+                vals_line['account_id'] = so_line.order_id and so_line.order_id.project_id and so_line.order_id.project_id.id
                             
             vals_line['company_id'] = order.company_id and order.company_id.id or False
             
             if 'product_uos' in data:                   
-                vals_line['product_uom_id'] = vals['product_uos']
+                vals_line['product_uom_id'] = data['product_uos']
             else:
-                vals_line['product_uom_id'] = so_line.product_uos and so_line.product_uos.id
+                vals_line['product_uom_id'] = so_line.product_uom and so_line.product_uom.id
             
             if 'product_id' in data:
-                vals_line['product_id'] = vals['product_id']
+                vals_line['product_id'] = data['product_id']
             else:
                 vals_line['product_id'] = so_line.product_id and so_line.product_id.id
 

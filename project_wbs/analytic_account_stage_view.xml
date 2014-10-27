@@ -23,6 +23,7 @@
                         <group>                           
                             <field name="sequence"/>
                             <field name="fold"/>
+                            <field name="case_default"/>
                         </group>
                     </group>
                     <field name="description" placeholder="Add a description..."/>
@@ -36,7 +37,8 @@
             <field name="arch" type="xml">
                 <tree string="Analytic Account Stage">
                     <field name="sequence" widget="handle"/>
-                    <field name="name"/>                    
+                    <field name="name"/>
+                    <field name="case_default"/>
                 </tree>
             </field>
         </record>

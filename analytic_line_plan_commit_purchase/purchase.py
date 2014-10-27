@@ -55,6 +55,9 @@ class purchase_order(osv.osv):
                                 else:
                                     amount_company_currency = order_line.price_subtotal
 
+                                vals_line['amount_currency'] = -1 * order_line.price_subtotal
+                                if po.currency_id:
+                                    vals_line['currency_id'] = po.currency_id.id
                                 vals_line['amount'] = -1 * amount_company_currency
                                 vals_line['unit_amount'] = order_line.product_qty                                    
                             else:
@@ -104,6 +107,8 @@ class purchase_order_line(osv.osv):
             order = False
             if 'order_id' in vals:
                 order = purchase_order_obj.browse(cr, uid, vals['order_id'], context=context)
+                if order.currency_id:
+                    vals_line['currency_id'] = order.currency_id.id
 
             general_account_id = False
             if 'product_id' in vals:
@@ -120,6 +125,7 @@ class purchase_order_line(osv.osv):
             vals_line['name'] = vals['name']
             vals_line['date'] = vals['date_planned']
             vals_line['amount'] = 0
+            vals_line['amount_currency'] = 0
             vals_line['unit_amount'] = 0
             vals_line['account_id'] = vals['account_analytic_id']
             vals_line['company_id'] = order.company_id and order.company_id.id

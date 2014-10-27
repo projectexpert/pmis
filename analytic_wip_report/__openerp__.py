@@ -34,8 +34,7 @@
     "description": """
 Work In Progress Statement
 ====================================
-    Percentage of Completion and Work in Progress
-    -----------------------------------------------
+
     The Revenue Principle of GAAP requires Revenue to be recorded in the period it is Earned
     regardless of when it is billed or when cash is received.
 
@@ -72,8 +71,8 @@ Work In Progress Statement
     Billings in Excess of Costs (liability account that reflects over-billings)
     or Costs in Excess of Billings (asset account that reflects under-billings).
 
-    Work in Progress Statement
-    -----------------------------------------------
+Work in Progress Statement
+-----------------------------------------------
     The Work In Progress Statement is associated to the Percentage of Completion Method, and is
     used to compile the information necessary for the percentage of completion calculations, but also to
     provide crucial information about the total value and progress of work on hand inventory.

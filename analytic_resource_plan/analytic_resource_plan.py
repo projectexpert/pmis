@@ -287,6 +287,22 @@ class analytic_resource_plan_line(osv.osv):
 
         if product_id:
             prod = self.pool.get('product.product').browse(cr, uid, product_id, context=context)
+            if prod.seller_ids:
+                supplier_id = prod.seller_ids[0].name and prod.seller_ids[0].name.id
+                res['value'].update({'supplier_id': supplier_id})
+                res_supplier = self.onchange_supplier_id(cr, uid, ids, account_id,
+                                                         name, date, supplier_id,
+                                                         pricelist_id, product_id, unit_amount,
+                                                         product_uom_id, price_unit, amount_currency,
+                                                         currency_id, version_id, journal_id,
+                                                         ref, company_id, amount, general_account_id,
+                                                         context)
+                res['value'].update(res_supplier['value'])
+                if 'pricelist_id' in res_supplier:
+                    pricelist_id = res_supplier['pricelist_id']
+                if 'currency_id' in res_supplier:
+                    currency_id = res_supplier['currency_id']
+
             prod_uom = prod.uom_po_id and prod.uom_po_id.id or False
             if not prod_uom:
                 prod_uom = prod.uom_id and prod.uom_id.id or False
