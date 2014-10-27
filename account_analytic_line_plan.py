@@ -235,14 +235,18 @@ class account_analytic_line_plan(osv.osv):
         
         res = self.on_change_unit_amount(cr, uid, id, prod_id, quantity, currency_id, company_id,
                                          unit, journal_id, context)
-        
+
         prod = self.pool.get('product.product').browse(cr, uid, prod_id, context=context)
-        prod_uom_po = prod.uom_po_id.id
-                            
-        res['value'].update({
-            'product_uom_id': prod_uom_po,
-        })
-          
+        if prod:
+            if prod.uom_po_id:
+                res['value'].update({
+                    'product_uom_id': prod.uom_po_id.id,
+                })
+            elif prod.uom_id:
+                res['value'].update({
+                    'product_uom_id': prod.uom_id.id,
+                })
+
         return res  
 
     def view_header_get(self, cr, user, view_id, view_type, context=None):
