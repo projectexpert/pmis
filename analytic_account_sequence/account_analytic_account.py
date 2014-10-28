@@ -75,8 +75,22 @@ class account_analytic_account(osv.osv):
 
         analytic_account_id = super(account_analytic_account, self).create(cr, uid, vals, *args, **kwargs)
 
-        if 'sequence_ids' in vals and not vals['sequence_ids']:
+        if 'sequence_ids' not in vals or ('sequence_ids' in vals and not vals['sequence_ids']):
             sequence_id = self._create_sequence(cr, uid, analytic_account_id, context=context)
         return analytic_account_id
+
+    def write(self, cr, uid, ids, vals, context=None):
+        if context is None:
+            context = {}
+        account_obj = self.pool.get('account.analytic.account')
+        obj_sequence = self.pool.get('analytic.account.sequence')
+
+        if 'parent_id' in vals and vals['parent_id']:
+            parent = account_obj.browse(cr, uid, vals['parent_id'], context=context)
+            if parent.sequence_ids:
+                vals['code'] = obj_sequence.next_by_id(cr, uid, parent.sequence_ids[0].id, context=context)
+
+        return super(account_analytic_account, self).write(cr, uid, ids, vals, context=context)
+
 
 account_analytic_account()
