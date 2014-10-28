@@ -38,15 +38,35 @@ class analytic_account_stage(osv.osv):
                                     "for example in status bar or kanban view, "
                                     "when there are no records in that stage to display."),
         'case_default': fields.boolean('Default for New Projects',
-                        help="If you check this field, this stage will be proposed by default on each new project. It will not assign this stage to existing projects."),
+                                       help="If you check this field, this stage will be proposed "
+                                            "by default on each new project. "
+                                            "It will not assign this stage to existing projects."),
 
     }
+
+    def _get_default_parent_id(self, cr, uid, ctx={}):
+        analytic = ctx.get('default_parent_id', False)
+        if type(analytic) is int:
+            return [analytic]
+        return analytic
+
     _defaults = {
         'sequence': 1,
         'fold': False,
         'case_default': False,
+        'analytic_account_ids': _get_default_parent_id,
     }
 
     _order = 'sequence'
+
+    def copy(self, cr, uid, id, default=None, context=None):
+        if context is None:
+            context = {}
+        if default is None:
+            default = {}
+
+        default['analytic_account_ids'] = []
+        res = super(analytic_account_stage, self).copy(cr, uid, id, default, context)
+        return res
 
 analytic_account_stage()

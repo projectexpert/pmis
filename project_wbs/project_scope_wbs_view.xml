@@ -69,12 +69,12 @@
                 </p>
             </field>
         </record>
-        <menuitem id="menu_project_wbs" name="Project WBS" parent="base.menu_main_pm" sequence="2"/>
-        <menuitem action="project.open_view_project_all" id="menu_project_wbs_all" name="All WBS" parent="menu_project_wbs" sequence="1"/>
-        <menuitem action="open_view_project_projects" id="menu_project_wbs_projects" name="Projects" parent="menu_project_wbs" sequence="2"/>
-        <menuitem action="open_view_project_phases" id="menu_project_wbs_phases" name="Phases" parent="menu_project_wbs" sequence="3"/>
-        <menuitem action="open_view_project_deliverables" id="menu_project_wbs_deliverables" name="Deliverables" parent="menu_project_wbs" sequence="4"/>
-        <menuitem action="open_view_project_work_packages" id="menu_project_work_packages" name="Work Packages" parent="menu_project_wbs" sequence="5"/>
+        <menuitem action="project.open_view_project_all" id="project.menu_projects" name="Work Breakdown Structure" parent="project.menu_project_management" sequence="1"/>
+        <menuitem action="open_view_project_projects" id="menu_project_wbs_projects" name="Projects" parent="project.menu_projects" sequence="2"/>
+        <menuitem action="open_view_project_phases" id="menu_project_wbs_phases" name="Phases" parent="project.menu_projects" sequence="3"/>
+        <menuitem action="open_view_project_deliverables" id="menu_project_wbs_deliverables" name="Deliverables" parent="project.menu_projects" sequence="4"/>
+        <menuitem action="open_view_project_work_packages" id="menu_project_work_packages" name="Work Packages" parent="project.menu_projects" sequence="5"/>
+        <menuitem action="project.action_view_task" id="project.menu_action_view_task" parent="project.menu_projects" sequence="6"/>
 
 
 #---------------------------------------------------------------------------------------------------------
@@ -91,7 +91,7 @@
             			<field name="complete_wbs_name" string="WBS name"/>
             			<field name="complete_wbs_code" string="WBS code"/>
 						<field name="account_class" string="Class"/>
-                        <field name="stage_id"/>
+                        <field name="stage_id" domain="[]"/>
                         <field name="parent_id"/>
             	</field>
             </field>
@@ -200,23 +200,23 @@
                                     <h4><field name="complete_wbs_name"/></h4>
                                     <field name="complete_wbs_code"/>
                                     <div class="oe_kanban_project_list">
-                                        <a name="action_openProjectsView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'project','search_default_account_class': 'project'}">
+                                        <a name="action_openProjectsView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'project','default_account_class': 'project'}">
                                             <span t-if="record.child_project_count.raw_value gt 1"><field name="child_project_count"/> Projects</span>
                                             <span t-if="record.child_project_count.raw_value lt 2"><field name="child_project_count"/> Project</span>
                                         </a>
-                                        <a name="action_openPhasesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'phase','search_default_account_class': 'phase'}">
+                                        <a name="action_openPhasesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'phase','default_account_class': 'phase'}">
                                             <span t-if="record.child_phase_count.raw_value gt 1"><field name="child_phase_count"/> Phases</span>
                                             <span t-if="record.child_phase_count.raw_value lt 2"><field name="child_phase_count"/> Phase</span>
                                         </a>
-                                        <a name="action_openDeliverablesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'deliverable','search_default_account_class': 'deliverable'}">
+                                        <a name="action_openDeliverablesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'deliverable','default_account_class': 'deliverable'}">
                                             <span t-if="record.child_deliverable_count.raw_value gt 1"><field name="child_deliverable_count"/> Deliverables</span>
                                             <span t-if="record.child_deliverable_count.raw_value lt 2"><field name="child_deliverable_count"/> Deliverable</span>
                                         </a>
-                                        <a name="action_openWorkPackagesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'work_package','search_default_account_class': 'work_package'}">
+                                        <a name="action_openWorkPackagesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'work_package','default_account_class': 'work_package'}">
                                             <span t-if="record.child_work_package_count.raw_value gt 1"><field name="child_work_package_count"/> Work Packages</span>
                                             <span t-if="record.child_work_package_count.raw_value lt 2"><field name="child_work_package_count"/> Work Package</span>
                                         </a>
-                                        <a name="action_openUnclassifiedView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'work_package','search_default_account_class': 'work_package'}">
+                                        <a name="action_openUnclassifiedView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'work_package','default_account_class': 'work_package'}">
                                             <span t-if="record.child_unclassified_count.raw_value gt 0"><field name="child_unclassified_count"/> Unclassified projects</span>
                                         </a>
                                         <a t-if="record.use_tasks.raw_value" name="%(project.act_project_project_2_project_task_all)d" type="action" style="margin-right: 10px">

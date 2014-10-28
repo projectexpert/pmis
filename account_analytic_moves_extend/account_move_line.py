@@ -32,7 +32,7 @@ class account_move_line(osv.osv):
             #Only create analytic line if the associated account is Expense or Income.
             if obj_line.account_id.user_type and \
                             obj_line.account_id.user_type.report_type in ('income', 'expense'):
-                if obj_line.analytic_account_id and obj_line.journal_id.analytic_journal_id:
+                if obj_line.analytic_account_id:
                     if not obj_line.journal_id.analytic_journal_id:
                         raise osv.except_osv(_('No Analytic Journal!'),
                                              _("You have to define an analytic journal "
