@@ -39,7 +39,7 @@ class account_analytic_line_plan(osv.osv):
         company_id = self.pool.get('res.company')._company_default_get(cr, uid,
                                                              'account.analytic.line',
                                                              context=context)
-        company = company_obj.browse(cr, uid, company_id,context=context)
+        company = company_obj.browse(cr, uid, company_id, context=context)
         return company.currency_id and company.currency_id.id or False
 
     _columns = {

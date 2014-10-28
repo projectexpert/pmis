@@ -7,8 +7,7 @@
 #---------------------------------------------------------------------------------------------------------
 		<menuitem id="analytic_plan_analytic_account_menu"
 			name="Analytic Accounting" 
-			parent="project.menu_project_management" 
-			sequence="2"
+			parent="project.menu_project_management"
 			groups="analytic.group_analytic_accounting"/>
 		
 		<menuitem action="account.action_account_analytic_account_form" id="account_analytic_def_account"
