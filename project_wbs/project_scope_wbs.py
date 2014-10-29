@@ -280,6 +280,30 @@ class account_analytic_account(base_stage, osv.osv):
         'child_stage_ids': _get_type_common,
     }
 
+    def create(self, cr, uid, vals, *args, **kwargs):
+
+        context = kwargs.get('context', {})
+        account_obj = self.pool.get('account.analytic.account')
+
+        if 'parent_id' in vals and vals['parent_id']:
+            parent = account_obj.browse(cr, uid, vals['parent_id'], context=context)
+            if parent.partner_id:
+                vals['partner_id'] = parent.partner_id.id
+
+        return super(account_analytic_account, self).create(cr, uid, vals, *args, **kwargs)
+
+    def write(self, cr, uid, ids, vals, context=None):
+        if context is None:
+            context = {}
+        account_obj = self.pool.get('account.analytic.account')
+
+        if 'parent_id' in vals and vals['parent_id']:
+            parent = account_obj.browse(cr, uid, vals['parent_id'], context=context)
+            if parent.partner_id:
+                vals['partner_id'] = parent.partner_id.id
+
+        return super(account_analytic_account, self).write(cr, uid, ids, vals, context=context)
+
     def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):        
         if not args:
             args = []

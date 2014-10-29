@@ -1,2 +1,1 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"access_analytic_wip_report","analytic.wip.report project manager","model_analytic_wip_report","project.group_project_manager",1,1,1,1

@@ -68,7 +68,7 @@ class account_analytic_account(osv.osv):
 
         if 'parent_id' in vals and 'code' in vals:
             parent = account_obj.browse(cr, uid, vals['parent_id'], context=context)
-            if parent.sequence_ids and not vals['code']:
+            if parent.sequence_ids:
                 vals['code'] = obj_sequence.next_by_id(cr, uid, parent.sequence_ids[0].id, context=context)
             elif not parent.sequence_ids and not vals['code']:
                 vals['code'] = self.pool.get('ir.sequence').get(cr, uid, 'account.analytic.account')
