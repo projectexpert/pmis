@@ -25,7 +25,7 @@
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["account", "analytic", "project"],
+    "depends": ["account", "analytic", "project", "project_wbs"],
     "description": """
 Analytic Plan
 ====================================

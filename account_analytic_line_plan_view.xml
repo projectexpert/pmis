@@ -16,6 +16,7 @@
                         <group>
                             <field name="name"/>
                             <field name="account_id"/>
+                            <field name="account_stage"/>
                             <field name="journal_id"/>
                             <field name="version_id"/>
                             <field name="user_id"/>
@@ -57,6 +58,7 @@
             <field name="arch" type="xml">
                 <tree string="Analytic Entries" editable="top">
                     <field name="account_id"/>
+                    <field name="account_stage"/>
                     <field name="date"/>                    
                     <field name="name"/>
                     <field name="journal_id" invisible="False"/>     
