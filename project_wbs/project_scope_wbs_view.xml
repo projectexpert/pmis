@@ -122,6 +122,9 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
+                <xpath expr='//field[@name="parent_id"]' position="attributes">
+                    <attribute name="on_change">onchange_parent_id(parent_id)</attribute>
+                </xpath>
                 <xpath expr='//field[@name="state"]' position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>

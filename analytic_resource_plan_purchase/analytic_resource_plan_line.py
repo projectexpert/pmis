@@ -26,11 +26,30 @@ class analytic_resource_plan_line(osv.osv):
     
     _inherit = 'analytic.resource.plan.line'
 
+    def _has_active_order(self, cr, uid, ids, fields, arg, context=None):
+        res = {}
+        if context is None:
+            context = {}
+
+        for plan_line in self.browse(cr, uid, ids, context=context):
+            res[plan_line.id] = False
+            for order_line in plan_line.order_line_ids:
+                if order_line.state and order_line.state != 'cancel':
+                    res[plan_line.id] = True
+        return res
+
     _columns = {
         'order_line_ids': fields.many2many('purchase.order.line',
                                            'analytic_resource_plan_order_line_rel',
                                            'order_line_id',
                                            'analytic_resource_plan_line_id'),
+
+        'has_active_order': fields.function(_has_active_order,
+                                            method=True,
+                                            type='boolean',
+                                            string='Order',
+                                            help="Indicates that this resource plan line "
+                                                 "contains at least one non-cancelled purchase order."),
     }
 
 analytic_resource_plan_line()

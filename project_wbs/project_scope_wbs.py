@@ -280,30 +280,6 @@ class account_analytic_account(base_stage, osv.osv):
         'child_stage_ids': _get_type_common,
     }
 
-    def create(self, cr, uid, vals, *args, **kwargs):
-
-        context = kwargs.get('context', {})
-        account_obj = self.pool.get('account.analytic.account')
-
-        if 'parent_id' in vals and vals['parent_id']:
-            parent = account_obj.browse(cr, uid, vals['parent_id'], context=context)
-            if parent.partner_id:
-                vals['partner_id'] = parent.partner_id.id
-
-        return super(account_analytic_account, self).create(cr, uid, vals, *args, **kwargs)
-
-    def write(self, cr, uid, ids, vals, context=None):
-        if context is None:
-            context = {}
-        account_obj = self.pool.get('account.analytic.account')
-
-        if 'parent_id' in vals and vals['parent_id']:
-            parent = account_obj.browse(cr, uid, vals['parent_id'], context=context)
-            if parent.partner_id:
-                vals['partner_id'] = parent.partner_id.id
-
-        return super(account_analytic_account, self).write(cr, uid, ids, vals, context=context)
-
     def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):        
         if not args:
             args = []
@@ -366,7 +342,19 @@ class account_analytic_account(base_stage, osv.osv):
 
             res.append((account.id, data))
         return res
-    
+
+    def onchange_parent_id(self, cr, uid, ids, parent_id, context=None):
+        res = {}
+        res['value'] = {}
+        if parent_id:
+            parent = self.pool.get('account.analytic.account').browse(cr, uid, parent_id, context=context)
+            if parent.partner_id:
+                res['value'].update({'partner_id': parent.partner_id.id})
+            else:
+                res['value'].update({'partner_id': False})
+
+        return res
+
 account_analytic_account()
 
 
@@ -595,7 +583,6 @@ class project(base_stage, osv.osv):
                 'nodestroy': True
             }
 
-
     def action_openView(self, cr, uid, ids, module, act_window, context=None):
         """
         :return dict: dictionary value for created view
@@ -603,8 +590,9 @@ class project(base_stage, osv.osv):
         project = self.browse(cr, uid, ids[0], context)
         res = self.pool.get('ir.actions.act_window').for_xml_id(cr, uid, module , act_window, context)
         res['context'] = {
-            'search_default_parent_id': project.analytic_account_id and project.analytic_account_id.id,
-            'default_parent_id': project.analytic_account_id and project.analytic_account_id.id,
+            'search_default_parent_id': project.analytic_account_id and project.analytic_account_id.id or False,
+            'default_parent_id': project.analytic_account_id and project.analytic_account_id.id or False,
+            'default_partner_id': project.partner_id and project.partner_id.id or False,
         }
         res['nodestroy'] = True
         return res
@@ -628,7 +616,5 @@ class project(base_stage, osv.osv):
     def action_openUnclassifiedView(self, cr, uid, ids, context=None):
 
         return self.action_openView(cr, uid, ids, 'project', 'open_view_project_all', context=context)
-
-
 
 project()

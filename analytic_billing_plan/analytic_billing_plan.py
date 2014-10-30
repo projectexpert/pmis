@@ -31,6 +31,18 @@ class analytic_billing_plan_line(osv.osv):
     _description = "Analytic Billing Plan lines"
     _inherits = {'account.analytic.line.plan': "analytic_line_plan_id"}
 
+    def _has_active_order(self, cr, uid, ids, fields, arg, context=None):
+        res = {}
+        if context is None:
+            context = {}
+
+        for plan_line in self.browse(cr, uid, ids, context=context):
+            res[plan_line.id] = False
+            for order_line in plan_line.order_line_ids:
+                if order_line.state and order_line.state != 'cancel':
+                    res[plan_line.id] = True
+        return res
+
     _columns = {
         'price_unit': fields.float('Unit Price', required=False, digits_compute=dp.get_precision('Sale Price')),
         'customer_id': fields.related('account_id', 'partner_id', string="Customer",
@@ -43,6 +55,12 @@ class analytic_billing_plan_line(osv.osv):
                                            'analytic_billing_plan_order_line_rel',
                                            'order_line_id',
                                            'analytic_billing_plan_line_id'),
+        'has_active_order': fields.function(_has_active_order,
+                                            method=True,
+                                            type='boolean',
+                                            string='Billing request',
+                                            help="Indicates that this billing plan line "
+                                                 "contains at least one non-cancelled billing request."),
     }
 
     def on_change_amount_currency_billing(self,
@@ -120,40 +138,8 @@ class analytic_billing_plan_line(osv.osv):
                                currency_id, version_id, journal_id,
                                ref, company_id, amount, general_account_id, context=None):
 
-        #Change in date affects:
-        #  - price_unit => Only if there's a pricelist_id, product_id, product_uom_id and date
-
-        pricelist_obj = self.pool.get('product.pricelist')
-        analytic_account_obj = self.pool.get('account.analytic.account')
-        partner_obj = self.pool.get('res.partner')
-
         res = {}
         res['value'] = {}
-        if account_id:
-            analytic_account = analytic_account_obj.browse(cr, uid, account_id, context=context)
-            customer_id = analytic_account.partner_id and analytic_account.partner_id.id or False
-            if customer_id:
-                customer = partner_obj.browse(cr, uid, customer_id, context=context)
-                pricelist_id = customer.property_product_pricelist and customer.property_product_pricelist.id or False
-
-                #Compute new price_unit
-                if pricelist_id and product_id and product_uom_id and date:
-                    price_unit = pricelist_obj.price_get(cr, uid, [pricelist_id],
-                                                         product_id, unit_amount or 1.0, customer_id,
-                                                         {'uom': product_uom_id,
-                                                          'date': date,
-                                                          })[pricelist_id]
-
-                    res['value'].update({'price_unit': price_unit})
-
-                    res_price_unit = self.on_change_price_unit_billing(cr, uid, ids, account_id,
-                                                                       name, date, product_id, unit_amount,
-                                                                       product_uom_id, price_unit, amount_currency,
-                                                                       currency_id, version_id, journal_id,
-                                                                       ref, company_id, amount, general_account_id, context)
-
-                    if 'value' in res_price_unit:
-                        res['value'].update(res_price_unit['value'])
 
         if res['value']:
             return res
