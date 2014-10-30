@@ -15,6 +15,7 @@
                     <group>
                         <group colspan="3" col="4">
                             <field name="account_id" on_change="on_change_account_id_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                            <field name="account_stage"/>
                             <field name="name"/>
                             <field name="date" on_change="on_change_date_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
                         </group>
@@ -54,6 +55,7 @@
             <field name="arch" type="xml">
 				<tree string="Analytic resource plan line" editable="top">
                     <field name="account_id" on_change="on_change_account_id_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                    <field name="account_stage"/>
                     <field name="date" on_change="on_change_date_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
                     <field name="name"/>
 	                <field name="product_id" colspan="4" required="True" on_change="on_change_product_id_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
