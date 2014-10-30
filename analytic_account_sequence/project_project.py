@@ -19,7 +19,16 @@
 #
 ##############################################################################
 
-import analytic_account_stage
-import account_analytic_account
-import project_project
-import project_task
+from osv import fields, osv
+
+
+class project(osv.osv):
+    
+    _inherit = 'project.project'
+
+    def on_change_parent(self, cr, uid, ids, parent_id, context=None):
+        account_obj = self.pool.get('account.analytic.account')
+        res = account_obj.on_change_parent(cr, uid, ids, parent_id, context=context)
+        return res
+
+project()

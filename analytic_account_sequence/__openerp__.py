@@ -26,7 +26,7 @@
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["base", "project", "analytic"],
+    "depends": ["base", "project", "analytic", "project_wbs"],
     "description": """
     """,
     "init_xml": [],

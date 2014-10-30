@@ -44,7 +44,9 @@
     "init_xml": [],
     "update_xml": [
         "analytic_account_stage_view.xml",
-        "project_scope_wbs_view.xml",     
+        "account_analytic_account_view.xml",
+        "project_project_view.xml",
+        "project_task_view.xml",
         "security/ir.model.access.csv",
     ],
     'demo_xml': [

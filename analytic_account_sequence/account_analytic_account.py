@@ -26,6 +26,21 @@ class account_analytic_account(osv.osv):
     
     _inherit = 'account.analytic.account'
 
+    def _get_code(self, cr, uid, context=None):
+
+        account_obj = self.pool.get('account.analytic.account')
+        obj_sequence = self.pool.get('analytic.account.sequence')
+        new_code = False
+        if 'default_parent_id' in context and context['default_parent_id']:
+            parent = account_obj.browse(cr, uid, context['default_parent_id'], context=context)
+            if parent.sequence_ids:
+                new_code = obj_sequence.next_by_id(cr, uid, parent.sequence_ids[0].id, context=context)
+            elif not parent.sequence_ids:
+                new_code = self.pool.get('ir.sequence').get(cr, uid, 'account.analytic.account')
+        else:
+            new_code = self.pool.get('ir.sequence').get(cr, uid, 'account.analytic.account')
+        return new_code
+
     def _create_sequence(self, cr, uid, analytic_account_id, context=None):
         ir_sequence_obj = self.pool.get('ir.sequence')
         account_sequence_obj = self.pool.get('analytic.account.sequence')
@@ -57,21 +72,12 @@ class account_analytic_account(osv.osv):
     }
 
     _defaults = {
-        'code': False
+        'code': _get_code,
     }
 
     def create(self, cr, uid, vals, *args, **kwargs):
 
         context = kwargs.get('context', {})
-        account_obj = self.pool.get('account.analytic.account')
-        obj_sequence = self.pool.get('analytic.account.sequence')
-
-        if 'parent_id' in vals and 'code' in vals:
-            parent = account_obj.browse(cr, uid, vals['parent_id'], context=context)
-            if parent.sequence_ids:
-                vals['code'] = obj_sequence.next_by_id(cr, uid, parent.sequence_ids[0].id, context=context)
-            elif not parent.sequence_ids and not vals['code']:
-                vals['code'] = self.pool.get('ir.sequence').get(cr, uid, 'account.analytic.account')
 
         analytic_account_id = super(account_analytic_account, self).create(cr, uid, vals, *args, **kwargs)
 
@@ -79,18 +85,19 @@ class account_analytic_account(osv.osv):
             sequence_id = self._create_sequence(cr, uid, analytic_account_id, context=context)
         return analytic_account_id
 
-    def write(self, cr, uid, ids, vals, context=None):
-        if context is None:
-            context = {}
-        account_obj = self.pool.get('account.analytic.account')
+    def on_change_parent(self, cr, uid, ids, parent_id, context=None):
+
+        res = super(account_analytic_account, self).on_change_parent(cr, uid, ids, parent_id)
+
         obj_sequence = self.pool.get('analytic.account.sequence')
 
-        if 'parent_id' in vals and vals['parent_id']:
-            parent = account_obj.browse(cr, uid, vals['parent_id'], context=context)
+        if parent_id:
+            parent = self.browse(cr, uid, parent_id, context=context)
             if parent.sequence_ids:
-                vals['code'] = obj_sequence.next_by_id(cr, uid, parent.sequence_ids[0].id, context=context)
+                new_code = obj_sequence.next_by_id(cr, uid, parent.sequence_ids[0].id, context=context)
+                res['value'].update({'code': new_code})
 
-        return super(account_analytic_account, self).write(cr, uid, ids, vals, context=context)
+        return res
 
 
 account_analytic_account()
