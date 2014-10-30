@@ -99,5 +99,26 @@ class account_analytic_account(osv.osv):
 
         return res
 
+    def map_sequences(self, cr, uid, old_analytic_account_id, new_analytic_account_id, context=None):
+        """ copy and map tasks from old to new project """
+        if context is None:
+            context = {}
+        map_sequence_id = {}
+        sequence_obj = self.pool.get('analytic.account.sequence')
+        account = self.browse(cr, uid, old_analytic_account_id, context=context)
+        for sequence in account.sequence_ids:
+            map_sequence_id[sequence.id] = sequence_obj.copy(cr, uid, sequence.id, {}, context=context)
+        self.write(cr, uid, [new_analytic_account_id], {'sequence_ids': [(6, 0, map_sequence_id.values())]})
+        return True
+
+    def copy(self, cr, uid, id, default=None, context=None):
+        if context is None:
+            context = {}
+        if default is None:
+            default = {}
+        default['sequence_ids'] = []
+        res = super(account_analytic_account, self).copy(cr, uid, id, default, context)
+        self.map_sequences(cr, uid, id, res, context)
+        return res
 
 account_analytic_account()
