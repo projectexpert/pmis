@@ -51,6 +51,15 @@ class progress_measurement_type(osv.osv):
                     return False
         return True
 
+    def _check_default(self, cr, uid, vals, context=None):
+
+        if 'is_default' in vals:
+            if vals['is_default'] is True:
+                other_default = self.search(cr, uid, [('is_default', '=', True)], context=context)
+                if other_default:
+                    raise osv.except_osv(_('Error!'),
+                                         _('Only one default measurement type can exist.'))
+
     _columns = {        
         'name': fields.char('Name', size=32, required=True, translate=True,
                             help="Name given to the progress measurement type"),
@@ -67,7 +76,8 @@ class progress_measurement_type(osv.osv):
         'is_percent': fields.boolean('Percentage',
                                      help="Indicates that progress measurements of this type are "
                                           "entered on a percent basis"),
-
+        'is_default': fields.boolean('Default measurement type',
+                                     help="Indicates that this progress measurements is to be used by default"),
     }
 
     _sql_constraints = [('progress_measurement_type_name_unique', 'unique(name)', 'Progress type name already exists')]
@@ -88,13 +98,23 @@ class progress_measurement_type(osv.osv):
         'active': True,
     }    
 
+    def create(self, cr, uid, vals, *args, **kwargs):
+
+        context = kwargs.get('context', {})
+        self._check_default(cr, uid, vals, context)
+        return super(progress_measurement_type, self).create(cr, uid, vals, *args, **kwargs)
+
+    def write(self, cr, uid, ids, vals, context=None):
+        if context is None:
+            context = {}
+
+        self._check_default(cr, uid, vals, context)
+        return super(progress_measurement_type, self).write(cr, uid, ids, vals, context=context)
+
     def on_change_is_percent(self, cr, uid, id, is_percent, context=None):
-
         res = {}
-
         if is_percent is True:
             res['value'] = {'default_max_value': 100}
-
         return res
 
 progress_measurement_type()

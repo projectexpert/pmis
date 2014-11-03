@@ -25,7 +25,7 @@
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules",
-    "depends": ["project", "progress_measurement"],
+    "depends": ["project", "progress_measurement", "project_wbs"],
     "description": """
 Project progress measurement.
 ====================================
@@ -49,6 +49,7 @@ Define Project Progress Measurements:
     "update_xml": [
         "project_progress_measurement_view.xml",
         "project_project_view.xml",
+        "wizard/progress_measurements_entry_view.xml",
         "security/ir.model.access.csv",
     ],
     'demo_xml': [

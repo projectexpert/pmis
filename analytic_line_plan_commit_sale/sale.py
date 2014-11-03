@@ -43,7 +43,7 @@ class sale_order(osv.osv):
                         if 'state' in data:                            
                             if data['state'] in ('confirmed', 'done'):
                                 vals_line['amount'] = order_line.price_subtotal
-                                vals_line['unit_amount'] = order_line.product_qty                                    
+                                vals_line['unit_amount'] = order_line.product_uom_qty
                             else:
                                 vals_line['amount'] = 0
                                 vals_line['unit_amount'] = 0

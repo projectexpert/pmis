@@ -31,6 +31,7 @@ from openerp.addons.base_status.base_stage import base_stage
 class project(base_stage, osv.osv):
     _name = "project.project"
     _inherit = "project.project"
+    _description = "WBS element"
 
     def _get_children(self, cr, uid, ids, context=None):
 
@@ -57,7 +58,7 @@ class project(base_stage, osv.osv):
 
         return self.projects_data
 
-    def _get_project_wbs(self, cr, uid, ids, name, arg, context=None):
+    def _get_project_wbs(self, cr, uid, ids, context=None):
 
         projects_data = self._get_project_analytic_wbs(cr, uid, ids, context=context)
 

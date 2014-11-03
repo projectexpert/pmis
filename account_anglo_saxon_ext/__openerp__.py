@@ -18,26 +18,20 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import time
-from osv import fields, osv
-from openerp.tools.translate import _
+{
+    'name': 'Anglo-Saxon Accounting extension',
+    'version': '1.0',
+    'author': 'Eficent',
+    'website': 'http://www.eficent.com',
+    'description': """
+This module
 
-
-class project_progress_measurement(osv.osv):
-
-    _name = 'project.progress.measurement'
-    _description = 'Project Progress Measurement'
-    _inherit = "progress.measurement"
-    _columns = {
-        'project_id': fields.many2one('project.project', 'Project',
-                                      ondelete='cascade',
-                                      select="1",
-                                      required=True),
-    }
-
-    _sql_constraints = [
-        ('project_meas_type_date_uniq', 'unique(project_id, progress_measurement_type, communication_date)',
-         _("Only one measurement of the same type can exist for each project on a given date."))
-    ]
-
-project_progress_measurement()
+""",
+    'images': [],
+    'depends': ['account_anglo_saxon'],
+    'category': 'Accounting & Finance',
+    'demo': [],
+    'data': [],
+    'auto_install': False,
+    'installable': True,
+}

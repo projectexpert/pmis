@@ -60,7 +60,7 @@
         </record>
 
         <record id="action_project_progress_measurement" model="ir.actions.act_window">
-            <field name="name">Measurements</field>
+            <field name="name">Non-aggregated measurements</field>
             <field name="res_model">project.progress.measurement</field>
             <field name="view_id" ref="view_project_progress_measurement_tree"/>
             <field name="view_mode">tree,form,graph</field>

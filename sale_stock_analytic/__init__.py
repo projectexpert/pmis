@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              <contact@eficent.com>
+#    OpenERP, Open Source Management Solution
+#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,26 +18,9 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import time
-from osv import fields, osv
-from openerp.tools.translate import _
+
+import sale_stock
 
 
-class project_progress_measurement(osv.osv):
 
-    _name = 'project.progress.measurement'
-    _description = 'Project Progress Measurement'
-    _inherit = "progress.measurement"
-    _columns = {
-        'project_id': fields.many2one('project.project', 'Project',
-                                      ondelete='cascade',
-                                      select="1",
-                                      required=True),
-    }
-
-    _sql_constraints = [
-        ('project_meas_type_date_uniq', 'unique(project_id, progress_measurement_type, communication_date)',
-         _("Only one measurement of the same type can exist for each project on a given date."))
-    ]
-
-project_progress_measurement()
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

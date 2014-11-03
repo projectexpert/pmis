@@ -10,6 +10,10 @@
                 <search string="Progress Measurement Type">
                     <field name="name"/>
                     <field name="active"/>
+                    <field name="default_max_value"/>
+                    <field name="precision"/>
+                    <field name="is_percent"/>
+                    <field name="is_default"/>
                 </search>
             </field>
         </record>        
@@ -25,6 +29,7 @@
                     <field name="precision"/>
                     <field name="active"/>
                     <field name="is_percent" on_change="on_change_is_percent(is_percent)"/>
+                    <field name="is_default"/>
                 </form>
             </field>
         </record>

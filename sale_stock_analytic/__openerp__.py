@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              <contact@eficent.com>
+#    Eficent
+#    Copyright (C) 2014 (<http://www.eficent.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,7 +18,28 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import project_progress_measurement
-import project_project
-import wizard
 
+{
+    'name': 'Sale Stock Analytic',
+    'version': '1.0',
+    'category': 'Hidden',
+    'summary': 'Copies the analytic account of the sales order to the stock move.',
+    'description': """
+Copies the analytic account of the sales order to the stock move.
+""",
+    'author': 'Eficent',
+    'website': 'http://www.eficent.com',
+    'images': ['images/deliveries_to_invoice.jpeg'],
+    'depends': ['sale_stock', 'stock_move_line'],
+    'init_xml': [],
+    'update_xml': [
+                   ],
+   'data': [],
+   'demo_xml': [],
+    'test': [
+             ],
+    'installable': True,
+    'auto_install': True,
+    
+}
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
