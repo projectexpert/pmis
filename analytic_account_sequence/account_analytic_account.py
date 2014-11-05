@@ -26,21 +26,6 @@ class account_analytic_account(osv.osv):
     
     _inherit = 'account.analytic.account'
 
-    def _get_code(self, cr, uid, context=None):
-
-        account_obj = self.pool.get('account.analytic.account')
-        obj_sequence = self.pool.get('analytic.account.sequence')
-        new_code = False
-        if 'default_parent_id' in context and context['default_parent_id']:
-            parent = account_obj.browse(cr, uid, context['default_parent_id'], context=context)
-            if parent.sequence_ids:
-                new_code = obj_sequence.next_by_id(cr, uid, parent.sequence_ids[0].id, context=context)
-            elif not parent.sequence_ids:
-                new_code = self.pool.get('ir.sequence').get(cr, uid, 'account.analytic.account')
-        else:
-            new_code = self.pool.get('ir.sequence').get(cr, uid, 'account.analytic.account')
-        return new_code
-
     def _create_sequence(self, cr, uid, analytic_account_id, context=None):
         ir_sequence_obj = self.pool.get('ir.sequence')
         account_sequence_obj = self.pool.get('analytic.account.sequence')
@@ -72,12 +57,28 @@ class account_analytic_account(osv.osv):
     }
 
     _defaults = {
-        'code': _get_code,
+        'code': False
     }
 
     def create(self, cr, uid, vals, *args, **kwargs):
 
         context = kwargs.get('context', {})
+        #Assign a new code, from the parent account's sequence, if it exists.
+        # If there's no parent, or the parent has no sequence, assign from the basic sequence of the analytic account.
+        new_code = False
+        if 'parent_id' in vals and vals['parent_id']:
+            account_obj = self.pool.get('account.analytic.account')
+            obj_sequence = self.pool.get('analytic.account.sequence')
+            parent = account_obj.browse(cr, uid, vals['parent_id'], context=context)
+            if parent.sequence_ids:
+                new_code = obj_sequence.next_by_id(cr, uid, parent.sequence_ids[0].id, context=context)
+            else:
+                new_code = self.pool.get('ir.sequence').get(cr, uid, 'account.analytic.account')
+        else:
+            new_code = self.pool.get('ir.sequence').get(cr, uid, 'account.analytic.account')
+
+        if 'code' in vals and not vals['code'] and new_code:
+            vals['code'] = new_code
 
         analytic_account_id = super(account_analytic_account, self).create(cr, uid, vals, *args, **kwargs)
 
@@ -85,19 +86,19 @@ class account_analytic_account(osv.osv):
             sequence_id = self._create_sequence(cr, uid, analytic_account_id, context=context)
         return analytic_account_id
 
-    def on_change_parent(self, cr, uid, ids, parent_id, context=None):
+    def write(self, cr, uid, ids, data, context=None):
+        if context is None:
+            context = {}
 
-        res = super(account_analytic_account, self).on_change_parent(cr, uid, ids, parent_id)
-
-        obj_sequence = self.pool.get('analytic.account.sequence')
-
-        if parent_id:
-            parent = self.browse(cr, uid, parent_id, context=context)
+        #If the parent project changes, obtain a new code according to the new parent's sequence
+        if 'parent_id' in data and data['parent_id']:
+            obj_sequence = self.pool.get('analytic.account.sequence')
+            parent = self.browse(cr, uid, data['parent_id'], context=context)
             if parent.sequence_ids:
                 new_code = obj_sequence.next_by_id(cr, uid, parent.sequence_ids[0].id, context=context)
-                res['value'].update({'code': new_code})
+                data.update({'code': new_code})
 
-        return res
+        return super(account_analytic_account, self).write(cr, uid, ids, data, context=context)
 
     def map_sequences(self, cr, uid, old_analytic_account_id, new_analytic_account_id, context=None):
         """ copy and map tasks from old to new project """

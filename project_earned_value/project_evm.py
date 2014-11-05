@@ -42,7 +42,8 @@ _KPI_TYPE = [('PV', 'Planned Value'),
              ('VAC', 'Variance at Completion'),
              ('VACP', 'Variance at Completion Percent'),
              ('BAC', 'Budget at Completion'),
-             ('PCC', 'Costs to date / Total costs')]
+             ('PCC', 'Costs to date / Total costs'),
+             ('POC', '% Complete')]
 
 
 class project_evm(osv.osv):

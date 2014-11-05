@@ -60,7 +60,11 @@
             </field>
         </record>                  	   
 
-        <menuitem action="open_analytic_account_stage_form" name="Analytic Account Stages" id="menu_analytic_account_stages_view" parent="base.menu_project_config_project" sequence="2"/>
-        
+        <menuitem groups="analytic.group_analytic_accounting"
+            name="Analytic Account Stages"
+        	action="open_analytic_account_stage_form"
+        	id="menu_analytic_account_stages_view"
+        	parent="account.menu_analytic_accounting"/>
+
     </data>
 </openerp>

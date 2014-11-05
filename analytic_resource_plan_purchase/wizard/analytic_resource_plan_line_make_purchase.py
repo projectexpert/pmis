@@ -138,7 +138,7 @@ class analytic_resource_plan_line_make_purchase(orm.TransientModel):
                         'product_id': line.product_id.id,
                         'product_uom': line.product_uom_id.id,
                         'price_unit': line.price_unit,
-                        'date_planned': newdate.strftime('%Y-%m-%d %H:%M:%S'),
+                        'date_planned': line.date,
                         'notes': line.notes,
                         'account_analytic_id': account_id,
                     }

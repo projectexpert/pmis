@@ -116,7 +116,7 @@
 	        <field name="act_window_id" ref="action_analytic_resource_plan_line_open_form"/>
 	   	</record>
 
-		<menuitem id="analytic_resource_plan_menu" name="Resource planning"
+		<menuitem id="analytic_resource_plan_menu" name="Resource Plan"
           parent="project.menu_project_management"
           groups="project.group_project_manager"/>
 

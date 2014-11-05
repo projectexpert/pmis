@@ -71,7 +71,7 @@
             <field name="help">Define the project Earned Value Management</field>
         </record>
 
-        <menuitem id="menu_project_evm" name="Earned Value Management" parent="project.menu_project_management"/>
+        <menuitem id="menu_project_evm" name="Earned Value Management" parent="base.menu_project_report"/>
         <menuitem action="action_project_evm_tree" id="menu_project_evm_view" parent="menu_project_evm" sequence="1"/>                  	                    
     </data>
 </openerp>

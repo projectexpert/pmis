@@ -212,11 +212,13 @@ class project(osv.osv):
                                 progress_value / \
                                 progress_max_value
 
+
                 for projects_data_project_id, projects_data_analytic_account_id in projects_data.items():
                     if projects_data_project_id in ev_quantity_projects.keys():
                         ev_quantity += ev_quantity_projects[projects_data_project_id]
                     if projects_data_project_id in ev_amount_projects.keys():
                         ev_amount += ev_amount_projects[projects_data_project_id]
+
 
                 #CC: %Cost complete
                 if pv_amount == 0:
@@ -245,11 +247,11 @@ class project(osv.osv):
                 else:
                     spi_quantity = ev_quantity / pv_quantity
                 
-                if ev_quantity == 0:
+                if pv_amount == 0:
                     spi_amount = 0
                 else:
-                    spi_amount = ev_amount / ev_quantity
-                
+                    spi_amount = ev_amount / pv_amount
+
                 #CV: Cost Variance
                 cv_quantity = ev_quantity - ac_quantity
                 cv_amount = ev_amount - ac_amount
@@ -337,6 +339,12 @@ class project(osv.osv):
                 else:
                     eac_amount = bac_amount/cpi_amount
 
+                #Calculate the POC - Percent of Completion
+                if bac_amount == 0:
+                    poc_quantity = 0
+                else:
+                    poc_quantity = ev_amount / bac_amount * 100
+
                 #Create the EVM records
                 project_obj.create_evm_record(cr, uid, project_id, day_date, 'PV', pv_quantity, pv_amount)
                 project_obj.create_evm_record(cr, uid, project_id, day_date, 'EV', ev_quantity, ev_amount)
@@ -355,7 +363,8 @@ class project(osv.osv):
                 project_obj.create_evm_record(cr, uid, project_id, day_date, 'ETC', etc_quantity, etc_amount)
                 project_obj.create_evm_record(cr, uid, project_id, day_date, 'EAC', eac_quantity, eac_amount)
                 project_obj.create_evm_record(cr, uid, project_id, day_date, 'PCC', 0, pcc_amount)
-    
+                project_obj.create_evm_record(cr, uid, project_id, day_date, 'POC', poc_quantity, 0)
+
     def create_evm_record(self, cr, uid, project_id,  eval_date, kpi_type, kpi_quantity, kpi_amount, context=None):
         
         project_evm_obj = self.pool.get('project.evm')

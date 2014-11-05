@@ -249,7 +249,7 @@ class report_account_analytic_plan_actual(osv.osv):
                          AAC.complete_wbs_name,
                          AALP.product_id,
                          AALP.product_uom_id,
-                         AAC.active_analytic_planning_version AS version_id
+                         AALP.version_id
                     FROM account_analytic_line_plan AS AALP
                     INNER JOIN account_analytic_account AAC
                     ON AALP.account_id = AAC.id

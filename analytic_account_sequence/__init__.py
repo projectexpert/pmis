@@ -21,4 +21,3 @@
 
 import analytic_account_sequence
 import account_analytic_account
-import project_project
