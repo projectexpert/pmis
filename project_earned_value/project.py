@@ -29,6 +29,64 @@ class project(osv.osv):
     
     _inherit = "project.project"
 
+
+    def _agg_progress_measurement_rate(self, cr, uid, ids, names, arg, context=None):
+
+        res = dict([(id, 0.0) for id in ids])
+        measurement_type_obj = self.pool.get('progress.measurement.type')
+        project_obj = self.pool.get('project.project')
+        def_meas_type = measurement_type_obj.search(cr, uid, [('is_default', '=', True)], context=context)
+        if def_meas_type:
+            #Search for child projects
+            for project_id in ids:
+                res[project_id] = 0
+                wbs_projects_data = project_obj._get_project_analytic_wbs(cr, uid, [project_id], context=context)
+                #Compute the Budget at Completion
+                cr.execute('SELECT abs(sum(LP.amount)) '
+                           'FROM account_analytic_line_plan AS LP '
+                           'INNER JOIN account_analytic_account AS AA '
+                           'ON LP.version_id = AA.active_analytic_planning_version '
+                           'AND LP.account_id = AA.id '
+                           'WHERE LP.account_id IN %s '
+                           'AND LP.amount < 0',
+                           (tuple(wbs_projects_data.values()),))
+                cr_result = cr.fetchone()
+                total_bac_amount = cr_result and cr_result[0] or 0.0
+                ev_amount = 0
+                if total_bac_amount > 0:
+                    for wbs_project_id in wbs_projects_data.keys():
+                        #Compute the Budget at Completion
+                        cr.execute('SELECT abs(sum(LP.amount)) '
+                                   'FROM account_analytic_line_plan AS LP '
+                                   'INNER JOIN account_analytic_account AS AA '
+                                   'ON LP.version_id = AA.active_analytic_planning_version '
+                                   'AND LP.account_id = AA.id '
+                                   'WHERE LP.account_id IN %s '
+                                   'AND LP.amount < 0',
+                                   (tuple([wbs_projects_data[wbs_project_id]]),))
+                        cr_result = cr.fetchone()
+                        bac_amount = cr_result and cr_result[0] or 0.0
+
+                        #Obtain the latest progress measurement for this project
+                        cr.execute('SELECT DISTINCT ON (a.project_id) value '
+                                   'FROM project_progress_measurement AS a '
+                                   'WHERE a.project_id IN %s '
+                                   'AND a.progress_measurement_type = %s '
+                                   'ORDER BY a.project_id, a.communication_date DESC',
+                                   (tuple([wbs_project_id]), def_meas_type[0]))
+                        cr_result = cr.fetchone()
+                        measurement_value = cr_result and cr_result[0] or 0.0
+
+                        ev_amount += bac_amount * measurement_value
+                    res[project_id] = ev_amount / total_bac_amount
+
+        return res
+
+    _columns = {
+        'progress_measurement_rate': fields.function(_agg_progress_measurement_rate,
+                                                     string='Progress', type='float',
+                                                     help="Aggregated percent of completion"),
+    }
     def update_project_evm(self, cr, uid, project_ids,
                            progress_measurement_type_id, product_uom_id, context=None):
 
@@ -65,8 +123,8 @@ class project(osv.osv):
             min_date_start = max_date_end = False
 
             if res_min_max:
-                min_date_start = res_min_max[0] or False
-                max_date_end = res_min_max[1] or False
+                min_date_start = res_min_max and res_min_max[0] or False
+                max_date_end = res_min_max and res_min_max[1] or False
             if min_date_start is False:
                 date_start = date.today() 
             else:
@@ -93,7 +151,9 @@ class project(osv.osv):
                        'AND LP.product_uom_id = %s'
                        'AND LP.amount < 0',
                        (tuple(analytic_account_ids), product_uom_id))
-            bac_quantity = cr.fetchone()[0] or 0.0
+            cr_result = cr.fetchone()
+            bac_quantity = cr_result and cr_result[0] or 0.0
+
             cr.execute('SELECT abs(sum(LP.amount)) '
                        'FROM account_analytic_line_plan AS LP '
                        'INNER JOIN account_analytic_account AS AA '
@@ -102,7 +162,8 @@ class project(osv.osv):
                        'WHERE LP.account_id IN %s '
                        'AND LP.amount < 0',
                        (tuple(analytic_account_ids),))
-            bac_amount = cr.fetchone()[0] or 0.0
+            cr_result = cr.fetchone()
+            bac_amount = cr_result and cr_result[0] or 0.0
 
             projects_total_quantity = {}
             projects_total_amount = {}
@@ -117,7 +178,8 @@ class project(osv.osv):
                            'AND LP.product_uom_id = %s'
                            'AND LP.amount < 0',
                            (projects_data_analytic_account_id, product_uom_id))
-                projects_total_quantity[projects_data_project_id] = cr.fetchone()[0] or 0.0
+                cr_result = cr.fetchone()
+                projects_total_quantity[projects_data_project_id] = cr_result and cr_result[0] or 0.0
 
                 #Total amount
                 cr.execute('SELECT ABS(SUM(LP.amount)) '
@@ -128,7 +190,8 @@ class project(osv.osv):
                            'WHERE LP.account_id = %s '
                            'AND LP.amount < 0',
                            (projects_data_analytic_account_id,))
-                projects_total_amount[projects_data_project_id] = cr.fetchone()[0] or 0.0
+                cr_result = cr.fetchone()
+                projects_total_amount[projects_data_project_id] = cr_result and cr_result[0] or 0.0
 
             for day_datetime in l_days:
 
@@ -142,15 +205,16 @@ class project(osv.osv):
                            'AND product_uom_id = %s'
                            'AND amount < 0',
                            (tuple(analytic_account_ids), day_date, product_uom_id))
-                value = cr.fetchone()[0] or 0.0
-                ac_quantity = value
+                cr_result = cr.fetchone()
+                ac_quantity = cr_result and cr_result[0] or 0.0
+
                 cr.execute('SELECT abs(sum(amount)) '
                            'FROM account_analytic_line '
                            'WHERE account_id IN %s '
                            'AND amount < 0'
                            'AND date <= %s ', (tuple(analytic_account_ids), day_date))
-                value = cr.fetchone()[0] or 0.0
-                ac_amount = value
+                cr_result = cr.fetchone()
+                ac_amount = cr_result and cr_result[0] or 0.0
                 
                 #Total planned cost
                 cr.execute('SELECT sum(LP.unit_amount) '
@@ -163,8 +227,8 @@ class project(osv.osv):
                            'AND LP.product_uom_id = %s'
                            'AND LP.amount < 0',
                            (tuple(analytic_account_ids), day_date, product_uom_id))
-                value = cr.fetchone()[0] or 0.0
-                pv_quantity = value
+                cr_result = cr.fetchone()
+                pv_quantity = cr_result and cr_result[0] or 0.0
                 cr.execute('SELECT abs(sum(LP.amount)) '
                            'FROM account_analytic_line_plan AS LP '
                            'INNER JOIN account_analytic_account AS AA '
@@ -174,8 +238,8 @@ class project(osv.osv):
                            'AND LP.date <= %s '
                            'AND LP.amount < 0',
                            (tuple(analytic_account_ids), day_date))
-                value = cr.fetchone()[0] or 0.0                  
-                pv_amount = value
+                cr_result = cr.fetchone()
+                pv_amount = cr_result and cr_result[0] or 0.0
             
                 #Record the earned value as a function of the progress measurements
                 #Current progress

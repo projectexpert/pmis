@@ -18,24 +18,23 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+import time
+from openerp.osv import fields, osv, orm
 
+    
+class stock_move(osv.osv):    
 
-{
-    "name": "Stock Move Line",
-    "version": "1.0",
-    "author": "Eficent",
-    "website": "www.eficent.com",
-    'summary': 'Adds the analytic account to stock moves.',
-    "depends": ["stock", "analytic", "stock_analytic_account"],
-    "description": """
-    - Limits the creation of analytic lines associated to stock moves to only occur when the move is associated to an expense or revenue account.
-    """,
-    "init_xml": [],
-    'data': [
-    ],
-    'test':[
-    ],
-    'installable': True,
-    'active': False,
-    'certificate': '',
-}
+    _inherit = "stock.move"
+
+    _columns = {        
+        'analytic_account_id': fields.many2one('account.analytic.account', 'Analytic Account'),
+        'analytic_account_user_id': fields.related('analytic_account_id',
+                                           'user_id',
+                                           type='many2one',
+                                           relation='res.users',
+                                           string='Project Manager',
+                                           store=True,
+                                           readonly=True),
+    }
+    
+stock_move()

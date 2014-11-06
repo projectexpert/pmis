@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../addons-vauxoo/.idea/addons-vauxoo.iml" filepath="$PROJECT_DIR$/../addons-vauxoo/.idea/addons-vauxoo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../department-mgmt/.idea/department-mgmt.iml" filepath="$PROJECT_DIR$/../department-mgmt/.idea/department-mgmt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/eficent-odoo-addons.iml" filepath="$PROJECT_DIR$/.idea/eficent-odoo-addons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../openobject-addons/.idea/openobject-addons.iml" filepath="$PROJECT_DIR$/../openobject-addons/.idea/openobject-addons.iml" />
+    </modules>
+  </component>
+</project>
+

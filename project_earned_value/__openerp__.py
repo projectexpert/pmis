@@ -34,6 +34,7 @@
     "update_xml": [
         "project_evm_view.xml",
         "project_evm_data.xml",
+        "project_project_view.xml",
         "wizard/earned_value_view.xml",
     ],
     'demo_xml': [

@@ -43,7 +43,7 @@
 
 
         <record id="action_account_analytic_account_wip_form" model="ir.actions.act_window">
-            <field name="name">Analytic Accounts (WIP)</field>
+            <field name="name">Work In Progress Statement</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">account.analytic.account</field>
             <field name="view_type">form</field>
@@ -52,8 +52,8 @@
             <field name="search_view_id" ref="account.view_account_analytic_account_search"/>
         </record>
         <menuitem action="action_account_analytic_account_wip_form" id="account_analytic_account_wip"
-            parent="account.menu_analytic_accounting"
-            groups="analytic.group_analytic_accounting"/>
+            parent="base.menu_project_report"
+            groups="project.group_project_manager"/>
 
     </data>
 </openerp>

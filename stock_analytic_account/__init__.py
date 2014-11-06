@@ -18,24 +18,5 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-
-{
-    "name": "Stock Move Line",
-    "version": "1.0",
-    "author": "Eficent",
-    "website": "www.eficent.com",
-    'summary': 'Adds the analytic account to stock moves.',
-    "depends": ["stock", "analytic", "stock_analytic_account"],
-    "description": """
-    - Limits the creation of analytic lines associated to stock moves to only occur when the move is associated to an expense or revenue account.
-    """,
-    "init_xml": [],
-    'data': [
-    ],
-    'test':[
-    ],
-    'installable': True,
-    'active': False,
-    'certificate': '',
-}
+import stock
+import stock_picking

@@ -13,8 +13,8 @@
             <field name="inherit_id" ref="purchase.view_request_for_quotation_filter"/>
             <field name="arch" type="xml">
 				<xpath expr="//search/field[@name='product_id']" position="after">
-					<field name="account_analytic_ids" groups="purchase.group_analytic_accounting"/>
-					<field name="account_analytic_user_ids" groups="purchase.group_analytic_accounting"/>
+					<field name="account_analytic_ids" groups="analytic.group_analytic_accounting"/>
+					<field name="account_analytic_user_ids" groups="analytic.group_analytic_accounting"/>
 				</xpath>
 			</field>
 		</record>
@@ -25,8 +25,8 @@
             <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
             <field name="arch" type="xml">
 				<xpath expr="//search/field[@name='product_id']" position="after">
-					<field name="account_analytic_ids" groups="purchase.group_analytic_accounting"/>
-					<field name="account_analytic_user_ids" groups="purchase.group_analytic_accounting"/>
+					<field name="account_analytic_ids" groups="analytic.group_analytic_accounting"/>
+					<field name="account_analytic_user_ids" groups="analytic.group_analytic_accounting"/>
 				</xpath>
 			</field>
 		</record>
@@ -37,8 +37,8 @@
             <field name="inherit_id" ref="purchase.purchase_order_line_form" />
             <field name="arch" type="xml">
             	<xpath expr="//form/sheet//field[@name='name']" position="after">
-            		<field name="account_analytic_id" groups="purchase.group_analytic_accounting"/>
-            		<field name="account_analytic_user_id" groups="purchase.group_analytic_accounting"/>
+            		<field name="account_analytic_id" groups="analytic.group_analytic_accounting"/>
+            		<field name="account_analytic_user_id" groups="analytic.group_analytic_accounting"/>
             	</xpath>
                </field>
         </record>
@@ -49,8 +49,8 @@
             <field name="inherit_id" ref="purchase.purchase_order_line_tree"/>
             <field name="arch" type="xml">
             	<xpath expr="//tree//field[@name='name']" position="after">
-            		<field name="account_analytic_id" groups="purchase.group_analytic_accounting"/>
-            		<field name="account_analytic_user_id" groups="purchase.group_analytic_accounting"/>
+            		<field name="account_analytic_id" groups="analytic.group_analytic_accounting"/>
+            		<field name="account_analytic_user_id" groups="analytic.group_analytic_accounting"/>
                     <field name="state"/>
             	</xpath>
             </field>
@@ -63,7 +63,7 @@
             <field name="priority" eval="20"/>
             <field name="arch" type="xml">
             	<xpath expr="//form/sheet//field[@name='account_analytic_id']" position="after">
-            		<field name="account_analytic_user_id" groups="purchase.group_analytic_accounting"/>
+            		<field name="account_analytic_user_id" groups="analytic.group_analytic_accounting"/>
             	</xpath>
             </field>
         </record>
@@ -74,8 +74,8 @@
             <field name="inherit_id" ref="purchase.purchase_order_line_search"/>
             <field name="arch" type="xml">
 				<xpath expr="//search/field[@name='partner_id']" position="after">
-            		<field name="account_analytic_id" groups="purchase.group_analytic_accounting"/>
-            		<field name="account_analytic_user_id" groups="purchase.group_analytic_accounting"/>
+            		<field name="account_analytic_id" groups="analytic.group_analytic_accounting"/>
+            		<field name="account_analytic_user_id" groups="analytic.group_analytic_accounting"/>
 				</xpath>
             </field>
         </record>

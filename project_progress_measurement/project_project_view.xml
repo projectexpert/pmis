@@ -6,27 +6,26 @@
             <field name="model">project.project</field>
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
-                <xpath expr='//div[@name="buttons"]' position='inside'>
-                    <button string="Progress measurements"
-                        name="%(action_project_progress_measurement_tree)d"
-                        type="action"
-                        context="{'default_project_id': active_id,'search_default_project_id': active_id}"
-                        groups="project.group_project_manager"/>
-                </xpath>
+                <notebook position="inside">
+                    <page string="Progress">
+                        <group name="links">
+                            <button string="List non-aggregated Progress Measurements"
+                                name="%(action_project_progress_measurement_tree)d"
+                                class="oe_link"
+                                type="action"
+                                context="{'default_project_id': active_id,'search_default_project_id': active_id}"
+                                groups="project.group_project_manager"/>
+                            <newline/>
+                            <button string="Enter non-aggregated Progress Measurements for all WBS elements"
+                                name="%(action_progress_measurements_entry_form)d"
+                                class="oe_link"
+                                type="action"
+                                context="{'default_project_id': active_id,'search_default_project_id': active_id}"
+                                groups="project.group_project_manager"/>
+                        </group>
+                    </page>
+                </notebook>
             </field>
         </record>
-
-        <record id="view_project" model="ir.ui.view">
-            <field name="name">project.project.tree</field>
-            <field name="model">project.project</field>
-            <field name="inherit_id" ref="project.view_project"/>
-            <field name="field_parent">child_ids</field>
-            <field name="arch" type="xml">
-                <xpath expr='//field[@name="progress_rate"]' position='replace'>
-                    <field name="progress_measurement_rate" widget="progressbar"/>
-                </xpath>
-            </field>
-        </record>
-
     </data>
 </openerp>

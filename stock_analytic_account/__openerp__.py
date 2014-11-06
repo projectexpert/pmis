@@ -21,17 +21,21 @@
 
 
 {
-    "name": "Stock Move Line",
+    "name": "Stock Analytic Account",
     "version": "1.0",
     "author": "Eficent",
     "website": "www.eficent.com",
-    'summary': 'Adds the analytic account to stock moves.',
-    "depends": ["stock", "analytic", "stock_analytic_account"],
+    'summary': 'Adds the analytic account to stock moves',
+    "depends": ["stock", "analytic"],
     "description": """
-    - Limits the creation of analytic lines associated to stock moves to only occur when the move is associated to an expense or revenue account.
+    - Adds the analytic account to the stock move
+    - Makes it possible to search stock moves by analytic account or its project manager
+    - Makes it possible to search picking lists by analytic account or its project manager
     """,
     "init_xml": [],
     'data': [
+             'stock_view.xml',
+             'stock_picking_view.xml',
     ],
     'test':[
     ],

@@ -26,32 +26,7 @@ class project(osv.osv):
 
     _inherit = "project.project"
 
-    def _agg_progress_measurement_rate(self, cr, uid, ids, names, arg, context=None):
-
-        res = dict([(id, 0.0) for id in ids])
-        measurement_type_obj = self.pool.get('progress.measurement.type')
-        def_meas_type = measurement_type_obj.search(cr, uid, [('is_default', '=', True)], context=context)
-        if def_meas_type:
-            cr.execute("""
-            SELECT DISTINCT ON (PPM.project_id) PPM.project_id, PPM.value, PMT.default_max_value
-            FROM project_progress_measurement as PPM
-            INNER JOIN progress_measurement_type as PMT
-            ON (PPM.progress_measurement_type = PMT.id)
-            WHERE PMT.is_default = True
-            AND project_id in %s
-            ORDER BY PPM.project_id, PPM.communication_date DESC
-            """, (tuple(ids),))
-            for project_id, value, default_max_value in cr.fetchall():
-                if default_max_value > 0.0:
-                    res[project_id] = round(100 * (value / default_max_value), 2)
-                else:
-                    res[project_id] = 0.0
-        return res
-
     _columns = {
-        'progress_measurement_rate': fields.function(_agg_progress_measurement_rate,
-                                                     string='Progress', type='float',
-                                                     help="Percent of completion"),
         'progress_measurements': fields.one2many('project.progress.measurement',
                                                  'project_id',
                                                  'Measurements'),

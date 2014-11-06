@@ -6,7 +6,7 @@
             <field name="model">analytic.resource.plan.line.make.purchase.requisition</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                 <form string="Create purchase requisition">
+                 <form string="Create Purchase Requisition">
                      <separator string="Review the existing requisition lines:"/>
                      <newline/>
                      <group colspan="4">

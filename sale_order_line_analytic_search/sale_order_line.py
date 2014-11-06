@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              Eficent <contact@eficent.com>
+#              <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,23 +19,25 @@
 #
 ##############################################################################
 
+from osv import fields, osv
 
-{
-    "name": "Stock Move Line",
-    "version": "1.0",
-    "author": "Eficent",
-    "website": "www.eficent.com",
-    'summary': 'Adds the analytic account to stock moves.',
-    "depends": ["stock", "analytic", "stock_analytic_account"],
-    "description": """
-    - Limits the creation of analytic lines associated to stock moves to only occur when the move is associated to an expense or revenue account.
-    """,
-    "init_xml": [],
-    'data': [
-    ],
-    'test':[
-    ],
-    'installable': True,
-    'active': False,
-    'certificate': '',
-}
+
+class sale_order_line(osv.osv):
+    
+    _inherit = "sale.order.line"
+
+    _columns = {
+        'project_id': fields.related('order_id', 'project_id',
+                                     type='many2one',
+                                     relation='account.analytic.account',
+                                     string='Analytic Account',
+                                     readonly=True),
+
+        'project_user_id': fields.related('order_id', 'project_user_id',
+                                          type='many2one',
+                                          relation='res.users',
+                                          string='Project Manager',
+                                          readonly=True),
+    }    
+    
+sale_order_line()

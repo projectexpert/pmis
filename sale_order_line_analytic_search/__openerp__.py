@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              Eficent <contact@eficent.com>
+#              <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,19 +19,25 @@
 #
 ##############################################################################
 
-
 {
-    "name": "Stock Move Line",
+    "name": "Sales Order Line Analytic Search",
     "version": "1.0",
     "author": "Eficent",
     "website": "www.eficent.com",
-    'summary': 'Adds the analytic account to stock moves.',
-    "depends": ["stock", "analytic", "stock_analytic_account"],
+    "category": "Generic Modules/Projects & Services",
+    "depends": ["analytic", "sale"],
     "description": """
-    - Limits the creation of analytic lines associated to stock moves to only occur when the move is associated to an expense or revenue account.
-    """,
-    "init_xml": [],
-    'data': [
+Organizations often require to quickly find the sales order lines associated to a project
+or to an analytic account, searching by it's code, name or project/account manager.
+This module introduces the possibility search sales order lines by analytic account or by project manager.
+""",
+    "init_xml": [
+                ],
+    "update_xml": [            
+        "sale_order_line_view.xml",
+    ],
+    'demo_xml': [
+
     ],
     'test':[
     ],

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+#---------------------------------------------------------------------------------------------------------
+#   Add analytic account id to sales order lines
+#---------------------------------------------------------------------------------------------------------
+
+        <record id="view_order_line_tree" model="ir.ui.view">
+            <field name="name">sale.order.line.tree</field>
+            <field name="model">sale.order.line</field>
+            <field name="inherit_id" ref="sale.view_order_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree/field[@name='product_id']" position="after">
+                    <field name="project_id" groups="analytic.group_analytic_accounting"/>
+                    <field name="project_user_id" groups="analytic.group_analytic_accounting"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_sales_order_line_filter" model="ir.ui.view">
+            <field name="name">sale.order.line.select</field>
+            <field name="model">sale.order.line</field>
+            <field name="inherit_id" ref="sale.view_sales_order_line_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search/field[@name='product_id']" position="after">
+                    <field name="project_id" groups="analytic.group_analytic_accounting"/>
+                    <field name="project_user_id" groups="analytic.group_analytic_accounting"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_sales_order_uninvoiced_line_filter" model="ir.ui.view">
+            <field name="name">sale.order.uninvoiced.line</field>
+            <field name="model">sale.order.line</field>
+            <field name="inherit_id" ref="sale.view_sales_order_uninvoiced_line_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search/field[@name='product_id']" position="after">
+                    <field name="project_id" groups="analytic.group_analytic_accounting"/>
+                    <field name="project_user_id" groups="analytic.group_analytic_accounting"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

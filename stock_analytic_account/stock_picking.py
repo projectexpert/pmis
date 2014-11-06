@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              <contact@eficent.com>
+#              Eficent <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,45 +18,43 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+from openerp.osv import fields, osv
 
-from osv import fields, osv
+class stock_picking(osv.osv):
 
-
-class purchase_requisition(osv.osv):
-    _inherit = "purchase.requisition"
+    _inherit = "stock.picking"
 
     _columns = {
-        'account_analytic_ids': fields.related('line_ids',
-                                               'account_analytic_id',
+        'analytic_account_ids': fields.related('move_lines',
+                                               'analytic_account_id',
                                                type='many2many',
                                                relation='account.analytic.account',
                                                string='Analytic Account',
                                                readonly=True),
-        'account_analytic_user_ids': fields.related('line_ids',
-                                                    'account_analytic_user_id',
+        'analytic_account_user_ids': fields.related('move_lines',
+                                                    'analytic_account_user_id',
                                                     type='many2many',
                                                     relation='res.users',
                                                     string='Project Manager',
                                                     readonly=True),
-    }    
+    }
 
-    def make_purchase_order(self, cr, uid, ids, partner_id, context=None):
 
-        if context is None:
-            context = {}
-        res = super(purchase_requisition, self).make_purchase_order(cr, uid, ids, partner_id, context=context)
+class stock_picking_in(osv.osv):
 
-        pol_obj = self.pool.get('purchase.order.line')
-        po_obj = self.pool.get('purchase.order')
+    _inherit = "stock.picking.in"
 
-        for requisition in self.browse(cr, uid, ids, context=context):
-            po_req = po_obj.search(cr, uid, [('requisition_id', '=', requisition.id)], context=context)
-            for po_id in po_req:
-                pol_ids = pol_obj.search(cr, uid, [('order_id', '=', po_id)])
-                for pol_id in pol_ids:
-                    pol_brw = pol_obj.browse(cr, uid, pol_id)
-                    pol_obj.write(cr, uid, [pol_brw.id], {'account_analytic_id':
-                        pol_brw.purchase_requisition_line_id.account_analytic_id.id}, context=context)
-        return res
+    def __init__(self, pool, cr):
+        super(stock_picking_in, self).__init__(pool, cr)
+        self._columns['analytic_account_ids'] = self.pool['stock.picking']._columns['analytic_account_ids']
+        self._columns['analytic_account_user_ids'] = self.pool['stock.picking']._columns['analytic_account_user_ids']
 
-purchase_requisition()
+
+class stock_picking_out(osv.osv):
+
+    _inherit = "stock.picking.out"
+
+    def __init__(self, pool, cr):
+        super(stock_picking_out, self).__init__(pool, cr)
+        self._columns['analytic_account_ids'] = self.pool['stock.picking']._columns['analytic_account_ids']
+        self._columns['analytic_account_user_ids'] = self.pool['stock.picking']._columns['analytic_account_user_ids']

@@ -182,6 +182,7 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
                     values = {
                         'order_line_ids': [(4, order_line_id)]
                     }
+
                     billing_plan_obj.write(cr, uid, [line.id], values, context=context)
 
                     res.append(order_line_id)

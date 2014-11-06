@@ -18,6 +18,22 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import project_progress_measurement_report
+
+from osv import fields, osv
 
 
+class sale_order(osv.osv):
+    
+    _inherit = "sale.order"
+
+    _columns = {
+        'project_user_id': fields.related('project_id',
+                                          'user_id',
+                                          type='many2one',
+                                          relation='res.users',
+                                          string='Project Manager',
+                                          store=True,
+                                          readonly=True),
+    }    
+    
+sale_order()
