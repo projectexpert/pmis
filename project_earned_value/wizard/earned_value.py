@@ -20,7 +20,7 @@
 ##############################################################################
 
 from openerp.osv import fields, osv
-
+from tools.translate import _
 
 class earned_value_graphs(osv.osv_memory):
     """
@@ -34,7 +34,6 @@ class earned_value_graphs(osv.osv_memory):
         'progress_measurement_type': fields.many2one('progress.measurement.type',
                                                      'Progress Measurement Type',
                                                      required=True),
-        'product_uom_id': fields.many2one('product.uom', 'Unit of measure', required=True),
     }
 
     def earned_value_graphs_open_window(self, cr, uid, ids, context=None):
@@ -45,25 +44,27 @@ class earned_value_graphs(osv.osv_memory):
         @param ids: List of account chart’s IDs
         @return: dictionary of Earned Value window on given project
         """
-        mod_obj = self.pool.get('ir.model.data')
-        act_obj = self.pool.get('ir.actions.act_window')        
         project_obj = self.pool.get('project.project')
         if context is None:
             context = {}
         data = self.read(cr, uid, ids, [], context=context)[0]
-        result = mod_obj.get_object_reference(cr, uid, 'project_earned_value', 'action_project_evm_tree')
-        id = result and result[1] or False
-        result = act_obj.read(cr, uid, [id], context=context)[0]      
         project_id = data.get('project_id', False) and data['project_id'][0] or False
         progress_measurement_type = data.get('progress_measurement_type', False) and data['progress_measurement_type'][0] or False
-        product_uom_id = data.get('product_uom_id', False) and data['product_uom_id'][0] or False
 
-        result['context'] = str({'project_id': project_id})
-        
         #Update the project EVM
-        project_obj.update_project_evm(cr, uid, [project_id], progress_measurement_type, product_uom_id, context)
+        records = project_obj.update_project_evm(cr, uid, [project_id], progress_measurement_type, context)
         
-        return result
+        return {
+            'domain': "[('id','in', ["+','.join(map(str, records))+"])]",
+            'name': _('Earned Value Records'),
+            'view_type': 'form',
+            'view_mode': 'graph,tree,form',
+            'res_model': 'project.evm',
+            'view_id': False,
+            'context': False,
+            'type': 'ir.actions.act_window'
+        }
+
 
 
 earned_value_graphs()

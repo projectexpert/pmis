@@ -23,49 +23,180 @@ from datetime import datetime, date
 from datetime import datetime as dt
 from dateutil.rrule import *
 from osv import fields, osv
+import decimal_precision as dp
+import time
 
 
 class project(osv.osv):
     
     _inherit = "project.project"
 
+    @staticmethod
+    def _total_plan_cost(cr, ids):
 
-    def _agg_progress_measurement_rate(self, cr, uid, ids, names, arg, context=None):
+        cr.execute('SELECT abs(sum(LP.amount)) '
+           'FROM account_analytic_line_plan AS LP '
+           'INNER JOIN account_analytic_account AS AA '
+           'ON LP.version_id = AA.active_analytic_planning_version '
+           'AND LP.account_id = AA.id '
+           'WHERE LP.account_id IN %s '
+           'AND LP.amount < 0',
+           (tuple(ids),))
+        cr_result = cr.fetchone()
+        return cr_result and cr_result[0] or 0.0
 
-        res = dict([(id, 0.0) for id in ids])
+    @staticmethod
+    def _total_actual_cost_to_date(cr, ids, to_date):
+
+        cr.execute('SELECT abs(sum(amount)) '
+                   'FROM account_analytic_line '
+                   'WHERE account_id IN %s '
+                   'AND amount < 0'
+                   'AND date <= %s ', (tuple(ids), to_date))
+        cr_result = cr.fetchone()
+        return cr_result and cr_result[0] or 0.0
+
+    @staticmethod
+    def _total_plan_cost_to_date(cr, ids, to_date):
+
+        #The planned cost to date is a linear interpolation of the planned cost from start date to end date
+        plan_cost_to_date = 0
+
+        cr.execute('''SELECT LP.account_id as account_id,
+        abs(sum(LP.amount)) as total_plan_cost,
+        sum(cast(to_char(date_trunc('day',AA.date) - date_trunc('day',AA.date_start),'DD') as int)) as no_of_days_total,
+        sum(cast(to_char(date_trunc('day',date(%s)) - date_trunc('day',AA.date_start),'DD') as int)) as no_of_days_to_date
+        FROM account_analytic_line_plan AS LP
+        INNER JOIN account_analytic_account AS AA
+        ON LP.version_id = AA.active_analytic_planning_version
+        AND LP.account_id = AA.id
+        WHERE LP.account_id IN %s
+        AND LP.amount < 0
+        GROUP BY LP.id''',
+                   (to_date, tuple(ids)))
+        for account_id, total_plan_cost, no_of_days_total, no_of_days_to_date in cr.fetchall():
+            if no_of_days_total and no_of_days_to_date:
+                plan_cost_to_date += total_plan_cost * no_of_days_to_date / no_of_days_total
+        return plan_cost_to_date
+
+    @staticmethod
+    def _get_evm_ratios(ac, pv, ev, bac):
+
+        res = {
+            'ac': ac,
+            'pv': pv,
+            'ev': ev,
+            'bac': bac,
+        }
+
+        #PCC: Costs to date / Total costs
+        try:
+            res['pcc'] = res['ac'] / res['pv']
+        except ZeroDivisionError:
+            res['pcc'] = 0
+
+        #SV: Schedule variance
+        res['sv'] = res['ev'] - res['pv']
+
+        #SVP: Schedule variance in percentage
+        try:
+            res['svp'] = res['sv'] / res['pv']
+        except ZeroDivisionError:
+            res['svp'] = 0
+
+        #SPI: Schedule Performance Index
+        try:
+            res['spi'] = res['ev'] / res['pv']
+        except ZeroDivisionError:
+            res['spi'] = 0
+
+        #CV: Cost Variance
+        res['cv'] = res['ev'] - res['ac']
+
+        #CVP: Cost Variance Percent
+        try:
+            res['cvp'] = (res['cv'] / res['ev']) * 100
+        except ZeroDivisionError:
+            res['cvp'] = 0
+
+        #CPI: Cost Performance Index
+        try:
+            res['cpi'] = res['ev'] / res['ac']
+        except ZeroDivisionError:
+            res['cpi'] = 1
+
+        #TCPI: To-complete Performance Index
+        bac_ac_amount = res['bac'] - res['ac']
+        try:
+            res['tcpi'] = (res['bac'] - res['ev']) / bac_ac_amount
+        except ZeroDivisionError:
+            res['tcpi'] = 1
+
+        #EAC: Estimate at completion
+        try:
+            res['eac'] = res['bac'] / res['cpi']
+        except ZeroDivisionError:
+            res['eac'] = res['bac']
+
+        #VAC: Variance at Completion
+        res['vac'] = res['bac'] - res['eac']
+
+        #VACP: Variance at Completion Percent
+        try:
+            res['vacp'] = (res['vac'] / res['bac']) * 100
+        except ZeroDivisionError:
+            res['vacp'] = 0
+
+        #ETC: Estimate To Complete
+        try:
+            res['etc'] = (res['bac'] - res['ev'])/res['cpi']
+        except ZeroDivisionError:
+            res['etc'] = 0
+
+        #EAC: Estimate At Completion
+        try:
+            res['eac'] = res['bac']/res['cpi']
+        except ZeroDivisionError:
+            res['eac'] = 0
+
+        #POC - Percent of Completion
+        try:
+            res['poc'] = res['ev'] / res['bac'] * 100
+        except ZeroDivisionError:
+            res['poc'] = 0
+
+        return res
+
+    def _earned_value(self, cr, uid, ids, names, arg, context=None):
+
+        res = {}
+        if context is None:
+            context = {}
+
         measurement_type_obj = self.pool.get('progress.measurement.type')
         project_obj = self.pool.get('project.project')
-        def_meas_type = measurement_type_obj.search(cr, uid, [('is_default', '=', True)], context=context)
-        if def_meas_type:
+        def_meas_type_ids = measurement_type_obj.search(cr, uid, [('is_default', '=', True)], context=context)
+        if def_meas_type_ids:
+            progress_measurement_type = measurement_type_obj.browse(cr, uid,
+                                                                    def_meas_type_ids[0],
+                                                                    context=context)
+            progress_max_value = progress_measurement_type.default_max_value
+
+        if def_meas_type_ids:
             #Search for child projects
             for project_id in ids:
-                res[project_id] = 0
+                date_today = time.strftime('%Y-%m-%d')
                 wbs_projects_data = project_obj._get_project_analytic_wbs(cr, uid, [project_id], context=context)
                 #Compute the Budget at Completion
-                cr.execute('SELECT abs(sum(LP.amount)) '
-                           'FROM account_analytic_line_plan AS LP '
-                           'INNER JOIN account_analytic_account AS AA '
-                           'ON LP.version_id = AA.active_analytic_planning_version '
-                           'AND LP.account_id = AA.id '
-                           'WHERE LP.account_id IN %s '
-                           'AND LP.amount < 0',
-                           (tuple(wbs_projects_data.values()),))
-                cr_result = cr.fetchone()
-                total_bac_amount = cr_result and cr_result[0] or 0.0
-                ev_amount = 0
-                if total_bac_amount > 0:
+                total_bac = self._total_plan_cost(cr, wbs_projects_data.values())
+                pv = self._total_plan_cost_to_date(cr, wbs_projects_data.values(), date_today)
+                ac = self._total_actual_cost_to_date(cr, wbs_projects_data.values(), date_today)
+                ev = 0
+
+                if total_bac > 0:
                     for wbs_project_id in wbs_projects_data.keys():
                         #Compute the Budget at Completion
-                        cr.execute('SELECT abs(sum(LP.amount)) '
-                                   'FROM account_analytic_line_plan AS LP '
-                                   'INNER JOIN account_analytic_account AS AA '
-                                   'ON LP.version_id = AA.active_analytic_planning_version '
-                                   'AND LP.account_id = AA.id '
-                                   'WHERE LP.account_id IN %s '
-                                   'AND LP.amount < 0',
-                                   (tuple([wbs_projects_data[wbs_project_id]]),))
-                        cr_result = cr.fetchone()
-                        bac_amount = cr_result and cr_result[0] or 0.0
+                        bac = self._total_plan_cost(cr, [wbs_projects_data[wbs_project_id]])
 
                         #Obtain the latest progress measurement for this project
                         cr.execute('SELECT DISTINCT ON (a.project_id) value '
@@ -73,22 +204,91 @@ class project(osv.osv):
                                    'WHERE a.project_id IN %s '
                                    'AND a.progress_measurement_type = %s '
                                    'ORDER BY a.project_id, a.communication_date DESC',
-                                   (tuple([wbs_project_id]), def_meas_type[0]))
+                                   (tuple([wbs_project_id]), def_meas_type_ids[0]))
                         cr_result = cr.fetchone()
                         measurement_value = cr_result and cr_result[0] or 0.0
 
-                        ev_amount += bac_amount * measurement_value
-                    res[project_id] = ev_amount / total_bac_amount
+                        ev += bac * measurement_value / progress_max_value
+
+                res[project_id] = self._get_evm_ratios(ac, pv, ev, total_bac)
 
         return res
 
     _columns = {
-        'progress_measurement_rate': fields.function(_agg_progress_measurement_rate,
-                                                     string='Progress', type='float',
-                                                     help="Aggregated percent of completion"),
+        'pv': fields.function(_earned_value, method=True, multi=_earned_value,
+                              string='PV', type='float',
+                              digits_compute=dp.get_precision('Account'),
+                              help="Planned Value"),
+        'ev': fields.function(_earned_value, method=True, multi=_earned_value,
+                              string='EV', type='float',
+                              digits_compute=dp.get_precision('Account'),
+                              help="Earned Value"),
+        'ac': fields.function(_earned_value, method=True, multi=_earned_value,
+                              string='AC', type='float',
+                              digits_compute=dp.get_precision('Account'),
+                              help="Actual Cost"),
+        'cv': fields.function(_earned_value, method=True, multi=_earned_value,
+                              string='CV', type='float',
+                              digits_compute=dp.get_precision('Account'),
+                              help="Cost Variance"),
+        'cvp': fields.function(_earned_value, method=True, multi=_earned_value,
+                               string='CVP', type='float',
+                               digits_compute=dp.get_precision('Account'),
+                               help="Cost Variance %"),
+        'cpi': fields.function(_earned_value, method=True, multi=_earned_value,
+                               string='CPI', type='float',
+                               digits_compute=dp.get_precision('Account'),
+                               help="Cost Performance Index"),
+        'tcpi': fields.function(_earned_value, method=True, multi=_earned_value,
+                                string='TCPI', type='float',
+                                digits_compute=dp.get_precision('Account'),
+                                help="To-Complete Cost Performance Index"),
+        'sv': fields.function(_earned_value, method=True, multi=_earned_value,
+                               string='SV', type='float',
+                               digits_compute=dp.get_precision('Account'),
+                               help="Schedule Variance"),
+        'svp': fields.function(_earned_value, method=True, multi=_earned_value,
+                               string='SVP', type='float',
+                               digits_compute=dp.get_precision('Account'),
+                               help="Schedule Variance %"),
+        'spi': fields.function(_earned_value, method=True, multi=_earned_value,
+                               string='SPI', type='float',
+                               digits_compute=dp.get_precision('Account'),
+                               help="Schedule Performance Index"),
+        'eac': fields.function(_earned_value, method=True, multi=_earned_value,
+                               string='EAC', type='float',
+                               digits_compute=dp.get_precision('Account'),
+                               help="Estimate at Completion"),
+        'etc': fields.function(_earned_value, method=True, multi=_earned_value,
+                               string='ETC', type='float',
+                               digits_compute=dp.get_precision('Account'),
+                               help="Estimate to Complete"),
+        'vac': fields.function(_earned_value, method=True, multi=_earned_value,
+                               string='VAC', type='float',
+                               digits_compute=dp.get_precision('Account'),
+                               help="Variance at Completion"),
+        'vacp': fields.function(_earned_value, method=True, multi=_earned_value,
+                                string='VACP', type='float',
+                                digits_compute=dp.get_precision('Account'),
+                                help="Variance at Completion %"),
+        'bac': fields.function(_earned_value, method=True, multi=_earned_value,
+                               string='BAC', type='float',
+                               digits_compute=dp.get_precision('Account'),
+                               help="Budget at Completion"),
+        'pcc': fields.function(_earned_value, method=True, multi=_earned_value,
+                               string='PCC', type='float',
+                               digits_compute=dp.get_precision('Account'),
+                               help="Costs to date / Total costs"),
+
+        'poc': fields.function(_earned_value, method=True, multi=_earned_value,
+                               string='POC', type='float',
+                               digits_compute=dp.get_precision('Account'),
+                               help="Aggregated Percent of Completion"),
+
     }
+
     def update_project_evm(self, cr, uid, project_ids,
-                           progress_measurement_type_id, product_uom_id, context=None):
+                           progress_measurement_type_id, context=None):
 
         project_obj = self.pool.get('project.project')
         project_evm_obj = self.pool.get('project.evm')
@@ -101,6 +301,8 @@ class project(osv.osv):
 
         for project_id in project_ids:
 
+            project = project_obj.browse(cr, uid, project_id, context=context)
+
             #Delete current project.evm records
             project_evm_ids = project_evm_obj.search(cr, uid,
                                                      [('project_id', '=', project_id)],
@@ -109,138 +311,40 @@ class project(osv.osv):
 
             #Obtain all child projects
             projects_data = project_obj._get_project_analytic_wbs(cr, uid, [project_id], context=context)
-            project_ids = projects_data.keys()
-            analytic_account_ids = projects_data.values()
+            wbs_project_ids = projects_data.keys()
+            wbs_analytic_account_ids = projects_data.values()
 
-            #Get the earliest and latest dates for the progress measurements
-            cr.execute('SELECT min(PPM.communication_date), max(PPM.communication_date) '
-                       'FROM project_progress_measurement as PPM '
-                       'WHERE PPM.project_id IN %s '
-                       'AND PPM.progress_measurement_type = %s',
-                       (tuple(project_ids), progress_measurement_type_id))
+            #Get the earliest and latest dates for based on the project
 
-            res_min_max = cr.fetchone()
-            min_date_start = max_date_end = False
-
-            if res_min_max:
-                min_date_start = res_min_max and res_min_max[0] or False
-                max_date_end = res_min_max and res_min_max[1] or False
-            if min_date_start is False:
-                date_start = date.today() 
+            if not project.date_start:
+                date_start = datetime.today()
             else:
-                date_start = dt.strptime(min_date_start, "%Y-%m-%d").date()
+                date_start = datetime.strptime(project.date_start, "%Y-%m-%d")
 
-            if max_date_end is False:
-                date_end = datetime.today()                 
+            if not project.date:
+                date_end = datetime.today()
             else:
-                date_end = dt.strptime(max_date_end, "%Y-%m-%d").date()
+                date_end = datetime.strptime(project.date, "%Y-%m-%d")
 
             l_days = list(rrule(DAILY, dtstart=date_start, until=date_end))
             
             #Earned Value
-            ev_quantity_projects = {}
-            ev_amount_projects = {}
-
-            #Compute the Budget at Completion
-            cr.execute('SELECT sum(LP.unit_amount) '
-                       'FROM account_analytic_line_plan AS LP '
-                       'INNER JOIN account_analytic_account AS AA '
-                       'ON LP.version_id = AA.active_analytic_planning_version '
-                       'AND LP.account_id = AA.id '
-                       'WHERE LP.account_id IN %s '
-                       'AND LP.product_uom_id = %s'
-                       'AND LP.amount < 0',
-                       (tuple(analytic_account_ids), product_uom_id))
-            cr_result = cr.fetchone()
-            bac_quantity = cr_result and cr_result[0] or 0.0
-
-            cr.execute('SELECT abs(sum(LP.amount)) '
-                       'FROM account_analytic_line_plan AS LP '
-                       'INNER JOIN account_analytic_account AS AA '
-                       'ON LP.version_id = AA.active_analytic_planning_version '
-                       'AND LP.account_id = AA.id '
-                       'WHERE LP.account_id IN %s '
-                       'AND LP.amount < 0',
-                       (tuple(analytic_account_ids),))
-            cr_result = cr.fetchone()
-            bac_amount = cr_result and cr_result[0] or 0.0
-
-            projects_total_quantity = {}
+            ev_projects = {}
+            bac = self._total_plan_cost(cr, wbs_analytic_account_ids)
             projects_total_amount = {}
+
             for projects_data_project_id, projects_data_analytic_account_id in projects_data.items():
-                #Total quantity
-                cr.execute('SELECT ABS(SUM(LP.unit_amount)) '
-                           'FROM account_analytic_line_plan AS LP '
-                           'INNER JOIN account_analytic_account AS AA '
-                           'ON LP.version_id = AA.active_analytic_planning_version '
-                           'AND LP.account_id = AA.id '
-                           'WHERE LP.account_id = %s '                           
-                           'AND LP.product_uom_id = %s'
-                           'AND LP.amount < 0',
-                           (projects_data_analytic_account_id, product_uom_id))
-                cr_result = cr.fetchone()
-                projects_total_quantity[projects_data_project_id] = cr_result and cr_result[0] or 0.0
+                #Total planned_cost
+                projects_total_amount[projects_data_project_id] = \
+                    self._total_plan_cost(cr, [projects_data_analytic_account_id])
 
-                #Total amount
-                cr.execute('SELECT ABS(SUM(LP.amount)) '
-                           'FROM account_analytic_line_plan AS LP '
-                           'INNER JOIN account_analytic_account AS AA '
-                           'ON LP.version_id = AA.active_analytic_planning_version '
-                           'AND LP.account_id = AA.id '
-                           'WHERE LP.account_id = %s '
-                           'AND LP.amount < 0',
-                           (projects_data_analytic_account_id,))
-                cr_result = cr.fetchone()
-                projects_total_amount[projects_data_project_id] = cr_result and cr_result[0] or 0.0
-
+            records = []
             for day_datetime in l_days:
 
                 day_date = day_datetime.date()
+                ac = self._total_actual_cost_to_date(cr, wbs_analytic_account_ids, day_date)
+                pv = self._total_plan_cost_to_date(cr, wbs_analytic_account_ids, day_date)
 
-                #Total actual cost
-                cr.execute('SELECT sum(unit_amount) '
-                           'FROM account_analytic_line '
-                           'WHERE account_id IN %s '
-                           'AND date <= %s '
-                           'AND product_uom_id = %s'
-                           'AND amount < 0',
-                           (tuple(analytic_account_ids), day_date, product_uom_id))
-                cr_result = cr.fetchone()
-                ac_quantity = cr_result and cr_result[0] or 0.0
-
-                cr.execute('SELECT abs(sum(amount)) '
-                           'FROM account_analytic_line '
-                           'WHERE account_id IN %s '
-                           'AND amount < 0'
-                           'AND date <= %s ', (tuple(analytic_account_ids), day_date))
-                cr_result = cr.fetchone()
-                ac_amount = cr_result and cr_result[0] or 0.0
-                
-                #Total planned cost
-                cr.execute('SELECT sum(LP.unit_amount) '
-                           'FROM account_analytic_line_plan AS LP '
-                           'INNER JOIN account_analytic_account AS AA '
-                           'ON LP.version_id = AA.active_analytic_planning_version '
-                           'AND LP.account_id = AA.id '
-                           'WHERE LP.account_id IN %s '
-                           'AND LP.date <= %s '
-                           'AND LP.product_uom_id = %s'
-                           'AND LP.amount < 0',
-                           (tuple(analytic_account_ids), day_date, product_uom_id))
-                cr_result = cr.fetchone()
-                pv_quantity = cr_result and cr_result[0] or 0.0
-                cr.execute('SELECT abs(sum(LP.amount)) '
-                           'FROM account_analytic_line_plan AS LP '
-                           'INNER JOIN account_analytic_account AS AA '
-                           'ON LP.version_id = AA.active_analytic_planning_version '
-                           'AND LP.account_id = AA.id '
-                           'WHERE LP.account_id IN %s '
-                           'AND LP.date <= %s '
-                           'AND LP.amount < 0',
-                           (tuple(analytic_account_ids), day_date))
-                cr_result = cr.fetchone()
-                pv_amount = cr_result and cr_result[0] or 0.0
-            
                 #Record the earned value as a function of the progress measurements
                 #Current progress
                 cr.execute('SELECT project_id, value '
@@ -248,15 +352,14 @@ class project(osv.osv):
                            'WHERE project_id IN %s '
                            'AND communication_date = %s '
                            'AND progress_measurement_type = %s',
-                           (tuple(project_ids), day_date, progress_measurement_type_id))
+                           (tuple(wbs_project_ids), day_date, progress_measurement_type_id))
 
                 res_project_measurements = cr.fetchall()
                 progress_measurements_at_date = {}
                 for res_project_measurement in res_project_measurements:
                     progress_measurements_at_date[res_project_measurement[0]] = res_project_measurement[1]
 
-                ev_quantity = 0
-                ev_amount = 0
+                ev = 0
 
                 for projects_data_project_id, projects_data_analytic_account_id in projects_data.items():
                     #If we identify a progress measurement on this date, record new earned value
@@ -265,183 +368,36 @@ class project(osv.osv):
                         #If the project is completed on this date, then record earned value
                         # as a function of the progress.
                         progress_value = progress_measurements_at_date[projects_data_project_id]
-                        if projects_data_project_id in projects_total_quantity:
-                            ev_quantity_projects[projects_data_project_id] = \
-                                projects_total_quantity[projects_data_project_id] * \
-                                progress_value / \
-                                progress_max_value
                         if projects_data_project_id in projects_total_amount:
-                            ev_amount_projects[projects_data_project_id] = \
+                            ev_projects[projects_data_project_id] = \
                                 projects_total_amount[projects_data_project_id] * \
                                 progress_value / \
                                 progress_max_value
 
 
                 for projects_data_project_id, projects_data_analytic_account_id in projects_data.items():
-                    if projects_data_project_id in ev_quantity_projects.keys():
-                        ev_quantity += ev_quantity_projects[projects_data_project_id]
-                    if projects_data_project_id in ev_amount_projects.keys():
-                        ev_amount += ev_amount_projects[projects_data_project_id]
+                    if projects_data_project_id in ev_projects.keys():
+                        ev += ev_projects[projects_data_project_id]
 
-
-                #CC: %Cost complete
-                if pv_amount == 0:
-                    pcc_amount = 0
-                else:
-                    pcc_amount = ac_amount / pv_amount 
-                                                                  
-                #SV: Calculate schedule variance
-                sv_quantity = ev_quantity - pv_quantity
-                sv_amount = ev_amount - pv_amount
-                
-                #SVP: Calculate schedule variance in percentage
-                if pv_quantity == 0:
-                    svp_quantity = 0                    
-                else:    
-                    svp_quantity = sv_quantity / pv_quantity
-                
-                if pv_amount == 0:
-                    svp_amount = 0
-                else:
-                    svp_amount = sv_amount / pv_amount
-                
-                #SPI: Calculate the Schedule Performance Index
-                if pv_quantity == 0:
-                    spi_quantity = 0
-                else:
-                    spi_quantity = ev_quantity / pv_quantity
-                
-                if pv_amount == 0:
-                    spi_amount = 0
-                else:
-                    spi_amount = ev_amount / pv_amount
-
-                #CV: Cost Variance
-                cv_quantity = ev_quantity - ac_quantity
-                cv_amount = ev_amount - ac_amount
-                
-                #CVP: Cost variance percentage
-                if ev_quantity == 0:
-                    cvp_quantity = 0
-                else:
-                    cvp_quantity = cv_quantity / ev_quantity
-                
-                if ev_amount == 0:
-                    cvp_amount = 0
-                else:
-                    cvp_amount = cv_amount / ev_amount
-                                                
-                #CPI: Cost Performance Index
-                if ac_quantity == 0:
-                    cpi_quantity = 1
-                else:
-                    cpi_quantity = ev_quantity / ac_quantity
-                
-                if ac_amount == 0:
-                    cpi_amount = 1
-                else:
-                    cpi_amount = ev_amount / ac_amount
-            
-                #TCPI: To-complete Performance Index
-                bac_ac_quantity = bac_quantity - ac_quantity
-                if bac_ac_quantity == 0:
-                    tcpi_quantity = 1
-                else:
-                    tcpi_quantity = (bac_quantity - ev_quantity)/bac_ac_quantity
-
-                bac_ac_amount = bac_amount - ac_amount
-                if bac_ac_amount == 0:
-                    tcpi_amount = 1
-                else:
-                    tcpi_amount = (bac_amount - ev_amount)/bac_ac_amount
-                
-                #EAC: Estimate at completion
-                if cpi_quantity == 0:
-                    eac_quantity = bac_quantity
-                else:
-                    eac_quantity = bac_quantity / cpi_quantity
-                
-                if cpi_amount == 0:
-                    eac_amount = bac_amount
-                else:
-                    eac_amount = bac_amount / cpi_amount
-                
-                #VAC: Variance at Completion
-                vac_quantity = bac_quantity - eac_quantity
-                vac_amount = bac_amount - eac_amount
-                
-                #VACP: Variance at Completion Percent
-                if bac_quantity == 0:
-                    vacp_quantity = 0
-                else:
-                    vacp_quantity = vac_quantity / bac_quantity
-
-                if bac_amount == 0:
-                    vacp_amount = 0
-                else:
-                    vacp_amount = vac_amount / bac_amount
-                
-                #ETC: Estimate To Complete
-                if cpi_quantity == 0:
-                    etc_quantity = bac_quantity
-                else:
-                    etc_quantity = (bac_quantity - ev_quantity)/cpi_quantity
-
-                if cpi_amount == 0:
-                    etc_amount = 0
-                else:
-                    etc_amount = (bac_amount - ev_amount)/cpi_amount
-                
-                #EAC: Estimate At Completion
-                if cpi_quantity == 0:
-                    eac_quantity = 0
-                else:
-                    eac_quantity = bac_quantity/cpi_quantity
-
-                if cpi_amount == 0:
-                    eac_amount = 0
-                else:
-                    eac_amount = bac_amount/cpi_amount
-
-                #Calculate the POC - Percent of Completion
-                if bac_amount == 0:
-                    poc_quantity = 0
-                else:
-                    poc_quantity = ev_amount / bac_amount * 100
-
+                ratios = self._get_evm_ratios(ac, pv, ev, bac)
                 #Create the EVM records
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'PV', pv_quantity, pv_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'EV', ev_quantity, ev_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'AC', ac_quantity, ac_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'BAC', bac_quantity, bac_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'CV', cv_quantity, cv_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'CVP', cvp_quantity, cvp_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'SV', sv_quantity, sv_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'SVP', svp_quantity, svp_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'SPI', spi_quantity, spi_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'CPI', cpi_quantity, cpi_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'TCPI', tcpi_quantity, tcpi_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'EAC', eac_quantity, eac_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'VAC', vac_quantity, vac_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'VACP', vacp_quantity, vacp_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'ETC', etc_quantity, etc_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'EAC', eac_quantity, eac_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'PCC', 0, pcc_amount)
-                project_obj.create_evm_record(cr, uid, project_id, day_date, 'POC', poc_quantity, 0)
+                records.extend(project_obj.create_evm_record(cr, uid, project_id, day_date, ratios))
 
-    def create_evm_record(self, cr, uid, project_id,  eval_date, kpi_type, kpi_quantity, kpi_amount, context=None):
-        
+            return records
+
+    def create_evm_record(self, cr, uid, project_id,  eval_date, ratios, context=None):
+        records = []
         project_evm_obj = self.pool.get('project.evm')
-        
-        vals_lines = {'name': '',
-                      'date': eval_date,
-                      'eval_date': eval_date,
-                      'kpi_type': kpi_type,
-                      'project_id': project_id,
-                      'kpi_amount': kpi_amount,
-                      'kpi_quantity': kpi_quantity,
-                      }
-        
-        project_evm_obj.create(cr, uid, vals_lines)                      
+        for kpi_type in ratios.keys():
+            vals_lines = {'name': '',
+                          'date': eval_date,
+                          'eval_date': eval_date,
+                          'kpi_type': kpi_type.upper(),
+                          'project_id': project_id,
+                          'kpi_value': ratios[kpi_type],
+                          }
+            records.extend([project_evm_obj.create(cr, uid, vals_lines)])
+
+        return records
 
 project()

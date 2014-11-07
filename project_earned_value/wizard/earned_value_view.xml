@@ -9,7 +9,6 @@
                     <group>
                         <field name="project_id"/>
                         <field name="progress_measurement_type"/>
-                        <field name="product_uom_id"/>
                     </group>
                     <footer>
                         <button string="Open Graphs" name="earned_value_graphs_open_window" type="object" class="oe_highlight"/>
@@ -21,7 +20,7 @@
         </record>
 
         <record id="action_earned_value_graphs" model="ir.actions.act_window">
-            <field name="name">Compute Earned Value for Project</field>
+            <field name="name">Compute Trend Analysis</field>
             <field name="res_model">earned.value.graphs</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -29,8 +28,5 @@
             <field name="target">new</field>
         </record>
 
-        <menuitem action="action_earned_value_graphs"
-            id="menu_action_earned_value_graphs"
-            parent="menu_project_evm" />
     </data>
 </openerp>

@@ -13,8 +13,7 @@
                     <field name="project_id"/>
                     <field name="eval_date"/>
                     <field name="kpi_type"/>
-                    <field name="kpi_amount"/>
-                    <field name="kpi_quantity"/>
+                    <field name="kpi_value"/>
                 </search>
             </field>
         </record>        
@@ -28,8 +27,7 @@
                     <field name="project_id"/>
                     <field name="eval_date"/>
                     <field name="kpi_type"/>
-                    <field name="kpi_amount"/>
-                    <field name="kpi_quantity"/>                           
+                    <field name="kpi_value"/>
                 </form>
             </field>
         </record>
@@ -43,8 +41,7 @@
                     <field name="project_id"/>
                     <field name="eval_date"/>
                     <field name="kpi_type"/>
-                    <field name="kpi_amount"/>
-                    <field name="kpi_quantity"/>                 
+                    <field name="kpi_value"/>
                 </tree>
             </field>
         </record>
@@ -55,7 +52,7 @@
             <field name="arch" type="xml">
                 <graph string="Earned Value Management" type="line">
                     <field name="eval_date"/>
-                    <field name="kpi_amount" operator="+"/>
+                    <field name="kpi_value" operator="+"/>
                     <field name="kpi_type" group="True"/>
                 </graph>
              </field>
@@ -63,15 +60,13 @@
         
 
         <record id="action_project_evm_tree" model="ir.actions.act_window">
-            <field name="name">Earned Value Records</field>
+            <field name="name">Trend Analysis Records</field>
             <field name="res_model">project.evm</field>
             <field name="view_id" ref="view_project_evm_tree"/>
             <field name="view_mode">graph,tree,form</field>
             <field name="search_view_id" ref="view_project_evm_search"/>     
-            <field name="help">Define the project Earned Value Management</field>
+            <field name="help">EVM Trend Analysis Records</field>
         </record>
 
-        <menuitem id="menu_project_evm" name="Earned Value Management" parent="base.menu_project_report"/>
-        <menuitem action="action_project_evm_tree" id="menu_project_evm_view" parent="menu_project_evm" sequence="1"/>                  	                    
     </data>
 </openerp>

@@ -20,12 +20,7 @@
 ##############################################################################
 
 from osv import fields, osv
-from openerp.tools.safe_eval import safe_eval
-from openerp.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT as DT_FMT
-from openerp import SUPERUSER_ID
-from datetime import datetime, date, timedelta
-from datetime import datetime as dt
-from dateutil.rrule import *
+
 
 _KPI_TYPE = [('PV', 'Planned Value'),
              ('EV', 'Earned Value'),
@@ -60,8 +55,7 @@ class project_evm(osv.osv):
         'eval_date': fields.char('Printed Date', size=64, required=True),
         'kpi_type': fields.selection(_KPI_TYPE, 'Type', required=True,),        
         'project_id': fields.many2one('project.project', 'Project', ondelete='cascade'),
-        'kpi_amount': fields.float('Amount'),
-        'kpi_quantity': fields.float('Quantity'),        
+        'kpi_value': fields.float('Value'),
     }
     
     def update_all_evm(self, cr, uid, context=None):
@@ -74,6 +68,6 @@ class project_evm(osv.osv):
         #Search all the open projects
         project_ids = project_obj.search(cr, uid, [('state', '=', 'open')], context=context)
                     
-        project_obj.update_project_evm(cr, uid, project_ids, context=context)           
+        project_obj.update_project_evm(cr, uid, project_ids, context=context)
             
 

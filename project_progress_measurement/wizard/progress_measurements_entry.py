@@ -90,7 +90,7 @@ class progress_measurements_entry(osv.osv_memory):
 
         return {
             'domain': "[('id','in', ["+','.join(map(str, res))+"])]",
-            'name': _('Purchase order lines'),
+            'name': _('Non-aggregated progress measurements'),
             'view_type': 'form',
             'view_mode': 'tree,form',
             'res_model': 'project.progress.measurement',
