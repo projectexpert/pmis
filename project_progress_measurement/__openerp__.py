@@ -48,8 +48,8 @@ Define Project Progress Measurements:
     "init_xml": [],
     "update_xml": [
         "project_progress_measurement_view.xml",
-        "project_project_view.xml",
         "wizard/progress_measurements_entry_view.xml",
+        "project_project_view.xml",
         "security/ir.model.access.csv",
     ],
     'demo_xml': [

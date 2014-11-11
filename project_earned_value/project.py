@@ -182,9 +182,28 @@ class project(osv.osv):
                                                                     context=context)
             progress_max_value = progress_measurement_type.default_max_value
 
-        if def_meas_type_ids:
-            #Search for child projects
-            for project_id in ids:
+        #Search for child projects
+        for project_id in ids:
+            res[project_id] = {
+                'pv': 0,
+                'ev': 0,
+                'ac': 0,
+                'cv': 0,
+                'cvp': 0,
+                'cpi': 0,
+                'tcpi': 0,
+                'sv': 0,
+                'svp': 0,
+                'spi': 0,
+                'eac': 0,
+                'etc': 0,
+                'vac': 0,
+                'vacp': 0,
+                'bac': 0,
+                'pcc': 0,
+                'poc': 0,
+            }
+            if def_meas_type_ids:
                 date_today = time.strftime('%Y-%m-%d')
                 wbs_projects_data = project_obj._get_project_analytic_wbs(cr, uid, [project_id], context=context)
                 #Compute the Budget at Completion
@@ -210,7 +229,7 @@ class project(osv.osv):
 
                         ev += bac * measurement_value / progress_max_value
 
-                res[project_id] = self._get_evm_ratios(ac, pv, ev, total_bac)
+                res[project_id].update(self._get_evm_ratios(ac, pv, ev, total_bac))
 
         return res
 
