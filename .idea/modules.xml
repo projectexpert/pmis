@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/../department-mgmt/.idea/department-mgmt.iml" filepath="$PROJECT_DIR$/../department-mgmt/.idea/department-mgmt.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/eficent-odoo-addons.iml" filepath="$PROJECT_DIR$/.idea/eficent-odoo-addons.iml" />
       <module fileurl="file://$PROJECT_DIR$/../openobject-addons/.idea/openobject-addons.iml" filepath="$PROJECT_DIR$/../openobject-addons/.idea/openobject-addons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../server/.idea/server.iml" filepath="$PROJECT_DIR$/../../server/.idea/server.iml" />
     </modules>
   </component>
 </project>
