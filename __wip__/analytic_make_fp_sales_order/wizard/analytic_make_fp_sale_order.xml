@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_analytic_make_fp_sale_order" model="ir.ui.view">
+            <field name="name">Make fixed-price sales order</field>
+            <field name="model">analytic.make.fp.sale.order</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+             <form string="Create fixed price sales order">
+                 <group colspan="2">
+                     <field name="method"/>
+                     <button name="make_fp_sale_order" string="Create Sales Order" type="object" class="oe_highlight"/>
+                     <button special="cancel" string="Cancel" class="oe_link"/>
+                 </group>
+            </form>
+            </field>
+        </record>
+
+        <record id="action_analytic_make_fp_sale_order" model="ir.actions.act_window">
+            <field name="name">Create fixed price sales order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">analytic.make.fp.sale.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_analytic_make_fp_sale_order"/>
+            <field name="target">new</field>
+        </record>
+
+        <record model="ir.values" id="analytic_make_fp_sale_order">
+            <field name="model_id" ref="analytic.model_account_analytic_account" />
+            <field name="object" eval="1" />
+            <field name="name">Create Fixed-Price Sales Order</field>
+            <field name="key2">client_action_multi</field>
+            <field name="value" eval="'ir.actions.act_window,' + str(ref('action_analytic_make_fp_sale_order'))" />
+            <field name="key">action</field>
+            <field name="model">account.analytic.account</field>
+        </record>
+   
+    </data>
+</openerp>
+

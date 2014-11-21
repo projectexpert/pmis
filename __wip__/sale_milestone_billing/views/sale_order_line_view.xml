@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_order_line_form_billing_milestones" model="ir.ui.view">
+            <field name="name">sale.order.line.form.billing.milestones</field>
+            <field name="model">sale.order.line</field>
+            <field name="inherit_id" ref="sale.view_order_line_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <notebook>
+                        <page string="Billing Milestones">
+                            <field name="billing_milestones" mode="tree">
+                                <tree editable="bottom">
+                                    <field name="task_id"/>
+                                    <field name="name"/>
+                                    <field name="date"/>
+                                    <field name="percent"/>
+                                    <field name="amount"/>
+                                    <field name="state"/>
+                                </tree>
+                                <form>
+                                    <field name="task_id"/>
+                                    <field name="name"/>
+                                    <field name="date"/>
+                                    <field name="percent"/>
+                                    <field name="amount"/>
+                                    <field name="state"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+       <record id="action_order_line_tree_milestones" model="ir.actions.act_window">
+            <field name="name">Milestone Billing Order Lines</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_uninvoiced":1}</field>
+            <field name="filter" eval="True"/>
+        </record>
+
+        <menuitem id="menu_invoicing_order_lines_billing_milestones" parent="base.menu_invoiced" action="action_order_line_tree_milestones" sequence="19" groups="sale.group_invoice_so_lines"/>
+	</data>
+</openerp>
