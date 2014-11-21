@@ -62,7 +62,7 @@
 					<field name="unit_amount" colspan="2" required="True" on_change="on_change_unit_amount_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
                     <field name="product_uom_id" required="True" on_change="on_change_product_uom_resource(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
 					<field name="version_id"/>
-                    <field name="supplier_id" invisible="True"/>
+                    <field name="supplier_id" on_change="onchange_supplier_id(account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
 					<field name="pricelist_id" invisible="True"/>
                     <field name="price_unit" invisible="True"/>
                     <field name="amount_currency" invisible="True"/>
