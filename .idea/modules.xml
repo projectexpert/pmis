@@ -3,10 +3,15 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../addons-vauxoo/.idea/addons-vauxoo.iml" filepath="$PROJECT_DIR$/../addons-vauxoo/.idea/addons-vauxoo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../department-mgmt/.idea/department-mgmt.iml" filepath="$PROJECT_DIR$/../department-mgmt/.idea/department-mgmt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OCA/department/.idea/department.iml" filepath="$PROJECT_DIR$/../OCA/department/.idea/department.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/eficent-odoo-addons.iml" filepath="$PROJECT_DIR$/.idea/eficent-odoo-addons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../openerp-usa/.idea/openerp-usa.iml" filepath="$PROJECT_DIR$/../openerp-usa/.idea/openerp-usa.iml" />
       <module fileurl="file://$PROJECT_DIR$/../openobject-addons/.idea/openobject-addons.iml" filepath="$PROJECT_DIR$/../openobject-addons/.idea/openobject-addons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OCA/purchase-workflow/.idea/purchase-workflow.iml" filepath="$PROJECT_DIR$/../OCA/purchase-workflow/.idea/purchase-workflow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OCA/sale-workflow/.idea/sale-workflow.iml" filepath="$PROJECT_DIR$/../OCA/sale-workflow/.idea/sale-workflow.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../server/.idea/server.iml" filepath="$PROJECT_DIR$/../../server/.idea/server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OCA/server-tools/.idea/server-tools.iml" filepath="$PROJECT_DIR$/../OCA/server-tools/.idea/server-tools.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OCA/stock-logistics-workflow/.idea/stock-logistics-workflow.iml" filepath="$PROJECT_DIR$/../OCA/stock-logistics-workflow/.idea/stock-logistics-workflow.iml" />
     </modules>
   </component>
 </project>

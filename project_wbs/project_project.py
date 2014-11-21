@@ -259,7 +259,7 @@ class project(base_stage, osv.osv):
         :return dict: dictionary value for created view
         """
         project = self.browse(cr, uid, ids[0], context)
-        res = self.pool.get('ir.actions.act_window').for_xml_id(cr, uid, module , act_window, context)
+        res = self.pool.get('ir.actions.act_window').for_xml_id(cr, uid, module, act_window, context)
         res['context'] = {
             'search_default_parent_id': project.analytic_account_id and project.analytic_account_id.id or False,
             'default_parent_id': project.analytic_account_id and project.analytic_account_id.id or False,
@@ -287,6 +287,12 @@ class project(base_stage, osv.osv):
     def action_openUnclassifiedView(self, cr, uid, ids, context=None):
 
         return self.action_openView(cr, uid, ids, 'project', 'open_view_project_all', context=context)
+
+    def action_openChildTreeView(self, cr, uid, ids, context=None):
+
+        return self.action_openView(cr, uid, ids, 'project_wbs', 'open_view_project_child_tree', context=context)
+
+
 
     def on_change_parent(self, cr, uid, ids, parent_id, context=None):
         return self.pool.get('account.analytic.account').on_change_parent(cr, uid, ids, parent_id)

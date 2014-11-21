@@ -36,7 +36,7 @@
             <field name="name">project.progress.measurement.tree</field>
             <field name="model">project.progress.measurement</field>
             <field name="arch" type="xml">
-                <tree string="Progress measurement"  editable="top">
+                <tree string="Progress measurement" editable="top">
                     <field name="project_id"/>
                     <field name="communication_date" string="Date"/>
                     <field name="progress_measurement_type" string="Type"/>

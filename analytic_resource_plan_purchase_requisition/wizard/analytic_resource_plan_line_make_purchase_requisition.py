@@ -124,6 +124,7 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
                     purchase_requisition_line = {
                         'product_qty': line.unit_amount,
                         'product_id': line.product_id.id,
+                        'name': line.name,
                         'product_uom_id': uom_id.id,
                     }
                     if purchase_id is False:

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+#---------------------------------------------------------------------------------------------------------
+#   Add analytic account id to purchase requisitions
+#---------------------------------------------------------------------------------------------------------        
+
+    <record id="view_purchase_requisition_filter" model="ir.ui.view">
+        <field name="name">purchase.requisition.list.select</field>
+        <field name="model">purchase.requisition</field>
+        <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_filter"/>
+        <field name="arch" type="xml">
+			<xpath expr="//search//field[@name='name']" position="after">
+                <field name="account_analytic_ids" groups="purchase.group_analytic_accounting"/>
+				<field name="account_analytic_user_ids" groups="purchase.group_analytic_accounting"/>
+			</xpath>
+		</field>
+	</record>		
+
+    <record model="ir.ui.view" id="view_purchase_requisition_form_project">
+        <field name="name">purchase.requisition.form.project</field>
+        <field name="model">purchase.requisition</field>
+        <field name="inherit_id" ref="purchase_requisition_line_analytic.view_purchase_requisition_form_account_analytic"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/notebook/page//field[@name='line_ids']/form//field[@name='account_analytic_id']" position="after">
+				<field name="account_analytic_user_id" groups="purchase.group_analytic_accounting"/>
+			</xpath>
+			<xpath expr="//form/sheet/notebook/page//field[@name='line_ids']/tree//field[@name='account_analytic_id']" position="after">
+				<field name="account_analytic_user_id" groups="purchase.group_analytic_accounting"/>
+			</xpath>
+		</field>
+    </record>
+
+    </data>
+</openerp>

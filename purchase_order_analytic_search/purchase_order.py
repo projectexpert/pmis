@@ -21,24 +21,64 @@
 
 from osv import fields, osv
 
-
 class purchase_order(osv.osv):
     
     _inherit = "purchase.order"
 
+    def _get_analytic_accounts(self, cursor, user, ids, name, arg, context=None):
+        res = {}
+        for purchase in self.browse(cursor, user, ids, context=context):
+            res[purchase.id] = []
+            for po_line in purchase.order_line:
+                if po_line.account_analytic_id:
+                    res[purchase.id].append(po_line.account_analytic_id.id)
+        return res
+
+    def _get_analytic_account_user_ids(self, cursor, user, ids, name, arg, context=None):
+        res = {}
+        for purchase in self.browse(cursor, user, ids, context=context):
+            res[purchase.id] = []
+            for po_line in purchase.order_line:
+                if po_line.account_analytic_id:
+                    if po_line.account_analytic_id.user_id:
+                        res[purchase.id].append(po_line.account_analytic_id.user_id.id)
+        return res
+
+    def _search_analytic_accounts(self, cr, uid, obj, name, args, context):
+
+        po_line_obj = self.pool.get('purchase.order.line')
+        res = []
+        for field, operator, value in args:
+            assert field == name
+            po_line_ids = po_line_obj.search(cr, uid, [('account_analytic_id', operator, value)])
+            order_ids = [po_line.order_id and po_line.order_id.id for po_line in po_line_obj.browse(cr, uid, po_line_ids)]
+            res.append(('id', 'in', order_ids))
+        return res
+
+    def _search_analytic_account_user_ids(self, cr, uid, obj, name, args, context):
+
+        po_line_obj = self.pool.get('purchase.order.line')
+        res = []
+        for field, operator, value in args:
+            assert field == name
+            po_line_ids = po_line_obj.search(cr, uid, [('account_analytic_user_id', operator, value)])
+            order_ids = [po_line.order_id and po_line.order_id.id for po_line in po_line_obj.browse(cr, uid, po_line_ids)]
+            res.append(('id', 'in', order_ids))
+        return res
+
     _columns = {
-        'account_analytic_ids': fields.related('order_line',
-                                               'account_analytic_id',
-                                               type='many2many',
-                                               relation='account.analytic.account',
-                                               string='Analytic Account',
-                                               readonly=True),
-        'account_analytic_user_ids': fields.related('order_line',
-                                                    'account_analytic_user_id',
-                                                    type='many2many',
-                                                    relation='res.users',
-                                                    string='Project Manager',
-                                                    readonly=True),
+        'account_analytic_ids': fields.function(_get_analytic_accounts,
+                                                type='many2many',
+                                                string='Analytic Account',
+                                                method=True,
+                                                fnct_search=_search_analytic_accounts,
+                                                readonly=True),
+        'account_analytic_user_ids': fields.function(_get_analytic_account_user_ids,
+                                                     type='many2many',
+                                                     string='Project Manager',
+                                                     method=True,
+                                                     fnct_search=_search_analytic_account_user_ids,
+                                                     readonly=True),
     }    
     
 purchase_order()

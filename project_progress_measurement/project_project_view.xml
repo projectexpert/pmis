@@ -10,7 +10,7 @@
                     <page string="Progress">
                         <group name="links">
                             <button string="List non-aggregated Progress Measurements"
-                                name="%(action_project_progress_measurement_tree)d"
+                                name="%(action_project_progress_measurement)d"
                                 class="oe_link"
                                 type="action"
                                 context="{'default_project_id': active_id,'search_default_project_id': active_id}"

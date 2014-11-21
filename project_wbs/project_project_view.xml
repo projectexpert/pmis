@@ -70,6 +70,16 @@
             </field>
         </record>
 
+        <record id="open_view_project_child_tree" model="ir.actions.act_window">
+            <field name="name">Child WBS elements</field>
+            <field name="res_model">project.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">tree,kanban,form,gantt</field>
+            <field name="view_id" ref="project.view_project"/>
+            <field name="search_view_id" ref="project.view_project_project_filter"/>
+            <field name="context">{'search_default_Current': 1, 'search_default_account_class':False, 'default_account_class':False}</field>
+        </record>
 
         <record id="open_view_project_wbs" model="ir.actions.act_window">
             <field name="name">WBS elements</field>
@@ -79,7 +89,7 @@
             <field name="view_mode">kanban,tree,form,gantt</field>
             <field name="view_id" ref="project.view_project_kanban"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
-            <field name="context">{'search_default_Current': 1}</field>
+            <field name="context">{'search_default_Current': 1, 'search_default_account_class':False, 'default_account_class':False}</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                   Click to start a new project.
@@ -131,12 +141,25 @@
             <field name="inherit_id" ref="project.view_project"/>
             <field name="field_parent">child_ids</field>
             <field name="arch" type="xml">
-                <field name="name" position="after">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="editable">top</attribute>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="replace">
+                    <button string="Child WBS elements"
+                        name="action_openChildTreeView"
+                        type="object"
+                        icon="terp-gtk-jump-to-ltr"/>
             		<field name="complete_wbs_name" string="WBS name"/>					
             		<field name="complete_wbs_code" string="WBS code"/>
             		<field name="account_class" string="Class"/>
+                    <field name="date_start"/>
+                    <field name="date"/>
                     <field name="stage_id"/>
-            	</field>
+            	</xpath>
+
+                <xpath expr="//field[@name='planned_hours']" position="replace"/>
+                <xpath expr="//field[@name='total_hours']" position="replace"/>
+                <xpath expr="//field[@name='effective_hours']" position="replace"/>
             </field>
         </record>
 

@@ -5,9 +5,14 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="openobject-addons" />
-    <orderEntry type="module" module-name="department-mgmt" />
     <orderEntry type="module" module-name="addons-vauxoo" />
     <orderEntry type="module" module-name="server" />
+    <orderEntry type="module" module-name="sale-workflow" />
+    <orderEntry type="module" module-name="purchase-workflow" />
+    <orderEntry type="module" module-name="server-tools" />
+    <orderEntry type="module" module-name="department" />
+    <orderEntry type="module" module-name="stock-logistics-workflow" />
+    <orderEntry type="module" module-name="openerp-usa" />
   </component>
 </module>
 

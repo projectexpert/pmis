@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    	<record id="view_project_task_calculate_network" model="ir.ui.view">
+            <field name="name">Project Task Schedule Network</field>
+            <field name="model">project.task.calculate.network</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+              	<form string="Project Task Calculate Network">
+              		  <field name="task_id" readonly="True"/>
+                      <button string="_Cancel" icon="gtk-cancel" special="cancel" />
+                      <button name="calculate_network" type="object" string="Schedule Network" icon="gtk-ok" />
+			  	</form>
+            </field>
+		</record>
+
+		<record id="action_project_task_calculate_network" model="ir.actions.act_window">
+	           <field name="name">Project Task add Predecessors</field>
+	           <field name="type">ir.actions.act_window</field>
+	           <field name="res_model">project.task.calculate.network</field>
+	           <field name="view_type">form</field>
+	           <field name="view_mode">form</field>
+	           <field name="view_id" ref="view_project_task_calculate_network"/>
+		       <field name="context">{'record_id' : active_id}</field>
+	           <field name="target">new</field>
+    	</record>
+    	
+    </data>
+</openerp>

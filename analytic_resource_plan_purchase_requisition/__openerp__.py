@@ -25,12 +25,14 @@
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["analytic_resource_plan", "purchase_requisition", "purchase_requisition_analytic"],
+    "depends": ["analytic_resource_plan", "purchase_requisition", "purchase_requisition_line_analytic", "purchase_requisition_line_description"],
     "description": """
      == Record  planned costs and create purchase requisitions  ==
 
     Eficent brings you this module to create purchase requisitions from analytic planning lines.
-
+    This module depends on modules provided by Vauxoo, that can be obtained from Odoo Apps:
+    - purchase_requisition_line_analytic
+    - purchase_requisition_line_description
             
    == More information and assistance ==
    

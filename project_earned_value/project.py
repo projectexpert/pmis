@@ -64,8 +64,8 @@ class project(osv.osv):
 
         cr.execute('''SELECT LP.account_id as account_id,
         abs(sum(LP.amount)) as total_plan_cost,
-        sum(cast(to_char(date_trunc('day',AA.date) - date_trunc('day',AA.date_start),'DD') as int)) as no_of_days_total,
-        sum(cast(to_char(date_trunc('day',date(%s)) - date_trunc('day',AA.date_start),'DD') as int)) as no_of_days_to_date
+        sum(cast(to_char(date_trunc('day',AA.date) - date_trunc('day',AA.date_start),'DD') as int) +1 ) as no_of_days_total,
+        sum(cast(to_char(date_trunc('day',date(%s)) - date_trunc('day',AA.date_start),'DD') as int) + 1) as no_of_days_to_date
         FROM account_analytic_line_plan AS LP
         INNER JOIN account_analytic_account AS AA
         ON LP.version_id = AA.active_analytic_planning_version
@@ -176,11 +176,15 @@ class project(osv.osv):
         measurement_type_obj = self.pool.get('progress.measurement.type')
         project_obj = self.pool.get('project.project')
         def_meas_type_ids = measurement_type_obj.search(cr, uid, [('is_default', '=', True)], context=context)
+
         if def_meas_type_ids:
             progress_measurement_type = measurement_type_obj.browse(cr, uid,
                                                                     def_meas_type_ids[0],
                                                                     context=context)
             progress_max_value = progress_measurement_type.default_max_value
+        else:
+            progress_measurement_type = False
+            progress_max_value = 0
 
         #Search for child projects
         for project_id in ids:
@@ -222,8 +226,9 @@ class project(osv.osv):
                                    'FROM project_progress_measurement AS a '
                                    'WHERE a.project_id IN %s '
                                    'AND a.progress_measurement_type = %s '
-                                   'ORDER BY a.project_id, a.communication_date DESC',
-                                   (tuple([wbs_project_id]), def_meas_type_ids[0]))
+                                   'AND a.communication_date <= %s '
+                                   'ORDER BY a.project_id, a.communication_date DESC ',
+                                   (tuple([wbs_project_id]), def_meas_type_ids[0], date_today))
                         cr_result = cr.fetchone()
                         measurement_value = cr_result and cr_result[0] or 0.0
 
@@ -237,63 +242,95 @@ class project(osv.osv):
         'pv': fields.function(_earned_value, method=True, multi=_earned_value,
                               string='PV', type='float',
                               digits_compute=dp.get_precision('Account'),
-                              help="Planned Value"),
+                              help="""Planned Value (PV) or Budgeted Cost of Work Scheduled
+                               is the total cost of the work scheduled/planned
+                               as of a reporting date."""),
         'ev': fields.function(_earned_value, method=True, multi=_earned_value,
                               string='EV', type='float',
                               digits_compute=dp.get_precision('Account'),
-                              help="Earned Value"),
+                              help="""Earned Value (PV) or Budgeted Cost of Work Performed
+                               is the amount of work that has been completed to date,
+                               expressed as the planned value for that work."""),
         'ac': fields.function(_earned_value, method=True, multi=_earned_value,
                               string='AC', type='float',
                               digits_compute=dp.get_precision('Account'),
-                              help="Actual Cost"),
+                              help="""Actual Cost (AC) or Actual Cost of Work Performed
+                               is an indication of the level of resources that have been
+                               expended to achieve the actual work performed to date."""),
         'cv': fields.function(_earned_value, method=True, multi=_earned_value,
                               string='CV', type='float',
                               digits_compute=dp.get_precision('Account'),
-                              help="Cost Variance"),
+                              help="""Cost Variance (CV) shows whether a project is under
+                              or over budget. It is determined as EV - AC.
+                              A negative value indicates that the project is
+                              over budget."""),
         'cvp': fields.function(_earned_value, method=True, multi=_earned_value,
-                               string='CVP', type='float',
                                digits_compute=dp.get_precision('Account'),
-                               help="Cost Variance %"),
+                               help="""Cost Variance % (CVP) shows whether a project is under
+                               or over budget. It is determined as CV / EV.
+                               A negative value indicates that the project is over budget."""),
         'cpi': fields.function(_earned_value, method=True, multi=_earned_value,
                                string='CPI', type='float',
                                digits_compute=dp.get_precision('Account'),
-                               help="Cost Performance Index"),
+                               help="""Cost Performance Index (CPI) indicates how efficiently
+                               the team is using its resources. It is determined as EV / AC.
+                               A value of 0.8 indicates that the project has a cost efficiency
+                               that provides 0.8 worth of work for every unit spent to date."""),
         'tcpi': fields.function(_earned_value, method=True, multi=_earned_value,
                                 string='TCPI', type='float',
                                 digits_compute=dp.get_precision('Account'),
-                                help="To-Complete Cost Performance Index"),
+                                help="""To-Complete Cost Performance Index (TCPI) helps the team
+                                determine the efficiency that must be achieved on the remaining work
+                                for a project to meet the Budget at Completion (BAC). It is determined
+                                as (BAC - EV) / (BAC - AC)"""),
         'sv': fields.function(_earned_value, method=True, multi=_earned_value,
                                string='SV', type='float',
                                digits_compute=dp.get_precision('Account'),
-                               help="Schedule Variance"),
+                               help="""Schedule Variance (SV) determines whether a project is
+                               ahead or behind schedule. It is calculated as EV - PV.
+                               A negative value indicates an unfavorable condition."""),
         'svp': fields.function(_earned_value, method=True, multi=_earned_value,
                                string='SVP', type='float',
                                digits_compute=dp.get_precision('Account'),
-                               help="Schedule Variance %"),
+                               help="""Schedule Variance % (SVP) determines whether a project is
+                               ahead or behind schedule. It is calculated as SV / PV.
+                               A negative value indicates what percent of the planned work
+                               has not been accomplished"""),
         'spi': fields.function(_earned_value, method=True, multi=_earned_value,
                                string='SPI', type='float',
                                digits_compute=dp.get_precision('Account'),
-                               help="Schedule Performance Index"),
+                               help="""Schedule Performance Index (SPI) indicates
+                               how efficiently the project team is using its time. It is
+                               calculated as EV / PV. For example, on a day, indicates
+                               how many hours worth of the planned work is being performed."""),
         'eac': fields.function(_earned_value, method=True, multi=_earned_value,
                                string='EAC', type='float',
                                digits_compute=dp.get_precision('Account'),
-                               help="Estimate at Completion"),
+                               help="""Estimate at Completion (EAC) provides an estimate
+                               of the final cost of the project if current performance trends
+                               continue. It is calculated as BAC / CPI."""),
         'etc': fields.function(_earned_value, method=True, multi=_earned_value,
                                string='ETC', type='float',
                                digits_compute=dp.get_precision('Account'),
-                               help="Estimate to Complete"),
+                               help="""Estimate to Complete (ETC) provides an estimate
+                               of what will the remaining work cost. It is calculated as
+                               (BAC - EV) / CPI."""),
         'vac': fields.function(_earned_value, method=True, multi=_earned_value,
                                string='VAC', type='float',
                                digits_compute=dp.get_precision('Account'),
-                               help="Variance at Completion"),
+                               help="""Variance at Completion (VAC) shows the team
+                               whether the project will finish under or over budget.
+                               It is calculated as BAC - EAC."""),
         'vacp': fields.function(_earned_value, method=True, multi=_earned_value,
                                 string='VACP', type='float',
                                 digits_compute=dp.get_precision('Account'),
-                                help="Variance at Completion %"),
+                                help="""Variance at Completion % (VACP) shows the team
+                                whether the project will finish under or over budget.
+                                It is calculated as VAC / BAC."""),
         'bac': fields.function(_earned_value, method=True, multi=_earned_value,
                                string='BAC', type='float',
                                digits_compute=dp.get_precision('Account'),
-                               help="Budget at Completion"),
+                               help="Budget at Completion (BAC)"),
         'pcc': fields.function(_earned_value, method=True, multi=_earned_value,
                                string='PCC', type='float',
                                digits_compute=dp.get_precision('Account'),

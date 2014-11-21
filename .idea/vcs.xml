@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../OCA/department" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../OCA/purchase-workflow" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../OCA/sale-workflow" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../OCA/server-tools" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../OCA/stock-logistics-workflow" vcs="Git" />
   </component>
 </project>
 

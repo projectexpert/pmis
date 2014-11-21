@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
+#    Copyright (C) 2011 Eficent (<http://www.eficent.com/>)
 #              <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -21,25 +21,31 @@
 
 
 {
-    "name": "Purchase Requisition Analytic",
+    "name": "Project Milestone Management",
     "version": "1.0",
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["analytic", "purchase_requisition"],
+    "depends": ["project"],
     "description": """
-Organizations often require to integrate purchase requisitions with projects or contracts,
-and to find requisitions by searching by it the project/contract code, name or project/contract manager.
-This module adds the following features to purchase requisitions:
-- Adds the analytic account to the purchase requisition lines,
-- When the purchase order is created from the purchase requisition, it copies the analytic account.
-- Introduces the possibility to search purchase requisitions by analytic account or by project manager.
-- Introduces a new menu entry in Purchasing to list purchase requisition lines.
-""",
-    "init_xml": [
-                ],
-    "update_xml": [                    
-        "purchase_requisition_view.xml",
+    
+    == Classify tasks as milestones  ==
+    Eficent brings you this module to classify tasks as milestones.
+    
+    It is possible to introduce the Project Percentage of Completion and the invoice percentage for informative purposes.
+    
+    A separate entry is created in the menu to register milestones.
+    
+    The project form is extended to add a 'Milestones' tab.
+                  
+   == More information and assistance ==
+   
+   If you are interested in this module and seek further assistance to use it please visit us at www.eficent.com or conact us at contact@eficent.com
+ 
+    """,
+    "init_xml": [],
+    "update_xml": [    
+        "project_time_milestone_view.xml",        
     ],
     'demo_xml': [
 
@@ -50,3 +56,4 @@ This module adds the following features to purchase requisitions:
     'active': False,
     'certificate': '',
 }
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

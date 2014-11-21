@@ -27,7 +27,6 @@ class purchase_requisition_line(osv.osv):
     _inherit = "purchase.requisition.line"
 
     _columns = {
-        'account_analytic_id': fields.many2one('account.analytic.account', 'Analytic Account'),
         'account_analytic_user_id': fields.related('account_analytic_id',
                                                    'user_id',
                                                    type='many2one',
@@ -35,17 +34,6 @@ class purchase_requisition_line(osv.osv):
                                                    string='Project Manager',
                                                    store=True,
                                                    readonly=True),
-        'requisition_name': fields.related('requisition_id', 'name', type='char',
-                                           relation='purchase.requisition',
-                                           string='Requisition Reference',
-                                           store=True, readonly=True),
-        'requisition_state': fields.related('requisition_id', 'state',
-                                            type='selection',
-                                            selection=[('draft', 'New'), ('in_progress', 'Sent to Suppliers'), ('cancel','Cancelled'),('done','Purchase Done')],
-                                            relation='purchase.requisition',
-                                            string='Requisition state',
-                                            store=True,
-                                            readonly=True),
     }    
     
 purchase_requisition_line()
