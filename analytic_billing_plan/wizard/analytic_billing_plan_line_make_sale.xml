@@ -12,6 +12,13 @@
                  <group colspan="4">
                     <field name="order_line_ids" nolabel="1" readonly="True"/>
                  </group>
+                 <group colspan="2">
+                     <separator string="Order details:"/>
+                     <newline/>
+                     <field name="shop_id"/>
+                     <field name="order_policy"/>
+                     <field name="invoice_quantity"/>
+                 </group>
                  <newline/>
                  <group colspan="2">
                      <button name="make_sales_orders" string="Create Billing Request" type="object" class="oe_highlight"/>

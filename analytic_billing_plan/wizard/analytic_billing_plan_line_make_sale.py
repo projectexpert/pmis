@@ -48,15 +48,36 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
                 return order_line_ids
         return False
 
+    def _get_default_shop(self, cr, uid, context=None):
+        company_id = self.pool.get('res.users').browse(cr, uid, uid, context=context).company_id.id
+        shop_ids = self.pool.get('sale.shop').search(cr, uid, [('company_id','=',company_id)], context=context)
+        if not shop_ids:
+            raise osv.except_osv(_('Error!'), _('There is no default shop for the current user\'s company!'))
+        return shop_ids[0]
+
     _columns = {
         'order_line_ids': fields.many2many('sale.order.line',
                                            'make_sale_order_line_rel',
                                            'order_line_id',
                                            'make_sale_order_id'),
+        'shop_id': fields.many2one('sale.shop', 'Shop', required=True),
+        'invoice_quantity': fields.selection([('order', 'Ordered Quantities')],
+                                             'Invoice on',
+                                             help="The sales order will automatically create the"
+                                                  " invoice proposition (draft invoice).",
+                                             required=True),
+        'order_policy': fields.selection([('manual', 'On Demand'),], 'Create Invoice',
+                                         help="""This field controls how invoice and delivery
+                                         operations are synchronized.""",
+                                         required=True),
+
     }
 
     _defaults = {
         'order_line_ids': _get_order_lines,
+        'shop_id': _get_default_shop,
+        'order_policy': 'manual',
+        'invoice_quantity': 'order',
     }
 
     def make_sales_orders(self, cr, uid, ids, context=None):
@@ -76,6 +97,7 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
         if context is None:
             context = {}
         record_ids = context and context.get('active_ids', False)
+        make_order = self.browse(cr, uid, ids[0], context=context)
         res = []
         if record_ids:            
             billing_plan_obj = self.pool.get('analytic.billing.plan.line')
@@ -83,7 +105,6 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
             order_line_obj = self.pool.get('sale.order.line')
             partner_obj = self.pool.get('res.partner')                               
             acc_pos_obj = self.pool.get('account.fiscal.position')
-            project_obj = self.pool.get('project.project')
                    
             list_line = []
 
@@ -121,11 +142,10 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
                             _('Could not create sale order !'),
                             _('You have to select lines from the same company.'))
                     else:
-                        company_id = line_company_id        
+                        company_id = line_company_id
 
-                    shop = self.pool.get('sale.shop').search(cr, uid, [('company_id', '=', company_id)])
-                    shop_id = shop and shop[0] or False
-                    
+                    shop_id = make_order.shop_id and make_order.shop_id.id or False
+
                     line_account_id = line.account_id and line.account_id.id or False
                     if account_id is not False and line_account_id != account_id:
                         raise osv.except_osv(
@@ -171,6 +191,9 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
                             'payment_term': partner.property_payment_term and
                                             partner.property_payment_term.id or False,
                             'project_id': account_id,
+                            'invoice_quantity': make_order.invoice_quantity,
+                            'order_policy': make_order.order_policy,
+
                         }, context=context)
                                                         
                     sale_order_line.update({
