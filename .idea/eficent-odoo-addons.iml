@@ -13,6 +13,11 @@
     <orderEntry type="module" module-name="department" />
     <orderEntry type="module" module-name="stock-logistics-workflow" />
     <orderEntry type="module" module-name="openerp-usa" />
+    <orderEntry type="module" module-name="pri-addons" />
+    <orderEntry type="module" module-name="bank-payment" />
+    <orderEntry type="module" module-name="l10n-canada" />
+    <orderEntry type="module" module-name="account-payment" />
+    <orderEntry type="module" module-name="account-financial-reporting" />
+    <orderEntry type="module" module-name="reporting-engine" />
   </component>
 </module>
-

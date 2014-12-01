@@ -88,7 +88,6 @@ More information and assistance:
         "account_analytic_line_plan_view.xml",
         "account_analytic_account_view.xml",
         "security/ir.model.access.csv",
-        "security/project_cost_security.xml",
         "account_analytic_plan_journal_data.xml",
         "project_view.xml",  
     ],

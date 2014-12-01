@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_account_move_line_make_voucher" model="ir.ui.view">
+            <field name="name">Account Move Line Make Voucher</field>
+            <field name="model">account.move.line.make.voucher</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                 <form string="Create Voucher">
+                     <group>
+                         <field name="date"/>
+                         <field name="journal_id" string="Payment Method" domain="[('type','in',('bank','cash'))]"/>
+                     </group>
+                     <group>
+                         <field name="reference"/>
+                         <field name="number"/>
+                     </group>
+                     <newline/>
+                     <group>
+                         <field name="narration"/>
+                     </group>
+                     <newline/>
+                     <group colspan="2">
+                         <button name="make_vouchers_suppliers" string="Create Payment" type="object" class="oe_highlight"/>
+                         <button special="cancel" string="Cancel" class="oe_link"/>
+                     </group>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Create Supplier Payment"
+		    src_model="account.move.line"
+            res_model="account.move.line.make.voucher"
+		    view_mode="form"
+		    view_type="form"
+		    target="new"
+            key2="client_action_multi"
+		    id="action_view_account_move_line_make_voucher"
+		    view_id="view_account_move_line_make_voucher"
+		    groups="account.group_account_invoice"/>
+    </data>
+</openerp>
+
