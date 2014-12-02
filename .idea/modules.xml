@@ -14,7 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/../pri-addons/.idea/pri-addons.iml" filepath="$PROJECT_DIR$/../pri-addons/.idea/pri-addons.iml" />
       <module fileurl="file://$PROJECT_DIR$/../OCA/purchase-workflow/.idea/purchase-workflow.iml" filepath="$PROJECT_DIR$/../OCA/purchase-workflow/.idea/purchase-workflow.iml" />
       <module fileurl="file://$PROJECT_DIR$/../OCA/reporting-engine/.idea/reporting-engine.iml" filepath="$PROJECT_DIR$/../OCA/reporting-engine/.idea/reporting-engine.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../OCA/sale-workflow/.idea/sale-workflow.iml" filepath="$PROJECT_DIR$/../OCA/sale-workflow/.idea/sale-workflow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Eficent/sale-workflow/.idea/sale-workflow.iml" filepath="$PROJECT_DIR$/../Eficent/sale-workflow/.idea/sale-workflow.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../server/.idea/server.iml" filepath="$PROJECT_DIR$/../../server/.idea/server.iml" />
       <module fileurl="file://$PROJECT_DIR$/../OCA/server-tools/.idea/server-tools.iml" filepath="$PROJECT_DIR$/../OCA/server-tools/.idea/server-tools.iml" />
       <module fileurl="file://$PROJECT_DIR$/../OCA/stock-logistics-workflow/.idea/stock-logistics-workflow.iml" filepath="$PROJECT_DIR$/../OCA/stock-logistics-workflow/.idea/stock-logistics-workflow.iml" />

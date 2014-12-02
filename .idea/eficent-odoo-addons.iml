@@ -7,7 +7,6 @@
     <orderEntry type="module" module-name="openobject-addons" />
     <orderEntry type="module" module-name="addons-vauxoo" />
     <orderEntry type="module" module-name="server" />
-    <orderEntry type="module" module-name="sale-workflow" />
     <orderEntry type="module" module-name="purchase-workflow" />
     <orderEntry type="module" module-name="server-tools" />
     <orderEntry type="module" module-name="department" />
@@ -19,5 +18,6 @@
     <orderEntry type="module" module-name="account-payment" />
     <orderEntry type="module" module-name="account-financial-reporting" />
     <orderEntry type="module" module-name="reporting-engine" />
+    <orderEntry type="module" module-name="sale-workflow" />
   </component>
 </module>
