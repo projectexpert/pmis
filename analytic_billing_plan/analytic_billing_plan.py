@@ -20,9 +20,9 @@
 ##############################################################################
 
 import time
-import decimal_precision as dp
-from tools.translate import _
-from osv import fields, osv
+import openerp.addons.decimal_precision as dp
+from openerp.tools.translate import _
+from openerp.osv import fields, osv
 
 
 class analytic_billing_plan_line(osv.osv):

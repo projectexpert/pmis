@@ -19,16 +19,10 @@
 #
 ##############################################################################
 
-from lxml import etree
-import time
-from datetime import datetime, date
-
-from tools.translate import _
-from osv import fields, osv
-from openerp.addons.base_status.base_stage import base_stage
+from openerp.osv import fields, osv
 
 
-class account_analytic_account(base_stage, osv.osv):
+class account_analytic_account(osv.osv):
     
     _inherit = 'account.analytic.account'
 

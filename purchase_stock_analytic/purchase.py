@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              Eficent <contact@eficent.com>
+#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -26,9 +26,8 @@ class purchase_order(osv.osv):
     
     _inherit = "purchase.order"
 
-    def _prepare_order_line_move(self, cr, uid, order, order_line, picking_id, context=None):
-        res = super(purchase_order, self)._prepare_order_line_move(cr, uid, order, order_line, picking_id, context=context)
-        res['analytic_account_id'] = order_line.account_analytic_id.id
+    def _prepare_order_line_move(self, cr, uid, order, order_line, picking_id, group_id, context=None):
+        res = super(purchase_order, self)._prepare_order_line_move(
+            cr, uid, order, order_line, picking_id, group_id, context=context)
+        #res['analytic_account_id'] = order_line.account_analytic_id.id
         return res
-
-purchase_order()

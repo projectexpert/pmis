@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from tools.translate import _
+from openerp.tools.translate import _
 from openerp.osv import fields, osv, orm
 
 
@@ -101,6 +101,7 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
             requisition_line_obj = self.pool.get('purchase.requisition.line')
 
             company_id = False
+            account_analytic_id = False
             purchase_id = False
             product_names = []
 
@@ -113,18 +114,29 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
             requisition_name = ', '.join(product_names)
             for line in line_plan_obj.browse(cr, uid, record_ids, context=context):
                     uom_id = line.product_uom_id                                        
-                    line_company_id = line.company_id and line.company_id.id or False  
+                    line_company_id = \
+                        line.company_id and line.company_id.id or False
                     if company_id is not False and line_company_id != company_id:
                         raise osv.except_osv(
                             _('Could not create purchase requisition !'),
                             _('You have to select lines from the same company.'))
                     else:
-                        company_id = line_company_id        
-                                                                        
+                        company_id = line_company_id
+
+                    line_account_analytic_id = \
+                        line.account_id and line.account_id.id or False
+                    if account_analytic_id is not False \
+                            and line_account_analytic_id != account_analytic_id:
+                        raise osv.except_osv(
+                            _('Could not create purchase requisition !'),
+                            _('You have to select lines from the same '
+                              'analytic account.'))
+                    else:
+                        account_analytic_id = line_account_analytic_id
+
                     purchase_requisition_line = {
                         'product_qty': line.unit_amount,
                         'product_id': line.product_id.id,
-                        'name': line.name,
                         'product_uom_id': uom_id.id,
                     }
                     if purchase_id is False:
@@ -132,13 +144,12 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
                             'origin': '',
                             'exclusive': make_requisition.requisition_type,
                             'date_end': make_requisition.date_end,
-                            'company_id': company_id,                            
-                  
+                            'company_id': company_id,
+                            'account_analytic_id': account_analytic_id,
                         
                         }, context=context)
                                                         
-                    purchase_requisition_line.update({'requisition_id': purchase_id,
-                                                      'account_analytic_id': line.account_id and line.account_id.id, })
+                    purchase_requisition_line.update({'requisition_id': purchase_id})
                     
                     requisition_line_id = requisition_line_obj.create(cr,
                                                                       uid,

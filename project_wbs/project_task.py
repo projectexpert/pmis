@@ -19,13 +19,7 @@
 #
 ##############################################################################
 
-from lxml import etree
-import time
-from datetime import datetime, date
-
-from tools.translate import _
-from osv import fields, osv
-from openerp.addons.base_status.base_stage import base_stage
+from openerp.osv import fields, osv
 
 
 class task(osv.osv):

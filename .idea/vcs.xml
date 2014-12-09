@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../Eficent/contract" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../Eficent/sale-workflow" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../OCA/account-financial-reporting" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../OCA/account-payment" vcs="Git" />

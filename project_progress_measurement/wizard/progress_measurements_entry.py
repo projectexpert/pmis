@@ -20,7 +20,7 @@
 ##############################################################################
 
 from openerp.osv import orm, fields, osv
-from tools.translate import _
+from openerp.tools.translate import _
 import time
 
 class progress_measurements_entry(osv.osv_memory):

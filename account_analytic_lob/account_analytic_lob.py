@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2011 Eficent (<http://www.eficent.com/>)
+#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
 #              Jordi Ballester Alomar <jordi.ballester@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,11 +19,9 @@
 #
 ##############################################################################
 
-import tools
-from osv import fields, osv
-from tools.translate import _
+from openerp.osv import fields, osv
 
-    
+
 class account_analytic_lob(osv.osv):
     
     _name = "account.analytic.lob"

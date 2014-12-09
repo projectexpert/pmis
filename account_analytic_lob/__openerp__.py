@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2011 Eficent (<http://www.eficent.com/>)
+#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
 #              Jordi Ballester Alomar <jordi.ballester@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -21,12 +21,12 @@
 
 
 {
-    "name": "Project Management",
+    "name": "Account Analytic Line of Business",
     "version": "1.0",
-    "author": "Eficent, Nervia Consultores",
+    "author": "Eficent",
     "website": "",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["account","analytic","project"],
+    "depends": ["account", "analytic", "project"],
     "description": """Introduce business segments in analytic accounts.
         Provides the possibility to perform economic analysis by business segment.
     """,
@@ -34,7 +34,7 @@
     "update_xml": [    
         "security/ir.model.access.csv",
         "account_analytic_lob_view.xml",
-        "project_view.xml",        
+        "project_view.xml",
     ],
     'demo_xml': [
 
@@ -45,4 +45,3 @@
     'active': False,
     'certificate': '',
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

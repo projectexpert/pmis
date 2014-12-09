@@ -22,8 +22,8 @@
 from datetime import datetime, date
 from datetime import datetime as dt
 from dateutil.rrule import *
-from osv import fields, osv
-import decimal_precision as dp
+from openerp.osv import fields, osv
+import openerp.addons.decimal_precision as dp
 import time
 
 

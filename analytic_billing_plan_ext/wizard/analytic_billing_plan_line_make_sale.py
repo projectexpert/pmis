@@ -20,7 +20,7 @@
 ##############################################################################
 from datetime import datetime
 from openerp.osv import fields, osv, orm
-from tools.translate import _
+from openerp.tools.translate import _
 
 
 class analytic_billing_plan_line_make_sale(orm.TransientModel):
@@ -90,9 +90,6 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
                     else:
                         company_id = line_company_id        
 
-                    shop = self.pool.get('sale.shop').search(cr, uid, [('company_id', '=', company_id)])
-                    shop_id = shop and shop[0] or False
-
                     sale_order_line = {
                         'name': line.name,
                         'product_uom_qty': line.unit_amount,
@@ -117,7 +114,6 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
                     if sale_id is False:
                         sale_id = order_obj.create(cr, uid, {
                             'origin': '',
-                            'shop_id': shop_id,
                             'partner_id': customer_data.id,
                             'pricelist_id': pricelist_id,
                             'partner_invoice_id': partner_addr['invoice'],

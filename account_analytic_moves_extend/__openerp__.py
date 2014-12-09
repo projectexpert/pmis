@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              Eficent <contact@eficent.com>
+#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -23,18 +23,16 @@
 {
     "name": "Analytic moves only for expenses and revenues",
     "version": "1.0",
-    "author": "Eficent",
+    "author": "Jordi Ballester Alomar",
     "website": "www.eficent.com",
-    'summary': 'Limits the creation of analytic lines associated to invoices accepted only when the move is associated to an expense or revenue account.',
     "depends": ["account"],
     "description": """
-    Limits the creation of analytic lines associated to invoices accepted only when the move is associated to an expense or revenue account.
+    Limits the creation of analytic lines associated to invoices
+    accepted only when the move is associated to an expense or revenue account.
     """,
     "init_xml": [],
-    'data': [
-    ],
-    'test':[
-    ],
+    'data': [],
+    'test': [],
     'installable': True,
     'active': False,
     'certificate': '',

@@ -11,7 +11,7 @@
             <field name="arch" type="xml">
                 <search string="Project Earned Value">                    
                     <field name="project_id"/>
-                    <field name="eval_date"/>
+                    <field name="date"/>
                     <field name="kpi_type"/>
                     <field name="kpi_value"/>
                 </search>
@@ -25,7 +25,7 @@
             <field name="arch" type="xml">
                 <form string="Project Earned Value Management">
                     <field name="project_id"/>
-                    <field name="eval_date"/>
+                    <field name="date"/>
                     <field name="kpi_type"/>
                     <field name="kpi_value"/>
                 </form>
@@ -39,7 +39,7 @@
             <field name="arch" type="xml">
                 <tree string="Project Earned Value Management">   
                     <field name="project_id"/>
-                    <field name="eval_date"/>
+                    <field name="date"/>
                     <field name="kpi_type"/>
                     <field name="kpi_value"/>
                 </tree>
@@ -51,9 +51,9 @@
             <field name="model">project.evm</field>
             <field name="arch" type="xml">
                 <graph string="Earned Value Management" type="line">
-                    <field name="eval_date"/>
-                    <field name="kpi_value" operator="+"/>
-                    <field name="kpi_type" group="True"/>
+                    <field name="eval_date" type="row"/>
+                    <field name="kpi_value" type="measure"/>
+                    <field name="kpi_type" type="col"/>
                 </graph>
              </field>
         </record>                

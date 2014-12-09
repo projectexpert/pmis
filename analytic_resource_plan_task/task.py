@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from tools.translate import _
+from openerp.tools.translate import _
 from openerp.osv import fields, osv
 from datetime import datetime, date
 from datetime import datetime as dt

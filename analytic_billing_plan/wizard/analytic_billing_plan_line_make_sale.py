@@ -20,7 +20,7 @@
 ##############################################################################
 from datetime import datetime
 from openerp.osv import fields, osv, orm
-from tools.translate import _
+from openerp.tools.translate import _
 
 
 class analytic_billing_plan_line_make_sale(orm.TransientModel):
@@ -48,19 +48,11 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
                 return order_line_ids
         return False
 
-    def _get_default_shop(self, cr, uid, context=None):
-        company_id = self.pool.get('res.users').browse(cr, uid, uid, context=context).company_id.id
-        shop_ids = self.pool.get('sale.shop').search(cr, uid, [('company_id','=',company_id)], context=context)
-        if not shop_ids:
-            raise osv.except_osv(_('Error!'), _('There is no default shop for the current user\'s company!'))
-        return shop_ids[0]
-
     _columns = {
         'order_line_ids': fields.many2many('sale.order.line',
                                            'make_sale_order_line_rel',
                                            'order_line_id',
                                            'make_sale_order_id'),
-        'shop_id': fields.many2one('sale.shop', 'Shop', required=True),
         'invoice_quantity': fields.selection([('order', 'Ordered Quantities')],
                                              'Invoice on',
                                              help="The sales order will automatically create the"
@@ -75,7 +67,6 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
 
     _defaults = {
         'order_line_ids': _get_order_lines,
-        'shop_id': _get_default_shop,
         'order_policy': 'manual',
         'invoice_quantity': 'order',
     }
@@ -144,8 +135,6 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
                     else:
                         company_id = line_company_id
 
-                    shop_id = make_order.shop_id and make_order.shop_id.id or False
-
                     line_account_id = line.account_id and line.account_id.id or False
                     if account_id is not False and line_account_id != account_id:
                         raise osv.except_osv(
@@ -178,7 +167,6 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
                     if sale_id is False:
                         sale_id = order_obj.create(cr, uid, {
                             'origin': '',
-                            'shop_id': shop_id,
                             'partner_id': customer_data.id,
                             'pricelist_id': pricelist_id,
                             'partner_invoice_id': partner_addr['invoice'],

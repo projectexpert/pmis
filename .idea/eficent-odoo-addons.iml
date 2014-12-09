@@ -19,5 +19,6 @@
     <orderEntry type="module" module-name="account-financial-reporting" />
     <orderEntry type="module" module-name="reporting-engine" />
     <orderEntry type="module" module-name="sale-workflow" />
+    <orderEntry type="module" module-name="contract" />
   </component>
 </module>

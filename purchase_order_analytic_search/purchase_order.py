@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from osv import fields, osv
+from openerp.osv import fields, osv
 
 class purchase_order(osv.osv):
     
@@ -73,12 +73,7 @@ class purchase_order(osv.osv):
                                                 method=True,
                                                 fnct_search=_search_analytic_accounts,
                                                 readonly=True),
-        'account_analytic_user_ids': fields.function(_get_analytic_account_user_ids,
-                                                     type='many2many',
-                                                     string='Project Manager',
-                                                     method=True,
-                                                     fnct_search=_search_analytic_account_user_ids,
-                                                     readonly=True),
+
     }    
     
 purchase_order()

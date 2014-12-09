@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from osv import fields, osv
+from openerp.osv import fields, osv
 
 
 _KPI_TYPE = [('PV', 'Planned Value'),

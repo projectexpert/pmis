@@ -20,17 +20,19 @@
 ##############################################################################
 from openerp.osv import osv
 
-
 class account_invoice_line(osv.osv):
     _inherit = "account.invoice.line"
 
     def move_line_get(self, cr, uid, invoice_id, context=None):
-        res = super(account_invoice_line, self).move_line_get(cr, uid, invoice_id, context=context)
-        inv = self.pool.get('account.invoice').browse(cr, uid, invoice_id, context=context)
+        res = super(account_invoice_line, self).move_line_get(
+            cr, uid, invoice_id, context=context)
+        inv = self.pool.get('account.invoice').browse(
+            cr, uid, invoice_id, context=context)
 
         if inv.type in ('out_invoice', 'out_refund'):
             for i_line in inv.invoice_line:
-                if i_line.product_id and i_line.product_id.valuation == 'real_time':
+                if i_line.product_id \
+                        and i_line.product_id.valuation == 'real_time':
                     if inv.type == 'out_invoice':
                         # debit account dacc will be the output account
                         # first check the product, if empty check the category

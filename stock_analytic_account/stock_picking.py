@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              Eficent <contact@eficent.com>
+#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -38,23 +38,3 @@ class stock_picking(osv.osv):
                                                     string='Project Manager',
                                                     readonly=True),
     }
-
-
-class stock_picking_in(osv.osv):
-
-    _inherit = "stock.picking.in"
-
-    def __init__(self, pool, cr):
-        super(stock_picking_in, self).__init__(pool, cr)
-        self._columns['analytic_account_ids'] = self.pool['stock.picking']._columns['analytic_account_ids']
-        self._columns['analytic_account_user_ids'] = self.pool['stock.picking']._columns['analytic_account_user_ids']
-
-
-class stock_picking_out(osv.osv):
-
-    _inherit = "stock.picking.out"
-
-    def __init__(self, pool, cr):
-        super(stock_picking_out, self).__init__(pool, cr)
-        self._columns['analytic_account_ids'] = self.pool['stock.picking']._columns['analytic_account_ids']
-        self._columns['analytic_account_user_ids'] = self.pool['stock.picking']._columns['analytic_account_user_ids']

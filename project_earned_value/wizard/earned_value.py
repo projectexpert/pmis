@@ -20,7 +20,7 @@
 ##############################################################################
 
 from openerp.osv import fields, osv
-from tools.translate import _
+from openerp.tools.translate import _
 
 class earned_value_graphs(osv.osv_memory):
     """

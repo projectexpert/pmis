@@ -5,7 +5,6 @@
         <record id="view_progress_measurement_type_search" model="ir.ui.view">
             <field name="name">progress.measurement.type.search</field>
             <field name="model">progress.measurement.type</field>
-            <field name="type">search</field>
             <field name="arch" type="xml">
                 <search string="Progress Measurement Type">
                     <field name="name"/>
@@ -21,15 +20,16 @@
         <record id="view_progress_measurement_type_edit" model="ir.ui.view">
             <field name="name">progress.measurement.type.form</field>
             <field name="model">progress.measurement.type</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Progress Measurement Type">
-                    <field name="name" select="1"/>
-                    <field name="default_max_value"/>
-                    <field name="precision"/>
-                    <field name="active"/>
-                    <field name="is_percent" on_change="on_change_is_percent(is_percent)"/>
-                    <field name="is_default"/>
+                    <group>
+                        <field name="name" select="1"/>
+                        <field name="default_max_value"/>
+                        <field name="precision"/>
+                        <field name="active"/>
+                        <field name="is_percent" on_change="on_change_is_percent(is_percent)"/>
+                        <field name="is_default"/>
+                    </group>
                 </form>
             </field>
         </record>
@@ -37,7 +37,6 @@
         <record id="view_progress_measurement_type_tree" model="ir.ui.view">
             <field name="name">progress.measurement.type.tree</field>
             <field name="model">progress.measurement.type</field>
-            <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree string="Progress Measurement Type">
                     <field name="name"/>
