@@ -1,14 +1,14 @@
-# Translation of OpenERP Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 #	* project_hr_stakeholder
 #
 # Matjaž Mozetič <m.mozetic@matmoz.si>, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.0.3\n"
-"Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-06-18 20:49+0000\n"
-"PO-Revision-Date: 2015-01-30 08:15+0100\n"
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-30 08:02+0000\n"
+"PO-Revision-Date: 2015-01-30 09:06+0100\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "MIME-Version: 1.0\n"
@@ -19,149 +19,34 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #. module: project_hr_stakeholder
-#: model:ir.model,name:project_hr_stakeholder.model_project_hr_role
-#: view:project.hr.role:0
-msgid "Project Role"
-msgstr "Vloga v projektu"
+#: model:project.hr.responsibility,name:project_hr_stakeholder.project_hr_responsibility_accountable
+msgid "Accountable"
+msgstr "Vrhovni odgovorni"
 
 #. module: project_hr_stakeholder
-#: model:project.hr.responsibility,name:project_hr_stakeholder.project_hr_responsibility_responsible
-msgid "Responsible"
-msgstr "Odgovorni"
+#: field:project.hr.responsibility,code:0
+#: field:project.hr.role,code:0
+msgid "Code"
+msgstr "Koda"
 
 #. module: project_hr_stakeholder
-#: model:project.hr.responsibility,name:project_hr_stakeholder.project_hr_responsibility_informed
-msgid "Informed"
-msgstr "Obveščeni"
+#: model:project.hr.responsibility,name:project_hr_stakeholder.project_hr_responsibility_consulted
+msgid "Consulted"
+msgstr "Svetovalec"
 
 #. module: project_hr_stakeholder
-#: model:ir.actions.act_window,help:project_hr_stakeholder.action_project_hr_role_tree
-msgid "Define the roles for stakeholders in projects."
-msgstr "Določite vloge udeležencev projekta."
+#: field:project.hr.responsibility,create_uid:0
+#: field:project.hr.role,create_uid:0
+#: field:project.hr.stakeholder,create_uid:0
+msgid "Created by"
+msgstr "Ustvaril"
 
 #. module: project_hr_stakeholder
-#: model:ir.ui.menu,name:project_hr_stakeholder.menu_responsibilities_config
-#: field:project.hr.stakeholder,responsibilities_name_str:0
-#: field:project.hr.stakeholder,responsibility_ids:0
-msgid "Responsibilities"
-msgstr "odgovornosti"
-
-#. module: project_hr_stakeholder
-#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_lm
-msgid "Line Manager"
-msgstr "Linijski upravitelj"
-
-#. module: project_hr_stakeholder
-#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_tm
-msgid "Team Member"
-msgstr "Član ekipe"
-
-#. module: project_hr_stakeholder
-#: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_consulted
-msgid ""
-"Those whose opinions are sought, \n"
-"            	typically subject matter experts; and with whom there is two-way "
-"communication.\n"
-"            	"
-msgstr ""
-"Tistih, katerih mnenje se upošteva, \n"
-"            	običajno izvedenci za obravnavano zadevo; in s katerimi poteka "
-"dvosmerna komunikacija.\n"
-"            	"
-
-#. module: project_hr_stakeholder
-#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_pm
-msgid "Project Manager"
-msgstr "Upravitelj projekta"
-
-#. module: project_hr_stakeholder
-#: constraint:project.project:0
-msgid "Error! project start-date must be lower then project end-date."
-msgstr "Napaka! Začetni datum projekta mora biti pred končnim datumom."
-
-#. module: project_hr_stakeholder
-#: model:ir.ui.menu,name:project_hr_stakeholder.project_hr_stakeholder_menu
-#: model:ir.ui.menu,name:project_hr_stakeholder.project_hr_stakeholder_menu_project_config_address_book
-#: view:project.hr.stakeholder:0
-#: view:project.project:0
-#: field:project.project,stakeholder_ids:0
-msgid "Stakeholders"
-msgstr "Zainteresirani"
-
-#. module: project_hr_stakeholder
-#: view:project.hr.responsibility:0
-#: field:project.hr.responsibility,description:0
-#: view:project.hr.role:0
-#: field:project.hr.role,description:0
-#: field:project.hr.stakeholder,name:0
-msgid "Description"
-msgstr "Opis"
-
-#. module: project_hr_stakeholder
-#: model:ir.model,name:project_hr_stakeholder.model_project_hr_responsibility
-#: view:project.hr.responsibility:0
-msgid "Project Responsibility"
-msgstr "Odgovornost za projekt"
-
-#. module: project_hr_stakeholder
-#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_sp
-msgid "Project Sponsor"
-msgstr "Pokrovitelj projekta"
-
-#. module: project_hr_stakeholder
-#: model:project.hr.role,description:project_hr_stakeholder.project_hr_role_pm
-msgid "Annabel Mercedes Piqué"
-msgstr "Annabel Mercedes Piqué"
-
-#. module: project_hr_stakeholder
-#: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_stakeholder_tree
-#: model:ir.ui.menu,name:project_hr_stakeholder.menu_project_hr_stakeholder_view
-#: view:project.hr.stakeholder:0
-msgid "Project Stakeholders"
-msgstr "Projektni udeleženci"
-
-#. module: project_hr_stakeholder
-#: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_responsibility_tree
-#: model:ir.ui.menu,name:project_hr_stakeholder.menu_project_hr_responsibility_view
-msgid "responsibilities"
-msgstr "odgovornosti"
-
-#. module: project_hr_stakeholder
-#: help:project.hr.stakeholder,roles_name_str:0
-msgid "Project Stakeholder roles"
-msgstr "Vloge projektnih udeležencev"
-
-#. module: project_hr_stakeholder
-#: constraint:project.project:0
-msgid "Error! You cannot assign escalation to the same project!"
-msgstr "Napaka! Projekta ne morete stopnjevati samega vase!"
-
-#. module: project_hr_stakeholder
-#: model:project.hr.role,description:project_hr_stakeholder.project_hr_role_tm
-msgid "Dept. Editorial: Montse Jané"
-msgstr "Pomočnik urednika: Montse Jané"
-
-#. module: project_hr_stakeholder
-#: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_responsible
-msgid ""
-"Those who do the work to achieve the task. \n"
-"            	There is typically one role with a participation type of "
-"Responsible, \n"
-"            	although others can be delegated to assist in the work "
-"required.\n"
-"            	"
-msgstr ""
-"Tisti, ki opravijo delo na opravilu. \n"
-"            Običajno je ena vloga tipa sodelovanja Odgovorni, čeprav, \n"
-"            se lahko delegira tudi druge, da pomagajo pri delu, ko je "
-"potrebno.\n"
-"            "
-
-#. module: project_hr_stakeholder
-#: field:project.hr.responsibility,name:0
-#: field:project.hr.role,name:0
-msgid "Name"
-msgstr "Naziv"
+#: field:project.hr.responsibility,create_date:0
+#: field:project.hr.role,create_date:0
+#: field:project.hr.stakeholder,create_date:0
+msgid "Created on"
+msgstr "Ustvarjeno"
 
 #. module: project_hr_stakeholder
 #: model:ir.actions.act_window,help:project_hr_stakeholder.action_project_hr_responsibility_tree
@@ -170,22 +55,70 @@ msgid "Define the responsibilities for stakeholders in projects."
 msgstr "Določite odgovornosti projektnih udeležencev "
 
 #. module: project_hr_stakeholder
-#: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_informed
-msgid ""
-"Those who are kept up-to-date on progress, \n"
-"            	often only on completion of the task or deliverable; \n"
-"            	and with whom there is just one-way communication\n"
-"            "
-msgstr ""
-"Tisti, katere obveščamo o napredovanju, \n"
-"            	običajno šele ob dokončanju opravila ali primopredaji; \n"
-"            	in s katerimi komunikacija poteka enosmerno\n"
-"            "
+#: model:ir.actions.act_window,help:project_hr_stakeholder.action_project_hr_role_tree
+msgid "Define the roles for stakeholders in projects."
+msgstr "Določite vloge udeležencev projekta."
 
 #. module: project_hr_stakeholder
-#: view:project.project:0
-msgid "Administration"
-msgstr "Administracija"
+#: view:project.hr.responsibility:project_hr_stakeholder.view_project_hr_responsibility_edit
+#: field:project.hr.responsibility,description:0
+#: view:project.hr.role:project_hr_stakeholder.view_project_hr_role_edit
+#: field:project.hr.role,description:0
+#: field:project.hr.stakeholder,name:0
+msgid "Description"
+msgstr "Opis"
+
+#. module: project_hr_stakeholder
+#: field:project.hr.responsibility,id:0
+#: field:project.hr.role,id:0
+#: field:project.hr.stakeholder,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: project_hr_stakeholder
+#: field:project.hr.stakeholder,influence:0
+msgid "Influence"
+msgstr "Vplivnost"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.responsibility,name:project_hr_stakeholder.project_hr_responsibility_informed
+msgid "Informed"
+msgstr "Obveščeni"
+
+#. module: project_hr_stakeholder
+#: field:project.hr.responsibility,write_uid:0
+#: field:project.hr.role,write_uid:0
+#: field:project.hr.stakeholder,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: project_hr_stakeholder
+#: field:project.hr.responsibility,write_date:0
+#: field:project.hr.role,write_date:0
+#: field:project.hr.stakeholder,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_lm
+msgid "Line Manager"
+msgstr "Delovodja"
+
+#. module: project_hr_stakeholder
+#: field:project.hr.responsibility,name:0
+#: field:project.hr.role,name:0
+msgid "Name"
+msgstr "Naziv"
+
+#. module: project_hr_stakeholder
+#: view:project.project:project_hr_stakeholder.edit_project
+msgid "Other Info"
+msgstr "Ostale informacije"
+
+#. module: project_hr_stakeholder
+#: field:project.hr.stakeholder,partner_id:0
+msgid "Partner"
+msgstr "Partner"
 
 #. module: project_hr_stakeholder
 #: model:ir.model,name:project_hr_stakeholder.model_project_project
@@ -194,14 +127,95 @@ msgid "Project"
 msgstr "Projekt"
 
 #. module: project_hr_stakeholder
-#: model:project.hr.responsibility,name:project_hr_stakeholder.project_hr_responsibility_accountable
-msgid "Accountable"
-msgstr "Vrhovni odgovorni"
+#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_pm
+msgid "Project Manager"
+msgstr "Upravitelj projekta"
+
+#. module: project_hr_stakeholder
+#: model:ir.model,name:project_hr_stakeholder.model_project_hr_responsibility
+#: view:project.hr.responsibility:project_hr_stakeholder.view_project_hr_responsibility_edit
+#: view:project.hr.responsibility:project_hr_stakeholder.view_project_hr_responsibility_search
+#: view:project.hr.responsibility:project_hr_stakeholder.view_project_hr_responsibility_tree
+msgid "Project Responsibility"
+msgstr "Odgovornost za projekt"
+
+#. module: project_hr_stakeholder
+#: model:ir.model,name:project_hr_stakeholder.model_project_hr_role
+#: view:project.hr.role:project_hr_stakeholder.view_project_hr_role_edit
+#: view:project.hr.role:project_hr_stakeholder.view_project_hr_role_search
+#: view:project.hr.role:project_hr_stakeholder.view_project_hr_role_tree
+msgid "Project Role"
+msgstr "Vloga v projektu"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_sp
+msgid "Project Sponsor"
+msgstr "Pokrovitelj projekta"
+
+#. module: project_hr_stakeholder
+#: model:ir.model,name:project_hr_stakeholder.model_project_hr_stakeholder
+msgid "Project Stakeholder"
+msgstr "Projektni udeleženec"
 
 #. module: project_hr_stakeholder
 #: help:project.hr.stakeholder,responsibilities_name_str:0
 msgid "Project Stakeholder responsibilities"
 msgstr "Odgovornosti projektnih udeležencev"
+
+#. module: project_hr_stakeholder
+#: help:project.hr.stakeholder,roles_name_str:0
+msgid "Project Stakeholder roles"
+msgstr "Vloge projektnih udeležencev"
+
+#. module: project_hr_stakeholder
+#: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_stakeholder_tree
+#: model:ir.ui.menu,name:project_hr_stakeholder.menu_project_hr_stakeholder_view
+#: view:project.hr.stakeholder:project_hr_stakeholder.view_project_hr_stakeholder_search
+msgid "Project Stakeholders"
+msgstr "Projektni udeleženci"
+
+#. module: project_hr_stakeholder
+#: model:ir.ui.menu,name:project_hr_stakeholder.menu_responsibilities_config
+#: field:project.hr.stakeholder,responsibilities_name_str:0
+#: field:project.hr.stakeholder,responsibility_ids:0
+msgid "Responsibilities"
+msgstr "Odgovornosti"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.responsibility,name:project_hr_stakeholder.project_hr_responsibility_responsible
+msgid "Responsible"
+msgstr "Odgovorni"
+
+#. module: project_hr_stakeholder
+#: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_role_tree
+#: model:ir.ui.menu,name:project_hr_stakeholder.menu_project_hr_role_view
+#: model:ir.ui.menu,name:project_hr_stakeholder.menu_roles_config
+#: field:project.hr.stakeholder,role_ids:0
+#: field:project.hr.stakeholder,roles_name_str:0
+msgid "Roles"
+msgstr "Vloge"
+
+#. module: project_hr_stakeholder
+#: view:project.hr.stakeholder:project_hr_stakeholder.project_hr_stakeholder_edit
+#: view:project.project:project_hr_stakeholder.edit_project
+msgid "Roles and responsibilities"
+msgstr "Vloge in odgovornosti"
+
+#. module: project_hr_stakeholder
+#: model:ir.ui.menu,name:project_hr_stakeholder.project_hr_stakeholder_menu
+#: model:ir.ui.menu,name:project_hr_stakeholder.project_hr_stakeholder_menu_project_config_address_book
+#: view:project.hr.stakeholder:project_hr_stakeholder.project_hr_stakeholder_edit
+#: view:project.hr.stakeholder:project_hr_stakeholder.project_hr_stakeholder_tree
+#: view:project.hr.stakeholder:project_hr_stakeholder.project_hr_stakeholder_tree_2
+#: view:project.project:project_hr_stakeholder.edit_project
+#: field:project.project,stakeholder_ids:0
+msgid "Stakeholders"
+msgstr "Udeleženci"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_tm
+msgid "Team Member"
+msgstr "Član ekipe"
 
 #. module: project_hr_stakeholder
 #: help:project.hr.stakeholder,responsibility_ids:0
@@ -216,33 +230,6 @@ msgstr ""
 "projekta, član projektne ekipe ali posamezni udeleženec, pri projektu. Vloge "
 "in odgovornosti običajno podpirajo projektno področje, glede na to, da "
 "govorimo o potrebnih opravilih na projektu."
-
-#. module: project_hr_stakeholder
-#: model:ir.module.module,shortdesc:project_hr_stakeholder.module_meta_information
-msgid "Project Management"
-msgstr "Upravljanje projektov"
-
-#. module: project_hr_stakeholder
-#: model:ir.model,name:project_hr_stakeholder.model_project_hr_stakeholder
-msgid "Project Stakeholder"
-msgstr "Projektni udeleženec"
-
-#. module: project_hr_stakeholder
-#: field:project.hr.responsibility,code:0
-#: field:project.hr.role,code:0
-msgid "Code"
-msgstr "Koda"
-
-#. module: project_hr_stakeholder
-#: view:project.hr.stakeholder:0
-#: view:project.project:0
-msgid "Roles and responsibilities"
-msgstr "Vloge in odgovornosti"
-
-#. module: project_hr_stakeholder
-#: field:project.hr.stakeholder,influence:0
-msgid "Influence"
-msgstr "Vplivnost"
 
 #. module: project_hr_stakeholder
 #: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_accountable
@@ -267,42 +254,51 @@ msgstr ""
 "            	"
 
 #. module: project_hr_stakeholder
-#: model:project.hr.responsibility,name:project_hr_stakeholder.project_hr_responsibility_consulted
-msgid "Consulted"
-msgstr "Svetovalec"
-
-#. module: project_hr_stakeholder
-#: field:project.hr.stakeholder,partner_id:0
-msgid "Partner"
-msgstr "Partner"
-
-#. module: project_hr_stakeholder
-#: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_role_tree
-#: model:ir.ui.menu,name:project_hr_stakeholder.menu_project_hr_role_view
-#: model:ir.ui.menu,name:project_hr_stakeholder.menu_roles_config
-#: field:project.hr.stakeholder,role_ids:0
-#: field:project.hr.stakeholder,roles_name_str:0
-msgid "Roles"
-msgstr "Vloge"
-
-#. module: project_hr_stakeholder
-#: model:ir.module.module,description:project_hr_stakeholder.module_meta_information
+#: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_informed
 msgid ""
-" This module offers the possibility to register at project level the "
-"stakeholders involved in a project.\n"
-"        - It adds a 'Stakeholders' tab in the project form.\n"
-"        - The stakeholder can be registered as a partner, or a contact "
-"person. \n"
-"        - You can specify the roles and responsibilities of the stakeholders "
-"in this project.\n"
-"        - You can maintain a master data for roles and responsibilities.\n"
-"    "
+"Those who are kept up-to-date on progress, \n"
+"            	often only on completion of the task or deliverable; \n"
+"            	and with whom there is just one-way communication\n"
+"            "
 msgstr ""
-"Ta modul omogoča zapis udeležencev projekta na nivoju projekta\n"
-"        - Doda zavihek 'Udeleženci' v obrazec projekta.\n"
-"        - Udeleženec je lahko registriran kot partner ali kontaktna oseba. \n"
-"        - Določite lahko vloge in odgovornosti udeležencev tega projekta.\n"
-"        - Vzdržujete lahko podatke o vlogah in odgovornostih.\n"
-"    "
+"Tisti, katere obveščamo o napredovanju, \n"
+"            	običajno šele ob dokončanju opravila ali primopredaji; \n"
+"            	in s katerimi komunikacija poteka enosmerno\n"
+"            "
+
+#. module: project_hr_stakeholder
+#: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_responsible
+msgid ""
+"Those who do the work to achieve the task. \n"
+"            	There is typically one role with a participation type of "
+"Responsible, \n"
+"            	although others can be delegated to assist in the work "
+"required.\n"
+"            	"
+msgstr ""
+"Tisti, ki opravijo delo na opravilu. \n"
+"            Običajno je ena vloga tipa sodelovanja Odgovorni, čeprav, \n"
+"            se lahko delegira tudi druge, da pomagajo pri delu, ko je "
+"potrebno.\n"
+"            "
+
+#. module: project_hr_stakeholder
+#: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_consulted
+msgid ""
+"Those whose opinions are sought, \n"
+"            	typically subject matter experts; and with whom there is two-way "
+"communication.\n"
+"            	"
+msgstr ""
+"Tistih, katerih mnenje se upošteva, \n"
+"            	običajno izvedenci za obravnavano zadevo; in s katerimi poteka "
+"dvosmerna komunikacija.\n"
+"            	"
+
+#. module: project_hr_stakeholder
+#: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_responsibility_tree
+#: model:ir.ui.menu,name:project_hr_stakeholder.menu_project_hr_responsibility_view
+msgid "responsibilities"
+msgstr "odgovornosti"
 
 
