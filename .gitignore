@@ -6,6 +6,7 @@ _build/
 !.gitignore
 # compiled python files
 *.py[co]
+*.pyc
 # setup.py egg_info
 *.egg-info
 # emacs backup files
