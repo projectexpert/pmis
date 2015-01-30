@@ -1,0 +1,36 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* analytic_line_plan_commit_sale
+#
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-30 06:24+0000\n"
+"PO-Revision-Date: 2015-01-30 07:26+0100\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian <translate@matmoz.si>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+"Language: sl\n"
+"X-Generator: Lokalize 1.5\n"
+
+#. module: analytic_line_plan_commit_sale
+#: field:sale.order.line,analytic_line_plan:0
+msgid "Planning Analytic line"
+msgstr "Planirana analitična postavka"
+
+#. module: analytic_line_plan_commit_sale
+#: model:ir.model,name:analytic_line_plan_commit_sale.model_sale_order
+msgid "Sales Order"
+msgstr "Prodajni nalog"
+
+#. module: analytic_line_plan_commit_sale
+#: model:ir.model,name:analytic_line_plan_commit_sale.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Postavka prodajnega naloga"
+
+

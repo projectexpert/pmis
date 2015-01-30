@@ -1,0 +1,112 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* analytic_resource_plan_purchase
+#
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-30 06:48+0000\n"
+"PO-Revision-Date: 2015-01-30 07:51+0100\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian <translate@matmoz.si>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+"Language: sl\n"
+"X-Generator: Lokalize 1.5\n"
+
+#. module: analytic_resource_plan_purchase
+#: model:ir.model,name:analytic_resource_plan_purchase.model_analytic_resource_plan_line
+msgid "Analytic Resource Planning lines"
+msgstr "Postavke analitičnega planiranja virov"
+
+#. module: analytic_resource_plan_purchase
+#: view:analytic.resource.plan.line.make.purchase:analytic_resource_plan_purchase.view_analytic_resource_plan_line_make_purchase
+msgid "Cancel"
+msgstr "Preklic"
+
+#. module: analytic_resource_plan_purchase
+#: view:analytic.resource.plan.line.make.purchase:analytic_resource_plan_purchase.view_analytic_resource_plan_line_make_purchase
+msgid "Create Purchase Order"
+msgstr "Ustvari nabavni nalog"
+
+#. module: analytic_resource_plan_purchase
+#: model:ir.actions.act_window,name:analytic_resource_plan_purchase.action_analytic_resource_plan_line_make_purchase
+msgid "Create Purchase Orders"
+msgstr "Ustvari nabavne naloge"
+
+#. module: analytic_resource_plan_purchase
+#: view:analytic.resource.plan.line.make.purchase:analytic_resource_plan_purchase.view_analytic_resource_plan_line_make_purchase
+msgid "Create purchase order"
+msgstr "Ustvari nabavni nalog"
+
+#. module: analytic_resource_plan_purchase
+#: field:analytic.resource.plan.line.make.purchase,create_uid:0
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: analytic_resource_plan_purchase
+#: field:analytic.resource.plan.line.make.purchase,create_date:0
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: analytic_resource_plan_purchase
+#: field:analytic.resource.plan.line.make.purchase,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: analytic_resource_plan_purchase
+#: help:analytic.resource.plan.line,has_active_order:0
+msgid ""
+"Indicates that this resource plan line contains at least one non-cancelled "
+"purchase order."
+msgstr ""
+"Prikazuje, da ta postavka plana virov vsebuje vsaj en ne preklican nabavni "
+"nalog."
+
+#. module: analytic_resource_plan_purchase
+#: field:analytic.resource.plan.line.make.purchase,write_uid:0
+msgid "Last Updated by"
+msgstr "Zadnjič posodobil"
+
+#. module: analytic_resource_plan_purchase
+#: field:analytic.resource.plan.line.make.purchase,write_date:0
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: analytic_resource_plan_purchase
+#: field:analytic.resource.plan.line,has_active_order:0
+msgid "Order"
+msgstr "Nalog"
+
+#. module: analytic_resource_plan_purchase
+#: view:account.analytic.account:analytic_resource_plan_purchase.view_account_analytic_account_form_purch
+#: model:ir.actions.act_window,name:analytic_resource_plan_purchase.act_purchase_order_lines
+msgid "Purchase order lines"
+msgstr "Postavke nabavnega naloga"
+
+#. module: analytic_resource_plan_purchase
+#: view:analytic.resource.plan.line:analytic_resource_plan_purchase.view_analytic_resource_plan_line_purchase_order_form
+msgid "Purchase orders"
+msgstr "Nabavni nalogi"
+
+#. module: analytic_resource_plan_purchase
+#: model:ir.model,name:analytic_resource_plan_purchase.model_analytic_resource_plan_line_make_purchase
+msgid "Resource plan - make purchase"
+msgstr "Plan virov - izvedi nabavo"
+
+#. module: analytic_resource_plan_purchase
+#: view:analytic.resource.plan.line.make.purchase:analytic_resource_plan_purchase.view_analytic_resource_plan_line_make_purchase
+msgid "Review the existing purchase order lines:"
+msgstr "Pregled obstoječih postavk nabavnih nalogov:"
+
+#. module: analytic_resource_plan_purchase
+#: field:analytic.resource.plan.line,order_line_ids:0
+#: field:analytic.resource.plan.line.make.purchase,order_line_ids:0
+msgid "unknown"
+msgstr "neznano"
+
+
