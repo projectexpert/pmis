@@ -1,0 +1,135 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* analytic_resource_plan
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-30 06:44+0000\n"
+"PO-Revision-Date: 2015-01-30 06:44+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Analytic Information"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:product.template:analytic_resource_plan.product_template_form_view
+msgid "Analytic Planning Journal for expenses"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_analytic_resource_plan_line
+msgid "Analytic Resource Planning lines"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_tree
+msgid "Analytic resource plan line"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:product.template,expense_analytic_plan_journal_id:0
+msgid "Cost Planning Analytic Journal"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,id:0
+msgid "ID"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Notes"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.actions.act_window,name:analytic_resource_plan.action_analytic_resource_plan_line_open_form
+#: model:ir.ui.menu,name:analytic_resource_plan.analytic_resource_plan_line_entries
+msgid "Plan resources"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,analytic_line_plan_id:0
+msgid "Planning analytic lines"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Product Information"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Purchase Order Information"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,pricelist_id:0
+msgid "Purchasing Pricelist"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.menu,name:analytic_resource_plan.analytic_resource_plan_menu
+msgid "Resource Plan"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
+#: model:ir.actions.act_window,name:analytic_resource_plan.act_account_analytic_2_analytic_resource_plan_line
+msgid "Resource plan lines"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:project.project:analytic_resource_plan.edit_project
+msgid "Resource planning lines"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Search resource plan lines"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,supplier_id:0
+msgid "Supplier"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,price_unit:0
+msgid "Unit Price"
+msgstr ""
+

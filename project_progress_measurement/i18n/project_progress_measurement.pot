@@ -1,0 +1,190 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_progress_measurement
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-29 16:15+0000\n"
+"PO-Revision-Date: 2015-01-29 16:15+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_progress_measurement
+#: view:progress.measurements.entry:project_progress_measurement.progress_measurements_entry_form
+msgid "Cancel"
+msgstr ""
+
+#. module: project_progress_measurement
+#: field:project.progress.measurement,communication_date_print:0
+msgid "Communication Date"
+msgstr ""
+
+#. module: project_progress_measurement
+#: field:progress.measurements.entry,communication_date:0
+#: field:project.progress.measurement,communication_date:0
+msgid "Communication date"
+msgstr ""
+
+#. module: project_progress_measurement
+#: view:progress.measurements.entry:project_progress_measurement.progress_measurements_entry_form
+msgid "Create"
+msgstr ""
+
+#. module: project_progress_measurement
+#: model:ir.actions.act_window,help:project_progress_measurement.action_project_progress_measurement
+msgid "Create the Project progress measurements"
+msgstr ""
+
+#. module: project_progress_measurement
+#: field:progress.measurements.entry,create_uid:0
+#: field:project.progress.measurement,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: project_progress_measurement
+#: field:progress.measurements.entry,create_date:0
+#: field:project.progress.measurement,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: project_progress_measurement
+#: view:project.progress.measurement:project_progress_measurement.view_project_progress_measurement_graph
+#: view:project.progress.measurement:project_progress_measurement.view_project_progress_measurement_tree
+msgid "Date"
+msgstr ""
+
+#. module: project_progress_measurement
+#: help:project.progress.measurement,communication_date:0
+msgid "Date when the measurement was communicated"
+msgstr ""
+
+#. module: project_progress_measurement
+#: field:project.progress.measurement,name:0
+msgid "Description"
+msgstr ""
+
+#. module: project_progress_measurement
+#: help:project.progress.measurement,name:0
+msgid "Description given to the measure"
+msgstr ""
+
+#. module: project_progress_measurement
+#: model:ir.actions.act_window,name:project_progress_measurement.action_progress_measurements_entry_form
+msgid "Enter Progress Measurements"
+msgstr ""
+
+#. module: project_progress_measurement
+#: view:project.project:project_progress_measurement.edit_project
+msgid "Enter non-aggregated Progress Measurements for all WBS elements"
+msgstr ""
+
+#. module: project_progress_measurement
+#: field:project.progress.measurement,user_id:0
+msgid "Entered by"
+msgstr ""
+
+#. module: project_progress_measurement
+#: field:progress.measurements.entry,id:0
+#: field:project.progress.measurement,id:0
+msgid "ID"
+msgstr ""
+
+#. module: project_progress_measurement
+#: field:progress.measurements.entry,write_uid:0
+#: field:project.progress.measurement,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: project_progress_measurement
+#: field:progress.measurements.entry,write_date:0
+#: field:project.progress.measurement,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: project_progress_measurement
+#: view:project.project:project_progress_measurement.edit_project
+msgid "List non-aggregated Progress Measurements"
+msgstr ""
+
+#. module: project_progress_measurement
+#: field:project.project,progress_measurements:0
+msgid "Measurements"
+msgstr ""
+
+#. module: project_progress_measurement
+#: model:ir.actions.act_window,name:project_progress_measurement.action_project_progress_measurement
+#: model:ir.ui.menu,name:project_progress_measurement.menu_project_progress_measurement_view
+msgid "Non-aggregated measurements"
+msgstr ""
+
+#. module: project_progress_measurement
+#: sql_constraint:project.progress.measurement:0
+msgid "Only one measurement of the same type can exist for each project on a given date."
+msgstr ""
+
+#. module: project_progress_measurement
+#: view:project.project:project_progress_measurement.edit_project
+msgid "Progress"
+msgstr ""
+
+#. module: project_progress_measurement
+#: model:ir.ui.menu,name:project_progress_measurement.menu_project_progress
+msgid "Progress Measurement"
+msgstr ""
+
+#. module: project_progress_measurement
+#: field:progress.measurements.entry,progress_measurement_type_id:0
+#: field:project.progress.measurement,progress_measurement_type:0
+msgid "Progress Measurement Type"
+msgstr ""
+
+#. module: project_progress_measurement
+#: view:progress.measurements.entry:project_progress_measurement.progress_measurements_entry_form
+msgid "Progress Measurements entry"
+msgstr ""
+
+#. module: project_progress_measurement
+#: view:project.progress.measurement:project_progress_measurement.view_project_progress_measurement_form
+#: view:project.progress.measurement:project_progress_measurement.view_project_progress_measurement_search
+#: view:project.progress.measurement:project_progress_measurement.view_project_progress_measurement_tree
+msgid "Progress measurement"
+msgstr ""
+
+#. module: project_progress_measurement
+#: model:ir.model,name:project_progress_measurement.model_progress_measurements_entry
+msgid "Progress measurements entry"
+msgstr ""
+
+#. module: project_progress_measurement
+#: model:ir.model,name:project_progress_measurement.model_project_project
+#: field:project.progress.measurement,project_id:0
+msgid "Project"
+msgstr ""
+
+#. module: project_progress_measurement
+#: model:ir.model,name:project_progress_measurement.model_project_progress_measurement
+#: view:project.progress.measurement:project_progress_measurement.view_project_progress_measurement_graph
+msgid "Project Progress Measurement"
+msgstr ""
+
+#. module: project_progress_measurement
+#: view:project.progress.measurement:project_progress_measurement.view_project_progress_measurement_tree
+msgid "Type"
+msgstr ""
+
+#. module: project_progress_measurement
+#: field:project.progress.measurement,value:0
+msgid "Value"
+msgstr ""
+
+#. module: project_progress_measurement
+#: help:project.progress.measurement,value:0
+msgid "Value of the measure"
+msgstr ""
+
