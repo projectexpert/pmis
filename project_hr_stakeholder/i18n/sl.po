@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-30 08:02+0000\n"
-"PO-Revision-Date: 2015-01-30 09:06+0100\n"
+"PO-Revision-Date: 2015-02-19 06:10+0100\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "MIME-Version: 1.0\n"
@@ -90,14 +90,14 @@ msgstr "Obveščeni"
 #: field:project.hr.role,write_uid:0
 #: field:project.hr.stakeholder,write_uid:0
 msgid "Last Updated by"
-msgstr "Last Updated by"
+msgstr "Zadnjič posodobil"
 
 #. module: project_hr_stakeholder
 #: field:project.hr.responsibility,write_date:0
 #: field:project.hr.role,write_date:0
 #: field:project.hr.stakeholder,write_date:0
 msgid "Last Updated on"
-msgstr "Last Updated on"
+msgstr "Zadnjič posodobljeno"
 
 #. module: project_hr_stakeholder
 #: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_lm
