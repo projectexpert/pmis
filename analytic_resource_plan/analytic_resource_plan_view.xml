@@ -69,7 +69,7 @@
                     <field name="currency_id" invisible="True"/>
                     <field name="amount" invisible="True"/>
                     <field name="company_id" invisible="True"/>
-                    <field name="journal_id" invisible="True"/>
+                    <field name="journal_id" invisible="False"/>
                     <field name="ref" invisible="True"/>
                     <field name="general_account_id" invisible="True"/>
 	            </tree>
