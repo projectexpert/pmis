@@ -22,9 +22,13 @@
             <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
             <field name="arch" type="xml">
                 <xpath expr='//div[@name="buttons"]' position='inside'>
-                    <button string="Purchase order lines"
+                    <button help="Purchase order lines"
+                        class="oe_inline oe_stat_button"
                         name="%(act_purchase_order_lines)d"
-                        type="action"/>
+                        icon="fa-pencil-square-o"
+                        type="action">
+                    <div>Purchase order<br/>lines</div>
+                    </button>
                 </xpath>                              
             </field>
         </record>

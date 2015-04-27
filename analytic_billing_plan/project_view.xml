@@ -7,13 +7,15 @@
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
                 <xpath expr='//div[@name="buttons"]' position='inside'>
-                    <button string="Billing plan lines"
+                    <button help="Billing plan lines"
                         class="oe_inline oe_stat_button"
                         name="%(action_analytic_billing_plan_line_open_form)d"
                         type="action"
                         icon="fa-pencil-square-o"
                         context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
-                        groups="project.group_project_manager"/>
+                        groups="project.group_project_manager">
+                    <div>Billing<br/>plan lines</div>
+                    </button>
                 </xpath>
             </field>
         </record>
