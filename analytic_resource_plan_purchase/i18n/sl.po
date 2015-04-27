@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-30 06:48+0000\n"
-"PO-Revision-Date: 2015-01-30 07:51+0100\n"
+"POT-Creation-Date: 2015-04-27 14:49+0000\n"
+"PO-Revision-Date: 2015-04-27 16:50+0100\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 "Language: sl\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 
 #. module: analytic_resource_plan_purchase
 #: model:ir.model,name:analytic_resource_plan_purchase.model_analytic_resource_plan_line
@@ -84,6 +84,11 @@ msgstr "Nalog"
 
 #. module: analytic_resource_plan_purchase
 #: view:account.analytic.account:analytic_resource_plan_purchase.view_account_analytic_account_form_purch
+msgid "Purchase order"
+msgstr "Poz. nabavnega"
+
+#. module: analytic_resource_plan_purchase
+#: view:account.analytic.account:analytic_resource_plan_purchase.view_account_analytic_account_form_purch
 #: model:ir.actions.act_window,name:analytic_resource_plan_purchase.act_purchase_order_lines
 msgid "Purchase order lines"
 msgstr "Postavke nabavnega naloga"
@@ -102,6 +107,11 @@ msgstr "Plan virov - izvedi nabavo"
 #: view:analytic.resource.plan.line.make.purchase:analytic_resource_plan_purchase.view_analytic_resource_plan_line_make_purchase
 msgid "Review the existing purchase order lines:"
 msgstr "Pregled obstoječih postavk nabavnih nalogov:"
+
+#. module: analytic_resource_plan_purchase
+#: view:account.analytic.account:analytic_resource_plan_purchase.view_account_analytic_account_form_purch
+msgid "lines"
+msgstr "naloga"
 
 #. module: analytic_resource_plan_purchase
 #: field:analytic.resource.plan.line,order_line_ids:0

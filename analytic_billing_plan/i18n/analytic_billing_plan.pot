@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-27 10:16+0000\n"
-"PO-Revision-Date: 2015-04-27 10:16+0000\n"
+"POT-Creation-Date: 2015-04-27 14:37+0000\n"
+"PO-Revision-Date: 2015-04-27 14:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -39,6 +39,12 @@ msgstr ""
 #. module: analytic_billing_plan
 #: model:ir.model,name:analytic_billing_plan.model_analytic_billing_plan_line_make_sale
 msgid "Analytic billing plan line make sale"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
+#: view:project.project:analytic_billing_plan.edit_project
+msgid "Billing"
 msgstr ""
 
 #. module: analytic_billing_plan
@@ -204,6 +210,12 @@ msgstr ""
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,price_unit:0
 msgid "Unit Price"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
+#: view:project.project:analytic_billing_plan.edit_project
+msgid "plan lines"
 msgstr ""
 
 #. module: analytic_billing_plan

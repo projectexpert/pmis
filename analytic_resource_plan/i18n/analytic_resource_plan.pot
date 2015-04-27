@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-30 06:44+0000\n"
-"PO-Revision-Date: 2015-01-30 06:44+0000\n"
+"POT-Creation-Date: 2015-04-27 14:47+0000\n"
+"PO-Revision-Date: 2015-04-27 14:47+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -109,6 +109,12 @@ msgstr ""
 
 #. module: analytic_resource_plan
 #: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
+#: view:project.project:analytic_resource_plan.edit_project
+msgid "Resource plan"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
 #: model:ir.actions.act_window,name:analytic_resource_plan.act_account_analytic_2_analytic_resource_plan_line
 msgid "Resource plan lines"
 msgstr ""
@@ -131,5 +137,11 @@ msgstr ""
 #. module: analytic_resource_plan
 #: field:analytic.resource.plan.line,price_unit:0
 msgid "Unit Price"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
+#: view:project.project:analytic_resource_plan.edit_project
+msgid "lines"
 msgstr ""
 

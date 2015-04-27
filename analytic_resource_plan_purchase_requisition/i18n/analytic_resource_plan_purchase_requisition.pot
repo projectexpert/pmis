@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-30 06:53+0000\n"
-"PO-Revision-Date: 2015-01-30 06:53+0000\n"
+"POT-Creation-Date: 2015-04-27 14:51+0000\n"
+"PO-Revision-Date: 2015-04-27 14:51+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -84,6 +84,11 @@ msgstr ""
 
 #. module: analytic_resource_plan_purchase_requisition
 #: view:account.analytic.account:analytic_resource_plan_purchase_requisition.view_account_analytic_account_form_analytic_plan_req
+msgid "Purchase req."
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_requisition
+#: view:account.analytic.account:analytic_resource_plan_purchase_requisition.view_account_analytic_account_form_analytic_plan_req
 #: model:ir.actions.act_window,name:analytic_resource_plan_purchase_requisition.act_purchase_requisition_lines
 msgid "Purchase requisition lines"
 msgstr ""
@@ -121,6 +126,11 @@ msgstr ""
 #. module: analytic_resource_plan_purchase_requisition
 #: view:analytic.resource.plan.line.make.purchase.requisition:analytic_resource_plan_purchase_requisition.view_analytic_resource_plan_line_make_purchase_requisition
 msgid "Review the existing requisition lines:"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_requisition
+#: view:account.analytic.account:analytic_resource_plan_purchase_requisition.view_account_analytic_account_form_analytic_plan_req
+msgid "lines"
 msgstr ""
 
 #. module: analytic_resource_plan_purchase_requisition

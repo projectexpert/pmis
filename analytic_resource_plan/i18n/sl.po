@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-30 06:44+0000\n"
-"PO-Revision-Date: 2015-01-30 07:47+0100\n"
+"POT-Creation-Date: 2015-04-27 14:47+0000\n"
+"PO-Revision-Date: 2015-04-27 16:48+0100\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 "Language: sl\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
@@ -26,7 +26,7 @@ msgstr "Analitični podatki"
 #. module: analytic_resource_plan
 #: view:product.template:analytic_resource_plan.product_template_form_view
 msgid "Analytic Planning Journal for expenses"
-msgstr "Dnevnik analitičnega planiranja za stroške"
+msgstr "Dnevnik analitičnega planiranja za izdatke"
 
 #. module: analytic_resource_plan
 #: model:ir.model,name:analytic_resource_plan.model_analytic_resource_plan_line
@@ -112,6 +112,12 @@ msgstr "Plan virov"
 
 #. module: analytic_resource_plan
 #: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
+#: view:project.project:analytic_resource_plan.edit_project
+msgid "Resource plan"
+msgstr "Postavke"
+
+#. module: analytic_resource_plan
+#: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
 #: model:ir.actions.act_window,name:analytic_resource_plan.act_account_analytic_2_analytic_resource_plan_line
 msgid "Resource plan lines"
 msgstr "Postavke plana virov"
@@ -119,7 +125,7 @@ msgstr "Postavke plana virov"
 #. module: analytic_resource_plan
 #: view:project.project:analytic_resource_plan.edit_project
 msgid "Resource planning lines"
-msgstr "Plan virov"
+msgstr "Planske postavke virov"
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
@@ -135,5 +141,11 @@ msgstr "Dobavitelj"
 #: field:analytic.resource.plan.line,price_unit:0
 msgid "Unit Price"
 msgstr "Cena enote"
+
+#. module: analytic_resource_plan
+#: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
+#: view:project.project:analytic_resource_plan.edit_project
+msgid "lines"
+msgstr "plana virov"
 
 
