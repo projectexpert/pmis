@@ -119,7 +119,7 @@ msgstr "Postavke plana virov"
 #. module: analytic_resource_plan
 #: view:project.project:analytic_resource_plan.edit_project
 msgid "Resource planning lines"
-msgstr "Planske postavke virov"
+msgstr "Plan virov"
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
