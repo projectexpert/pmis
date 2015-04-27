@@ -92,10 +92,15 @@
             <field name="help">Define the responsibilities for stakeholders in projects.</field>
         </record>
 
-        
+        <menuitem id="project_hr_stakeholder_menu" 
+			name="Stakeholders" 
+			parent="project.menu_project_management" 
+			sequence="2"
+			groups="project.group_project_manager,project.group_project_user" />
+		
         <menuitem action="action_project_hr_stakeholder_tree" 
         		id="menu_project_hr_stakeholder_view" 
-        		parent="project.menu_project_management" 
+        		parent="project_hr_stakeholder_menu" 
         		sequence="10"/>
            
     </data>
