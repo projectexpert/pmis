@@ -33,22 +33,36 @@
             	</xpath>
             </field>
         </record>
+
+		<record model="ir.ui.view" id="project.project_task_buttons">
+            <field name="name">project.task.button.form</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2" />
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='oe_right']" position="attributes">
+                    <attribute name="class">oe_right oe_button_box
+                    </attribute>
+                    <attribute name="name">buttons</attribute>
+                </xpath>
+            </field>
+        </record>
+
  		<record id="view_task_form2" model="ir.ui.view">
             <field name="name">project.task.form</field>
             <field name="model">project.task</field>
             <field name="type">form</field>
             <field eval="2" name="priority"/>
-            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="inherit_id" ref="project.project_task_buttons"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='project_id']" position="after">
             		<field name="analytic_account_id" invisible="True"/>
             	</xpath>
-                <xpath expr="//sheet[@string='Task']/group" position="before">
-                    <div class="oe_right oe_button_box" name="buttons" groups="base.group_user">
-                        <button name="%(act_task_2_analytic_resource_plan_line)d" string="Resource plan lines" type="action"
-                                context ="{'default_account_id': analytic_account_id}" class="oe_inline oe_stat_button"
-								icon="fa-pencil-square-o"/>
-                    </div>
+                <xpath expr="//div[@name='buttons']" position="inside">
+                    <button name="%(act_task_2_analytic_resource_plan_line)d" help="Resource plan lines" type="action"
+                            context ="{'default_account_id': analytic_account_id}" class="oe_inline oe_stat_button"
+							icon="fa-pencil-square-o">
+					<div>Resource plan<br/>lines</div>
+					</button>
 				</xpath>
             </field>
         </record>
