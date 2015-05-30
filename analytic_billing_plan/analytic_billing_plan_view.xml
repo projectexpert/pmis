@@ -66,7 +66,7 @@
                     <field name="currency_id" required="True" on_change="on_change_currency_billing(account_id, name, date, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
                     <field name="amount" invisible="True"/>
                     <field name="company_id" invisible="True"/>
-                    <field name="journal_id" invisible="True"/>
+                    <field name="journal_id" invisible="False"/>
                     <field name="ref" invisible="True"/>
                     <field name="general_account_id" invisible="True"/>
                     <field name="has_active_order"/>
