@@ -87,7 +87,7 @@ class account_invoice(osv.osv):
                     
     
     _columns = {        
-        'line_analytic_accounts':fields.function(_line_analytic_accounts_get,fnct_search=_line_analytic_accounts_search, method=True, type="char", size="512", string="Analytic Accounts"),        
+        'line_analytic_accounts':fields.function(_line_analytic_accounts_get,fnct_search=_line_analytic_accounts_search, method=True, type="char", size=512, string="Analytic Accounts"),        
     }
        
 account_invoice()
