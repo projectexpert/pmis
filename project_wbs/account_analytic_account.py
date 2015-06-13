@@ -23,57 +23,57 @@ from openerp.osv import fields, osv
 
 
 class account_analytic_account(osv.osv):
-    
+
     _inherit = 'account.analytic.account'
 
-    def get_child_accounts(self, cr, uid, ids, context=None):    
+    def get_child_accounts(self, cr, uid, ids, context=None):
         result = {}
         read_data = []
-        read_data = self.pool.get('account.analytic.account').read(cr, uid, ids,['child_ids'])
-        for data in read_data:                
+        read_data = self.pool.get('account.analytic.account').read(cr, uid, ids, ['child_ids'])
+        for data in read_data:
             for curr_id in ids:
-                result[curr_id] = True   
-            for child_id in data['child_ids']:  
+                result[curr_id] = True
+            for child_id in data['child_ids']:
                 lchild_id = []
-                lchild_id.append(child_id)                                                         
-                result.update(self.get_child_accounts(cr, uid, lchild_id, context))         
+                lchild_id.append(child_id)
+                result.update(self.get_child_accounts(cr, uid, lchild_id, context))
         return result
 
-    def _complete_wbs_code_calc(self, cr, uid, ids, prop, unknow_none, unknow_dict):        
+    def _complete_wbs_code_calc(self, cr, uid, ids, prop, unknow_none, unknow_dict):
         if not ids:
             return []
-        res = []    
-        for account in self.browse(cr, uid, ids, context=None):    
+        res = []
+        for account in self.browse(cr, uid, ids, context=None):
             data = []
-            acc = account             
+            acc = account
             while acc:
                 if acc.code:
                     data.insert(0, acc.code)
                 else:
-                    data.insert(0,'')                    
-                
+                    data.insert(0, '')
+
                 acc = acc.parent_id
             data = ' / '.join(data)
-            data = '[' + data + '] '   
-            
-            res.append((account.id, data))
-        return dict(res)                                 
+            data = '[' + data + '] '
 
-    def _complete_wbs_name_calc(self, cr, uid, ids, prop, unknow_none, unknow_dict):        
+            res.append((account.id, data))
+        return dict(res)
+
+    def _complete_wbs_name_calc(self, cr, uid, ids, prop, unknow_none, unknow_dict):
         if not ids:
             return []
-        res = []    
-        for account in self.browse(cr, uid, ids, context=None):    
+        res = []
+        for account in self.browse(cr, uid, ids, context=None):
             data = []
-            acc = account             
+            acc = account
             while acc:
                 if acc.name:
                     data.insert(0, acc.name)
                 else:
-                    data.insert(0,'')                    
+                    data.insert(0, '')
 
                 acc = acc.parent_id
-                
+
             data = ' / '.join(data)
             res.append((account.id, data))
         return dict(res)
@@ -85,10 +85,12 @@ class account_analytic_account(osv.osv):
         ctx = context.copy()
         ctx['active_test'] = False
         for analytic_account in self.browse(cr, uid, ids, context=context):
-            deliverable_ids = self.pool.get('account.analytic.account').search(cr, uid,
-                                                                      [('parent_id', '=', analytic_account.id),
-                                                                       ('account_class', '=', account_class)],
-                                                                      context=ctx)
+            deliverable_ids = self.pool.get('account.analytic.account').search(
+                cr,
+                uid,
+                [('parent_id', '=', analytic_account.id), ('account_class', '=', account_class)],
+                context=ctx
+            )
             if deliverable_ids:
                 res[analytic_account.id] = len(deliverable_ids)
             else:
@@ -169,25 +171,31 @@ class account_analytic_account(osv.osv):
                                              store={
                                                  'account.analytic.account': (get_child_accounts,
                                                                               ['name', 'code', 'parent_id'], 20)
-                                            }),
+                                                    }),
 
         'complete_wbs_name': fields.function(_complete_wbs_name_calc, method=True, type='char',
                                              string='Full WBS path', size=250,
                                              help='Full path in the WBS hierarchy',
                                              store={'account.analytic.account': (get_child_accounts,
-                                                                                  ['name', 'code', 'parent_id'], 20)
+                                                                                 ['name', 'code', 'parent_id'], 20)
                                                     }),
 
         'account_class': fields.selection([('project', 'Project'), ('phase', 'Phase'),
                                            ('deliverable', 'Deliverable'),
-                                           ('work_package','Work Package')], 'Class',
+                                           ('work_package', 'Work Package')], 'Class',
                                           help='The classification allows you to create a proper project '
                                                'Work Breakdown Structure'),
         'stage_id': fields.many2one('analytic.account.stage', 'Stage', track_visibility='onchange',
                                     domain="['&', ('fold', '=', False), ('analytic_account_ids', '=', parent_id)]"),
-        'child_stage_ids': fields.many2many('analytic.account.stage', 'analytic_account_stage_rel',
-                                      'analytic_account_id', 'stage_id', 'Child Stages',
-                                      states={'close': [('readonly', True)], 'cancelled': [('readonly', True)]}),
+
+        'child_stage_ids': fields.many2many(
+            'analytic.account.stage',
+            'analytic_account_stage_rel',
+            'analytic_account_id',
+            'stage_id',
+            'Child Stages',
+            states={'close': [('readonly', True)], 'cancelled': [('readonly', True)]}
+        ),
         'child_project_count': fields.function(_child_project_count, type='integer', string="Projects"),
         'child_phase_count': fields.function(_child_phase_count, type='integer', string="Phases"),
         'child_deliverable_count': fields.function(_child_deliverable_count, type='integer', string="Deliverables"),
@@ -197,7 +205,7 @@ class account_analytic_account(osv.osv):
     }
 
     def _get_type_common(self, cr, uid, context):
-        ids = self.pool.get('analytic.account.stage').search(cr, uid, [('case_default','=',1)], context=context)
+        ids = self.pool.get('analytic.account.stage').search(cr, uid, [('case_default', '=', 1)], context=context)
         return ids
 
     _group_by_full = {
@@ -208,19 +216,23 @@ class account_analytic_account(osv.osv):
         'child_stage_ids': _get_type_common,
     }
 
-    def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):        
+    def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):
         if not args:
             args = []
         if context is None:
             context = {}
-        
+
         args = args[:]
-        accountbycode = self.search(cr, uid, [('complete_wbs_code', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)        
-        accountbyname = self.search(cr, uid, [('complete_wbs_name', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)
+        accountbycode = self.search(
+            cr, uid, [('complete_wbs_code', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context
+        )
+        accountbyname = self.search(
+            cr, uid, [('complete_wbs_name', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context
+        )
         account = accountbycode + accountbyname
 
         return self.name_get(cr, uid, account, context=context)
-    
+
     def code_get(self, cr, uid, ids, context=None):
 
         if not ids:
@@ -234,17 +246,18 @@ class account_analytic_account(osv.osv):
                     data.insert(0, acc.code)
                 else:
                     data.insert(0, '')
-                
+
                 acc = acc.parent_id
             data = ' / '.join(data)
             res.append((account.id, data))
         return res
 
-    def name_get(self, cr, uid, ids, context=None):        
+    def name_get(self, cr, uid, ids, context=None):
 
         if not ids:
             return []
-        if type(ids) is int:ids = [ids]
+        if type(ids) is int:
+            ids = [ids]
 
         new_list = []
         for i in ids:
@@ -262,11 +275,11 @@ class account_analytic_account(osv.osv):
                 else:
                     data.insert(0, '')
                 acc = acc.parent_id
-                
+
             data = ' / '.join(data)
             res2 = self.code_get(cr, uid, [account.id], context=None)
             if res2:
-                data = '[' + res2[0][1] + '] ' + data            
+                data = '[' + res2[0][1] + '] ' + data
 
             res.append((account.id, data))
         return res

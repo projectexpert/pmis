@@ -26,6 +26,7 @@ from datetime import datetime, date
 from openerp.tools.translate import _
 from openerp.osv import fields, osv
 
+
 class project(osv.osv):
     _name = "project.project"
     _inherit = "project.project"
@@ -66,7 +67,8 @@ class project(osv.osv):
 
         if not ids:
             return []
-        if type(ids) is int: ids = [ids]
+        if type(ids) is int:
+            ids = [ids]
         res = []
 
         new_list = []
@@ -89,12 +91,12 @@ class project(osv.osv):
             data = ' / '.join(data)
             res2 = self.code_get(cr, uid, [project_item.id], context=None)
             if res2:
-                data = '[' + res2[0][1] + '] ' + data            
+                data = '[' + res2[0][1] + '] ' + data
 
             res.append((project_item.id, data))
         return res
 
-    def code_get(self, cr, uid, ids, context=None):        
+    def code_get(self, cr, uid, ids, context=None):
         if not ids:
             return []
         res = []
@@ -107,8 +109,8 @@ class project(osv.osv):
                 else:
                     data.insert(0, '')
 
-                proj = proj.parent_id                    
-                
+                proj = proj.parent_id
+
             data = ' / '.join(data)
             res.append((project_item.id, data))
         return res
@@ -178,25 +180,33 @@ class project(osv.osv):
             fold[stage.id] = stage.fold or False
         return result, fold
 
-    _columns = {        
-        'project_child_complete_ids': fields.function(_child_compute, relation='project.project', method=True, string="Project Hierarchy", type='many2many'),
+    _columns = {
+        'project_child_complete_ids': fields.function(
+            _child_compute, relation='project.project', method=True, string="Project Hierarchy", type='many2many'
+        ),
     }
 
     _group_by_full = {
         'stage_id': _read_group_stage_ids,
     }
 
-    def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):       
+    def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):
 
         if not args:
             args = []
         if context is None:
             context = {}
-        
+
         args = args[:]
 
-        projectbycode = self.search(cr, uid, [('complete_wbs_code', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)
-        projectbyname = self.search(cr, uid, [('complete_wbs_name', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context)
+        projectbycode = self.search(
+            cr, uid, [('complete_wbs_code', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context
+        )
+
+        projectbyname = self.search(
+            cr, uid, [('complete_wbs_name', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context
+        )
+
         project = projectbycode + projectbyname
 
         return self.name_get(cr, uid, project, context=context)
@@ -216,7 +226,11 @@ class project(osv.osv):
             if proj.date_start and proj.date:
                 start_date = date(*time.strptime(proj.date_start, '%Y-%m-%d')[:3])
                 end_date = date(*time.strptime(proj.date, '%Y-%m-%d')[:3])
-                new_date_end = (datetime(*time.strptime(new_date_start, '%Y-%m-%d')[:3])+(end_date-start_date)).strftime('%Y-%m-%d')
+                new_date_end = (
+                    datetime(*time.strptime(
+                        new_date_start, '%Y-%m-%d'
+                    )[:3])+(end_date-start_date)
+                ).strftime('%Y-%m-%d')
             context.update({'copy': True})
             new_id = self.copy(cr, uid, proj.id, default={
                 'name': _("%s") % (proj.name),
@@ -289,8 +303,6 @@ class project(osv.osv):
     def action_openChildTreeView(self, cr, uid, ids, context=None):
 
         return self.action_openView(cr, uid, ids, 'project_wbs', 'open_view_project_child_tree', context=context)
-
-
 
     def on_change_parent(self, cr, uid, ids, parent_id, context=None):
         return self.pool.get('account.analytic.account').on_change_parent(cr, uid, ids, parent_id)

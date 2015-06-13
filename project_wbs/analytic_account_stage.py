@@ -38,7 +38,13 @@ class analytic_account_stage(osv.osv):
         'name': fields.char('Stage Name', required=True, size=64, translate=True),
         'description': fields.text('Description'),
         'sequence': fields.integer('Sequence'),
-        'analytic_account_ids': fields.many2many('account.analytic.account', 'analytic_account_stage_rel', 'stage_id', 'analytic_account_id', 'Project/Analytic stages'),
+        'analytic_account_ids': fields.many2many(
+            'account.analytic.account',
+            'analytic_account_stage_rel',
+            'stage_id',
+            'analytic_account_id',
+            'Project/Analytic stages'
+        ),
         'fold': fields.boolean('Folded by Default',
                                help="This stage is not visible, "
                                     "for example in status bar or kanban view, "

@@ -163,8 +163,6 @@
             </field>
         </record>
 
-
-
         <record id="edit_project" model="ir.ui.view">
             <field name="name">project.project.form</field>
             <field name="model">project.project</field>
@@ -211,7 +209,6 @@
             <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
             <field name="search_view_id" ref="view_project_project_filter"/>
         </record>
-
 
         <record model="ir.ui.view" id="view_project_kanban_wbs">
             <field name="name">project.project.kanban.wbs</field>
@@ -308,5 +305,23 @@
 				</kanban>
 			</field>
 		</record>
+        
+        <record id="view_project_kanban_inherited" model="ir.ui.view">
+            <field name="name">project.project.kanban.wbs</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="view_project_kanban_wbs"/>
+            <field name="arch" type="xml">
+                <field name="use_tasks" position="after">
+                    <field name="use_issues"/>
+                    <field name="issue_ids" invisible="1"/>
+                </field>
+                <xpath expr="//div[contains(@class, 'oe_kanban_project_list')]" position="inside">
+                    <a t-if="record.use_issues.raw_value" style="margin-right: 10px"
+                        name="%(project_issue.act_project_project_2_project_issue_all)d" type="action">
+                        <t t-raw="record.issue_ids.raw_value.length"/> Issues
+                    </a>
+                </xpath>
+            </field>
+        </record>
     </data>
 </openerp>

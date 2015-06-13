@@ -25,50 +25,50 @@ from openerp.osv import fields, osv
 class task(osv.osv):
     _inherit = 'project.task'
 
-    def _project_complete_wbs_name(self, cr, uid, ids, prop, unknow_none, context=None):        
+    def _project_complete_wbs_name(self, cr, uid, ids, prop, unknow_none, context=None):
         if not ids:
             return []
-        
-        res = []        
-            
-        data_project =[]
-        
+
+        res = []
+
+        data_project = []
+
         project_obj = self.pool.get('project.project')
-        
-        tasks = self.browse(cr, uid, ids, context=None)   
-                
-        for task in tasks:            
+
+        tasks = self.browse(cr, uid, ids, context=None)
+
+        for task in tasks:
             if task.project_id:
                 task_project_id = task.project_id.id
-                data_project = project_obj.read(cr, uid, task_project_id, ['complete_wbs_name'], context=context)            
+                data_project = project_obj.read(cr, uid, task_project_id, ['complete_wbs_name'], context=context)
             if data_project:
                 res.append((task.id, data_project['complete_wbs_name']))
             else:
                 res.append((task.id, ''))
-        return dict(res)  
+        return dict(res)
 
     def _project_complete_wbs_code(self, cr, uid, ids, prop, unknow_none, context=None):
-        
+
         if not ids:
             return []
-        
-        res = []        
-            
-        data_project =[]
-        
+
+        res = []
+
+        data_project = []
+
         project_obj = self.pool.get('project.project')
-        
-        tasks = self.browse(cr, uid, ids, context=None)   
-                
-        for task in tasks:            
+
+        tasks = self.browse(cr, uid, ids, context=None)
+
+        for task in tasks:
             if task.project_id:
                 task_project_id = task.project_id.id
-                data_project = project_obj.read(cr, uid, task_project_id, ['complete_wbs_code'], context=context)            
+                data_project = project_obj.read(cr, uid, task_project_id, ['complete_wbs_code'], context=context)
             if data_project:
                 res.append((task.id, data_project['complete_wbs_code']))
             else:
                 res.append((task.id, ''))
-        return dict(res)  
+        return dict(res)
 
     _columns = {
 
