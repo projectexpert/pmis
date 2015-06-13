@@ -125,14 +125,14 @@ class analytic_resource_plan_line(osv.osv):
                                 currency_id, version_id, journal_id,
                                 ref, company_id, amount, general_account_id, context=None):
 
-        #Change in date affects:
+        # Change in date affects:
         #  - price_unit => Only if there's a pricelist_id, product_id, product_uom_id and date
 
         pricelist_obj = self.pool.get('product.pricelist')
         res = {}
         res['value'] = {}
 
-        #Compute new price_unit
+        # Compute new price_unit
         if pricelist_id and product_id and product_uom_id and date:
             price_unit = pricelist_obj.price_get(cr, uid, [pricelist_id],
                                                  product_id, unit_amount or 1.0, supplier_id,
@@ -166,7 +166,7 @@ class analytic_resource_plan_line(osv.osv):
                                       ref, company_id, amount, general_account_id, context=None):
         res = {}
         res['value'] = {}
-        #Change in account_id affects:
+        # Change in account_id affects:
         #  - version_id
         analytic_obj = self.pool.get('account.analytic.account')
         if account_id:
@@ -187,12 +187,12 @@ class analytic_resource_plan_line(osv.osv):
                                         currency_id, version_id, journal_id,
                                         ref, company_id, amount, general_account_id, context=None):
 
-        #Change in pricelist affects price_unit, currency.
+        # Change in pricelist affects price_unit, currency.
         pricelist_obj = self.pool.get('product.pricelist')
         res = {}
         res['value'] = {}
 
-        #Compute new price_unit
+        # Compute new price_unit
         if pricelist_id and product_id and product_uom_id and date:
             price_unit = pricelist_obj.price_get(cr, uid, [pricelist_id],
                                                  product_id, unit_amount or 1.0, supplier_id,
@@ -208,7 +208,7 @@ class analytic_resource_plan_line(osv.osv):
                                                      ref, company_id, amount, general_account_id, context)
             res['value'].update({'price_unit': price_unit})
 
-        #Compute the new currency
+        # Compute the new currency
         if pricelist_id:
             pricelist = pricelist_obj.browse(cr, uid, pricelist_id, context=context)
             currency_id = pricelist.currency_id and pricelist.currency_id.id
@@ -232,9 +232,9 @@ class analytic_resource_plan_line(osv.osv):
 
         product_obj = self.pool.get('product.product')
 
-        #TODO: Check if the new product is allowed for the current pricelist
+        # TODO: Check if the new product is allowed for the current pricelist
 
-        #If there's a pricelist and a product, get the unit price for the new UoM
+        # If there's a pricelist and a product, get the unit price for the new UoM
         if pricelist_id and product_id and product_uom_id:
             res_pricelist = self.on_change_pricelist_id_resource(cr, uid, ids, account_id,
                                                                  name, date, supplier_id,
@@ -247,7 +247,7 @@ class analytic_resource_plan_line(osv.osv):
                 res['value'].update(res_pricelist['value'])
 
             if 'price_unit' in res['value']:
-            #Compute the changes to the price unit downwards
+                # Compute the changes to the price unit downwards
                 price_unit = res['value']['price_unit']
                 res_price_unit = self.on_change_price_unit_resource(cr, uid, ids, account_id,
                                                                     name, date, supplier_id,
@@ -275,9 +275,9 @@ class analytic_resource_plan_line(osv.osv):
                                       product_uom_id, price_unit, amount_currency,
                                       currency_id, version_id, journal_id,
                                       ref, company_id, amount, general_account_id, context=None):
-        #Change in product allowed only if:
+        # Change in product allowed only if:
         #  - Compatible with current pricelist? => TODO
-        #Change in product directly influences
+        # Change in product directly influences
         #  - UoM, only if there's no pricelist
         #  - journal_id
         #  - general_account_id
@@ -344,7 +344,7 @@ class analytic_resource_plan_line(osv.osv):
                              product_uom_id, price_unit, amount_currency,
                              currency_id, version_id, journal_id,
                              ref, company_id, amount, general_account_id, context=None):
-        #Change in supplier directly influences
+        # Change in supplier directly influences
         #  - pricelist
         res = {}
         res['value'] = {}
