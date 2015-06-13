@@ -79,7 +79,7 @@ msgstr "Znesek"
 #. module: analytic_plan
 #: field:account.analytic.line.plan,amount_currency:0
 msgid "Amount Currency"
-msgstr "Valuta zneska"
+msgstr "Znesek valute"
 
 #. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
