@@ -88,6 +88,12 @@
                         <field name="journal_id"/>
                         <field name="general_account_id"/>
                     </group>
+					<group expand="0" string="Group By">
+                        <filter string="Project" name="Project" context="{'group_by':'account_id'}"/>
+						<filter string="Version" name="Version" context="{'group_by':'version_id'}"/>
+						<filter string="Planning Journal" name="Planning Journal" context="{'group_by':'journal_id'}"/>
+						<filter string="Product" name="Product" context="{'group_by':'product_id'}"/>
+                    </group>
                 </search>
             </field>
         </record>

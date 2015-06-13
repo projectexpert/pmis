@@ -21,7 +21,7 @@
 
 {
     "name": "Analytic Resource Planning",
-    "version": "1.0",
+    "version": "1.0.1",
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
@@ -51,12 +51,12 @@ Analytic Resource Planning
         "product_view.xml",
         "project_view.xml",
         "security/ir.model.access.csv",
-        
+
     ],
     'demo_xml': [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

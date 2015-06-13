@@ -58,7 +58,7 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
                                              help="The sales order will automatically create the"
                                                   " invoice proposition (draft invoice).",
                                              required=True),
-        'order_policy': fields.selection([('manual', 'On Demand'),], 'Create Invoice',
+        'order_policy': fields.selection([('manual', 'On Demand'), ], 'Create Invoice',
                                          help="""This field controls how invoice and delivery
                                          operations are synchronized.""",
                                          required=True),
@@ -90,13 +90,13 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
         record_ids = context and context.get('active_ids', False)
         make_order = self.browse(cr, uid, ids[0], context=context)
         res = []
-        if record_ids:            
+        if record_ids:
             billing_plan_obj = self.pool.get('analytic.billing.plan.line')
             order_obj = self.pool.get('sale.order')
             order_line_obj = self.pool.get('sale.order.line')
-            partner_obj = self.pool.get('res.partner')                               
+            partner_obj = self.pool.get('res.partner')
             acc_pos_obj = self.pool.get('account.fiscal.position')
-                   
+
             list_line = []
 
             customer_data = False
@@ -105,14 +105,14 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
             account_id = False
 
             for line in billing_plan_obj.browse(cr, uid, record_ids, context=context):
-                                                        
+
                     uom_id = line.product_uom_id
-                    
+
                     if not line.customer_id:
                         raise osv.except_osv(
                             _('Could not create sale order !'),
-                            _('You have to enter a customer.'))   
-                    
+                            _('You have to enter a customer.'))
+
                     if customer_data is not False and line.customer_id != customer_data:
                         raise osv.except_osv(
                             _('Could not create sale order !'),
@@ -143,7 +143,6 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
                     else:
                         account_id = line_account_id
 
-
                     sale_order_line = {
                         'name': line.name,
                         'product_uom_qty': line.unit_amount,
@@ -157,13 +156,13 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
                     if line.product_id:
                         taxes_ids = line.product_id.product_tmpl_id.taxes_id
                         taxes = acc_pos_obj.map_tax(cr, uid, partner.property_account_position, taxes_ids)
-                    
+
                     if taxes:
                         sale_order_line.update({
                             'tax_id': [(6, 0, taxes)]
                         })
                     list_line.append(sale_order_line)
-                    
+
                     if sale_id is False:
                         sale_id = order_obj.create(cr, uid, {
                             'origin': '',
@@ -174,20 +173,20 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
                             'partner_shipping_id': partner_addr['delivery'],
                             'date_order': newdate.strftime('%Y-%m-%d %H:%M:%S'),
                             'fiscal_position': partner.property_account_position and
-                                               partner.property_account_position.id or False,
-                            'company_id': company_id,                            
+                            partner.property_account_position.id or False,
+                            'company_id': company_id,
                             'payment_term': partner.property_payment_term and
-                                            partner.property_payment_term.id or False,
+                            partner.property_payment_term.id or False,
                             'project_id': account_id,
                             'invoice_quantity': make_order.invoice_quantity,
                             'order_policy': make_order.order_policy,
 
                         }, context=context)
-                                                        
+
                     sale_order_line.update({
                         'order_id': sale_id
                     })
-                    
+
                     order_line_id = order_line_obj.create(cr, uid, sale_order_line, context=context)
 
                     values = {
