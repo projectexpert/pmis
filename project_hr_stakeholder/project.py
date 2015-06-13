@@ -23,14 +23,13 @@ from openerp import tools
 from openerp.osv import fields, osv
 from openerp.tools.translate import _
 
-    
+
 class project(osv.osv):
     _name = "project.project"
     _inherit = "project.project"
- 
-    _columns = {        
-        'stakeholder_ids': fields.one2many('project.hr.stakeholder', 'project_id', 'Stakeholders'),                                                 
+
+    _columns = {
+        'stakeholder_ids': fields.one2many('project.hr.stakeholder', 'project_id', 'Stakeholders'),
     }
 
 project()
-

@@ -79,6 +79,10 @@
 		                <field name="responsibility_ids"/>
 		                <field name="influence"/>
 		            </group>
+					<group expand="0" string="Group By">
+                        <filter string="Project" name="Project" context="{'group_by':'project_id'}"/>
+						<filter string="Partner" name="Partner" context="{'group_by':'partner_id'}"/>
+                    </group>
                 </search>
             </field>
         </record>      

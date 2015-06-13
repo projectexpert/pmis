@@ -24,87 +24,98 @@ from openerp import tools
 from openerp.osv import fields, osv
 from openerp.tools.translate import _
 
-    
+
 class project_hr_stakeholder(osv.osv):
-    
+
     _name = "project.hr.stakeholder"
     _description = 'Project Stakeholder'
-    
+
     def _roles_name_calc(self, cr, uid, ids, name, args, context=None):
         if not ids:
             return []
-        res = []            
-        
-        stakeholders_br = self.browse(cr, uid, ids, context=context)   
+        res = []
+
+        stakeholders_br = self.browse(cr, uid, ids, context=context)
 
         for stakeholder in stakeholders_br:
-            data =[]  
+            data = []
             stk_roles = stakeholder.role_ids
-            if stk_roles:                    
+            if stk_roles:
                 for stk_role in stk_roles:
-                    data.insert(0, stk_role.name) 
-                data.sort(cmp=None, key=None, reverse=False)  
-                data_str = ', '.join(map(tools.ustr,data))
+                    data.insert(0, stk_role.name)
+                data.sort(cmp=None, key=None, reverse=False)
+                data_str = ', '.join(map(tools.ustr, data))
 
             else:
                 data_str = ''
-                                
-        
+
             res.append((stakeholder.id, data_str))
-                                   
-        return dict(res)                                 
-    
+
+        return dict(res)
+
     def _responsibilities_name_calc(self, cr, uid, ids, name, args, context=None):
-        
+
         if not ids:
             return []
-        res = []            
-        
-        
-            
-        stakeholders_br = self.browse(cr, uid, ids, context=context)   
-                
+        res = []
+
+        stakeholders_br = self.browse(cr, uid, ids, context=context)
+
         for stakeholder in stakeholders_br:
-            data =[]
+            data = []
             responsibilities = stakeholder.responsibility_ids
-            if responsibilities:                    
+            if responsibilities:
                 for responsibility in responsibilities:
                     data.insert(0, responsibility.name)
                 data.sort(cmp=None, key=None, reverse=False)
-                data_str = ', '.join(map(tools.ustr,data))     
-                
+                data_str = ', '.join(map(tools.ustr, data))
+
             else:
                 data_str = ''
-                                
 
             res.append((stakeholder.id, data_str))
-                                   
-        return dict(res)       
-    
 
-    _columns = {        
-        
+        return dict(res)
+
+    _columns = {
+
         'name': fields.char('Description', required=False, size=64),
-        'partner_id':fields.many2one('res.partner', 'Partner', required=True),              
+        'partner_id': fields.many2one('res.partner', 'Partner', required=True),
         'project_id': fields.many2one('project.project', 'Project', ondelete='cascade'),
-        
-        'role_ids': fields.many2many('project.hr.role', 'stakeholder_role_rel', 'stakeholder_id', 'role_id', 'Roles',
-            help='The assignment of the roles and responsibilities determines what actions the project manager,'\
-            'project team member,or individual contributor will have in the project. Roles and responsibilities'\
-            ' generally support the project scope since this is the required work for the project.'),
-                                                                 
-        'responsibility_ids': fields.many2many('project.hr.responsibility', 'stakeholder_responsibility_rel', 'stakeholder_id', 'responsibility_id', 'Responsibilities',
-            help='The assignment of the roles and responsibilities determines what actions the project manager,'\
-            'project team member,or individual contributor will have in the project. Roles and responsibilities'\
-            ' generally support the project scope since this is the required work for the project.'),
 
-        'roles_name_str': fields.function(_roles_name_calc, method=True, type='text', string='Roles', help='Project Stakeholder roles'),         
-        'responsibilities_name_str': fields.function(_responsibilities_name_calc, method=True, type='text', string='Responsibilities', help='Project Stakeholder responsibilities'), 
+        'role_ids': fields.many2many(
+            'project.hr.role', 'stakeholder_role_rel', 'stakeholder_id', 'role_id', 'Roles',
+            help='''
+            The assignment of the roles and responsibilities determines what actions the project manager,
+            project team member,or individual contributor will have in the project. Roles and responsibilities
+             generally support the project scope since this is the required work for the project.
+            '''
+        ),
 
-        'influence': fields.text('Influence'),                       
-                                                        
+        'responsibility_ids': fields.many2many(
+            'project.hr.responsibility', 'stakeholder_responsibility_rel', 'stakeholder_id', 'responsibility_id',
+            'Responsibilities', help='''
+            The assignment of the roles and responsibilities determines what actions the project manager,
+            project team member,or individual contributor will have in the project. Roles and responsibilities
+             generally support the project scope since this is the required work for the project.
+            '''
+        ),
+
+        'roles_name_str': fields.function(
+            _roles_name_calc, method=True, type='text', string='Roles', help='Project Stakeholder roles'
+        ),
+        'responsibilities_name_str': fields.function(
+            _responsibilities_name_calc,
+            method=True,
+            type='text',
+            string='Responsibilities',
+            help='Project Stakeholder responsibilities'
+        ),
+
+        'influence': fields.text('Influence'),
+
     }
-    
+
     def name_get(self, cr, uid, ids, context={}):
         if not ids:
             return []
@@ -115,7 +126,6 @@ class project_hr_stakeholder(osv.osv):
                 stakeholder_name = stakeholder.partner_id.name
             res.append((stakeholder.id, stakeholder_name))
         return res
-    
-    
-project_hr_stakeholder()
 
+
+project_hr_stakeholder()
