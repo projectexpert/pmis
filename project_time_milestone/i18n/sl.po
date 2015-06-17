@@ -1,0 +1,172 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* project_time_milestone
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.3\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2012-05-01 10:21+0000\n"
+"PO-Revision-Date: 2014-11-27 14:25+0100\n"
+"Last-Translator: Matjaz Mozetic <info@matmoz.si>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: sl\n"
+"X-Generator: Poedit 1.6.10\n"
+
+#. module: project_time_milestone
+#: view:project.project:0
+msgid "Reactivate"
+msgstr "Ponovno aktiviranje"
+
+#. module: project_time_milestone
+#: constraint:project.task:0
+msgid "Error ! Task end-date must be greater then task start-date"
+msgstr "Začetni datum mora biti pred končnim."
+
+#. module: project_time_milestone
+#: view:project.project:0
+msgid "Administration"
+msgstr "Administracija"
+
+#. module: project_time_milestone
+#: model:ir.model,name:project_time_milestone.model_project_task
+msgid "Task"
+msgstr "Opravilo"
+
+#. module: project_time_milestone
+#: view:project.project:0
+msgid "Draft"
+msgstr "Osnutek"
+
+#. module: project_time_milestone
+#: help:project.task,project_poc:0
+msgid "Percentage of completion for the linked project"
+msgstr "Odstotek dokončanja povezanega projekta"
+
+#. module: project_time_milestone
+#: view:project.project:0
+msgid "Pending"
+msgstr "Na čakanju"
+
+#. module: project_time_milestone
+#: constraint:project.task:0
+msgid "Error ! You cannot create recursive tasks."
+msgstr "Napaka ! Ne morete ustvarjati rekurzivnih opravil."
+
+#. module: project_time_milestone
+#: field:project.task,project_poc:0
+msgid "Project percentage of completion"
+msgstr "Odstotek dokončanja projekta"
+
+#. module: project_time_milestone
+#: constraint:project.project:0
+msgid "Error! project start-date must be lower then project end-date."
+msgstr "Napaka! Začetni datum projekta mora biti pred končnim datumom."
+
+#. module: project_time_milestone
+#: view:project.task:0 field:project.task,milestone:0
+msgid "Milestone"
+msgstr "Mejnik"
+
+#. module: project_time_milestone
+#: view:project.project:0
+msgid "Done"
+msgstr "Opravljeno"
+
+#. module: project_time_milestone
+#: help:project.task,milestone:0
+msgid "If the active field is set, the task is considered to be a milestone"
+msgstr "Če je polje nastavljeno na aktivno, se opravilo smatra za mejnik"
+
+#. module: project_time_milestone
+#: model:ir.actions.act_window,name:project_time_milestone.action_view_milestone
+#: model:ir.ui.menu,name:project_time_milestone.menu_action_view_milestone
+#: view:project.project:0 field:project.project,milestones:0
+msgid "Milestones"
+msgstr "Mejniki"
+
+#. module: project_time_milestone
+#: constraint:project.project:0
+msgid "Error! You cannot assign escalation to the same project!"
+msgstr "Napaka! Projekta ne morete stopnjevati samega vase!"
+
+#. module: project_time_milestone
+#: model:ir.model,name:project_time_milestone.model_project_project
+msgid "Project"
+msgstr "Projekt"
+
+#. module: project_time_milestone
+#: view:project.project:0
+msgid "Start Task"
+msgstr "Zaženi opravilo"
+
+#. module: project_time_milestone
+#: view:project.project:0
+msgid "Delegate"
+msgstr "Delegiraj"
+
+#. module: project_time_milestone
+#: model:ir.actions.act_window,help:project_time_milestone.action_view_milestone
+msgid "Manage Project milestones"
+msgstr "Upravljanje projektnih mejnikov"
+
+#. module: project_time_milestone
+#: model:ir.module.module,shortdesc:project_time_milestone.module_meta_information
+msgid "Project Management"
+msgstr "Upravljanje projektov"
+
+#. module: project_time_milestone
+#: help:project.task,public_milestone:0
+msgid "Public Milestone"
+msgstr "Javni mejnik"
+
+#. module: project_time_milestone
+#: field:project.task,invoice_percentage:0
+msgid "Invoice percentage"
+msgstr "Odstotek zaračunavanja"
+
+#. module: project_time_milestone
+#: view:project.project:0
+msgid "Ready to start"
+msgstr "Pripravljeno na zagon"
+
+#. module: project_time_milestone
+#: help:project.task,invoice_percentage:0
+msgid "Percentage to invoice"
+msgstr "Odstotek za zaračunavanje"
+
+#. module: project_time_milestone
+#: view:project.task:0
+msgid "Extra Info"
+msgstr "Dodatne informacije"
+
+#. module: project_time_milestone
+#: model:ir.module.module,description:project_time_milestone.module_meta_information
+msgid ""
+"\n"
+"        This module introduces the possibility to classify tasks as "
+"milestones.\n"
+"        - It is possible to introduce the Project Percentage of Completion "
+"and the invoice percentage,\n"
+"        for informative purposes.\n"
+"        - A separate entry is created in the menu to register milestones.\n"
+"        - The project form is extended to add a 'Milestones' tab.\n"
+"    "
+msgstr ""
+"\n"
+"        Ta modul uvede možnost klasificiranja opravil kot mejnike.\n"
+"        - Mogoče je uvesti Odstotek dokončanja projekta in odstotek "
+"zaračunavanja\n"
+"        v informativne namene.\n"
+"        - Ustvarjen je ločen vnos v meni, za vpisovanje mejnikov.\n"
+"        - Obrazec projekta je razširjen z zavihkom 'Mejniki'.\n"
+"    "
+
+#. module: project_time_milestone
+#: view:project.project:0
+msgid "Cancel"
+msgstr "Preklic"
