@@ -7,8 +7,8 @@
 #---------------------------------------------------------------------------------------------------------
 		<menuitem id="project_hr_stakeholder_menu" 
 			name="Stakeholders" 
-			parent="project.menu_project_management" 
-			sequence="2"
+			parent="analytic_plan.project_plan" 
+			sequence="10"
 			groups="project.group_project_manager,project.group_project_user" />
 		
 		<menuitem id="project_hr_stakeholder_menu_project_config_address_book" 

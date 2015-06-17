@@ -120,15 +120,15 @@
 	        <field name="act_window_id" ref="action_analytic_billing_plan_line_open_form"/>
 	   	</record>
 
-		<menuitem id="analytic_billing_plan_menu" name="Billing Plan"
+		<!--<menuitem id="analytic_billing_plan_menu" name="Billing Plan"
           parent="project.menu_project_management"
-          groups="project.group_project_manager"/>
+          groups="project.group_project_manager"/>-->
 
         <menuitem groups="project.group_project_manager,project.group_project_user"
             action="action_analytic_billing_plan_line_open_form"
             id="analytic_billing_plan_line_entries"
-            parent="analytic_billing_plan.analytic_billing_plan_menu"
-            sequence="1"/>
+            parent="analytic_plan.project_plan"
+            sequence="2"/>
 
 	</data>
 

@@ -22,13 +22,14 @@
 
 {
     "name": "Project Stakeholder Management",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "author": "Eficent",
     "website": "",
     "category": "Generic Modules/Projects & Services",
     "depends": [
                 "base",
                 "project",
+                "analytic_plan",
                 ],
     "description": """ This module offers the possibility to register at project level the stakeholders involved in a project.
         - It adds a 'Stakeholders' tab in the project form.
