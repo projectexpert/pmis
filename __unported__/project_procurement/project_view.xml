@@ -46,8 +46,8 @@
             <field name="arch" type="xml">
             	<notebook position="inside">
 	            	<page string="Procurement">
-	            		<field colspan="4" name="purchase_requisitions" nolabel="1"  mode="tree,form" context="{'default_project_id': active_id}"/>
-	                    <field colspan="4" name="purchase_orders" nolabel="1"  mode="tree,form" context="{'default_project_id': active_id}"/>
+	            		<field colspan="4" name="purchase_requisitions" nolabel="1"  mode="tree" context="{'default_project_id': active_id}"/>
+	                    <field colspan="4" name="purchase_orders" nolabel="1"  mode="tree" context="{'default_project_id': active_id}"/>
 	                </page>            			                   
 				</notebook>
             </field>            	        
