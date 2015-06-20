@@ -21,6 +21,7 @@
 
 from lxml import etree
 import time
+import pdb
 from datetime import datetime, date
 
 from openerp.tools.translate import _
@@ -306,5 +307,19 @@ class project(osv.osv):
 
     def on_change_parent(self, cr, uid, ids, parent_id, context=None):
         return self.pool.get('account.analytic.account').on_change_parent(cr, uid, ids, parent_id)
+
+    def action_open_view_project_form(self, cr, uid, ids, context=None):
+
+        id = context["res_id"]
+        return {
+            'name': _('open_view_project_form'),
+            'view_type': 'form',
+            'view_mode': 'form,tree,kanban,gantt',
+            'res_model': 'project.project',
+            'view_id': False,
+            'type': 'ir.actions.act_window',
+            'res_id': id,
+            'target': 'current',
+        }
 
 project()
