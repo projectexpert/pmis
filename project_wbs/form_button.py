@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#               <contact@eficent.com>
+#    Copyright (C) 2015 Matmoz (<http://www.matmoz.si/>)
+#               <info@matmoz.si>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -17,10 +17,29 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+from openerp import models, api, _
 
-import analytic_account_stage
-import account_analytic_account
-import project_project
-import project_task
-import form_button
+
+class formView(models.Model):
+    _inherit = 'project.project'
+
+    @api.multi
+    def button_save_data(self):
+        return True
+
+    @api.multi
+    def action_open_view_project_form(self):
+        context = self.env.context.copy()
+        context['view_buttons'] = True
+        view = {
+            'name': _('Details'),
+            'view_type': 'form',
+            'view_mode': 'form,tree,kanban,gantt',
+            'res_model': 'project.project',
+            'view_id': False,
+            'type': 'ir.actions.act_window',
+            'target': 'current',
+            'res_id': self.id,
+            'context': context
+        }
+        return view
