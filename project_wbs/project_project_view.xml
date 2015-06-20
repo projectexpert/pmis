@@ -267,6 +267,14 @@
                                 </div>
                                 <div class="oe_kanban_content">
 
+                                     <a type="button">
+                                        <button string="Project Form View"
+                                            name="action_open_view_project_form"
+                                            type="object"
+                                            class="oe_highlight">
+                                            <span>Edit</span>
+                                        </button>
+                                    </a>
                                     <h4><field name="complete_wbs_name"/></h4>
                                     <field name="complete_wbs_code"/>
                                     <field name="account_class"/>
