@@ -99,7 +99,7 @@ msgstr ""
 #. module: analytic_resource_plan_purchase_requisition
 #: view:account.analytic.account:analytic_resource_plan_purchase_requisition.view_account_analytic_account_form_analytic_plan_req
 msgid "Purchase req."
-msgstr "Poz. nabav."
+msgstr "Postavke"
 
 #. module: analytic_resource_plan_purchase_requisition
 #: view:account.analytic.account:analytic_resource_plan_purchase_requisition.view_account_analytic_account_form_analytic_plan_req
@@ -145,7 +145,7 @@ msgstr "Pregled obstoječih postavk zahtevkov:"
 #. module: analytic_resource_plan_purchase_requisition
 #: view:account.analytic.account:analytic_resource_plan_purchase_requisition.view_account_analytic_account_form_analytic_plan_req
 msgid "lines"
-msgstr "zahtevka"
+msgstr "nab. zahtevka"
 
 #. module: analytic_resource_plan_purchase_requisition
 #: field:analytic.resource.plan.line,requisition_line_ids:0

@@ -85,7 +85,7 @@ msgstr "Nalog"
 #. module: analytic_resource_plan_purchase
 #: view:account.analytic.account:analytic_resource_plan_purchase.view_account_analytic_account_form_purch
 msgid "Purchase order"
-msgstr "Poz. nabavnega"
+msgstr "Postavke"
 
 #. module: analytic_resource_plan_purchase
 #: view:account.analytic.account:analytic_resource_plan_purchase.view_account_analytic_account_form_purch
