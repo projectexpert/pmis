@@ -198,25 +198,58 @@
                 <xpath expr='//field[@name="state"]' position="after">
                     <field name="stage_id" widget="statusbar" clickable="True"/>
                 </xpath>
-            	<group position="after">
-					<group string="Project configuration">
-						<group>
-							<field name="account_class" string="Class"/>
-						</group>
-						<group>
-							<field name="code" string="Code"/>
-							<field name="complete_wbs_code" string="WBS code" readonly="1" />
-						</group>
-					</group>
-            	</group>
-                <notebook position="inside">
-                    <page string="WBS">
-                        <field name="project_child_complete_ids"/>
-                    </page>
-                    <page string="Child Stages" name="child_stages">
-                         <field name="child_stage_ids"/>
-                    </page>
-                </notebook>
+            	<notebook position="inside">
+					<page string="Project configuration">
+                        <group string="Project configuration">
+                            <group>
+                                <field name="account_class" string="Class"/>
+                            </group>
+                            <group>
+                                <field name="code" string="Code"/>
+                                <field name="complete_wbs_code" string="WBS code" readonly="1" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Work Breakdown Structure">
+                                <group string="Work Breakdown Structure">
+                                    <field name="project_child_complete_ids" nolabel="1"/>
+                                </group>
+                            </page>
+                            <page string="Child Stages">
+                                <group string="Child Stages" name="child_stages">
+                                    <field name="child_stage_ids" nolabel="1"/>
+                                </group>
+                            </page>
+
+                            <page string="Other Info">
+                                <group string="Administration">
+                                    <field name="privacy_visibility" widget="radio"/>
+                                    <field name="planned_hours" widget="float_time"
+                                            groups="project.group_time_work_estimation_tasks"/>
+                                    <field name="effective_hours" widget="float_time"
+                                            groups="project.group_time_work_estimation_tasks"/>
+                                    <field name="resource_calendar_id"
+                                            groups="project.group_time_work_estimation_tasks"/>
+                                </group>
+                                <group string="Miscellaneous" name="misc">
+                                    <field name="date_start" string="Start Date"/>
+                                    <field name="date" string="End Date"/>
+                                    <field name="sequence" groups="base.group_no_one"/>
+                                    <field name="active" attrs="{'invisible':[('state','in',['open', 'pending', 'template'])]}"/>
+                                    <field name="currency_id" groups="base.group_multi_currency" required="1"/>
+                                    <field name="parent_id" string="Parent" help="Append this project to another one using analytic accounts hierarchy" domain="[('id','!=',analytic_account_id)]" context="{'current_model': 'project.project'}" />
+                                </group>
+                            </page>
+
+                            <page string="Project Stages" attrs="{'invisible': [('use_tasks', '=', False)]}" name="project_stages">
+                                <group string="Project Task Stages">
+                                    <field name="type_ids" nolabel="1"/>
+                                </group>
+                            </page>
+
+                        </notebook>
+					</page>
+            	</notebook>
             </field>
         </record>
 

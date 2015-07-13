@@ -42,22 +42,20 @@
       analytic account views.
 
     """,
-    "init_xml": [],
-    "update_xml": [
+    "data": [
         "analytic_account_stage_view.xml",
         "account_analytic_account_view.xml",
         "project_project_view.xml",
         "project_task_view.xml",
         "security/ir.model.access.csv",
+        "removed_views/project_configuration.xml",
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
     'test': [
     ],
     'installable': True,
-    'active': False,
-    'certificate': '',
     'application': True,
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
