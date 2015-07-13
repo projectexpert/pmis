@@ -31,8 +31,11 @@
 Customizes the PM UI to follow the pmbok and iso 21500
 document Project Charter, with all it's contents:
     - project charter
+    - project description (with ckeditor4)
     - project scope
+    - project boundaries, assumptions and constraints
     - project stakeholders
+    - resource and billing plan
         """,
     'author': 'Matmoz d.o.o.',
     'website': 'http://www.matmoz.si',
@@ -41,11 +44,15 @@ document Project Charter, with all it's contents:
     'depends': [
         'project',
         'project_hr_stakeholder',
+        'analytic_account_sequence',
+        'analytic_plan',
         'analytic_resource_plan',
+        'analytic_billing_plan',
+        'project_wbs',
         'web_ckeditor4'
     ],
     'data': ['project_charter_view.xml',
-             'edit_project_view.xml',
+             'removed_views/stakeholders_notebook.xml',
              'security/ir.model.access.csv'],
     'test': [],
     'demo': [],
