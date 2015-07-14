@@ -58,16 +58,15 @@ Define Progress Measurements:
         * Description: description of the measurement
         * Entered by: User that entered the measurement
     """,
-    "init_xml": [],
-    "update_xml": [    
+    "data": [
         "progress_measurement_type_view.xml",
         "progress_measurement_view.xml",
         "security/ir.model.access.csv",
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

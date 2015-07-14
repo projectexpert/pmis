@@ -21,6 +21,7 @@
 
 from openerp.osv import fields, osv
 
+
 class purchase_order(osv.osv):
     _name = "purchase.order"
     _inherit = "purchase.order"
@@ -29,11 +30,17 @@ class purchase_order(osv.osv):
     def _choose_account_from_po_line(self, cr, uid, order_line, context=None):
         account_id = super(purchase_order, self)._choose_account_from_po_line(cr, uid, order_line, context=context)
         if order_line.product_id and not order_line.product_id.type == 'service':
-            #Only consider if it's going to be moved to a company location
+            # Only consider if it's going to be moved to a company location
             if order_line.order_id.location_id and order_line.order_id.location_id.company_id:
-                acc_id = order_line.product_id.property_stock_account_input and order_line.product_id.property_stock_account_input.id
+                acc_id = (
+                    order_line.product_id.property_stock_account_input and
+                    order_line.product_id.property_stock_account_input.id
+                )
                 if not acc_id:
-                    acc_id = order_line.product_id.categ_id.property_stock_account_input_categ and order_line.product_id.categ_id.property_stock_account_input_categ.id
+                    acc_id = (
+                        order_line.product_id.categ_id.property_stock_account_input_categ and
+                        order_line.product_id.categ_id.property_stock_account_input_categ.id
+                    )
                 if acc_id:
                     fpos = order_line.order_id.fiscal_position or False
                     account_id = self.pool.get('account.fiscal.position').map_account(cr, uid, fpos, acc_id)
@@ -45,9 +52,16 @@ class purchase_order(osv.osv):
                     if not acc_id:
                         acc_id = order_line.product_id.categ_id.property_account_expense_categ.id
                     if not acc_id:
-                        raise osv.except_osv(_('Error!'), _('Define an expense account for this product: "%s" (id:%d).') % (po_line.product_id.name, po_line.product_id.id,))
+                        raise osv.except_osv(
+                            _('Error!'),
+                            _(
+                                'Define an expense account for this product: "%s" (id:%d).'
+                            ) % (po_line.product_id.name, po_line.product_id.id,)
+                        )
                 else:
-                    acc_id = property_obj.get(cr, uid, 'property_account_expense_categ', 'product.category', context=context).id
+                    acc_id = property_obj.get(
+                        cr, uid, 'property_account_expense_categ', 'product.category', context=context
+                    ).id
                 fpos = order_line.order_id.fiscal_position or False
                 account_id = fiscal_obj.map_account(cr, uid, fpos, acc_id)
         return account_id

@@ -27,19 +27,14 @@
     "category": "Generic Modules/Projects & Services",
     "depends": ["analytic", "account"],
     "description": """
-Organizations often require to quickly find the invoices associated to a project
-or to an analytic account, searching by it's code, name or project/account manager.
-This module introduces the possibility search customer or supplier invoices by analytic account or by project manager.
+Organizations often require to quickly find the invoices associated to a project or to an analytic account,
+searching by it's code, name or project/account manager. This module introduces the possibility search customer
+or supplier invoices by analytic account or by project manager.
 """,
-    "init_xml": [
-                ],
-    "update_xml": [            
+    "data": [
         "account_invoice_view.xml",
     ],
-    'demo_xml': [
-
-    ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

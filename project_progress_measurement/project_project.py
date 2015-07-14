@@ -27,9 +27,11 @@ class project(osv.osv):
     _inherit = "project.project"
 
     _columns = {
-        'progress_measurements': fields.one2many('project.progress.measurement',
-                                                 'project_id',
-                                                 'Measurements'),
+        'progress_measurements': fields.one2many(
+            'project.progress.measurement',
+            'project_id',
+            'Measurements'
+        ),
     }
 
     def copy(self, cr, uid, id, default=None, context=None):

@@ -23,7 +23,7 @@ from openerp.osv import fields, osv
 
 
 class analytic_resource_plan_line(osv.osv):
-    
+
     _inherit = 'analytic.resource.plan.line'
 
     def _has_active_order(self, cr, uid, ids, fields, arg, context=None):

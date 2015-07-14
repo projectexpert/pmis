@@ -21,4 +21,3 @@
 import project_progress_measurement
 import project_project
 import wizard
-

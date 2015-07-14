@@ -21,13 +21,15 @@
 import time
 from openerp.osv import fields, osv, orm
 
-    
-class stock_move(osv.osv):    
+
+class stock_move(osv.osv):
 
     _inherit = "stock.move"
 
-    def _create_account_move_line(self, cr, uid, move, src_account_id, dest_account_id, reference_amount,
-                                  reference_currency_id, context=None):
+    def _create_account_move_line(
+        self, cr, uid, move, src_account_id, dest_account_id, reference_amount,
+        reference_currency_id, context=None
+    ):
         """
         Generate the account.move.line values to post to track the stock valuation difference due to the
         processing of the given stock move.
@@ -35,14 +37,17 @@ class stock_move(osv.osv):
         if context is None:
             context = {}
 
-        res = super(stock_move, self)._create_account_move_line(cr, uid, move, src_account_id, dest_account_id,
-                                                                reference_amount, reference_currency_id, context=None)
+        res = super(stock_move, self)._create_account_move_line(
+            cr, uid, move, src_account_id, dest_account_id,
+            reference_amount, reference_currency_id, context=None
+        )
         debit_line_vals = res[0][2]
         credit_line_vals = res[1][2]
 
         account_obj = self.pool.get('account.account')
-        src_acct, dest_acct = account_obj.browse(cr, uid, [credit_line_vals['account_id'],
-                                                           debit_line_vals['account_id']], context=context)
+        src_acct, dest_acct = account_obj.browse(
+            cr, uid, [credit_line_vals['account_id'], debit_line_vals['account_id']], context=context
+        )
 
         debit_analytic_account_id = False
         credit_analytic_account_id = False
@@ -57,5 +62,5 @@ class stock_move(osv.osv):
         credit_line_vals['analytic_account_id'] = credit_analytic_account_id
 
         return [(0, 0, debit_line_vals), (0, 0, credit_line_vals)]
-    
+
 stock_move()

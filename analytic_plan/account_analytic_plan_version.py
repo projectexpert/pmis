@@ -45,19 +45,27 @@ class account_analytic_plan_version(osv.osv):
 
         if 'default_committed' in vals:
             if vals['default_committed'] is True:
-                other_default_committed = self.search(cr, uid, [('default_committed', '=', True)], context=context)
+                other_default_committed = self.search(
+                    cr, uid, [('default_committed', '=', True)], context=context
+                )
                 if other_default_committed:
-                    raise osv.except_osv(_('Error!'),
-                                         _('Only one default commitments version can exist.'))
+                    raise osv.except_osv(
+                        _('Error!'),
+                        _('Only one default commitments version can exist.')
+                    )
 
     def _check_default_plan(self, cr, uid, vals, context=None):
 
         if 'default_plan' in vals:
             if vals['default_plan'] is True:
-                other_default_plan = self.search(cr, uid, [('default_plan', '=', True)], context=context)
+                other_default_plan = self.search(
+                    cr, uid, [('default_plan', '=', True)], context=context
+                )
                 if other_default_plan:
-                    raise osv.except_osv(_('Error!'),
-                                         _('Only one default planning version can exist.'))
+                    raise osv.except_osv(
+                        _('Error!'),
+                        _('Only one default planning version can exist.')
+                    )
 
     _defaults = {
         'active': True,

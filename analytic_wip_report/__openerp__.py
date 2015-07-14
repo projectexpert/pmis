@@ -100,17 +100,15 @@ More information and assistance:
 
     """,
 
-    "init_xml": [
-                ],
-    "update_xml": [            
+    "data": [
         "analytic_wip_report.xml",
         "security/ir.model.access.csv",
         "account_analytic_account_view.xml",
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

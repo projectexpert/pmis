@@ -40,22 +40,26 @@ class analytic_resource_plan_line(osv.osv):
                                    ref, company_id, amount, general_account_id, context=None):
         res = {}
         res['value'] = {}
-        #Change in task_id affects:
+        # Change in task_id affects:
         #  - account_id
 
         task_obj = self.pool.get('project.task')
 
         if task_id:
             task = task_obj.browse(cr, uid, task_id, context=context)
-            account_id = task.project_id and task.project_id.analytic_account_id and task.project_id.analytic_account_id.id or False
+            account_id = (
+                task.project_id and
+                task.project_id.analytic_account_id and
+                task.project_id.analytic_account_id.id or
+                False
+            )
             if account_id:
                 res['value'].update({'account_id': account_id})
-                res_account_id = self._on_change_account_id_resource(cr, uid, ids, account_id,
-                                                                     name, date, supplier_id,
-                                                                     pricelist_id, product_id, unit_amount,
-                                                                     product_uom_id, price_unit, amount_currency,
-                                                                     currency_id, version_id, journal_id,
-                                                                     ref, company_id, amount, general_account_id, context=None)
+                res_account_id = self._on_change_account_id_resource(
+                    cr, uid, ids, account_id, name, date, supplier_id, pricelist_id, product_id, unit_amount,
+                    product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref,
+                    company_id, amount, general_account_id, context=None
+                )
                 if res_account_id:
                     res['value'].update(res_account_id)
 

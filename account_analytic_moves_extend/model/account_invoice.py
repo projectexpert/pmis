@@ -33,7 +33,7 @@ class account_invoice(osv.osv):
         cur_obj = self.pool.get('res.currency')
 
         iml = self.pool.get('account.invoice.line').move_line_get(cr, uid, inv.id, context=context)
-       
+
         return iml
 
 account_invoice()

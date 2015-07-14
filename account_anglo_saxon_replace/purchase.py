@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,11 +15,12 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
 from openerp.osv import fields, osv
+
 
 class purchase_order(osv.osv):
     _name = "purchase.order"
@@ -29,11 +30,17 @@ class purchase_order(osv.osv):
     def _choose_account_from_po_line(self, cr, uid, order_line, context=None):
         account_id = super(purchase_order, self)._choose_account_from_po_line(cr, uid, order_line, context=context)
         if order_line.product_id and not order_line.product_id.type == 'service':
-            #Only consider if it's going to be moved to a company location
+            # Only consider if it's going to be moved to a company location
             if order_line.order_id.location_id and order_line.order_id.location_id.company_id:
-                acc_id = order_line.product_id.property_stock_account_input and order_line.product_id.property_stock_account_input.id
+                acc_id = (
+                    order_line.product_id.property_stock_account_input and
+                    order_line.product_id.property_stock_account_input.id
+                )
                 if not acc_id:
-                    acc_id = order_line.product_id.categ_id.property_stock_account_input_categ and order_line.product_id.categ_id.property_stock_account_input_categ.id
+                    acc_id = (
+                        order_line.product_id.categ_id.property_stock_account_input_categ and
+                        order_line.product_id.categ_id.property_stock_account_input_categ.id
+                    )
                 if acc_id:
                     fpos = order_line.order_id.fiscal_position or False
                     account_id = self.pool.get('account.fiscal.position').map_account(cr, uid, fpos, acc_id)

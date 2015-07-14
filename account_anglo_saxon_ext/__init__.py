@@ -21,4 +21,3 @@
 import purchase
 import invoice
 import stock
-

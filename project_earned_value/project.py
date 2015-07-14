@@ -28,52 +28,61 @@ import time
 
 
 class project(osv.osv):
-    
+
     _inherit = "project.project"
 
     @staticmethod
     def _total_plan_cost(cr, ids):
 
-        cr.execute('SELECT abs(sum(LP.amount)) '
-           'FROM account_analytic_line_plan AS LP '
-           'INNER JOIN account_analytic_account AS AA '
-           'ON LP.version_id = AA.active_analytic_planning_version '
-           'AND LP.account_id = AA.id '
-           'WHERE LP.account_id IN %s '
-           'AND LP.amount < 0',
-           (tuple(ids),))
+        cr.execute(
+            'SELECT abs(sum(LP.amount)) '
+            'FROM account_analytic_line_plan AS LP '
+            'INNER JOIN account_analytic_account AS AA '
+            'ON LP.version_id = AA.active_analytic_planning_version '
+            'AND LP.account_id = AA.id '
+            'WHERE LP.account_id IN %s '
+            'AND LP.amount < 0',
+            (tuple(ids),)
+        )
         cr_result = cr.fetchone()
         return cr_result and cr_result[0] or 0.0
 
     @staticmethod
     def _total_actual_cost_to_date(cr, ids, to_date):
 
-        cr.execute('SELECT abs(sum(amount)) '
-                   'FROM account_analytic_line '
-                   'WHERE account_id IN %s '
-                   'AND amount < 0'
-                   'AND date <= %s ', (tuple(ids), to_date))
+        cr.execute(
+            'SELECT abs(sum(amount)) '
+            'FROM account_analytic_line '
+            'WHERE account_id IN %s '
+            'AND amount < 0'
+            'AND date <= %s ',
+            (tuple(ids), to_date)
+        )
         cr_result = cr.fetchone()
         return cr_result and cr_result[0] or 0.0
 
     @staticmethod
     def _total_plan_cost_to_date(cr, ids, to_date):
 
-        #The planned cost to date is a linear interpolation of the planned cost from start date to end date
+        # The planned cost to date is a linear interpolation of the planned cost from start date to end date
         plan_cost_to_date = 0
 
-        cr.execute('''SELECT LP.account_id as account_id,
-        abs(sum(LP.amount)) as total_plan_cost,
-        sum(cast(to_char(date_trunc('day',AA.date) - date_trunc('day',AA.date_start),'DD') as int) +1 ) as no_of_days_total,
-        sum(cast(to_char(date_trunc('day',date(%s)) - date_trunc('day',AA.date_start),'DD') as int) + 1) as no_of_days_to_date
-        FROM account_analytic_line_plan AS LP
-        INNER JOIN account_analytic_account AS AA
-        ON LP.version_id = AA.active_analytic_planning_version
-        AND LP.account_id = AA.id
-        WHERE LP.account_id IN %s
-        AND LP.amount < 0
-        GROUP BY LP.id''',
-                   (to_date, tuple(ids)))
+        cr.execute(
+            '''
+SELECT LP.account_id as account_id,
+abs(sum(LP.amount)) as total_plan_cost,
+sum(cast(to_char(date_trunc('day',AA.date) - date_trunc('day',AA.date_start),'DD') as int) +1 ) as no_of_days_total,
+sum(cast(to_char(date_trunc('day',date(%s)) - date_trunc('day',AA.date_start),'DD') as int) + 1) as no_of_days_to_date
+FROM account_analytic_line_plan AS LP
+INNER JOIN account_analytic_account AS AA
+ON LP.version_id = AA.active_analytic_planning_version
+AND LP.account_id = AA.id
+WHERE LP.account_id IN %s
+AND LP.amount < 0
+GROUP BY LP.id
+    ''',
+            (to_date, tuple(ids))
+        )
         for account_id, total_plan_cost, no_of_days_total, no_of_days_to_date in cr.fetchall():
             if no_of_days_total and no_of_days_to_date:
                 plan_cost_to_date += total_plan_cost * no_of_days_to_date / no_of_days_total
@@ -89,77 +98,77 @@ class project(osv.osv):
             'bac': bac,
         }
 
-        #PCC: Costs to date / Total costs
+        # PCC: Costs to date / Total costs
         try:
             res['pcc'] = res['ac'] / res['pv']
         except ZeroDivisionError:
             res['pcc'] = 0
 
-        #SV: Schedule variance
+        # SV: Schedule variance
         res['sv'] = res['ev'] - res['pv']
 
-        #SVP: Schedule variance in percentage
+        # SVP: Schedule variance in percentage
         try:
             res['svp'] = res['sv'] / res['pv']
         except ZeroDivisionError:
             res['svp'] = 0
 
-        #SPI: Schedule Performance Index
+        # SPI: Schedule Performance Index
         try:
             res['spi'] = res['ev'] / res['pv']
         except ZeroDivisionError:
             res['spi'] = 0
 
-        #CV: Cost Variance
+        # CV: Cost Variance
         res['cv'] = res['ev'] - res['ac']
 
-        #CVP: Cost Variance Percent
+        # CVP: Cost Variance Percent
         try:
             res['cvp'] = (res['cv'] / res['ev']) * 100
         except ZeroDivisionError:
             res['cvp'] = 0
 
-        #CPI: Cost Performance Index
+        # CPI: Cost Performance Index
         try:
             res['cpi'] = res['ev'] / res['ac']
         except ZeroDivisionError:
             res['cpi'] = 1
 
-        #TCPI: To-complete Performance Index
+        # TCPI: To-complete Performance Index
         bac_ac_amount = res['bac'] - res['ac']
         try:
             res['tcpi'] = (res['bac'] - res['ev']) / bac_ac_amount
         except ZeroDivisionError:
             res['tcpi'] = 1
 
-        #EAC: Estimate at completion
+        # EAC: Estimate at completion
         try:
             res['eac'] = res['bac'] / res['cpi']
         except ZeroDivisionError:
             res['eac'] = res['bac']
 
-        #VAC: Variance at Completion
+        # VAC: Variance at Completion
         res['vac'] = res['bac'] - res['eac']
 
-        #VACP: Variance at Completion Percent
+        # VACP: Variance at Completion Percent
         try:
             res['vacp'] = (res['vac'] / res['bac']) * 100
         except ZeroDivisionError:
             res['vacp'] = 0
 
-        #ETC: Estimate To Complete
+        # ETC: Estimate To Complete
         try:
             res['etc'] = (res['bac'] - res['ev'])/res['cpi']
         except ZeroDivisionError:
             res['etc'] = 0
 
-        #EAC: Estimate At Completion
+        # EAC: Estimate At Completion
         try:
             res['eac'] = res['bac']/res['cpi']
         except ZeroDivisionError:
             res['eac'] = 0
 
-        #POC - Percent of Completion
+        # POC - Percent of Completion
         try:
             res['poc'] = res['ev'] / res['bac'] * 100
         except ZeroDivisionError:
@@ -186,7 +195,7 @@ class project(osv.osv):
             progress_measurement_type = False
             progress_max_value = 0
 
-        #Search for child projects
+        # Search for child projects
         for project_id in ids:
             res[project_id] = {
                 'pv': 0,
@@ -210,7 +219,7 @@ class project(osv.osv):
             if def_meas_type_ids:
                 date_today = time.strftime('%Y-%m-%d')
                 wbs_projects_data = project_obj._get_project_analytic_wbs(cr, uid, [project_id], context=context)
-                #Compute the Budget at Completion
+                # Compute the Budget at Completion
                 total_bac = self._total_plan_cost(cr, wbs_projects_data.values())
                 pv = self._total_plan_cost_to_date(cr, wbs_projects_data.values(), date_today)
                 ac = self._total_actual_cost_to_date(cr, wbs_projects_data.values(), date_today)
@@ -218,10 +227,10 @@ class project(osv.osv):
 
                 if total_bac > 0:
                     for wbs_project_id in wbs_projects_data.keys():
-                        #Compute the Budget at Completion
+                        # Compute the Budget at Completion
                         bac = self._total_plan_cost(cr, [wbs_projects_data[wbs_project_id]])
 
-                        #Obtain the latest progress measurement for this project
+                        # Obtain the latest progress measurement for this project
                         cr.execute('SELECT DISTINCT ON (a.project_id) value '
                                    'FROM project_progress_measurement AS a '
                                    'WHERE a.project_id IN %s '
@@ -283,12 +292,14 @@ class project(osv.osv):
                                 determine the efficiency that must be achieved on the remaining work
                                 for a project to meet the Budget at Completion (BAC). It is determined
                                 as (BAC - EV) / (BAC - AC)"""),
-        'sv': fields.function(_earned_value, method=True, multi=_earned_value,
-                               string='SV', type='float',
-                               digits_compute=dp.get_precision('Account'),
-                               help="""Schedule Variance (SV) determines whether a project is
-                               ahead or behind schedule. It is calculated as EV - PV.
-                               A negative value indicates an unfavorable condition."""),
+        'sv': fields.function(
+            _earned_value, method=True, multi=_earned_value,
+            string='SV', type='float',
+            digits_compute=dp.get_precision('Account'),
+            help="""Schedule Variance (SV) determines whether a project is
+            ahead or behind schedule. It is calculated as EV - PV.
+            A negative value indicates an unfavorable condition."""
+        ),
         'svp': fields.function(_earned_value, method=True, multi=_earned_value,
                                string='SVP', type='float',
                                digits_compute=dp.get_precision('Account'),
@@ -359,18 +370,18 @@ class project(osv.osv):
 
             project = project_obj.browse(cr, uid, project_id, context=context)
 
-            #Delete current project.evm records
+            # Delete current project.evm records
             project_evm_ids = project_evm_obj.search(cr, uid,
                                                      [('project_id', '=', project_id)],
                                                      context=context)
-            project_evm_obj.unlink(cr, uid, project_evm_ids, context=context)            
+            project_evm_obj.unlink(cr, uid, project_evm_ids, context=context)
 
-            #Obtain all child projects
+            # Obtain all child projects
             projects_data = project_obj._get_project_analytic_wbs(cr, uid, [project_id], context=context)
             wbs_project_ids = projects_data.keys()
             wbs_analytic_account_ids = projects_data.values()
 
-            #Get the earliest and latest dates for based on the project
+            # Get the earliest and latest dates for based on the project
 
             if not project.date_start:
                 date_start = datetime.today()
@@ -383,14 +394,14 @@ class project(osv.osv):
                 date_end = datetime.strptime(project.date, "%Y-%m-%d")
 
             l_days = list(rrule(DAILY, dtstart=date_start, until=date_end))
-            
-            #Earned Value
+
+            # Earned Value
             ev_projects = {}
             bac = self._total_plan_cost(cr, wbs_analytic_account_ids)
             projects_total_amount = {}
 
             for projects_data_project_id, projects_data_analytic_account_id in projects_data.items():
-                #Total planned_cost
+                # Total planned_cost
                 projects_total_amount[projects_data_project_id] = \
                     self._total_plan_cost(cr, [projects_data_analytic_account_id])
 
@@ -401,8 +412,8 @@ class project(osv.osv):
                 ac = self._total_actual_cost_to_date(cr, wbs_analytic_account_ids, day_date)
                 pv = self._total_plan_cost_to_date(cr, wbs_analytic_account_ids, day_date)
 
-                #Record the earned value as a function of the progress measurements
-                #Current progress
+                # Record the earned value as a function of the progress measurements
+                # Current progress
                 cr.execute('SELECT project_id, value '
                            'FROM project_progress_measurement '
                            'WHERE project_id IN %s '
@@ -418,11 +429,11 @@ class project(osv.osv):
                 ev = 0
 
                 for projects_data_project_id, projects_data_analytic_account_id in projects_data.items():
-                    #If we identify a progress measurement on this date, record new earned value
-                    # Otherwise will maintain the previous value
+                    # If we identify a progress measurement on this date, record new earned value
+                    #  Otherwise will maintain the previous value
                     if projects_data_project_id in progress_measurements_at_date:
-                        #If the project is completed on this date, then record earned value
-                        # as a function of the progress.
+                        # If the project is completed on this date, then record earned value
+                        #  as a function of the progress.
                         progress_value = progress_measurements_at_date[projects_data_project_id]
                         if projects_data_project_id in projects_total_amount:
                             ev_projects[projects_data_project_id] = \
@@ -430,13 +441,12 @@ class project(osv.osv):
                                 progress_value / \
                                 progress_max_value
 
-
                 for projects_data_project_id, projects_data_analytic_account_id in projects_data.items():
                     if projects_data_project_id in ev_projects.keys():
                         ev += ev_projects[projects_data_project_id]
 
                 ratios = self._get_evm_ratios(ac, pv, ev, bac)
-                #Create the EVM records
+                # Create the EVM records
                 records.extend(project_obj.create_evm_record(cr, uid, project_id, day_date, ratios))
 
             return records

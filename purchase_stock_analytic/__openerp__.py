@@ -29,10 +29,9 @@
     "description": """
 Copies the analytic account of the purchase order item to the stock move
     """,
-    "init_xml": [],
-    'data': [
+    "data": [
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

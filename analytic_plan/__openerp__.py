@@ -64,8 +64,10 @@ Define Analytic Planning Lines:
 Changes to the Analytic Account:
 ------------------------------------------------------------------
     The analytic account incorporates new analytic account planning attributes:
-        * Cumulated planned costs. Adds up all the planned costs of this analytic account as well as the child analytic accounts.
-        * Cumulated planned revenues. Adds up all the planned revenues of this analytic account as well as the child analytic accounts.
+        * Cumulated planned costs. Adds up all the planned costs of this analytic account as well as the child
+          analytic accounts.
+        * Cumulated planned revenues. Adds up all the planned revenues of this analytic account as well as the
+          child analytic accounts.
         * Cumulated balance. Provides the difference between cumulated costs and revenues.
 
     The attributes are calculated, for an analytic account, based on the planning analytic journal lines
@@ -80,21 +82,10 @@ More information and assistance:
     us at www.eficent.com or conact us at contact@eficent.com.
 
     """,
-    "init_xml": [],
-    "update_xml": [
-        "account_analytic_plan_version_view.xml",
-        "account_analytic_plan_version_data.xml",
-        "account_analytic_plan_journal_view.xml",
-        "account_analytic_line_plan_view.xml",
-        "account_analytic_account_view.xml",
-        "security/ir.model.access.csv",
-        "account_analytic_plan_journal_data.xml",
-        "project_view.xml",  
-    ],
-    'demo_xml': [
 
+    "data": [
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

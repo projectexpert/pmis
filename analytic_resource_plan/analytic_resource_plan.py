@@ -171,7 +171,9 @@ class analytic_resource_plan_line(osv.osv):
         analytic_obj = self.pool.get('account.analytic.account')
         if account_id:
             analytic = analytic_obj.browse(cr, uid, account_id, context)
-            version_id = analytic.active_analytic_planning_version and analytic.active_analytic_planning_version.id or False
+            version_id = (
+                analytic.active_analytic_planning_version and analytic.active_analytic_planning_version.id or False
+            )
             res['value'].update({'version_id': version_id})
 
         if res['value']:
@@ -352,7 +354,9 @@ class analytic_resource_plan_line(osv.osv):
 
         if supplier_id:
             partner = self.pool.get('res.partner').browse(cr, uid, supplier_id)
-            pricelist_id = partner.property_product_pricelist_purchase and partner.property_product_pricelist_purchase.id
+            pricelist_id = (
+                partner.property_product_pricelist_purchase and partner.property_product_pricelist_purchase.id
+            )
             if pricelist_id:
                 res['value'].update({'pricelist_id': pricelist_id})
                 res_pricelist = self.on_change_pricelist_id_resource(cr, uid, ids, account_id,

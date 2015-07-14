@@ -35,7 +35,7 @@ Create Payment Vouchers from Journal Items
 
     """,
     "init_xml": [],
-    "update_xml": [        
+    "update_xml": [
         "wizard/account_move_line_make_voucher_view.xml",
     ],
     'demo_xml': [

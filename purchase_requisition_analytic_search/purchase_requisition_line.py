@@ -23,17 +23,19 @@ from openerp.osv import fields, osv
 
 
 class purchase_requisition_line(osv.osv):
-    
+
     _inherit = "purchase.requisition.line"
 
     _columns = {
-        'account_analytic_user_id': fields.related('account_analytic_id',
-                                                   'user_id',
-                                                   type='many2one',
-                                                   relation='res.users',
-                                                   string='Project Manager',
-                                                   store=True,
-                                                   readonly=True),
-    }    
-    
+        'account_analytic_user_id': fields.related(
+            'account_analytic_id',
+            'user_id',
+            type='many2one',
+            relation='res.users',
+            string='Project Manager',
+            store=True,
+            readonly=True
+        ),
+    }
+
 purchase_requisition_line()

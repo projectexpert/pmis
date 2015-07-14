@@ -47,7 +47,9 @@ class project(osv.osv):
                             resource_vals['account_id'] = \
                                 p.analytic_account_id and \
                                 p.analytic_account_id.id or False
-                            resource_plan_line_obj.write(cr, uid, resource_plan_line.id, resource_vals, context=context)
+                            resource_plan_line_obj.write(
+                                cr, uid, resource_plan_line.id, resource_vals, context=context
+                            )
 
         return super(project, self).write(cr, uid, ids, vals, context=context)
 

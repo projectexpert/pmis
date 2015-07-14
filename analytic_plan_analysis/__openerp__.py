@@ -28,21 +28,19 @@
     "category": "Generic Modules/Projects & Services",
     "depends": ["analytic_plan"],
     "description": """
-    
+
     == Analyze the plan vs. actuals of your project ==
     Eficent brings you this module to better analyze the costs of your projects.
-    
+
     """,
-    "init_xml": [
-                ],
-    "update_xml": [        
-        "security/ir.model.access.csv",               
+    "data": [
+        "security/ir.model.access.csv",
         "report/account_analytic_plan_actual_view.xml",
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

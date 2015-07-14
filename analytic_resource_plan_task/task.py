@@ -28,11 +28,12 @@ class project_task(osv.osv):
     _inherit = "project.task"
     _columns = {
         'resource_plan_lines': fields.one2many('analytic.resource.plan.line', 'task_id', "Planned resources"),
-        'default_resource_plan_line': fields.many2one('analytic.resource.plan.line', 'Default resource plan line',
-                                                      required=False,
-                                                      help='Resource plan line associated to the '
-                                                           'employee assigned to the task',
-                                                      ondelete="cascade"),
+        'default_resource_plan_line': fields.many2one(
+            'analytic.resource.plan.line', 'Default resource plan line', required=False,
+            help='Resource plan line associated to the '
+            'employee assigned to the task',
+            ondelete="cascade"
+        ),
     }
 
     def _prepare_resource_plan_line(self, cr, uid, plan_input, context=None):
@@ -76,18 +77,18 @@ class project_task(osv.osv):
         company = company_obj.browse(cr, uid, company_id, context=context)
         plan_output['currency_id'] = company.currency_id and company.currency_id.id or False
 
-        #Look for the employee that the user of the task is assigned to
+        # Look for the employee that the user of the task is assigned to
         employee_ids = employee_obj.search(cr, uid, [('user_id', '=', user_id)])
         if employee_ids:
             employee_id = employee_ids[0]
         else:
             employee_id = False
 
-        #Obtain the product associated to the employee
+        # Obtain the product associated to the employee
         employee = employee_obj.browse(cr, uid, employee_id, context=context)
         if employee.product_id:
             plan_output['product_id'] = employee.product_id.id
-            #Obtain the default uom of the product
+            # Obtain the default uom of the product
             plan_output['product_uom_id'] = \
                 employee.product_id.uom_id and \
                 employee.product_id.uom_id.id or False
@@ -138,13 +139,14 @@ class project_task(osv.osv):
                 if 'planned_hours' in vals and vals['planned_hours']:
                     if 'user_id' in vals and vals['user_id']:
                         if 'project_id' in vals and vals['project_id']:
-                            if (not 'delegated_user_id' in vals) or ('delegated_user_id'
-                                                                     in vals and not vals['delegated_user_id']):
+                            if ('delegated_user_id' not in vals) or (
+                                    'delegated_user_id' in vals and not vals['delegated_user_id']
+                            ):
                                 plan_output = self._prepare_resource_plan_line(cr, uid, vals, context=context)
                                 plan_output['task_id'] = task
-                                new_plan_line_id = resource_plan_line_obj.create(cr, uid,
-                                                                                 vals=plan_output,
-                                                                                 context=context)
+                                new_plan_line_id = resource_plan_line_obj.create(
+                                    cr, uid, vals=plan_output, context=context
+                                )
 
                                 new_vals['default_resource_plan_line'] = new_plan_line_id
                                 self.write(cr, uid, [task], new_vals, context=context)
@@ -228,7 +230,7 @@ class project_task(osv.osv):
                         and plan_input['user_id'] \
                         and not plan_input['delegated_user_id'] \
                         and plan_input['project_id']:
-                    #Add or update the resource plan line
+                    # Add or update the resource plan line
                     plan_output = self._prepare_resource_plan_line(cr, uid, plan_input, context=context)
                     plan_output['task_id'] = t.id
                     if plan_input['default_resource_plan_line']:
@@ -247,12 +249,11 @@ class project_task(osv.osv):
                         return super(project_task, self).write(cr, uid, ids, vals, context=context)
 
                 else:
-                    #Remove the resource plan line
+                    # Remove the resource plan line
                     if t.default_resource_plan_line:
                         resource_plan_line_obj.unlink(cr, uid, [t.default_resource_plan_line.id], context)
 
         return super(project_task, self).write(cr, uid, ids, vals, context=context)
-
 
     def map_resource_plan_lines(self, cr, uid, old_task_id, new_task_id, context=None):
         """ copy and map tasks from old to new project """
@@ -261,7 +262,6 @@ class project_task(osv.osv):
         map_resource_plan_line_id = {}
         default = {}
         resource_plan_line_obj = self.pool.get('analytic.resource.plan.line')
-
 
         task = self.browse(cr, uid, old_task_id, context=context)
         new_task = self.browse(cr, uid, new_task_id, context=context)

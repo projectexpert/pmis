@@ -55,17 +55,16 @@ Define Analytic Planning Journals:
     It is equivalent to the Analytic Journal.
 
     """,
-    "init_xml": [],
-    "update_xml": [        
+    "data": [
         "wizard/analytic_resource_plan_line_make_purchase.xml",
         "analytic_resource_plan_line_view.xml",
         "analytic_account_view.xml",
-        
-    ],
-    'demo_xml': [
 
     ],
-    'test':[
+    'demo': [
+
+    ],
+    'test': [
     ],
     'installable': True,
     'active': False,

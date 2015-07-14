@@ -23,11 +23,11 @@ from openerp.osv import fields, osv
 
 
 class purchase_order(osv.osv):
-    
+
     _inherit = "purchase.order"
 
     def _prepare_order_line_move(self, cr, uid, order, order_line, picking_id, group_id, context=None):
         res = super(purchase_order, self)._prepare_order_line_move(
             cr, uid, order, order_line, picking_id, group_id, context=context)
-        #res['analytic_account_id'] = order_line.account_analytic_id.id
+        # res['analytic_account_id'] = order_line.account_analytic_id.id
         return res

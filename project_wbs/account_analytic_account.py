@@ -164,29 +164,32 @@ class account_analytic_account(osv.osv):
         return result, fold
 
     _columns = {
-        'complete_wbs_code': fields.function(_complete_wbs_code_calc, method=True, type='char',
-                                             string='Full WBS Code', size=250,
-                                             help='The full WBS code describes the full path of this '
-                                                  'component within the project WBS hierarchy',
-                                             store={
-                                                 'account.analytic.account': (get_child_accounts,
-                                                                              ['name', 'code', 'parent_id'], 20)
-                                                    }),
+        'complete_wbs_code': fields.function(
+            _complete_wbs_code_calc, method=True, type='char',
+            string='Full WBS Code', size=250,
+            help='The full WBS code describes the full path of this '
+            'component within the project WBS hierarchy',
+            store={'account.analytic.account': (get_child_accounts, ['name', 'code', 'parent_id'], 20)}
+        ),
 
-        'complete_wbs_name': fields.function(_complete_wbs_name_calc, method=True, type='char',
-                                             string='Full WBS path', size=250,
-                                             help='Full path in the WBS hierarchy',
-                                             store={'account.analytic.account': (get_child_accounts,
-                                                                                 ['name', 'code', 'parent_id'], 20)
-                                                    }),
+        'complete_wbs_name': fields.function(
+            _complete_wbs_name_calc, method=True, type='char',
+            string='Full WBS path', size=250,
+            help='Full path in the WBS hierarchy',
+            store={'account.analytic.account': (get_child_accounts, ['name', 'code', 'parent_id'], 20)}
+        ),
 
-        'account_class': fields.selection([('project', 'Project'), ('phase', 'Phase'),
-                                           ('deliverable', 'Deliverable'),
-                                           ('work_package', 'Work Package')], 'Class',
-                                          help='The classification allows you to create a proper project '
-                                               'Work Breakdown Structure'),
-        'stage_id': fields.many2one('analytic.account.stage', 'Stage', track_visibility='onchange',
-                                    domain="['&', ('fold', '=', False), ('analytic_account_ids', '=', parent_id)]"),
+        'account_class': fields.selection(
+            [('project', 'Project'), ('phase', 'Phase'),
+                ('deliverable', 'Deliverable'),
+                ('work_package', 'Work Package')], 'Class',
+            help='The classification allows you to create a proper project '
+            'Work Breakdown Structure'
+        ),
+        'stage_id': fields.many2one(
+            'analytic.account.stage', 'Stage', track_visibility='onchange',
+            domain="['&', ('fold', '=', False), ('analytic_account_ids', '=', parent_id)]"
+        ),
 
         'child_stage_ids': fields.many2many(
             'analytic.account.stage',
@@ -196,16 +199,27 @@ class account_analytic_account(osv.osv):
             'Child Stages',
             states={'close': [('readonly', True)], 'cancelled': [('readonly', True)]}
         ),
-        'child_project_count': fields.function(_child_project_count, type='integer', string="Projects"),
-        'child_phase_count': fields.function(_child_phase_count, type='integer', string="Phases"),
-        'child_deliverable_count': fields.function(_child_deliverable_count, type='integer', string="Deliverables"),
-        'child_work_package_count': fields.function(_child_work_package_count, type='integer', string="Work Packages"),
-        'child_unclassified_count': fields.function(_child_unclassified_count, type='integer',
-                                                    string="Unclassified projects"),
+        'child_project_count': fields.function(
+            _child_project_count, type='integer', string="Projects"
+        ),
+        'child_phase_count': fields.function(
+            _child_phase_count, type='integer', string="Phases"
+        ),
+        'child_deliverable_count': fields.function(
+            _child_deliverable_count, type='integer', string="Deliverables"
+        ),
+        'child_work_package_count': fields.function(
+            _child_work_package_count, type='integer', string="Work Packages"
+        ),
+        'child_unclassified_count': fields.function(
+            _child_unclassified_count, type='integer', string="Unclassified projects"
+        ),
     }
 
     def _get_type_common(self, cr, uid, context):
-        ids = self.pool.get('analytic.account.stage').search(cr, uid, [('case_default', '=', 1)], context=context)
+        ids = self.pool.get('analytic.account.stage').search(
+            cr, uid, [('case_default', '=', 1)], context=context
+        )
         return ids
 
     _group_by_full = {

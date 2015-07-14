@@ -26,15 +26,12 @@
     "website": "http://www.eficent.com",
     "category": "Generic Modules/Projects & Services",
     "depends": ["analytic_plan", "purchase"],
-    "description": """Eficent Project Management. Maintain analytic commitments associated to purchase orders         
+    "description": """
+    Eficent Project Management. Maintain analytic commitments associated to purchase orders
     """,
-    "init_xml": [],
-    "update_xml": [                          
+    "data": [
     ],
-    'demo_xml': [
-
-    ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

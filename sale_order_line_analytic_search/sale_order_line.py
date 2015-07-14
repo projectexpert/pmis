@@ -23,21 +23,25 @@ from openerp.osv import fields, osv
 
 
 class sale_order_line(osv.osv):
-    
+
     _inherit = "sale.order.line"
 
     _columns = {
-        'project_id': fields.related('order_id', 'project_id',
-                                     type='many2one',
-                                     relation='account.analytic.account',
-                                     string='Analytic Account',
-                                     readonly=True),
+        'project_id': fields.related(
+            'order_id', 'project_id',
+            type='many2one',
+            relation='account.analytic.account',
+            string='Analytic Account',
+            readonly=True
+        ),
 
-        'project_user_id': fields.related('order_id', 'project_user_id',
-                                          type='many2one',
-                                          relation='res.users',
-                                          string='Project Manager',
-                                          readonly=True),
-    }    
-    
+        'project_user_id': fields.related(
+            'order_id', 'project_user_id',
+            type='many2one',
+            relation='res.users',
+            string='Project Manager',
+            readonly=True
+        ),
+    }
+
 sale_order_line()

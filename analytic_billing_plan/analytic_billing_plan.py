@@ -159,7 +159,9 @@ class analytic_billing_plan_line(osv.osv):
         analytic_obj = self.pool.get('account.analytic.account')
         if account_id:
             analytic = analytic_obj.browse(cr, uid, account_id, context)
-            version_id = analytic.active_analytic_planning_version and analytic.active_analytic_planning_version.id or False
+            version_id = (
+                analytic.active_analytic_planning_version and analytic.active_analytic_planning_version.id or False
+            )
             res['value'].update({'version_id': version_id})
 
         if res['value']:

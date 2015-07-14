@@ -32,7 +32,7 @@ _KPI_TYPE = [('PV', 'Planned Value'),
              ('SV', 'Schedule Variance'),
              ('SVP', 'Schedule Variance Percent'),
              ('SPI', 'Schedule Performance Index'),
-             ('EAC', 'Estimate at Completion'), 
+             ('EAC', 'Estimate at Completion'),
              ('ETC', 'Estimate to Complete'),
              ('VAC', 'Variance at Completion'),
              ('VACP', 'Variance at Completion Percent'),
@@ -44,7 +44,7 @@ _KPI_TYPE = [('PV', 'Planned Value'),
 class project_evm(osv.osv):
     """
     EVM
-    
+
     """
     _name = 'project.evm'
     _description = 'Project Earned Value Management indicators'
@@ -53,21 +53,19 @@ class project_evm(osv.osv):
         'name': fields.char('Title', size=64, required=False),
         'date': fields.date('Date'),
         'eval_date': fields.char('Printed Date', size=64, required=True),
-        'kpi_type': fields.selection(_KPI_TYPE, 'Type', required=True,),        
+        'kpi_type': fields.selection(_KPI_TYPE, 'Type', required=True,),
         'project_id': fields.many2one('project.project', 'Project', ondelete='cascade'),
         'kpi_value': fields.float('Value'),
     }
-    
+
     def update_all_evm(self, cr, uid, context=None):
         """
         Updates KPI's
         To be used by a scheduled job.
         """
         project_obj = self.pool.get('project.project')
-        
-        #Search all the open projects
-        project_ids = project_obj.search(cr, uid, [('state', '=', 'open')], context=context)
-                    
-        project_obj.update_project_evm(cr, uid, project_ids, context=context)
-            
 
+        # Search all the open projects
+        project_ids = project_obj.search(cr, uid, [('state', '=', 'open')], context=context)
+
+        project_obj.update_project_evm(cr, uid, project_ids, context=context)

@@ -21,8 +21,9 @@
 
 from openerp.osv import fields, osv
 
+
 class purchase_order(osv.osv):
-    
+
     _inherit = "purchase.order"
 
     def _get_analytic_accounts(self, cursor, user, ids, name, arg, context=None):
@@ -51,7 +52,11 @@ class purchase_order(osv.osv):
         for field, operator, value in args:
             assert field == name
             po_line_ids = po_line_obj.search(cr, uid, [('account_analytic_id', operator, value)])
-            order_ids = [po_line.order_id and po_line.order_id.id for po_line in po_line_obj.browse(cr, uid, po_line_ids)]
+            order_ids = [
+                po_line.order_id and po_line.order_id.id for po_line in po_line_obj.browse(
+                    cr, uid, po_line_ids
+                )
+            ]
             res.append(('id', 'in', order_ids))
         return res
 
@@ -61,8 +66,12 @@ class purchase_order(osv.osv):
         res = []
         for field, operator, value in args:
             assert field == name
-            po_line_ids = po_line_obj.search(cr, uid, [('account_analytic_user_id', operator, value)])
-            order_ids = [po_line.order_id and po_line.order_id.id for po_line in po_line_obj.browse(cr, uid, po_line_ids)]
+            po_line_ids = po_line_obj.search(
+                cr, uid, [('account_analytic_user_id', operator, value)]
+            )
+            order_ids = [
+                po_line.order_id and po_line.order_id.id for po_line in po_line_obj.browse(cr, uid, po_line_ids)
+            ]
             res.append(('id', 'in', order_ids))
         return res
 
@@ -74,6 +83,6 @@ class purchase_order(osv.osv):
                                                 fnct_search=_search_analytic_accounts,
                                                 readonly=True),
 
-    }    
-    
+    }
+
 purchase_order()

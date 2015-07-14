@@ -29,15 +29,11 @@
     "depends": ["base", "project", "analytic", "project_wbs"],
     "description": """
     """,
-    "init_xml": [],
-    "update_xml": [
+    "data": [
         "analytic_account_sequence_view.xml",
         "analytic_account_sequence_data.xml",
         "account_analytic_account_view.xml",
         "security/ir.model.access.csv",
-    ],
-    'demo_xml': [
-
     ],
     'test': [
     ],
@@ -45,4 +41,5 @@
     'active': False,
     'certificate': '',
     'application': True,
+    'license': 'AGPL-3',
 }

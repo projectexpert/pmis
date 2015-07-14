@@ -75,7 +75,7 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
         'requisition_line_ids': _get_requisition_lines,
     }
 
-    def make_purchase_requisitions(self, cr, uid, ids, context=None):        
+    def make_purchase_requisitions(self, cr, uid, ids, context=None):
         """
              To make purchase requisitions
 
@@ -92,10 +92,10 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
         if context is None:
             context = {}
         res = []
-        make_requisition = self.browse(cr, uid, ids[0], context=context)            
-        
+        make_requisition = self.browse(cr, uid, ids[0], context=context)
+
         record_ids = context and context.get('active_ids', False)
-        if record_ids:            
+        if record_ids:
             line_plan_obj = self.pool.get('analytic.resource.plan.line')
             requisition_obj = self.pool.get('purchase.requisition')
             requisition_line_obj = self.pool.get('purchase.requisition.line')
@@ -107,13 +107,13 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
 
             for line in line_plan_obj.browse(cr, uid, record_ids, context=context):
                 if line.product_id.name:
-                    product_names.insert(0, line.product_id.name)    
+                    product_names.insert(0, line.product_id.name)
                 else:
                     product_names.insert(0, '')
-                    
+
             requisition_name = ', '.join(product_names)
             for line in line_plan_obj.browse(cr, uid, record_ids, context=context):
-                    uom_id = line.product_uom_id                                        
+                    uom_id = line.product_uom_id
                     line_company_id = \
                         line.company_id and line.company_id.id or False
                     if company_id is not False and line_company_id != company_id:
@@ -146,11 +146,11 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
                             'date_end': make_requisition.date_end,
                             'company_id': company_id,
                             'account_analytic_id': account_analytic_id,
-                        
+
                         }, context=context)
-                                                        
+
                     purchase_requisition_line.update({'requisition_id': purchase_id})
-                    
+
                     requisition_line_id = requisition_line_obj.create(cr,
                                                                       uid,
                                                                       purchase_requisition_line,
@@ -170,6 +170,6 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
             'view_id': False,
             'context': False,
             'type': 'ir.actions.act_window'
-        }        
+        }
 
 analytic_resouce_plan_line_make_purchase_requisition()

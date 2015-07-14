@@ -32,12 +32,12 @@
     - Makes it possible to search stock moves by analytic account or its project manager
     - Makes it possible to search picking lists by analytic account or its project manager
     """,
-    "init_xml": [],
+
     'data': [
              'stock_view.xml',
              'stock_picking_view.xml',
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

@@ -31,7 +31,7 @@
         Provides the possibility to perform economic analysis by business segment.
     """,
     "init_xml": [],
-    "update_xml": [    
+    "update_xml": [
         "security/ir.model.access.csv",
         "account_analytic_lob_view.xml",
         "project_view.xml",
@@ -39,7 +39,7 @@
     'demo_xml': [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

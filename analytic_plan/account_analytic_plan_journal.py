@@ -20,8 +20,9 @@
 ##############################################################################
 from openerp.osv import fields, osv
 
+
 class account_analytic_plan_journal(osv.osv):
-    
+
     _name = 'account.analytic.plan.journal'
     _description = 'Analytic Journal Plan'
     _columns = {
@@ -43,7 +44,7 @@ class account_analytic_plan_journal(osv.osv):
         'line_ids': fields.one2many('account.analytic.line.plan', 'journal_id', 'Lines'),
         'company_id': fields.many2one('res.company', 'Company', required=True),
         'analytic_journal': fields.many2one('account.analytic.journal', 'Actual Analytic journal', required=False),
-        
+
     }
     _defaults = {
         'active': True,

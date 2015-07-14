@@ -20,7 +20,8 @@
 #
 ##############################################################################
 from datetime import datetime, timedelta
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT, DATETIME_FORMATS_MAP, float_compare
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT, DATETIME_FORMATS_MAP
+from openerp.tools import float_compare
 from dateutil.relativedelta import relativedelta
 from openerp.osv import fields, osv
 from openerp import netsvc
@@ -31,11 +32,11 @@ from openerp import SUPERUSER_ID
 
 class sale_order(osv.osv):
     _inherit = "sale.order"
-    
+
     def _prepare_order_line_move(self, cr, uid, order, line, picking_id, date_planned, context=None):
         location_id = order.shop_id.warehouse_id.lot_stock_id.id
         output_id = order.shop_id.warehouse_id.lot_output_id.id
-      
+
         return {
             'name': line.name,
             'picking_id': picking_id,
@@ -45,8 +46,7 @@ class sale_order(osv.osv):
             'product_qty': line.product_uom_qty,
             'product_uom': line.product_uom.id,
             'product_uos_qty': (line.product_uos and line.product_uos_qty) or line.product_uom_qty,
-            'product_uos': (line.product_uos and line.product_uos.id)\
-                    or line.product_uom.id,
+            'product_uos': (line.product_uos and line.product_uos.id) or line.product_uom.id,
             'product_packaging': line.product_packaging.id,
             'partner_id': line.address_allotment_id.id or order.partner_shipping_id.id,
             'location_id': location_id,
@@ -54,11 +54,11 @@ class sale_order(osv.osv):
             'sale_line_id': line.id,
             'tracking_id': False,
             'state': 'draft',
-            #'state': 'waiting',
+            # 'state': 'waiting',
             'company_id': order.company_id.id,
             'price_unit': line.product_id.standard_price or 0.0,
-            'analytic_account_id': line.order_id and line.order_id.project_id.id,            
+            'analytic_account_id': line.order_id and line.order_id.project_id.id,
         }
 
 
-sale_order()        
+sale_order()

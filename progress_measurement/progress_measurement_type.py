@@ -23,7 +23,7 @@ from openerp.osv import fields, osv
 
 
 class progress_measurement_type(osv.osv):
-    
+
     _name = "progress.measurement.type"
     _description = 'Progress Measurement Type'
 
@@ -60,24 +60,35 @@ class progress_measurement_type(osv.osv):
                     raise osv.except_osv(_('Error!'),
                                          _('Only one default measurement type can exist.'))
 
-    _columns = {        
-        'name': fields.char('Name', size=32, required=True, translate=True,
-                            help="Name given to the progress measurement type"),
+    _columns = {
+        'name': fields.char(
+            'Name', size=32, required=True, translate=True, help="Name given to the progress measurement type"
+        ),
 
-        'default_max_value': fields.float('Default Maximum Value',
-                                          help="Maximum value that is permitted for the object being "
-                                               "measured as a total measure of progress."),
-        'precision': fields.float('Precision',
-                                  help="Value of increments permitted for the given progress measurement type "
-                                       "measured as a total measure of progress."),
-        'active': fields.boolean('Active',
-                                 help="Indicates that this type of progress can be used"),
+        'default_max_value': fields.float(
+            'Default Maximum Value',
+            help="Maximum value that is permitted for the object being "
+            "measured as a total measure of progress."
+        ),
+        'precision': fields.float(
+            'Precision',
+            help="Value of increments permitted for the given progress measurement type "
+            "measured as a total measure of progress."
+        ),
+        'active': fields.boolean(
+            'Active',
+            help="Indicates that this type of progress can be used"
+        ),
 
-        'is_percent': fields.boolean('Percentage',
-                                     help="Indicates that progress measurements of this type are "
-                                          "entered on a percent basis"),
-        'is_default': fields.boolean('Default measurement type',
-                                     help="Indicates that this progress measurements is to be used by default"),
+        'is_percent': fields.boolean(
+            'Percentage',
+            help="Indicates that progress measurements of this type are "
+            "entered on a percent basis"
+        ),
+        'is_default': fields.boolean(
+            'Default measurement type',
+            help="Indicates that this progress measurements is to be used by default"
+        ),
     }
 
     _sql_constraints = [('progress_measurement_type_name_unique', 'unique(name)', 'Progress type name already exists')]
@@ -96,7 +107,7 @@ class progress_measurement_type(osv.osv):
 
     _defaults = {
         'active': True,
-    }    
+    }
 
     def create(self, cr, uid, vals, *args, **kwargs):
 

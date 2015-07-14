@@ -21,8 +21,9 @@
 import time
 from openerp.osv import fields, osv
 
+
 class progress_measurement(osv.osv):
-    
+
     _name = "progress.measurement"
     _description = 'Progress Measurement'
 
@@ -49,7 +50,9 @@ class progress_measurement(osv.osv):
         'communication_date_print': fields.char('Communication Date', size=32, required=True),
 
         'value': fields.float('Value', required=True, help="Value of the measure"),
-        'progress_measurement_type': fields.many2one('progress.measurement.type', 'Progress Measurement Type', required=True),
+        'progress_measurement_type': fields.many2one(
+            'progress.measurement.type', 'Progress Measurement Type', required=True
+        ),
         'user_id': fields.many2one('res.users', 'Entered by', required=True),
     }
 
@@ -66,7 +69,7 @@ class progress_measurement(osv.osv):
     _defaults = {
         'communication_date': time.strftime('%Y-%m-%d'),
         'user_id': lambda self, cr, uid, context: uid,
-    }    
+    }
 
     def create(self, cr, uid, vals, *args, **kwargs):
 

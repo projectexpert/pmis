@@ -30,16 +30,16 @@ Copies the analytic account of the sales order to the stock move.
     'author': 'Eficent',
     'website': 'http://www.eficent.com',
     'images': ['images/deliveries_to_invoice.jpeg'],
-    'depends': ['sale_stock', 'stock_move_line'],
-    'init_xml': [],
-    'update_xml': [
-                   ],
-   'data': [],
-   'demo_xml': [],
+    'depends': [
+        'sale_stock',
+        'stock_move_line'
+    ],
+    "data": [],
+    'demo': [],
     'test': [
              ],
     'installable': True,
     'auto_install': True,
-    
+
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

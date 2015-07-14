@@ -31,15 +31,13 @@ Organizations often require to quickly find the sales order lines associated to 
 or to an analytic account, searching by it's code, name or project/account manager.
 This module introduces the possibility search sales order lines by analytic account or by project manager.
 """,
-    "init_xml": [
-                ],
-    "update_xml": [            
+    "data": [
         "sale_order_line_view.xml",
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

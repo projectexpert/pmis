@@ -32,15 +32,13 @@ or to an analytic account, searching by it's code, name or project/account manag
 This module introduces the possibility search purchase orders by analytic account or by project manager.
 It also introduces a new menu entry in Purchasing to list purchase order lines.
 """,
-    "init_xml": [
-                ],
-    "update_xml": [            
+    "data": [
         "purchase_order_view.xml",
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

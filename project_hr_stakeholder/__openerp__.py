@@ -37,9 +37,7 @@
         - You can specify the roles and responsibilities of the stakeholders in this project.
         - You can maintain a master data for roles and responsibilities.
     """,
-    "init_xml": [
-                ],
-    "update_xml": [
+    "data": [
         "project_hr_role.xml",
         "project_hr_responsibility.xml",
         "project_hr_stakeholder.xml",
@@ -48,7 +46,7 @@
         "security/project_security.xml",
         "project_hr_stakeholder_data.xml",
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
     'test': [

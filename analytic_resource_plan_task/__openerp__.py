@@ -44,14 +44,13 @@ Analytic Resource Planning
     a first rough-cut resource plan, that can then be refined as the project progresses.
 
     """,
-    "init_xml": [],
-    "update_xml": [
+    "data": [
         "analytic_resource_plan_view.xml",
         "task_view.xml",
         "security/ir.model.access.csv",
-        
+
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
     'test':[

@@ -33,24 +33,24 @@
     This module depends on modules provided by Vauxoo, that can be obtained from Odoo Apps:
     - purchase_requisition_line_analytic
     - purchase_requisition_line_description
-            
-   == More information and assistance ==
-   
-   If you are interested in this module and seek further assistance to use it please visit us at www.eficent.com or conact us at contact@eficent.com
 
-          
+   == More information and assistance ==
+
+   If you are interested in this module and seek further assistance to use it please visit us at
+   www.eficent.com or conact us at contact@eficent.com
+
+
     """,
-    "init_xml": [],
-    "update_xml": [        
+    "data": [
         "wizard/analytic_resource_plan_line_make_purchase_requisition.xml",
         "analytic_resource_plan_line_view.xml",
         "analytic_account_view.xml",
-        
-    ],
-    'demo_xml': [
 
     ],
-    'test':[
+    'demo': [
+
+    ],
+    'test': [
     ],
     'installable': True,
     'active': False,

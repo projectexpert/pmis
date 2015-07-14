@@ -79,8 +79,8 @@ class report_account_analytic_plan_actual(osv.osv):
 
         cr.execute("""
             create or replace view report_account_analytic_plan_actual as (
-                
-              SELECT  
+
+              SELECT
                     ROW_NUMBER() over (order by tot.date) as id,
                     tot.date as date,
                     to_char(tot.date, 'YYYY') as year,
@@ -95,10 +95,10 @@ class report_account_analytic_plan_actual(osv.osv):
                     tot.product_uom_id,
                     tot.version_id
                 FROM
-                    (SELECT                    
+                    (SELECT
                          CAST( abs(AAL.amount) AS FLOAT) AS kpi_amount,
                          CAST( -1* AAL.unit_amount AS FLOAT) AS kpi_quantity,
-                         'AC' AS kpi_type,                          
+                         'AC' AS kpi_type,
                          AAL.date,
                          AAL.account_id,
                          AAC.complete_wbs_code,
@@ -113,7 +113,7 @@ class report_account_analytic_plan_actual(osv.osv):
                     WHERE AAL.amount < 0
 
                 UNION ALL
-                    SELECT                    
+                    SELECT
                          CAST( abs(AAL.amount) AS FLOAT) AS kpi_amount,
                          CAST( AAL.unit_amount AS FLOAT) AS kpi_quantity,
                          'AR' AS kpi_type,
@@ -149,7 +149,7 @@ class report_account_analytic_plan_actual(osv.osv):
                     WHERE AALP.amount < 0
 
                 UNION ALL
-                    SELECT                    
+                    SELECT
                          CAST( abs(AALP.amount) AS FLOAT) AS kpi_amount,
                          CAST( AALP.unit_amount AS FLOAT) AS kpi_quantity,
                          'PR' AS kpi_type,
@@ -166,10 +166,10 @@ class report_account_analytic_plan_actual(osv.osv):
                     WHERE AALP.amount > 0
 
                 UNION ALL
-                    SELECT                    
+                    SELECT
                          CAST( AALP.amount AS FLOAT) AS kpi_amount,
                          CAST( -1 * AALP.unit_amount AS FLOAT) AS kpi_quantity,
-                         'CV' AS kpi_type,                          
+                         'CV' AS kpi_type,
                          AALP.date,
                          AALP.account_id,
                          AAC.complete_wbs_code,
@@ -201,10 +201,10 @@ class report_account_analytic_plan_actual(osv.osv):
                     WHERE AAL.amount < 0
 
                 UNION ALL
-                    SELECT                    
+                    SELECT
                          CAST( AALP.amount AS FLOAT) AS kpi_amount,
                          CAST( AALP.unit_amount AS FLOAT) AS kpi_quantity,
-                         'RV' AS kpi_type,                          
+                         'RV' AS kpi_type,
                          AALP.date,
                          AALP.account_id,
                          AAC.complete_wbs_code,
@@ -313,12 +313,12 @@ class report_account_analytic_plan_actual(osv.osv):
                     ON AAL.account_id = AAC.id,
                     account_analytic_plan_version AAPV
                 ) AS tot
-                GROUP BY 
-                    tot.date, 
+                GROUP BY
+                    tot.date,
                     tot.account_id,
                     tot.complete_wbs_code,
                     tot.complete_wbs_name,
-                    tot.kpi_type, 
+                    tot.kpi_type,
                     tot.product_id,
                     tot.product_uom_id,
                     tot.version_id

@@ -25,11 +25,11 @@ from openerp.tools.translate import _
 
 class account_move_line(osv.osv):
     _inherit = "account.move.line"
-    
+
     def create_analytic_lines(self, cr, uid, ids, context=None):
         acc_ana_line_obj = self.pool.get('account.analytic.line')
         for obj_line in self.browse(cr, uid, ids, context=context):
-            #Only create analytic line if the associated account is Expense or Income.
+            # Only create analytic line if the associated account is Expense or Income.
             if obj_line.account_id.user_type and \
                             obj_line.account_id.user_type.report_type in ('income', 'expense'):
                 if obj_line.analytic_account_id:

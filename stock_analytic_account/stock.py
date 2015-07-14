@@ -21,20 +21,22 @@
 import time
 from openerp.osv import fields, osv, orm
 
-    
-class stock_move(osv.osv):    
+
+class stock_move(osv.osv):
 
     _inherit = "stock.move"
 
-    _columns = {        
+    _columns = {
         'analytic_account_id': fields.many2one('account.analytic.account', 'Analytic Account'),
-        'analytic_account_user_id': fields.related('analytic_account_id',
-                                           'user_id',
-                                           type='many2one',
-                                           relation='res.users',
-                                           string='Project Manager',
-                                           store=True,
-                                           readonly=True),
+        'analytic_account_user_id': fields.related(
+            'analytic_account_id',
+            'user_id',
+            type='many2one',
+            relation='res.users',
+            string='Project Manager',
+            store=True,
+            readonly=True
+        ),
     }
-    
+
 stock_move()

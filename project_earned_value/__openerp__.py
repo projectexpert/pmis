@@ -25,25 +25,28 @@
     "author": "Eficent",
     "website": "",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["project","project_wbs", "analytic_plan", "project_progress_measurement"],
+    "depends": [
+        "project",
+        "project_wbs",
+        "analytic_plan",
+        "project_progress_measurement"
+    ],
     "description": """
-        - 
- 
+        -
+
     """,
-    "init_xml": [],
-    "update_xml": [
+    "data": [
         "project_evm_view.xml",
         "project_evm_data.xml",
         "wizard/earned_value_view.xml",
         "project_project_view.xml",
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,
     'certificate': '',
 }
-

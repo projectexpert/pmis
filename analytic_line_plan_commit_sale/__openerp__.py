@@ -26,15 +26,13 @@
     "website": "http://www.eficent.com",
     "category": "Generic Modules/Projects & Services",
     "depends": ["analytic_plan", "sale"],
-    "description": """Maintain analytic committed revenues associated to sales orders
+    "description": """
+    Maintain analytic committed revenues associated to sales orders
     """,
-    "init_xml": [],
-    "update_xml": [                          
-    ],
-    'demo_xml': [
+    "data": [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

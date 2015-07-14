@@ -23,7 +23,7 @@ from openerp.osv import fields, osv
 
 
 class account_invoice_line(osv.osv):
-    
+
     _inherit = "account.invoice.line"
 
     _columns = {
@@ -34,6 +34,6 @@ class account_invoice_line(osv.osv):
                                                    string='Project Manager',
                                                    store=True,
                                                    readonly=True),
-    }    
-    
+    }
+
 account_invoice_line()

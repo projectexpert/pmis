@@ -27,24 +27,25 @@
     "category": "Generic Modules/Projects & Services",
     "depends": ["analytic_billing_plan", "sale_order_line_analytic"],
     "description": """
-    
+
   == Record planned sales and create sales orders  ==
-    
+
     Variant to the Analytic Billing Plan module that works with module Sales order line analytic.
     That is, moves the analytic account to the sales order line.
 
-            
+
    == More information and assistance ==
-   
-   If you are interested in this module and seek further assistance to use it please visit us at www.eficent.com or conact us at contact@eficent.com
-        
+
+   If you are interested in this module and seek further assistance to use it please visit us at
+   www.eficent.com or conact us at contact@eficent.com
+
     """,
     "init_xml": [],
     "update_xml": [],
     'demo_xml': [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

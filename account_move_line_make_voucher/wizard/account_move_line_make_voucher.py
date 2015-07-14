@@ -232,6 +232,6 @@ class account_move_line_make_voucher(osv.osv_memory):
             'context': context,
             'type': 'ir.actions.act_window',
             'views': [(form_id, 'form'), (tree_id, 'tree')],
-        }        
+        }
 
 account_move_line_make_voucher()

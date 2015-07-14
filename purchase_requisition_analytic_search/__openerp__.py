@@ -36,15 +36,13 @@ This module adds the following features to purchase requisitions:
 - Introduces the possibility to search purchase requisitions by analytic account or by project manager.
 - Introduces a new menu entry in Purchasing to list purchase requisition lines.
 """,
-    "init_xml": [
-                ],
-    "update_xml": [                    
+    "data": [
         "purchase_requisition_view.xml",
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

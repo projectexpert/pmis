@@ -45,17 +45,16 @@ Define Project Progress Measurements:
         * Description: description of the measurement
         * Entered by: User that entered the measurement
     """,
-    "init_xml": [],
-    "update_xml": [
+    "data": [
         "project_progress_measurement_view.xml",
         "wizard/progress_measurements_entry_view.xml",
         "project_project_view.xml",
         "security/ir.model.access.csv",
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,
