@@ -22,6 +22,3 @@ import account_analytic_plan_version
 import account_analytic_plan_journal
 import account_analytic_line_plan
 import account_analytic_account
-
-
-
