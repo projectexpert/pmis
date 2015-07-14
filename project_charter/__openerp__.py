@@ -58,6 +58,6 @@ document Project Charter, with all it's contents:
     'demo': [],
     'installable': True,
     'auto_install': False,
-    'application': False,
+    'application': True,
     'license': 'AGPL-3',
 }
