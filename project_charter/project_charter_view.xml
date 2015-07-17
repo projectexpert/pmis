@@ -99,7 +99,7 @@
                                 icon="fa-pencil-square-o"
                                 context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
                                 groups="project.group_project_manager">
-                                <div>Resource plan<br/>lines</div>
+                                <div>Resource plan</div>
                             </button>
                             <button help="Billing plan lines"
                                 class="oe_inline oe_stat_button"
@@ -108,7 +108,7 @@
                                 icon="fa-pencil-square-o"
                                 context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
                                 groups="project.group_project_manager">
-                                <div>Billing<br/>plan lines</div>
+                                <div>Billing plan</div>
                             </button>
                             <group string="Resource and Billing Plan">
                                 <field name="plan_line_ids" nolabel="1" readonly="1"/>
