@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-27 14:47+0000\n"
-"PO-Revision-Date: 2015-04-27 16:48+0100\n"
+"POT-Creation-Date: 2015-07-17 12:27+0000\n"
+"PO-Revision-Date: 2015-07-17 14:32+0100\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "MIME-Version: 1.0\n"
@@ -55,6 +55,11 @@ msgid "Created on"
 msgstr "Ustvarjeno"
 
 #. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Group By"
+msgstr "Združi po"
+
+#. module: analytic_resource_plan
 #: field:analytic.resource.plan.line,id:0
 msgid "ID"
 msgstr "ID"
@@ -81,9 +86,19 @@ msgid "Plan resources"
 msgstr "Plan virov"
 
 #. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Planning Journal"
+msgstr "Dnevnik planiranja"
+
+#. module: analytic_resource_plan
 #: field:analytic.resource.plan.line,analytic_line_plan_id:0
 msgid "Planning analytic lines"
-msgstr "Analitične postavke planiranja"
+msgstr "Planske analitične postavke"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Product"
+msgstr "Proizvod"
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
@@ -96,6 +111,11 @@ msgid "Product Template"
 msgstr "Predloga proizvoda"
 
 #. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Project"
+msgstr "Projekt"
+
+#. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
 msgid "Purchase Order Information"
 msgstr "Podatki o nabavnem nalogu"
@@ -106,15 +126,10 @@ msgid "Purchasing Pricelist"
 msgstr "Nabavni cenik"
 
 #. module: analytic_resource_plan
-#: model:ir.ui.menu,name:analytic_resource_plan.analytic_resource_plan_menu
-msgid "Resource Plan"
-msgstr "Plan virov"
-
-#. module: analytic_resource_plan
 #: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
 #: view:project.project:analytic_resource_plan.edit_project
 msgid "Resource plan"
-msgstr "Postavke"
+msgstr "Plan virov"
 
 #. module: analytic_resource_plan
 #: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
@@ -133,6 +148,7 @@ msgid "Search resource plan lines"
 msgstr "Iskanje postavk plana virov"
 
 #. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
 #: field:analytic.resource.plan.line,supplier_id:0
 msgid "Supplier"
 msgstr "Dobavitelj"
@@ -143,9 +159,13 @@ msgid "Unit Price"
 msgstr "Cena enote"
 
 #. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Version"
+msgstr "Verzija"
+
+#. module: analytic_resource_plan
 #: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
-#: view:project.project:analytic_resource_plan.edit_project
 msgid "lines"
-msgstr "plana virov"
+msgstr ""
 
 

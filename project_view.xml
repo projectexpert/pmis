@@ -14,7 +14,7 @@
                         icon="fa-pencil-square-o"
                         context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
                         groups="project.group_project_manager">
-                        <div>Resource plan<br/>lines</div>
+                        <div>Resource plan</div>
                     </button>
                 </xpath>
             </field>
