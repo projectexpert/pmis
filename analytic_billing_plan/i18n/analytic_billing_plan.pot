@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-27 14:37+0000\n"
-"PO-Revision-Date: 2015-04-27 14:37+0000\n"
+"POT-Creation-Date: 2015-07-17 12:32+0000\n"
+"PO-Revision-Date: 2015-07-17 12:32+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -43,18 +43,13 @@ msgstr ""
 
 #. module: analytic_billing_plan
 #: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
-#: view:project.project:analytic_billing_plan.edit_project
 msgid "Billing"
-msgstr ""
-
-#. module: analytic_billing_plan
-#: model:ir.ui.menu,name:analytic_billing_plan.analytic_billing_plan_menu
-msgid "Billing Plan"
 msgstr ""
 
 #. module: analytic_billing_plan
 #: model:ir.actions.act_window,name:analytic_billing_plan.action_analytic_billing_plan_line_open_form
 #: model:ir.ui.menu,name:analytic_billing_plan.analytic_billing_plan_line_entries
+#: view:project.project:analytic_billing_plan.edit_project
 msgid "Billing plan"
 msgstr ""
 
@@ -119,6 +114,11 @@ msgid "Customer Information"
 msgstr ""
 
 #. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
+msgid "Group By"
+msgstr ""
+
+#. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,id:0
 #: field:analytic.billing.plan.line.make.sale,id:0
 msgid "ID"
@@ -167,8 +167,18 @@ msgid "Ordered Quantities"
 msgstr ""
 
 #. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
+msgid "Planning Journal"
+msgstr ""
+
+#. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,analytic_line_plan_id:0
 msgid "Planning analytic lines"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
+msgid "Product"
 msgstr ""
 
 #. module: analytic_billing_plan
@@ -179,6 +189,11 @@ msgstr ""
 #. module: analytic_billing_plan
 #: model:ir.model,name:analytic_billing_plan.model_product_template
 msgid "Product Template"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
+msgid "Project"
 msgstr ""
 
 #. module: analytic_billing_plan
@@ -213,8 +228,12 @@ msgid "Unit Price"
 msgstr ""
 
 #. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
+msgid "Version"
+msgstr ""
+
+#. module: analytic_billing_plan
 #: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
-#: view:project.project:analytic_billing_plan.edit_project
 msgid "plan lines"
 msgstr ""
 

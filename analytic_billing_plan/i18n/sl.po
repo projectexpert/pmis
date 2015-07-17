@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-27 14:38+0000\n"
-"PO-Revision-Date: 2015-04-27 16:40+0100\n"
+"POT-Creation-Date: 2015-07-17 12:32+0000\n"
+"PO-Revision-Date: 2015-07-17 14:36+0100\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "MIME-Version: 1.0\n"
@@ -46,20 +46,15 @@ msgstr "Postavka analitičnega obračunskega plana za prodajo"
 
 #. module: analytic_billing_plan
 #: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
-#: view:project.project:analytic_billing_plan.edit_project
 msgid "Billing"
-msgstr "Postavke"
-
-#. module: analytic_billing_plan
-#: model:ir.ui.menu,name:analytic_billing_plan.analytic_billing_plan_menu
-msgid "Billing Plan"
-msgstr "Obračunski plan"
+msgstr "Obračun."
 
 #. module: analytic_billing_plan
 #: model:ir.actions.act_window,name:analytic_billing_plan.action_analytic_billing_plan_line_open_form
 #: model:ir.ui.menu,name:analytic_billing_plan.analytic_billing_plan_line_entries
+#: view:project.project:analytic_billing_plan.edit_project
 msgid "Billing plan"
-msgstr "Obračunski plan"
+msgstr "Obračun. plan"
 
 #. module: analytic_billing_plan
 #: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
@@ -122,6 +117,11 @@ msgid "Customer Information"
 msgstr "Podatki o kupcu"
 
 #. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
+msgid "Group By"
+msgstr "Združi po"
+
+#. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,id:0
 #: field:analytic.billing.plan.line.make.sale,id:0
 msgid "ID"
@@ -174,9 +174,19 @@ msgid "Ordered Quantities"
 msgstr "Naročene količine"
 
 #. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
+msgid "Planning Journal"
+msgstr "Dnevnik planiranja"
+
+#. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,analytic_line_plan_id:0
 msgid "Planning analytic lines"
 msgstr "Planske analitične postavke"
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
+msgid "Product"
+msgstr "Proizvod"
 
 #. module: analytic_billing_plan
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
@@ -187,6 +197,11 @@ msgstr "Podatki o proizvodu"
 #: model:ir.model,name:analytic_billing_plan.model_product_template
 msgid "Product Template"
 msgstr "Predloga proizvoda"
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
+msgid "Project"
+msgstr "Projekt"
 
 #. module: analytic_billing_plan
 #: field:product.template,revenue_analytic_plan_journal_id:0
@@ -225,15 +240,19 @@ msgid "Unit Price"
 msgstr "Cena enote"
 
 #. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
+msgid "Version"
+msgstr "Verzija"
+
+#. module: analytic_billing_plan
 #: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
-#: view:project.project:analytic_billing_plan.edit_project
 msgid "plan lines"
-msgstr "obrač. plana"
+msgstr "plan"
 
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,order_line_ids:0
 #: field:analytic.billing.plan.line.make.sale,order_line_ids:0
 msgid "unknown"
-msgstr "neznano"
+msgstr ""
 
 

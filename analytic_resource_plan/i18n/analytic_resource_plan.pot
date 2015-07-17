@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-27 14:47+0000\n"
-"PO-Revision-Date: 2015-04-27 14:47+0000\n"
+"POT-Creation-Date: 2015-07-17 12:27+0000\n"
+"PO-Revision-Date: 2015-07-17 12:27+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -52,6 +52,11 @@ msgid "Created on"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Group By"
+msgstr ""
+
+#. module: analytic_resource_plan
 #: field:analytic.resource.plan.line,id:0
 msgid "ID"
 msgstr ""
@@ -78,8 +83,18 @@ msgid "Plan resources"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Planning Journal"
+msgstr ""
+
+#. module: analytic_resource_plan
 #: field:analytic.resource.plan.line,analytic_line_plan_id:0
 msgid "Planning analytic lines"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Product"
 msgstr ""
 
 #. module: analytic_resource_plan
@@ -93,6 +108,11 @@ msgid "Product Template"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Project"
+msgstr ""
+
+#. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
 msgid "Purchase Order Information"
 msgstr ""
@@ -100,11 +120,6 @@ msgstr ""
 #. module: analytic_resource_plan
 #: field:analytic.resource.plan.line,pricelist_id:0
 msgid "Purchasing Pricelist"
-msgstr ""
-
-#. module: analytic_resource_plan
-#: model:ir.ui.menu,name:analytic_resource_plan.analytic_resource_plan_menu
-msgid "Resource Plan"
 msgstr ""
 
 #. module: analytic_resource_plan
@@ -130,6 +145,7 @@ msgid "Search resource plan lines"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
 #: field:analytic.resource.plan.line,supplier_id:0
 msgid "Supplier"
 msgstr ""
@@ -140,8 +156,12 @@ msgid "Unit Price"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Version"
+msgstr ""
+
+#. module: analytic_resource_plan
 #: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
-#: view:project.project:analytic_resource_plan.edit_project
 msgid "lines"
 msgstr ""
 
