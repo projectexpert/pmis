@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-29 15:47+0000\n"
-"PO-Revision-Date: 2015-01-29 17:01+0100\n"
+"POT-Creation-Date: 2015-07-18 11:11+0000\n"
+"PO-Revision-Date: 2015-07-18 13:41+0100\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 "Language: sl\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 
 #. module: project_wbs
 #: model:ir.actions.act_window,help:project_wbs.open_view_project_deliverables
@@ -27,7 +27,7 @@ msgid ""
 "            "
 msgstr ""
 "<p class=\"oe_view_nocontent_create\">\n"
-"                  Kliknite za novo dobavo.\n"
+"                  Kliknite za zagon nove dobave.\n"
 "                </p>\n"
 "            "
 
@@ -40,7 +40,7 @@ msgid ""
 "            "
 msgstr ""
 "<p class=\"oe_view_nocontent_create\">\n"
-"                  Klikni za novo fazo.\n"
+"                  Kliknite za zagon nove faze.\n"
 "                </p>\n"
 "            "
 
@@ -53,7 +53,7 @@ msgid ""
 "            "
 msgstr ""
 "<p class=\"oe_view_nocontent_create\">\n"
-"                  Klikni za zagon novega projekta.\n"
+"                  Kliknite za zagon novega projekta\n"
 "                </p>\n"
 "            "
 
@@ -74,17 +74,16 @@ msgid ""
 "            "
 msgstr ""
 "<p class=\"oe_view_nocontent_create\">\n"
-"                  Klikni za zagon novega projekta.\n"
+"                  Kliknite za zagon novega projekta.\n"
 "                </p><p>\n"
-"                  Projekti služijo organizaciji dejavnosti; planiranju\n"
-"                  opravil, sledenju zadev, obračunu delovnih ur. Določite "
-"lahko\n"
-"                  notranje projekte (R&amp;D, Izboljšava prodajnega "
-"procesa),\n"
+"                  S projekti organiziramo dejavnosti, planiramo opravila,\n"
+"                  spremljamo zadeve, obračunamo časovnice. Določimo si\n"
+"                  lahko interne projekte(R&amp;D, Izboljšava prodajnih "
+"procesov),\n"
 "                  zasebne projekte (Moji opravki) ali projekte kupcev.\n"
 "                </p><p>\n"
-"                  Sodelovali boste lahko z notranjimi uporabniki ali pa\n"
-"                  delili svoje aktivnosti s strankami.\n"
+"                  Na projektih boste lahko sodelovali z uporabniki ali\n"
+"                  povabili stranke na souporabo dejavnosti.\n"
 "                </p>\n"
 "            "
 
@@ -97,7 +96,7 @@ msgid ""
 "            "
 msgstr ""
 "<p class=\"oe_view_nocontent_create\">\n"
-"                  Klikni za zagon novega delovnega seznama.\n"
+"                  Kliknite za zagon novega delovnega seznama.\n"
 "                </p>\n"
 "            "
 
@@ -123,12 +122,16 @@ msgstr ""
 "                Te stopnje se uporablja za spremljanje napredovanja\n"
 "                projekta, faze, dobave ali delovnega seznama.\n"
 "              </p>\n"
-"            "
 
 #. module: project_wbs
 #: view:analytic.account.stage:project_wbs.analytic_account_stage_edit
 msgid "Add a description..."
 msgstr "Dodaj opis..."
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Administration"
+msgstr "Administracija"
 
 #. module: project_wbs
 #: model:ir.model,name:project_wbs.model_account_analytic_account
@@ -147,7 +150,12 @@ msgstr "Stopnja analitičnega konta"
 #: view:analytic.account.stage:project_wbs.analytic_account_stage_search
 #: model:ir.ui.menu,name:project_wbs.menu_analytic_account_stages_view
 msgid "Analytic Account Stages"
-msgstr "Stopnje analitičnih kontov"
+msgstr "Stopnje analitičnega konta"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Append this project to another one using analytic accounts hierarchy"
+msgstr "Podredite ta projekt drugemu z uporabo hierarhije analitičnih kontov"
 
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
@@ -160,7 +168,7 @@ msgstr "Podrejene stopnje"
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_child_tree
 #: view:project.project:project_wbs.view_project
 msgid "Child WBS elements"
-msgstr "Podrejeni WBS elementi"
+msgstr "Podrejeni elementi členitve"
 
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
@@ -225,30 +233,45 @@ msgid "Documents"
 msgstr "Dokumenti"
 
 #. module: project_wbs
+#: model:ir.actions.act_window,name:project_wbs.open_view_project_form
+msgid "Edit project"
+msgstr "Urejanje projekta"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "End Date"
+msgstr "Končni datum"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Enter"
+msgstr "Vstop"
+
+#. module: project_wbs
 #: field:analytic.account.stage,fold:0
 msgid "Folded by Default"
-msgstr "Privzeto prepognjeno"
+msgstr "Privzeto pripognjeno"
 
 #. module: project_wbs
 #: field:account.analytic.account,complete_wbs_code:0
 #: field:project.task,project_complete_wbs_code:0
 msgid "Full WBS Code"
-msgstr "Polna WBS koda"
+msgstr "Polna koda členitve"
 
 #. module: project_wbs
 #: field:project.task,project_complete_wbs_name:0
 msgid "Full WBS Name"
-msgstr "Polni WBS naziv"
+msgstr "Polni naziv členitve"
 
 #. module: project_wbs
 #: field:account.analytic.account,complete_wbs_name:0
 msgid "Full WBS path"
-msgstr "Polna WBS pot"
+msgstr "Polna pot členitve"
 
 #. module: project_wbs
 #: help:account.analytic.account,complete_wbs_name:0
 msgid "Full path in the WBS hierarchy"
-msgstr "Polna pot v WBS hierarhiji"
+msgstr "Polna pot v hierarhiji členitve"
 
 #. module: project_wbs
 #: field:analytic.account.stage,id:0
@@ -265,6 +288,11 @@ msgstr ""
 "Stopnje ne bo dodelilo obstoječim projektom."
 
 #. module: project_wbs
+#: view:project.project:project_wbs.view_project_kanban_inherited
+msgid "Issues"
+msgstr "Zadeve"
+
+#. module: project_wbs
 #: field:analytic.account.stage,write_uid:0
 msgid "Last Updated by"
 msgstr "Zadnjič posodobil"
@@ -273,6 +301,21 @@ msgstr "Zadnjič posodobil"
 #: field:analytic.account.stage,write_date:0
 msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Miscellaneous"
+msgstr "Razno"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Other Info"
+msgstr "Ostale informacije"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Parent"
+msgstr "Nadrejeni"
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
@@ -296,6 +339,12 @@ msgid "Project"
 msgstr "Projekt"
 
 #. module: project_wbs
+#: view:project.project:project_wbs.view_project
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Project Form View"
+msgstr "Obrazec projekta"
+
+#. module: project_wbs
 #: field:project.project,project_child_complete_ids:0
 msgid "Project Hierarchy"
 msgstr "Projektna hierarhija"
@@ -303,7 +352,17 @@ msgstr "Projektna hierarhija"
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Project Settings"
-msgstr "Nastavitve projekta"
+msgstr "Projektne nastavitve"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Project Stages"
+msgstr "Projektne stopnje"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Project Task Stages"
+msgstr "Stopnje projektnih opravil"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
@@ -313,12 +372,12 @@ msgstr "Konfiguracija projekta"
 #. module: project_wbs
 #: model:ir.actions.act_window,name:project_wbs.open_analytic_account_stage_form
 msgid "Project/Analytic Stages"
-msgstr "Stopnje projektov/analitike"
+msgstr "Projektne/analitične stopnje"
 
 #. module: project_wbs
 #: field:analytic.account.stage,analytic_account_ids:0
 msgid "Project/Analytic stages"
-msgstr "Stopnje projektov/analitike"
+msgstr "Projektne/analitične stopnje"
 
 #. module: project_wbs
 #: field:account.analytic.account,child_project_count:0
@@ -344,6 +403,11 @@ msgid "Stage Name"
 msgstr "Naziv stopnje"
 
 #. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Start Date"
+msgstr "Začetni datum"
+
+#. module: project_wbs
 #: model:ir.model,name:project_wbs.model_project_task
 #: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Task"
@@ -355,13 +419,18 @@ msgid "Tasks"
 msgstr "Opravila"
 
 #. module: project_wbs
+#: view:project.project:project_wbs.edit_project_stages
+msgid "Team work"
+msgstr "Ekipno delo"
+
+#. module: project_wbs
 #: help:account.analytic.account,account_class:0
 msgid ""
 "The classification allows you to create a proper project Work Breakdown "
 "Structure"
 msgstr ""
-"Klasifikacija omogoča ustvarjanje primerne WBS (WBS - Work Breakdown "
-"Structure)"
+"Klasifikacija omogoča ustvarjanje primerne členitve "
+"projekta"
 
 #. module: project_wbs
 #: help:account.analytic.account,complete_wbs_code:0
@@ -369,8 +438,8 @@ msgid ""
 "The full WBS code describes the full path of this component within the "
 "project WBS hierarchy"
 msgstr ""
-"Polna WBS koda opisuje polno pot te komponente v sklopu WBS hierarhije "
-"projekta"
+"Polna koda členitve opiše polno pot komponente v sklopu "
+"hierarhije projektne členitve"
 
 #. module: project_wbs
 #: help:analytic.account.stage,fold:0
@@ -390,12 +459,7 @@ msgstr "Pravilno"
 #: field:account.analytic.account,child_unclassified_count:0
 #: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Unclassified projects"
-msgstr "Neklasificirani projekti"
-
-#. module: project_wbs
-#: view:project.project:project_wbs.edit_project
-msgid "WBS"
-msgstr "WBS"
+msgstr "Nerazvrščeni projekti"
 
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
@@ -408,17 +472,17 @@ msgstr "WBS"
 #: view:project.task:project_wbs.view_task_search_form
 #: view:project.task:project_wbs.view_task_tree2
 msgid "WBS code"
-msgstr "WBS koda"
+msgstr "Koda členitve"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 msgid "WBS element name"
-msgstr "WBS naziv elementa"
+msgstr "Naziv elementa členitve"
 
 #. module: project_wbs
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_wbs
 msgid "WBS elements"
-msgstr "WBS elementi"
+msgstr "Elementi členitve"
 
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_search
@@ -428,7 +492,12 @@ msgstr "WBS elementi"
 #: view:project.task:project_wbs.view_task_search_form
 #: view:project.task:project_wbs.view_task_tree2
 msgid "WBS name"
-msgstr "WBS naziv"
+msgstr "Naziv členitve"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Work Breakdown Structure"
+msgstr "Členjenje projekta"
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
@@ -452,6 +521,6 @@ msgstr "on_change_parent(parent_id)"
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project
 msgid "top"
-msgstr "top"
+msgstr "zgoraj"
 
 
