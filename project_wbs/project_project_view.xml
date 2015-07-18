@@ -304,7 +304,7 @@
                                         <button string="Project Form View"
                                             name="action_open_view_project_form"
                                             type="object"
-                                            class="oe_highlight">
+                                        >
                                             <span>Enter</span>
                                         </button>
                                     </a>
