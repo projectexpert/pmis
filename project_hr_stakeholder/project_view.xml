@@ -3,46 +3,6 @@
     <data>
     	
 #---------------------------------------------------------------------------------------------------------
-#   Extend the menus
-#---------------------------------------------------------------------------------------------------------
-		<menuitem id="project_hr_stakeholder_menu" 
-			name="Stakeholders" 
-			parent="analytic_plan.project_plan" 
-			sequence="10"
-			groups="project.group_project_manager,project.group_project_user" />
-		
-		<menuitem id="project_hr_stakeholder_menu_project_config_address_book" 
-			name="Stakeholders" 
-			parent="base.menu_definitions" 
-			sequence="2"
-            groups="project.group_project_manager"/>
-
-        <menuitem action="base.action_partner_customer_form"
-            id="base.project_hr_stakeholder_menu_customer_form"
-            parent="project_hr_stakeholder_menu"
-            groups="project.group_project_manager,project.group_project_user"
-            sequence="1"/>    
-
-        <menuitem action="base.action_partner_supplier_form"
-            id="base.project_hr_stakeholder_menu_supplier_form"
-            parent="project_hr_stakeholder_menu"
-            groups="project.group_project_manager,project.group_project_user"
-            sequence="2"/>
-
-<!--        <menuitem action="base.action_partner_customer_form" 
-        	id="base.project_hr_stakeholder_menu_project_partner_address_form"
-        	parent="project_hr_stakeholder_menu" 
-            groups="project.group_project_manager,project.group_project_user"
-            sequence="3"/>-->
-<!--
-        <menuitem action="base.action_partner_address_form" 
-        	id="base.project_hr_stakeholder_menu_project_partner_address_form"
-        	parent="project_hr_stakeholder_menu" 
-            groups="project.group_project_manager,project.group_project_user"
-            sequence="3"/>
--->
-
-#---------------------------------------------------------------------------------------------------------
 #   Extend the project
 #---------------------------------------------------------------------------------------------------------
 
@@ -82,6 +42,47 @@
 				</page>	 				                            	                        
             </field>            	        
         </record>   	
-             
+
+#---------------------------------------------------------------------------------------------------------
+#   Extend the menus
+#---------------------------------------------------------------------------------------------------------
+		<menuitem id="project_hr_stakeholder_menu" 
+			name="Stakeholders" 
+			parent="analytic_plan.project_plan" 
+			sequence="10"
+			groups="project.group_project_manager,project.group_project_user" />
+		
+		<menuitem id="project_hr_stakeholder_menu_project_config_address_book" 
+			name="Stakeholders" 
+			parent="base.menu_definitions" 
+			sequence="2"
+            groups="project.group_project_manager"/>
+
+        <menuitem action="base.action_partner_customer_form"
+            id="base.project_hr_stakeholder_menu_customer_form"
+            parent="project_hr_stakeholder_menu"
+            groups="project.group_project_manager,project.group_project_user"
+            sequence="1"/>    
+
+        <menuitem action="base.action_partner_supplier_form"
+            id="base.project_hr_stakeholder_menu_supplier_form"
+            parent="project_hr_stakeholder_menu"
+            groups="project.group_project_manager,project.group_project_user"
+            sequence="2"/>
+
+<!--        <menuitem action="base.action_partner_customer_form" 
+        	id="base.project_hr_stakeholder_menu_project_partner_address_form"
+        	parent="project_hr_stakeholder_menu" 
+            groups="project.group_project_manager,project.group_project_user"
+            sequence="3"/>-->
+<!--
+        <menuitem action="base.action_partner_address_form" 
+        	id="base.project_hr_stakeholder_menu_project_partner_address_form"
+        	parent="project_hr_stakeholder_menu" 
+            groups="project.group_project_manager,project.group_project_user"
+            sequence="3"/>
+-->
+
+
     </data>
 </openerp>

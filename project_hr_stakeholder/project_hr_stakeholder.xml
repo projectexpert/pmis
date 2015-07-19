@@ -98,7 +98,7 @@
 
         <menuitem id="project_hr_stakeholder_menu" 
 			name="Stakeholders" 
-			parent="project.menu_project_management" 
+			parent="analytic_plan.project_plan" 
 			sequence="2"
 			groups="project.group_project_manager,project.group_project_user" />
 		
