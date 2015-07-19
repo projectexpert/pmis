@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-18 17:24+0200\n"
-"PO-Revision-Date: 2015-07-18 17:25+0200\n"
+"PO-Revision-Date: 2015-07-19 10:05+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,157 +20,157 @@ msgstr ""
 #. module: project_charter
 #: field:project.boundaries,assumptions:0
 msgid "Assumptions"
-msgstr ""
+msgstr "Presupposti"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Billing plan"
-msgstr ""
+msgstr "Piano fatturazione"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Billing plan lines"
-msgstr ""
+msgstr "Voci del piano fatturazione"
 
 #. module: project_charter
 #: field:project.boundaries,boundaries:0
 #: view:project.project:project_charter.view_project_form
 msgid "Boundaries"
-msgstr ""
+msgstr "Limiti"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Boundaries, Assumptions, Constraints"
-msgstr ""
+msgstr "Limiti, presupposti, limitazioni"
 
 #. module: project_charter
 #: field:project.boundaries,constraints:0
 msgid "Constraints"
-msgstr ""
+msgstr "Limitazioni"
 
 #. module: project_charter
 #: field:project.boundaries,create_uid:0 field:project.scope,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: project_charter
 #: field:project.boundaries,create_date:0 field:project.scope,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: project_charter
 #: field:project.boundaries,id:0 field:project.scope,id:0
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: project_charter
 #: field:project.scope,indicator:0
 msgid "Indicator"
-msgstr ""
+msgstr "Indicatore"
 
 #. module: project_charter
 #: field:project.scope,justification:0
 msgid "Justification"
-msgstr ""
+msgstr "Giustificazione"
 
 #. module: project_charter
 #: field:project.boundaries,write_uid:0 field:project.scope,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo ad aggiornare"
 
 #. module: project_charter
 #: field:project.boundaries,write_date:0 field:project.scope,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento"
 
 #. module: project_charter
 #: field:project.project,notes:0
 msgid "Notes"
-msgstr ""
+msgstr "Note"
 
 #. module: project_charter
 #: field:project.scope,objective:0
 msgid "Objective"
-msgstr ""
+msgstr "Obiettivi"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_project
 msgid "Project"
-msgstr ""
+msgstr "Progetto"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_boundaries
 msgid "Project Boundaries, Assumptions and Constraints"
-msgstr ""
+msgstr "Limiti, presupposti e limitazioni progettuali"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Project Charter"
-msgstr ""
+msgstr "DIP (Documento di inizio progetto)"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Project Description"
-msgstr ""
+msgstr "Descrizione del progetto"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_scope
 #: view:project.project:project_charter.view_project_form
 msgid "Project Scope"
-msgstr ""
+msgstr "Portata del progetto"
 
 #. module: project_charter
 #: field:project.project,project_boundaries_ids:0
 msgid "Project boundaries ids"
-msgstr ""
+msgstr "ID delle limitazioni progettuali"
 
 #. module: project_charter
 #: field:project.project,project_scope_ids:0
 msgid "Project scope ids"
-msgstr ""
+msgstr "ID portata del progetto"
 
 #. module: project_charter
 #: field:project.boundaries,project_id:0 field:project.scope,project_id:0
 msgid "Projects"
-msgstr ""
+msgstr "Progetti"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Resource and Billing Plan"
-msgstr ""
+msgstr "Piano risorse e piano fatturazione"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Resource and Billing plan"
-msgstr ""
+msgstr "Piano risorse e piano fatturazione"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Resource plan"
-msgstr ""
+msgstr "Piano risorse"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Resource planning lines"
-msgstr ""
+msgstr "Voci del piano risorse"
 
 #. module: project_charter
 #: field:project.scope,result_obtained:0
 msgid "Result Obtained"
-msgstr ""
+msgstr "Risultati ottenuti"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Roles and responsibilities"
-msgstr ""
+msgstr "Ruoli e responsabilità"
 
 #. module: project_charter
 #: view:project.project:project_charter.edit_project
 #: view:project.project:project_charter.view_project_form
 msgid "Stakeholders"
-msgstr ""
+msgstr "Parti interessate"
 
 #. module: project_charter
 #: field:project.scope,target_value:0
 msgid "Target Value"
-msgstr ""
+msgstr "Valore mirato"
