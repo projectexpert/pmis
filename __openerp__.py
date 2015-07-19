@@ -84,6 +84,14 @@ More information and assistance:
     """,
 
     "data": [
+        "account_analytic_plan_version_view.xml",
+        "account_analytic_plan_version_data.xml",
+        "account_analytic_plan_journal_view.xml",
+        "account_analytic_line_plan_view.xml",
+        "account_analytic_account_view.xml",
+        "security/ir.model.access.csv",
+        "account_analytic_plan_journal_data.xml",
+        "project_view.xml"
     ],
     'test': [
     ],
