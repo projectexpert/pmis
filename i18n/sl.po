@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* analytic_plan
+# 	* analytic_plan
 #
 # Matjaž Mozetič <m.mozetic@matmoz.si>, 2015.
 msgid ""
@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-27 14:45+0000\n"
-"PO-Revision-Date: 2015-04-27 16:46+0100\n"
+"PO-Revision-Date: 2015-07-18 16:11+0200\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "Language: sl\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Poedit 1.8.2\n"
 
 #. module: analytic_plan
 #: model:ir.actions.act_window,help:analytic_plan.act_analytic_plan_cost_revenue
@@ -533,5 +533,3 @@ msgstr "Verzija"
 #: view:account.analytic.account:analytic_plan.view_account_analytic_account_form_analytic_plan
 msgid "and revenues"
 msgstr "in prihodki"
-
-
