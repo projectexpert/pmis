@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* purchase_order_analytic_search
+# 	* purchase_order_analytic_search
 #
 # Matjaž Mozetič <m.mozetic@matmoz.si>, 2015.
 msgid ""
@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-30 07:17+0000\n"
-"PO-Revision-Date: 2015-01-30 08:18+0100\n"
+"PO-Revision-Date: 2015-07-18 16:11+0200\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "Language: sl\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Poedit 1.8.2\n"
 
 #. module: purchase_order_analytic_search
 #: field:purchase.order,account_analytic_ids:0
@@ -43,5 +43,3 @@ msgstr "Postavka nabavnega naloga"
 #: model:ir.ui.menu,name:purchase_order_analytic_search.menu_purchase_line_order_analytic
 msgid "Purchase Order Lines"
 msgstr "Postavke nabavnega naloga"
-
-

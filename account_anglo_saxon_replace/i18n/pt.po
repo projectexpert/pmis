@@ -8,23 +8,23 @@ msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-14 13:08+0000\n"
-"PO-Revision-Date: 2014-08-26 22:59+0000\n"
+"PO-Revision-Date: 2015-07-18 16:11+0200\n"
 "Last-Translator: Daniel Reis <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2014-08-27 08:28+0000\n"
-"X-Generator: Launchpad (build 17174)\n"
+"X-Generator: Poedit 1.8.2\n"
+"Language: pt\n"
 
 #. module: account_anglo_saxon
 #: help:account.invoice.line,move_id:0
 msgid ""
-"If the invoice was generated from a stock.picking, reference to the related "
-"move line."
+"If the invoice was generated from a stock.picking, reference to the related move "
+"line."
 msgstr ""
-"Se a fatura foi gerada da guia, referência para a linha de movimento "
-"respetiva."
+"Se a fatura foi gerada da guia, referência para a linha de movimento respetiva."
 
 #. module: account_anglo_saxon
 #: model:ir.model,name:account_anglo_saxon.model_account_invoice
@@ -71,8 +71,8 @@ msgstr "Ordem de compra"
 #: help:product.category,property_account_creditor_price_difference_categ:0
 #: help:product.template,property_account_creditor_price_difference:0
 msgid ""
-"This account will be used to value price difference between purchase price "
-"and cost price."
+"This account will be used to value price difference between purchase price and "
+"cost price."
 msgstr ""
-"Esta conta será usada para valorizar a diferença de preço entre preço de "
-"compra e preço de custo."
+"Esta conta será usada para valorizar a diferença de preço entre preço de compra "
+"e preço de custo."

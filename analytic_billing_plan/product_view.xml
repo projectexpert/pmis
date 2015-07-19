@@ -8,7 +8,7 @@
             <field name="inherit_id" ref="account.product_template_form_view"/>
             <field name="arch" type="xml">
                 <xpath expr='//page[@string="Accounting"]/group[@name="properties"]' position='after'>
-                    <separator string="Analytic Planning Journal for expenses" colspan="2"/>
+                    <separator string="Analytic Planning Journal for revenues" colspan="2"/>
                     <field name="revenue_analytic_plan_journal_id"/>
                 </xpath>
             </field>
