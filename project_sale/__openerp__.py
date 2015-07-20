@@ -30,20 +30,18 @@
     "description": """
         This module adds the possibility to create and link sales orders to a project.
         - There's a link from the project form to the related sales orders in a separate view.
-        - In the sales views it is possible to filter by project and project manager, and the project and project manager is displayed in the list and form views.
+        - In the sales views it is possible to filter by project and project manager, and the project and project
+        manager is displayed in the list and form views.
 
-         
     """,
-    "init_xml": [
-                ],
-    "update_xml": [            
-        "project_view.xml",     
+    "data": [
+        "project_view.xml",
         "sale_order_view.xml",
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

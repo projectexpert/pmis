@@ -32,9 +32,10 @@
             <field name="inherit_id" ref="project.view_task_form2"/>       
             <field name="arch" type="xml">       
 
-        		<page string='Extra Info' position="after">
-
-        			<page  string="Scheduling">
+        		<page string='Extra Info' position="inside">
+					<notebook name="Scheduling">
+						<page  string="Scheduling">
+						<group colspan="4" col="4">
 							<group colspan="2" col="2">
                                 <separator string="Limitations" colspan="2"/>
            						<field name="date_earliest_start"/>
@@ -76,8 +77,10 @@
 							                          
                             <button name="calculate_network" icon="gtk-execute"
                             	string="Calculate Network" type="object"/>
+						</group>
                         </page>
-        		</page>              	        		        		
+					</notebook>
+        		</page>
             </field>
         </record>
 

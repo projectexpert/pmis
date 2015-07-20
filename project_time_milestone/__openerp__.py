@@ -34,14 +34,13 @@
         - A separate entry is created in the menu to register milestones.
         - The project form is extended to add a 'Milestones' tab.
     """,
-    "init_xml": [],
-    "update_xml": [    
-        "project_time_milestone_view.xml",        
+    "data": [
+        "project_time_milestone_view.xml",
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

@@ -16,14 +16,14 @@
             		<field name="milestone"/>            		  
             	</field>
             	
-	            <page string='Extra Info' position="after">
-	            	<page  string="Milestone" attrs="{'readonly':[('milestone','=',False)]}">
-	            		<group colspan="3" col="3">    
-	            			<field name="public_milestone"/>                          
+	            <page string='Scheduling' position="after">
+					<page  string="Milestone" attrs="{'readonly':[('milestone','=',False)]}">
+						<group colspan="2" col="2">    
+							<field name="public_milestone"/>                          
 							<field name="project_poc"/>
 							<field name="invoice_percentage"/>          						
 						</group>
-	            	</page>
+					</page>
 	         	</page>    
             </field>
         </record>

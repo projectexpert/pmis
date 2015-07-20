@@ -22,56 +22,77 @@
 
 from openerp.osv import fields, osv
 
+
 class sale_order(osv.osv):
-    
+
     _inherit = "sale.order"
-    
 
     _columns = {
-        'project': fields.many2one('project.project', 'Project', readonly=True, states={'draft': [('readonly', False)]}, help="The project related to a sales order."),
-        'project_manager': fields.related('project', 'user_id', readonly=True, string='Project Manager', type='many2one', relation="res.users", store=True),
+        'project': fields.many2one(
+            'project.project',
+            'Project',
+            readonly=True,
+            states={'draft': [('readonly', False)]},
+            help="The project related to a sales order."
+        ),
+        'project_manager': fields.related(
+            'project',
+            'user_id',
+            readonly=True,
+            string='Project Manager',
+            type='many2one',
+            relation="res.users",
+            store=True
+        ),
     }
-    
+
 sale_order()
 
+
 class sale_order_line(osv.osv):
-    
+
     _inherit = 'sale.order.line'
-    
+
     _columns = {
-        'order_project': fields.related('order_id', 'project', type='many2one', relation='project.project', store=True, string='Project'),
-        'order_project_manager': fields.related('order_project', 'user_id', readonly=True, string='Project Manager', type='many2one', relation="res.users", store=True),
+        'order_project': fields.related(
+            'order_id', 'project', type='many2one', relation='project.project', store=True, string='Project'
+        ),
+        'order_project_manager': fields.related(
+            'order_project', 'user_id', readonly=True, string='Project Manager', type='many2one',
+            relation="res.users", store=True
+        ),
     }
 
     def _prepare_order_line_invoice_line(self, cr, uid, line, account_id=False, context=None):
         res = super(sale_order_line, self)._prepare_order_line_invoice_line(cr, uid, line, account_id, context)
         res['account_analytic_id'] = line.order_id.project and line.order_id.project.analytic_account_id \
-                                    and line.order_id.project.analytic_account_id.id or res['account_analytic_id']
+            and line.order_id.project.analytic_account_id.id or res['account_analytic_id']
         return res
 
 
 class project(osv.osv):
     _inherit = "project.project"
-    
+
     def _get_sale_project_id(self, cr, uid, ids, context=None):
         project_id = []
-        for sale_order_obj in self.pool.get('sale.order').browse(cr,uid,ids,context=context):
+        for sale_order_obj in self.pool.get('sale.order').browse(cr, uid, ids, context=context):
             project_id.append(sale_order_obj.project.id)
         return project_id
-    
+
     def _order_count(self, cr, uid, ids, field_name, arg, context=None):
         res = {}
         for id in ids:
-            order_ids = self.pool.get('sale.order').search(cr,uid,[('project.id','=',id)],context=context)
+            order_ids = self.pool.get('sale.order').search(cr, uid, [('project.id', '=', id)], context=context)
             order_count = order_ids and len(order_ids) or 0
             res[id] = order_count
         return res
-    
+
     _columns = {
-                'order_count': fields.function(_order_count, method=True, type='integer', string='Associated Sale Order(s)',
-#                                               store={
-#                                                     'sale.order' : (_get_sale_project_id, ['project'],5),
-#                                                     }, help="Gives the number of sale order associated with the project"
+                'order_count': fields.function(
+                    _order_count, method=True, type='integer', string='Associated Sale Order(s)',
+                    # store={
+                    # 'sale.order' : (_get_sale_project_id, ['project'],5),
+                    # }, help="Gives the number of sale order associated with the project"
                 ),
                 }
 

@@ -30,15 +30,15 @@ This module lets you search for invoices on the basis of an analytic account.
     'author': 'Jordi Ballester (Eficent)',
     'website': 'http://www.eficent.com',
     'depends': [
-        'account',"project"
+        'account',
+        'project'
         ],
-    'init_xml': [],
-    'update_xml': [        
-        'account_invoice_view.xml',        
+    'data': [
+        'account_invoice_view.xml',
 
     ],
-    'demo_xml': [],
-    'test':[],
+    'demo': [],
+    'test': [],
     'installable': True,
     'active': False,
     'certificate': '',
