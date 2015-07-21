@@ -28,15 +28,24 @@ class account_analytic_account(osv.osv):
 
     def get_child_accounts(self, cr, uid, ids, context=None):
         result = {}
-        read_data = []
-        read_data = self.pool.get('account.analytic.account').read(cr, uid, ids, ['child_ids'])
-        for data in read_data:
-            for curr_id in ids:
-                result[curr_id] = True
-            for child_id in data['child_ids']:
-                lchild_id = []
-                lchild_id.append(child_id)
-                result.update(self.get_child_accounts(cr, uid, lchild_id, context))
+        for curr_id in ids:
+            result[curr_id] = True
+        # Now add the children
+        cr.execute('''
+        WITH RECURSIVE children AS (
+        SELECT parent_id, id
+        FROM account_analytic_account
+        WHERE parent_id IN %s
+        UNION ALL
+        SELECT a.parent_id, a.id
+        FROM account_analytic_account a
+        JOIN children b ON(a.parent_id = b.id)
+        )
+        SELECT * FROM children order by parent_id
+        ''', (tuple(ids),))
+        res = cr.fetchall()
+        for x, y in res:
+            result[y] = True
         return result
 
     def _complete_wbs_code_calc(self, cr, uid, ids, prop, unknow_none, unknow_dict):
@@ -75,6 +84,24 @@ class account_analytic_account(osv.osv):
                 acc = acc.parent_id
 
             data = ' / '.join(data)
+            res.append((account.id, data))
+        return dict(res)
+
+    def _wbs_indent_calc(self, cr, uid, ids, prop, unknow_none, unknow_dict):
+        if not ids:
+            return []
+        res = []
+        for account in self.browse(cr, uid, ids, context=None):
+            data = []
+            acc = account
+            while acc:
+                if acc.name and acc.parent_id.parent_id:
+                    data.insert(0, '>')
+                else:
+                    data.insert(0, '')
+
+                acc = acc.parent_id
+            data = ''.join(data)
             res.append((account.id, data))
         return dict(res)
 
@@ -164,20 +191,31 @@ class account_analytic_account(osv.osv):
         return result, fold
 
     _columns = {
+        'wbs_indent': fields.function(_wbs_indent_calc, method=True,
+                                      type='char', string='Level',
+                                      size=32, readonly=True),
         'complete_wbs_code': fields.function(
             _complete_wbs_code_calc, method=True, type='char',
             string='Full WBS Code', size=250,
             help='The full WBS code describes the full path of this '
             'component within the project WBS hierarchy',
-            store={'account.analytic.account': (get_child_accounts, ['name', 'code', 'parent_id'], 20)}
-        ),
+            store={
+                'account.analytic.account':
+                    (get_child_accounts,
+                     ['name', 'code',
+                      'parent_id'], 20)
+            }),
 
         'complete_wbs_name': fields.function(
             _complete_wbs_name_calc, method=True, type='char',
             string='Full WBS path', size=250,
             help='Full path in the WBS hierarchy',
-            store={'account.analytic.account': (get_child_accounts, ['name', 'code', 'parent_id'], 20)}
-        ),
+            store={
+                'account.analytic.account':
+                    (get_child_accounts,
+                     ['name', 'code',
+                      'parent_id'], 20)
+            }),
 
         'account_class': fields.selection(
             [('project', 'Project'), ('phase', 'Phase'),
@@ -229,6 +267,8 @@ class account_analytic_account(osv.osv):
     _defaults = {
         'child_stage_ids': _get_type_common,
     }
+
+    _order = 'complete_wbs_code'
 
     def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):
         if not args:
@@ -298,5 +338,30 @@ class account_analytic_account(osv.osv):
             res.append((account.id, data))
         return res
 
+    def write(self, cr, uid, ids, values, context=None):
+        res = super(account_analytic_account, self).write(
+            cr, uid, ids, values, context=context)
+        if values.get('stage_id'):
+            project_obj = self.pool.get('project.project')
+            stage_obj = self.pool.get('analytic.account.stage')
+            for acc_id in ids:
+                # Search if there's an associated project
+                project_ids = project_obj.search(
+                    cr, uid, [('analytic_account_id', '=', acc_id)],
+                    context=context)
+                stage = stage_obj.browse(cr, uid, values.get('stage_id'),
+                                         context=context)
+                if stage.project_state == 'close':
+                    project_obj.set_done(cr, uid, project_ids,
+                                         context=context)
+                elif stage.project_state == 'cancelled':
+                    project_obj.set_cancel(cr, uid, project_ids,
+                                           context=context)
+                elif stage.project_state == 'pending':
+                    project_obj.set_pending(cr, uid, project_ids,
+                                            context=context)
+                elif stage.project_state == 'open':
+                    project_obj.set_open(cr, uid, project_ids,
+                                         context=context)
 
 account_analytic_account()

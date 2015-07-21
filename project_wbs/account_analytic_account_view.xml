@@ -12,7 +12,16 @@
             <field eval="8" name="priority"/>
             <field name="inherit_id" ref="account.view_account_analytic_account_list"/>
             <field name="arch" type="xml">
-                <field name="code" position="after">
+				<xpath expr="//tree" position="attributes">
+                    <attribute name="colors">grey:state in
+                        ('cancelled','close');blue:account_class ==
+                        'work_package'</attribute>
+                </xpath>
+                <field name="complete_name" position="before">
+                    <field name="complete_wbs_code" string="WBS code"/>
+                </field>
+                <field name="code" position="replace"/>
+                <field name="partner_id" position="after">
             		<field name="account_class" string="Class" attrs="{'invisible':[('type','not in',['contract','template'])]}"/>
                     <field name="stage_id"/>
             	</field>
@@ -41,6 +50,11 @@
             <field name="field_parent">child_complete_ids</field>
             <field name="inherit_id" ref="account.view_account_analytic_account_tree"/>
             <field name="arch" type="xml">
+				<xpath expr="//tree" position="attributes">
+                    <attribute name="colors">grey:state in
+                        ('cancelled','close');blue:account_class ==
+                        'work_package'</attribute>
+                </xpath>
             	<field name="code" position="after">
             		<field name="complete_wbs_code" string="WBS code"/>
 					<field name="account_class" string="Class"/>

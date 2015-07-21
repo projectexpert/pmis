@@ -33,36 +33,43 @@ class project(osv.osv):
     _inherit = "project.project"
     _description = "WBS element"
 
-    def _get_children(self, cr, uid, ids, context=None):
-
-        read_data = self.pool.get('project.project').read(cr, uid, ids,
-                                                          ['id', 'analytic_account_id',
-                                                           'project_child_complete_ids',
-                                                           'state'])
-        for data in read_data:
-            if data['id'] not in self.project_ids:
-                self.projects_data[data['id']] = data['analytic_account_id'][0]
-                self.project_ids.append(data['id'])
-                if data['state'] not in ('template', 'cancelled'):
-                    self.read_data.append(data)
-                    if data['project_child_complete_ids']:
-                        self._get_children(cr, uid, data['project_child_complete_ids'], context=context)
-        return True
-
     def _get_project_analytic_wbs(self, cr, uid, ids, context=None):
 
-        self.read_data = []
-        self.project_ids = []
-        self.projects_data = {}
-        self._get_children(cr, uid, ids, context=context)
+        result = {}
+        cr.execute('''
+            WITH RECURSIVE children AS (
+            SELECT p.id as ppid, p.id as pid, a.id, a.parent_id
+            FROM account_analytic_account a
+            INNER JOIN project_project p
+            ON a.id = p.analytic_account_id
+            WHERE p.id IN %s
+            UNION ALL
+            SELECT b.ppid as ppid, p.id as pid, a.id, a.parent_id
+            FROM account_analytic_account a
+            INNER JOIN project_project p
+            ON a.id = p.analytic_account_id
+            JOIN children b ON(a.parent_id = b.id)
+            WHERE p.state not in ('template', 'cancelled')
+            )
+            SELECT * FROM children order by ppid
+        ''', (tuple(ids),))
+        res = cr.fetchall()
+        for r in res:
+            if r[0] in result:
+                result[r[0]][r[1]] = r[2]
+            else:
+                result[r[0]] = {r[1]: r[2]}
 
-        return self.projects_data
+        return result
 
     def _get_project_wbs(self, cr, uid, ids, context=None):
 
-        projects_data = self._get_project_analytic_wbs(cr, uid, ids, context=context)
-
-        return projects_data.keys()
+        result = []
+        projects_data = self._get_project_analytic_wbs(cr, uid, ids,
+                                                       context=context)
+        for ppid in projects_data.values():
+            result.extend(ppid.keys())
+        return result
 
     def name_get(self, cr, uid, ids, context=None):
 
@@ -123,8 +130,10 @@ class project(osv.osv):
             context = {}
 
         for project_item in self.browse(cr, uid, ids, context=context):
-            child_ids = self.search(cr, uid, [('parent_id', '=', project_item.analytic_account_id.id)],
-                                    context=context)
+            child_ids = self.search(
+                cr, uid, [('parent_id', '=',
+                           project_item.analytic_account_id.id)],
+                context=context)
 
             result[project_item.id] = child_ids
 
@@ -142,7 +151,8 @@ class project(osv.osv):
         return False
 
     def _resolve_analytic_account_id_from_context(self, cr, uid, context=None):
-        """ Returns ID of parent analytic account based on the value of 'default_parent_id'
+        """ Returns ID of parent analytic account based on the value of
+        'default_parent_id'
             context key, or None if it cannot be resolved to a single
             account.analytic.account
         """
@@ -152,44 +162,87 @@ class project(osv.osv):
             return context['default_parent_id']
         if isinstance(context.get('default_parent_id'), basestring):
             analytic_account_name = context['default_parent_id']
-            analytic_account_ids = self.pool.get('account.analytic.account').name_search(cr, uid,
-                                                                                         name=analytic_account_name,
-                                                                                         context=context)
+            analytic_account_ids = \
+                self.pool.get('account.analytic.account').name_search(
+                    cr, uid, name=analytic_account_name, context=context)
             if len(analytic_account_ids) == 1:
                 return analytic_account_ids[0][0]
         return None
 
-    def _read_group_stage_ids(self, cr, uid, ids, domain, read_group_order=None, access_rights_uid=None, context=None):
+    def _read_group_stage_ids(self, cr, uid, ids, domain,
+                              read_group_order=None, access_rights_uid=None,
+                              context=None):
         stage_obj = self.pool.get('analytic.account.stage')
         order = stage_obj._order
         access_rights_uid = access_rights_uid or uid
         if read_group_order == 'stage_id desc':
             order = '%s desc' % order
         search_domain = []
-        analytic_account_id = self._resolve_analytic_account_id_from_context(cr, uid, context=context)
+        analytic_account_id = self._resolve_analytic_account_id_from_context(
+            cr, uid, context=context)
         if analytic_account_id:
-            search_domain += ['|', ('analytic_account_ids', '=', analytic_account_id)]
+            search_domain += ['|', ('analytic_account_ids', '=',
+                                    analytic_account_id)]
         search_domain += [('id', 'in', ids)]
         stage_ids = stage_obj._search(cr, uid, search_domain, order=order,
-                                      access_rights_uid=access_rights_uid, context=context)
-        result = stage_obj.name_get(cr, access_rights_uid, stage_ids, context=context)
+                                      access_rights_uid=access_rights_uid,
+                                      context=context)
+        result = stage_obj.name_get(cr, access_rights_uid, stage_ids,
+                                    context=context)
         # restore order of the search
-        result.sort(lambda x, y: cmp(stage_ids.index(x[0]), stage_ids.index(y[0])))
+        result.sort(lambda x, y: cmp(stage_ids.index(x[0]),
+                                     stage_ids.index(y[0])))
 
         fold = {}
-        for stage in stage_obj.browse(cr, access_rights_uid, stage_ids, context=context):
+        for stage in stage_obj.browse(cr, access_rights_uid, stage_ids,
+                                      context=context):
             fold[stage.id] = stage.fold or False
         return result, fold
 
+# When a child project is created, obtain the members of the parent - part 1
+
+    def _get_parent_members(self, cr, uid, context=None):
+        if context is None:
+            context = {}
+        member_ids = []
+        project_obj = self.pool.get('project.project')
+        if 'default_parent_id' in context and context['default_parent_id']:
+            for project_id in project_obj.search(
+                    cr, uid, [('analytic_account_id', '=',
+                               context['default_parent_id'])]):
+                project = project_obj.browse(cr, uid, project_id,
+                                             context=context)
+                for member in project.members:
+                    member_ids.append(member.id)
+        return member_ids
+
+# END part 1
+
     _columns = {
         'project_child_complete_ids': fields.function(
-            _child_compute, relation='project.project', method=True, string="Project Hierarchy", type='many2many'
-        ),
+            _child_compute, relation='project.project',
+            method=True, string="Project Hierarchy", type='many2many'),
+
+        'c_wbs_code': fields.related('analytic_account_id',
+                                     'complete_wbs_code',
+                                     string='WBS Code',
+                                     type='char',
+                                     store=True, readonly=True,)
     }
+
+# When a child project is created, obtain the members of the parent - part 2
+
+    _defaults = {
+        'members': _get_parent_members,
+    }
+
+# END part 2
 
     _group_by_full = {
         'stage_id': _read_group_stage_ids,
     }
+
+    _order = "c_wbs_code"
 
     def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):
 
@@ -200,20 +253,19 @@ class project(osv.osv):
 
         args = args[:]
 
-        projectbycode = self.search(
-            cr, uid, [('complete_wbs_code', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context
-        )
-
-        projectbyname = self.search(
-            cr, uid, [('complete_wbs_name', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context
-        )
+        projectbycode = self.search(cr, uid, [('complete_wbs_code', 'ilike',
+                                               '%%%s%%' % name)]+args,
+                                    limit=limit, context=context)
+        projectbyname = self.search(cr, uid, [('complete_wbs_name', 'ilike',
+                                               '%%%s%%' % name)]+args,
+                                    limit=limit, context=context)
 
         project = projectbycode + projectbyname
 
         return self.name_get(cr, uid, project, context=context)
 
-    # Override the standard behaviour of duplicate_template not introducing the (copy) string
-    # to the copied projects.
+    # Override the standard behaviour of duplicate_template not introducing
+    # the (copy) string
     def duplicate_template(self, cr, uid, ids, context=None):
         if context is None:
             context = {}
@@ -225,13 +277,12 @@ class project(osv.osv):
             new_date_start = time.strftime('%Y-%m-%d')
             new_date_end = False
             if proj.date_start and proj.date:
-                start_date = date(*time.strptime(proj.date_start, '%Y-%m-%d')[:3])
+                start_date = date(*time.strptime(proj.date_start,
+                                                 '%Y-%m-%d')[:3])
                 end_date = date(*time.strptime(proj.date, '%Y-%m-%d')[:3])
-                new_date_end = (
-                    datetime(*time.strptime(
-                        new_date_start, '%Y-%m-%d'
-                    )[:3])+(end_date-start_date)
-                ).strftime('%Y-%m-%d')
+                new_date_end = (datetime(*time.strptime(
+                    new_date_start, '%Y-%m-%d')[:3])+(end_date-start_date)).\
+                    strftime('%Y-%m-%d')
             context.update({'copy': True})
             new_id = self.copy(cr, uid, proj.id, default={
                 'name': _("%s") % (proj.name),
@@ -241,10 +292,15 @@ class project(osv.osv):
                 'parent_id': parent_id}, context=context)
             result.append(new_id)
 
-            child_ids = self.search(cr, uid, [('parent_id', '=', proj.analytic_account_id.id)], context=context)
-            parent_id = self.read(cr, uid, new_id, ['analytic_account_id'])['analytic_account_id'][0]
+            child_ids = self.search(
+                cr, uid, [('parent_id', '=', proj.analytic_account_id.id)],
+                context=context)
+            parent_id = self.read(
+                cr, uid, new_id,
+                ['analytic_account_id'])['analytic_account_id'][0]
             if child_ids:
-                self.duplicate_template(cr, uid, child_ids, context={'parent_id': parent_id})
+                self.duplicate_template(cr, uid, child_ids,
+                                        context={'parent_id': parent_id})
 
         if result and len(result):
             res_id = result[0]
@@ -252,7 +308,8 @@ class project(osv.osv):
             form_view = data_obj.read(cr, uid, form_view_id, ['res_id'])
             tree_view_id = data_obj._get_id(cr, uid, 'project', 'view_project')
             tree_view = data_obj.read(cr, uid, tree_view_id, ['res_id'])
-            search_view_id = data_obj._get_id(cr, uid, 'project', 'view_project_project_filter')
+            search_view_id = data_obj._get_id(cr, uid, 'project',
+                                              'view_project_project_filter')
             search_view = data_obj.read(cr, uid, search_view_id, ['res_id'])
             return {
                 'name': _('Projects'),
@@ -261,51 +318,112 @@ class project(osv.osv):
                 'res_model': 'project.project',
                 'view_id': False,
                 'res_id': res_id,
-                'views': [(form_view['res_id'], 'form'), (tree_view['res_id'], 'tree')],
+                'views': [(form_view['res_id'], 'form'), (tree_view['res_id'],
+                                                          'tree')],
                 'type': 'ir.actions.act_window',
                 'search_view_id': search_view['res_id'],
                 'nodestroy': True
             }
 
-    def action_openView(self, cr, uid, ids, module, act_window, context=None):
+#  Enhance navigation between parent and child projects in tree view.
+
+    def action_openChildView(self, cr, uid, ids, module, act_window,
+                             context=None):
         """
         :return dict: dictionary value for created view
         """
+        if context is None:
+            context = {}
         project = self.browse(cr, uid, ids[0], context)
-        res = self.pool.get('ir.actions.act_window').for_xml_id(cr, uid, module, act_window, context)
+        child_project_ids = self.pool.get('project.project').search(
+            cr, uid, [('parent_id', '=', project.analytic_account_id.id)])
+        res = res = self.pool.get('ir.actions.act_window').for_xml_id(
+            cr, uid, module, act_window, context)
         res['context'] = {
-            'search_default_parent_id': project.analytic_account_id and project.analytic_account_id.id or False,
-            'default_parent_id': project.analytic_account_id and project.analytic_account_id.id or False,
-            'default_partner_id': project.partner_id and project.partner_id.id or False,
+            'default_parent_id': project.analytic_account_id and
+            project.analytic_account_id.id or False,
+            'default_partner_id': project.partner_id and
+            project.partner_id.id or False,
+            'default_user_id': project.user_id and project.user_id.id or False,
         }
-        res['nodestroy'] = True
+        res['domain'] = "[('id', 'in', ["+','.join(
+            map(str, child_project_ids))+"])]"
+        res['nodestroy'] = False
         return res
 
     def action_openProjectsView(self, cr, uid, ids, context=None):
 
-        return self.action_openView(cr, uid, ids, 'project_wbs', 'open_view_project_projects', context=context)
+        return self.action_openChildView(cr, uid, ids, 'project_wbs',
+                                         'open_view_project_projects',
+                                         context=context)
 
     def action_openPhasesView(self, cr, uid, ids, context=None):
 
-        return self.action_openView(cr, uid, ids, 'project_wbs', 'open_view_project_phases', context=context)
+        return self.action_openChildView(cr, uid, ids, 'project_wbs',
+                                         'open_view_project_phases',
+                                         context=context)
 
     def action_openDeliverablesView(self, cr, uid, ids, context=None):
 
-        return self.action_openView(cr, uid, ids, 'project_wbs', 'open_view_project_deliverables', context=context)
+        return self.action_openChildView(cr, uid, ids, 'project_wbs',
+                                         'open_view_project_deliverables',
+                                         context=context)
 
     def action_openWorkPackagesView(self, cr, uid, ids, context=None):
 
-        return self.action_openView(cr, uid, ids, 'project_wbs', 'open_view_project_work_packages', context=context)
+        return self.action_openChildView(cr, uid, ids, 'project_wbs',
+                                         'open_view_project_work_packages',
+                                         context=context)
 
     def action_openUnclassifiedView(self, cr, uid, ids, context=None):
 
-        return self.action_openView(cr, uid, ids, 'project', 'open_view_project_all', context=context)
+        return self.action_openChildView(cr, uid, ids, 'project',
+                                         'open_view_project_all',
+                                         context=context)
 
     def action_openChildTreeView(self, cr, uid, ids, context=None):
 
-        return self.action_openView(cr, uid, ids, 'project_wbs', 'open_view_project_child_tree', context=context)
+        return self.action_openChildView(cr, uid, ids, 'project_wbs',
+                                         'open_view_wbs_tree',
+                                         context=context)
+
+    def action_openParentTreeView(self, cr, uid, ids, context=None):
+        """
+        :return dict: dictionary value for created view
+        """
+        if context is None:
+            context = {}
+        project = self.browse(cr, uid, ids[0], context)
+        res = self.pool.get('ir.actions.act_window').for_xml_id(
+            cr, uid, 'project_wbs', 'open_view_wbs_tree', context)
+        if project.parent_id:
+            for parent_project_id in self.pool.get('project.project').search(
+                    cr, uid, [('analytic_account_id', '=',
+                               project.parent_id.id)]):
+                res['domain'] = "[('id','=',"+str(parent_project_id)+")]"
+
+        res['nodestroy'] = False
+        return res
 
     def on_change_parent(self, cr, uid, ids, parent_id, context=None):
-        return self.pool.get('account.analytic.account').on_change_parent(cr, uid, ids, parent_id)
+        return self.pool.get('account.analytic.account').on_change_parent(
+            cr, uid, ids, parent_id)
+
+    def write(self, cr, uid, ids, values, context=None):
+        if context is None:
+            context = {}
+        for p in self.browse(cr, uid, ids, context=context):
+            if values.get('state') and not values.get('stage_id'):
+                if not context.get('change_project_stage_from_status'):
+                    context.update({
+                        'change_project_stage_from_status': True
+                    })
+                    # Change the stage corresponding to the new status
+                    if p.parent_id and p.parent_id.child_stage_ids:
+                        for stage in p.parent_id.child_stage_ids:
+                            if stage.project_state == values.get('state'):
+                                values.update({'stage_id': stage.id})
+        return super(project, self).write(
+            cr, uid, ids, values, context=context)
 
 project()
