@@ -19,7 +19,27 @@
 #
 ##############################################################################
 
-import analytic_account_stage
-import account_analytic_account
-import project_project
-import form_button
+from openerp import models, fields
+
+
+class project(models.Model):
+    _inherit = "project.project"
+
+    def action_openTasksTreeView(self, cr, uid, ids, context=None):
+        """
+        :return dict: dictionary value for created view
+        """
+        if context is None:
+            context = {}
+        project = self.browse(cr, uid, ids[0], context)
+        task_ids = self.pool.get('project.task').search(
+            cr, uid, [('project_id', '=', project.id)])
+        res = self.pool.get('ir.actions.act_window').for_xml_id(
+            cr, uid, 'project_wbs_task', 'action_task_tree_view', context)
+        res['context'] = {
+            'default_project_id': project.id,
+        }
+        res['domain'] = "[('id', 'in', ["+','.join(
+            map(str, task_ids))+"])]"
+        res['nodestroy'] = False
+        return res

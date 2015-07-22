@@ -25,7 +25,8 @@
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["project", "hr", "analytic_resource_plan", "project_wbs"],
+    "depends": ["project", "hr", "analytic_resource_plan", "project_wbs",
+                "project_wbs_task"],
     "description": """
 Analytic Resource Planning
 ====================================
@@ -53,7 +54,7 @@ Analytic Resource Planning
     'demo': [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

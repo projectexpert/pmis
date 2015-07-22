@@ -225,7 +225,7 @@ class account_analytic_account(osv.osv):
             'Work Breakdown Structure'
         ),
         'stage_id': fields.many2one(
-            'analytic.account.stage', 'Stage', track_visibility='onchange',
+            'analytic.account.stage', 'Stage',
             domain="['&', ('fold', '=', False), ('analytic_account_ids', '=', parent_id)]"
         ),
 

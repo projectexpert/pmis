@@ -19,7 +19,5 @@
 #
 ##############################################################################
 
-import analytic_account_stage
-import account_analytic_account
-import project_project
-import form_button
+from . import project_task
+from . import project_project
