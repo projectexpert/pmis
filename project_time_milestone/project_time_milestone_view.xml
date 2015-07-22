@@ -10,13 +10,13 @@
             <field name="model">project.task</field>
             <field name="type">form</field>
             <field eval="2" name="priority"/>
-            <field name="inherit_id" ref="project.view_task_form2"/>       
+            <field name="inherit_id" ref="project_time_schedule.view_task_form2"/>       
             <field name="arch" type="xml">       
             	<field name="name" position="after">
             		<field name="milestone"/>            		  
             	</field>
-            	
-	            <page string='Scheduling' position="after">
+
+	            <xpath expr="//sheet//page[@string='Extra Info']//notebook[@name='Scheduling']" position="inside">
 					<page  string="Milestone" attrs="{'readonly':[('milestone','=',False)]}">
 						<group colspan="2" col="2">    
 							<field name="public_milestone"/>                          
@@ -24,7 +24,7 @@
 							<field name="invoice_percentage"/>          						
 						</group>
 					</page>
-	         	</page>    
+	         	</xpath>
             </field>
         </record>
         
