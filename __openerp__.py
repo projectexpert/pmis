@@ -91,7 +91,8 @@ More information and assistance:
         "account_analytic_account_view.xml",
         "security/ir.model.access.csv",
         "account_analytic_plan_journal_data.xml",
-        "project_view.xml"
+        "project_view.xml",
+        "wizard/analytic_plan_copy_version.xml",
     ],
     'test': [
     ],

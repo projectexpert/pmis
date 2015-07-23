@@ -19,10 +19,10 @@
 #
 ##############################################################################
 from openerp.tools.translate import _
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
 
-class account_analytic_plan_version(osv.osv):
+class account_analytic_plan_version(orm.Model):
     _name = 'account.analytic.plan.version'
     _description = 'Analytic Planning Version'
     _columns = {
@@ -46,26 +46,23 @@ class account_analytic_plan_version(osv.osv):
         if 'default_committed' in vals:
             if vals['default_committed'] is True:
                 other_default_committed = self.search(
-                    cr, uid, [('default_committed', '=', True)], context=context
-                )
+                    cr, uid, [('default_committed', '=', True)],
+                    context=context)
                 if other_default_committed:
-                    raise osv.except_osv(
-                        _('Error!'),
-                        _('Only one default commitments version can exist.')
-                    )
+                    raise orm.except_orm(_('Error!'),
+                                         _('Only one default commitments '
+                                           'version can exist.'))
 
     def _check_default_plan(self, cr, uid, vals, context=None):
 
         if 'default_plan' in vals:
             if vals['default_plan'] is True:
                 other_default_plan = self.search(
-                    cr, uid, [('default_plan', '=', True)], context=context
-                )
+                    cr, uid, [('default_plan', '=', True)], context=context)
                 if other_default_plan:
-                    raise osv.except_osv(
-                        _('Error!'),
-                        _('Only one default planning version can exist.')
-                    )
+                    raise orm.except_orm(_('Error!'),
+                                         _('Only one default planning version '
+                                           'can exist.'))
 
     _defaults = {
         'active': True,
@@ -81,7 +78,8 @@ class account_analytic_plan_version(osv.osv):
         self._check_default_committed(cr, uid, vals, context)
         self._check_default_plan(cr, uid, vals, context)
 
-        res = super(account_analytic_plan_version, self).create(cr, uid, vals, *args, **kwargs)
+        res = super(account_analytic_plan_version, self).create(
+            cr, uid, vals, *args, **kwargs)
 
         return res
 
@@ -92,7 +90,5 @@ class account_analytic_plan_version(osv.osv):
         self._check_default_committed(cr, uid, vals, context)
         self._check_default_plan(cr, uid, vals, context)
 
-        return super(account_analytic_plan_version, self).write(cr, uid, ids, vals, context=context)
-
-
-account_analytic_plan_version()
+        return super(account_analytic_plan_version, self).write(
+            cr, uid, ids, vals, context=context)

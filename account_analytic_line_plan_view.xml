@@ -16,7 +16,6 @@
                         <group>
                             <field name="name"/>
                             <field name="account_id"/>
-                            <field name="account_stage"/>
                             <field name="journal_id"/>
                             <field name="version_id"/>
                             <field name="user_id"/>
@@ -58,7 +57,6 @@
             <field name="arch" type="xml">
                 <tree string="Analytic Entries" editable="top">
                     <field name="account_id"/>
-                    <field name="account_stage"/>
                     <field name="date"/>                    
                     <field name="name"/>
                     <field name="journal_id" invisible="False"/>     
@@ -66,11 +64,11 @@
                     <field name="product_id" on_change="on_change_product_id(product_id, unit_amount, currency_id, company_id, product_uom_id, journal_id)"/>
                     <field name="unit_amount" on_change="on_change_unit_amount(product_id, unit_amount, currency_id, company_id, product_uom_id, journal_id)" sum="Total Quantity" invisible="False"/>
                     <field name="product_uom_id" on_change="on_change_unit_amount(product_id, unit_amount, currency_id, company_id, product_uom_id, journal_id)" invisible="False"/>
-                    <field name="amount_currency" on_change="on_change_amount_currency(amount_currency, currency_id, company_id)" sum="Total"/>
-                    <field name="currency_id" on_change="on_change_amount_currency(amount_currency, currency_id, company_id)" sum="Total"/>
-                    <field name="amount" sum="Total" invisible="True"/>
+                    <field name="amount_currency" on_change="on_change_amount_currency(amount_currency, currency_id, company_id)"/>
+                    <field name="currency_id" on_change="on_change_amount_currency(amount_currency, currency_id, company_id)"/>
+                    <field name="amount" sum="Total"/>
                     <field name="company_id" invisible="True"/>
-                    <field name="general_account_id" invisible="True"/>
+                    <field name="general_account_id"/>
                 </tree>
             </field>
         </record>
