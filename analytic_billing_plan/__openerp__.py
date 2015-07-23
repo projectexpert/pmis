@@ -41,8 +41,7 @@
    conact us at contact@eficent.com
 
     """,
-    "init_xml": [],
-    "update_xml": [
+    "data": [
         "wizard/analytic_billing_plan_line_make_sale.xml",
         "analytic_billing_plan_view.xml",
         "analytic_account_view.xml",
@@ -51,7 +50,7 @@
         "security/ir.model.access.csv",
 
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
     'test': [

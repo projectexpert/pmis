@@ -25,7 +25,12 @@
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["analytic_resource_plan", "purchase_requisition"],
+    "depends": [
+        "analytic_resource_plan",
+        "purchase_requisition",
+        "purchase_requisition_line_analytic",
+        "purchase_requisition_line_description"
+    ],
     "description": """
      == Record  planned costs and create purchase requisitions  ==
 

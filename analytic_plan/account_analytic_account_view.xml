@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+
+#---------------------------------------------------------------------------------------------------------
+#   Extend the menus
+#---------------------------------------------------------------------------------------------------------
+		<menuitem id="project_plan" 
+			name="Plan" 
+			parent="base.menu_main_pm" 
+			sequence="2"
+			groups="analytic.group_analytic_accounting" />
+
+			<menuitem id="analytic_plan_analytic_account_menu"
+				name="Analytic Accounting" 
+				parent="project_plan"
+				groups="analytic.group_analytic_accounting"/>
+			
+			<menuitem action="account.action_account_analytic_account_form" id="account_analytic_def_account"
+				parent="analytic_plan_analytic_account_menu"
+				groups="analytic.group_analytic_accounting"/>
+	
+			<menuitem groups="analytic.group_analytic_accounting"
+				action="action_account_analytic_plan_journal_open_form"
+				id="account_analytic_plan_journal_entries_2"
+				parent="analytic_plan_analytic_account_menu"/>
 			
 #---------------------------------------------------------------------------------------------------------
 #   Extend the analytic account
@@ -75,29 +98,6 @@
                 </xpath>
             </field>
         </record>
-
-#---------------------------------------------------------------------------------------------------------
-#   Extend the menus
-#---------------------------------------------------------------------------------------------------------
-		<menuitem id="project_plan" 
-			name="Plan" 
-			parent="base.menu_main_pm" 
-			sequence="2"
-			groups="analytic.group_analytic_accounting" />
-
-			<menuitem id="analytic_plan_analytic_account_menu"
-				name="Analytic Accounting" 
-				parent="project_plan"
-				groups="project.group_project_manager,project.group_project_user,analytic.group_analytic_accounting"/>
-			
-			<menuitem action="account.action_account_analytic_account_form" id="account_analytic_def_account"
-				parent="analytic_plan_analytic_account_menu"
-				groups="analytic.group_analytic_accounting"/>
-	
-			<menuitem groups="analytic.group_analytic_accounting"
-				action="action_account_analytic_plan_journal_open_form"
-				id="account_analytic_plan_journal_entries_2"
-				parent="analytic_plan_analytic_account_menu"/>
 
     </data>
 </openerp>

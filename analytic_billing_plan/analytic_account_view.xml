@@ -21,12 +21,12 @@
         <record id="view_account_analytic_account_form" model="ir.ui.view">
             <field name="name">account.analytic.account.form</field>
             <field name="model">account.analytic.account</field>
-            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="inherit_id" ref="analytic_plan.view_account_analytic_account_form_analytic_plan"/>
             <field name="arch" type="xml">
                 <xpath expr='//div[@name="buttons"]' position='inside'>
                     <button name="%(act_account_analytic_2_analytic_billing_plan_line)d" help="Billing plan lines"
 					type="action" class="oe_inline oe_stat_button" icon="fa-pencil-square-o">
-					<div>Billing<br/>plan lines</div>
+					<div>Billing plan</div>
 					</button>
                 </xpath>                
             </field>

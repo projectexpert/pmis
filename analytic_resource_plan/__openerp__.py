@@ -45,10 +45,10 @@ Analytic Resource Planning
 
     """,
     "data": [
-        "analytic_resource_plan_view.xml",
-        "analytic_account_view.xml",
-        "product_view.xml",
-        "project_view.xml",
+        "view/analytic_resource_plan_view.xml",
+        "view/analytic_account_view.xml",
+        "view/product_view.xml",
+        "view/project_view.xml",
         "security/ir.model.access.csv",
 
     ],

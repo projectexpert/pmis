@@ -12,13 +12,22 @@
                         name="%(action_analytic_resource_plan_line_open_form)d"
                         type="action"
                         icon="fa-pencil-square-o"
-                        context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
-                        groups="project.group_project_manager">
+                        context="{'default_account_id': analytic_account_id,'search_default_account_id': [analytic_account_id]}"
+                        groups="project.group_project_user,project.group_project_manager">
                         <div>Resource plan</div>
                     </button>
                 </xpath>
             </field>
         </record>
+
+        <act_window
+            name="Resource plan lines"
+            id="resource_plan_line_action_project"
+            res_model="analytic.resource.plan.line"
+            src_model="project.project"
+            context="{'default_account_id': analytic_account_id,'search_default_account_id': [analytic_account_id]}"
+            groups="project.group_project_user,project.group_project_manager"/>
+
     </data>
 
 </openerp>

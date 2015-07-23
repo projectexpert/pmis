@@ -54,4 +54,14 @@ class analytic_resource_plan_line(osv.osv):
 
     }
 
+    def copy(self, cr, uid, id, default=None, context=None):
+        if context is None:
+            context = {}
+        if default is None:
+            default = {}
+        default['requisition_line_ids'] = []
+        res = super(analytic_resource_plan_line, self).copy(
+            cr, uid, id, default, context)
+        return res
+
 analytic_resource_plan_line()

@@ -27,7 +27,7 @@
                         name="%(act_purchase_requisition_lines)d"
                         icon="fa-pencil-square-o"
                         type="action">
-                        <div>Purchase req.<br/>lines</div>
+                        <div>Purchase req.</div>
                     </button>
                 </xpath>                              
             </field>

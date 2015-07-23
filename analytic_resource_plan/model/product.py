@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              <contact@eficent.com>
+#    OpenERP, Open Source Management Solution
+#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,8 +18,20 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import account_analytic_plan_version
-import account_analytic_plan_journal
-import account_analytic_line_plan
-import account_analytic_account
-import wizard
+
+from openerp.osv import fields, orm
+
+# ----------------------------------------------------------
+#  Products
+# ----------------------------------------------------------
+
+
+class product_template(orm.Model):
+    _inherit = "product.template"
+    _columns = {
+        'expense_analytic_plan_journal_id': fields.many2one('account.analytic.plan.journal',
+                                                            'Cost Planning Analytic Journal',
+                                                            ondelete='restrict'),
+    }
+
+product_template()
