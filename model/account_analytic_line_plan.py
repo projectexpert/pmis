@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
+#              <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,19 +19,24 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv
-
-# ----------------------------------------------------------
-#  Products
-# ----------------------------------------------------------
+from openerp.osv import fields, orm
 
 
-class product_template(osv.osv):
-    _inherit = "product.template"
+class account_analytic_line_plan(orm.Model):
+    _inherit = 'account.analytic.line.plan'
+
     _columns = {
-        'expense_analytic_plan_journal_id': fields.many2one('account.analytic.plan.journal',
-                                                            'Cost Planning Analytic Journal',
-                                                            ondelete='restrict'),
+        'resource_plan_id': fields.many2one('analytic.resource.plan.line',
+                                            'Resource Plan Line',
+                                            ondelete='cascade'),
     }
 
-product_template()
+    def copy(self, cr, uid, id, default=None, context=None):
+        if context is None:
+            context = {}
+        if default is None:
+            default = {}
+        default['resource_plan_id'] = False
+        res = super(account_analytic_line_plan, self).copy(
+            cr, uid, id, default, context)
+        return res
