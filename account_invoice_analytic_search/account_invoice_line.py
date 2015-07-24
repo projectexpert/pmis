@@ -27,13 +27,14 @@ class account_invoice_line(osv.osv):
     _inherit = "account.invoice.line"
 
     _columns = {
-        'account_analytic_user_id': fields.related('account_analytic_id',
-                                                   'user_id',
-                                                   type='many2one',
-                                                   relation='res.users',
-                                                   string='Project Manager',
-                                                   store=True,
-                                                   readonly=True),
+        'account_analytic_user_id': fields.related(
+            'account_analytic_id',
+            'user_id',
+            type='many2one',
+            relation='res.users',
+            string='Project Manager',
+            store=True,
+            readonly=True),
     }
 
 account_invoice_line()

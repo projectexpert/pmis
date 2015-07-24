@@ -29,7 +29,7 @@
         "analytic_resource_plan",
         "purchase_requisition",
         "purchase_requisition_line_analytic",
-        "purchase_requisition_line_description"
+        "purchase_requisition_line_description",
     ],
     "description": """
      == Record  planned costs and create purchase requisitions  ==

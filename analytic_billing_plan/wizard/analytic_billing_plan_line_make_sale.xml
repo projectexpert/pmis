@@ -15,7 +15,6 @@
                  <group colspan="2">
                      <separator string="Order details:"/>
                      <newline/>
-                     <field name="shop_id"/>
                      <field name="order_policy"/>
                      <field name="invoice_quantity"/>
                  </group>

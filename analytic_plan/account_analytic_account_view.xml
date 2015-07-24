@@ -14,7 +14,7 @@
 			<menuitem id="analytic_plan_analytic_account_menu"
 				name="Analytic Accounting" 
 				parent="project_plan"
-				groups="analytic.group_analytic_accounting"/>
+				groups="project.group_project_manager,project.group_project_user,analytic.group_analytic_accounting"/>
 			
 			<menuitem action="account.action_account_analytic_account_form" id="account_analytic_def_account"
 				parent="analytic_plan_analytic_account_menu"

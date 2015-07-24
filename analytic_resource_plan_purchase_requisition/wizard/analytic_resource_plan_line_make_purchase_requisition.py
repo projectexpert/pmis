@@ -114,8 +114,7 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
             requisition_name = ', '.join(product_names)
             for line in line_plan_obj.browse(cr, uid, record_ids, context=context):
                     uom_id = line.product_uom_id
-                    line_company_id = \
-                        line.company_id and line.company_id.id or False
+                    line_company_id = line.company_id and line.company_id.id or False
                     if company_id is not False and line_company_id != company_id:
                         raise osv.except_osv(
                             _('Could not create purchase requisition !'),
