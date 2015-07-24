@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-27 14:45+0000\n"
-"PO-Revision-Date: 2015-04-27 14:45+0000\n"
+"POT-Creation-Date: 2015-07-24 11:22+0000\n"
+"PO-Revision-Date: 2015-07-24 11:22+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -134,6 +134,11 @@ msgid "Analytic Line"
 msgstr ""
 
 #. module: analytic_plan
+#: model:ir.model,name:analytic_plan.model_analytic_plan_copy_version
+msgid "Analytic Plan copy versions"
+msgstr ""
+
+#. module: analytic_plan
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_form
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_search
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_tree
@@ -163,6 +168,11 @@ msgid "Calculated by multiplying the quantity and the price given in the Product
 msgstr ""
 
 #. module: analytic_plan
+#: view:analytic.plan.copy.version:analytic_plan.analytic_plan_copy_version_form
+msgid "Cancel"
+msgstr ""
+
+#. module: analytic_plan
 #: selection:account.analytic.plan.journal,type:0
 msgid "Cash"
 msgstr ""
@@ -180,9 +190,25 @@ msgid "Company"
 msgstr ""
 
 #. module: analytic_plan
+#: model:ir.actions.act_window,name:analytic_plan.action_analytic_plan_copy_version_form
+msgid "Copy Analytic Plan Lines"
+msgstr ""
+
+#. module: analytic_plan
+#: view:analytic.plan.copy.version:analytic_plan.analytic_plan_copy_version_form
+msgid "Copy analytic plan lines to a different version"
+msgstr ""
+
+#. module: analytic_plan
+#: view:analytic.plan.copy.version:analytic_plan.analytic_plan_copy_version_form
+msgid "Create"
+msgstr ""
+
+#. module: analytic_plan
 #: field:account.analytic.line.plan,create_uid:0
 #: field:account.analytic.plan.journal,create_uid:0
 #: field:account.analytic.plan.version,create_uid:0
+#: field:analytic.plan.copy.version,create_uid:0
 msgid "Created by"
 msgstr ""
 
@@ -190,6 +216,7 @@ msgstr ""
 #: field:account.analytic.line.plan,create_date:0
 #: field:account.analytic.plan.journal,create_date:0
 #: field:account.analytic.plan.version,create_date:0
+#: field:analytic.plan.copy.version,create_date:0
 msgid "Created on"
 msgstr ""
 
@@ -216,6 +243,11 @@ msgid "Default version\n"
 msgstr ""
 
 #. module: analytic_plan
+#: field:analytic.plan.copy.version,dest_version_id:0
+msgid "Destination Planning Version"
+msgstr ""
+
+#. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Fin. Account"
 msgstr ""
@@ -237,7 +269,7 @@ msgstr ""
 
 #. module: analytic_plan
 #: help:account.analytic.plan.journal,type:0
-msgid "Gives the type of the analytic journal. When it needs for a document (eg: an invoice) to create analytic entries, OpenERP will look for a matching journal of the same type."
+msgid "Gives the type of the analytic journal. When it needs for a document (eg: an invoice) to create analytic entries, OpenERP will look  for a matching journal of the same type."
 msgstr ""
 
 #. module: analytic_plan
@@ -251,6 +283,7 @@ msgstr ""
 #: field:account.analytic.line.plan,id:0
 #: field:account.analytic.plan.journal,id:0
 #: field:account.analytic.plan.version,id:0
+#: field:analytic.plan.copy.version,id:0
 msgid "ID"
 msgstr ""
 
@@ -265,6 +298,11 @@ msgid "If the active field is set to False, it will allow you to hide the analyt
 msgstr ""
 
 #. module: analytic_plan
+#: field:analytic.plan.copy.version,include_child:0
+msgid "Include child accounts"
+msgstr ""
+
+#. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Journal"
 msgstr ""
@@ -273,6 +311,7 @@ msgstr ""
 #: field:account.analytic.line.plan,write_uid:0
 #: field:account.analytic.plan.journal,write_uid:0
 #: field:account.analytic.plan.version,write_uid:0
+#: field:analytic.plan.copy.version,write_uid:0
 msgid "Last Updated by"
 msgstr ""
 
@@ -280,6 +319,7 @@ msgstr ""
 #: field:account.analytic.line.plan,write_date:0
 #: field:account.analytic.plan.journal,write_date:0
 #: field:account.analytic.plan.version,write_date:0
+#: field:analytic.plan.copy.version,write_date:0
 msgid "Last Updated on"
 msgstr ""
 
@@ -304,6 +344,11 @@ msgstr ""
 #. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Others"
+msgstr ""
+
+#. module: analytic_plan
+#: model:ir.ui.menu,name:analytic_plan.project_plan
+msgid "Plan"
 msgstr ""
 
 #. module: analytic_plan
@@ -440,13 +485,13 @@ msgid "Situation"
 msgstr ""
 
 #. module: analytic_plan
-#: help:account.analytic.line.plan,unit_amount:0
-msgid "Specifies the amount of quantity to count."
+#: field:analytic.plan.copy.version,source_version_id:0
+msgid "Source Planning Version"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,account_stage:0
-msgid "Stage"
+#: help:account.analytic.line.plan,unit_amount:0
+msgid "Specifies the amount of quantity to count."
 msgstr ""
 
 #. module: analytic_plan

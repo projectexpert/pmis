@@ -7,16 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-17 12:27+0000\n"
-"PO-Revision-Date: 2015-07-18 16:11+0200\n"
-"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"POT-Creation-Date: 2015-07-24 13:51+0200\n"
+"PO-Revision-Date: 2015-07-24 13:53+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: sl\n"
 "X-Generator: Poedit 1.8.2\n"
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Analitični konto"
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
@@ -32,6 +37,11 @@ msgstr "Dnevnik analitičnega planiranja za izdatke"
 #: model:ir.model,name:analytic_resource_plan.model_analytic_resource_plan_line
 msgid "Analytic Resource Planning lines"
 msgstr "Postavke analitičnega planiranja virov"
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_account_analytic_line_plan
+msgid "Analytic planning line"
+msgstr "Postavka analitičnega plana"
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
@@ -166,4 +176,4 @@ msgstr "Verzija"
 #. module: analytic_resource_plan
 #: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
 msgid "lines"
-msgstr ""
+msgstr "postavke"

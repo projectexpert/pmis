@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-17 12:32+0000\n"
-"PO-Revision-Date: 2015-07-17 12:32+0000\n"
+"POT-Creation-Date: 2015-07-24 11:42+0000\n"
+"PO-Revision-Date: 2015-07-24 11:42+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: analytic_billing_plan
+#: model:ir.model,name:analytic_billing_plan.model_analytic_billing_plan_copy_version
+msgid "Analytic Billing Plan copy versions"
+msgstr ""
 
 #. module: analytic_billing_plan
 #: model:ir.model,name:analytic_billing_plan.model_analytic_billing_plan_line
@@ -43,10 +48,6 @@ msgstr ""
 
 #. module: analytic_billing_plan
 #: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
-msgid "Billing"
-msgstr ""
-
-#. module: analytic_billing_plan
 #: model:ir.actions.act_window,name:analytic_billing_plan.action_analytic_billing_plan_line_open_form
 #: model:ir.ui.menu,name:analytic_billing_plan.analytic_billing_plan_line_entries
 #: view:project.project:analytic_billing_plan.edit_project
@@ -56,6 +57,7 @@ msgstr ""
 #. module: analytic_billing_plan
 #: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
 #: model:ir.actions.act_window,name:analytic_billing_plan.act_account_analytic_2_analytic_billing_plan_line
+#: model:ir.actions.act_window,name:analytic_billing_plan.billing_plan_line_action_project
 #: view:project.project:analytic_billing_plan.edit_project
 msgid "Billing plan lines"
 msgstr ""
@@ -92,12 +94,14 @@ msgid "Create billing request"
 msgstr ""
 
 #. module: analytic_billing_plan
+#: field:analytic.billing.plan.copy.version,create_uid:0
 #: field:analytic.billing.plan.line,create_uid:0
 #: field:analytic.billing.plan.line.make.sale,create_uid:0
 msgid "Created by"
 msgstr ""
 
 #. module: analytic_billing_plan
+#: field:analytic.billing.plan.copy.version,create_date:0
 #: field:analytic.billing.plan.line,create_date:0
 #: field:analytic.billing.plan.line.make.sale,create_date:0
 msgid "Created on"
@@ -114,14 +118,25 @@ msgid "Customer Information"
 msgstr ""
 
 #. module: analytic_billing_plan
+#: field:analytic.billing.plan.copy.version,dest_version_id:0
+msgid "Destination Planning Version"
+msgstr ""
+
+#. module: analytic_billing_plan
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
 msgid "Group By"
 msgstr ""
 
 #. module: analytic_billing_plan
+#: field:analytic.billing.plan.copy.version,id:0
 #: field:analytic.billing.plan.line,id:0
 #: field:analytic.billing.plan.line.make.sale,id:0
 msgid "ID"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: field:analytic.billing.plan.copy.version,include_child:0
+msgid "Include child accounts"
 msgstr ""
 
 #. module: analytic_billing_plan
@@ -135,12 +150,14 @@ msgid "Invoice on"
 msgstr ""
 
 #. module: analytic_billing_plan
+#: field:analytic.billing.plan.copy.version,write_uid:0
 #: field:analytic.billing.plan.line,write_uid:0
 #: field:analytic.billing.plan.line.make.sale,write_uid:0
 msgid "Last Updated by"
 msgstr ""
 
 #. module: analytic_billing_plan
+#: field:analytic.billing.plan.copy.version,write_date:0
 #: field:analytic.billing.plan.line,write_date:0
 #: field:analytic.billing.plan.line.make.sale,write_date:0
 msgid "Last Updated on"
@@ -212,13 +229,19 @@ msgid "Search billing plan lines"
 msgstr ""
 
 #. module: analytic_billing_plan
+#: field:analytic.billing.plan.copy.version,source_version_id:0
+msgid "Source Planning Version"
+msgstr ""
+
+#. module: analytic_billing_plan
 #: help:analytic.billing.plan.line.make.sale,invoice_quantity:0
 msgid "The sales order will automatically create the invoice proposition (draft invoice)."
 msgstr ""
 
 #. module: analytic_billing_plan
 #: help:analytic.billing.plan.line.make.sale,order_policy:0
-msgid "This field controls how invoice and delivery\n"
+msgid "This field controls how\n"
+"                                         invoice and delivery\n"
 "                                         operations are synchronized."
 msgstr ""
 
@@ -230,11 +253,6 @@ msgstr ""
 #. module: analytic_billing_plan
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
 msgid "Version"
-msgstr ""
-
-#. module: analytic_billing_plan
-#: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
-msgid "plan lines"
 msgstr ""
 
 #. module: analytic_billing_plan
