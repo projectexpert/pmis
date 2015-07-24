@@ -2,21 +2,20 @@
 # This file contains the translation of the following modules:
 # 	* project_charter
 #
-# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-17 12:18+0000\n"
-"PO-Revision-Date: 2015-07-18 16:12+0200\n"
-"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
-"Language-Team: Slovenian <translate@matmoz.si>\n"
+"POT-Creation-Date: 2015-07-24 13:12+0200\n"
+"PO-Revision-Date: 2015-07-24 13:17+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: \n"
-"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 "X-Generator: Poedit 1.8.2\n"
+"Language: sl\n"
 
 #. module: project_charter
 #: field:project.boundaries,assumptions:0
@@ -31,7 +30,7 @@ msgstr "Obračun. plan"
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Billing plan lines"
-msgstr "Postavke obračunskega plana"
+msgstr "Obračun. plan"
 
 #. module: project_charter
 #: field:project.boundaries,boundaries:0
@@ -77,7 +76,7 @@ msgstr "Upravičenost"
 #. module: project_charter
 #: field:project.boundaries,write_uid:0 field:project.scope,write_uid:0
 msgid "Last Updated by"
-msgstr "Zadnjič posodobil"
+msgstr "Zadnji posodobil"
 
 #. module: project_charter
 #: field:project.boundaries,write_date:0 field:project.scope,write_date:0
@@ -118,7 +117,7 @@ msgstr "Opis projekta"
 #: model:ir.model,name:project_charter.model_project_scope
 #: view:project.project:project_charter.view_project_form
 msgid "Project Scope"
-msgstr "Namen projekta"
+msgstr "Obseg projekta"
 
 #. module: project_charter
 #: field:project.project,project_boundaries_ids:0
@@ -128,7 +127,7 @@ msgstr "IDji projektnih mej"
 #. module: project_charter
 #: field:project.project,project_scope_ids:0
 msgid "Project scope ids"
-msgstr "IDji projektnih namenov"
+msgstr "IDji projektnega obsega"
 
 #. module: project_charter
 #: field:project.boundaries,project_id:0 field:project.scope,project_id:0
@@ -153,12 +152,12 @@ msgstr "Plan virov"
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Resource planning lines"
-msgstr "Planske postavke virov"
+msgstr "Plan virov"
 
 #. module: project_charter
 #: field:project.scope,result_obtained:0
 msgid "Result Obtained"
-msgstr "Doseženi rezultat"
+msgstr "Doseženi rezultati"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
