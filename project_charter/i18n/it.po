@@ -2,62 +2,61 @@
 # This file contains the translation of the following modules:
 # 	* project_charter
 #
-# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-17 12:18+0000\n"
-"PO-Revision-Date: 2015-07-18 16:12+0200\n"
-"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
-"Language-Team: Slovenian <translate@matmoz.si>\n"
+"POT-Creation-Date: 2015-07-18 17:24+0200\n"
+"PO-Revision-Date: 2015-07-19 10:05+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: \n"
-"Language: sl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.2\n"
+"Language: it\n"
 
 #. module: project_charter
 #: field:project.boundaries,assumptions:0
 msgid "Assumptions"
-msgstr "Predpostavke"
+msgstr "Presupposti"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Billing plan"
-msgstr "Obračun. plan"
+msgstr "Piano fatturazione"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Billing plan lines"
-msgstr "Postavke obračunskega plana"
+msgstr "Voci del piano fatturazione"
 
 #. module: project_charter
 #: field:project.boundaries,boundaries:0
 #: view:project.project:project_charter.view_project_form
 msgid "Boundaries"
-msgstr "Meje"
+msgstr "Limiti"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Boundaries, Assumptions, Constraints"
-msgstr "Meje, omejitve in predpostavke"
+msgstr "Limiti, presupposti, limitazioni"
 
 #. module: project_charter
 #: field:project.boundaries,constraints:0
 msgid "Constraints"
-msgstr "Omejitve"
+msgstr "Limitazioni"
 
 #. module: project_charter
 #: field:project.boundaries,create_uid:0 field:project.scope,create_uid:0
 msgid "Created by"
-msgstr "Ustvaril"
+msgstr "Creato da"
 
 #. module: project_charter
 #: field:project.boundaries,create_date:0 field:project.scope,create_date:0
 msgid "Created on"
-msgstr "Ustvarjeno"
+msgstr "Creato il"
 
 #. module: project_charter
 #: field:project.boundaries,id:0 field:project.scope,id:0
@@ -67,111 +66,111 @@ msgstr "ID"
 #. module: project_charter
 #: field:project.scope,indicator:0
 msgid "Indicator"
-msgstr "Indikator"
+msgstr "Indicatore"
 
 #. module: project_charter
 #: field:project.scope,justification:0
 msgid "Justification"
-msgstr "Upravičenost"
+msgstr "Giustificazione"
 
 #. module: project_charter
 #: field:project.boundaries,write_uid:0 field:project.scope,write_uid:0
 msgid "Last Updated by"
-msgstr "Zadnjič posodobil"
+msgstr "Ultimo ad aggiornare"
 
 #. module: project_charter
 #: field:project.boundaries,write_date:0 field:project.scope,write_date:0
 msgid "Last Updated on"
-msgstr "Zadnjič posodobljeno"
+msgstr "Ultimo aggiornamento"
 
 #. module: project_charter
 #: field:project.project,notes:0
 msgid "Notes"
-msgstr "Opombe"
+msgstr "Note"
 
 #. module: project_charter
 #: field:project.scope,objective:0
 msgid "Objective"
-msgstr "Cilj"
+msgstr "Obiettivi"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_project
 msgid "Project"
-msgstr "Projekt"
+msgstr "Progetto"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_boundaries
 msgid "Project Boundaries, Assumptions and Constraints"
-msgstr "Projektne meje, predpostavke in omejitve"
+msgstr "Limiti, presupposti e limitazioni progettuali"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Project Charter"
-msgstr "Projektni statut"
+msgstr "DIP (Documento di inizio progetto)"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Project Description"
-msgstr "Opis projekta"
+msgstr "Descrizione del progetto"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_scope
 #: view:project.project:project_charter.view_project_form
 msgid "Project Scope"
-msgstr "Namen projekta"
+msgstr "Portata del progetto"
 
 #. module: project_charter
 #: field:project.project,project_boundaries_ids:0
 msgid "Project boundaries ids"
-msgstr "IDji projektnih mej"
+msgstr "ID delle limitazioni progettuali"
 
 #. module: project_charter
 #: field:project.project,project_scope_ids:0
 msgid "Project scope ids"
-msgstr "IDji projektnih namenov"
+msgstr "ID portata del progetto"
 
 #. module: project_charter
 #: field:project.boundaries,project_id:0 field:project.scope,project_id:0
 msgid "Projects"
-msgstr "Projekti"
+msgstr "Progetti"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Resource and Billing Plan"
-msgstr "Plan virov in obračunski plan"
+msgstr "Piano risorse e piano fatturazione"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Resource and Billing plan"
-msgstr "Plan virov in obračunski plan"
+msgstr "Piano risorse e piano fatturazione"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Resource plan"
-msgstr "Plan virov"
+msgstr "Piano risorse"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Resource planning lines"
-msgstr "Planske postavke virov"
+msgstr "Voci del piano risorse"
 
 #. module: project_charter
 #: field:project.scope,result_obtained:0
 msgid "Result Obtained"
-msgstr "Doseženi rezultat"
+msgstr "Risultati ottenuti"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Roles and responsibilities"
-msgstr "Vloge in odgovornost"
+msgstr "Ruoli e responsabilità"
 
 #. module: project_charter
 #: view:project.project:project_charter.edit_project
 #: view:project.project:project_charter.view_project_form
 msgid "Stakeholders"
-msgstr "Deležniki"
+msgstr "Parti interessate"
 
 #. module: project_charter
 #: field:project.scope,target_value:0
 msgid "Target Value"
-msgstr "Ciljna vrednost"
+msgstr "Valore mirato"
