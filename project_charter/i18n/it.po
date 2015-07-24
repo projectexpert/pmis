@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-18 17:24+0200\n"
-"PO-Revision-Date: 2015-07-19 10:05+0200\n"
+"POT-Creation-Date: 2015-07-24 13:18+0200\n"
+"PO-Revision-Date: 2015-07-24 13:20+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -25,12 +25,12 @@ msgstr "Presupposti"
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Billing plan"
-msgstr "Piano fatturazione"
+msgstr "Piano ricavi"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Billing plan lines"
-msgstr "Voci del piano fatturazione"
+msgstr "Piano ricavi"
 
 #. module: project_charter
 #: field:project.boundaries,boundaries:0
@@ -76,12 +76,12 @@ msgstr "Giustificazione"
 #. module: project_charter
 #: field:project.boundaries,write_uid:0 field:project.scope,write_uid:0
 msgid "Last Updated by"
-msgstr "Ultimo ad aggiornare"
+msgstr "Ultimo aggiornamento da"
 
 #. module: project_charter
 #: field:project.boundaries,write_date:0 field:project.scope,write_date:0
 msgid "Last Updated on"
-msgstr "Ultimo aggiornamento"
+msgstr "Ultimo aggiornamento il"
 
 #. module: project_charter
 #: field:project.project,notes:0
@@ -137,12 +137,12 @@ msgstr "Progetti"
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Resource and Billing Plan"
-msgstr "Piano risorse e piano fatturazione"
+msgstr "Piano risorse e ricavi"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Resource and Billing plan"
-msgstr "Piano risorse e piano fatturazione"
+msgstr "Piano risorse e ricavi"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -152,7 +152,7 @@ msgstr "Piano risorse"
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Resource planning lines"
-msgstr "Voci del piano risorse"
+msgstr "Piano risorse"
 
 #. module: project_charter
 #: field:project.scope,result_obtained:0
