@@ -419,10 +419,10 @@ class project(osv.osv):
                         'change_project_stage_from_status': True
                     })
                     # Change the stage corresponding to the new status
-                    if p.parent_id and p.parent_id.child_stage_ids:
-                        for stage in p.parent_id.child_stage_ids:
-                            if stage.project_state == values.get('state'):
-                                values.update({'stage_id': stage.id})
+                    # if p.parent_id and p.parent_id.child_stage_ids:
+                    #     for stage in p.parent_id.child_stage_ids:
+                    #         if stage.project_state == values.get('state'):
+                    #             values.update({'stage_id': stage.id})
         return super(project, self).write(
             cr, uid, ids, values, context=context)
 

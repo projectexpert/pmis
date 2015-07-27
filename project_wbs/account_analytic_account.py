@@ -351,17 +351,17 @@ class account_analytic_account(osv.osv):
                     context=context)
                 stage = stage_obj.browse(cr, uid, values.get('stage_id'),
                                          context=context)
-                if stage.project_state == 'close':
-                    project_obj.set_done(cr, uid, project_ids,
-                                         context=context)
-                elif stage.project_state == 'cancelled':
-                    project_obj.set_cancel(cr, uid, project_ids,
-                                           context=context)
-                elif stage.project_state == 'pending':
-                    project_obj.set_pending(cr, uid, project_ids,
-                                            context=context)
-                elif stage.project_state == 'open':
-                    project_obj.set_open(cr, uid, project_ids,
-                                         context=context)
+                # if stage.project_state == 'close':
+                #     project_obj.set_done(cr, uid, project_ids,
+                #                          context=context)
+                # elif stage.project_state == 'cancelled':
+                #     project_obj.set_cancel(cr, uid, project_ids,
+                #                            context=context)
+                # elif stage.project_state == 'pending':
+                #     project_obj.set_pending(cr, uid, project_ids,
+                #                             context=context)
+                # elif stage.project_state == 'open':
+                #     project_obj.set_open(cr, uid, project_ids,
+                #                          context=context)
 
 account_analytic_account()
