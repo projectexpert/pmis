@@ -216,7 +216,7 @@ msgstr "Kopiranje postavk analit. plana"
 #. module: analytic_plan
 #: view:analytic.plan.copy.version:analytic_plan.analytic_plan_copy_version_form
 msgid "Copy analytic plan lines to a different version"
-msgstr "Kopiranje analitičnega plana v drugo verzijo"
+msgstr "Kopiranje postavk analitičnega plana v drugo verzijo"
 
 #. module: analytic_plan
 #: view:analytic.plan.copy.version:analytic_plan.analytic_plan_copy_version_form

@@ -56,12 +56,12 @@ msgstr "Versione attiva del piano"
 #. module: analytic_plan
 #: field:account.analytic.account,active_analytic_planning_version:0
 msgid "Active planning Version"
-msgstr "Versione attiva della pianificazione"
+msgstr "Versione attiva del piano"
 
 #. module: analytic_plan
 #: field:account.analytic.line.plan,name:0
 msgid "Activity description"
-msgstr "Descrizione dell'attività"
+msgstr "Descrizione attività"
 
 #. module: analytic_plan
 #: field:account.analytic.plan.journal,analytic_journal:0
@@ -77,7 +77,7 @@ msgstr "Ammontare"
 #. module: analytic_plan
 #: field:account.analytic.line.plan,amount_currency:0
 msgid "Amount Currency"
-msgstr "Valuta dell'ammontare"
+msgstr "Amm. in valuta"
 
 #. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
@@ -126,7 +126,7 @@ msgstr "Articoli del giornale analitico collegati ad un giornale di vendita."
 #. module: analytic_plan
 #: model:ir.model,name:analytic_plan.model_account_analytic_plan_journal
 msgid "Analytic Journal Plan"
-msgstr "Giornale di pianificazione"
+msgstr "Giornale pianificazione"
 
 #. module: analytic_plan
 #: model:ir.actions.act_window,name:analytic_plan.action_account_analytic_plan_journal_open_form
@@ -148,7 +148,7 @@ msgstr "Voci analitiche"
 #. module: analytic_plan
 #: model:ir.model,name:analytic_plan.model_analytic_plan_copy_version
 msgid "Analytic Plan copy versions"
-msgstr "Analytic Plan copy versions"
+msgstr "Coppia versioni piano analitico"
 
 #. module: analytic_plan
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_form
@@ -156,23 +156,23 @@ msgstr "Analytic Plan copy versions"
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_tree
 #: model:ir.model,name:analytic_plan.model_account_analytic_plan_version
 msgid "Analytic Planning Version"
-msgstr "Versione di pianificazione analitica"
+msgstr "Versione piano"
 
 #. module: analytic_plan
 #: model:ir.actions.act_window,name:analytic_plan.action_account_analytic_plan_version_form
 #: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_version
 msgid "Analytic Planning Versions"
-msgstr "Versioni di pianificazioni analitiche"
+msgstr "Versioni di piani analitici"
 
 #. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_graph
 msgid "Analytic line planning"
-msgstr "Voce di pianificazione analitica"
+msgstr "Voce del piano"
 
 #. module: analytic_plan
 #: model:ir.model,name:analytic_plan.model_account_analytic_line_plan
 msgid "Analytic planning line"
-msgstr "Voce di pianificazione analitica"
+msgstr "Voce del piano"
 
 #. module: analytic_plan
 #: help:account.analytic.line.plan,amount:0
@@ -187,7 +187,7 @@ msgstr ""
 #. module: analytic_plan
 #: view:analytic.plan.copy.version:analytic_plan.analytic_plan_copy_version_form
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "Cancella"
 
 #. module: analytic_plan
 #: selection:account.analytic.plan.journal,type:0
@@ -209,17 +209,17 @@ msgstr "Società"
 #. module: analytic_plan
 #: model:ir.actions.act_window,name:analytic_plan.action_analytic_plan_copy_version_form
 msgid "Copy Analytic Plan Lines"
-msgstr "Copy Analytic Plan Lines"
+msgstr "Coppia voci del piano"
 
 #. module: analytic_plan
 #: view:analytic.plan.copy.version:analytic_plan.analytic_plan_copy_version_form
 msgid "Copy analytic plan lines to a different version"
-msgstr "Copy analytic plan lines to a different version"
+msgstr "Coppia le voci del piano in una versione differente"
 
 #. module: analytic_plan
 #: view:analytic.plan.copy.version:analytic_plan.analytic_plan_copy_version_form
 msgid "Create"
-msgstr "Create"
+msgstr "Crea"
 
 #. module: analytic_plan
 #: field:account.analytic.line.plan,create_uid:0
@@ -265,7 +265,7 @@ msgstr ""
 #. module: analytic_plan
 #: field:analytic.plan.copy.version,dest_version_id:0
 msgid "Destination Planning Version"
-msgstr "Destination Planning Version"
+msgstr "Versione piano destinata"
 
 #. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
@@ -294,8 +294,8 @@ msgid ""
 "invoice) to create analytic entries, OpenERP will look  for a matching "
 "journal of the same type."
 msgstr ""
-"Gives the type of the analytic journal. When it needs for a document (eg: an "
-"invoice) to create analytic entries, OpenERP will look  for a matching "
+"Definisce il tipo del giornale analitico. Se un documento necessita di creare "
+"(esempio fattura) degli inserimenti analitici, il sistema cerca quello corrispondente "
 "journal of the same type."
 
 #. module: analytic_plan
@@ -496,7 +496,7 @@ msgstr "Quantità debito"
 #. module: analytic_plan
 #: field:account.analytic.line.plan,ref:0
 msgid "Ref."
-msgstr "Ref."
+msgstr "Rif."
 
 #. module: analytic_plan
 #: selection:account.analytic.plan.journal,type:0
