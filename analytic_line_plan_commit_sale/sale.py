@@ -92,6 +92,7 @@ class sale_order_line(osv.osv):
         line_plan_obj = self.pool.get('account.analytic.line.plan')
         plan_version_obj = self.pool.get('account.analytic.plan.version')
         plan_journal_obj = self.pool.get('account.analytic.plan.journal')
+        product_obj = self.pool.get('product.product')
         vals_line = {}
         new_line_plan_id = False
         context = kwargs.get('context', {})
@@ -121,6 +122,18 @@ class sale_order_line(osv.osv):
             if 'order_id' in vals:
                 order = sale_order_obj.browse(cr, uid, vals['order_id'], context=context)
 
+            general_account_id = False
+            if 'product_id' in vals:
+                prod = product_obj.browse(cr, uid, vals['product_id'], context=context)
+                general_account_id = prod.product_tmpl_id.property_account_expense.id
+                if not general_account_id:
+                    general_account_id = prod.categ_id.property_account_expense_categ.id
+                if not general_account_id:
+                    raise osv.except_osv(_('Error !'),
+                                         _('There is no expense account defined '
+                                           'for this product: "%s" (id:%d)')
+                                         % (prod.name, prod.id,))
+
             vals_line['name'] = vals['name']
             vals_line['date'] = order.date_confirm or date.today()
             vals_line['amount'] = 0
@@ -134,6 +147,7 @@ class sale_order_line(osv.osv):
             vals_line['product_id'] = vals['product_id']
             vals_line['version_id'] = version_id
             vals_line['journal_id'] = journal_id
+            vals_line['general_account_id'] = general_account_id
 
             new_line_plan_id = line_plan_obj.create(cr, uid,
                                                     vals=vals_line,
@@ -156,6 +170,7 @@ class sale_order_line(osv.osv):
         line_plan_obj = self.pool.get('account.analytic.line.plan')
         plan_version_obj = self.pool.get('account.analytic.plan.version')
         plan_journal_obj = self.pool.get('account.analytic.plan.journal')
+        product_obj = self.pool.get('product.product')
 
         vals_line = {}
 
@@ -241,7 +256,7 @@ class sale_order_line(osv.osv):
                     so_line.order_id and so_line.order_id.project_id and so_line.order_id.project_id.id
                 )
 
-            vals_line['company_id'] = order.company_id and order.company_id.id or False
+            vals_line['company_id'] = order.company_id and order.company_id.id
 
             if 'product_uos' in data:
                 vals_line['product_uom_id'] = data['product_uos']
@@ -255,6 +270,20 @@ class sale_order_line(osv.osv):
 
             vals_line['version_id'] = version_id
             vals_line['journal_id'] = journal_id
+
+            general_account_id = False
+            if vals_line['product_id']:
+                prod = product_obj.browse(cr, uid, vals_line['product_id'], context=context)
+                general_account_id = prod.product_tmpl_id.property_account_expense.id
+                if not general_account_id:
+                    general_account_id = prod.categ_id.property_account_expense_categ.id
+                if not general_account_id:
+                    raise osv.except_osv(_('Error !'),
+                                         _('There is no expense account defined '
+                                           'for this product: "%s" (id:%d)')
+                                         % (prod.name, prod.id,))
+
+            vals_line['general_account_id'] = general_account_id
 
             if so_line.analytic_line_plan:
                 if vals_line['account_id']:
