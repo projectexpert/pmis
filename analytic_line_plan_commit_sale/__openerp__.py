@@ -21,7 +21,7 @@
 
 {
     "name": "Analytic committed revenues on sales orders",
-    "version": "1.0",
+    "version": "1.0.1",
     "author": "Eficent",
     "website": "http://www.eficent.com",
     "category": "Generic Modules/Projects & Services",
@@ -30,7 +30,7 @@
     Maintain analytic committed revenues associated to sales orders
     """,
     "data": [
-
+        "sale_filters.xml"
     ],
     'test': [
     ],
