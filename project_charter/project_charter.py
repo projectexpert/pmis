@@ -37,6 +37,10 @@ class Project(models.Model):
         'project.boundaries',
         'project_id',
     )
+    project_success_ids = fields.One2many(
+        'project.success',
+        'project_id'
+    )
 
 
 class Project_scope(models.Model):
@@ -46,11 +50,19 @@ class Project_scope(models.Model):
     _description = __doc__
 
     project_id = fields.Many2one('project.project', string='Projects')
-    justification = fields.Text('Justification')
-    objective = fields.Text(string='Objective')
-    indicator = fields.Char(string='Indicator')
-    target_value = fields.Char(string='Target Value')
-    result_obtained = fields.Char(string='Result Obtained')
+    scope = fields.Text('Scope')
+    out_scope = fields.Text(string='Out of Scope')
+
+
+class Success(models.Model):
+    """Success and Requirements"""
+
+    _name = 'project.success'
+    _description = __doc__
+
+    project_id = fields.Many2one('project.project', string='Projects')
+    success = fields.Text('Project Success')
+    requirements = fields.Text('Stakeholder Requirements')
 
 
 class Project_boundary(models.Model):
@@ -60,6 +72,6 @@ class Project_boundary(models.Model):
     _description = __doc__
 
     project_id = fields.Many2one('project.project', string='Projects')
-    boundaries = fields.Text(string='Boundaries')
     assumptions = fields.Text(string='Assumptions')
     constraints = fields.Text(string='Constraints')
+    hlrisks = fields.Text(string='High-level Risk Assessment')

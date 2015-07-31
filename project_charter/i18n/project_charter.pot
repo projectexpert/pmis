@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-24 11:11+0000\n"
-"PO-Revision-Date: 2015-07-24 11:11+0000\n"
+"POT-Creation-Date: 2015-07-31 16:24+0000\n"
+"PO-Revision-Date: 2015-07-31 16:24+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,6 @@ msgid "Billing plan lines"
 msgstr ""
 
 #. module: project_charter
-#: field:project.boundaries,boundaries:0
 #: view:project.project:project_charter.view_project_form
 msgid "Boundaries"
 msgstr ""
@@ -49,40 +48,40 @@ msgstr ""
 #. module: project_charter
 #: field:project.boundaries,create_uid:0
 #: field:project.scope,create_uid:0
+#: field:project.success,create_uid:0
 msgid "Created by"
 msgstr ""
 
 #. module: project_charter
 #: field:project.boundaries,create_date:0
 #: field:project.scope,create_date:0
+#: field:project.success,create_date:0
 msgid "Created on"
+msgstr ""
+
+#. module: project_charter
+#: field:project.boundaries,hlrisks:0
+msgid "High-level Risk Assessment"
 msgstr ""
 
 #. module: project_charter
 #: field:project.boundaries,id:0
 #: field:project.scope,id:0
+#: field:project.success,id:0
 msgid "ID"
-msgstr ""
-
-#. module: project_charter
-#: field:project.scope,indicator:0
-msgid "Indicator"
-msgstr ""
-
-#. module: project_charter
-#: field:project.scope,justification:0
-msgid "Justification"
 msgstr ""
 
 #. module: project_charter
 #: field:project.boundaries,write_uid:0
 #: field:project.scope,write_uid:0
+#: field:project.success,write_uid:0
 msgid "Last Updated by"
 msgstr ""
 
 #. module: project_charter
 #: field:project.boundaries,write_date:0
 #: field:project.scope,write_date:0
+#: field:project.success,write_date:0
 msgid "Last Updated on"
 msgstr ""
 
@@ -92,8 +91,8 @@ msgid "Notes"
 msgstr ""
 
 #. module: project_charter
-#: field:project.scope,objective:0
-msgid "Objective"
+#: field:project.scope,out_scope:0
+msgid "Out of Scope"
 msgstr ""
 
 #. module: project_charter
@@ -123,6 +122,11 @@ msgid "Project Scope"
 msgstr ""
 
 #. module: project_charter
+#: field:project.success,success:0
+msgid "Project Success"
+msgstr ""
+
+#. module: project_charter
 #: field:project.project,project_boundaries_ids:0
 msgid "Project boundaries ids"
 msgstr ""
@@ -133,8 +137,14 @@ msgid "Project scope ids"
 msgstr ""
 
 #. module: project_charter
+#: field:project.project,project_success_ids:0
+msgid "Project success ids"
+msgstr ""
+
+#. module: project_charter
 #: field:project.boundaries,project_id:0
 #: field:project.scope,project_id:0
+#: field:project.success,project_id:0
 msgid "Projects"
 msgstr ""
 
@@ -159,13 +169,18 @@ msgid "Resource planning lines"
 msgstr ""
 
 #. module: project_charter
-#: field:project.scope,result_obtained:0
-msgid "Result Obtained"
+#: view:project.project:project_charter.view_project_form
+msgid "Roles and responsibilities"
 msgstr ""
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Roles and responsibilities"
+#: field:project.scope,scope:0
+msgid "Scope"
+msgstr ""
+
+#. module: project_charter
+#: field:project.success,requirements:0
+msgid "Stakeholder Requirements"
 msgstr ""
 
 #. module: project_charter
@@ -175,7 +190,8 @@ msgid "Stakeholders"
 msgstr ""
 
 #. module: project_charter
-#: field:project.scope,target_value:0
-msgid "Target Value"
+#: model:ir.model,name:project_charter.model_project_success
+#: view:project.project:project_charter.view_project_form
+msgid "Success and Requirements"
 msgstr ""
 

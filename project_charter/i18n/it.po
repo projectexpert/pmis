@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-24 13:18+0200\n"
-"PO-Revision-Date: 2015-07-24 13:20+0200\n"
+"POT-Creation-Date: 2015-07-31 16:25+0000\n"
+"PO-Revision-Date: 2015-07-31 18:33+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.2\n"
+"Plural-Forms: \n"
 "Language: it\n"
+"X-Generator: Poedit 1.8.2\n"
 
 #. module: project_charter
 #: field:project.boundaries,assumptions:0
@@ -33,7 +33,6 @@ msgid "Billing plan lines"
 msgstr "Piano ricavi"
 
 #. module: project_charter
-#: field:project.boundaries,boundaries:0
 #: view:project.project:project_charter.view_project_form
 msgid "Boundaries"
 msgstr "Limiti"
@@ -50,36 +49,36 @@ msgstr "Limitazioni"
 
 #. module: project_charter
 #: field:project.boundaries,create_uid:0 field:project.scope,create_uid:0
+#: field:project.success,create_uid:0
 msgid "Created by"
 msgstr "Creato da"
 
 #. module: project_charter
 #: field:project.boundaries,create_date:0 field:project.scope,create_date:0
+#: field:project.success,create_date:0
 msgid "Created on"
 msgstr "Creato il"
 
 #. module: project_charter
+#: field:project.boundaries,hlrisks:0
+msgid "High-level Risk Assessment"
+msgstr "Valutazione rischi approsimativa"
+
+#. module: project_charter
 #: field:project.boundaries,id:0 field:project.scope,id:0
+#: field:project.success,id:0
 msgid "ID"
 msgstr "ID"
 
 #. module: project_charter
-#: field:project.scope,indicator:0
-msgid "Indicator"
-msgstr "Indicatore"
-
-#. module: project_charter
-#: field:project.scope,justification:0
-msgid "Justification"
-msgstr "Giustificazione"
-
-#. module: project_charter
 #: field:project.boundaries,write_uid:0 field:project.scope,write_uid:0
+#: field:project.success,write_uid:0
 msgid "Last Updated by"
 msgstr "Ultimo aggiornamento da"
 
 #. module: project_charter
 #: field:project.boundaries,write_date:0 field:project.scope,write_date:0
+#: field:project.success,write_date:0
 msgid "Last Updated on"
 msgstr "Ultimo aggiornamento il"
 
@@ -89,14 +88,14 @@ msgid "Notes"
 msgstr "Note"
 
 #. module: project_charter
-#: field:project.scope,objective:0
-msgid "Objective"
-msgstr "Obiettivi"
+#: field:project.scope,out_scope:0
+msgid "Out of Scope"
+msgstr "Fuori portata"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_project
 msgid "Project"
-msgstr "Progetto"
+msgstr "Progetti"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_boundaries
@@ -120,6 +119,11 @@ msgid "Project Scope"
 msgstr "Portata del progetto"
 
 #. module: project_charter
+#: field:project.success,success:0
+msgid "Project Success"
+msgstr "Successo progetto"
+
+#. module: project_charter
 #: field:project.project,project_boundaries_ids:0
 msgid "Project boundaries ids"
 msgstr "ID delle limitazioni progettuali"
@@ -130,7 +134,13 @@ msgid "Project scope ids"
 msgstr "ID portata del progetto"
 
 #. module: project_charter
+#: field:project.project,project_success_ids:0
+msgid "Project success ids"
+msgstr "ID successo progetto"
+
+#. module: project_charter
 #: field:project.boundaries,project_id:0 field:project.scope,project_id:0
+#: field:project.success,project_id:0
 msgid "Projects"
 msgstr "Progetti"
 
@@ -152,17 +162,22 @@ msgstr "Piano risorse"
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Resource planning lines"
-msgstr "Piano risorse"
-
-#. module: project_charter
-#: field:project.scope,result_obtained:0
-msgid "Result Obtained"
-msgstr "Risultati ottenuti"
+msgstr "Voci pianificazione risorse"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Roles and responsibilities"
 msgstr "Ruoli e responsabilità"
+
+#. module: project_charter
+#: field:project.scope,scope:0
+msgid "Scope"
+msgstr "Portata"
+
+#. module: project_charter
+#: field:project.success,requirements:0
+msgid "Stakeholder Requirements"
+msgstr "Requisiti parti interessate"
 
 #. module: project_charter
 #: view:project.project:project_charter.edit_project
@@ -171,6 +186,7 @@ msgid "Stakeholders"
 msgstr "Parti interessate"
 
 #. module: project_charter
-#: field:project.scope,target_value:0
-msgid "Target Value"
-msgstr "Valore mirato"
+#: model:ir.model,name:project_charter.model_project_success
+#: view:project.project:project_charter.view_project_form
+msgid "Success and Requirements"
+msgstr "Successo e requisiti"
