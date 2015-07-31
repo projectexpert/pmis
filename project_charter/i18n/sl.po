@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-31 16:25+0000\n"
-"PO-Revision-Date: 2015-07-31 18:29+0200\n"
+"POT-Creation-Date: 2015-07-31 18:42+0000\n"
+"PO-Revision-Date: 2015-07-31 20:49+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,8 @@ msgstr ""
 "X-Generator: Poedit 1.8.2\n"
 
 #. module: project_charter
-#: field:project.boundaries,assumptions:0
+#: model:ir.model,name:project_charter.model_project_assumptions
+#: field:project.assumptions,assumptions:0
 msgid "Assumptions"
 msgstr "Predpostavke"
 
@@ -34,11 +35,6 @@ msgstr "Obračun. plan"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Boundaries"
-msgstr "Meje"
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
 msgid "Boundaries, Assumptions, Constraints"
 msgstr "Meje, omejitve in predpostavke"
 
@@ -48,37 +44,52 @@ msgid "Constraints"
 msgstr "Omejitve"
 
 #. module: project_charter
-#: field:project.boundaries,create_uid:0 field:project.scope,create_uid:0
-#: field:project.success,create_uid:0
+#: field:project.assumptions,create_uid:0
+#: field:project.boundaries,create_uid:0 field:project.outscope,create_uid:0
+#: field:project.requirement,create_uid:0 field:project.risks,create_uid:0
+#: field:project.scope,create_uid:0 field:project.success,create_uid:0
 msgid "Created by"
 msgstr "Ustvaril"
 
 #. module: project_charter
-#: field:project.boundaries,create_date:0 field:project.scope,create_date:0
-#: field:project.success,create_date:0
+#: field:project.assumptions,create_date:0
+#: field:project.boundaries,create_date:0 field:project.outscope,create_date:0
+#: field:project.requirement,create_date:0 field:project.risks,create_date:0
+#: field:project.scope,create_date:0 field:project.success,create_date:0
 msgid "Created on"
 msgstr "Ustvarjeno"
 
 #. module: project_charter
-#: field:project.boundaries,hlrisks:0
+#: model:ir.model,name:project_charter.model_project_risks
+msgid "High-level Risk Assesment"
+msgstr "Groba ocena tveganj"
+
+#. module: project_charter
+#: field:project.risks,hlrisks:0
 msgid "High-level Risk Assessment"
 msgstr "Groba ocena tveganj"
 
 #. module: project_charter
-#: field:project.boundaries,id:0 field:project.scope,id:0
+#: field:project.assumptions,id:0 field:project.boundaries,id:0
+#: field:project.outscope,id:0 field:project.requirement,id:0
+#: field:project.risks,id:0 field:project.scope,id:0
 #: field:project.success,id:0
 msgid "ID"
 msgstr "ID"
 
 #. module: project_charter
-#: field:project.boundaries,write_uid:0 field:project.scope,write_uid:0
+#: field:project.assumptions,write_uid:0 field:project.boundaries,write_uid:0
+#: field:project.outscope,write_uid:0 field:project.requirement,write_uid:0
+#: field:project.risks,write_uid:0 field:project.scope,write_uid:0
 #: field:project.success,write_uid:0
 msgid "Last Updated by"
 msgstr "Zadnjič posodobil"
 
 #. module: project_charter
-#: field:project.boundaries,write_date:0 field:project.scope,write_date:0
-#: field:project.success,write_date:0
+#: field:project.assumptions,write_date:0
+#: field:project.boundaries,write_date:0 field:project.outscope,write_date:0
+#: field:project.requirement,write_date:0 field:project.risks,write_date:0
+#: field:project.scope,write_date:0 field:project.success,write_date:0
 msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
 
@@ -88,8 +99,13 @@ msgid "Notes"
 msgstr "Opombe"
 
 #. module: project_charter
-#: field:project.scope,out_scope:0
+#: field:project.outscope,out_scope:0
 msgid "Out of Scope"
+msgstr "Izven obsega"
+
+#. module: project_charter
+#: model:ir.model,name:project_charter.model_project_outscope
+msgid "Out of scope"
 msgstr "Izven obsega"
 
 #. module: project_charter
@@ -124,23 +140,45 @@ msgid "Project Success"
 msgstr "Uspeh projekta"
 
 #. module: project_charter
+#: field:project.project,project_assumptions_ids:0
+msgid "Project assumptions ids"
+msgstr "IDji predpostavk"
+
+#. module: project_charter
 #: field:project.project,project_boundaries_ids:0
 msgid "Project boundaries ids"
 msgstr "IDji projektnih mej"
 
 #. module: project_charter
+#: field:project.project,project_outscope_ids:0
+msgid "Project outscope ids"
+msgstr "IDji izven obsega projekta"
+
+#. module: project_charter
+#: field:project.project,project_requirement_ids:0
+msgid "Project requirement ids"
+msgstr "IDju projektnih zahtev"
+
+#. module: project_charter
+#: field:project.project,project_risks_ids:0
+msgid "Project risks ids"
+msgstr "IDji projektnih tveganj"
+
+#. module: project_charter
 #: field:project.project,project_scope_ids:0
 msgid "Project scope ids"
-msgstr "IDji projektnih namenov"
+msgstr "IDji projektnega obsega"
 
 #. module: project_charter
 #: field:project.project,project_success_ids:0
 msgid "Project success ids"
-msgstr "Idju uspeha"
+msgstr "Idji uspeha"
 
 #. module: project_charter
-#: field:project.boundaries,project_id:0 field:project.scope,project_id:0
-#: field:project.success,project_id:0
+#: field:project.assumptions,project_id:0
+#: field:project.boundaries,project_id:0 field:project.outscope,project_id:0
+#: field:project.requirement,project_id:0 field:project.risks,project_id:0
+#: field:project.scope,project_id:0 field:project.success,project_id:0
 msgid "Projects"
 msgstr "Projekti"
 
@@ -175,7 +213,7 @@ msgid "Scope"
 msgstr "Obseg"
 
 #. module: project_charter
-#: field:project.success,requirements:0
+#: field:project.requirement,requirements:0
 msgid "Stakeholder Requirements"
 msgstr "Zahteve deležnikov"
 
@@ -186,6 +224,7 @@ msgid "Stakeholders"
 msgstr "Deležniki"
 
 #. module: project_charter
+#: model:ir.model,name:project_charter.model_project_requirement
 #: model:ir.model,name:project_charter.model_project_success
 #: view:project.project:project_charter.view_project_form
 msgid "Success and Requirements"

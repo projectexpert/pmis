@@ -33,13 +33,29 @@ class Project(models.Model):
         'project_id',
         # string='Scope'
     )
-    project_boundaries_ids = fields.One2many(
-        'project.boundaries',
+    project_outscope_ids = fields.One2many(
+        'project.outscope',
         'project_id',
     )
     project_success_ids = fields.One2many(
         'project.success',
         'project_id'
+    )
+    project_requirement_ids = fields.One2many(
+        'project.requirement',
+        'project_id'
+    )
+    project_boundaries_ids = fields.One2many(
+        'project.boundaries',
+        'project_id',
+    )
+    project_assumptions_ids = fields.One2many(
+        'project.assumptions',
+        'project_id',
+    )
+    project_risks_ids = fields.One2many(
+        'project.risks',
+        'project_id',
     )
 
 
@@ -51,27 +67,63 @@ class Project_scope(models.Model):
 
     project_id = fields.Many2one('project.project', string='Projects')
     scope = fields.Text('Scope')
+
+
+class Project_outscope(models.Model):
+    """Out of scope"""
+
+    _name = 'project.outscope'
+    _description = __doc__
+
+    project_id = fields.Many2one('project.project', string='Projects')
     out_scope = fields.Text(string='Out of Scope')
 
 
 class Success(models.Model):
-    """Success and Requirements"""
+    """Success"""
 
     _name = 'project.success'
     _description = __doc__
 
     project_id = fields.Many2one('project.project', string='Projects')
     success = fields.Text('Project Success')
+
+
+class Requirement(models.Model):
+    """Requirements"""
+
+    _name = 'project.requirement'
+    _description = __doc__
+
+    project_id = fields.Many2one('project.project', string='Projects')
     requirements = fields.Text('Stakeholder Requirements')
 
 
 class Project_boundary(models.Model):
-    """Project Boundaries, Assumptions and Constraints"""
+    """Constraints"""
 
     _name = 'project.boundaries'
     _description = __doc__
 
     project_id = fields.Many2one('project.project', string='Projects')
-    assumptions = fields.Text(string='Assumptions')
     constraints = fields.Text(string='Constraints')
+
+
+class Project_assumption(models.Model):
+    """Assumptions"""
+
+    _name = 'project.assumptions'
+    _description = __doc__
+
+    project_id = fields.Many2one('project.project', string='Projects')
+    assumptions = fields.Text(string='Assumptions')
+
+
+class Project_risk(models.Model):
+    """High-level Risk Assesment"""
+
+    _name = 'project.risks'
+    _description = __doc__
+
+    project_id = fields.Many2one('project.project', string='Projects')
     hlrisks = fields.Text(string='High-level Risk Assessment')

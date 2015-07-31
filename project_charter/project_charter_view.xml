@@ -12,119 +12,167 @@
                 <xpath expr="//form/sheet/notebook/page" position="before">
                     <page name="charter" string="Project Charter">
                         <notebook>
-                        <page string="Project Description">
-                            <group string="Project Description">
-                                <field name="description" nolabel="1" widget="text_html"/>
+                            <page string="Project Description">
+                                <group string="Project Description">
+                                    <field name="description" nolabel="1" widget="text_html"/>
+                                </group>
+                            </page>
+                            <page string="Project Scope">
+                                <group string="Project Scope">
+                                    <group>
+                                        <field name="project_scope_ids" nolabel="1">
+                                            <!--make tree editable to avoid form input-->
+                                            <tree editable="bottom">
+                                                <field name="scope"/>
+                                             </tree>
+                                            <form>
+                                                <group>
+                                                    <field name="scope"/>                                       
+                                                </group>
+                                           </form>
+                                        </field>
+                                    </group>
+                                    <group>
+                                        <field name="project_outscope_ids" nolabel="1">
+                                            <!--make tree editable to avoid form input-->
+                                            <tree editable="bottom">
+                                                <field name="out_scope" />
+                                             </tree>
+                                            <form>
+                                                <group>                                 
+                                                    <field name="out_scope" />
+                                                </group>
+                                           </form>
+                                        </field>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Success and Requirements">
+                                <group string="Success and Requirements">
+                                    <group>
+                                        <field name="project_success_ids" nolabel="1">
+                                            <!--make tree editable to avoid form input-->
+                                            <tree editable="bottom">
+                                                <field name="success"/>
+                                             </tree>
+                                            <form>
+                                                <group>
+                                                    <field name="success"/>                                       
+                                                </group>
+                                           </form>
+                                        </field>
+                                    </group>
+                                    <group>
+                                        <field name="project_requirement_ids" nolabel="1">
+                                            <!--make tree editable to avoid form input-->
+                                            <tree editable="bottom">
+                                                <field name="requirements" />
+                                             </tree>
+                                            <form>
+                                                <group>
+                                                    <field name="requirements" />
+                                                </group>
+                                           </form>
+                                        </field>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Boundaries, Assumptions, Constraints">
+                                <group string="Boundaries, Assumptions, Constraints">
+                                    <group>
+                                        <field name="project_assumptions_ids" nolabel="1">
+                                            <tree editable="bottom">
+                                                <field name="assumptions"/>
+                                            </tree>
+                                            <form>
+                                                <group>
+                                                    <field name="assumptions"/>
+                                                </group>
+                                           </form>
+                                        </field>
+                                    </group>
+                                    <group>
+                                        <field name="project_boundaries_ids" nolabel="1">
+                                            <tree editable="bottom">
+                                                <field name="constraints"/>
+                                            </tree>
+                                            <form>
+                                                <group>
+                                                    <field name="constraints"/>
+                                                </group>
+                                           </form>
+                                        </field>
+                                    </group>
+                                    <group>
+                                        <field name="project_risks_ids" nolabel="1">
+                                            <tree editable="bottom">
+                                                <field name="hlrisks"/>
+                                            </tree>
+                                            <form>
+                                                <group>
+                                                    <field name="hlrisks"/>
+                                                </group>
+                                           </form>
+                                        </field>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <!--add high level risks list-->
+                            <!--add milestone list-->
+                            <!--add project stakeholders list-->
+                            <page string="Stakeholders">
+                            <group string="Stakeholders">                        
+                                <field name="stakeholder_ids" nolabel="1" context="{'default_project_id': active_id}">
+                                    <tree editable="top" string="Stakeholders">       
+                                        <field name="partner_id"/>           
+                                        <field name="role_ids" widget="many2many_tags" />                                        
+                                        <field name="responsibility_ids" widget="many2many_tags"/>
+                                        <field name="influence"/>
+                                    </tree>
+                                    <form string="Stakeholders">
+                                        <group colspan="4" col="4">
+                                            <field name="project_id" readonly="1"/>         
+                                            <field name="partner_id"/>                   
+                                        </group>
+                                        <newline/>						                                        
+                                        <group colspan="6" col="6">
+                                            <separator string="Roles and responsibilities" colspan="6"/>
+                                            <field name="role_ids" mode="tree,form" colspan="6"/>      
+                                            <field name="responsibility_ids" mode="tree,form" colspan="6"/>
+                                        </group>									                
+                                        <group colspan="6" col="6">	                                        
+                                            <field name="influence"/>	                    
+                                        </group>				                	        
+                                    </form>
+                                </field>                                                    
                             </group>
-                        </page>
-                        <page string="Project Scope">
-                        <group string="Project Scope">
-                            <field name="project_scope_ids" nolabel="1">
-                                <!--make tree editable to avoid form input-->
-                                <tree editable="bottom">
-                                    <field name="scope"/>
-                                    <field name="out_scope" />
-                                 </tree>
-                                <form>
-                                    <group>
-                                        <field name="scope"/>                                       
-                                        <field name="out_scope" />
-                                    </group>
-                               </form>
-                            </field>
-                        </group>
-                        </page>
-                        <page string="Success and Requirements">
-                        <group string="Success and Requirements">
-                            <field name="project_success_ids" nolabel="1">
-                                <!--make tree editable to avoid form input-->
-                                <tree editable="bottom">
-                                    <field name="success"/>
-                                    <field name="requirements" />
-                                 </tree>
-                                <form>
-                                    <group>
-                                        <field name="success"/>                                       
-                                        <field name="requirements" />
-                                    </group>
-                               </form>
-                            </field>
-                        </group>
-                        </page>
-                        <page string="Boundaries">
-                        <group string="Boundaries, Assumptions, Constraints">
-                            <field name="project_boundaries_ids" nolabel="1">
-                                <tree editable="bottom">
-                                    <field name="assumptions"/>
-                                    <field name="constraints"/>
-                                    <field name="hlrisks"/>
-                                </tree>
-                                <form>
-                                    <group>
-                                        <field name="assumptions"/>
-                                        <field name="constraints"/>
-                                        <field name="hlrisks"/>
-                                    </group>
-                               </form>
-                            </field>
-                        </group>
-                        </page>
-                        
-                        <!--add high level risks list-->
-                        <!--add milestone list-->
-                        <!--add project stakeholders list-->
-                        <page string="Stakeholders">
-                        <group string="Stakeholders">                        
-                            <field name="stakeholder_ids" nolabel="1" context="{'default_project_id': active_id}">
-                                <tree editable="top" string="Stakeholders">       
-                                    <field name="partner_id"/>           
-                                    <field name="role_ids" widget="many2many_tags" />                                        
-                                    <field name="responsibility_ids" widget="many2many_tags"/>
-                                    <field name="influence"/>
-                                </tree>
-                                <form string="Stakeholders">
-                                    <group colspan="4" col="4">
-                                        <field name="project_id" readonly="1"/>         
-                                        <field name="partner_id"/>                   
-                                    </group>
-                                    <newline/>						                                        
-                                    <group colspan="6" col="6">
-                                        <separator string="Roles and responsibilities" colspan="6"/>
-                                        <field name="role_ids" mode="tree,form" colspan="6"/>      
-                                        <field name="responsibility_ids" mode="tree,form" colspan="6"/>
-                                    </group>									                
-                                    <group colspan="6" col="6">	                                        
-                                        <field name="influence"/>	                    
-                                    </group>				                	        
-                                </form>
-                            </field>                                                    
-                        </group>
-                        </page>
-
-                        <!--add high level requirements (resource plan rough cut)-->
-                        <page string="Resource and Billing plan">
-                            <button help="Resource planning lines"
-                                class="oe_inline oe_stat_button"
-                                name="%(analytic_resource_plan.action_analytic_resource_plan_line_open_form)d"
-                                type="action"
-                                icon="fa-pencil-square-o"
-                                context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
-                                groups="project.group_project_manager">
-                                <div>Resource plan</div>
-                            </button>
-                            <button help="Billing plan lines"
-                                class="oe_inline oe_stat_button"
-                                name="%(analytic_billing_plan.action_analytic_billing_plan_line_open_form)d"
-                                type="action"
-                                icon="fa-pencil-square-o"
-                                context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
-                                groups="project.group_project_manager">
-                                <div>Billing plan</div>
-                            </button>
-                            <group string="Resource and Billing Plan">
-                                <field name="plan_line_ids" nolabel="1" readonly="1"/>
-                            </group>
-                        </page>
+                            </page>
+    
+                            <!--add high level requirements (resource plan rough cut)-->
+                            <page string="Resource and Billing plan">
+                                <button help="Resource planning lines"
+                                    class="oe_inline oe_stat_button"
+                                    name="%(analytic_resource_plan.action_analytic_resource_plan_line_open_form)d"
+                                    type="action"
+                                    icon="fa-pencil-square-o"
+                                    context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
+                                    groups="project.group_project_manager">
+                                    <div>Resource plan</div>
+                                </button>
+                                <button help="Billing plan lines"
+                                    class="oe_inline oe_stat_button"
+                                    name="%(analytic_billing_plan.action_analytic_billing_plan_line_open_form)d"
+                                    type="action"
+                                    icon="fa-pencil-square-o"
+                                    context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
+                                    groups="project.group_project_manager">
+                                    <div>Billing plan</div>
+                                </button>
+                                <group string="Resource and Billing Plan">
+                                    <field name="plan_line_ids" nolabel="1" readonly="1"/>
+                                </group>
+                            </page>
 
                         </notebook>
                         <!--add project approval requirements-->
