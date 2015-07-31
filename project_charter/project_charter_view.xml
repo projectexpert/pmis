@@ -22,19 +22,30 @@
                             <field name="project_scope_ids" nolabel="1">
                                 <!--make tree editable to avoid form input-->
                                 <tree editable="bottom">
-                                    <field name="objective" />
-                                    <field name="target_value"/>
-                                    <field name="indicator"/>
-                                    <field name="result_obtained"/>
-                                    <field name="justification"/>
+                                    <field name="scope"/>
+                                    <field name="out_scope" />
                                  </tree>
                                 <form>
                                     <group>
-                                        <field name="objective" />
-                                        <field name="target_value"/>
-                                        <field name="indicator"/>
-                                        <field name="result_obtained"/>
-                                        <field name="justification"/>
+                                        <field name="scope"/>                                       
+                                        <field name="out_scope" />
+                                    </group>
+                               </form>
+                            </field>
+                        </group>
+                        </page>
+                        <page string="Success and Requirements">
+                        <group string="Success and Requirements">
+                            <field name="project_success_ids" nolabel="1">
+                                <!--make tree editable to avoid form input-->
+                                <tree editable="bottom">
+                                    <field name="success"/>
+                                    <field name="requirements" />
+                                 </tree>
+                                <form>
+                                    <group>
+                                        <field name="success"/>                                       
+                                        <field name="requirements" />
                                     </group>
                                </form>
                             </field>
@@ -44,15 +55,15 @@
                         <group string="Boundaries, Assumptions, Constraints">
                             <field name="project_boundaries_ids" nolabel="1">
                                 <tree editable="bottom">
-                                    <field name="boundaries"/>
                                     <field name="assumptions"/>
                                     <field name="constraints"/>
+                                    <field name="hlrisks"/>
                                 </tree>
                                 <form>
                                     <group>
-                                        <field name="boundaries"/>
                                         <field name="assumptions"/>
                                         <field name="constraints"/>
+                                        <field name="hlrisks"/>
                                     </group>
                                </form>
                             </field>
