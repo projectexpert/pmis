@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-24 13:41+0200\n"
-"PO-Revision-Date: 2015-07-24 13:41+0200\n"
+"PO-Revision-Date: 2015-08-03 13:08+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -24,8 +24,7 @@ msgid ""
 "                No activity yet on this contract.\n"
 "              </p><p>\n"
 "                In OpenERP, contracts and projects are implemented using\n"
-"                analytic account. So, you can track costs and revenues to "
-"analyse\n"
+"                analytic account. So, you can track costs and revenues to analyse\n"
 "                your margins easily.\n"
 "              </p>\n"
 "            "
@@ -177,12 +176,11 @@ msgstr "Voce del piano"
 #. module: analytic_plan
 #: help:account.analytic.line.plan,amount:0
 msgid ""
-"Calculated by multiplying the quantity and the price given in the Product's "
-"cost price. Always expressed in the company main currency."
+"Calculated by multiplying the quantity and the price given in the Product's cost "
+"price. Always expressed in the company main currency."
 msgstr ""
-"Calcolato come moltiplicazione della quantità e del prezzo definito come il "
-"prezzo di costo del prodotto, sempre espresso nella valuta principale della "
-"società."
+"Calcolato come moltiplicazione della quantità e del prezzo definito come il prezzo di "
+"costo del prodotto, sempre espresso nella valuta principale della società."
 
 #. module: analytic_plan
 #: view:analytic.plan.copy.version:analytic_plan.analytic_plan_copy_version_form
@@ -290,9 +288,9 @@ msgstr "Contabilità generale"
 #. module: analytic_plan
 #: help:account.analytic.plan.journal,type:0
 msgid ""
-"Gives the type of the analytic journal. When it needs for a document (eg: an "
-"invoice) to create analytic entries, OpenERP will look  for a matching "
-"journal of the same type."
+"Gives the type of the analytic journal. When it needs for a document (eg: an invoice) "
+"to create analytic entries, OpenERP will look  for a matching journal of the same "
+"type."
 msgstr ""
 "Definisce il tipo del giornale analitico. Se un documento necessita di creare "
 "(esempio fattura) degli inserimenti analitici, il sistema cerca quello corrispondente "
@@ -306,30 +304,28 @@ msgid "Group By..."
 msgstr "Raggruppa per..."
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,id:0
-#: field:account.analytic.plan.journal,id:0
-#: field:account.analytic.plan.version,id:0
-#: field:analytic.plan.copy.version,id:0
+#: field:account.analytic.line.plan,id:0 field:account.analytic.plan.journal,id:0
+#: field:account.analytic.plan.version,id:0 field:analytic.plan.copy.version,id:0
 msgid "ID"
 msgstr "ID"
 
 #. module: analytic_plan
 #: help:account.analytic.plan.journal,active:0
 msgid ""
-"If the active field is set to False, it will allow you to hide the analytic "
-"journal without removing it."
+"If the active field is set to False, it will allow you to hide the analytic journal "
+"without removing it."
 msgstr ""
-"Quando il campo attivo viene impostato come falso, permette di nascondere il "
-"giornale analitico senza rimuoverlo."
+"Quando il campo attivo viene impostato come falso, permette di nascondere il giornale "
+"analitico senza rimuoverlo."
 
 #. module: analytic_plan
 #: help:account.analytic.plan.version,active:0
 msgid ""
-"If the active field is set to False, it will allow you to hide the analytic "
-"planning version without removing it."
+"If the active field is set to False, it will allow you to hide the analytic planning "
+"version without removing it."
 msgstr ""
-"Quando il campo attivo viene impostato come falso, permette di nascondere la "
-"versione di pianificazione senza rimuoverla."
+"Quando il campo attivo viene impostato come falso, permette di nascondere la versione "
+"di pianificazione senza rimuoverla."
 
 #. module: analytic_plan
 #: field:analytic.plan.copy.version,include_child:0
@@ -536,13 +532,12 @@ msgstr "L'ammontare espresso in una valuta opzionale."
 #. module: analytic_plan
 #: model:ir.actions.act_window,help:analytic_plan.action_account_analytic_plan_journal_tree
 msgid ""
-"To print a planning analytics (or costs) journal for a given period. The "
-"report give code, move name, account number, general amount and analytic "
-"amount."
+"To print a planning analytics (or costs) journal for a given period. The report give "
+"code, move name, account number, general amount and analytic amount."
 msgstr ""
-"Per stampare un giornale analitico (o di costi) per un certo periodo. Il "
-"rapporto contiene codice, nome del movimento, numero del conto, ammontare "
-"generale ed ammontare analitico."
+"Per stampare un giornale analitico (o di costi) per un certo periodo. Il rapporto "
+"contiene codice, nome del movimento, numero del conto, ammontare generale ed "
+"ammontare analitico."
 
 #. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_tree
