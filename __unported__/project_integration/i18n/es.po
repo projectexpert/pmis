@@ -1,19 +1,21 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* project_integration
+# 	* project_integration
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
 "POT-Creation-Date: 2012-02-22 05:29+0000\n"
-"PO-Revision-Date: 2012-02-22 06:30+0100\n"
+"PO-Revision-Date: 2015-08-03 13:08+0200\n"
 "Last-Translator: Jordi Ballester <jordi.ballester@eficent.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.2\n"
 
 #. module: project_integration
 #: view:project.project:0
@@ -116,8 +118,7 @@ msgid "'%s' is ready to start"
 msgstr "'%s' está lista para comenzar"
 
 #. module: project_integration
-#: view:account.analytic.account:0
-#: view:project.project:0
+#: view:account.analytic.account:0 view:project.project:0
 msgid "Start Project"
 msgstr "Comenzar Proyecto"
 
@@ -234,9 +235,7 @@ msgid "Successor Project"
 msgstr "Proyecto Sucesor"
 
 #. module: project_integration
-#: view:account.analytic.account:0
-#: view:project.project:0
-#: view:project.task:0
+#: view:account.analytic.account:0 view:project.project:0 view:project.task:0
 msgid "Ready to start"
 msgstr "Lista para comenzar"
 
@@ -260,4 +259,3 @@ msgstr "Proyectos Predecesores"
 #: view:project.project:0
 msgid "Cancel"
 msgstr "Cancelar"
-

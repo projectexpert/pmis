@@ -1,19 +1,21 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* project_hr_stakeholder
+# 	* project_hr_stakeholder
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
 "POT-Creation-Date: 2012-06-18 20:50+0000\n"
-"PO-Revision-Date: 2012-06-18 22:51+0100\n"
+"PO-Revision-Date: 2015-08-03 13:08+0200\n"
 "Last-Translator: Jordi Ballester <jordi.ballester@eficent.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.2\n"
 
 #. module: project_hr_stakeholder
 #: model:ir.model,name:project_hr_stakeholder.model_project_hr_role
@@ -57,8 +59,8 @@ msgstr "Miembro de Equipo"
 #: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_consulted
 msgid ""
 "Those whose opinions are sought, \n"
-"            	typically subject matter experts; and with whom there is two-way communication.\n"
-"            	"
+"            \ttypically subject matter experts; and with whom there is two-way communication.\n"
+"            \t"
 msgstr "Este rol posee alguna información o capacidad necesaria para terminar el trabajo. Se le informa y se le consulta información (comunicación bidireccional)."
 
 #. module: project_hr_stakeholder
@@ -74,18 +76,15 @@ msgstr "¡Error! La fecha de inicio del proyecto debe ser anterior a la fecha fi
 #. module: project_hr_stakeholder
 #: model:ir.ui.menu,name:project_hr_stakeholder.project_hr_stakeholder_menu
 #: model:ir.ui.menu,name:project_hr_stakeholder.project_hr_stakeholder_menu_project_config_address_book
-#: view:project.hr.stakeholder:0
-#: view:project.project:0
+#: view:project.hr.stakeholder:0 view:project.project:0
 #: field:project.project,stakeholder_ids:0
 msgid "Stakeholders"
 msgstr "Involucrados"
 
 #. module: project_hr_stakeholder
 #: view:project.hr.responsibility:0
-#: field:project.hr.responsibility,description:0
-#: view:project.hr.role:0
-#: field:project.hr.role,description:0
-#: field:project.hr.stakeholder,name:0
+#: field:project.hr.responsibility,description:0 view:project.hr.role:0
+#: field:project.hr.role,description:0 field:project.hr.stakeholder,name:0
 msgid "Description"
 msgstr "Descripción"
 
@@ -137,14 +136,13 @@ msgstr "Dept. Editorial: Montse Jané"
 #: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_responsible
 msgid ""
 "Those who do the work to achieve the task. \n"
-"            	There is typically one role with a participation type of Responsible, \n"
-"            	although others can be delegated to assist in the work required.\n"
-"            	"
-msgstr "Este rol realiza el trabajo y es responsable por su realización. Lo más habitual es que exista sólo un R, si existe más de uno, entonces el trabajo debería ser subdividido a un nivel más bajo, usando para ello las matrices RASCI. Es quien debe ejecutar las tareas.            	"
+"            \tThere is typically one role with a participation type of Responsible, \n"
+"            \talthough others can be delegated to assist in the work required.\n"
+"            \t"
+msgstr "Este rol realiza el trabajo y es responsable por su realización. Lo más habitual es que exista sólo un R, si existe más de uno, entonces el trabajo debería ser subdividido a un nivel más bajo, usando para ello las matrices RASCI. Es quien debe ejecutar las tareas.            \t"
 
 #. module: project_hr_stakeholder
-#: field:project.hr.responsibility,name:0
-#: field:project.hr.role,name:0
+#: field:project.hr.responsibility,name:0 field:project.hr.role,name:0
 msgid "Name"
 msgstr "Nombre"
 
@@ -158,8 +156,8 @@ msgstr "Definir las responsabilidades de los involucrados en los proyectos."
 #: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_informed
 msgid ""
 "Those who are kept up-to-date on progress, \n"
-"            	often only on completion of the task or deliverable; \n"
-"            	and with whom there is just one-way communication\n"
+"            \toften only on completion of the task or deliverable; \n"
+"            \tand with whom there is just one-way communication\n"
 "            "
 msgstr "Este rol debe ser informado sobre el progreso y los resultados del trabajo. A diferencia del Consultado, la comunicación es unidireccional.            "
 
@@ -206,14 +204,12 @@ msgid "Project Stakeholder"
 msgstr "Involucrado en el Proyecto"
 
 #. module: project_hr_stakeholder
-#: field:project.hr.responsibility,code:0
-#: field:project.hr.role,code:0
+#: field:project.hr.responsibility,code:0 field:project.hr.role,code:0
 msgid "Code"
 msgstr "Código"
 
 #. module: project_hr_stakeholder
-#: view:project.hr.stakeholder:0
-#: view:project.project:0
+#: view:project.hr.stakeholder:0 view:project.project:0
 msgid "Roles and responsibilities"
 msgstr "Roles y responsabilidades"
 
@@ -226,10 +222,10 @@ msgstr "Observaciones"
 #: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_accountable
 msgid ""
 "The one ultimately answerable for the correct and thorough completion of the \n"
-"            	deliverable or task, and the one from whom Responsible is delegated the work.\n"
-"            	In other words, an Accountable must sign off (Approve) on work that Responsible provides. \n"
-"            	There must be only one Accountable specified for each task or deliverable.\n"
-"            	"
+"            \tdeliverable or task, and the one from whom Responsible is delegated the work.\n"
+"            \tIn other words, an Accountable must sign off (Approve) on work that Responsible provides. \n"
+"            \tThere must be only one Accountable specified for each task or deliverable.\n"
+"            \t"
 msgstr "Este rol se encarga de aprobar el trabajo finalizado y a partir de ese momento, se vuelve responsable por él. Sólo puede existir un A por cada tarea. Es quien debe asegurar que se ejecutan las tareas."
 
 #. module: project_hr_stakeholder
@@ -267,4 +263,3 @@ msgstr ""
 "        - You can specify the roles and responsibilities of the stakeholders in this project.\n"
 "        - You can maintain a master data for roles and responsibilities.\n"
 "    "
-

@@ -1,19 +1,21 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* project_category
+# 	* project_category
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
 "POT-Creation-Date: 2012-10-18 22:49+0000\n"
-"PO-Revision-Date: 2012-10-19 01:04+0100\n"
+"PO-Revision-Date: 2015-08-03 13:08+0200\n"
 "Last-Translator: Jordi Ballester <jordi.ballester@eficent.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.2\n"
 
 #. module: project_category
 #: field:analytic.account.category,parent_left:0
@@ -72,8 +74,7 @@ msgstr "Activa"
 #: view:account.analytic.account:0
 #: field:account.analytic.account,categories_name_str:0
 #: field:account.analytic.account,category_id:0
-#: field:analytic.account.category,account_ids:0
-#: view:project.project:0
+#: field:analytic.account.category,account_ids:0 view:project.project:0
 msgid "Categories"
 msgstr "Categorías"
 
@@ -131,4 +132,3 @@ msgstr "¡Error! No puede crear cuentas analíticas recursivas."
 #: field:analytic.account.category,parent_right:0
 msgid "Right parent"
 msgstr "Padre derecho"
-

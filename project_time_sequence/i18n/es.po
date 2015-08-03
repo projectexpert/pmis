@@ -1,19 +1,21 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* project_time_sequence
+# 	* project_time_sequence
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
 "POT-Creation-Date: 2012-02-22 03:56+0000\n"
-"PO-Revision-Date: 2012-02-22 04:56+0100\n"
+"PO-Revision-Date: 2015-08-03 13:08+0200\n"
 "Last-Translator: Jordi Ballester <jordi.ballester@eficent.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.2\n"
 
 #. module: project_time_sequence
 #: view:project.task:0
@@ -155,4 +157,3 @@ msgstr "Información extra"
 #: view:project.task.link.predecessors.str:0
 msgid "_Cancel"
 msgstr "_Cancelar"
-

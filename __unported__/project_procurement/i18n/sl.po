@@ -1,6 +1,6 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* project_procurement
+# 	* project_procurement
 #
 # Matjaž Mozetič <m.mozetic@matmoz.si>, 2015.
 msgid ""
@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
 "POT-Creation-Date: 2012-02-07 20:30+0000\n"
-"PO-Revision-Date: 2015-03-02 11:48+0100\n"
+"PO-Revision-Date: 2015-08-03 13:08+0200\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "Language: sl\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Poedit 1.8.2\n"
 
 #. module: project_procurement
 #: model:ir.model,name:project_procurement.model_purchase_order_line
@@ -26,8 +26,7 @@ msgstr "Postavka nabavnega naloga"
 #. module: project_procurement
 #: code:addons/project_procurement/purchase_order_line.py:61
 #, python-format
-msgid ""
-"You cannot cancel a purchase order line that has already been invoiced !"
+msgid "You cannot cancel a purchase order line that has already been invoiced !"
 msgstr "Postavke že zaračunanega nabavnega naloga ne morete preklicati!"
 
 #. module: project_procurement
@@ -44,8 +43,7 @@ msgstr "Napaka! Začetni datum projekta mora biti pred končnim datumom."
 #: code:addons/project_procurement/purchase_order_line.py:66
 #, python-format
 msgid "You must first cancel stock moves attached to this purchase order line."
-msgstr ""
-"Najprej morate preklicati premike vezane na to postavko nabavnega naloga."
+msgstr "Najprej morate preklicati premike vezane na to postavko nabavnega naloga."
 
 #. module: project_procurement
 #: sql_constraint:purchase.order:0
@@ -158,5 +156,3 @@ msgstr "Ne zaračunane nabavne postavke"
 #: model:ir.ui.menu,name:project_procurement.project_procurement_menu_purchase_form_action
 msgid "Purchase Orders"
 msgstr "Nabavni nalogi"
-
-

@@ -1,19 +1,21 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* project_cost_plan_purchase
+# 	* project_cost_plan_purchase
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
 "POT-Creation-Date: 2012-09-02 18:36+0000\n"
-"PO-Revision-Date: 2012-09-02 20:37+0100\n"
+"PO-Revision-Date: 2015-08-03 13:08+0200\n"
 "Last-Translator: Jordi Ballester <jordi.ballester@eficent.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.2\n"
 
 #. module: project_cost_plan_purchase
 #: field:account.analytic.line.plan,purchase_line_id:0
@@ -240,4 +242,3 @@ msgstr "Total"
 #, python-format
 msgid "You have to select lines from the same analytic account."
 msgstr "Debes seleccionar líneas de la misma cuenta analítica."
-

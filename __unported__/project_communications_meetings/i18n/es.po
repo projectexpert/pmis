@@ -1,19 +1,21 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* project_communications_meetings
+# 	* project_communications_meetings
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
 "POT-Creation-Date: 2011-09-30 00:39+0000\n"
-"PO-Revision-Date: 2011-09-30 02:40+0100\n"
+"PO-Revision-Date: 2015-08-03 13:08+0200\n"
 "Last-Translator: Jordi Ballester Alomar (Avangard Enterprise Information Systems) <jordi.ballester@avangard-eis.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.2\n"
 
 #. module: project_communications_meetings
 #: model:ir.ui.menu,name:project_communications_meetings.menu_project_meeting_categories_def_act
@@ -24,8 +26,7 @@ msgstr "Categorías de reuniones"
 #: model:ir.actions.act_window,name:project_communications_meetings.act_project_2_meeting
 #: model:ir.ui.menu,name:project_communications_meetings.menu_project_meeting
 #: model:ir.ui.menu,name:project_communications_meetings.menu_project_meeting_categories_act
-#: view:project.project:0
-#: field:project.project,crm_meetings:0
+#: view:project.project:0 field:project.project,crm_meetings:0
 msgid "Meetings"
 msgstr "Reuniones"
 
@@ -71,4 +72,3 @@ msgstr "Proyectos"
 #: constraint:project.project:0
 msgid "Error! project start-date must be lower then project end-date."
 msgstr "¡Error! La fecha de inicio del proyecto debe ser anterior a la fecha final del proyecto."
-

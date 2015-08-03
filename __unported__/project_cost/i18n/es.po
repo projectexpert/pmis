@@ -1,19 +1,21 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* project_cost
+# 	* project_cost
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
 "POT-Creation-Date: 2012-12-27 08:36+0000\n"
-"PO-Revision-Date: 2012-12-27 09:48+0100\n"
+"PO-Revision-Date: 2015-08-03 13:08+0200\n"
 "Last-Translator: Jordi Ballester <jordi.ballester@eficent.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.2\n"
 
 #. module: project_cost
 #: model:ir.module.module,description:project_cost.module_meta_information
@@ -56,14 +58,12 @@ msgid "Analytic Journal Plan Items"
 msgstr "Posiciones del Diario Analítico de Planificación"
 
 #. module: project_cost
-#: view:account.analytic.journal.commit:0
-#: view:account.analytic.journal.plan:0
+#: view:account.analytic.journal.commit:0 view:account.analytic.journal.plan:0
 msgid "Group By..."
 msgstr "Agrupar Por..."
 
 #. module: project_cost
-#: view:account.analytic.account:0
-#: view:account.analytic.line.plan:0
+#: view:account.analytic.account:0 view:account.analytic.line.plan:0
 #: view:project.project:0
 msgid "General Accounting"
 msgstr "Contabilidad General"
@@ -74,8 +74,7 @@ msgid "To print a planning analytics (or costs) journal for a given period. The 
 msgstr "Para imprimir un diario de análisis de la planificación (o costes)  durante un período determinado. El informe da el código, el nombre del movimiento, número de cuenta, el importe real y el importe analítico."
 
 #. module: project_cost
-#: view:account.analytic.journal.commit:0
-#: view:account.analytic.journal.plan:0
+#: view:account.analytic.journal.commit:0 view:account.analytic.journal.plan:0
 msgid "Analytic Journal"
 msgstr "Diario Analítico"
 
@@ -127,11 +126,9 @@ msgid "Planned Debit"
 msgstr "Débito Planificado"
 
 #. module: project_cost
-#: view:account.analytic.account:0
-#: view:account.analytic.line.commit:0
+#: view:account.analytic.account:0 view:account.analytic.line.commit:0
 #: field:account.analytic.line.commit,amount:0
-#: view:account.analytic.line.plan:0
-#: field:account.analytic.line.plan,amount:0
+#: view:account.analytic.line.plan:0 field:account.analytic.line.plan,amount:0
 #: view:project.project:0
 msgid "Amount"
 msgstr "Importe"
@@ -289,8 +286,7 @@ msgstr "Diario de Cuenta Analítica para Comprometido"
 
 #. module: project_cost
 #: field:account.analytic.account,plan_line_ids:0
-#: view:account.analytic.line.commit:0
-#: view:account.analytic.line.plan:0
+#: view:account.analytic.line.commit:0 view:account.analytic.line.plan:0
 #: model:ir.ui.menu,name:project_cost.account_analytic_journal_entries
 msgid "Analytic Entries"
 msgstr "Apuntes Analíticos"
@@ -313,14 +309,12 @@ msgid "Commitment Analytic Journal"
 msgstr "Diario Analítico para Compromisos"
 
 #. module: project_cost
-#: view:account.analytic.line.commit:0
-#: view:account.analytic.line.plan:0
+#: view:account.analytic.line.commit:0 view:account.analytic.line.plan:0
 msgid "Analytic Entry"
 msgstr "Entrada Analítica"
 
 #. module: project_cost
-#: view:account.analytic.account:0
-#: view:project.project:0
+#: view:account.analytic.account:0 view:project.project:0
 msgid "Commitment analytic lines"
 msgstr "Apuntes Analíticos Comprometidos"
 
@@ -376,8 +370,7 @@ msgid "Date"
 msgstr "Fecha"
 
 #. module: project_cost
-#: view:account.analytic.line.commit:0
-#: view:account.analytic.line.plan:0
+#: view:account.analytic.line.commit:0 view:account.analytic.line.plan:0
 msgid "Extended Filters..."
 msgstr "Filtros Extendidos..."
 
@@ -506,8 +499,7 @@ msgid "Commitment Balance"
 msgstr "Balance Comprometido"
 
 #. module: project_cost
-#: view:account.analytic.line.commit:0
-#: view:account.analytic.line.plan:0
+#: view:account.analytic.line.commit:0 view:account.analytic.line.plan:0
 msgid "Search Analytic Lines"
 msgstr "Buscar Líneas Analíticas"
 
@@ -517,10 +509,8 @@ msgid "Analytic Accounting"
 msgstr "Contabilidad analítica"
 
 #. module: project_cost
-#: view:account.analytic.account:0
-#: view:account.analytic.line.commit:0
-#: view:account.analytic.line.plan:0
-#: view:project.project:0
+#: view:account.analytic.account:0 view:account.analytic.line.commit:0
+#: view:account.analytic.line.plan:0 view:project.project:0
 msgid "Product Information"
 msgstr "Información sobre el producto"
 
@@ -530,8 +520,7 @@ msgid "The related account currency if not equal to the company one."
 msgstr "La divisa de la cuenta relacionada si no es igual a la de la compañía."
 
 #. module: project_cost
-#: view:account.analytic.account:0
-#: view:project.project:0
+#: view:account.analytic.account:0 view:project.project:0
 msgid "Planned analytic lines"
 msgstr "Apuntes Analíticos Planificados"
 
@@ -548,16 +537,13 @@ msgid "Product"
 msgstr "Producto"
 
 #. module: project_cost
-#: view:account.analytic.account:0
-#: view:account.analytic.line.commit:0
-#: view:account.analytic.line.plan:0
-#: view:project.project:0
+#: view:account.analytic.account:0 view:account.analytic.line.commit:0
+#: view:account.analytic.line.plan:0 view:project.project:0
 msgid "Total Quantity"
 msgstr "Cantidad Total"
 
 #. module: project_cost
-#: view:account.analytic.account:0
-#: field:account.analytic.line.commit,name:0
+#: view:account.analytic.account:0 field:account.analytic.line.commit,name:0
 #: field:account.analytic.line.plan,name:0
 msgid "Description"
 msgstr "Descripción"
@@ -637,8 +623,7 @@ msgid "Commitments Analytic Journal"
 msgstr "Diario Analítico Comprometidos"
 
 #. module: project_cost
-#: view:account.analytic.account:0
-#: view:project.project:0
+#: view:account.analytic.account:0 view:project.project:0
 msgid "Costs"
 msgstr "Costes"
 
@@ -660,16 +645,12 @@ msgid "Amount currency"
 msgstr "Divisa del Importe"
 
 #. module: project_cost
-#: view:account.analytic.account:0
-#: view:account.analytic.line.commit:0
-#: view:account.analytic.line.plan:0
-#: view:project.project:0
+#: view:account.analytic.account:0 view:account.analytic.line.commit:0
+#: view:account.analytic.line.plan:0 view:project.project:0
 msgid "Total"
 msgstr "Total"
 
 #. module: project_cost
-#: view:account.analytic.journal.commit:0
-#: view:account.analytic.journal.plan:0
+#: view:account.analytic.journal.commit:0 view:account.analytic.journal.plan:0
 msgid "Analytic Journals"
 msgstr "Diarios Analíticos"
-

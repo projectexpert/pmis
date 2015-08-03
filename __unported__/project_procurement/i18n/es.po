@@ -1,19 +1,21 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* project_procurement
+# 	* project_procurement
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
 "POT-Creation-Date: 2012-02-07 20:30+0000\n"
-"PO-Revision-Date: 2012-02-07 21:31+0100\n"
+"PO-Revision-Date: 2015-08-03 13:08+0200\n"
 "Last-Translator: Jordi Ballester <jordi.ballester@eficent.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.2\n"
 
 #. module: project_procurement
 #: model:ir.model,name:project_procurement.model_purchase_order_line
@@ -151,4 +153,3 @@ msgstr "Líneas de compra no facturadas"
 #: model:ir.ui.menu,name:project_procurement.project_procurement_menu_purchase_form_action
 msgid "Purchase Orders"
 msgstr "Pedidos de compra"
-
