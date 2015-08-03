@@ -22,21 +22,20 @@
 
 {
     "name": "Account Analytic Line of Business",
-    "version": "1.0",
+    "version": "1.0.1",
     "author": "Eficent",
     "website": "",
     "category": "Generic Modules/Projects & Services",
-    "depends": ["account", "analytic", "project"],
+    "depends": ["account", "analytic", "project_wbs"],
     "description": """Introduce business segments in analytic accounts.
         Provides the possibility to perform economic analysis by business segment.
     """,
-    "init_xml": [],
-    "update_xml": [
+    "data": [
         "security/ir.model.access.csv",
         "account_analytic_lob_view.xml",
         "project_view.xml",
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
     'test': [

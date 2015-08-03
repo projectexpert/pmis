@@ -11,9 +11,9 @@
             <field name="name">project.project.form</field>
             <field name="model">project.project</field>
             <field name="type">form</field>
-            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="inherit_id" ref="project_wbs.edit_project"/>
             <field name="arch" type="xml">
-            	<xpath expr="//form/sheet/notebook/page[@string='Other Info']/group/group[@string='Miscellaneous']/field[@name='parent_id']" position="after">	
+            	<xpath expr="//form/sheet/notebook/page[@string='Project configuration']/notebook/page[@string='Other Info']/group[@string='Miscellaneous']/field[@name='parent_id']" position="after">	
             		<field name="lob"/>          				            		
             	</xpath>
             </field>            	        
