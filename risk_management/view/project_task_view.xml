@@ -58,12 +58,12 @@
             <field name="model">project.task</field>
             <field name="inherit_id" ref="project.view_task_search_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//filter[@string='Deadlines']" position="after">
+                <xpath expr="//filter[@string='Unassigned']" position="after">
                     <filter string="Risk Action" context="{'risk_id_visible': False}"
                             domain="[('risk_id','&lt;&gt;',False)]" help="Show only tasks (actions) on risk"
                             icon="terp-emblem-important"/>
                 </xpath>
-               <filter name="group_project_id" position="after">
+               <filter name="project" position="after">
                     <filter string="Risk" name="group_risk_id" icon="terp-rating-rated" domain="[]" context="{'group_by' : 'risk_id'}"/>
                </filter>
             </field>
@@ -72,6 +72,7 @@
 
 
         <!-- Risk Management Task Kanban View -->
+        
         <record model="ir.ui.view" id="view_task_kanban">
             <field name="name">risk.management.task.kanban.view</field>
             <field name="model">project.task</field>
@@ -85,7 +86,7 @@
                     <field name="user_email"/>
                     <field name="description"/>
                     <field name="sequence"/>
-                    <field name="state" groups="base.group_no_one"/>
+                    <!--<field name="state" groups="base.group_no_one"/>-->
                     <field name="kanban_state"/>
                     <field name="remaining_hours" sum="Remaining Time" groups="project.group_time_work_estimation_tasks"/>
                     <field name="date_deadline"/>
