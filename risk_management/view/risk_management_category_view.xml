@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="category_tree_view">
+			<field name="name">risk.management.category.tree.view</field>
+			<field name="model">risk.management.category</field>
+			<field name="priority">10</field>
+			<field name="arch" type="xml">
+				<tree string='Risk Category'>
+					<field name="name"/>
+           		</tree>
+			</field>
+		</record>
+
+<!-- ACTIONS -->
+		<record model="ir.actions.act_window" id="action_show_categories">
+			<field name="name">Risk Categories</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">risk.management.category</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="category_tree_view"/>
+		</record>
+	</data>
+</openerp>
