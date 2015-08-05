@@ -22,7 +22,7 @@
 
 {
     'name': 'Project Charter',
-    'version': '1.0.3',
+    'version': '1.0.4',
     'category': 'Project Management',
     'sequence': 9,
     'summary': 'Project Charter',
@@ -36,6 +36,8 @@ document Project Charter, with all it's contents:
     - project boundaries, assumptions and constraints
     - project stakeholders
     - resource and billing plan
+    - when risk_management module is installed, risk assesment is
+      integrated
         """,
     'author': 'Matmoz d.o.o.',
     'website': 'http://www.matmoz.si',
