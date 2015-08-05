@@ -8,25 +8,9 @@
             <field name="priority">15</field>
             <field name="inherit_id" ref="project.view_task_form2"/>
             <field name="arch" type="xml">
-                <xpath expr="/form/sheet/group" position="replace">
-                    <group>
-                        <field name="project_id" on_change="onchange_project(project_id)"
-                               context="{'default_use_tasks':1}" domain="['|',('user_id','=',uid),('members','=',uid)]"/>
-                        <field name="user_id" attrs="{'readonly':[('state','in',['done', 'cancelled'])]}"
-                               options='{"no_open": True}'/>
-                        <field name="planned_hours" widget="float_time"
-                               groups="project.group_time_work_estimation_tasks"
-                               on_change="onchange_planned(planned_hours, effective_hours)"/>
-                    </group>
-                    <group>
-                        <field name="date_deadline" attrs="{'readonly':[('state','in',['done', 'cancelled'])]}"/>
-                        <field name="categ_ids" widget="many2many_tags"/>
-                        <field name="progress" widget="progressbar"
-                               groups="project.group_time_work_estimation_tasks"
-                               attrs="{'invisible':[('state','=','cancelled')]}"/>
-                        <field name="risk_id" />
-                    </group>
-                </xpath>
+                <field name="progress" position="after">
+                    <field name="risk_id" />
+                </field>
             </field>
         </record>
 
