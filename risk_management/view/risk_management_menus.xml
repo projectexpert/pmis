@@ -1,41 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
-	<menuitem
-            icon="terp-project" id="menu_risk_top"
-            name="Risks" sequence="110"
-            groups="project.group_project_manager,project.group_project_user"
-            web_icon="static/src/img/icon.png"
-            web_icon_hover="static/src/img/icon.png"/>
-   
-        <menuitem name="Risk Management"
-			id="menu_risk_management"
-			parent="menu_risk_top"
-			sequence="1"/>
-        <menuitem name="Risks"
-			id="menu_risks"
-			parent="menu_risk_management"
-			action="action_show_risks"/>
-        <menuitem name="Actions"
-			id="menu_actions_on_risk"
-			parent="menu_risk_management"
-			action="action_show_actions"/>
-
-        <menuitem name="Configuration"
-			id="menu_configuration_risks"
-			parent="menu_risk_top"
-			groups="project.group_project_manager"/>
-		<menuitem name="Risk Categories"
-			action="action_show_categories"
-			id="menu_risk_categories"
-			parent="menu_configuration_risks"/>
-		<menuitem name="Response Categories"
-			action="action_show_response_categories"
-			id="menu_risk_response_categories"
-			parent="menu_configuration_risks"/>
-		<menuitem name="Proximity"
-			action="action_show_proximity"
-			id="menu_risk_proximity"
-			parent="menu_configuration_risks"/>
+		<menuitem name="Risk Management"
+				id="menu_risk_top"
+				parent="base.menu_main_pm"
+				sequence="5"
+				groups="project.group_project_manager,project.group_project_user"/>
+	   
+			<menuitem name="Risk Management"
+				id="menu_risk_management"
+				parent="menu_risk_top"
+				sequence="1"/>
+			<menuitem name="Risks"
+				id="menu_risks"
+				parent="menu_risk_management"
+				action="action_show_risks"/>
+			<menuitem name="Actions"
+				id="menu_actions_on_risk"
+				parent="menu_risk_management"
+				action="action_show_actions"/>
+	
+			<menuitem name="Configuration"
+				id="menu_configuration_risks"
+				parent="menu_risk_top"
+				groups="project.group_project_manager"/>
+			<menuitem name="Risk Categories"
+				action="action_show_categories"
+				id="menu_risk_categories"
+				parent="menu_configuration_risks"/>
+			<menuitem name="Response Categories"
+				action="action_show_response_categories"
+				id="menu_risk_response_categories"
+				parent="menu_configuration_risks"/>
+			<menuitem name="Proximity"
+				action="action_show_proximity"
+				id="menu_risk_proximity"
+				parent="menu_configuration_risks"/>
 	</data>
 </openerp>
