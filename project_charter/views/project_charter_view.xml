@@ -103,18 +103,6 @@
                                            </form>
                                         </field>
                                     </group>
-                                    <group>
-                                        <field name="project_risks_ids" nolabel="1">
-                                            <tree editable="bottom">
-                                                <field name="hlrisks"/>
-                                            </tree>
-                                            <form>
-                                                <group>
-                                                    <field name="hlrisks"/>
-                                                </group>
-                                           </form>
-                                        </field>
-                                    </group>
                                 </group>
                             </page>
                             

@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Enterprise Management Solution
 #    risk_management Module
-#    Copyright (C) 2011 ValueDecision Ltd (<http://www.valuedecision.com>).
+#    Copyright (C) 2011-2014 ValueDecision Ltd (<http://www.valuedecision.com>).
+#    Copyright (C) 2015 Matmoz d.o.o. (<http://www.matmoz.si>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -16,18 +17,34 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 from openerp.osv import osv, fields
 
+
 class project_task (osv.osv):
     _name = 'project.task'
     _inherit = 'project.task'
-    
+
     _columns = {
-        'risk_id': fields.many2one('risk.management.risk','Action on Risk', readonly=True,
-                                   help="Task is an action on a risk identified by this label.")
+        'risk_id': fields.many2one(
+            'risk.management.risk', 'Action on Risk', readonly=True,
+            help="Task is an action on a risk identified by this label."
+        )
     }
 project_task()
-    
+
+
+class project_project (osv.osv):
+    _name = 'project.project'
+    _inherit = 'project.project'
+
+    _columns = {
+        'risk_ids': fields.one2many(
+            'risk.management.risk',
+            'project_id',
+            'Project Risks'
+        )
+    }
+project_project()

@@ -3,7 +3,8 @@
 #
 #    OpenERP, Open Source Enterprise Management Solution
 #    risk_management Module
-#    Copyright (C) 2011 ValueDecision Ltd (<http://www.valuedecision.com>).
+#    Copyright (C) 2011-2014 ValueDecision Ltd (<http://www.valuedecision.com>).
+#    Copyright (C) 2015 Matmoz d.o.o. (<http://www.matmoz.si>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,11 +22,15 @@
 ##############################################################################
 {
     'name': 'Risk Management',
-    'version': '2.0',
-    'author': 'Tactix4 Ltd',
-    'website': 'http://www.tactix4.com',
+    'version': '2.1',
+    'author': 'Matmoz d.o.o.',
+    'website': 'http://www.matmoz.si',
     'category': 'Project Management',
     'description': """
+
+       Originally developed by Tactix4 Ltd (version 7, http://www.tactix4.com), migrated to the version 8 by
+       Matmoz d.o.o. (http://www.matmoz.si) and integrated with the project_charter module.
+
        This module allows to manage risk in at least two different contexts:
 
        1) Project Management
@@ -49,13 +54,14 @@
 
 
     """,
-    'depends': ['project'],
+    'depends': ['project', 'project_charter'],
     'data': [
         'risk_management_data.xml',
         'risk_management_sequence.xml',
         # 'security/risk_management_security.xml',
         'security/ir.model.access.csv',
         'view/project_task_view.xml',
+        'view/project_charter_view.xml',
         'view/risk_management_view.xml',
         'view/risk_management_category_view.xml',
         'view/risk_management_category_response_view.xml',
