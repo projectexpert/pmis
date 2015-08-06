@@ -29,7 +29,7 @@
     'description': """
 
        Originally developed by Tactix4 Ltd (version 7, http://www.tactix4.com), migrated to the version 8 by
-       Matmoz d.o.o. (http://www.matmoz.si) and integrated with the project_charter module.
+       Matmoz d.o.o. (version 8, http://www.matmoz.si) and integrated with the project_charter module.
 
        This module allows to manage risk in at least two different contexts:
 
@@ -49,9 +49,6 @@
        Besides the above mentioned information the following information can and ought to be documented as well:
        Risk description, author, date registered, date modified, event, effect, cause and risk owner.
 
-       Two user groups are added, which a user must be associated with to work with Risks, either
-       Risk / User or Risk / Manager.
-
 
     """,
     'depends': ['project', 'project_charter'],
@@ -70,6 +67,7 @@
     ],
     'demo': ['risk_management_demo.xml'],
     'test': ['test/test_risk_management.yml'],
+    'license': 'AGPL-3',
     'installable': True,
     'application': True,
     'active': False,
