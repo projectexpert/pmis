@@ -43,7 +43,8 @@ class risk_management_risk_response_category (models.Model):
     _name = 'risk.management.response.category'
     _description = 'Risk log response category table'
 
-    type = fields.Selection([('threat', 'Threat'), ('opportunity', 'Opportunity')], 'Type'),
+    type = fields.Selection(
+            [('threat', 'Threat'), ('opportunity', 'Opportunity')], 'Type')
     name = fields.Char(string='Response Category', size=64, required=True)
 
 risk_management_risk_response_category()
@@ -188,7 +189,8 @@ class risk_management_risk (models.Model):
     risk_response_category_id = fields.Many2one(
         'risk.management.response.category', 'Response Category',
         help='''
-        Risk Response Categories: How the project will treat the risk in terms of the project's (or business continuity planning) chosen categories.
+        Risk Response Categories: How the project will treat the risk in terms of the project's
+        (or business continuity planning) chosen categories.
         '''
     )
     risk_response_ids = fields.One2many(
@@ -206,7 +208,8 @@ class risk_management_risk (models.Model):
     risk_owner_id = fields.Many2one(
         'res.users', 'Owner',
         help='''
-        Risk Owner: The person responsible for managing the risk (there can be only one risk owner per risk), risk ownership is assigned to a managerial level, in case of business continuity to a C-level manager.
+        Risk Owner: The person responsible for managing the risk (there can be only one risk owner per risk), risk
+        ownership is assigned to a managerial level, in case of business continuity to a C-level manager.
         '''
     )
 
