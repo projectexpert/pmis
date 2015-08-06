@@ -3,7 +3,8 @@
 #
 #    OpenERP, Open Source Enterprise Management Solution
 #    risk_management Module
-#    Copyright (C) 2011-2014 ValueDecision Ltd (<http://www.valuedecision.com>).
+#    Copyright (C) 2011-2015 ValueDecision Ltd (<http://www.valuedecision.com>).
+#    Copyright (C) 2015 Neova Health (<http://www.neovahealth.co.uk>).
 #    Copyright (C) 2015 Matmoz d.o.o. (<http://www.matmoz.si>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -28,8 +29,9 @@
     'category': 'Project Management',
     'description': """
 
-       Originally developed by Tactix4 Ltd (version 7, http://www.tactix4.com), migrated to the version 8 by
-       Matmoz d.o.o. (version 8, http://www.matmoz.si) and integrated with the project_charter module.
+       Originally developed by Tactix4 Ltd (version 7, http://www.tactix4.com) and Neova Health (version 8,
+       http://www.neovahealth.co.uk). This version is integrated with project_charter module by Matmoz d.o.o.
+       (version 8, http://www.matmoz.si).
 
        This module allows to manage risk in at least two different contexts:
 
