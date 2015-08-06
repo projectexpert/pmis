@@ -37,7 +37,7 @@ Contributors
 ------------
 
 * Tactix4 Ltd (http://www.tactix4.com)
-* Matmoz d.o.o. <http://www.matmoz.si>
+* Matmoz d.o.o. (http://www.matmoz.si)
 
 Maintainer
 ----------
