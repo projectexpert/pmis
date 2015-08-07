@@ -26,18 +26,21 @@ class account_analytic_account(orm.Model):
 
     _inherit = 'account.analytic.account'
 
-    def _get_active_analytic_planning_version(self, cr, uid, ids,
-                                              context=None):
+    def _get_active_analytic_planning_version(
+        self, cr, uid, ids, context=None
+    ):
 
         plan_versions = self.pool.get('account.analytic.plan.version').search(
-            cr, uid, [('default_plan', '=', True)], context=None),
+            cr, uid, [('default_plan', '=', True)], context=None
+        ),
         for plan_version in plan_versions:
             if plan_version:
                 return plan_version[0]
         return False
 
-    def _compute_level_tree_plan(self, cr, uid, ids, child_ids, res,
-                                 field_names, context=None):
+    def _compute_level_tree_plan(
+        self, cr, uid, ids, child_ids, res, field_names, context=None
+    ):
         currency_obj = self.pool.get('res.currency')
         recres = {}
 
@@ -46,12 +49,19 @@ class account_analytic_account(orm.Model):
             for son in account.child_ids:
                 result = recursive_computation(son)
                 for field in field_names:
-                    if (account.currency_id.id != son.currency_id.id) \
-                            and (field != 'quantity_plan'):
+                    if (
+                        account.currency_id.id != son.currency_id.id
+                    ) and (
+                        field != 'quantity_plan'
+                    ):
                         result[field] = currency_obj.compute(
-                            cr, uid, son.currency_id.id,
-                            account.currency_id.id, result[field],
-                            context=context)
+                            cr,
+                            uid,
+                            son.currency_id.id,
+                            account.currency_id.id,
+                            result[field],
+                            context=context
+                        )
                     result2[field] += result[field]
             return result2
         for account in self.browse(cr, uid, ids, context=context):
@@ -60,13 +70,17 @@ class account_analytic_account(orm.Model):
             recres[account.id] = recursive_computation(account)
         return recres
 
-    def _debit_credit_bal_qtty_plan(self, cr, uid, ids, fields, arg,
-                                    context=None):
+    def _debit_credit_bal_qtty_plan(
+        self, cr, uid, ids, fields, arg, context=None
+    ):
         res = {}
         if context is None:
             context = {}
-        child_ids = tuple(self.search(cr, uid,
-                                      [('parent_id', 'child_of', ids)]))
+        child_ids = tuple(
+            self.search(
+                cr, uid, [('parent_id', 'child_of', ids)]
+            )
+        )
         for i in child_ids:
             res[i] = {}
             for n in fields:
@@ -76,10 +90,12 @@ class account_analytic_account(orm.Model):
             return res
 
         for ac_id in child_ids:
-            res[ac_id] = {'debit_plan': 0,
-                          'credit_plan': 0,
-                          'balance_plan': 0,
-                          'quantity_plan': 0}
+            res[ac_id] = {
+                'debit_plan': 0,
+                'credit_plan': 0,
+                'balance_plan': 0,
+                'quantity_plan': 0
+            }
 
         where_date = ''
         where_clause_args = [tuple(child_ids)]
@@ -89,62 +105,73 @@ class account_analytic_account(orm.Model):
         if context.get('to_date', False):
             where_date += " AND l.date <= %s"
             where_clause_args += [context['to_date']]
-        cr.execute("""
+        cr.execute(
+            """
               SELECT a.id,
-                     sum(
-                         CASE WHEN l.amount > 0
-                         THEN l.amount
-                         ELSE 0.0
-                         END
-                          ) as debit_plan,
-                     sum(
-                         CASE WHEN l.amount < 0
-                         THEN -l.amount
-                         ELSE 0.0
-                         END
-                          ) as credit_plan,
-                     COALESCE(SUM(l.amount),0) AS balance_plan,
-                     COALESCE(SUM(l.unit_amount),0) AS quantity_plan
+                    sum(
+                        CASE WHEN l.amount > 0
+                        THEN l.amount
+                        ELSE 0.0
+                        END
+                    ) as debit_plan,
+                    sum(
+                        CASE WHEN l.amount < 0
+                        THEN -l.amount
+                        ELSE 0.0
+                        END
+                    ) as credit_plan,
+                    COALESCE(SUM(l.amount),0) AS balance_plan,
+                    COALESCE(SUM(l.unit_amount),0) AS quantity_plan
               FROM account_analytic_account a
                   LEFT JOIN account_analytic_line_plan l ON
                   (a.id = l.account_id)
               WHERE a.id IN %s
               AND a.active_analytic_planning_version = l.version_id
-              """ + where_date + """
-              GROUP BY a.id""", where_clause_args)
+            """ + where_date + """
+              GROUP BY a.id
+            """,
+            where_clause_args
+        )
 
         for row in cr.dictfetchall():
             res[row['id']] = {}
             for field in fields:
                 res[row['id']][field] = row[field]
-        return self._compute_level_tree_plan(cr, uid, ids, child_ids, res,
-                                             fields, context)
+        return self._compute_level_tree_plan(
+            cr, uid, ids, child_ids, res, fields, context
+        )
 
     _columns = {
 
         'balance_plan': fields.function(
             _debit_credit_bal_qtty_plan, method=True, type='float',
             string='Planned Balance', multi='debit_credit_bal_qtty_plan',
-            digits_compute=dp.get_precision('Account')),
+            digits_compute=dp.get_precision('Account')
+        ),
         'debit_plan': fields.function(
             _debit_credit_bal_qtty_plan, method=True, type='float',
             string='Planned Debit', multi='debit_credit_bal_qtty_plan',
-            digits_compute=dp.get_precision('Account')),
+            digits_compute=dp.get_precision('Account')
+        ),
         'credit_plan': fields.function(
             _debit_credit_bal_qtty_plan, method=True, type='float',
             string='Planned Credit', multi='debit_credit_bal_qtty_plan',
-            digits_compute=dp.get_precision('Account')),
+            digits_compute=dp.get_precision('Account')
+        ),
         'quantity_plan': fields.function(
             _debit_credit_bal_qtty_plan, method=True, type='float',
             string='Quantity Debit', multi='debit_credit_bal_qtty_plan',
-            digits_compute=dp.get_precision('Account')),
-        'plan_line_ids': fields.one2many('account.analytic.line.plan',
-                                         'account_id',
-                                         'Analytic Entries'),
+            digits_compute=dp.get_precision('Account')
+        ),
+        'plan_line_ids': fields.one2many(
+            'account.analytic.line.plan',
+            'account_id',
+            'Analytic Entries'
+        ),
 
         'active_analytic_planning_version': fields.many2one(
-            'account.analytic.plan.version', 'Active planning Version',
-            required=True),
+            'account.analytic.plan.version', 'Active planning Version', required=True
+        ),
     }
 
     _defaults = {
@@ -156,6 +183,6 @@ class account_analytic_account(orm.Model):
         if default is None:
             default = {}
         default['plan_line_ids'] = []
-        return super(account_analytic_account, self).copy(cr, uid, id,
-                                                          default,
-                                                          context=context)
+        return super(account_analytic_account, self).copy(
+            cr, uid, id, default, context=context
+        )

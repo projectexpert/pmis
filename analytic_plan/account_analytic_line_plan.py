@@ -42,53 +42,97 @@ class account_analytic_line_plan(orm.Model):
         return company.currency_id and company.currency_id.id or False
 
     _columns = {
-        'name': fields.char('Activity description', size=256, required=True),
-        'date': fields.date('Date', required=True, select=True),
-        'amount': fields.float('Amount', required=True,
-                               help='Calculated by multiplying the quantity '
-                                    'and the price given in the Product\'s '
-                                    'cost price. Always expressed in the '
-                                    'company main currency.',
-                               digits_compute=dp.get_precision('Account')),
-        'unit_amount': fields.float('Quantity', help='Specifies the amount of '
-                                                     'quantity to count.'),
-        'amount_currency': fields.float('Amount Currency',
-                                        help="The amount expressed in an "
-                                             "optional other currency."),
-        'currency_id': fields.many2one('res.currency', 'Currency'),
-        'account_id': fields.many2one('account.analytic.account',
-                                      'Analytic Account', required=True,
-                                      ondelete='cascade', select=True,
-                                      domain=[('type', '<>', 'view')]),
-        'user_id': fields.many2one('res.users', 'User'),
-        'company_id': fields.related('account_id', 'company_id',
-                                     type='many2one',
-                                     relation='res.company',
-                                     string='Company', store=True,
-                                     readonly=True),
-        'product_uom_id': fields.many2one('product.uom', 'UoM'),
-        'product_id': fields.many2one('product.product', 'Product'),
-        'general_account_id': fields.many2one('account.account',
-                                              'General Account',
-                                              required=True,
-                                              ondelete='restrict'),
-        'journal_id': fields.many2one('account.analytic.plan.journal',
-                                      'Planning Analytic Journal',
-                                      required=True, ondelete='restrict',
-                                      select=True),
-        'code': fields.char('Code', size=8),
-        'ref': fields.char('Ref.', size=64),
-        'notes': fields.text('Notes'),
-        'version_id': fields.many2one('account.analytic.plan.version',
-                                      'Planning Version', required=True,
-                                      ondelete='cascade'),
-
+        'name': fields.char(
+            'Activity description', size=256, required=True
+        ),
+        'date': fields.date(
+            'Date', required=True, select=True
+        ),
+        'amount': fields.float(
+            'Amount', required=True,
+            help='''
+            Calculated by multiplying the quantity
+            and the price given in the Product's
+            cost price. Always expressed in the
+            company main currency.
+            ''',
+            digits_compute=dp.get_precision('Account')
+        ),
+        'unit_amount': fields.float(
+            'Quantity',
+            help='''
+            Specifies the amount of
+            quantity to count.
+            '''
+        ),
+        'amount_currency': fields.float(
+            'Amount Currency',
+            help='''
+            The amount expressed in an
+            optional other currency.
+            '''
+        ),
+        'currency_id': fields.many2one(
+            'res.currency', 'Currency'
+        ),
+        'account_id': fields.many2one(
+            'account.analytic.account', 'Analytic Account',
+            required=True,
+            ondelete='cascade',
+            select=True,
+            domain=[('type', '<>', 'view')]
+        ),
+        'user_id': fields.many2one(
+            'res.users', 'User'
+        ),
+        'company_id': fields.related(
+            'account_id',
+            'company_id',
+            type='many2one',
+            relation='res.company',
+            string='Company',
+            store=True,
+            readonly=True
+        ),
+        'product_uom_id': fields.many2one(
+            'product.uom', 'UoM'
+        ),
+        'product_id': fields.many2one(
+            'product.product', 'Product'
+        ),
+        'general_account_id': fields.many2one(
+            'account.account', 'General Account',
+            required=True,
+            ondelete='restrict'
+        ),
+        'journal_id': fields.many2one(
+            'account.analytic.plan.journal', 'Planning Analytic Journal',
+            required=True,
+            ondelete='restrict',
+            select=True
+        ),
+        'code': fields.char(
+            'Code', size=8
+        ),
+        'ref': fields.char(
+            'Ref.', size=64
+        ),
+        'notes': fields.text(
+            'Notes'
+        ),
+        'version_id': fields.many2one(
+            'account.analytic.plan.version',
+            'Planning Version',
+            required=True,
+            ondelete='cascade'
+        ),
     }
 
     def _get_currency(self, cr, uid, context=None):
         company_obj = self.pool.get('res.company')
         company_id = company_obj._company_default_get(
-            cr, uid, 'account.analytic.line', context=context)
+            cr, uid, 'account.analytic.line', context=context
+        )
         company = company_obj.browse(cr, uid, company_id, context=context)
         return company.currency_id.id
 
@@ -96,14 +140,16 @@ class account_analytic_line_plan(orm.Model):
         'date': lambda *a: time.strftime('%Y-%m-%d'),
         'company_id': lambda self, cr, uid, c:
         self.pool.get('res.company')._company_default_get(
-            cr, uid, 'account.analytic.line', context=c),
+            cr, uid, 'account.analytic.line', context=c
+        ),
         'amount': 0.00,
         'journal_id': lambda self, cr, uid,
         context: context['journal_id']
         if context and 'journal_id' in context else None,
         'version_id': lambda s, cr, uid,
         c: s.pool.get('account.analytic.plan.version').search(
-            cr, uid, [('default_plan', '=', True)], context=None),
+            cr, uid, [('default_plan', '=', True)], context=None
+        ),
         'currency_id': _get_currency,
     }
     _order = 'date desc'
@@ -116,11 +162,9 @@ class account_analytic_line_plan(orm.Model):
             args.append(['date', '>=', context['from_date']])
         if context.get('to_date', False):
             args.append(['date', '<=', context['to_date']])
-        return super(account_analytic_line_plan, self).search(cr, uid,
-                                                              args, offset,
-                                                              limit, order,
-                                                              context=context,
-                                                              count=count)
+        return super(account_analytic_line_plan, self).search(
+            cr, uid, args, offset, limit, order, context=context, count=count
+        )
 
     def _check_company(self, cr, uid, ids, context=None):
         lines = self.browse(cr, uid, ids, context=context)
@@ -130,8 +174,9 @@ class account_analytic_line_plan(orm.Model):
                 return False
         return True
 
-    def on_change_amount_currency(self, cr, uid, id, amount_currency,
-                                  currency_id, company_id, context=None):
+    def on_change_amount_currency(
+        self, cr, uid, id, amount_currency, currency_id, company_id, context=None
+    ):
 
         res = {}
         res['value'] = {}
@@ -143,11 +188,9 @@ class account_analytic_line_plan(orm.Model):
         company_currency_id = company.currency_id.id
 
         if amount_currency:
-            amount_company_currency = currency_obj.compute(cr, uid,
-                                                           currency_id,
-                                                           company_currency_id,
-                                                           amount_currency,
-                                                           context=context)
+            amount_company_currency = currency_obj.compute(
+                cr, uid, currency_id, company_currency_id, amount_currency, context=context
+            )
         else:
             amount_company_currency = 0.0
 
@@ -157,9 +200,10 @@ class account_analytic_line_plan(orm.Model):
 
         return res
 
-    def on_change_unit_amount(self, cr, uid, id, prod_id, quantity,
-                              currency_id, company_id, unit=False,
-                              journal_id=False, context=None):
+    def on_change_unit_amount(
+        self, cr, uid, id, prod_id, quantity, currency_id, company_id,
+        unit=False, journal_id=False, context=None
+    ):
 
         res = dict()
         res['value'] = {}
@@ -175,48 +219,63 @@ class account_analytic_line_plan(orm.Model):
         if prod_id:
             prod = product_obj.browse(cr, uid, prod_id, context=context)
         if not journal_id:
-            j_ids = analytic_journal_obj.search(cr, uid,
-                                                [('type', '=', 'purchase')])
+            j_ids = analytic_journal_obj.search(
+                cr, uid, [('type', '=', 'purchase')]
+            )
             journal_id = j_ids and j_ids[0] or False
         if not journal_id or not prod_id:
             return res
 
-        journal = analytic_journal_obj.browse(cr, uid, journal_id,
-                                              context=context)
+        journal = analytic_journal_obj.browse(
+            cr, uid, journal_id, context=context
+        )
 
         if journal.type != 'sale' and prod:
             a = prod.product_tmpl_id.property_account_expense.id
             if not a:
                 a = prod.categ_id.property_account_expense_categ.id
             if not a:
-                raise orm.except_orm(_('Error !'),
-                                     _('There is no expense account defined '
-                                       'for this product: "%s" (id:%d)')
-                                     % (prod.name, prod.id,))
+                raise orm.except_orm(
+                    _('Error !'),
+                    _(
+                        '''
+                        There is no expense account defined
+                        for this product: "%s" (id:%d)
+                        '''
+                    )
+                    % (prod.name, prod.id,))
         else:
             a = prod.product_tmpl_id.property_account_income.id
             if not a:
                 a = prod.categ_id.property_account_income_categ.id
             if not a:
-                raise orm.except_orm(_('Error !'),
-                                     _('There is no income account defined '
-                                       'for this product: "%s" (id:%d)')
-                                     % (prod.name, prod_id,))
+                raise orm.except_orm(
+                    _('Error !'),
+                    _(
+                        '''
+                        There is no income account defined
+                        for this product: "%s" (id:%d)
+                        '''
+                    )
+                    % (prod.name, prod_id,))
 
         flag = False
         # Compute based on pricetype
         product_price_type_ids = product_price_type_obj.search(
-            cr, uid, [('field', '=', 'standard_price')], context=context)
-        pricetype = product_price_type_obj.browse(cr, uid,
-                                                  product_price_type_ids,
-                                                  context=context)[0]
+            cr, uid, [('field', '=', 'standard_price')], context=context
+        )
+        pricetype = product_price_type_obj.browse(
+            cr, uid, product_price_type_ids, context=context
+        )[0]
         if journal_id:
             if journal.type == 'sale':
                 product_price_type_ids = product_price_type_obj.search(
-                    cr, uid, [('field', '=', 'list_price')], context)
+                    cr, uid, [('field', '=', 'list_price')], context
+                )
                 if product_price_type_ids:
                     pricetype = product_price_type_obj.browse(
-                        cr, uid, product_price_type_ids, context=context)[0]
+                        cr, uid, product_price_type_ids, context=context
+                    )[0]
         # Take the company currency as the reference one
         if pricetype.field == 'list_price':
             flag = True
@@ -226,8 +285,9 @@ class account_analytic_line_plan(orm.Model):
             # to return a default price for those units
             ctx['uom'] = unit
         amount_unit = prod.price_get(pricetype.field, context=ctx)[prod.id]
-        prec = self.pool.get('decimal.precision').precision_get(cr, uid,
-                                                                'Account')
+        prec = self.pool.get('decimal.precision').precision_get(
+            cr, uid, 'Account'
+        )
         amount = amount_unit * quantity or 1.0
         result = round(amount, prec)
 
@@ -235,41 +295,48 @@ class account_analytic_line_plan(orm.Model):
             if journal.type != 'sale':
                 result *= -1
 
-        res = self.on_change_amount_currency(cr, uid, id, result, currency_id,
-                                             company_id, context)
+        res = self.on_change_amount_currency(
+            cr, uid, id, result, currency_id, company_id, context
+        )
 
-        res['value'].update({
-            'amount_currency': result,
-            'general_account_id': a,
-        })
+        res['value'].update(
+            {'amount_currency': result, 'general_account_id': a, }
+        )
 
         return res
 
-    def on_change_product_id(self, cr, uid, id, prod_id, quantity, currency_id,
-                             company_id, unit=False, journal_id=False,
-                             context=None):
+    def on_change_product_id(
+        self, cr, uid, id, prod_id, quantity, currency_id, company_id, unit=False, journal_id=False, context=None
+    ):
 
-        res = self.on_change_unit_amount(cr, uid, id, prod_id, quantity,
-                                         currency_id, company_id,
-                                         unit, journal_id, context)
+        res = self.on_change_unit_amount(
+            cr, uid, id, prod_id, quantity, currency_id, company_id, unit, journal_id, context
+        )
         if prod_id:
-            prod = self.pool.get('product.product').browse(cr, uid, prod_id,
-                                                           context=context)
-            res['value'].update({
-                'name': prod.name,
-            })
+            prod = self.pool.get('product.product').browse(
+                cr, uid, prod_id, context=context
+            )
+            res['value'].update(
+                {
+                    'name': prod.name,
+                }
+            )
             if prod.uom_id:
-                res['value'].update({
-                    'product_uom_id': prod.uom_id.id,
-                })
+                res['value'].update(
+                    {'product_uom_id': prod.uom_id.id, }
+                )
         return res
 
-    def view_header_get(self, cr, user, view_id, view_type, context=None):
+    def view_header_get(
+        self, cr, user, view_id, view_type, context=None
+    ):
         if context is None:
             context = {}
         if context.get('account_id', False):
-            cr.execute('select name from account_analytic_account where id=%s',
-                       (context['account_id'],))
+            cr.execute(
+                'select name from account_analytic_account where id=%s',
+                (context['account_id'],)
+            )
             res = cr.fetchone()
             if res:
                 res = _('Entries: ')+(res[0] or '')
