@@ -17,19 +17,19 @@
         <record id="risk_management_project_task_tree_view" model="ir.ui.view">
             <field name="name">risk.management.inherit.task.tree1</field>
             <field name="model">project.task</field>
-            <field eval="2" name="priority"/>
+            <field name="priority">20</field>
             <field name="inherit_id" ref="project.view_task_tree2"/>
             <field name="arch" type="xml">
                 <data>
                     <field name="name" position="after">
                         <field name="risk_id" invisible="context.get('risk_id_visible',True)"/>
                     </field>
-                    <xpath expr="/tree[@string='Tasks']" position="attributes">
+                    <!--<xpath expr="/tree[@string='Tasks']" position="attributes">
                         <attribute name="colors">green:risk_id;grey:state in ('cancelled','done');blue:state ==
                             'pending';red:date_deadline and (date_deadline&lt;current_date) and (state in
                             ('draft','pending','open'))
                         </attribute>
-                    </xpath>
+                    </xpath>-->
                     <field name="user_id" position="replace">
                         <field name="user_id"/>
                     </field>
