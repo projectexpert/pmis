@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-18 11:11+0000\n"
-"PO-Revision-Date: 2015-07-18 11:11+0000\n"
+"POT-Creation-Date: 2015-08-11 08:59+0000\n"
+"PO-Revision-Date: 2015-08-11 08:59+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -118,7 +118,6 @@ msgid "Child Stages"
 msgstr ""
 
 #. module: project_wbs
-#: model:ir.actions.act_window,name:project_wbs.open_view_project_child_tree
 #: view:project.project:project_wbs.view_project
 msgid "Child WBS elements"
 msgstr ""
@@ -137,7 +136,13 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
+#: view:project.project:project_wbs.view_project
 msgid "Code"
+msgstr ""
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Create child WBS element"
 msgstr ""
 
 #. module: project_wbs
@@ -192,6 +197,7 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
+#: view:project.project:project_wbs.view_project
 msgid "End Date"
 msgstr ""
 
@@ -252,8 +258,18 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: project_wbs
+#: field:account.analytic.account,wbs_indent:0
+msgid "Level"
+msgstr ""
+
+#. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 msgid "Miscellaneous"
+msgstr ""
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project
+msgid "Name"
 msgstr ""
 
 #. module: project_wbs
@@ -263,7 +279,13 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
+#: view:project.project:project_wbs.view_project
 msgid "Parent"
+msgstr ""
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project
+msgid "Parent WBS element"
 msgstr ""
 
 #. module: project_wbs
@@ -353,6 +375,7 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
+#: view:project.project:project_wbs.view_project
 msgid "Start Date"
 msgstr ""
 
@@ -399,15 +422,17 @@ msgid "Unclassified projects"
 msgstr ""
 
 #. module: project_wbs
+#: field:project.project,c_wbs_code:0
+msgid "WBS Code"
+msgstr ""
+
+#. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_list
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_tree
 #: view:project.project:project_wbs.edit_project
-#: view:project.project:project_wbs.view_project
 #: view:project.project:project_wbs.view_project_project_filter
-#: view:project.task:project_wbs.view_task_form2
-#: view:project.task:project_wbs.view_task_search_form
-#: view:project.task:project_wbs.view_task_tree2
 msgid "WBS code"
 msgstr ""
 
@@ -417,17 +442,16 @@ msgid "WBS element name"
 msgstr ""
 
 #. module: project_wbs
+#: model:ir.actions.act_window,name:project_wbs.create_wbs_element
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_wbs
+#: model:ir.actions.act_window,name:project_wbs.open_view_wbs_tree
+#: view:project.project:project_wbs.view_project
 msgid "WBS elements"
 msgstr ""
 
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_search
-#: view:project.project:project_wbs.view_project
 #: view:project.project:project_wbs.view_project_project_filter
-#: view:project.task:project_wbs.view_task_form2
-#: view:project.task:project_wbs.view_task_search_form
-#: view:project.task:project_wbs.view_task_tree2
 msgid "WBS name"
 msgstr ""
 
@@ -451,12 +475,15 @@ msgid "Work Packages"
 msgstr ""
 
 #. module: project_wbs
-#: view:project.project:project_wbs.edit_project
-msgid "on_change_parent(parent_id)"
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_list
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_tree
+msgid "grey:state in\n"
+"                        ('cancelled','close');blue:account_class ==\n"
+"                        'work_package'"
 msgstr ""
 
 #. module: project_wbs
-#: view:project.project:project_wbs.view_project
-msgid "top"
+#: view:project.project:project_wbs.edit_project
+msgid "on_change_parent(parent_id)"
 msgstr ""
 

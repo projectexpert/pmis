@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-18 11:11+0000\n"
-"PO-Revision-Date: 2015-08-03 13:08+0200\n"
-"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"POT-Creation-Date: 2015-08-11 11:00+0200\n"
+"PO-Revision-Date: 2015-08-11 11:01+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: sl\n"
 "X-Generator: Poedit 1.8.2\n"
 
 #. module: project_wbs
@@ -122,6 +122,7 @@ msgstr ""
 "                Te stopnje se uporablja za spremljanje napredovanja\n"
 "                projekta, faze, dobave ali delovnega seznama.\n"
 "              </p>\n"
+"            "
 
 #. module: project_wbs
 #: view:analytic.account.stage:project_wbs.analytic_account_stage_edit
@@ -165,7 +166,6 @@ msgid "Child Stages"
 msgstr "Podrejene stopnje"
 
 #. module: project_wbs
-#: model:ir.actions.act_window,name:project_wbs.open_view_project_child_tree
 #: view:project.project:project_wbs.view_project
 msgid "Child WBS elements"
 msgstr "Podrejeni elementi členitve"
@@ -184,8 +184,14 @@ msgstr "Razred"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
+#: view:project.project:project_wbs.view_project
 msgid "Code"
 msgstr "Koda"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Create child WBS element"
+msgstr "Podrejeni elementi členitve"
 
 #. module: project_wbs
 #: field:analytic.account.stage,create_uid:0
@@ -239,6 +245,7 @@ msgstr "Urejanje projekta"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
+#: view:project.project:project_wbs.view_project
 msgid "End Date"
 msgstr "Končni datum"
 
@@ -303,9 +310,19 @@ msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
 
 #. module: project_wbs
+#: field:account.analytic.account,wbs_indent:0
+msgid "Level"
+msgstr "Nivo"
+
+#. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 msgid "Miscellaneous"
 msgstr "Razno"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project
+msgid "Name"
+msgstr "Naziv"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
@@ -314,8 +331,14 @@ msgstr "Ostale informacije"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
+#: view:project.project:project_wbs.view_project
 msgid "Parent"
 msgstr "Nadrejeni"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project
+msgid "Parent WBS element"
+msgstr "Nadrejeni elementi členitve"
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
@@ -404,6 +427,7 @@ msgstr "Naziv stopnje"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
+#: view:project.project:project_wbs.view_project
 msgid "Start Date"
 msgstr "Začetni datum"
 
@@ -460,15 +484,17 @@ msgid "Unclassified projects"
 msgstr "Nerazvrščeni projekti"
 
 #. module: project_wbs
+#: field:project.project,c_wbs_code:0
+msgid "WBS Code"
+msgstr "Koda členitve"
+
+#. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_list
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_tree
 #: view:project.project:project_wbs.edit_project
-#: view:project.project:project_wbs.view_project
 #: view:project.project:project_wbs.view_project_project_filter
-#: view:project.task:project_wbs.view_task_form2
-#: view:project.task:project_wbs.view_task_search_form
-#: view:project.task:project_wbs.view_task_tree2
 msgid "WBS code"
 msgstr "Koda členitve"
 
@@ -478,17 +504,16 @@ msgid "WBS element name"
 msgstr "Naziv elementa členitve"
 
 #. module: project_wbs
+#: model:ir.actions.act_window,name:project_wbs.create_wbs_element
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_wbs
+#: model:ir.actions.act_window,name:project_wbs.open_view_wbs_tree
+#: view:project.project:project_wbs.view_project
 msgid "WBS elements"
 msgstr "Elementi členitve"
 
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_search
-#: view:project.project:project_wbs.view_project
 #: view:project.project:project_wbs.view_project_project_filter
-#: view:project.task:project_wbs.view_task_form2
-#: view:project.task:project_wbs.view_task_search_form
-#: view:project.task:project_wbs.view_task_tree2
 msgid "WBS name"
 msgstr "Naziv členitve"
 
@@ -512,11 +537,21 @@ msgid "Work Packages"
 msgstr "Delovni seznami"
 
 #. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_list
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_tree
+msgid ""
+"grey:state in\n"
+"                        ('cancelled','close');blue:account_class ==\n"
+"                        'work_package'"
+msgstr ""
+"grey:state in\n"
+"                        ('cancelled','close');blue:account_class ==\n"
+"                        'work_package'"
+
+#. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 msgid "on_change_parent(parent_id)"
 msgstr "on_change_parent(parent_id)"
 
-#. module: project_wbs
-#: view:project.project:project_wbs.view_project
-msgid "top"
-msgstr "zgoraj"
+#~ msgid "top"
+#~ msgstr "zgoraj"
