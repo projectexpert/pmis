@@ -30,7 +30,10 @@ class hr_employee(osv.osv):
     _name = "hr.employee"
     _inherit = "hr.employee"
     _columns = {
-        'plan_journal_id': fields.many2one('account.analytic.plan.journal', 'Planning Analytic Journal'),
+        'plan_journal_id': fields.many2one(
+            'account.analytic.plan.journal',
+            'Planning Analytic Journal'
+        ),
     }
 
 hr_employee()

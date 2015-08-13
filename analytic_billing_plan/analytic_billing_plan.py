@@ -44,57 +44,140 @@ class analytic_billing_plan_line(osv.osv):
         return res
 
     _columns = {
-        'price_unit': fields.float('Unit Price', required=False, digits_compute=dp.get_precision('Sale Price')),
-        'customer_id': fields.related('account_id', 'partner_id', string="Customer",
-                                      type='many2one', readonly=True, relation="res.partner"),
-        'analytic_line_plan_id': fields.many2one('account.analytic.line.plan',
-                                                 'Planning analytic lines', ondelete="cascade",
-                                                 required=True),
-
-        'order_line_ids': fields.many2many('sale.order.line',
-                                           'analytic_billing_plan_order_line_rel',
-                                           'order_line_id',
-                                           'analytic_billing_plan_line_id'),
-        'has_active_order': fields.function(_has_active_order,
-                                            method=True,
-                                            type='boolean',
-                                            string='Billing request',
-                                            help="Indicates that this billing plan line "
-                                                 "contains at least one non-cancelled billing request."),
+        'price_unit': fields.float(
+            'Unit Price',
+            required=False,
+            digits_compute=dp.get_precision('Sale Price')
+        ),
+        'customer_id': fields.related(
+            'account_id',
+            'partner_id',
+            string="Customer",
+            type='many2one',
+            readonly=True,
+            relation="res.partner"
+        ),
+        'analytic_line_plan_id': fields.many2one(
+            'account.analytic.line.plan',
+            'Planning analytic lines',
+            ondelete="cascade",
+            required=True
+        ),
+        'order_line_ids': fields.many2many(
+            'sale.order.line',
+            'analytic_billing_plan_order_line_rel',
+            'order_line_id',
+            'analytic_billing_plan_line_id'
+        ),
+        'has_active_order': fields.function(
+            _has_active_order,
+            method=True,
+            type='boolean',
+            string='Billing request',
+            help='''
+            Indicates that this billing plan line
+            contains at least one non-cancelled billing request.
+            '''
+        ),
     }
 
-    def on_change_amount_currency_billing(self,
-                                          cr, uid, ids, account_id,
-                                          name, date, product_id, unit_amount,
-                                          product_uom_id, price_unit, amount_currency,
-                                          currency_id, version_id, journal_id,
-                                          ref, company_id, amount, general_account_id, context=None):
+    def on_change_amount_currency_billing(
+        self,
+        cr,
+        uid,
+        ids,
+        account_id,
+        name,
+        date,
+        product_id,
+        unit_amount,
+        product_uom_id,
+        price_unit,
+        amount_currency,
+        currency_id,
+        version_id,
+        journal_id,
+        ref,
+        company_id,
+        amount,
+        general_account_id,
+        context=None
+    ):
 
         analytic_line_plan_obj = self.pool.get('account.analytic.line.plan')
 
-        res = analytic_line_plan_obj.on_change_amount_currency(cr, uid, ids, amount_currency,
-                                                               currency_id, company_id, context)
+        res = analytic_line_plan_obj.on_change_amount_currency(
+            cr, uid, ids, amount_currency, currency_id, company_id, context
+        )
         return res
 
-    def on_change_currency_billing(self,
-                                   cr, uid, ids, account_id,
-                                   name, date, product_id, unit_amount,
-                                   product_uom_id, price_unit, amount_currency,
-                                   currency_id, version_id, journal_id,
-                                   ref, company_id, amount, general_account_id, context=None):
+    def on_change_currency_billing(
+        self,
+        cr,
+        uid,
+        ids,
+        account_id,
+        name,
+        date,
+        product_id,
+        unit_amount,
+        product_uom_id,
+        price_unit,
+        amount_currency,
+        currency_id,
+        version_id,
+        journal_id,
+        ref,
+        company_id,
+        amount,
+        general_account_id,
+        context=None
+    ):
 
-        return self.on_change_amount_currency_billing(cr, uid, ids, account_id,
-                                                      name, date, product_id, unit_amount,
-                                                      product_uom_id, price_unit, amount_currency,
-                                                      currency_id, version_id, journal_id,
-                                                      ref, company_id, amount, general_account_id, context)
+        return self.on_change_amount_currency_billing(
+            cr,
+            uid,
+            ids,
+            account_id,
+            name,
+            date,
+            product_id,
+            unit_amount,
+            product_uom_id,
+            price_unit,
+            amount_currency,
+            currency_id,
+            version_id,
+            journal_id,
+            ref,
+            company_id,
+            amount,
+            general_account_id,
+            context
+        )
 
-    def on_change_unit_amount_billing(self,
-                                      cr, uid, ids, account_id,
-                                      name, date, product_id, unit_amount,
-                                      product_uom_id, price_unit, amount_currency,
-                                      currency_id, version_id, journal_id,
-                                      ref, company_id, amount, general_account_id, context=None):
+    def on_change_unit_amount_billing(
+        self,
+        cr,
+        uid,
+        ids,
+        account_id,
+        name,
+        date,
+        product_id,
+        unit_amount,
+        product_uom_id,
+        price_unit,
+        amount_currency,
+        currency_id,
+        version_id,
+        journal_id,
+        ref,
+        company_id,
+        amount,
+        general_account_id,
+        context=None
+    ):
 
         res = {}
         res['value'] = {}
@@ -107,9 +190,9 @@ class analytic_billing_plan_line(osv.osv):
         amount_currency = price_unit * unit_amount
         res['value'].update({'amount_currency': amount_currency})
 
-        res_amount_currency = analytic_line_plan_obj.on_change_amount_currency(cr, uid, ids,
-                                                                               amount_currency, currency_id,
-                                                                               company_id, context)
+        res_amount_currency = analytic_line_plan_obj.on_change_amount_currency(
+            cr, uid, ids, amount_currency, currency_id, company_id, context
+        )
         if res_amount_currency and 'value' in res_amount_currency:
             res['value'].update(res_amount_currency['value'])
 
@@ -118,25 +201,73 @@ class analytic_billing_plan_line(osv.osv):
         else:
             return {}
 
-    def on_change_price_unit_billing(self,
-                                     cr, uid, ids, account_id,
-                                     name, date, product_id, unit_amount,
-                                     product_uom_id, price_unit, amount_currency,
-                                     currency_id, version_id, journal_id,
-                                     ref, company_id, amount, general_account_id, context=None):
+    def on_change_price_unit_billing(
+        self,
+        cr,
+        uid,
+        ids,
+        account_id,
+        name,
+        date,
+        product_id,
+        unit_amount,
+        product_uom_id,
+        price_unit,
+        amount_currency,
+        currency_id,
+        version_id,
+        journal_id,
+        ref,
+        company_id,
+        amount,
+        general_account_id,
+        context=None
+    ):
 
-        return self.on_change_unit_amount_billing(cr, uid, ids, account_id,
-                                                  name, date, product_id, unit_amount,
-                                                  product_uom_id, price_unit, amount_currency,
-                                                  currency_id, version_id, journal_id,
-                                                  ref, company_id, amount, general_account_id, context)
+        return self.on_change_unit_amount_billing(
+            cr,
+            uid,
+            ids,
+            account_id,
+            name,
+            date,
+            product_id,
+            unit_amount,
+            product_uom_id,
+            price_unit,
+            amount_currency,
+            currency_id,
+            version_id,
+            journal_id,
+            ref,
+            company_id,
+            amount,
+            general_account_id,
+            context
+        )
 
-    def on_change_date_billing(self,
-                               cr, uid, ids, account_id,
-                               name, date, product_id, unit_amount,
-                               product_uom_id, price_unit, amount_currency,
-                               currency_id, version_id, journal_id,
-                               ref, company_id, amount, general_account_id, context=None):
+    def on_change_date_billing(
+        self,
+        cr,
+        uid,
+        ids,
+        account_id,
+        name,
+        date,
+        product_id,
+        unit_amount,
+        product_uom_id,
+        price_unit,
+        amount_currency,
+        currency_id,
+        version_id,
+        journal_id,
+        ref,
+        company_id,
+        amount,
+        general_account_id,
+        context=None
+    ):
 
         res = {}
         res['value'] = {}
@@ -146,12 +277,29 @@ class analytic_billing_plan_line(osv.osv):
         else:
             return {}
 
-    def on_change_account_id_billing(self,
-                                     cr, uid, ids, account_id,
-                                     name, date, product_id, unit_amount,
-                                     product_uom_id, price_unit, amount_currency,
-                                     currency_id, version_id, journal_id,
-                                     ref, company_id, amount, general_account_id, context=None):
+    def on_change_account_id_billing(
+        self,
+        cr,
+        uid,
+        ids,
+        account_id,
+        name,
+        date,
+        product_id,
+        unit_amount,
+        product_uom_id,
+        price_unit,
+        amount_currency,
+        currency_id,
+        version_id,
+        journal_id,
+        ref,
+        company_id,
+        amount,
+        general_account_id,
+        context=None
+    ):
+
         res = {}
         res['value'] = {}
         # Change in account_id affects:
@@ -169,12 +317,28 @@ class analytic_billing_plan_line(osv.osv):
         else:
             return {}
 
-    def on_change_product_uom_billing(self,
-                                      cr, uid, ids, account_id,
-                                      name, date, product_id, unit_amount,
-                                      product_uom_id, price_unit, amount_currency,
-                                      currency_id, version_id, journal_id,
-                                      ref, company_id, amount, general_account_id, context=None):
+    def on_change_product_uom_billing(
+        self,
+        cr,
+        uid,
+        ids,
+        account_id,
+        name,
+        date,
+        product_id,
+        unit_amount,
+        product_uom_id,
+        price_unit,
+        amount_currency,
+        currency_id,
+        version_id,
+        journal_id,
+        ref,
+        company_id,
+        amount,
+        general_account_id,
+        context=None
+    ):
 
         analytic_account_obj = self.pool.get('account.analytic.account')
         partner_obj = self.pool.get('res.partner')
@@ -192,22 +356,43 @@ class analytic_billing_plan_line(osv.osv):
         # TODO: Check if the new product is allowed for the current pricelist
         # If there's a pricelist and a product, get the unit price for the new UoM
         if pricelist_id and product_id and product_uom_id:
-            price_unit = pricelist_obj.price_get(cr, uid, [pricelist_id],
-                                                 product_id, unit_amount or 1.0, customer_id,
-                                                 {'uom': product_uom_id,
-                                                  'date': date,
-                                                  })[pricelist_id]
+            price_unit = pricelist_obj.price_get(
+                cr,
+                uid,
+                [pricelist_id],
+                product_id,
+                unit_amount or 1.0,
+                customer_id,
+                {'uom': product_uom_id, 'date': date, }
+            )[pricelist_id]
+
             res['value'].update({'price_unit': price_unit})
 
             if 'price_unit' in res['value']:
                 # Compute the changes to the price unit downwards
                 price_unit = res['value']['price_unit']
-                res_price_unit = self.on_change_price_unit_billing(cr, uid, ids, account_id,
-                                                                   name, date, product_id, unit_amount,
-                                                                   product_uom_id, price_unit, amount_currency,
-                                                                   currency_id, version_id, journal_id,
-                                                                   ref, company_id, amount, general_account_id,
-                                                                   context)
+                res_price_unit = self.on_change_price_unit_billing(
+                    cr,
+                    uid,
+                    ids,
+                    account_id,
+                    name,
+                    date,
+                    product_id,
+                    unit_amount,
+                    product_uom_id,
+                    price_unit,
+                    amount_currency,
+                    currency_id,
+                    version_id,
+                    journal_id,
+                    ref,
+                    company_id,
+                    amount,
+                    general_account_id,
+                    context
+                )
+
                 if 'value' in res_price_unit:
                     res['value'].update(res_price_unit['value'])
 
@@ -220,12 +405,29 @@ class analytic_billing_plan_line(osv.osv):
         else:
             return {}
 
-    def on_change_product_id_billing(self,
-                                     cr, uid, ids, account_id,
-                                     name, date, product_id, unit_amount,
-                                     product_uom_id, price_unit, amount_currency,
-                                     currency_id, version_id, journal_id,
-                                     ref, company_id, amount, general_account_id, context=None):
+    def on_change_product_id_billing(
+        self,
+        cr,
+        uid,
+        ids,
+        account_id,
+        name,
+        date,
+        product_id,
+        unit_amount,
+        product_uom_id,
+        price_unit,
+        amount_currency,
+        currency_id,
+        version_id,
+        journal_id,
+        ref,
+        company_id,
+        amount,
+        general_account_id,
+        context=None
+    ):
+
         # Change in product allowed only if:
         #  - Compatible with current pricelist? => TODO
         # Change in product directly influences
@@ -243,12 +445,27 @@ class analytic_billing_plan_line(osv.osv):
                 prod_uom = prod.uom_id and prod.uom_id.id or False
             res['value'].update({'product_uom_id': prod_uom})
 
-            res_uom = self.on_change_product_uom_billing(cr, uid, ids, account_id,
-                                                         name, date, product_id, unit_amount,
-                                                         prod_uom, price_unit, amount_currency,
-                                                         currency_id, version_id, journal_id,
-                                                         ref, company_id, amount, general_account_id,
-                                                         context)
+            res_uom = self.on_change_product_uom_billing(
+                cr,
+                uid,
+                ids,
+                account_id,
+                name,
+                date,
+                product_id,
+                unit_amount,
+                prod_uom,
+                price_unit,
+                amount_currency,
+                currency_id,
+                version_id,
+                journal_id,
+                ref,
+                company_id,
+                amount,
+                general_account_id,
+                context
+            )
 
             res['value'].update(res_uom)
 

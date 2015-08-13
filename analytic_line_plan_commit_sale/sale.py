@@ -66,7 +66,10 @@ class sale_order_line(osv.osv):
     _inherit = 'sale.order.line'
 
     _columns = {
-        'analytic_line_plan': fields.many2one('account.analytic.line.plan', 'Planning Analytic line'),
+        'analytic_line_plan': fields.many2one(
+            'account.analytic.line.plan',
+            'Planning Analytic line'
+        ),
     }
 
     def reset_analytic_line_plan(self, cr, uid, analytic_line_plan_id, order_state, context=None):
@@ -238,11 +241,14 @@ class sale_order_line(osv.osv):
                     company = company_obj.browse(cr, uid, order.company_id.id, context=context)
                     if order.currency_id and company.currency_id:
                         company_currency_id = company.currency_id.id
-                        vals_line['amount'] = currency_obj.compute(cr, uid,
-                                                                   order.currency_id.id,
-                                                                   company_currency_id,
-                                                                   price_subtotal,
-                                                                   context=context)
+                        vals_line['amount'] = currency_obj.compute(
+                            cr,
+                            uid,
+                            order.currency_id.id,
+                            company_currency_id,
+                            price_subtotal,
+                            context=context
+                        )
                 vals_line['unit_amount'] = product_qty
             else:
                 vals_line['amount'] = 0
@@ -253,7 +259,9 @@ class sale_order_line(osv.osv):
                 vals_line['account_id'] = data['account_analytic_id']
             else:
                 vals_line['account_id'] = (
-                    so_line.order_id and so_line.order_id.project_id and so_line.order_id.project_id.id
+                    so_line.order_id and
+                    so_line.order_id.project_id and
+                    so_line.order_id.project_id.id
                 )
 
             vals_line['company_id'] = order.company_id and order.company_id.id

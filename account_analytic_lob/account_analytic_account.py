@@ -27,8 +27,10 @@ class account_analytic_account(osv.osv):
     _inherit = 'account.analytic.account'
 
     _columns = {
-        'lob': fields.many2one('account.analytic.lob',
-                               'Line of Business'),
+        'lob': fields.many2one(
+            'account.analytic.lob',
+            'Line of Business'
+        ),
     }
 
 account_analytic_account()

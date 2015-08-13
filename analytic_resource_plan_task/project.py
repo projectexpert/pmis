@@ -44,9 +44,11 @@ class project(osv.osv):
                     for task_id in vals['tasks'][0][2]:
                         task = task_obj.browse(cr, uid, task_id, context=context)
                         for resource_plan_line in task.resource_plan_lines:
-                            resource_vals['account_id'] = \
-                                p.analytic_account_id and \
-                                p.analytic_account_id.id or False
+                            resource_vals['account_id'] = (
+                                p.analytic_account_id and
+                                p.analytic_account_id.id or
+                                False
+                            )
                             resource_plan_line_obj.write(
                                 cr, uid, resource_plan_line.id, resource_vals, context=context
                             )

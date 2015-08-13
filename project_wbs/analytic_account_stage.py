@@ -23,11 +23,13 @@ from openerp import tools
 from openerp.osv import fields, osv
 from openerp.tools.translate import _
 
-_ANALYTIC_ACCOUNT_STATE = [('draft', 'New'),
-                           ('open', 'In Progress'),
-                           ('pending', 'To Renew'),
-                           ('close', 'Closed'),
-                           ('cancelled', 'Cancelled')]
+_ANALYTIC_ACCOUNT_STATE = [
+    ('draft', 'New'),
+    ('open', 'In Progress'),
+    ('pending', 'To Renew'),
+    ('close', 'Closed'),
+    ('cancelled', 'Cancelled')
+]
 
 
 class analytic_account_stage(osv.osv):
@@ -35,9 +37,18 @@ class analytic_account_stage(osv.osv):
     _description = 'Analytic Account Stage'
     _order = 'sequence'
     _columns = {
-        'name': fields.char('Stage Name', required=True, size=64, translate=True),
-        'description': fields.text('Description'),
-        'sequence': fields.integer('Sequence'),
+        'name': fields.char(
+            'Stage Name',
+            required=True,
+            size=64,
+            translate=True
+        ),
+        'description': fields.text(
+            'Description'
+        ),
+        'sequence': fields.integer(
+            'Sequence'
+        ),
         'analytic_account_ids': fields.many2many(
             'account.analytic.account',
             'analytic_account_stage_rel',
@@ -45,14 +56,22 @@ class analytic_account_stage(osv.osv):
             'analytic_account_id',
             'Project/Analytic stages'
         ),
-        'fold': fields.boolean('Folded by Default',
-                               help="This stage is not visible, "
-                                    "for example in status bar or kanban view, "
-                                    "when there are no records in that stage to display."),
-        'case_default': fields.boolean('Default for New Projects',
-                                       help="If you check this field, this stage will be proposed "
-                                            "by default on each new project. "
-                                            "It will not assign this stage to existing projects."),
+        'fold': fields.boolean(
+            'Folded by Default',
+            help='''
+            This stage is not visible,
+            for example in status bar or kanban view,
+            when there are no records in that stage to display.
+            '''
+        ),
+        'case_default': fields.boolean(
+            'Default for New Projects',
+            help='''
+            If you check this field, this stage will be proposed
+            by default on each new project.
+            It will not assign this stage to existing projects.
+            '''
+        ),
     }
 
     def _get_default_parent_id(self, cr, uid, ctx={}):

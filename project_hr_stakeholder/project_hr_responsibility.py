@@ -30,9 +30,21 @@ class project_hr_responsibility(osv.osv):
     _description = 'Project Responsibility'
 
     _columns = {
-        'code': fields.char('Code', size=4, required=True),
-        'name': fields.char('Name', size=128, required=True, translate=True),
-        'description': fields.text('Description', translate=True),
+        'code': fields.char(
+            'Code',
+            size=4,
+            required=True
+        ),
+        'name': fields.char(
+            'Name',
+            size=128,
+            required=True,
+            translate=True
+        ),
+        'description': fields.text(
+            'Description',
+            translate=True
+        ),
     }
 
 

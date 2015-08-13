@@ -49,7 +49,8 @@ class account_analytic_account(osv.osv):
             # Total Value
             query_params = (tuple(all_ids),)
             cr.execute(
-                """SELECT COALESCE(sum(amount),0.0) AS total_value
+                """
+                SELECT COALESCE(sum(amount),0.0) AS total_value
                 FROM account_analytic_line_plan AS L
                 LEFT JOIN account_analytic_account AS A
                 ON L.account_id = A.id
@@ -59,72 +60,89 @@ class account_analytic_account(osv.osv):
                 ON AT.id = AC.user_type
                 WHERE AT.report_type = 'income'
                 AND l.account_id IN %s
-                AND a.active_analytic_planning_version = l.version_id""",
-                query_params)
+                AND a.active_analytic_planning_version = l.version_id
+                """,
+                query_params
+            )
             val = cr.fetchone()[0] or 0
             res[account.id]['total_value'] = val
 
             # Actual billings to date
             cr.execute(
-                """SELECT COALESCE(sum(amount),0.0)
+                """
+                SELECT COALESCE(sum(amount),0.0)
                 FROM account_analytic_line L
                 INNER JOIN account_account AC
                 ON L.general_account_id = AC.id
                 INNER JOIN account_account_type AT
                 ON AT.id = AC.user_type
                 WHERE AT.report_type = 'income'
-                AND L.account_id IN %s""", query_params)
+                AND L.account_id IN %s
+                """,
+                query_params
+            )
             val = cr.fetchone()[0] or 0
             res[account.id]['actual_billings'] = val
 
             # Actual costs to date
             cr.execute(
-                """SELECT COALESCE(-1*sum(amount),0.0)
+                """
+                SELECT COALESCE(-1*sum(amount),0.0)
                 FROM account_analytic_line L
                 INNER JOIN account_account AC
                 ON L.general_account_id = AC.id
                 INNER JOIN account_account_type AT
                 ON AT.id = AC.user_type
                 WHERE AT.report_type = 'expense'
-                AND L.account_id IN %s""", query_params)
+                AND L.account_id IN %s
+                """,
+                query_params
+            )
             val = cr.fetchone()[0] or 0
             res[account.id]['actual_costs'] = val
 
             # Total estimated costs
-            cr.execute("""
-            SELECT COALESCE(-1*sum(amount),0.0) AS total_value
-            FROM account_analytic_line_plan AS L
-            LEFT JOIN account_analytic_account AS A
-            ON L.account_id = A.id
-            INNER JOIN account_account AC
-            ON L.general_account_id = AC.id
-            INNER JOIN account_account_type AT
-            ON AT.id = AC.user_type
-            WHERE AT.report_type = 'expense'
-            AND L.account_id IN %s
-            AND A.active_analytic_planning_version = L.version_id""",
-                       query_params)
+            cr.execute(
+                """
+                SELECT COALESCE(-1*sum(amount),0.0) AS total_value
+                FROM account_analytic_line_plan AS L
+                LEFT JOIN account_analytic_account AS A
+                ON L.account_id = A.id
+                INNER JOIN account_account AC
+                ON L.general_account_id = AC.id
+                INNER JOIN account_account_type AT
+                ON AT.id = AC.user_type
+                WHERE AT.report_type = 'expense'
+                AND L.account_id IN %s
+                AND A.active_analytic_planning_version = L.version_id
+                """,
+                query_params
+            )
             val = cr.fetchone()[0] or 0
             res[account.id]['total_estimated_costs'] = val
 
             # Estimated costs to complete
-            res[account.id]['estimated_costs_to_complete'] = \
+            res[account.id]['estimated_costs_to_complete'] = (
                 res[account.id]['total_estimated_costs'] - res[account.id]['actual_costs']
+            )
 
             # Estimated gross profit
-            res[account.id]['estimated_gross_profit'] = \
+            res[account.id]['estimated_gross_profit'] = (
                 res[account.id]['total_value'] - res[account.id]['total_estimated_costs']
+            )
 
             # Percent complete
             try:
-                res[account.id]['percent_complete'] = \
+                res[account.id]['percent_complete'] = (
                     (res[account.id]['actual_costs'] / res[account.id]['total_estimated_costs']) * 100
+                )
             except ZeroDivisionError:
                 res[account.id]['percent_complete'] = 0
 
             # Earned revenue
-            res[account.id]['earned_revenue'] = \
+            res[account.id]['earned_revenue'] = (
                 res[account.id]['percent_complete']/100 * res[account.id]['total_value']
+            )
 
             # Over/Under billings
             over_under_billings = res[account.id]['actual_billings'] - res[account.id]['earned_revenue']
@@ -137,75 +155,94 @@ class account_analytic_account(osv.osv):
 
     _columns = {
 
-        'total_value': fields.function(_wip_report,
-                                       method=True,
-                                       type='float',
-                                       string='Total Value',
-                                       multi='wip_report',
-                                       help="Total estimated revenue of the contract",
-                                       digits_compute=dp.get_precision('Account')),
-        'actual_billings': fields.function(_wip_report,
-                                           method=True,
-                                           type='float',
-                                           string='Actual Billings to date',
-                                           multi='wip_report',
-                                           help="Total invoiced amount issued to the customer to date",
-                                           digits_compute=dp.get_precision('Account')),
-        'actual_costs': fields.function(_wip_report,
-                                        method=True,
-                                        type='float',
-                                        string='Actual Costs to date',
-                                        multi='wip_report',
-                                        digits_compute=dp.get_precision('Account')),
-        'total_estimated_costs': fields.function(_wip_report,
-                                                 method=True,
-                                                 type='float',
-                                                 string='Total Estimated Costs',
-                                                 multi='wip_report',
-                                                 digits_compute=dp.get_precision('Account')),
-        'estimated_costs_to_complete': fields.function(_wip_report,
-                                                       method=True,
-                                                       type='float',
-                                                       string='Estimated Costs to Complete',
-                                                       help="Total Estimated Costs – Actual Costs to Date",
-                                                       multi='wip_report',
-                                                       digits_compute=dp.get_precision('Account')),
-        'estimated_gross_profit': fields.function(_wip_report,
-                                                  method=True,
-                                                  type='float',
-                                                  string='Estimated Gross Profit',
-                                                  help="Total Value – Total Estimated Costs",
-                                                  multi='wip_report',
-                                                  digits_compute=dp.get_precision('Account')),
-        'percent_complete': fields.function(_wip_report,
-                                            method=True,
-                                            type='float',
-                                            string='Percent Complete',
-                                            help="Actual Costs to Date / Total Estimated Costs",
-                                            multi='wip_report',
-                                            digits_compute=dp.get_precision('Account')),
-        'earned_revenue': fields.function(_wip_report,
-                                          method=True,
-                                          type='float',
-                                          string='Earned Revenue to date',
-                                          help="Percent Complete * Total Estimated Revenue",
-                                          multi='wip_report',
-                                          digits_compute=dp.get_precision('Account')),
-
-        'over_billings': fields.function(_wip_report,
-                                         method=True,
-                                         type='float',
-                                         string='Over billings',
-                                         help="Total Billings on Contract – Earned Revenue to Date (when > 0 )",
-                                         multi='wip_report',
-                                         digits_compute=dp.get_precision('Account')),
-        'under_billings': fields.function(_wip_report,
-                                          method=True,
-                                          type='float',
-                                          string='Under billings',
-                                          help="Total Billings on Contract – Earned Revenue to Date (when < 0 )",
-                                          multi='wip_report',
-                                          digits_compute=dp.get_precision('Account')),
+        'total_value': fields.function(
+            _wip_report,
+            method=True,
+            type='float',
+            string='Total Value',
+            multi='wip_report',
+            help="Total estimated revenue of the contract",
+            digits_compute=dp.get_precision('Account')
+        ),
+        'actual_billings': fields.function(
+            _wip_report,
+            method=True,
+            type='float',
+            string='Actual Billings to date',
+            multi='wip_report',
+            help="Total invoiced amount issued to the customer to date",
+            digits_compute=dp.get_precision('Account')
+        ),
+        'actual_costs': fields.function(
+            _wip_report,
+            method=True,
+            type='float',
+            string='Actual Costs to date',
+            multi='wip_report',
+            digits_compute=dp.get_precision('Account')
+        ),
+        'total_estimated_costs': fields.function(
+            _wip_report,
+            method=True,
+            type='float',
+            string='Total Estimated Costs',
+            multi='wip_report',
+            digits_compute=dp.get_precision('Account')
+        ),
+        'estimated_costs_to_complete': fields.function(
+            _wip_report,
+            method=True,
+            type='float',
+            string='Estimated Costs to Complete',
+            help="Total Estimated Costs – Actual Costs to Date",
+            multi='wip_report',
+            digits_compute=dp.get_precision('Account')
+        ),
+        'estimated_gross_profit': fields.function(
+            _wip_report,
+            method=True,
+            type='float',
+            string='Estimated Gross Profit',
+            help="Total Value – Total Estimated Costs",
+            multi='wip_report',
+            digits_compute=dp.get_precision('Account')
+        ),
+        'percent_complete': fields.function(
+            _wip_report,
+            method=True,
+            type='float',
+            string='Percent Complete',
+            help="Actual Costs to Date / Total Estimated Costs",
+            multi='wip_report',
+            digits_compute=dp.get_precision('Account')
+        ),
+        'earned_revenue': fields.function(
+            _wip_report,
+            method=True,
+            type='float',
+            string='Earned Revenue to date',
+            help="Percent Complete * Total Estimated Revenue",
+            multi='wip_report',
+            digits_compute=dp.get_precision('Account')
+        ),
+        'over_billings': fields.function(
+            _wip_report,
+            method=True,
+            type='float',
+            string='Over billings',
+            help="Total Billings on Contract – Earned Revenue to Date (when > 0 )",
+            multi='wip_report',
+            digits_compute=dp.get_precision('Account')
+        ),
+        'under_billings': fields.function(
+            _wip_report,
+            method=True,
+            type='float',
+            string='Under billings',
+            help="Total Billings on Contract – Earned Revenue to Date (when < 0 )",
+            multi='wip_report',
+            digits_compute=dp.get_precision('Account')
+        ),
     }
 
 account_analytic_account()

@@ -39,17 +39,23 @@ class analytic_resource_plan_line(osv.osv):
         return res
 
     _columns = {
-        'order_line_ids': fields.many2many('purchase.order.line',
-                                           'analytic_resource_plan_order_line_rel',
-                                           'order_line_id',
-                                           'analytic_resource_plan_line_id'),
+        'order_line_ids': fields.many2many(
+            'purchase.order.line',
+            'analytic_resource_plan_order_line_rel',
+            'order_line_id',
+            'analytic_resource_plan_line_id'
+        ),
 
-        'has_active_order': fields.function(_has_active_order,
-                                            method=True,
-                                            type='boolean',
-                                            string='Order',
-                                            help="Indicates that this resource plan line "
-                                                 "contains at least one non-cancelled purchase order."),
+        'has_active_order': fields.function(
+            _has_active_order,
+            method=True,
+            type='boolean',
+            string='Order',
+            help='''
+            Indicates that this resource plan line
+            contains at least one non-cancelled purchase order.
+            '''
+        ),
     }
 
     def copy(self, cr, uid, id, default=None, context=None):

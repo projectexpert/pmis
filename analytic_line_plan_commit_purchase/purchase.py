@@ -37,8 +37,9 @@ class purchase_order(osv.osv):
         for po in self.browse(cr, uid, ids, context=context):
             vals_line = {}
             for order_line_id in po.order_line:
-                for order_line in po_line_obj.browse(cr, uid, [order_line_id.id],
-                                                     context=context):
+                for order_line in po_line_obj.browse(
+                    cr, uid, [order_line_id.id], context=context
+                ):
                     if order_line.analytic_line_plan:
                         if 'state' in data:
                             if data['state'] in ('approved',
@@ -47,11 +48,14 @@ class purchase_order(osv.osv):
                                                  'done'):
 
                                 if po.currency_id.id != po.company_id.currency_id.id:
-                                    amount_company_currency = currency_obj.compute(cr, uid,
-                                                                                   po.currency_id.id,
-                                                                                   po.company_id.currency_id.id,
-                                                                                   order_line.price_subtotal,
-                                                                                   context=context)
+                                    amount_company_currency = currency_obj.compute(
+                                        cr,
+                                        uid,
+                                        po.currency_id.id,
+                                        po.company_id.currency_id.id,
+                                        order_line.price_subtotal,
+                                        context=context
+                                    )
                                 else:
                                     amount_company_currency = order_line.price_subtotal
 
@@ -78,7 +82,10 @@ class purchase_order_line(osv.osv):
     _inherit = 'purchase.order.line'
 
     _columns = {
-        'analytic_line_plan': fields.many2one('account.analytic.line.plan', 'Planning Analytic line'),
+        'analytic_line_plan': fields.many2one(
+            'account.analytic.line.plan',
+            'Planning Analytic line'
+        ),
     }
 
     def create(self, cr, uid, vals, *args, **kwargs):
@@ -251,11 +258,14 @@ class purchase_order_line(osv.osv):
 
             if order.currency_id.id != order.company_id.currency_id.id:
 
-                amount_company_currency = currency_obj.compute(cr, uid,
-                                                               order.currency_id.id,
-                                                               order.company_id.currency_id.id,
-                                                               price_subtotal,
-                                                               context=context)
+                amount_company_currency = currency_obj.compute(
+                    cr,
+                    uid,
+                    order.currency_id.id,
+                    order.company_id.currency_id.id,
+                    price_subtotal,
+                    context=context
+                )
             else:
                 amount_company_currency = price_subtotal
 

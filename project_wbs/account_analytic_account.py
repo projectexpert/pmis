@@ -26,23 +26,28 @@ class account_analytic_account(osv.osv):
 
     _inherit = 'account.analytic.account'
 
-    def get_child_accounts(self, cr, uid, ids, context=None):
+    def get_child_accounts(
+        self, cr, uid, ids, context=None
+    ):
         result = {}
         for curr_id in ids:
             result[curr_id] = True
         # Now add the children
-        cr.execute('''
-        WITH RECURSIVE children AS (
-        SELECT parent_id, id
-        FROM account_analytic_account
-        WHERE parent_id IN %s
-        UNION ALL
-        SELECT a.parent_id, a.id
-        FROM account_analytic_account a
-        JOIN children b ON(a.parent_id = b.id)
+        cr.execute(
+            '''
+            WITH RECURSIVE children AS (
+            SELECT parent_id, id
+            FROM account_analytic_account
+            WHERE parent_id IN %s
+            UNION ALL
+            SELECT a.parent_id, a.id
+            FROM account_analytic_account a
+            JOIN children b ON(a.parent_id = b.id)
+            )
+            SELECT * FROM children order by parent_id
+            ''',
+            (tuple(ids),)
         )
-        SELECT * FROM children order by parent_id
-        ''', (tuple(ids),))
         res = cr.fetchall()
         for x, y in res:
             result[y] = True
@@ -151,9 +156,10 @@ class account_analytic_account(osv.osv):
         return self._child_count(cr, uid, ids, '', arg, context=context)
 
     def _resolve_analytic_account_id_from_context(self, cr, uid, context=None):
-        """ Returns ID of parent analytic account based on the value of 'default_parent_id'
-            context key, or None if it cannot be resolved to a single
-            account.analytic.account
+        """
+        Returns ID of parent analytic account based on the value of 'default_parent_id'
+        context key, or None if it cannot be resolved to a single
+        account.analytic.account
         """
         if context is None:
             context = {}
@@ -161,9 +167,9 @@ class account_analytic_account(osv.osv):
             return context['default_parent_id']
         if isinstance(context.get('default_parent_id'), basestring):
             analytic_account_name = context['default_parent_id']
-            analytic_account_ids = self.pool.get('account.analytic.account').name_search(cr, uid,
-                                                                                         name=analytic_account_name,
-                                                                                         context=context)
+            analytic_account_ids = self.pool.get('account.analytic.account').name_search(
+                cr, uid, name=analytic_account_name, context=context
+            )
             if len(analytic_account_ids) == 1:
                 return analytic_account_ids[0][0]
         return None
@@ -179,8 +185,9 @@ class account_analytic_account(osv.osv):
         if analytic_account_id:
             search_domain += ['|', ('analytic_account_ids', '=', analytic_account_id)]
         search_domain += [('id', 'in', ids)]
-        stage_ids = stage_obj._search(cr, uid, search_domain, order=order,
-                                      access_rights_uid=access_rights_uid, context=context)
+        stage_ids = stage_obj._search(
+            cr, uid, search_domain, order=order, access_rights_uid=access_rights_uid, context=context
+        )
         result = stage_obj.name_get(cr, access_rights_uid, stage_ids, context=context)
         # restore order of the search
         result.sort(lambda x, y: cmp(stage_ids.index(x[0]), stage_ids.index(y[0])))
@@ -191,41 +198,65 @@ class account_analytic_account(osv.osv):
         return result, fold
 
     _columns = {
-        'wbs_indent': fields.function(_wbs_indent_calc, method=True,
-                                      type='char', string='Level',
-                                      size=32, readonly=True),
+        'wbs_indent': fields.function(
+            _wbs_indent_calc,
+            method=True,
+            type='char',
+            string='Level',
+            size=32,
+            readonly=True
+        ),
         'complete_wbs_code': fields.function(
-            _complete_wbs_code_calc, method=True, type='char',
-            string='Full WBS Code', size=250,
-            help='The full WBS code describes the full path of this '
-            'component within the project WBS hierarchy',
+            _complete_wbs_code_calc,
+            method=True,
+            type='char',
+            string='Full WBS Code',
+            size=250,
+            help='''
+            The full WBS code describes the full path of this
+            component within the project WBS hierarchy
+            ''',
             store={
-                'account.analytic.account':
-                    (get_child_accounts,
-                     ['name', 'code',
-                      'parent_id'], 20)
-            }),
+                'account.analytic.account': (
+                    get_child_accounts,
+                    ['name', 'code', 'parent_id'],
+                    20
+                )
+            }
+        ),
 
         'complete_wbs_name': fields.function(
-            _complete_wbs_name_calc, method=True, type='char',
-            string='Full WBS path', size=250,
+            _complete_wbs_name_calc,
+            method=True,
+            type='char',
+            string='Full WBS path',
+            size=250,
             help='Full path in the WBS hierarchy',
             store={
-                'account.analytic.account':
-                    (get_child_accounts,
-                     ['name', 'code',
-                      'parent_id'], 20)
-            }),
+                'account.analytic.account': (
+                    get_child_accounts,
+                    ['name', 'code', 'parent_id'],
+                    20
+                )
+            }
+        ),
 
         'account_class': fields.selection(
-            [('project', 'Project'), ('phase', 'Phase'),
+            [
+                ('project', 'Project'),
+                ('phase', 'Phase'),
                 ('deliverable', 'Deliverable'),
-                ('work_package', 'Work Package')], 'Class',
-            help='The classification allows you to create a proper project '
-            'Work Breakdown Structure'
+                ('work_package', 'Work Package')
+            ],
+            'Class',
+            help='''
+            The classification allows you to create a proper project
+            Work Breakdown Structure
+            '''
         ),
         'stage_id': fields.many2one(
-            'analytic.account.stage', 'Stage',
+            'analytic.account.stage',
+            'Stage',
             domain="['&', ('fold', '=', False), ('analytic_account_ids', '=', parent_id)]"
         ),
 

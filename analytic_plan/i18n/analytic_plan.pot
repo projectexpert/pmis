@@ -6,14 +6,71 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-24 11:22+0000\n"
-"PO-Revision-Date: 2015-07-24 11:22+0000\n"
+"POT-Creation-Date: 2015-08-13 05:18+0000\n"
+"PO-Revision-Date: 2015-08-13 05:18+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: analytic_plan
+#: help:account.analytic.line.plan,amount:0
+msgid "\n"
+"            Calculated by multiplying the quantity\n"
+"            and the price given in the Product's\n"
+"            cost price. Always expressed in the\n"
+"            company main currency.\n"
+"            "
+msgstr ""
+
+#. module: analytic_plan
+#: help:account.analytic.plan.journal,type:0
+msgid "\n"
+"            Gives the type of the analytic\n"
+"            journal. When it needs for a document\n"
+"            (eg: an invoice) to create analytic\n"
+"            entries, OpenERP will look  for a\n"
+"            matching journal of the same type.\n"
+"            "
+msgstr ""
+
+#. module: analytic_plan
+#: help:account.analytic.plan.version,active:0
+msgid "\n"
+"            If the active\n"
+"            field is set to False,\n"
+"            it will allow you to hide\n"
+"            the analytic planning version\n"
+"            without removing it.\n"
+"            "
+msgstr ""
+
+#. module: analytic_plan
+#: help:account.analytic.plan.journal,active:0
+msgid "\n"
+"            If the active field is set to False,\n"
+"            it will allow you to hide the analytic\n"
+"            journal without removing it.\n"
+"            "
+msgstr ""
+
+#. module: analytic_plan
+#: help:account.analytic.line.plan,unit_amount:0
+msgid "\n"
+"            Specifies the amount of\n"
+"            quantity to count.\n"
+"            "
+msgstr ""
+
+#. module: analytic_plan
+#: help:account.analytic.line.plan,amount_currency:0
+msgid "\n"
+"            The amount expressed in an\n"
+"            optional other currency.\n"
+"            "
+msgstr ""
 
 #. module: analytic_plan
 #: model:ir.actions.act_window,help:analytic_plan.act_analytic_plan_cost_revenue
@@ -43,7 +100,7 @@ msgstr ""
 
 #. module: analytic_plan
 #: field:account.analytic.account,active_analytic_planning_version:0
-msgid "Active planning Version"
+msgid "Active plan version"
 msgstr ""
 
 #. module: analytic_plan
@@ -60,11 +117,6 @@ msgstr ""
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_form
 #: field:account.analytic.line.plan,amount:0
 msgid "Amount"
-msgstr ""
-
-#. module: analytic_plan
-#: field:account.analytic.line.plan,amount_currency:0
-msgid "Amount Currency"
 msgstr ""
 
 #. module: analytic_plan
@@ -163,11 +215,6 @@ msgid "Analytic planning line"
 msgstr ""
 
 #. module: analytic_plan
-#: help:account.analytic.line.plan,amount:0
-msgid "Calculated by multiplying the quantity and the price given in the Product's cost price. Always expressed in the company main currency."
-msgstr ""
-
-#. module: analytic_plan
 #: view:analytic.plan.copy.version:analytic_plan.analytic_plan_copy_version_form
 msgid "Cancel"
 msgstr ""
@@ -233,13 +280,13 @@ msgstr ""
 
 #. module: analytic_plan
 #: field:account.analytic.plan.version,default_plan:0
-msgid "Default planning version"
+msgid "Default plan version"
 msgstr ""
 
 #. module: analytic_plan
 #: field:account.analytic.plan.version,default_committed:0
 msgid "Default version\n"
-"         for committed costs"
+"            for committed costs"
 msgstr ""
 
 #. module: analytic_plan
@@ -268,11 +315,6 @@ msgid "General Accounting"
 msgstr ""
 
 #. module: analytic_plan
-#: help:account.analytic.plan.journal,type:0
-msgid "Gives the type of the analytic journal. When it needs for a document (eg: an invoice) to create analytic entries, OpenERP will look  for a matching journal of the same type."
-msgstr ""
-
-#. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
 #: view:account.analytic.plan.journal:analytic_plan.view_account_analytic_plan_journal_search
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_search
@@ -285,16 +327,6 @@ msgstr ""
 #: field:account.analytic.plan.version,id:0
 #: field:analytic.plan.copy.version,id:0
 msgid "ID"
-msgstr ""
-
-#. module: analytic_plan
-#: help:account.analytic.plan.journal,active:0
-msgid "If the active field is set to False, it will allow you to hide the analytic journal without removing it."
-msgstr ""
-
-#. module: analytic_plan
-#: help:account.analytic.plan.version,active:0
-msgid "If the active field is set to False, it will allow you to hide the analytic planning version without removing it."
 msgstr ""
 
 #. module: analytic_plan
@@ -324,6 +356,11 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: analytic_plan
+#: field:account.analytic.line.plan,amount_currency:0
+msgid "Line Total"
+msgstr ""
+
+#. module: analytic_plan
 #: field:account.analytic.plan.journal,line_ids:0
 msgid "Lines"
 msgstr ""
@@ -349,6 +386,26 @@ msgstr ""
 #. module: analytic_plan
 #: model:ir.ui.menu,name:analytic_plan.project_plan
 msgid "Plan"
+msgstr ""
+
+#. module: analytic_plan
+#: field:account.analytic.plan.journal,code:0
+msgid "Plan Journal Code"
+msgstr ""
+
+#. module: analytic_plan
+#: field:account.analytic.plan.journal,name:0
+msgid "Plan Journal Name"
+msgstr ""
+
+#. module: analytic_plan
+#: field:account.analytic.plan.version,code:0
+msgid "Plan Version Code"
+msgstr ""
+
+#. module: analytic_plan
+#: field:account.analytic.plan.version,name:0
+msgid "Plan Version Name"
 msgstr ""
 
 #. module: analytic_plan
@@ -398,28 +455,8 @@ msgid "Planning Analytic Journals"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.plan.journal,code:0
-msgid "Planning Journal Code"
-msgstr ""
-
-#. module: analytic_plan
-#: field:account.analytic.plan.journal,name:0
-msgid "Planning Journal Name"
-msgstr ""
-
-#. module: analytic_plan
 #: field:account.analytic.line.plan,version_id:0
 msgid "Planning Version"
-msgstr ""
-
-#. module: analytic_plan
-#: field:account.analytic.plan.version,code:0
-msgid "Planning Version Code"
-msgstr ""
-
-#. module: analytic_plan
-#: field:account.analytic.plan.version,name:0
-msgid "Planning Version Name"
 msgstr ""
 
 #. module: analytic_plan
@@ -487,16 +524,6 @@ msgstr ""
 #. module: analytic_plan
 #: field:analytic.plan.copy.version,source_version_id:0
 msgid "Source Planning Version"
-msgstr ""
-
-#. module: analytic_plan
-#: help:account.analytic.line.plan,unit_amount:0
-msgid "Specifies the amount of quantity to count."
-msgstr ""
-
-#. module: analytic_plan
-#: help:account.analytic.line.plan,amount_currency:0
-msgid "The amount expressed in an optional other currency."
 msgstr ""
 
 #. module: analytic_plan

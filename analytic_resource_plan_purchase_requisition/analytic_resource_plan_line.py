@@ -33,25 +33,33 @@ class analytic_resource_plan_line(osv.osv):
         for plan_line in self.browse(cr, uid, ids, context=context):
             res[plan_line.id] = False
             for requisition_line in plan_line.requisition_line_ids:
-                if requisition_line.requisition_id \
-                        and requisition_line.requisition_id.state \
-                        and requisition_line.requisition_id.state != 'cancel':
+                if (
+                    requisition_line.requisition_id and
+                    requisition_line.requisition_id.state and
+                    requisition_line.requisition_id.state != 'cancel'
+                ):
                     res[plan_line.id] = True
+
         return res
 
     _columns = {
-        'requisition_line_ids': fields.many2many('purchase.requisition.line',
-                                                 'analytic_resource_plan_line_requisition_line_rel',
-                                                 'requisition_line_id',
-                                                 'resource_plan_line_id'),
+        'requisition_line_ids': fields.many2many(
+            'purchase.requisition.line',
+            'analytic_resource_plan_line_requisition_line_rel',
+            'requisition_line_id',
+            'resource_plan_line_id'
+        ),
 
-        'has_active_requisition': fields.function(_has_active_requisition,
-                                                  method=True,
-                                                  type='boolean',
-                                                  string='Requisition',
-                                                  help="Indicates that this resource plan line "
-                                                       "contains at least one non-cancelled purchase order."),
-
+        'has_active_requisition': fields.function(
+            _has_active_requisition,
+            method=True,
+            type='boolean',
+            string='Requisition',
+            help='''
+            Indicates that this resource plan line
+            contains at least one non-cancelled purchase order.
+            '''
+        ),
     }
 
     def copy(self, cr, uid, id, default=None, context=None):

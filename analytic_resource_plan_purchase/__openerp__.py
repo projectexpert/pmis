@@ -21,7 +21,7 @@
 
 {
     "name": "Analytic Resource Planning - Purchase Orders",
-    "version": "1.0",
+    "version": "1.0.1",
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",

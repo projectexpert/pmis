@@ -29,8 +29,18 @@ class account_analytic_lob(osv.osv):
     _order = 'name'
 
     _columns = {
-        'code': fields.char('Code', size=4, required=True, translate=True),
-        'name': fields.char('Name', size=32, required=True, translate=True),
+        'code': fields.char(
+            'Code',
+            size=4,
+            required=True,
+            translate=True
+        ),
+        'name': fields.char(
+            'Name',
+            size=32,
+            required=True,
+            translate=True
+        ),
     }
 
 account_analytic_lob()

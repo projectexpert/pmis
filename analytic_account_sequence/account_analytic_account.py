@@ -26,11 +26,14 @@ class account_analytic_account(osv.osv):
 
     _inherit = 'account.analytic.account'
 
-    def _create_sequence(self, cr, uid, analytic_account_id, context=None):
+    def _create_sequence(
+        self, cr, uid, analytic_account_id, context=None
+    ):
         ir_sequence_obj = self.pool.get('ir.sequence')
         account_sequence_obj = self.pool.get('analytic.account.sequence')
-        ir_sequence_ids = ir_sequence_obj.search(cr, uid, [('code', '=', 'analytic.account.sequence')],
-                                                 context=context)
+        ir_sequence_ids = ir_sequence_obj.search(
+            cr, uid, [('code', '=', 'analytic.account.sequence')], context=context
+        )
         vals = {}
         if ir_sequence_ids:
             ir_sequence_id = ir_sequence_ids[0]

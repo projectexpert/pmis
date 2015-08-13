@@ -79,30 +79,51 @@ class project_hr_stakeholder(osv.osv):
 
     _columns = {
 
-        'name': fields.char('Description', required=False, size=64),
-        'partner_id': fields.many2one('res.partner', 'Partner', required=True),
-        'project_id': fields.many2one('project.project', 'Project', ondelete='cascade'),
-
+        'name': fields.char(
+            'Description',
+            required=False,
+            size=64
+        ),
+        'partner_id': fields.many2one(
+            'res.partner',
+            'Partner',
+            required=True
+        ),
+        'project_id': fields.many2one(
+            'project.project',
+            'Project',
+            ondelete='cascade'
+        ),
         'role_ids': fields.many2many(
-            'project.hr.role', 'stakeholder_role_rel', 'stakeholder_id', 'role_id', 'Roles',
+            'project.hr.role',
+            'stakeholder_role_rel',
+            'stakeholder_id',
+            'role_id',
+            'Roles',
             help='''
             The assignment of the roles and responsibilities determines what actions the project manager,
             project team member,or individual contributor will have in the project. Roles and responsibilities
              generally support the project scope since this is the required work for the project.
             '''
         ),
-
         'responsibility_ids': fields.many2many(
-            'project.hr.responsibility', 'stakeholder_responsibility_rel', 'stakeholder_id', 'responsibility_id',
-            'Responsibilities', help='''
+            'project.hr.responsibility',
+            'stakeholder_responsibility_rel',
+            'stakeholder_id',
+            'responsibility_id',
+            'Responsibilities',
+            help='''
             The assignment of the roles and responsibilities determines what actions the project manager,
             project team member,or individual contributor will have in the project. Roles and responsibilities
              generally support the project scope since this is the required work for the project.
             '''
         ),
-
         'roles_name_str': fields.function(
-            _roles_name_calc, method=True, type='text', string='Roles', help='Project Stakeholder roles'
+            _roles_name_calc,
+            method=True,
+            type='text',
+            string='Roles',
+            help='Project Stakeholder roles'
         ),
         'responsibilities_name_str': fields.function(
             _responsibilities_name_calc,
@@ -112,8 +133,9 @@ class project_hr_stakeholder(osv.osv):
             help='Project Stakeholder responsibilities'
         ),
 
-        'influence': fields.text('Influence'),
-
+        'influence': fields.text(
+            'Influence'
+        ),
     }
 
     def name_get(self, cr, uid, ids, context={}):
