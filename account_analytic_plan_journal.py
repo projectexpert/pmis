@@ -27,10 +27,10 @@ class account_analytic_plan_journal(orm.Model):
     _description = 'Analytic Journal Plan'
     _columns = {
         'name': fields.char(
-            'Planning Journal Name', size=64, required=True
+            'Plan Journal Name', size=64, required=True
         ),
         'code': fields.char(
-            'Planning Journal Code', size=8
+            'Plan Journal Code', size=8
         ),
         'active': fields.boolean(
             'Active',

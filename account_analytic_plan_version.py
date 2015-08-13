@@ -24,13 +24,13 @@ from openerp.osv import fields, orm
 
 class account_analytic_plan_version(orm.Model):
     _name = 'account.analytic.plan.version'
-    _description = 'Analytic Planning Version'
+    _description = 'Plan Version'
     _columns = {
         'name': fields.char(
-            'Planning Version Name', size=64, required=True
+            'Plan Version Name', size=64, required=True
         ),
         'code': fields.char(
-            'Planning Version Code', size=8
+            'Plan Version Code', size=8
         ),
         'active': fields.boolean(
             'Active',
@@ -53,7 +53,7 @@ class account_analytic_plan_version(orm.Model):
             for committed costs"""
         ),
         'default_plan': fields.boolean(
-            'Default planning version'
+            'Default plan version'
         ),
     }
 
@@ -87,7 +87,7 @@ class account_analytic_plan_version(orm.Model):
                         _('Error!'),
                         _(
                             '''
-                            Only one default planning version
+                            Only one default plan version
                             can exist.
                             '''
                         )

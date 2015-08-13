@@ -6,17 +6,113 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-24 13:23+0200\n"
-"PO-Revision-Date: 2015-08-03 13:08+0200\n"
+"POT-Creation-Date: 2015-08-13 07:20+0200\n"
+"PO-Revision-Date: 2015-08-13 07:27+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
-"X-Generator: Poedit 1.8.2\n"
-"Language: sl\n"
+"X-Generator: Poedit 1.8.4\n"
+
+#. module: analytic_plan
+#: help:account.analytic.line.plan,amount:0
+msgid ""
+"\n"
+"            Calculated by multiplying the quantity\n"
+"            and the price given in the Product's\n"
+"            cost price. Always expressed in the\n"
+"            company main currency.\n"
+"            "
+msgstr ""
+"\n"
+"            Izračunano s produktom količine\n"
+"            in cene podane v lastni ceni\n"
+"            proizvoda. Vedno izraženo v glavni\n"
+"            valuti podjetja..\n"
+"            "
+
+#. module: analytic_plan
+#: help:account.analytic.plan.journal,type:0
+msgid ""
+"\n"
+"            Gives the type of the analytic\n"
+"            journal. When it needs for a document\n"
+"            (eg: an invoice) to create analytic\n"
+"            entries, OpenERP will look  for a\n"
+"            matching journal of the same type.\n"
+"            "
+msgstr ""
+"\n"
+"            Določa tip analitičnega dnevnika.\n"
+"            Če je potrebno, da dokument (npr.\n"
+"            račun) ustvari analitične vnose,\n"
+"            Odoo poišče ustrezajoč dnevnik\n"
+"            istega tipa.\n"
+"            "
+
+#. module: analytic_plan
+#: help:account.analytic.plan.version,active:0
+msgid ""
+"\n"
+"            If the active\n"
+"            field is set to False,\n"
+"            it will allow you to hide\n"
+"            the analytic planning version\n"
+"            without removing it.\n"
+"            "
+msgstr ""
+"\n"
+"            To polje omogoča\n"
+"            skrivanje verzije\n"
+"            analitičnega planiranja,\n"
+"            ne da bi jo\n"
+"            odstranili.\n"
+"            "
+
+#. module: analytic_plan
+#: help:account.analytic.plan.journal,active:0
+msgid ""
+"\n"
+"            If the active field is set to False,\n"
+"            it will allow you to hide the analytic\n"
+"            journal without removing it.\n"
+"            "
+msgstr ""
+"\n"
+"            To polje omogoča skrivanje\n"
+"            analitičnega dnevnika, ne da\n"
+"            bi ga odstranili.\n"
+"            "
+
+#. module: analytic_plan
+#: help:account.analytic.line.plan,unit_amount:0
+msgid ""
+"\n"
+"            Specifies the amount of\n"
+"            quantity to count.\n"
+"            "
+msgstr ""
+"\n"
+"            Določi znesek količine\n"
+"            za štetje.\n"
+"            "
+
+#. module: analytic_plan
+#: help:account.analytic.line.plan,amount_currency:0
+msgid ""
+"\n"
+"            The amount expressed in an\n"
+"            optional other currency.\n"
+"            "
+msgstr ""
+"\n"
+"            Znesek izražen v\n"
+"            drugi opcijski valuti.\n"
+"            "
 
 #. module: analytic_plan
 #: model:ir.actions.act_window,help:analytic_plan.act_analytic_plan_cost_revenue
@@ -58,7 +154,7 @@ msgstr "Aktivna verzija plana"
 
 #. module: analytic_plan
 #: field:account.analytic.account,active_analytic_planning_version:0
-msgid "Active planning Version"
+msgid "Active plan version"
 msgstr "Aktivna verzija plana"
 
 #. module: analytic_plan
@@ -76,11 +172,6 @@ msgstr "Aktualni analitični dnevnik"
 #: field:account.analytic.line.plan,amount:0
 msgid "Amount"
 msgstr "Znesek"
-
-#. module: analytic_plan
-#: field:account.analytic.line.plan,amount_currency:0
-msgid "Amount Currency"
-msgstr "Znesek v valuti"
 
 #. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
@@ -178,15 +269,6 @@ msgid "Analytic planning line"
 msgstr "Postavka analitičnega plana"
 
 #. module: analytic_plan
-#: help:account.analytic.line.plan,amount:0
-msgid ""
-"Calculated by multiplying the quantity and the price given in the Product's "
-"cost price. Always expressed in the company main currency."
-msgstr ""
-"Izračunano s produktom količine in cene podane v lastni ceni proizvoda. "
-"Vedno izraženo v glavni valuti podjetja."
-
-#. module: analytic_plan
 #: view:analytic.plan.copy.version:analytic_plan.analytic_plan_copy_version_form
 msgid "Cancel"
 msgstr "Preklic"
@@ -252,14 +334,14 @@ msgstr "Datum"
 
 #. module: analytic_plan
 #: field:account.analytic.plan.version,default_plan:0
-msgid "Default planning version"
-msgstr "Privzeta verzija analitičnega plana"
+msgid "Default plan version"
+msgstr "Privzeta verzija plana"
 
 #. module: analytic_plan
 #: field:account.analytic.plan.version,default_committed:0
 msgid ""
 "Default version\n"
-"         for committed costs"
+"            for committed costs"
 msgstr ""
 "Privzeta verzija\n"
 "         predloženih stroškov"
@@ -290,16 +372,6 @@ msgid "General Accounting"
 msgstr "Glavna knjiga"
 
 #. module: analytic_plan
-#: help:account.analytic.plan.journal,type:0
-msgid ""
-"Gives the type of the analytic journal. When it needs for a document (eg: an "
-"invoice) to create analytic entries, OpenERP will look  for a matching "
-"journal of the same type."
-msgstr ""
-"Vrsta analitičnega dnevnika.  Pri knjiženju analitike se bo uporabljala tu "
-"definirana vrsta dnevnika."
-
-#. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
 #: view:account.analytic.plan.journal:analytic_plan.view_account_analytic_plan_journal_search
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_search
@@ -313,23 +385,6 @@ msgstr "Združi po"
 #: field:analytic.plan.copy.version,id:0
 msgid "ID"
 msgstr "ID"
-
-#. module: analytic_plan
-#: help:account.analytic.plan.journal,active:0
-msgid ""
-"If the active field is set to False, it will allow you to hide the analytic "
-"journal without removing it."
-msgstr ""
-"To polje omogoča skrivanje analitičnega dnevnika, ne da bi ga odstranili."
-
-#. module: analytic_plan
-#: help:account.analytic.plan.version,active:0
-msgid ""
-"If the active field is set to False, it will allow you to hide the analytic "
-"planning version without removing it."
-msgstr ""
-"To polje omogoča skrivanje verzije analitičnega planiranja, ne da bi jo "
-"odstranili."
 
 #. module: analytic_plan
 #: field:analytic.plan.copy.version,include_child:0
@@ -358,6 +413,11 @@ msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
 
 #. module: analytic_plan
+#: field:account.analytic.line.plan,amount_currency:0
+msgid "Line Total"
+msgstr "Skupaj"
+
+#. module: analytic_plan
 #: field:account.analytic.plan.journal,line_ids:0
 msgid "Lines"
 msgstr "Postavke"
@@ -384,6 +444,26 @@ msgstr "Ostalo"
 #: model:ir.ui.menu,name:analytic_plan.project_plan
 msgid "Plan"
 msgstr "Plan"
+
+#. module: analytic_plan
+#: field:account.analytic.plan.journal,code:0
+msgid "Plan Journal Code"
+msgstr "Koda dnevnika plana"
+
+#. module: analytic_plan
+#: field:account.analytic.plan.journal,name:0
+msgid "Plan Journal Name"
+msgstr "Naziv dnevnika plana"
+
+#. module: analytic_plan
+#: field:account.analytic.plan.version,code:0
+msgid "Plan Version Code"
+msgstr "Koda verzije plana"
+
+#. module: analytic_plan
+#: field:account.analytic.plan.version,name:0
+msgid "Plan Version Name"
+msgstr "Naziv verzije plana"
 
 #. module: analytic_plan
 #: field:account.analytic.account,balance_plan:0
@@ -432,29 +512,9 @@ msgid "Planning Analytic Journals"
 msgstr "Dnevniki analitičnega plana"
 
 #. module: analytic_plan
-#: field:account.analytic.plan.journal,code:0
-msgid "Planning Journal Code"
-msgstr "Koda dnevnika plana"
-
-#. module: analytic_plan
-#: field:account.analytic.plan.journal,name:0
-msgid "Planning Journal Name"
-msgstr "Naziv dnevnika plana"
-
-#. module: analytic_plan
 #: field:account.analytic.line.plan,version_id:0
 msgid "Planning Version"
 msgstr "Verzija plana"
-
-#. module: analytic_plan
-#: field:account.analytic.plan.version,code:0
-msgid "Planning Version Code"
-msgstr "Koda verzije plana"
-
-#. module: analytic_plan
-#: field:account.analytic.plan.version,name:0
-msgid "Planning Version Name"
-msgstr "Naziv verzije plana"
 
 #. module: analytic_plan
 #: model:ir.actions.act_window,name:analytic_plan.action_account_analytic_plan_journal_tree
@@ -524,16 +584,6 @@ msgid "Source Planning Version"
 msgstr "Izvorna verzija plana"
 
 #. module: analytic_plan
-#: help:account.analytic.line.plan,unit_amount:0
-msgid "Specifies the amount of quantity to count."
-msgstr "Določi znesek količine za štetje."
-
-#. module: analytic_plan
-#: help:account.analytic.line.plan,amount_currency:0
-msgid "The amount expressed in an optional other currency."
-msgstr "Znesek izražen v drugi valuti"
-
-#. module: analytic_plan
 #: model:ir.actions.act_window,help:analytic_plan.action_account_analytic_plan_journal_tree
 msgid ""
 "To print a planning analytics (or costs) journal for a given period. The "
@@ -579,3 +629,9 @@ msgstr "Verzija"
 #: view:account.analytic.account:analytic_plan.view_account_analytic_account_form_analytic_plan
 msgid "and revenues"
 msgstr "in prihodki"
+
+#~ msgid "Active planning Version"
+#~ msgstr "Aktivna verzija plana"
+
+#~ msgid "Amount Currency"
+#~ msgstr "Znesek v valuti"

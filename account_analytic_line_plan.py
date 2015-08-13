@@ -66,7 +66,7 @@ class account_analytic_line_plan(orm.Model):
             '''
         ),
         'amount_currency': fields.float(
-            'Amount Currency',
+            'Line Total',
             help='''
             The amount expressed in an
             optional other currency.
@@ -169,8 +169,9 @@ class account_analytic_line_plan(orm.Model):
     def _check_company(self, cr, uid, ids, context=None):
         lines = self.browse(cr, uid, ids, context=context)
         for l in lines:
-            if l.move_id and not l.account_id.company_id.id == \
-                    l.move_id.account_id.company_id.id:
+            if l.move_id and not l.account_id.company_id.id == (
+                l.move_id.account_id.company_id.id
+            ):
                 return False
         return True
 
