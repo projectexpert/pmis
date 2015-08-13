@@ -29,9 +29,11 @@ from openerp.osv import fields, orm
 class product_template(orm.Model):
     _inherit = "product.template"
     _columns = {
-        'expense_analytic_plan_journal_id': fields.many2one('account.analytic.plan.journal',
-                                                            'Cost Planning Analytic Journal',
-                                                            ondelete='restrict'),
+        'expense_analytic_plan_journal_id': fields.many2one(
+            'account.analytic.plan.journal',
+            'Cost Planning Analytic Journal',
+            ondelete='restrict'
+        ),
     }
 
 product_template()
