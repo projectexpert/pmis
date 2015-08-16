@@ -22,7 +22,7 @@
 
 {
     'name': 'Project Charter',
-    'version': '1.0.4',
+    'version': '1.0.5',
     'category': 'Project Management',
     'sequence': 9,
     'summary': 'Project Charter',
@@ -54,6 +54,7 @@ document Project Charter, with all it's contents:
         'web_ckeditor4'
     ],
     'data': ['views/project_charter_view.xml',
+             'views/analytic_view.xml',
              'removed_views/stakeholders_notebook.xml',
              'security/ir.model.access.csv'],
     'test': [],
