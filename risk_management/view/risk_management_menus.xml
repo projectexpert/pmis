@@ -20,9 +20,9 @@
 				parent="menu_risk_management"
 				action="action_show_actions"/>
 	
-			<menuitem name="Configuration"
+			<menuitem name="Risk Management"
 				id="menu_configuration_risks"
-				parent="menu_risk_top"
+				parent="base.menu_definitions"
 				groups="project.group_project_manager"/>
 			<menuitem name="Risk Categories"
 				action="action_show_categories"
