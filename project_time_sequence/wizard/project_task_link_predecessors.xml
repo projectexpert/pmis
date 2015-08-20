@@ -8,10 +8,10 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
               	<form string="Project Task Link Predecessors">
-                      <separator string="Predecessor Tasks" colspan="4"/>
-                      <field colspan="4" height="200" name="parent_ids" nolabel="1"/>
-                      <button string="_Cancel" icon="gtk-cancel" special="cancel" />
-                      <button name="link_predecessors" type="object" string="Save" icon="gtk-ok" />
+                    <separator string="Predecessor Tasks" colspan="4"/>
+					<field colspan="4" height="200" name="predecessor_ids" nolabel="1" domain="[('project_id','=',project_id)]"/>
+                    <button string="_Cancel" icon="gtk-cancel" special="cancel" />
+                    <button name="link_predecessors" type="object" string="Save" icon="gtk-ok" />
 			  	</form>
             </field>
 		</record>

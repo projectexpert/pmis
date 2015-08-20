@@ -31,9 +31,9 @@
         		<xpath expr="//page[@string='Delegation']" position="replace">        		        			
 					<page  string="Relationships">
                         <separator string="Predecessor Activities" colspan="4"/>
-                        <field colspan="4" height="150" name="parent_ids" nolabel="1"/>
+                        <field colspan="4" height="150" name="predecessor_ids" nolabel="1" domain="[('project_id','=',project_id)]"/>
                         <separator string="Successor Activities" colspan="4"/>
-                        <field colspan="4" height="150" name="child_ids" nolabel="1"/>                            
+                        <field colspan="4" height="150" name="successor_ids" nolabel="1" domain="[('project_id','=',project_id)]"/>                            
                     </page>                    
         		</xpath>              	        		        		
             </field>
