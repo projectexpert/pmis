@@ -91,29 +91,67 @@ class task(osv.osv):
 
     _columns = {
         'predecessor_ids': fields.many2many(
-            'project.task', 'project_task_predecessor_rel', 'task_id', 'parent_id', 'Predecessor Tasks'
+            'project.task',
+            'project_task_predecessor_rel',
+            'task_id',
+            'parent_id',
+            'Predecessor Tasks'
         ),
         'successor_ids': fields.many2many(
-            'project.task', 'project_task_predecessor_rel', 'parent_id', 'task_id', 'Successor Tasks'
+            'project.task',
+            'project_task_predecessor_rel',
+            'parent_id',
+            'task_id',
+            'Successor Tasks'
         ),
 
         'predecessor_ids_str': fields.function(
-            _predecessor_ids_calc, method=True, type='char', string='Predecessor tasks', size=20,
+            _predecessor_ids_calc,
+            method=True,
+            type='char',
+            string='Predecessor tasks',
+            size=20,
             help='Predecessor tasks ids',
         ),
         'predecessor_names_str': fields.function(
-            _predecessor_names_calc, method=True, type='char', string='Predecessor tasks', size=512,
+            _predecessor_names_calc,
+            method=True,
+            type='char',
+            string='Predecessor tasks',
+            size=512,
             help='Predecessor tasks ids',
         ),
     }
 
-    def do_link_predecessors(self, cr, uid, task_id, link_predecessors_data, context=None):
+    def do_link_predecessors(
+        self,
+        cr,
+        uid,
+        task_id,
+        link_predecessors_data,
+        context=None
+    ):
 
-        task_br = self.browse(cr, uid, task_id, context=context)
+        task_br = self.browse(
+            cr,
+            uid,
+            task_id,
+            context=context
+        )
 
-        self.write(cr, uid, [task_br.id], {
-                'predecessor_ids': [(6, 0, link_predecessors_data['predecessor_ids'])],
-            })
+        self.write(
+            cr,
+            uid,
+            [task_br.id],
+            {
+                'predecessor_ids':
+                [
+                    (
+                        6, 0, link_predecessors_data['predecessor_ids']
+                    )
+                ],
+            }
+        )
 
         return True
 

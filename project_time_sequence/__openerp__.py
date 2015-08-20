@@ -22,7 +22,7 @@
 
 {
     "name": "Project Time Management - Activity Sequencing",
-    "version": "1.0",
+    "version": "1.0.1",
     "author": "Eficent",
     "website": "http://www.eficent.com",
     "category": "Generic Modules/Projects & Services",
@@ -32,20 +32,17 @@
         relationship between activities (tasks and milestones) of the project.
 
     """,
-    "init_xml": [
-                ],
-    "update_xml": [    
+    "data": [
         "wizard/project_task_link_predecessors.xml",
         "project_time_sequence_view.xml",
-        
-    ],
-    'demo_xml': [
 
     ],
-    'test':[
+    'demo': [
+
+    ],
+    'test': [
     ],
     'installable': True,
     'active': False,
     'certificate': '',
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

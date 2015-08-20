@@ -20,6 +20,3 @@
 ##############################################################################
 
 import project_task_link_predecessors
-
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
