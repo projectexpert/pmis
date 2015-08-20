@@ -23,7 +23,7 @@
 ##############################################################################
 {
     'name': 'Risk Management',
-    'version': '2.1',
+    'version': '2.1.1',
     'author': 'Matmoz d.o.o.',
     'website': 'http://www.matmoz.si',
     'category': 'Project Management',
