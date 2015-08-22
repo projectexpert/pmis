@@ -3,13 +3,9 @@ access_project_scope,project.scope,model_project_scope,project.group_project_use
 access_project_scope_manager,project.scope,model_project_scope,project.group_project_manager,1,1,1,1
 access_project_outscope,project.outscope,model_project_outscope,project.group_project_user,1,0,0,0
 access_project_outscope_manager,project.outscope,model_project_outscope,project.group_project_manager,1,1,1,1
-access_project_boundary,project.boundaries,model_project_boundaries,project.group_project_user,1,0,0,0
-access_project_boundary_manager,project.boundaries,model_project_boundaries,project.group_project_manager,1,1,1,1
 access_project_success,project.success,model_project_success,project.group_project_user,1,0,0,0
 access_project_success_manager,project.success,model_project_success,project.group_project_manager,1,1,1,1
 access_project_requirement,project.requirement,model_project_requirement,project.group_project_user,1,0,0,0
 access_project_requirement_manager,project.requirement,model_project_requirement,project.group_project_manager,1,1,1,1
-access_project_assumptions,project.assumptions,model_project_assumptions,project.group_project_user,1,0,0,0
-access_project_assumptions_manager,project.assumptions,model_project_assumptions,project.group_project_manager,1,1,1,1
-access_project_risks,project.assumptions,model_project_risks,project.group_project_user,1,0,0,0
-access_project_risks_manager,project.assumptions,model_project_risks,project.group_project_manager,1,1,1,1
+access_project_constraints,project.constraints,model_project_constraints,project.group_project_user,1,0,0,0
+access_project_constraints_manager,project.constraints,model_project_constraints,project.group_project_manager,1,1,1,1
