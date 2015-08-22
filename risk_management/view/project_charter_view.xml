@@ -8,10 +8,10 @@
             <field name="inherit_id" ref="project_charter.view_project_form"/>
             <field name="arch" type="xml">
                 <data>
-                    <xpath expr='//form/sheet/notebook/page/notebook/page[@string="Boundaries, Assumptions, Constraints"]/group' position="after">
-                        <group string='Risk Assesment'>
+                    <xpath expr='//form/sheet/notebook/page/notebook/page[@string="Assumptions, Constraints"]/group' position="after">
+                        <group string='Risk Assesment, Assumptions'>
                             <field name="risk_ids" nolabel="1" context="{'default_project_id': active_id}">
-                                <tree string='Risks' editable="top">
+                                <tree string='Assumptions, Risks' editable="top">
                                     <field name="description"/>
                                     <field name="risk_category_id"/>
                                 </tree>

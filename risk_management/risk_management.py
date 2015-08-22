@@ -101,10 +101,27 @@ class risk_management_risk (models.Model):
 
     name = fields.Char(
         'Risk Id', size=64, required=True, readonly=True, states={'draft': [('readonly', False)]}, select=True,
-        help="Risk label. Can be changed as long as risk is in state 'draft'."
+        help='''
+Risk label. Can be changed as long as risk is in state 'draft'.
+        '''
     )
     description = fields.Char(
-        string='Risk Description', size=64, help="Short description of the Risk."
+        string='Risk Description', size=64, help='''
+Short description of the Risk.
+
+Project risks are characteristics, circumstances or
+features of the project environment that may have an
+adverse effect on the project or the quality of the
+deliverables.
+
+Project assumptions are knowledge about the project
+that is taken as being true or correct for the purpose
+of project planning. Assumptions are made to allow
+planning to proceed with limited information about
+certain elements that are vital to the management of
+the project. Assumptions must be tested prior to
+finalising the Project Plan.
+        '''
     )
     project_id = fields.Many2one(
         'project.project', 'Project', required=True

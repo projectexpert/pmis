@@ -17,8 +17,35 @@
                                     <field name="description" nolabel="1" widget="text_html"/>
                                 </group>
                             </page>
-                            <page string="Project Scope">
-                                <group string="Project Scope">
+                            <page string="Stakeholders">
+                            <group string="Stakeholders">                        
+                                <field name="stakeholder_ids" nolabel="1" context="{'default_project_id': active_id}">
+                                    <tree editable="top" string="Stakeholders">       
+                                        <field name="partner_id"/>           
+                                        <field name="role_ids" widget="many2many_tags" />                                        
+                                        <field name="responsibility_ids" widget="many2many_tags"/>
+                                        <field name="influence"/>
+                                    </tree>
+                                    <form string="Stakeholders">
+                                        <group colspan="4" col="4">
+                                            <field name="project_id" readonly="1"/>         
+                                            <field name="partner_id"/>                   
+                                        </group>
+                                        <newline/>						                                        
+                                        <group colspan="6" col="6">
+                                            <separator string="Roles and responsibilities" colspan="6"/>
+                                            <field name="role_ids" mode="tree,form" colspan="6"/>      
+                                            <field name="responsibility_ids" mode="tree,form" colspan="6"/>
+                                        </group>									                
+                                        <group colspan="6" col="6">	                                        
+                                            <field name="influence"/>	                    
+                                        </group>				                	        
+                                    </form>
+                                </field>                                                    
+                            </group>
+                            </page>
+                            <page string="Broad Scope">
+                                <group string="Boundaries">
                                     <group>
                                         <field name="project_scope_ids" nolabel="1">
                                             <!--make tree editable to avoid form input-->
@@ -66,33 +93,23 @@
                                         <field name="project_requirement_ids" nolabel="1">
                                             <!--make tree editable to avoid form input-->
                                             <tree editable="bottom">
-                                                <field name="requirements" />
+                                                <field name="requirements"/>
+                                                <field name="partner_id"/>
                                              </tree>
                                             <form>
                                                 <group>
-                                                    <field name="requirements" />
+                                                    <field name="requirements"/>
+                                                    <field name="partner_id"/>
                                                 </group>
                                            </form>
                                         </field>
                                     </group>
                                 </group>
                             </page>
-                            <page string="Boundaries, Assumptions, Constraints">
-                                <group string="Boundaries, Assumptions, Constraints">
+                            <page string="Assumptions, Constraints">
+                                <group string="Constraints">
                                     <group>
-                                        <field name="project_assumptions_ids" nolabel="1">
-                                            <tree editable="bottom">
-                                                <field name="assumptions"/>
-                                            </tree>
-                                            <form>
-                                                <group>
-                                                    <field name="assumptions"/>
-                                                </group>
-                                           </form>
-                                        </field>
-                                    </group>
-                                    <group>
-                                        <field name="project_boundaries_ids" nolabel="1">
+                                        <field name="project_constraints_ids" nolabel="1">
                                             <tree editable="bottom">
                                                 <field name="constraints"/>
                                             </tree>
@@ -109,34 +126,6 @@
                             <!--add high level risks list-->
                             <!--add milestone list-->
                             <!--add project stakeholders list-->
-                            <page string="Stakeholders">
-                            <group string="Stakeholders">                        
-                                <field name="stakeholder_ids" nolabel="1" context="{'default_project_id': active_id}">
-                                    <tree editable="top" string="Stakeholders">       
-                                        <field name="partner_id"/>           
-                                        <field name="role_ids" widget="many2many_tags" />                                        
-                                        <field name="responsibility_ids" widget="many2many_tags"/>
-                                        <field name="influence"/>
-                                    </tree>
-                                    <form string="Stakeholders">
-                                        <group colspan="4" col="4">
-                                            <field name="project_id" readonly="1"/>         
-                                            <field name="partner_id"/>                   
-                                        </group>
-                                        <newline/>						                                        
-                                        <group colspan="6" col="6">
-                                            <separator string="Roles and responsibilities" colspan="6"/>
-                                            <field name="role_ids" mode="tree,form" colspan="6"/>      
-                                            <field name="responsibility_ids" mode="tree,form" colspan="6"/>
-                                        </group>									                
-                                        <group colspan="6" col="6">	                                        
-                                            <field name="influence"/>	                    
-                                        </group>				                	        
-                                    </form>
-                                </field>                                                    
-                            </group>
-                            </page>
-    
                             <!--add high level requirements (resource plan rough cut)-->
                             <page string="Resource and Billing plan">
                                 <button help="Resource planning lines"
