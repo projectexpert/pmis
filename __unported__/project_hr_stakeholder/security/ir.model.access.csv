@@ -1,7 +1,0 @@
-"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"access_project_hr_stakeholder_project_user","project.hr.stakeholder project user","model_project_hr_stakeholder","project.group_project_user",1,1,1,1
-"access_project_hr_stakeholder_project_manager","project.hr.stakeholder project manager","model_project_hr_stakeholder","project.group_project_manager",1,1,1,1
-"access_project_hr_role_project_user","project.hr.role project user","model_project_hr_role","project.group_project_user",1,0,0,0
-"access_project_hr_role_project_manager","project.hr.role project manager","model_project_hr_role","project.group_project_manager",1,1,1,1
-"access_project_hr_responsibility_project_user","project.hr.responsibility project user","model_project_hr_responsibility","project.group_project_user",1,0,0,0
-"access_project_hr_responsibility_project_manager","project.hr.responsibility project manager","model_project_hr_responsibility","project.group_project_manager",1,1,1,1

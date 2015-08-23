@@ -1,5 +1,0 @@
-"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"access_account_analytic_lob_project_user","account.analytic.lob project user","model_account_analytic_lob","project.group_project_user",1,0,0,0
-"access_account_analytic_lob_account_user","account.analytic.lob account user","model_account_analytic_lob","account.group_account_user",1,0,0,0
-"access_account_analytic_lob_project_manager","account.analytic.lob project manager","model_account_analytic_lob","project.group_project_manager",1,1,1,1
-"access_account_analytic_lob_account_manager","account.analytic.lob account manager","model_account_analytic_lob","account.group_account_manager",1,1,1,1

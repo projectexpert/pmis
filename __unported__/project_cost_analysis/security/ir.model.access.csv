@@ -1,9 +1,0 @@
-"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"access_crossovered_budget_project_user","crossovered.budget project user","account_budget.model_crossovered_budget","project.group_project_user",1,0,0,0
-"access_crossovered_budget_project_manager","crossovered.budget project manager","account_budget.model_crossovered_budget","project.group_project_manager",1,0,0,0
-"access_crossovered_budget_lines_project_user","crossovered.budget.lines project user","account_budget.model_crossovered_budget_lines","project.group_project_user",1,0,0,0
-"access_crossovered_budget_lines_project_manager","crossovered.budget.lines project manager","account_budget.model_crossovered_budget_lines","project.group_project_manager",1,0,0,0
-"access_account_budget_post project user","account.bud_get.post project user","account_budget.model_account_budget_post","project.group_project_user",1,0,0,0
-"access_account_budget_post project manager","account.budget.post project manager","account_budget.model_account_budget_post","project.group_project_manager",1,0,0,0
-"access_report_account_analytic_resource_usage","report.account.analytic.resource.usage project manager","model_report_account_analytic_resource_usage","project.group_project_manager",1,1,1,1
-"access_report_account_analytic_resource_usage_product","report.account.analytic.resource.usage.product project manager","model_report_account_analytic_resource_usage_product","project.group_project_manager",1,1,1,1
