@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-20 13:09+0200\n"
-"PO-Revision-Date: 2015-08-20 13:09+0200\n"
+"POT-Creation-Date: 2015-08-23 09:20+0200\n"
+"PO-Revision-Date: 2015-08-23 09:26+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -195,6 +195,54 @@ msgstr ""
 "        "
 
 #. module: risk_management
+#: help:risk.management.risk,name:0
+msgid ""
+"\n"
+"Risk label. Can be changed as long as risk is in state 'draft'.\n"
+"        "
+msgstr ""
+"\n"
+"Oznaka tveganja. Spreminja se lahko, dokler je tveganje v\n"
+"stanju osnutka..\n"
+"        "
+
+#. module: risk_management
+#: help:risk.management.risk,description:0
+msgid ""
+"\n"
+"Short description of the Risk.\n"
+"\n"
+"Project risks are characteristics, circumstances or\n"
+"features of the project environment that may have an\n"
+"adverse effect on the project or the quality of the\n"
+"deliverables.\n"
+"\n"
+"Project assumptions are knowledge about the project\n"
+"that is taken as being true or correct for the purpose\n"
+"of project planning. Assumptions are made to allow\n"
+"planning to proceed with limited information about\n"
+"certain elements that are vital to the management of\n"
+"the project. Assumptions must be tested prior to\n"
+"finalising the Project Plan.\n"
+"        "
+msgstr ""
+"\n"
+"Kratek opis tveganja.\n"
+"\n"
+"Tveganja so značilnosti, okoliščine ali lastnosti\n"
+"projektnega okolja, ki lahko negativno vplivajo na\n"
+"projekt ali kvaliteto dobav.\n"
+"\n"
+"Projektna predpostavka je zavedanje glede projekta,\n"
+"ki se v fazi planiranja obravnava kot pravilno.\n"
+"Predpostavke se določa, da se omogoči planiranje\n"
+"tudi z omejenimi informacijami glede določenih\n"
+"elementov, ki so ključni za upravljanje projekta.\n"
+"Predpostavke se mora preveriti pred zaključkom\n"
+"projektnega plana.\n"
+"        "
+
+#. module: risk_management
 #: view:risk.management.risk:risk_management.risk_kanban_view
 msgid "(Inherent)"
 msgstr "(Povezani)"
@@ -235,6 +283,11 @@ msgstr "Aktivna tveganja"
 #: view:risk.management.risk:risk_management.risk_search_form_view
 msgid "Active risks"
 msgstr "Aktivna tveganja"
+
+#. module: risk_management
+#: view:project.project:risk_management.risk_management_project_charter_tree_view
+msgid "Assumptions, Risks"
+msgstr "Predpostavke, tveganja"
 
 #. module: risk_management
 #: field:risk.management.risk,author_id:0
@@ -557,8 +610,8 @@ msgstr "Ukrep ob tveganju"
 
 #. module: risk_management
 #: view:project.project:risk_management.risk_management_project_charter_tree_view
-msgid "Risk Assesment"
-msgstr "Vrednotenje tveganj"
+msgid "Risk Assesment, Assumptions"
+msgstr "Opredelitev tveganj, predpostavk"
 
 #. module: risk_management
 #: model:ir.actions.act_window,name:risk_management.action_show_categories
@@ -646,12 +699,6 @@ msgid "Risk in draft"
 msgstr "Osnutek tveganja"
 
 #. module: risk_management
-#: help:risk.management.risk,name:0
-msgid "Risk label. Can be changed as long as risk is in state 'draft'."
-msgstr ""
-"Oznaka tveganja. Spreminja se lahko, dokler je tveganje v stanju osnutka."
-
-#. module: risk_management
 #: model:ir.model,name:risk_management.model_risk_management_category
 msgid "Risk log category table"
 msgstr "Tabela dnevnika kategorij tveganj"
@@ -674,7 +721,6 @@ msgstr "Nastavi tveganje kot aktivno"
 #. module: risk_management
 #: model:ir.actions.act_window,name:risk_management.action_show_risks
 #: model:ir.ui.menu,name:risk_management.menu_risks
-#: view:project.project:risk_management.risk_management_project_charter_tree_view
 #: view:risk.management.risk:risk_management.risk_tree_view
 msgid "Risks"
 msgstr "Tveganja"
@@ -698,11 +744,6 @@ msgstr "Nastavi kot aktivno"
 #: view:risk.management.risk:risk_management.risk_form_view
 msgid "Set Draft"
 msgstr "Nastavi kot osnutek"
-
-#. module: risk_management
-#: help:risk.management.risk,description:0
-msgid "Short description of the Risk."
-msgstr "Kratek opis tveganja."
 
 #. module: risk_management
 #: view:project.task:risk_management.risk_management_project_task_search_view
@@ -756,9 +797,22 @@ msgid "Very Important"
 msgstr "Zelo pomembno"
 
 #. module: risk_management
+#: field:risk.management.risk,website_message_ids:0
+msgid "Website Messages"
+msgstr "Sporočila iz spletne strani"
+
+#. module: risk_management
+#: help:risk.management.risk,website_message_ids:0
+msgid "Website communication history"
+msgstr "Kronologija komunikacij spletne strani"
+
+#. module: risk_management
 #: view:project.task:risk_management.view_task_kanban
 msgid "oe_kanban_text_red"
 msgstr "oe_kanban_text_red"
+
+#~ msgid "Short description of the Risk."
+#~ msgstr "Kratek opis tveganja."
 
 #~ msgid "Configuration"
 #~ msgstr "Nastavitve"

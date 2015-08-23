@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-03 12:53+0200\n"
-"PO-Revision-Date: 2015-08-03 13:08+0200\n"
+"POT-Creation-Date: 2015-08-23 08:46+0200\n"
+"PO-Revision-Date: 2015-08-23 09:19+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -15,13 +15,228 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.2\n"
+"X-Generator: Poedit 1.8.4\n"
 
 #. module: project_charter
-#: model:ir.model,name:project_charter.model_project_assumptions
-#: field:project.assumptions,assumptions:0
-msgid "Assumptions"
-msgstr "Predpostavke"
+#: help:project.outscope,out_scope:0
+msgid ""
+"\n"
+"It is just as important to agree on what is OUT OF SCOPE as it\n"
+"is to define what is IN SCOPE as stakeholders will often have\n"
+"different ideas regarding what is supposed to be IN the\n"
+"project and what IS NOT. Obtain agreement up front to avoid\n"
+"unnecessary disputes later on.\n"
+"This is a useful task to conduct with key stakeholders and\n"
+"can help clarify issues at any time in the Initiation or\n"
+"Planning Phases.\n"
+"Examples of areas that could be examined and clarified\n"
+"include:\n"
+"\n"
+"* The type of deliverables that are in scope and out of scope\n"
+"* The major life-cycle processes that are in scope and out of\n"
+"   scope\n"
+"* The types of data that are in scope and out of scope\n"
+"* The data sources that are in scope or out of scope\n"
+"* The organisations that are in scope and out of scope\n"
+"* The major functionality that is in scope and out of scope\n"
+"        "
+msgstr ""
+"\n"
+"Strinjati se kaj je IZVEN OBSEGA, je enako pomembno\n"
+"kot določiti, kaj je V OBSEGU, saj imajo deležniki pogosto\n"
+"drugačne poglede glede tega, kaj projekt zajema in\n"
+"česa projekt ne zajema. Pridobite strinjanje, da se izognete\n"
+"nepotrebnim sporom v kasnejših fazah.\n"
+"To opravilo je zelo koristno in se izvaja s ključnimi\n"
+"deležniki, da se razjasni kakršnekoli trenja, kadarkoli v fazi\n"
+"zagona ali fazi planiranja.\n"
+"Primeri področij, ki se preučijo in razjasnijo vključujejo:\n"
+"\n"
+"* Tip dostav (proizvodov), ki so v ali izven obsega\n"
+"* Glavni procesi življenjskega cikla, ki so v ali izven\n"
+"   obsega\n"
+"* Tipi podatkov, ki so v ali izven obsega\n"
+"* Podatkovni viri, ki so v ali izven obsega\n"
+"* Organizacije, ki so v ali izven obsega\n"
+"* Glavne funkcije, ki so v ali izven obsega\n"
+"        "
+
+#. module: project_charter
+#: help:project.success,success:0
+msgid ""
+"\n"
+"PROJECT OBJECTIVES\n"
+"The success of your project will be defined by how well you\n"
+"meet your objectives. The more explicitly you state your\n"
+"objectives at the outset, the less disagreement there will\n"
+"be at the end about whether you have met them. Remember\n"
+"that at this early stage of the project, there are still\n"
+"many “unknown factors”. Be prepared to revise your\n"
+"objectives as you gather more information about what you\n"
+"need to achieve.\n"
+"\n"
+"WRITING PROJECT OBJECTIVES\n"
+"Project objectives are concrete statements that describe\n"
+"what the project is trying to achieve. Objectives should\n"
+"be developed for time, cost, quality (or functionality)\n"
+"and should:\n"
+"\n"
+"* Be aligned to business objectives\n"
+"* Be measurable\n"
+"* Be achievable\n"
+"* Be consistent\n"
+"* Be readily understandable\n"
+"* Be few in number\n"
+"* Have the full support and commitment of key stakeholders\n"
+"        "
+msgstr ""
+"\n"
+"PROJEKTNI CILJI\n"
+"Uspeh projekta je odvisen od tega, kako dobro dosegamo\n"
+"svoje cilje. Natančneje, kot cilje določimo na začetku,\n"
+"manj bo nestrinjanj glede tega, ali smo jih dosegli, proti\n"
+"koncu. Zavedajte se, da obstaja v tako zgodnji fazi še\n"
+"precej neznank. Bodite pripravljeni, da boste revidirali\n"
+"svoje cilje, ko bo zbranih več podatkov o tem, kaj je\n"
+"potrebno doseči.\n"
+"\n"
+"ZAPIS PROJEKTNIH CILJEV\n"
+"Projektni cilji so konkretne definicije, ki opišejo, kaj\n"
+"s projektom želimo doseči. Cilje razvijemo glede na\n"
+"čas, stroške, kvaliteto (ali funkcionalnost) in bi\n"
+"morali biti:\n"
+"\n"
+"* usklajeni s poslovnimi cilji\n"
+"* merljivi\n"
+"* dosegljivi\n"
+"* konsistentni\n"
+"* razumljivi\n"
+"* maloštevilni\n"
+"* podprti s strani ključnih deležnikov\n"
+"        "
+
+#. module: project_charter
+#: help:project.constraints,constraints:0
+msgid ""
+"\n"
+"Project constraints are known facts that will influence how\n"
+"the project is planned and managed. A constraint is a given\n"
+"factor that is outside of the project planner’s scope of\n"
+"control, which unless it is lifted or otherwise removed, will\n"
+"force project actions to work around it.\n"
+"        "
+msgstr ""
+"\n"
+"Projektne omejitve so znana dejstva, ki bodo vplivala na\n"
+"planiranje in upravljanje projekta. Omejitev je faktor, ki je\n"
+"izven obsega projektnega plana in izven nadzora,\n"
+"a bo, če je ne odpravimo ali drugače odstranimo,\n"
+"prisilila projektne dejavnosti na iskanje poti okrog nje.\n"
+"        "
+
+#. module: project_charter
+#: help:project.scope,scope:0
+msgid ""
+"\n"
+"The scope is what the project contains or delivers (i.e. the\n"
+"products or services). When starting to plan the scope of the\n"
+"project think about the BIG PICTURE first! At this level it\n"
+"is best to concentrate on the major deliverables and not to\n"
+"get bogged down with detail.\n"
+"Examples of areas that could be examined and clarified\n"
+"include:\n"
+"\n"
+"* The type of deliverables that are in scope and out of scope\n"
+"* The major life-cycle processes that are in scope and out of\n"
+"   scope\n"
+"* The types of data that are in scope and out of scope\n"
+"* The data sources that are in scope or out of scope\n"
+"* The organisations that are in scope and out of scope\n"
+"* The major functionality that is in scope and out of scope\n"
+"        "
+msgstr ""
+"\n"
+"Obseg je tisto, kar projekt vsebuje ali dobavi (npr.\n"
+"proizvodi ali storitve). Ob začetku planiranja obsega\n"
+"razmišljamo v sklopu 'velike slike'. Na tej stopnji se raje\n"
+"osredotočamo na glavne dobave in se ne ukvarjamo\n"
+"s podrobnostmi.\n"
+"Primeri področij, ki jih preučujemo in razjasnimo, so:\n"
+"\n"
+"* Tip dobav, ki so v ali izven obsega\n"
+"* Glavni procesi življenjskega cikla, ki so v ali izven\n"
+"   obsega\n"
+"* Tipi podatkov, ki so v ali izven obsega\n"
+"* Viri podatkov, ki so v ali izven obsega\n"
+"* Organizacije, ki so v ali izven obsega\n"
+"* Glavne funkcije, ki so v ali izven obsega\n"
+"        "
+
+#. module: project_charter
+#: help:project.requirement,requirements:0
+msgid ""
+"\n"
+"The user requirements of the project must be defined and\n"
+"documented. Approval and confirmation must be obtained\n"
+"before the project can proceed. To obtain agreement about\n"
+"needs:\n"
+"\n"
+"* Separate needs from wants\n"
+"* Group the needs that are similar\n"
+"* Prioritise needs (eg essential, nice to have)\n"
+"* Identify any conflicting needs\n"
+"* Negotiate agreement between stakeholders with\n"
+"   conflicting needs\n"
+"\n"
+"This process often requires a number of meetings with\n"
+"stakeholders. Stakeholders often express their needs in\n"
+"terms of a particular product or solution to the problem,\n"
+"which has created the need for the project in the first\n"
+"place. It is important to re-state the agreed needs in\n"
+"terms of “what the end product/service(s) of the project\n"
+"should do”.\n"
+"Stating the agreed needs in functional terms permits the\n"
+"project manager to offer a range of solutions to the client\n"
+"or key stakeholders. If the project outcomes are restricted\n"
+"to solutions offered by key stakeholders too early in the\n"
+"analysis process important alternative options might be\n"
+"overlooked. Document the final set of agreed requirements\n"
+"and obtain sign-off from all key stakeholders.\n"
+"        "
+msgstr ""
+"\n"
+"Zahteve deležnikov projekta morajo biti določene in\n"
+"dokumentirane. Pridobiti je potrebno potrditev in odobritev\n"
+"preden se projekt lahko nadaljuje. Za pridobitev dogovora o\n"
+"potrebah:\n"
+"\n"
+"* Ločite potrebe od želja\n"
+"* Združujte podobne potrebe\n"
+"* Prioritizacija potreb (npr. ključne, lepo bi bilo imeti, ...)\n"
+"* Določite morebitne konflikte med potrebami\n"
+"* Pogodite se za dogovor med deležniki s potrebami, ki\n"
+"   so v medsebojnih konfliktih\n"
+"\n"
+"Ta proces navadno zajema številčne sestanke z\n"
+"deležniki. Deležniki pogosto izražajo svoje potrebe v\n"
+"obliki določenega proizvoda ali rešitve tistega\n"
+"problema, ki je sploh povzročil potrebo po projektu.\n"
+"Pomembno je določiti dogovorjene potrebe v smislu\n"
+"“kaj naj končni proizvod/storitev projekta zmore\".\n"
+"\n"
+"Določanje dogovorjenih potreb v funkcionalnih okvirih\n"
+"omogoči upravitelju projekta, da ponudi kupcu ali ključnim\n"
+"deležnikom, več rešitev. Če so proizvodi projekta omejeni\n"
+"na prezgodaj deležnikom ponujene rešitve v procesu\n"
+"analize, lahko spregledamo pomembne alternativne\n"
+"opcije. Seznam dogovorjenih potreb dokumentiramo\n"
+"in pridobimo soglasje vseh ključnih deležnikov.\n"
+"        "
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Assumptions, Constraints"
+msgstr "Predpostavke, omejitve"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -35,61 +250,53 @@ msgstr "Obračun. plan"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Boundaries, Assumptions, Constraints"
-msgstr "Meje, omejitve in predpostavke"
+msgid "Boundaries"
+msgstr "Meje"
 
 #. module: project_charter
-#: field:project.boundaries,constraints:0
+#: view:project.project:project_charter.view_project_form
+msgid "Broad Scope"
+msgstr "Grobi obseg"
+
+#. module: project_charter
+#: model:ir.model,name:project_charter.model_project_constraints
+#: field:project.constraints,constraints:0
+#: view:project.project:project_charter.view_project_form
 msgid "Constraints"
 msgstr "Omejitve"
 
 #. module: project_charter
-#: field:project.assumptions,create_uid:0
-#: field:project.boundaries,create_uid:0 field:project.outscope,create_uid:0
-#: field:project.requirement,create_uid:0 field:project.risks,create_uid:0
-#: field:project.scope,create_uid:0 field:project.success,create_uid:0
+#: field:project.constraints,create_uid:0 field:project.outscope,create_uid:0
+#: field:project.requirement,create_uid:0 field:project.scope,create_uid:0
+#: field:project.success,create_uid:0
 msgid "Created by"
 msgstr "Ustvaril"
 
 #. module: project_charter
-#: field:project.assumptions,create_date:0
-#: field:project.boundaries,create_date:0 field:project.outscope,create_date:0
-#: field:project.requirement,create_date:0 field:project.risks,create_date:0
-#: field:project.scope,create_date:0 field:project.success,create_date:0
+#: field:project.constraints,create_date:0 field:project.outscope,create_date:0
+#: field:project.requirement,create_date:0 field:project.scope,create_date:0
+#: field:project.success,create_date:0
 msgid "Created on"
 msgstr "Ustvarjeno"
 
 #. module: project_charter
-#: model:ir.model,name:project_charter.model_project_risks
-msgid "High-level Risk Assesment"
-msgstr "Groba ocena tveganj"
-
-#. module: project_charter
-#: field:project.risks,hlrisks:0
-msgid "High-level Risk Assessment"
-msgstr "Groba ocena tveganj"
-
-#. module: project_charter
-#: field:project.assumptions,id:0 field:project.boundaries,id:0
-#: field:project.outscope,id:0 field:project.requirement,id:0
-#: field:project.risks,id:0 field:project.scope,id:0
+#: field:project.constraints,id:0 field:project.outscope,id:0
+#: field:project.requirement,id:0 field:project.scope,id:0
 #: field:project.success,id:0
 msgid "ID"
 msgstr "ID"
 
 #. module: project_charter
-#: field:project.assumptions,write_uid:0 field:project.boundaries,write_uid:0
-#: field:project.outscope,write_uid:0 field:project.requirement,write_uid:0
-#: field:project.risks,write_uid:0 field:project.scope,write_uid:0
+#: field:project.constraints,write_uid:0 field:project.outscope,write_uid:0
+#: field:project.requirement,write_uid:0 field:project.scope,write_uid:0
 #: field:project.success,write_uid:0
 msgid "Last Updated by"
 msgstr "Zadnjič posodobil"
 
 #. module: project_charter
-#: field:project.assumptions,write_date:0
-#: field:project.boundaries,write_date:0 field:project.outscope,write_date:0
-#: field:project.requirement,write_date:0 field:project.risks,write_date:0
-#: field:project.scope,write_date:0 field:project.success,write_date:0
+#: field:project.constraints,write_date:0 field:project.outscope,write_date:0
+#: field:project.requirement,write_date:0 field:project.scope,write_date:0
+#: field:project.success,write_date:0
 msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
 
@@ -114,11 +321,6 @@ msgid "Project"
 msgstr "Projekt"
 
 #. module: project_charter
-#: model:ir.model,name:project_charter.model_project_boundaries
-msgid "Project Boundaries, Assumptions and Constraints"
-msgstr "Projektne meje, predpostavke in omejitve"
-
-#. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Project Charter"
 msgstr "Projektni statut"
@@ -130,7 +332,6 @@ msgstr "Opis projekta"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_scope
-#: view:project.project:project_charter.view_project_form
 msgid "Project Scope"
 msgstr "Obseg projekta"
 
@@ -140,13 +341,8 @@ msgid "Project Success"
 msgstr "Uspeh projekta"
 
 #. module: project_charter
-#: field:project.project,project_assumptions_ids:0
-msgid "Project assumptions ids"
-msgstr "IDji predpostavk"
-
-#. module: project_charter
-#: field:project.project,project_boundaries_ids:0
-msgid "Project boundaries ids"
+#: field:project.project,project_constraints_ids:0
+msgid "Project constraints ids"
 msgstr "IDji projektnih mej"
 
 #. module: project_charter
@@ -160,11 +356,6 @@ msgid "Project requirement ids"
 msgstr "IDju projektnih zahtev"
 
 #. module: project_charter
-#: field:project.project,project_risks_ids:0
-msgid "Project risks ids"
-msgstr "IDji projektnih tveganj"
-
-#. module: project_charter
 #: field:project.project,project_scope_ids:0
 msgid "Project scope ids"
 msgstr "IDji projektnega obsega"
@@ -175,12 +366,16 @@ msgid "Project success ids"
 msgstr "Idji uspeha"
 
 #. module: project_charter
-#: field:project.assumptions,project_id:0
-#: field:project.boundaries,project_id:0 field:project.outscope,project_id:0
-#: field:project.requirement,project_id:0 field:project.risks,project_id:0
-#: field:project.scope,project_id:0 field:project.success,project_id:0
+#: field:project.constraints,project_id:0 field:project.outscope,project_id:0
+#: field:project.requirement,project_id:0 field:project.scope,project_id:0
+#: field:project.success,project_id:0
 msgid "Projects"
 msgstr "Projekti"
+
+#. module: project_charter
+#: model:ir.model,name:project_charter.model_project_requirement
+msgid "Requirements"
+msgstr "Zahteve deležnikov"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -203,6 +398,11 @@ msgid "Resource planning lines"
 msgstr "Plan virov"
 
 #. module: project_charter
+#: model:ir.model,name:project_charter.model_risk_management_risk
+msgid "Risk"
+msgstr "Tveganje"
+
+#. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Roles and responsibilities"
 msgstr "Vloge in odgovornost"
@@ -211,6 +411,11 @@ msgstr "Vloge in odgovornost"
 #: field:project.scope,scope:0
 msgid "Scope"
 msgstr "Obseg"
+
+#. module: project_charter
+#: field:project.requirement,partner_id:0
+msgid "Stakeholder"
+msgstr "Deležnik"
 
 #. module: project_charter
 #: field:project.requirement,requirements:0
@@ -224,8 +429,29 @@ msgid "Stakeholders"
 msgstr "Deležniki"
 
 #. module: project_charter
-#: model:ir.model,name:project_charter.model_project_requirement
 #: model:ir.model,name:project_charter.model_project_success
+msgid "Success"
+msgstr "Uspeh"
+
+#. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Success and Requirements"
 msgstr "Uspeh in zahteve"
+
+#~ msgid "Assumptions"
+#~ msgstr "Predpostavke"
+
+#~ msgid "High-level Risk Assesment"
+#~ msgstr "Groba ocena tveganj"
+
+#~ msgid "High-level Risk Assessment"
+#~ msgstr "Groba ocena tveganj"
+
+#~ msgid "Project Boundaries, Assumptions and Constraints"
+#~ msgstr "Projektne meje, predpostavke in omejitve"
+
+#~ msgid "Project assumptions ids"
+#~ msgstr "IDji predpostavk"
+
+#~ msgid "Project risks ids"
+#~ msgstr "IDji projektnih tveganj"
