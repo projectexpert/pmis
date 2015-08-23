@@ -17,6 +17,7 @@
                                     <field name="description" nolabel="1" widget="text_html"/>
                                 </group>
                             </page>
+                            <!--add project stakeholders list-->
                             <page string="Stakeholders">
                             <group string="Stakeholders">                        
                                 <field name="stakeholder_ids" nolabel="1" context="{'default_project_id': active_id}">
@@ -44,6 +45,7 @@
                                 </field>                                                    
                             </group>
                             </page>
+                            <!--add project broad scope-->
                             <page string="Broad Scope">
                                 <group string="Boundaries">
                                     <group>
@@ -74,6 +76,8 @@
                                     </group>
                                 </group>
                             </page>
+                            <!--add project success criteria and stakeholder requirements-->
+                            <!--aka approval requirements-->
                             <page string="Success and Requirements">
                                 <group string="Success and Requirements">
                                     <group>
@@ -106,6 +110,7 @@
                                     </group>
                                 </group>
                             </page>
+                            <!--add constraints, assumptions aka high level risks list will be added by risk management module-->
                             <page string="Assumptions, Constraints">
                                 <group string="Constraints">
                                     <group>
@@ -122,11 +127,8 @@
                                     </group>
                                 </group>
                             </page>
-                            
-                            <!--add high level risks list-->
                             <!--add milestone list-->
-                            <!--add project stakeholders list-->
-                            <!--add high level requirements (resource plan rough cut)-->
+                            <!--add resource plan rough cut-->
                             <page string="Resource and Billing plan">
                                 <button help="Resource planning lines"
                                     class="oe_inline oe_stat_button"
@@ -152,25 +154,10 @@
                             </page>
 
                         </notebook>
-                        <!--add project approval requirements-->
+                        
                     </page>
 
                 </xpath>
-                        
-<!--                <xpath expr="//form/sheet/notebook/page" position="after">
-                    <page string="Project configuration">
-                        <group string="Project configuration">
-                            <group>
-                                <field name="account_class" string="Class"/>
-                            </group>
-                            <group>
-                                <field name="code" string="Code"/>
-                                <field name="complete_wbs_code" string="WBS code" readonly="1" />
-                            </group>
-                        </group>
-                    </page>
-                </xpath>-->
-
 
             </field>
         </record>
