@@ -14,7 +14,7 @@
                         <notebook>
                             <page string="Project Description">
                                 <group string="Project Description">
-                                    <field name="description" nolabel="1" widget="text_html"/>
+                                    <field name="notes" nolabel="1" widget="text_html"/>
                                 </group>
                             </page>
                             <!--add project stakeholders list-->

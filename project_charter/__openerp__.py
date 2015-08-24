@@ -22,7 +22,7 @@
 
 {
     'name': 'Project Charter',
-    'version': '1.0.6',
+    'version': '1.0.7',
     'category': 'Project Management',
     'sequence': 9,
     'summary': 'Project Charter',

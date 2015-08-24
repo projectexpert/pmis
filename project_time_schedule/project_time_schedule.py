@@ -112,7 +112,7 @@ class task(osv.osv):
             d_activities['start'].add_successor(d_activities[ids[0]])
 
         for child_id in child_ids:
-            if d_activities.has_key(child_id):
+            if child_id in d_activities:
                 pass
             else:
                 lchild_id = []
@@ -122,7 +122,7 @@ class task(osv.osv):
             d_activities[ids[0]].add_successor(d_activities[child_id])
 
         for parent_id in parent_ids:
-            if d_activities.has_key(parent_id):
+            if parent_id in d_activities:
                 pass
             else:
                 lparent_id = []
