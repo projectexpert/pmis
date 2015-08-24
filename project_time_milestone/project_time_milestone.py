@@ -36,9 +36,13 @@ class task(osv.osv):
             help="If the active field is set, the task is considered to be a client-relevant milestone"
         ),
         'project_poc': fields.float(
-            'Project percentage of completion', help="Percentage of completion for the linked project"
+            'Project percentage of completion',
+            help="Percentage of completion for the linked project"
         ),
-        'invoice_percentage': fields.float('Invoice percentage', help="Percentage to invoice"),
+        'invoice_percentage': fields.float(
+            'Invoice percentage',
+            help="Percentage to invoice"
+        ),
      }
 
 
@@ -55,13 +59,22 @@ class project(osv.osv):
         for project in projects:
             # get the related tasks
             res[project.id] = self.pool.get("project.task").search(
-                cr, uid, [('project_id', '=', project.id), ('milestone', '=', True)]
+                cr,
+                uid,
+                [
+                    ('project_id', '=', project.id),
+                    ('milestone', '=', True)
+                ]
             )
         return res
 
     _columns = {
             'milestones': fields.function(
-                _milestones_ids, method=True, type='one2many', obj='project.task', string='Milestones'
+                _milestones_ids,
+                method=True,
+                type='one2many',
+                obj='project.task',
+                string='Milestones'
             ),
     }
 

@@ -23,9 +23,11 @@
 {
     "name": "Project Time Management - Milestones",
     "version": "1.0",
-    "author": "Eficent",
-    "website": "http://www.eficent.com",
-    "category": "Generic Modules/Projects & Services",
+    "author":   "Eficent,"
+                "Matmoz d.o.o.",
+    "website":  "http://www.eficent.com ,"
+                "http://www.matmoz.si",
+    "category": "Project Management",
     "depends": ["project", "project_time_schedule"],
     "description": """
         This module introduces the possibility to classify tasks as milestones.
@@ -46,4 +48,3 @@
     'active': False,
     'certificate': '',
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

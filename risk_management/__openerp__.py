@@ -24,8 +24,10 @@
 {
     'name': 'Risk Management',
     'version': '2.1.2',
-    'author': 'Matmoz d.o.o.',
-    'website': 'http://www.matmoz.si',
+    'author':   'Neova Health ,'
+                'Matmoz d.o.o.',
+    'website':  'http://www.neovahealth.co.uk'
+                'http://www.matmoz.si',
     'category': 'Project Management',
     'description': """
 
@@ -55,9 +57,8 @@
     """,
     'depends': ['project', 'project_charter'],
     'data': [
-        'risk_management_data.xml',
-        'risk_management_sequence.xml',
-        # 'security/risk_management_security.xml',
+        'data/risk_management_data.xml',
+        'data/risk_management_sequence.xml',
         'security/ir.model.access.csv',
         'view/project_task_view.xml',
         'view/project_charter_view.xml',
@@ -67,7 +68,7 @@
         'view/risk_management_proximity_view.xml',
         'view/risk_management_menus.xml'
     ],
-    'demo': ['risk_management_demo.xml'],
+    'demo': ['demo/risk_management_demo.xml'],
     'test': ['test/test_risk_management.yml'],
     'license': 'AGPL-3',
     'installable': True,

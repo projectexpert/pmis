@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>
-    	
-
-
+    <data>    	
         <!-- Task -->
  		<record id="view_task_form2" model="ir.ui.view">
             <field name="name">project.task.form</field>
@@ -26,8 +23,7 @@
 					</page>
 	         	</xpath>
             </field>
-        </record>
-        
+        </record>        
 
         <record id="action_view_milestone" model="ir.actions.act_window">
             <field name="name">Milestones</field>
@@ -41,8 +37,8 @@
             <field name="search_view_id" ref="project.view_task_search_form"/>
             <field name="help">Manage Project milestones</field>
         </record>
-        <menuitem action="action_view_milestone" id="menu_action_view_milestone" parent="project.menu_project_management" sequence="4"/>
 
+        <menuitem action="action_view_milestone" id="menu_action_view_milestone" parent="project.menu_project_management" sequence="4"/>
 	 	
         <record id="project.action_view_task" model="ir.actions.act_window">
             <field name="domain">[('milestone', '=', False)]</field>
@@ -72,7 +68,6 @@
 				</notebook>  	 
 			</field>                      	
     	</record>
-   
-                               	
+
     </data>
 </openerp>

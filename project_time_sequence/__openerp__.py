@@ -25,20 +25,19 @@
     "version": "1.0.1",
     "author": "Eficent",
     "website": "http://www.eficent.com",
-    "category": "Generic Modules/Projects & Services",
+    "category": "Project Management",
     "depends": ["project"],
-    "description": """Eficent Project Management. Project Time Management. Activity Sequencing
-        - The aim is to enable the department responsible for projects to identify the
-        relationship between activities (tasks and milestones) of the project.
+    "description": """
+Eficent Project Management. Project Time Management. Activity Sequencing
 
+- The aim is to enable the department responsible for projects to identify the
+    relationship between activities (tasks and milestones) of the project.
     """,
     "data": [
         "wizard/project_task_link_predecessors.xml",
         "project_time_sequence_view.xml",
-
     ],
     'demo': [
-
     ],
     'test': [
     ],
