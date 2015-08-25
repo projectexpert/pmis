@@ -344,7 +344,7 @@ class network_activity(object):
         DATE_INIT = date - timedelta(hours=duration)
         if duration:
             correct_date_init = False
-            while correct_date_init == False:
+            while correct_date_init is False:
                 [rr_count, rr] = network_activity.work_days_diff(DATE_INIT, date)
                 if rr_count < duration:
                     DATE_INIT -= timedelta(hours=duration + 1 - rr_count)
