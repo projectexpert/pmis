@@ -1,0 +1,17 @@
+id,name,shortcut,domain
+l10n_it_basedi,Ditta individuale,DI,partner
+l10n_it_base.snc,S.n.c.,S.n.c.,partner
+l10n_it_base.sas,S.a.s.,S.a.s.,partner
+l10n_it_base.spa,S.p.A.,S.p.A.,partner
+l10n_it_base.srl,S.r.l.,S.r.l.,partner
+l10n_it_base.sapa,S.a.p.a.,S.a.p.a.,partner
+l10n_it_base.if,Impresa Famigliare,IF,partner
+l10n_it_base.pf,Persona Fisica,PF,partner
+l10n_it_base.spettle,Spett.le,Spett.le,contact
+l10n_it_base.ing,Ing.,Ing.,contact
+l10n_it_base.egrsigra,Egr. Sig.ra,Egr. Sig.ra,contact
+l10n_it_base.dott,Dott.,Dott.,contact
+l10n_it_base.notaio,Notaio,Notaio,contact
+l10n_it_base.arch,Arch.,Arch.,contact
+l10n_it_base.avv,Avv.,Avv.,contact
+l10n_it_base.egrsig,Egr. Sig.,Egr. Sig.,contact

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+    <t t-extend="mail.thread.message">
+  		<t t-jquery=".oe_msg_icons .oe_reply" t-operation="before">
+  			<span class='oe_forward' t-if="widget.options.show_reply_button"><a title="Forward" class="oe_e">*</a></span>
+  		</t>
+    </t>
+</template>

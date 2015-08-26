@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        <record id="lead_project_connect" model="ir.ui.view">
+            <field name="name">lead.project.connect</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+            <field name="type">form</field>
+
+            <field name="arch" type="xml">
+                <field name="user_id" position="before">
+                    <field name="project_id" string="Project"/>
+                    <newline/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

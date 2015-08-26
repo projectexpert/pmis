@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="hr_timesheet.hr_timesheet_line_product_tree" model="ir.ui.view">
+            <field name="name">hr.analytic.timesheet.product.tree</field>
+            <field name="model">hr.analytic.timesheet</field>
+            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
+             <field name="type">tree</field>
+            <field name="priority">2</field>
+            <field name="arch" type="xml">
+                <xpath expr="/tree/field[@name='product_id']" position="attributes">
+                     <attribute name="invisible">0</attribute>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</openerp>  

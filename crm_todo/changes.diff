@@ -1,0 +1,35 @@
+--- /home/arhiv/Unindexed/Development/Workdesk/Projects/odoo8/opt/openerp/used/didotech_80/crm_todo/crm_todo_view.xml
++++ /home/arhiv/Unindexed/Development/Workdesk/Projects/odoo8/opt/openerp/unused/saas-3/addons/crm_todo/crm_todo_view.xml
+@@ -8,31 +8,7 @@
+         <field name="inherit_id" ref="crm.crm_case_form_view_oppor" />
+         <field name="arch" type="xml">
+             <data>
+-            <page string="Internal Notes" position="before">
+-                <page string="Tasks">
+-                    <field name="task_ids" colspan="4" nolabel="1">
+-                        <tree editable="bottom" string="Tasks">
+-                            <field name="name"/>
+-                            <field name="user_id" context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'project.group_project_user']}"/>
+-
+-                            <field string="Timebox" name="timebox_id"/>
+-                            <button name="prev_timebox" type="object" string="Previous"/>
+-                            <button name="next_timebox" type="object" string="Next"/>
+-                        </tree>
+-                    </field>
+-                </page>
+-            </page>
+-            </data>
+-        </field>
+-    </record>
+-
+-<record id="crm_todo_lead_add" model="ir.ui.view">
+-        <field name="name">Opportunities - Tasks</field>
+-        <field name="model">crm.lead</field>
+-        <field name="inherit_id" ref="crm.crm_case_form_view_leads" />
+-        <field name="arch" type="xml">
+-            <data>
+-            <page string="Internal Notes" position="before">
++            <page string="Lead" position="before">
+                 <page string="Tasks">
+                     <field name="task_ids" colspan="4" nolabel="1">
+                         <tree editable="bottom" string="Tasks">

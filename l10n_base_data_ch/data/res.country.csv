@@ -1,0 +1,2 @@
+id,code,name,enable_province,enable_region,enable_state
+base.ch,CH,Svizzera,True,False,False

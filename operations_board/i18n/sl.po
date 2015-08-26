@@ -1,0 +1,156 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* operations_board
+#
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-12-04 12:38+0000\n"
+"PO-Revision-Date: 2015-08-03 12:47+0200\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: American English <kde-i18n-doc@kde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: en_US\n"
+"X-Generator: Poedit 1.8.2\n"
+
+#. module: operations_board
+#: model:ir.actions.act_window,help:operations_board.ceo_case_oppor
+msgid ""
+"<p>\n"
+"                    Odoo helps you keep track of your sales pipeline to "
+"follow\n"
+"                    up potential sales and better forecast your future "
+"revenues.\n"
+"                </p><p>\n"
+"                    You will be able to plan meetings and phone calls from\n"
+"                    opportunities, convert them into quotations, attach "
+"related\n"
+"                    documents, track all discussions, and much more.\n"
+"                </p>\n"
+"            "
+msgstr ""
+"<p>                    Odoo omogoča sledenje prodajnih tokov za "
+"obravnavo                    potencialne prodaje in boljšo napoved bodočih "
+"prihodkov prihodkov.                </p><p>                    Omogočeno bo "
+"načrtovanje sestankov in klicev iz                    priložnosti, sprememba "
+"le-teh v ponudbe, prilaganje                    dokumentov, sledenje razprav "
+"in še veliko več.                </p>            "
+
+#. module: operations_board
+#: model:ir.actions.act_window,name:operations_board.ceo_analytic
+#: model:ir.ui.menu,name:operations_board.menu_ceo_analytic
+msgid "Analytics"
+msgstr "Analitika"
+
+#. module: operations_board
+#: view:board.board:operations_board.board_ceo_balance
+msgid "CEO balance"
+msgstr "CEO stanje"
+
+#. module: operations_board
+#: view:board.board:operations_board.board_ceo_form
+msgid "CEO board"
+msgstr "Direktorjeva nadzorna plošča"
+
+#. module: operations_board
+#: model:ir.ui.menu,name:operations_board.menu_ceo_crm
+msgid "CRM"
+msgstr "CRM"
+
+#. module: operations_board
+#: view:board.board:operations_board.board_ceo_form
+#: model:ir.actions.act_window,name:operations_board.ceo_lead_board
+msgid "CRM - Open Leads"
+msgstr "CRM - odprti indici"
+
+#. module: operations_board
+#: view:board.board:operations_board.board_ceo_form
+#: model:ir.actions.act_window,name:operations_board.ceo_oppor_board
+msgid "CRM - Opportunities"
+msgstr "CRM - priložnosti"
+
+#. module: operations_board
+#: model:ir.actions.act_window,name:operations_board.ceo_project_issues
+#: model:ir.ui.menu,name:operations_board.menu_ceo_issues
+msgid "Issues"
+msgstr "Zadeve"
+
+#. module: operations_board
+#: model:ir.actions.act_window,name:operations_board.ceo_case_lead
+#: model:ir.ui.menu,name:operations_board.menu_ceo_leads
+msgid "Leads"
+msgstr "Indici"
+
+#. module: operations_board
+#: view:board.board:operations_board.board_ceo_form
+#: model:ir.actions.act_window,name:operations_board.ceo_issues_board
+msgid "Open Issues"
+msgstr "Odprte zadeve"
+
+#. module: operations_board
+#: view:board.board:operations_board.board_ceo_form
+#: model:ir.actions.act_window,name:operations_board.ceo_tasks_board
+msgid "Open Tasks"
+msgstr "Odprta opravila"
+
+#. module: operations_board
+#: model:ir.actions.act_window,name:operations_board.open_board_balance
+#: model:ir.ui.menu,name:operations_board.menu_subboard_balance
+msgid "Operations Balance"
+msgstr "Operativa - stanje"
+
+#. module: operations_board
+#: model:ir.ui.menu,name:operations_board.menu_board_ceo
+msgid "Operations Board"
+msgstr "Nadzorna plošča operative"
+
+#. module: operations_board
+#: model:ir.actions.act_window,name:operations_board.open_board_ceo
+#: model:ir.ui.menu,name:operations_board.menu_subboard_ceo
+msgid "Operations Management Board"
+msgstr "Nadzorna plošča operativne uprave"
+
+#. module: operations_board
+#: model:ir.actions.act_window,name:operations_board.ceo_case_oppor
+#: model:ir.ui.menu,name:operations_board.menu_ceo_oppor
+msgid "Opportunities"
+msgstr "Priložnosti"
+
+#. module: operations_board
+#: view:board.board:operations_board.board_ceo_balance
+#: model:ir.actions.act_window,name:operations_board.ceo_project_board
+msgid "Project balance"
+msgstr "Projektno stanje"
+
+#. module: operations_board
+#: view:board.board:operations_board.board_ceo_balance
+#: model:ir.actions.act_window,name:operations_board.ceo_analytic_board
+msgid "Project income"
+msgstr "Projektni prihodki"
+
+#. module: operations_board
+#: model:ir.actions.act_window,name:operations_board.ceo_projects
+#: model:ir.ui.menu,name:operations_board.menu_ceo_project
+msgid "Projects"
+msgstr "Projekti"
+
+#. module: operations_board
+#: model:ir.ui.menu,name:operations_board.menu_ceo_pna
+msgid "Projects and Analytic"
+msgstr "Projekti in analitika"
+
+#. module: operations_board
+#: model:ir.ui.menu,name:operations_board.menu_ceo_reports
+msgid "Reports"
+msgstr "Poročila"
+
+#. module: operations_board
+#: model:ir.actions.act_window,name:operations_board.ceo_tasks
+#: model:ir.ui.menu,name:operations_board.menu_ceo_tasks
+msgid "Tasks"
+msgstr "Opravila"

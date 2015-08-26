@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        <record id="crmtodo2project_taskform" model="ir.ui.view">
+            <field name="name">crmtodo2project.taskform</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project_gtd.project_task"/>
+            <field name="type">form</field>
+
+            <field name="arch" type="xml">
+                <field name="context_id" position="before">
+                    <field name="lead_id"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
