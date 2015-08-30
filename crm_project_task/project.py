@@ -20,7 +20,7 @@
 #
 ##############################################################################
 
-from openerp import models, fields
+from openerp import api, models, fields
 
 
 class lead_project(models.Model):
@@ -32,4 +32,15 @@ class lead_project(models.Model):
 class project_lead(models.Model):
     _inherit = 'project.project'
 
-    lead_ids = fields.One2many('crm.lead', 'project_id', 'Lead / Opportunity')
+    @api.one
+    def _project_lead_count(self):
+        self.project_lead_count = self.env['crm.lead'].search_count(
+            [('project_id', 'in', self.ids)]
+        )
+
+    lead_ids = fields.One2many(
+        'crm.lead', 'project_id', 'Lead / Opportunity'
+    )
+    project_lead_count = fields.Integer(
+        compute="_project_lead_count", string="Leads"
+    )
