@@ -533,6 +533,7 @@ class project(osv.osv):
         ):
             if values.get('state') and not values.get('stage_id'):
                 if not context.get('change_project_stage_from_status'):
+                    context.dict(context)
                     context.update(
                         {'change_project_stage_from_status': True}
                     )
