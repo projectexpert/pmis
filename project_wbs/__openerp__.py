@@ -22,12 +22,13 @@
 
 {
     "name": "Work Breakdown Structure",
-    "version": "2.0.1.1",
+    "version": "2.0.1.2",
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
     "depends": ["project", "analytic", "project_issue", "account_analytic_analysis"],
-    "description": """Project Scope
+    "description": """
+    Project Scope
     - The hierarchy of a project is considered the WBS (Work Breakdown Structure)
     - The analytic accounts in the project hierarchies are considered WBS components
     - The analytic account code is shown in the project
