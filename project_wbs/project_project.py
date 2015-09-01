@@ -525,23 +525,23 @@ class project(osv.osv):
             cr, uid, ids, parent_id
         )
 
-    def write(self, cr, uid, ids, values, context=None):
-        if context is None:
-            context = {}
-        for p in self.browse(
-            cr, uid, ids, context=context
-        ):
-            if values.get('state') and not values.get('stage_id'):
-                if not context.get('change_project_stage_from_status'):
-                    context.update(
-                        {'change_project_stage_from_status': True}
-                    )
-                    # Change the stage corresponding to the new status
-                    if p.parent_id and p.parent_id.child_stage_ids:
-                        for stage in p.parent_id.child_stage_ids:
-                            if stage.state == values.get('state'):
-                                values.update({'stage_id': stage.id})
-        return super(project, self).write(
-            cr, uid, ids, values, context=context)
+    # def write(self, cr, uid, ids, values, context=None):
+    #     if context is None:
+    #         context = {}
+    #     for p in self.browse(
+    #         cr, uid, ids, context=context
+    #     ):
+    #         if values.get('state') and not values.get('stage_id'):
+    #             if not context.get('change_project_stage_from_status'):
+    #                 context.update(
+    #                     {'change_project_stage_from_status': True}
+    #                 )
+    #                 # Change the stage corresponding to the new status
+    #                 if p.parent_id and p.parent_id.child_stage_ids:
+    #                     for stage in p.parent_id.child_stage_ids:
+    #                         if stage.state == values.get('state'):
+    #                             values.update({'stage_id': stage.id})
+    #     return super(project, self).write(
+    #         cr, uid, ids, values, context=context)
 
 project()
