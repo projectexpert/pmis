@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-11 11:00+0200\n"
-"PO-Revision-Date: 2015-08-11 11:01+0200\n"
+"POT-Creation-Date: 2015-09-02 14:16+0200\n"
+"PO-Revision-Date: 2015-09-02 14:20+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "Language: sl\n"
@@ -16,7 +16,63 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.2\n"
+"X-Generator: Poedit 1.8.4\n"
+
+#. module: project_wbs
+#: help:analytic.account.stage,case_default:0
+msgid ""
+"\n"
+"            If you check this field, this stage will be proposed\n"
+"            by default on each new project.\n"
+"            It will not assign this stage to existing projects.\n"
+"            "
+msgstr ""
+"\n"
+"            Če označite to polje, bo ta stopnja privzeto\n"
+"            predlagana za vsak nov projekt.\n"
+"            Stopnje ne bo dodelilo obstoječim projektom.\n"
+"            "
+
+#. module: project_wbs
+#: help:account.analytic.account,account_class:0
+msgid ""
+"\n"
+"            The classification allows you to create a proper project\n"
+"            Work Breakdown Structure\n"
+"            "
+msgstr ""
+"\n"
+"            Klasifikacija omogoča ustvarjanje primerne\n"
+"            členitve projekta\n"
+"            "
+
+#. module: project_wbs
+#: help:account.analytic.account,complete_wbs_code:0
+msgid ""
+"\n"
+"            The full WBS code describes the full path of this\n"
+"            component within the project WBS hierarchy\n"
+"            "
+msgstr ""
+"\n"
+"            Polna koda členitve opiše polno pot komponente\n"
+"             v sklopu hierarhije projektne členitve\n"
+"            "
+
+#. module: project_wbs
+#: help:analytic.account.stage,fold:0
+msgid ""
+"\n"
+"            This stage is not visible,\n"
+"            for example in status bar or kanban view,\n"
+"            when there are no records in that stage to display.\n"
+"            "
+msgstr ""
+"\n"
+"            Ta stopnja ni vidna, npr.\n"
+"            vrstica stanja ali kanban pogled, ko v\n"
+"            stopnji ni zapisov za prikaz.\n"
+"            "
 
 #. module: project_wbs
 #: model:ir.actions.act_window,help:project_wbs.open_view_project_deliverables
@@ -136,7 +192,6 @@ msgstr "Administracija"
 
 #. module: project_wbs
 #: model:ir.model,name:project_wbs.model_account_analytic_account
-#: field:project.task,analytic_account_id:0
 msgid "Analytic Account"
 msgstr "Analitični konto"
 
@@ -157,6 +212,12 @@ msgstr "Stopnje analitičnega konta"
 #: view:project.project:project_wbs.edit_project
 msgid "Append this project to another one using analytic accounts hierarchy"
 msgstr "Podredite ta projekt drugemu z uporabo hierarhije analitičnih kontov"
+
+#. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_cancelled
+#: selection:analytic.account.stage,state:0
+msgid "Cancelled"
+msgstr "Preklicano"
 
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
@@ -183,10 +244,26 @@ msgid "Class"
 msgstr "Razred"
 
 #. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_closed
+#: selection:analytic.account.stage,state:0
+msgid "Closed"
+msgstr "Zaključeno"
+
+#. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_closure
+msgid "Closure"
+msgstr "Zaključevanje"
+
+#. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 #: view:project.project:project_wbs.view_project
 msgid "Code"
 msgstr "Koda"
+
+#. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_concept
+msgid "Conceptual stage"
+msgstr "Konceptualna"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
@@ -255,20 +332,19 @@ msgid "Enter"
 msgstr "Vstop"
 
 #. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_execution
+msgid "Execution"
+msgstr "Izvedba"
+
+#. module: project_wbs
 #: field:analytic.account.stage,fold:0
 msgid "Folded by Default"
 msgstr "Privzeto pripognjeno"
 
 #. module: project_wbs
 #: field:account.analytic.account,complete_wbs_code:0
-#: field:project.task,project_complete_wbs_code:0
 msgid "Full WBS Code"
 msgstr "Polna koda členitve"
-
-#. module: project_wbs
-#: field:project.task,project_complete_wbs_name:0
-msgid "Full WBS Name"
-msgstr "Polni naziv členitve"
 
 #. module: project_wbs
 #: field:account.analytic.account,complete_wbs_name:0
@@ -286,13 +362,14 @@ msgid "ID"
 msgstr "ID"
 
 #. module: project_wbs
-#: help:analytic.account.stage,case_default:0
-msgid ""
-"If you check this field, this stage will be proposed by default on each new "
-"project. It will not assign this stage to existing projects."
-msgstr ""
-"Če označite to polje, bo ta stopnja privzeto predlagana za vsak nov projekt. "
-"Stopnje ne bo dodelilo obstoječim projektom."
+#: selection:analytic.account.stage,state:0
+msgid "In Progress"
+msgstr "V teku"
+
+#. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_init
+msgid "Initalization"
+msgstr "Zagonska"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_inherited
@@ -325,6 +402,11 @@ msgid "Name"
 msgstr "Naziv"
 
 #. module: project_wbs
+#: selection:analytic.account.stage,state:0
+msgid "New"
+msgstr "Novo"
+
+#. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 msgid "Other Info"
 msgstr "Ostale informacije"
@@ -341,6 +423,11 @@ msgid "Parent WBS element"
 msgstr "Nadrejeni elementi členitve"
 
 #. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_pending
+msgid "Pending"
+msgstr "Na čakanju"
+
+#. module: project_wbs
 #: selection:account.analytic.account,account_class:0
 #: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Phase"
@@ -353,6 +440,11 @@ msgstr "Faza"
 #: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Phases"
 msgstr "Faze"
+
+#. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_plan
+msgid "Planning"
+msgstr "Planska"
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
@@ -432,7 +524,11 @@ msgid "Start Date"
 msgstr "Začetni datum"
 
 #. module: project_wbs
-#: model:ir.model,name:project_wbs.model_project_task
+#: field:analytic.account.stage,state:0
+msgid "State"
+msgstr "Stanje"
+
+#. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Task"
 msgstr "Opravilo"
@@ -448,29 +544,9 @@ msgid "Team work"
 msgstr "Ekipno delo"
 
 #. module: project_wbs
-#: help:account.analytic.account,account_class:0
-msgid ""
-"The classification allows you to create a proper project Work Breakdown "
-"Structure"
-msgstr "Klasifikacija omogoča ustvarjanje primerne členitve projekta"
-
-#. module: project_wbs
-#: help:account.analytic.account,complete_wbs_code:0
-msgid ""
-"The full WBS code describes the full path of this component within the "
-"project WBS hierarchy"
-msgstr ""
-"Polna koda členitve opiše polno pot komponente v sklopu hierarhije projektne "
-"členitve"
-
-#. module: project_wbs
-#: help:analytic.account.stage,fold:0
-msgid ""
-"This stage is not visible, for example in status bar or kanban view, when "
-"there are no records in that stage to display."
-msgstr ""
-"Ta stopnja ni vidna, npr. vrstica stanja ali kanban pogled, ko v stopnji ni "
-"zapisov za prikaz"
+#: selection:analytic.account.stage,state:0
+msgid "To Renew"
+msgstr "Za obnovo"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
@@ -552,6 +628,9 @@ msgstr ""
 #: view:project.project:project_wbs.edit_project
 msgid "on_change_parent(parent_id)"
 msgstr "on_change_parent(parent_id)"
+
+#~ msgid "Full WBS Name"
+#~ msgstr "Polni naziv členitve"
 
 #~ msgid "top"
 #~ msgstr "zgoraj"
