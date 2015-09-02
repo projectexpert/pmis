@@ -34,5 +34,5 @@ class analytic_account_state(models.Model):
 
 
 class analytic_stage_state(models.Model):
-    _inherit = 'account.analytic.account'
+    _inherit = 'project.project'
     state = fields.Selection(related='stage_id.state', store=True, readonly=True)

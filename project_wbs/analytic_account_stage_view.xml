@@ -39,7 +39,9 @@
                 <tree string="Analytic Account Stage">
                     <field name="sequence" widget="handle"/>
                     <field name="name"/>
+					<field name="fold"/>
                     <field name="case_default"/>
+					<field name="state"/>
                 </tree>
             </field>
         </record>
