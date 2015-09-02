@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#               <contact@eficent.com>
+#    Copyright (C) 2015 Matmoz d.o.o.
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,8 +17,22 @@
 #
 ##############################################################################
 
-import analytic_account_stage
-import account_analytic_account
-import project_project
-import form_button
-import stage_state
+from openerp import models, fields
+
+_ANALYTIC_ACCOUNT_STATE = [
+    ('draft', 'New'),
+    ('open', 'In Progress'),
+    ('pending', 'To Renew'),
+    ('close', 'Closed'),
+    ('cancelled', 'Cancelled')
+]
+
+
+class analytic_account_state(models.Model):
+    _inherit = 'analytic.account.stage'
+    state = fields.Selection(_ANALYTIC_ACCOUNT_STATE, 'State')
+
+
+class analytic_stage_state(models.Model):
+    _inherit = 'account.analytic.account'
+    state = fields.Selection(related='stage_id.state', store=True, readonly=True)

@@ -24,6 +24,7 @@
                             <field name="sequence"/>
                             <field name="fold"/>
                             <field name="case_default"/>
+							<field name="state"/>
                         </group>
                     </group>
                     <field name="description" placeholder="Add a description..."/>
