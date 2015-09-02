@@ -8,7 +8,7 @@
             <field name="name">Pending</field>
             <field name="case_default" eval="True"/>
             <field name="fold" eval="True"/>
-            <field name="state">To Renew</field>
+            <!--<field name="state">To Renew</field>-->
         </record>
         <record id="project_wbs_concept" model="analytic.account.stage">
             <field name="sequence">5</field>
