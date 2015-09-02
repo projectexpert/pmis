@@ -22,7 +22,7 @@
 
 {
     "name": "Work Breakdown Structure",
-    "version": "2.0.1.2",
+    "version": "2.0.1.3",
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
