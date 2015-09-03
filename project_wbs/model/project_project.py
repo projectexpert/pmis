@@ -525,6 +525,9 @@ class project(osv.osv):
             cr, uid, ids, parent_id
         )
 
+# THIS PART OF CODE IS IN CONFLICT WITH THE OCA MODULE project_closing
+# thus I had to comment it out - the change of the status from stage is
+# handled with the file stage_state
     # def write(self, cr, uid, ids, values, context=None):
     #     if context is None:
     #         context = {}

@@ -383,6 +383,10 @@ class account_analytic_account(osv.osv):
                     context=context)
                 stage = stage_obj.browse(cr, uid, values.get('stage_id'),
                                          context=context)
+
+# THIS PART OF CODE IS IN CONFLICT WITH THE OCA MODULE project_closing
+# thus I had to comment it out - the change of the status from stage is
+# handled with the file stage_state
                 # if stage.project_state == 'close':
                 #     project_obj.set_done(cr, uid, project_ids,
                 #                          context=context)

@@ -72,13 +72,6 @@ class analytic_account_stage(osv.osv):
             It will not assign this stage to existing projects.
             '''
         ),
-        # 'state': fields.selection([('template', 'Template'),
-        #                            ('draft', 'New'),
-        #                            ('open', 'In Progress'),
-        #                            ('cancelled', 'Cancelled'),
-        #                            ('pending', 'Pending'),
-        #                            ('close', 'Closed')],
-        #                           'Status', required=True, copy=False),
     }
 
     def _get_default_parent_id(self, cr, uid, ctx={}):
