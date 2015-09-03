@@ -33,7 +33,10 @@
     'summary': """Creatable issues list on task view form""",
     'author': 'Matmoz d.o.o.',
     'website': 'http://www.matmoz.si',
-    'license': 'AGPL-3',
+    'license': "AGPL-3",
+    'contributors': [
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
     "depends": ['project', 'project_issue'],
     "data": ['project_view.xml'],
     "installable": True

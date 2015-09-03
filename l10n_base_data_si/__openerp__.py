@@ -30,9 +30,13 @@ Funcionalities:
 
 
 """,
-    'author': 'Didotech@Matmoz',
-    'website': 'http://www.didotech.com',
-    'license': 'AGPL-3',
+    'author':   'Matmoz d.o.o., '
+                'Didotech',
+    'website': 'http://www.matmoz.si',
+    'license': "AGPL-3",
+    'contributors': [
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
     "depends": [
         'l10n_base'
     ],

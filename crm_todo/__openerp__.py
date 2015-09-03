@@ -39,7 +39,7 @@ for a better integration of CRM with project management.
     'summary': '''Todo list for CRM leads and opportunities''',
     'website':  'http://www.matmoz.si',
     'author':   'OpenERP SA, '
-                'Matmoz d.o.o. (Didotech Group)',
+                'Matmoz d.o.o.',
     'website': 'http://www.matmoz.si',
     'depends': ['crm', 'project_gtd'],
     'data': ['crm_todo_view.xml'],

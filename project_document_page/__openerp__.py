@@ -28,11 +28,14 @@
     'description': """This module allows linking of document pages to projects
         Based on the original project_wiki module from OpenERP 6.1 version
         by Agile Business Group""",
-    'author':   'Agile Business Group,'
+    'author':   'Agile Business Group, '
                 'Matmoz d.o.o.',
-    'website':  'http://www.agilebg.com ,'
-                'http://www.matmoz.si',
-    'license': 'AGPL-3',
+    'website':  'http://www.agilebg.com',
+    'website':  'http://www.matmoz.si',
+    'license': "AGPL-3",
+    'contributors': [
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
     "depends": ['project', 'document_page'],
     "data": ['project_view.xml'],
     "qweb": [],

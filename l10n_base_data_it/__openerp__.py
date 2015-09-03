@@ -29,8 +29,9 @@ Funcionalities:
 - Data import for Italy's Provinces, Municipalities, zip codes
 
 """,
-    'author': 'Didotech@Matmoz',
-    'website': 'http://www.didotech.com',
+    'author':   'Didotech, '
+                'Matmoz d.o.o.',
+    'website': 'http://www.matmoz.si',
     'license': 'AGPL-3',
     "depends": [
         'l10n_base'
@@ -46,6 +47,3 @@ Funcionalities:
     "active": False,
     "installable": True
 }
-
-# http://www.istat.it/strumenti/definizioni/comuni/
-# i dati dovrebbero essere sincronizzati con questi

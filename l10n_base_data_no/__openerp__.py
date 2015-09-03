@@ -30,9 +30,12 @@ Funcionalities:
 
 
 """,
-    'author': 'Didotech@Matmoz',
-    'website': 'http://www.didotech.com',
-    'license': 'AGPL-3',
+    'author': 'Matmoz d.o.o.',
+    'website': 'http://www.matmoz.si',
+    'license': "AGPL-3",
+    'contributors': [
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
     "depends": [
         'l10n_base'
     ],
@@ -47,6 +50,3 @@ Funcionalities:
     "active": False,
     "installable": True
 }
-
-# http://www.istat.it/strumenti/definizioni/comuni/
-# i dati dovrebbero essere sincronizzati con questi

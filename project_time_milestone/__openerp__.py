@@ -27,6 +27,10 @@
                 "Matmoz d.o.o.",
     "website":  "http://www.eficent.com ,"
                 "http://www.matmoz.si",
+    'license': "AGPL-3",
+    'contributors': [
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
     "category": "Project Management",
     "depends": ["project", "project_time_schedule"],
     "description": """

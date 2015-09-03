@@ -23,12 +23,17 @@
 {
     "name": "Slovenian - Accounting - Updated",
     "version": "1.2",
-    "author": "Mentis@Matmoz",
+    "author":   "Mentis d.o.o., "
+                "Matmoz d.o.o.",
     "website": "http://www.matmoz.si",
     "category": "Localization/Account Charts",
     "description": " ",
     "depends": ["account", "base_iban", "base_vat", "account_chart", "account_cancel"],
     "description": "Kontni načrt za gospodarske družbe - verzija 2014",
+    'license': "AGPL-3",
+    'contributors': [
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
     "data": [
         "data/account.account.type.csv", 
         "data/account.account.template.csv",

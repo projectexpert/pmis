@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 {
     'name': 'Show hr_timesheet product',
     'version': '0.1',
@@ -8,6 +9,10 @@
     """,
     'author': 'Matmoz d.o.o.',
     'website': 'http://www.matmoz.si',
+    'license': "AGPL-3",
+    'contributors': [
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
     'depends': ['hr_timesheet'],
     'data': [
         'views/hr_timesheet_product.xml',

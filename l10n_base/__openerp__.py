@@ -33,9 +33,13 @@ Features:
 
 
 """,
-    'author': 'Didotech, ver. 7 and 8 migration Matmoz',
-    'website': 'http://www.didotech.com, http://www.matmoz.si',
-    'license': 'AGPL-3',
+    'author':   'Didotech, '
+                'Matmoz d.o.o.',
+    'website': 'http://www.matmoz.si',
+    'license': "AGPL-3",
+    'contributors': [
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
     "depends": [
         'base'
     ],

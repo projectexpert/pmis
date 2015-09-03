@@ -26,9 +26,13 @@
     'version': '2.1.2',
     'author':   'Neova Health ,'
                 'Matmoz d.o.o.',
-    'website':  'http://www.neovahealth.co.uk'
-                'http://www.matmoz.si',
+    'website':  'http://www.matmoz.si',
     'category': 'Project Management',
+    'license': "AGPL-3",
+    'contributors': [
+        'Neova Health',
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
     'description': """
 
        Originally developed by Tactix4 Ltd (version 7, http://www.tactix4.com) and Neova Health (version 8,

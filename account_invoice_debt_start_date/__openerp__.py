@@ -35,7 +35,7 @@
 
     New field 'invoice_date_recieved' also exist on supplier invoices.
     """,
-    'author':   "Mentis d.o.o.,"
+    'author':   "Mentis d.o.o., "
                 "Matmoz d.o.o.",
     'license': "AGPL-3",
     'contributors': [
@@ -43,8 +43,8 @@
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
     'summary': '''Debt start date on invoice different than invoice date''',
-    'website':  'http://www.mentis.si,'
-                'http://www.matmoz.si',
+    'website':  'http://www.mentis.si',
+    'website':  'http://www.matmoz.si',
     'depends': ['account'],
     'data': ['views/account_invoice_view.xml'],
     'demo': [],

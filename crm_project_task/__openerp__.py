@@ -30,7 +30,7 @@
 {
     'name': 'CRM cases part of Projects',
     'version': '0.7.3',
-    'author': 'Matmoz d.o.o. (Didotech Group)',
+    'author': 'Matmoz d.o.o.',
     'website': 'http://www.matmoz.si',
     'category': 'Project Management',
     'description': """
