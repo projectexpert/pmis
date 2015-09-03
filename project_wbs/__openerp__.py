@@ -1,13 +1,13 @@
 {
     'name': 'Work Breakdown Structure',
     'version': '2.0.2',
-    'author':   'Eficent,'
+    'author':   'Eficent, '
                 'Matmoz d.o.o.',
     'contributors': [
         'Jordi Ballester <jordi.ballester@eficent.com>',
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
-    'website':  'www.eficent.com,'
+    'website':  'www.eficent.com, '
                 'www.matmoz.si',
     'category': 'Project Management',
     'depends':  [
