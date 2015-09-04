@@ -12,7 +12,7 @@
             <field name="view_type">form</field>
             <field name="domain">[]</field>
             <field name="view_mode">tree,form,kanban,gantt</field>
-            <field name="view_id" ref="view_project"/>
+            <field name="view_id" ref="project.view_project"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
             <field name="context">{'search_default_Current': 1, 'search_default_account_class':'project', 'default_account_class':'project'}</field>
             <field name="help" type="html">
