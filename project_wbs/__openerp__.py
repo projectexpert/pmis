@@ -7,8 +7,8 @@
         'Jordi Ballester <jordi.ballester@eficent.com>',
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
-    'website':  'www.eficent.com, '
-                'www.matmoz.si',
+    'website':  'http://www.eficent.com, '
+                'http://www.matmoz.si',
     'category': 'Project Management',
     'depends':  [
                     'project',
