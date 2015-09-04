@@ -28,7 +28,7 @@
             <field name="view_type">form</field>
             <field name="domain">[]</field>
             <field name="view_mode">tree,form,kanban,gantt</field>
-            <field name="view_id" ref="view_project"/>
+            <field name="view_id" ref="project.view_project"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
             <field name="context">{'search_default_Current': 1, 'search_default_account_class':'phase', 'default_account_class':'phase'}</field>
             <field name="help" type="html">
@@ -44,7 +44,7 @@
             <field name="view_type">form</field>
             <field name="domain">[]</field>
             <field name="view_mode">tree,form,kanban,gantt</field>
-            <field name="view_id" ref="view_project"/>
+            <field name="view_id" ref="project.view_project"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
             <field name="context">{'search_default_Current': 1, 'search_default_account_class':'deliverable', 'default_account_class':'deliverable'}</field>
             <field name="help" type="html">
@@ -60,7 +60,7 @@
             <field name="view_type">form</field>
             <field name="domain">[]</field>
             <field name="view_mode">tree,form,kanban,gantt</field>
-            <field name="view_id" ref="view_project"/>
+            <field name="view_id" ref="project.view_project"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
             <field name="context">{'search_default_Current': 1, 'search_default_account_class':'work_package', 'default_account_class':'work_package'}</field>
             <field name="help" type="html">
@@ -76,7 +76,7 @@
             <field name="view_type">form</field>
             <field name="domain">[]</field>
             <field name="view_mode">tree,kanban,form,gantt</field>
-            <field name="view_id" ref="view_project"/>
+            <field name="view_id" ref="project.view_project"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
             <field name="context">{'search_default_account_class':False, 'default_account_class':False}</field>
         </record>
@@ -87,7 +87,7 @@
             <field name="view_type">form</field>
             <field name="domain">[]</field>
             <field name="view_mode">tree,form,kanban,gantt</field>
-            <field name="view_id" ref="view_project"/>
+            <field name="view_id" ref="project.view_project"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
             <field name="context">{'search_default_Current': 1, 'search_default_account_class':False, 'default_account_class':False}</field>
             <field name="help" type="html">
