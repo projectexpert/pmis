@@ -116,7 +116,7 @@
             <field name="context">{'search_default_Current': 1, 'search_default_account_class':False, 'default_account_class':False}</field>
         </record>
 
-        <menuitem action="open_view_project_wbs" id="project.menu_projects" name="Work Breakdown Structure" parent="project.menu_project_management" sequence="1"/>
+        <menuitem action="open_view_project_wbs" id="project.menu_projects" name="Work Breakdown Structure" parent="project.menu_project_management" sequence="1" string="Work Breakdown Structure"/>
         <menuitem action="open_view_project_projects" id="menu_project_wbs_projects" name="Projects" parent="project.menu_projects" sequence="2"/>
         <menuitem action="open_view_project_phases" id="menu_project_wbs_phases" name="Phases" parent="project.menu_projects" sequence="3"/>
         <menuitem action="open_view_project_deliverables" id="menu_project_wbs_deliverables" name="Deliverables" parent="project.menu_projects" sequence="4"/>
