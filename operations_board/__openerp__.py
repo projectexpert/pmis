@@ -24,16 +24,14 @@
     'version': '2.0.6',
     'category': 'Board/Projects & Services',
     'description': """
-        Central operations dashboard with all main menus
-        collected at the same place, a complete view of
-        all running tasks, issues, projects, leads,
-        helpdesk claims and leads/opportunities on the
-        same dash. A way to see what's going on in the
+        Central operations menu that collects all the
+        running tasks, issues, projects and leads/opportunities
+        on the same place. A way to see what's going on in the
         company.
 
         The menu is placed under the messaging menu.
     """,
-    'author': 'Matmoz d.o.o. (Didotech Group)',
+    'author': 'Matmoz d.o.o.',
     'website': 'http://www.matmoz.si',
     'license': 'AGPL-3',
     'depends': [

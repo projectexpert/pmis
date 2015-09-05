@@ -5,7 +5,7 @@
     'category': 'Reports',
     'summary': 'Extended Sale Reports',
     'description': """
-    Matmoz Custom Reports
+    Enhanced Sale Reports (sale order, invoice)
     - added company VAT n. on header
     - added due date, debt date and place of issue
     """,
