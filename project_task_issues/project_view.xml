@@ -9,7 +9,7 @@
             <field name="arch" type="xml">
                  <page string="Extra Info" position="after">
                     <page string="Issues">
-                        <field name="issue_ids"/>
+                        <field name="issue_ids" context="{'default_project_id': active_id}"/>
                     </page>
                  </page>
             </field>
