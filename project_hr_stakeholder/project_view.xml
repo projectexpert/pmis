@@ -11,50 +11,50 @@
             <field name="name">project.project.form</field>
             <field name="model">project.project</field>
             <field name="type">form</field>
-            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="inherit_id" ref="project_charter.view_project_form"/>
             <field name="arch" type="xml">
-            	<page string='Other Info' position="after">
-					<page groups="base.group_erp_manager" string="Stakeholders">                        
+            	<xpath expr='//form/sheet/notebook/page/notebook/page[@string="Requirements and Success"]' position="before">
+					<page groups="base.group_erp_manager" string="Stakeholders">
                         <field name="stakeholder_ids" nolabel="1" context="{'default_project_id': active_id}">
-                        	<tree editable="top" string="Stakeholders">       
-			                	<field name="partner_id"/>           
-			                    <field name="role_ids" widget="many2many_tags" />                                        
+                        	<tree editable="top" string="Stakeholders">
+			                	<field name="partner_id"/>
+			                    <field name="role_ids" widget="many2many_tags"/>
 								<field name="responsibility_ids" widget="many2many_tags"/>
 								<field name="influence"/>
 			                </tree>
 	                        <form string="Stakeholders">
 			                	<group colspan="4" col="4">
-				                    <field name="project_id" readonly="1"/>         
-				                    <field name="partner_id"/>                   
+				                    <field name="project_id" readonly="1"/>
+				                    <field name="partner_id"/>
 								</group>
-								<newline/>						                                        
+								<newline/>
 			                    <group colspan="6" col="6">
 			                    	<separator string="Roles and responsibilities" colspan="6"/>
-				                    <field name="role_ids" mode="tree,form" colspan="6"/>      
+				                    <field name="role_ids" mode="tree,form" colspan="6"/>
 				                    <field name="responsibility_ids" mode="tree,form" colspan="6"/>
-				                </group>									                
-				                <group colspan="6" col="6">	                                        
-				                    <field name="influence"/>	                    
-								</group>				                	        
+				                </group>
+				                <group colspan="6" col="6">
+				                    <field name="influence"/>
+								</group>
 			                </form>
-                        </field>                                                    
-                    </page> 	            		
-				</page>	 				                            	                        
-            </field>            	        
-        </record>   	
+                        </field>
+                    </page>
+				</xpath>
+            </field>
+        </record>
 
 #---------------------------------------------------------------------------------------------------------
 #   Extend the menus
 #---------------------------------------------------------------------------------------------------------
-		<menuitem id="project_hr_stakeholder_menu" 
-			name="Stakeholders" 
-			parent="analytic_plan.project_plan" 
+		<menuitem id="project_hr_stakeholder_menu"
+			name="Stakeholders"
+			parent="analytic_plan.project_plan"
 			sequence="10"
-			groups="project.group_project_manager,project.group_project_user" />
-		
-		<menuitem id="project_hr_stakeholder_menu_project_config_address_book" 
-			name="Stakeholders" 
-			parent="base.menu_definitions" 
+			groups="project.group_project_manager,project.group_project_user"/>
+
+		<menuitem id="project_hr_stakeholder_menu_project_config_address_book"
+			name="Stakeholders"
+			parent="base.menu_definitions"
 			sequence="2"
             groups="project.group_project_manager"/>
 
@@ -62,7 +62,7 @@
             id="base.project_hr_stakeholder_menu_customer_form"
             parent="project_hr_stakeholder_menu"
             groups="project.group_project_manager,project.group_project_user"
-            sequence="1"/>    
+            sequence="1"/>
 
         <menuitem action="base.action_partner_supplier_form"
             id="base.project_hr_stakeholder_menu_supplier_form"

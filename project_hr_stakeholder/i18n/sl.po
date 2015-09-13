@@ -7,21 +7,68 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-30 08:02+0000\n"
-"PO-Revision-Date: 2015-08-03 13:08+0200\n"
-"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"POT-Creation-Date: 2015-09-13 08:41+0200\n"
+"PO-Revision-Date: 2015-09-13 09:16+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: sl\n"
-"X-Generator: Poedit 1.8.2\n"
+"X-Generator: Poedit 1.8.4\n"
+
+#. module: project_hr_stakeholder
+#: help:project.hr.stakeholder,responsibility_ids:0
+#: help:project.hr.stakeholder,role_ids:0
+msgid ""
+"\n"
+"            The assignment of the roles and responsibilities determines what "
+"actions the project manager,\n"
+"            project team member,or individual contributor will have in the "
+"project. Roles and responsibilities\n"
+"             generally support the project scope since this is the required "
+"work for the project.\n"
+"            "
+msgstr ""
+"\n"
+"            Dodelitev vlog in odgovornosti določi, katere naloge bodo imeli "
+"upravitelj projekta, član\n"
+"            projektne ekipe ali posamezni udeleženec, pri projektu. Vloge in "
+"odgovornosti običajno\n"
+"             podpirajo projektno področje, glede na to, da govorimo o "
+"potrebnih opravilih na projektu.\n"
+"            "
 
 #. module: project_hr_stakeholder
 #: model:project.hr.responsibility,name:project_hr_stakeholder.project_hr_responsibility_accountable
 msgid "Accountable"
 msgstr "Vrhovni odgovorni"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_bp
+msgid "Business partner"
+msgstr "Poslovni partner"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,description:project_hr_stakeholder.project_hr_role_bp
+msgid ""
+"Business partners.\n"
+"Business partners are external organizations that have a special "
+"relationship with\n"
+"the enterprise, sometimes attained through a certification process. Business "
+"partners provide specialized\n"
+"expertise or fill a specified role such as installation, customization, "
+"training, or support.\n"
+"            "
+msgstr ""
+"Poslovni partnerji.\n"
+"Poslovni partnerji so zunanje organizacije, ki so v razmerju z našo družbo,\n"
+"včasih pridobljeni preko procesa certificiranja. Poslovni partnerji "
+"zagotavljajo specifična\n"
+"znanja za zapolnitev določene vloge, kot vgradnja, predelava, usposabljanje "
+"ali podpora.\n"
+"            "
 
 #. module: project_hr_stakeholder
 #: field:project.hr.responsibility,code:0 field:project.hr.role,code:0
@@ -35,8 +82,7 @@ msgstr "Svetovalec"
 
 #. module: project_hr_stakeholder
 #: field:project.hr.responsibility,create_uid:0
-#: field:project.hr.role,create_uid:0
-#: field:project.hr.stakeholder,create_uid:0
+#: field:project.hr.role,create_uid:0 field:project.hr.stakeholder,create_uid:0
 msgid "Created by"
 msgstr "Ustvaril"
 
@@ -46,6 +92,47 @@ msgstr "Ustvaril"
 #: field:project.hr.stakeholder,create_date:0
 msgid "Created on"
 msgstr "Ustvarjeno"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_cu
+msgid "Customer or User"
+msgstr "Kupec ali uporabnik"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,description:project_hr_stakeholder.project_hr_role_cu
+msgid ""
+"Customers and users.\n"
+"Customers are the persons or organizations who will approve and manage the\n"
+"project’s product, service, or result. Users are the persons or "
+"organizations who will use the project’s\n"
+"product, service, or result. Customers and users may be internal or external "
+"to the performing organization\n"
+"and may also exist in multiple layers. For example, the customers for a new "
+"pharmaceutical product\n"
+"could include the doctors who prescribe it, the patients who use it and the "
+"insurers who pay for it. In some\n"
+"application areas, customers and users are synonymous, while in others, "
+"customers refer to the entity\n"
+"acquiring the project’s product, and users refer to those who will directly "
+"utilize the project’s product.\n"
+"            "
+msgstr ""
+"Kupci in uporabniki.\n"
+"Kupci so osebe in organizacije, ki odobrijo ali upravljajo projektne "
+"proizvode, storitve\n"
+"ali rezultate. Uporabniki so osebe ali organizacije, ki bodo uporabljali "
+"projektni proizvod,\n"
+"storitev ali rezultat. Kupci in uporabniki so lahko notranji ali zunanji in "
+"lahko tudi obstajajo\n"
+"v več plasteh. Npr. kupci novega farmacevtskega proizvoda bi lahko "
+"vključevali zdravnike,\n"
+"ki jih predpisujejo, paciente, ki jih uporabljajo in zavarovalnice, ki zanje "
+"plačujejo. Na nekaterih\n"
+"področjih uporabe, so kupci in uporabniki sinonim, medtem, ko so na drugih "
+"kupci le entiteta,\n"
+"ki kupuje projektni proizvod, uporabniki pa tisti, ki bodo ta proizvod "
+"uporabljali.\n"
+"            "
 
 #. module: project_hr_stakeholder
 #: model:ir.actions.act_window,help:project_hr_stakeholder.action_project_hr_responsibility_tree
@@ -65,6 +152,44 @@ msgstr "Določite vloge udeležencev projekta."
 #: field:project.hr.role,description:0 field:project.hr.stakeholder,name:0
 msgid "Description"
 msgstr "Opis"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_fm
+msgid "Functional Manager"
+msgstr "Področni upravitelj"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,description:project_hr_stakeholder.project_hr_role_fm
+msgid ""
+"Functional managers.\n"
+"Functional managers are key individuals who play a management role within\n"
+"an administrative or functional area of the business, such as human "
+"resources, finance, accounting, or\n"
+"procurement. They are assigned their own permanent staff to carry out the "
+"ongoing work, and they have\n"
+"a clear directive to manage all tasks within their functional area of "
+"responsibility. The functional manager\n"
+"may provide subject matter expertise or their function may provide services "
+"to the project.\n"
+"            "
+msgstr ""
+"Področni upravitelji.\n"
+"Področni upravitelji so ključni posamezniki, ki imajo upraviteljsko vlogo v "
+"administrativnih\n"
+"ali funkcionalnih področjih poslovanja, kot npr. kadrovanje, finance, "
+"računovodstvo ali\n"
+"oskrba. Za izvedbo tekočega dela razpolagajo z lastnim stalno dodeljenim "
+"osebjem in imajo\n"
+"jasne pristojnosti za upravljanje vseh opravil v sklopu njihovega "
+"funkcionalnega področja. Področni\n"
+"upravitelj lahko zagotovi predmetno izvedenstvo ali pa njihova funkcija "
+"zagotovi storitve v sklopu projekta.\n"
+"            "
+
+#. module: project_hr_stakeholder
+#: view:project.hr.stakeholder:project_hr_stakeholder.view_project_hr_stakeholder_search
+msgid "Group By"
+msgstr "Združeno po"
 
 #. module: project_hr_stakeholder
 #: field:project.hr.responsibility,id:0 field:project.hr.role,id:0
@@ -90,15 +215,9 @@ msgstr "Zadnjič posodobil"
 
 #. module: project_hr_stakeholder
 #: field:project.hr.responsibility,write_date:0
-#: field:project.hr.role,write_date:0
-#: field:project.hr.stakeholder,write_date:0
+#: field:project.hr.role,write_date:0 field:project.hr.stakeholder,write_date:0
 msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
-
-#. module: project_hr_stakeholder
-#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_lm
-msgid "Line Manager"
-msgstr "Delovodja"
 
 #. module: project_hr_stakeholder
 #: field:project.hr.responsibility,name:0 field:project.hr.role,name:0
@@ -106,17 +225,60 @@ msgid "Name"
 msgstr "Naziv"
 
 #. module: project_hr_stakeholder
-#: view:project.project:project_hr_stakeholder.edit_project
-msgid "Other Info"
-msgstr "Ostale informacije"
+#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_og
+msgid "Organizational Group"
+msgstr "Organizacijska skupina"
 
 #. module: project_hr_stakeholder
+#: model:project.hr.role,description:project_hr_stakeholder.project_hr_role_og
+msgid ""
+"Organizational groups.\n"
+"Organizational groups are internal stakeholders who are affected by the "
+"activities\n"
+"of the project team. Examples of various business elements of an "
+"organization that may be affected by\n"
+"the project include marketing and sales, human resources, legal, finance, "
+"operations, manufacturing, and\n"
+"customer service. These groups support the business environment where "
+"projects are executed, and\n"
+"are therefore affected by the activities of the project. As a result, there "
+"is generally a significant amount\n"
+"of interaction between the various business elements of an organization and "
+"the project team as they\n"
+"work together to achieve project goals. These groups may provide input to "
+"requirements and accept\n"
+"deliverables necessary for a smooth transition to production or related "
+"operations.\n"
+"            "
+msgstr ""
+"Organizacijske skupine.\n"
+"Organizacijske skupine so notranji deležniki, na katere vplivajo dejavnosti "
+"projektne ekipe.\n"
+"Primeri različnih poslovnih elementov organizacije, na katere lahko projekt "
+"vpliva, vključujejo\n"
+"marketing in prodajo, kadrovsko, pravno in finančno službo, operativo, "
+"proizvodnjo in\n"
+"po-prodajne storitve. Te skupine podpirajo poslovno okolje, kjer se projekti "
+"izvajajo in tako\n"
+"dejavnosti projektov vplivajo nanje. Iz tega izhaja znatno število "
+"interakcij med različnimi\n"
+"poslovnimi členi organizacije in projektno ekipo, saj delajo na skupnem "
+"cilju doseganja\n"
+"projektnih ciljev. Te skupine zagotovijo vhodne podatke o zahtevah in po "
+"potrebi sprejemajo\n"
+"projektne proizvode za lažjo tranzicijo k proizvodnji ali povezanim "
+"operacijam.\n"
+"            "
+
+#. module: project_hr_stakeholder
+#: view:project.hr.stakeholder:project_hr_stakeholder.view_project_hr_stakeholder_search
 #: field:project.hr.stakeholder,partner_id:0
 msgid "Partner"
 msgstr "Partner"
 
 #. module: project_hr_stakeholder
 #: model:ir.model,name:project_hr_stakeholder.model_project_project
+#: view:project.hr.stakeholder:project_hr_stakeholder.view_project_hr_stakeholder_search
 #: field:project.hr.stakeholder,project_id:0
 msgid "Project"
 msgstr "Projekt"
@@ -150,27 +312,29 @@ msgstr "Pokrovitelj projekta"
 #. module: project_hr_stakeholder
 #: model:ir.model,name:project_hr_stakeholder.model_project_hr_stakeholder
 msgid "Project Stakeholder"
-msgstr "Projektni udeleženec"
+msgstr "Projektni deležnik"
 
 #. module: project_hr_stakeholder
 #: help:project.hr.stakeholder,responsibilities_name_str:0
 msgid "Project Stakeholder responsibilities"
-msgstr "Odgovornosti projektnih udeležencev"
+msgstr "Odgovornosti projektnih deležnikov"
 
 #. module: project_hr_stakeholder
 #: help:project.hr.stakeholder,roles_name_str:0
 msgid "Project Stakeholder roles"
-msgstr "Vloge projektnih udeležencev"
+msgstr "Vloge projektnih deležnikov"
 
 #. module: project_hr_stakeholder
 #: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_stakeholder_tree
 #: model:ir.ui.menu,name:project_hr_stakeholder.menu_project_hr_stakeholder_view
 #: view:project.hr.stakeholder:project_hr_stakeholder.view_project_hr_stakeholder_search
 msgid "Project Stakeholders"
-msgstr "Projektni udeleženci"
+msgstr "Projektni deležniki"
 
 #. module: project_hr_stakeholder
-#: model:ir.ui.menu,name:project_hr_stakeholder.menu_responsibilities_config
+#: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_responsibility_tree
+#: model:ir.ui.menu,name:project_hr_stakeholder.menu_project_hr_responsibility_view
+#: model:ir.ui.menu,name:project_hr_stakeholder.menu_project_hr_role_view
 #: field:project.hr.stakeholder,responsibilities_name_str:0
 #: field:project.hr.stakeholder,responsibility_ids:0
 msgid "Responsibilities"
@@ -183,8 +347,6 @@ msgstr "Odgovorni"
 
 #. module: project_hr_stakeholder
 #: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_role_tree
-#: model:ir.ui.menu,name:project_hr_stakeholder.menu_project_hr_role_view
-#: model:ir.ui.menu,name:project_hr_stakeholder.menu_roles_config
 #: field:project.hr.stakeholder,role_ids:0
 #: field:project.hr.stakeholder,roles_name_str:0
 msgid "Roles"
@@ -197,6 +359,77 @@ msgid "Roles and responsibilities"
 msgstr "Vloge in odgovornosti"
 
 #. module: project_hr_stakeholder
+#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_se
+msgid "Seller"
+msgstr "Prodajalec"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,description:project_hr_stakeholder.project_hr_role_se
+msgid ""
+"Sellers.\n"
+"Sellers, also called vendors, suppliers, or contractors, are external "
+"companies that enter\n"
+"into a contractual agreement to provide components or services necessary for "
+"the project.\n"
+"            "
+msgstr ""
+"Prodajalci.\n"
+"Prodajalci, včasih tudi dobavitelji, pod-izvajalci, pogodbeniki, so zunanje "
+"družbe, ki vstopajo\n"
+"v pogodbeni odnos za zagotavljanje komponent ali storitev potrebnih za "
+"projekt.\n"
+"            "
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,description:project_hr_stakeholder.project_hr_role_sp
+msgid ""
+"Sponsor.\n"
+"\t\t\tA sponsor is the person or group who provides resources and support "
+"for the project and is\n"
+"accountable for enabling success. The sponsor may be external or internal to "
+"the project manager’s\n"
+"organization. From initial conception through project closure, the sponsor "
+"promotes the project. This\n"
+"includes serving as spokesperson to higher levels of management to gather "
+"support throughout the\n"
+"organization and promoting the benefits the project brings. The sponsor "
+"leads the project through the\n"
+"initiating processes until formally authorized, and plays a significant role "
+"in the development of the initial\n"
+"scope and charter. For issues that are beyond the control of the project "
+"manager, the sponsor serves\n"
+"as an escalation path. The sponsor may also be involved in other important "
+"issues such as authorizing\n"
+"changes in scope, phase-end reviews, and go/no-go decisions when risks are "
+"particularly high. The\n"
+"sponsor also ensures a smooth transfer of the project’s deliverables into "
+"the business of the requesting\n"
+"organization after project closure.\n"
+"            "
+msgstr ""
+"Pokrovitelj.\n"
+"\t\t\tPokrovitelj je oseba ali skupina, ki projektu zagotavlja vire in "
+"podporo in je vrhovno odgovorna za\n"
+"njegov uspeh. Pokrovitelj je lahko zunaj ali znotraj organizacije "
+"projektnega upravitelja. Od začetne\n"
+"zasnove do zaključka projekta pokrovitelj promovira projekt. To vključuje "
+"zagovarjanje pred višjimi nivoji\n"
+"upravljanja za pridobitev podpore v sklopu organizacije in promoviranje "
+"koristi, ki jih projekt prinaša.\n"
+"Pokrovitelj vodi projekt skozi procese snovanja do formalne odobritve in "
+"igra pomembno vlogo pri razvoju\n"
+"začetnega obsega in statuta. Za problematiko, ki je izven nadzora "
+"projektnega upravitelja, pokrovitelj\n"
+"predstavlja višjo stopnjo. Pokrovitelj je lahko vpleten tudi v druge "
+"pomembne zadeve, kot so spremembe\n"
+"pooblastil v obsegu, pregledi ob zaključevanju faz in v sprejemanje končnih "
+"odločitev, kadar so tveganja\n"
+"še posebej visoka. Pokrovitelj zagotavlja tudi gladek prehod projektnih "
+"proizvodov v poslovanje\n"
+"organizacije, ki jih zahteva, po zaključku projekta.\n"
+"            "
+
+#. module: project_hr_stakeholder
 #: model:ir.ui.menu,name:project_hr_stakeholder.project_hr_stakeholder_menu
 #: model:ir.ui.menu,name:project_hr_stakeholder.project_hr_stakeholder_menu_project_config_address_book
 #: view:project.hr.stakeholder:project_hr_stakeholder.project_hr_stakeholder_edit
@@ -205,93 +438,72 @@ msgstr "Vloge in odgovornosti"
 #: view:project.project:project_hr_stakeholder.edit_project
 #: field:project.project,stakeholder_ids:0
 msgid "Stakeholders"
-msgstr "Udeleženci"
-
-#. module: project_hr_stakeholder
-#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_tm
-msgid "Team Member"
-msgstr "Član ekipe"
-
-#. module: project_hr_stakeholder
-#: help:project.hr.stakeholder,responsibility_ids:0
-#: help:project.hr.stakeholder,role_ids:0
-msgid ""
-"The assignment of the roles and responsibilities determines what actions the "
-"project manager,project team member,or individual contributor will have in "
-"the project. Roles and responsibilities generally support the project scope "
-"since this is the required work for the project."
-msgstr ""
-"Dodelitev vlog in odgovornosti določi, katere naloge bodo imeli upravitelj "
-"projekta, član projektne ekipe ali posamezni udeleženec, pri projektu. Vloge "
-"in odgovornosti običajno podpirajo projektno področje, glede na to, da "
-"govorimo o potrebnih opravilih na projektu."
+msgstr "Deležniki"
 
 #. module: project_hr_stakeholder
 #: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_accountable
 msgid ""
 "The one ultimately answerable for the correct and thorough completion of "
 "the \n"
-"            \tdeliverable or task, and the one from whom Responsible is "
-"delegated the work.\n"
-"            \tIn other words, an Accountable must sign off (Approve) on work "
-"that Responsible provides. \n"
-"            \tThere must be only one Accountable specified for each task or "
-"deliverable.\n"
+"deliverable or task, and the one from whom Responsible is delegated the "
+"work.\n"
+"In other words, an Accountable must sign off (Approve) on work that "
+"Responsible provides. \n"
+"There must be only one Accountable specified for each task or deliverable.\n"
 "            \t"
 msgstr ""
 "Tisti, ki na koncu odgovarja za pravilno in temeljito dokončanje opravila \n"
-"            \tali predaje in tisti, ki je odgovornemu delegiral delo. Z "
-"drugimi besedami, \n"
-"            \tvrhovni odgovorni je tisti, ki mora podpisati (odobriti) delo, "
-"ki ga odgovorni opravi.\n"
-"            \tZa vsako opravilo ali predajo mora biti določen le en vrhovni "
-"odgovorni.\n"
+"ali predaje in tisti, ki je odgovornemu delegiral delo. Z drugimi "
+"besedami, \n"
+"vrhovni odgovorni je tisti, ki mora podpisati (odobriti) delo, ki ga "
+"odgovorni opravi.\n"
+"Za vsako opravilo ali predajo mora biti določen le en vrhovni odgovorni.\n"
 "            \t"
 
 #. module: project_hr_stakeholder
 #: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_informed
 msgid ""
 "Those who are kept up-to-date on progress, \n"
-"            \toften only on completion of the task or deliverable; \n"
-"            \tand with whom there is just one-way communication\n"
+"often only on completion of the task or deliverable; \n"
+"and with whom there is just one-way communication\n"
 "            "
 msgstr ""
 "Tisti, katere obveščamo o napredovanju, \n"
-"            \tobičajno šele ob dokončanju opravila ali primopredaji; \n"
-"            \tin s katerimi komunikacija poteka enosmerno\n"
+"običajno šele ob dokončanju opravila ali primopredaji; \n"
+"in s katerimi komunikacija poteka enosmerno\n"
 "            "
 
 #. module: project_hr_stakeholder
 #: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_responsible
 msgid ""
 "Those who do the work to achieve the task. \n"
-"            \tThere is typically one role with a participation type of "
-"Responsible, \n"
-"            \talthough others can be delegated to assist in the work "
-"required.\n"
+"There is typically one role with a participation type of Responsible, \n"
+"although others can be delegated to assist in the work required.\n"
 "            \t"
 msgstr ""
 "Tisti, ki opravijo delo na opravilu. \n"
-"            Običajno je ena vloga tipa sodelovanja Odgovorni, čeprav, \n"
-"            se lahko delegira tudi druge, da pomagajo pri delu, ko je "
-"potrebno.\n"
-"            "
+"Običajno je ena vloga tipa sodelovanja Odgovorni, čeprav, \n"
+"se lahko delegira tudi druge, da pomagajo pri delu, ko je potrebno.\n"
+"            \t"
 
 #. module: project_hr_stakeholder
 #: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_consulted
 msgid ""
 "Those whose opinions are sought, \n"
-"            \ttypically subject matter experts; and with whom there is two-"
-"way communication.\n"
+"typically subject matter experts; and with whom there is two-way "
+"communication.\n"
 "            \t"
 msgstr ""
 "Tistih, katerih mnenje se upošteva, \n"
-"            \tobičajno izvedenci za obravnavano zadevo; in s katerimi poteka "
-"dvosmerna komunikacija.\n"
+"običajno izvedenci za obravnavano zadevo; in s katerimi poteka dvosmerna "
+"komunikacija.\n"
 "            \t"
 
-#. module: project_hr_stakeholder
-#: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_responsibility_tree
-#: model:ir.ui.menu,name:project_hr_stakeholder.menu_project_hr_responsibility_view
-msgid "responsibilities"
-msgstr "odgovornosti"
+#~ msgid "Other Info"
+#~ msgstr "Ostale informacije"
+
+#~ msgid "Team Member"
+#~ msgstr "Član ekipe"
+
+#~ msgid "responsibilities"
+#~ msgstr "odgovornosti"

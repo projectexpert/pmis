@@ -43,7 +43,7 @@
         </record>
 
         <record id="action_project_hr_responsibility_tree" model="ir.actions.act_window">
-            <field name="name">responsibilities</field>
+            <field name="name">Responsibilities</field>
             <field name="res_model">project.hr.responsibility</field>
             <field name="view_id" ref="view_project_hr_responsibility_tree"/>
             <field name="view_mode">tree,form</field>
@@ -51,7 +51,7 @@
             <field name="help">Define the responsibilities for stakeholders in projects.</field>
         </record>
 
-        <menuitem id="menu_responsibilities_config" name="Responsibilities" parent="base.menu_definitions" sequence="1"/>
-        <menuitem action="action_project_hr_responsibility_tree" id="menu_project_hr_responsibility_view" parent="menu_responsibilities_config" sequence="1"/>                  	                    
+        <!--<menuitem id="menu_responsibilities_config" name="Responsibilities" parent="base.menu_definitions" sequence="1"/>-->
+        <menuitem action="action_project_hr_responsibility_tree" id="menu_project_hr_responsibility_view" parent="project_charter.menu_stakeholders_config" sequence="1"/>                  	                    
     </data>
 </openerp>

@@ -11,7 +11,7 @@
                         class="oe_inline oe_stat_button"
                         name="%(action_analytic_resource_plan_line_open_form)d"
                         type="action"
-                        icon="fa-pencil-square-o"
+                        icon="fa-shopping-cart"
                         context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
                         groups="project.group_project_manager">
                         <div>Resource plan</div>

@@ -231,11 +231,11 @@
                                     <button name="%(create_wbs_element)d"
                                       string="Create child WBS element"
                                       type="action"
-                                      context="{'default_parent_id': analytic_account_id,'default_partner_id': partner_id,'default_user_id': user_id}"/>
+                                      context="{'default_parent_id': analytic_account_id,'default_partner_id': partner_id,'default_user_id': user_id, 'default_state': 'draft'}"/>
                                 </group>
-                                <group string="Work Breakdown Structure">
+                                <tree string="Work Breakdown Structure" editable="bottom">
                                     <field name="project_child_complete_ids" nolabel="1"/>
-                                </group>
+                                </tree>
                             </page>
                             <page string="Child Stages">
                                 <group string="Child Stages" name="child_stages">

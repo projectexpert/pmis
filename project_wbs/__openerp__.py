@@ -1,6 +1,6 @@
 {
     'name': 'Work Breakdown Structure',
-    'version': '2.0.2',
+    'version': '2.0.3',
     'author':   'Eficent, '
                 'Matmoz d.o.o.',
     'contributors': [
@@ -11,11 +11,11 @@
                 'http://www.matmoz.si',
     'category': 'Project Management',
     'depends':  [
-                    'project',
-                    'analytic',
-                    'project_issue',
-                    'account_analytic_analysis'
-                ],
+        'project',
+        'analytic',
+        'project_issue',
+        'account_analytic_analysis'
+    ],
     'license': 'AGPL-3',
     'summary': 'Project Work Breakdown Structure',
     'description': """
