@@ -26,8 +26,7 @@
     'category': 'Project Management',
     'sequence': 9,
     'summary': 'Project Management Information System',
-    'description':
-        """
+    'description': """
 Installs the dependencies needed to set up a Project Management
 Information System on Odoo framework. Manual setup is needed to
 set the planning accounts on products and human resources.
@@ -58,7 +57,8 @@ set the planning accounts on products and human resources.
         'operations_board',
         'project_document_page',
         'project_task_issues',
-        'risk_management'
+        'risk_management',
+        'change_management'
     ],
     'data': [],
     'test': [],

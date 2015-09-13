@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_change_management_category_manager,change.management.category.manager.access,model_change_management_category,project.group_project_manager,1,1,1,1
+access_change_management_category_user,change.management.category.user.access,model_change_management_category,project.group_project_user,1,0,0,0
+access_change_management_proximity_manager,change.management.proximity.manager.access,model_change_management_proximity,project.group_project_manager,1,1,1,1
+access_change_management_proximity_user,change.management.proximity.user.access,model_change_management_proximity,project.group_project_user,1,0,0,0
+access_change_management_change_manager,change.management.change.manager.access,model_change_management_change,project.group_project_manager,1,1,1,1
+access_change_management_change_user,change.management.change.user.access,model_change_management_change,project.group_project_user,1,1,1,0

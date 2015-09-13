@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
     <data>
+        <menuitem id="project_management" 
+			name="Management" 
+			parent="base.menu_main_pm" 
+			sequence="3"/>
+		<menuitem id="menu_tasks_config_title"
+			name="Tasks"
+			parent="base.menu_definitions"
+			sequence="1"/>
+			<menuitem id="project.menu_tasks_config"
+				name="GTD"
+				parent="menu_tasks_config_title"
+				sequence="1"/>
+			<menuitem id="project.menu_task_types_view"
+				name="Task Stages"
+				action="project.open_task_type_form"
+				parent="menu_tasks_config_title"
+				sequence="2"/>
+		<menuitem id="menu_stakeholders_config"
+			name="Stakeholders"
+			parent="base.menu_definitions"
+			sequence="3"/>
         <!-- Inherited Views -->
         <!-- project.project -->
         <!-- form -->
@@ -10,15 +31,113 @@
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
                 <xpath expr="//form/sheet/notebook/page" position="before">
-                    <page name="charter" string="Project Charter">
+                    <page name="charter" string="Charter/Plan">
                         <notebook>
-                            <page string="Project Description">
-                                <group string="Project Description">
+                            <page string="Project Purpose">
+                                <group string="Project Purpose">
                                     <field name="notes" nolabel="1" widget="text_html"/>
                                 </group>
                             </page>
+                            <!--add project broad scope-->
+                            <page string="Scope">
+                                <button help="Projects"
+                                    class="oe_inline oe_stat_button"
+                                    name="%(project_wbs.open_view_project_projects)d"
+                                    type="action"
+                                    icon="fa-sitemap"
+                                    context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
+                                    groups="project.group_project_manager">
+                                    <div>Projects</div>
+                                </button>
+                                <button help="Phases"
+                                    class="oe_inline oe_stat_button"
+                                    name="%(project_wbs.open_view_project_phases)d"
+                                    type="action"
+                                    icon="fa-sitemap"
+                                    context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
+                                    groups="project.group_project_manager">
+                                    <div>Phases</div>
+                                </button>
+                                <button help="Deliverables"
+                                    class="oe_inline oe_stat_button"
+                                    name="%(project_wbs.open_view_project_deliverables)d"
+                                    type="action"
+                                    icon="fa-sitemap"
+                                    context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
+                                    groups="project.group_project_manager">
+                                    <div>Deliverables</div>
+                                </button>
+                                <button help="Work Packages"
+                                    class="oe_inline oe_stat_button"
+                                    name="%(project_wbs.open_view_project_work_packages)d"
+                                    type="action"
+                                    icon="fa-sitemap"
+                                    context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
+                                    groups="project.group_project_manager">
+                                    <div>Work Packages</div>
+                                </button>
+                                <group string="Project Scope">
+                                <field name="project_child_complete_ids" nolabel="1">
+                                    <tree editable="bottom" string="WBS elements"
+                                          colors="grey:state in ('cancelled','done','close');blue:account_class == 'work_package';green:account_class == 'phase';magenta:account_class == 'deliverable'"
+                                          fonts="bold:state == 'open'">
+                                        <field name="message_unread" invisible="1"/>
+                                        <button string="Parent WBS element"
+                                                name="action_openParentTreeView"
+                                                type="object"
+                                                icon="STOCK_GO_UP" attrs="{'invisible': [('parent_id', '=', False)]}"/>
+                                        <button string="Child WBS elements"
+                                                name="action_openChildTreeView"
+                                                type="object"
+                                                icon="STOCK_GO_DOWN"/>
+                                        <button string="Project Form View"
+                                                name="action_open_view_project_form"
+                                                type="object"
+                                                icon="gtk-edit"/>
+                                        <field name="complete_wbs_code" string="Code"/>
+                                        <field name="wbs_indent"/>
+                                        <field name="name" string="Name"/>
+                                        <field name="parent_id" on_change="on_change_parent(parent_id)" string="Parent"/>
+                                        <field name="account_class" string="Class"/>
+                                        <field name="user_id"/>
+                                        <field name="date_start" string="Start Date"/>
+                                        <field name="date" string="End Date"/>
+                                        <field name="stage_id"/>
+                                        <field name="state" invisible="True"/>
+                                        <field name="child_ids" invisible="True"/>
+                                        <field name="progress_rate" readonly="True"/>
+                                    </tree>
+                                </field>
+                                </group>
+                                <group string="Project Exclusions">
+                                    <!--<group>
+                                        <field name="project_scope_ids" nolabel="1">
+                                            <tree editable="bottom">
+                                                <field name="scope"/>
+                                             </tree>
+                                            <form>
+                                                <group>
+                                                    <field name="scope"/>                                       
+                                                </group>
+                                           </form>
+                                        </field>
+                                    </group>-->
+                                    <group>
+                                        <field name="project_outscope_ids" nolabel="1">
+                                            <tree editable="bottom">
+                                                <field name="out_scope" />
+                                             </tree>
+                                            <form>
+                                                <group>                                 
+                                                    <field name="out_scope" />
+                                                </group>
+                                           </form>
+                                        </field>
+                                    </group>
+                                </group>
+                            </page>
                             <!--add project stakeholders list-->
-                            <page string="Stakeholders">
+                            <!--<page string="Stakeholders">
                             <group string="Stakeholders">                        
                                 <field name="stakeholder_ids" nolabel="1" context="{'default_project_id': active_id}">
                                     <tree editable="top" string="Stakeholders">       
@@ -44,70 +163,41 @@
                                     </form>
                                 </field>                                                    
                             </group>
-                            </page>
-                            <!--add project broad scope-->
-                            <page string="Broad Scope">
-                                <group string="Boundaries">
-                                    <group>
-                                        <field name="project_scope_ids" nolabel="1">
-                                            <!--make tree editable to avoid form input-->
-                                            <tree editable="bottom">
-                                                <field name="scope"/>
-                                             </tree>
-                                            <form>
-                                                <group>
-                                                    <field name="scope"/>                                       
-                                                </group>
-                                           </form>
-                                        </field>
-                                    </group>
-                                    <group>
-                                        <field name="project_outscope_ids" nolabel="1">
-                                            <!--make tree editable to avoid form input-->
-                                            <tree editable="bottom">
-                                                <field name="out_scope" />
-                                             </tree>
-                                            <form>
-                                                <group>                                 
-                                                    <field name="out_scope" />
-                                                </group>
-                                           </form>
-                                        </field>
-                                    </group>
-                                </group>
-                            </page>
+                            </page>-->
                             <!--add project success criteria and stakeholder requirements-->
                             <!--aka approval requirements-->
-                            <page string="Success and Requirements">
-                                <group string="Success and Requirements">
-                                    <group>
-                                        <field name="project_success_ids" nolabel="1">
-                                            <!--make tree editable to avoid form input-->
-                                            <tree editable="bottom">
-                                                <field name="success"/>
-                                             </tree>
-                                            <form>
-                                                <group>
-                                                    <field name="success"/>                                       
-                                                </group>
-                                           </form>
-                                        </field>
-                                    </group>
-                                    <group>
-                                        <field name="project_requirement_ids" nolabel="1">
-                                            <!--make tree editable to avoid form input-->
-                                            <tree editable="bottom">
+                            <page string="Requirements and Success">
+                                <!--<group string="Requirements">
+                                    <field name="project_requirement_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="requirements"/>
+                                            <field name="partner_id"/>
+                                            <field name="issue_id"/>
+                                            <field name="status"/>
+                                         </tree>
+                                        <form>
+                                            <group>
                                                 <field name="requirements"/>
                                                 <field name="partner_id"/>
-                                             </tree>
-                                            <form>
-                                                <group>
-                                                    <field name="requirements"/>
-                                                    <field name="partner_id"/>
-                                                </group>
-                                           </form>
-                                        </field>
-                                    </group>
+                                                <field name="project_id"/>
+                                                <field name="issue_id" context="{'default_project_id': project_id}"/>
+                                                <field name="status"/>
+                                            </group>
+                                       </form>
+                                    </field>
+                                </group>-->
+                                <group string="Success and Acceptance Criteria">
+                                    <field name="project_success_ids" nolabel="1">
+                                        <!--make tree editable to avoid form input-->
+                                        <tree editable="bottom">
+                                            <field name="success"/>
+                                         </tree>
+                                        <form>
+                                            <group>
+                                                <field name="success"/>                                       
+                                            </group>
+                                       </form>
+                                    </field>
                                 </group>
                             </page>
                             <!--add constraints, assumptions aka high level risks list will be added by risk management module-->
@@ -134,7 +224,7 @@
                                     class="oe_inline oe_stat_button"
                                     name="%(analytic_resource_plan.action_analytic_resource_plan_line_open_form)d"
                                     type="action"
-                                    icon="fa-pencil-square-o"
+                                    icon="fa-shopping-cart"
                                     context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
                                     groups="project.group_project_manager">
                                     <div>Resource plan</div>
@@ -143,7 +233,7 @@
                                     class="oe_inline oe_stat_button"
                                     name="%(analytic_billing_plan.action_analytic_billing_plan_line_open_form)d"
                                     type="action"
-                                    icon="fa-pencil-square-o"
+                                    icon="fa-money"
                                     context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
                                     groups="project.group_project_manager">
                                     <div>Billing plan</div>

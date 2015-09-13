@@ -7,7 +7,7 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="project_hr_stakeholder.edit_project"/>
             <field name="arch" type="xml">
-            	<page string='Stakeholders' position="replace"/>
+            	<xpath expr='//form/sheet/notebook/page[@string="Stakeholders"]' position="replace"/>
             </field>            	        
         </record>
     </data>

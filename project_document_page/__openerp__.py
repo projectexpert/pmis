@@ -23,7 +23,7 @@
 ##############################################################################
 {
     'name': 'Document pages for project',
-    'version': '0.1.2',
+    'version': '0.2',
     'category': 'Project Management',
     'description': """This module allows linking of document pages to projects
         Based on the original project_wiki module from OpenERP 6.1 version

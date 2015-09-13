@@ -8,7 +8,7 @@
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
                 <page string="Project Stages" position="before" >
-                    <page string="Document pages" >
+                    <page string="Knowledge">
                         <field name="page_ids" nolabel="1"/>
                     </page>
                 </page>
@@ -19,8 +19,8 @@
             <field name="model">project.task</field>
             <field name="inherit_id" ref="project.view_task_form2"/>
             <field name="arch" type="xml">
-                <page string="Extra Info" position="after" >
-                    <page string="Document pages" >
+                <page string="Extra Info" position="after">
+                    <page string="Knowledge">
                         <field name="page_ids" nolabel="1"/>
                     </page>
                 </page>

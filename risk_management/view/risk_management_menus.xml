@@ -2,15 +2,10 @@
 <openerp>
 	<data>
 		<menuitem name="Risk Management"
-				id="menu_risk_top"
-				parent="base.menu_main_pm"
-				sequence="5"
-				groups="project.group_project_manager,project.group_project_user"/>
-	   
-			<menuitem name="Risk Management"
 				id="menu_risk_management"
-				parent="menu_risk_top"
-				sequence="1"/>
+				parent="project_charter.project_management"
+				sequence="2"
+				groups="project.group_project_manager,project.group_project_user"/>
 			<menuitem name="Risks"
 				id="menu_risks"
 				parent="menu_risk_management"
@@ -20,7 +15,7 @@
 				parent="menu_risk_management"
 				action="action_show_actions"/>
 	
-			<menuitem name="Risk Management"
+		<menuitem name="Risk Management"
 				id="menu_configuration_risks"
 				parent="base.menu_definitions"
 				groups="project.group_project_manager"/>

@@ -44,7 +44,8 @@ class risk_management_risk_response_category (models.Model):
     _description = 'Risk log response category table'
 
     type = fields.Selection(
-            [('threat', 'Threat'), ('opportunity', 'Opportunity')], 'Type')
+        [('threat', 'Threat'), ('opportunity', 'Opportunity')], 'Type'
+    )
     name = fields.Char(string='Response Category', size=64, required=True)
 
 risk_management_risk_response_category()

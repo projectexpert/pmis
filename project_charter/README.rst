@@ -9,9 +9,10 @@ document Project Charter, with all it's contents:
     - project charter
     - project description (with ckeditor4)
     - project scope
-    - project boundaries, assumptions and constraints
+    - project success and requirements
     - project stakeholders
     - resource and billing plan
+    - risk assesment integrated with risk management
 
 The project form is redesigned in a two-level notebook (to simulate sub menus) to keep
 the main project view less cluttered. It also aims to keep the insertion order oriented

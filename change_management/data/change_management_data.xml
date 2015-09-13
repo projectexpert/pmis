@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+<!--CATEGORY-->
+        <record id="change_management_category_feature" model="change.management.category">
+            <field name="name">Schedule</field>
+        </record>
+        <record id="change_management_category_extra" model="change.management.category">
+            <field name="name">Cost</field>
+        </record>
+        <record id="change_management_category_plan" model="change.management.category">
+            <field name="name">Scope</field>
+        </record>
+        <record id="change_management_deliverables" model="change.management.category">
+            <field name="name">Deliverables</field>
+        </record>
+        <record id="change_management_quality" model="change.management.category">
+            <field name="name">Testing/Quality</field>
+        </record>
+        <record id="change_management_resources" model="change.management.category">
+            <field name="name">Resources</field>
+        </record>
+        <record id="change_management_regulatory" model="change.management.category">
+            <field name="name">Regulatory Requirement</field>
+        </record>
+
+<!--PROXIMITY-->
+        <record id="change_management_proximity_imminent" model="change.management.proximity">
+            <field name="name">Imminent</field>
+        </record>
+        <record id="change_management_proximity_within_stage" model="change.management.proximity">
+            <field name="name">Within stage</field>
+        </record>
+        <record id="change_management_proximity_within_project" model="change.management.proximity">
+            <field name="name">Within project</field>
+        </record>
+        <record id="change_management_proximity_longterm" model="change.management.proximity">
+            <field name="name">Beyond project</field>
+        </record>
+
+<!--ENFORCING CATEGORY
+        <record id="change_management_change_response_category_threat_avoid" model="change.management.response.category">
+            <field name="type">threat</field>
+            <field name="name">Avoid</field>
+        </record>
+        <record id="change_management_change_response_category_threat_reduce" model="change.management.response.category">
+            <field name="type">threat</field>
+            <field name="name">Reduce</field>
+        </record>
+        <record id="change_management_change_response_category_threat_fall_back" model="change.management.response.category">
+            <field name="type">threat</field>
+            <field name="name">Fall Back</field>
+        </record>
+        <record id="change_management_change_response_category_threat_transfer" model="change.management.response.category">
+            <field name="type">threat</field>
+            <field name="name">Transfer</field>
+        </record>
+        <record id="change_management_change_response_category_threat_accept" model="change.management.response.category">
+            <field name="type">threat</field>
+            <field name="name">Accept</field>
+        </record>
+        <record id="change_management_change_response_category_threat_share" model="change.management.response.category">
+            <field name="type">threat</field>
+            <field name="name">Share</field>
+        </record>
+        <record id="change_management_change_response_category_opportunity_enhance" model="change.management.response.category">
+            <field name="type">opportunity</field>
+            <field name="name">Enhance</field>
+        </record>
+        <record id="change_management_change_response_category_opportunity_exploit" model="change.management.response.category">
+            <field name="type">opportunity</field>
+            <field name="name">Exploit</field>
+        </record>
+        <record id="change_management_change_response_category_opportunity_reject" model="change.management.response.category">
+            <field name="type">opportunity</field>
+            <field name="name">Reject</field>
+        </record>
+        <record id="change_management_change_response_category_opportunity_share" model="change.management.response.category">
+            <field name="type">opportunity</field>
+            <field name="name">Share</field>
+        </record>
+-->
+
+<!-- change-related subtypes for messaging / Chatter / STATUS -->
+        <record id="mt_change_draft" model="mail.message.subtype">
+            <field name="name">Changes In Draft</field>
+            <field name="res_model">change.management.change</field>
+            <field name="default" eval="False"/>
+            <field name="description">Change in draft</field>
+        </record>
+        <record id="mt_change_active" model="mail.message.subtype">
+            <field name="name">Change In Process</field>
+            <field name="res_model">change.management.change</field>
+            <field name="default" eval="False"/>
+            <field name="description">Change in process</field>
+        </record>
+        <record id="mt_change_rejected" model="mail.message.subtype">
+            <field name="name">Change Rejected</field>
+            <field name="res_model">change.management.change</field>
+            <field name="default" eval="False"/>
+            <field name="description">Change rejected</field>
+        </record>
+        <record id="mt_change_accepted" model="mail.message.subtype">
+            <field name="name">Change Approved</field>
+            <field name="res_model">change.management.change</field>
+            <field name="default" eval="False"/>
+            <field name="description">Change approved</field>
+        </record>
+        <record id="mt_change_deferred" model="mail.message.subtype">
+            <field name="name">Change Deferred</field>
+            <field name="res_model">change.management.change</field>
+            <field name="default" eval="False"/>
+            <field name="description">Change deferred</field>
+        </record>        
+    </data>
+</openerp>

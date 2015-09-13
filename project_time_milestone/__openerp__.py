@@ -32,7 +32,7 @@
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
     "category": "Project Management",
-    "depends": ["project", "project_time_schedule"],
+    "depends": ["project", "project_time_schedule", "project_charter"],
     "description": """
         This module introduces the possibility to classify tasks as milestones.
         - It is possible to introduce the Project Percentage of Completion and the invoice percentage,

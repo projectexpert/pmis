@@ -28,8 +28,8 @@ class project_task (models.Model):
     _inherit = 'project.task'
 
     risk_id = fields.Many2one(
-            'risk.management.risk', 'Action on Risk', readonly=True,
-            help="Task is an action on a risk identified by this label."
+        'risk.management.risk', 'Action on Risk', readonly=True,
+        help="Task is an action on a risk identified by this label."
     )
 
 project_task()
@@ -40,9 +40,9 @@ class project_project (models.Model):
     _inherit = 'project.project'
 
     risk_ids = fields.One2many(
-            'risk.management.risk',
-            'project_id',
-            'Project Risks'
-        )
+        'risk.management.risk',
+        'project_id',
+        'Project Risks'
+    )
 
 project_project()

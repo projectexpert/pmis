@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-23 08:46+0200\n"
-"PO-Revision-Date: 2015-08-23 09:19+0200\n"
+"POT-Creation-Date: 2015-09-13 09:20+0200\n"
+"PO-Revision-Date: 2015-09-13 09:24+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -16,50 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "X-Generator: Poedit 1.8.4\n"
-
-#. module: project_charter
-#: help:project.outscope,out_scope:0
-msgid ""
-"\n"
-"It is just as important to agree on what is OUT OF SCOPE as it\n"
-"is to define what is IN SCOPE as stakeholders will often have\n"
-"different ideas regarding what is supposed to be IN the\n"
-"project and what IS NOT. Obtain agreement up front to avoid\n"
-"unnecessary disputes later on.\n"
-"This is a useful task to conduct with key stakeholders and\n"
-"can help clarify issues at any time in the Initiation or\n"
-"Planning Phases.\n"
-"Examples of areas that could be examined and clarified\n"
-"include:\n"
-"\n"
-"* The type of deliverables that are in scope and out of scope\n"
-"* The major life-cycle processes that are in scope and out of\n"
-"   scope\n"
-"* The types of data that are in scope and out of scope\n"
-"* The data sources that are in scope or out of scope\n"
-"* The organisations that are in scope and out of scope\n"
-"* The major functionality that is in scope and out of scope\n"
-"        "
-msgstr ""
-"\n"
-"Strinjati se kaj je IZVEN OBSEGA, je enako pomembno\n"
-"kot določiti, kaj je V OBSEGU, saj imajo deležniki pogosto\n"
-"drugačne poglede glede tega, kaj projekt zajema in\n"
-"česa projekt ne zajema. Pridobite strinjanje, da se izognete\n"
-"nepotrebnim sporom v kasnejših fazah.\n"
-"To opravilo je zelo koristno in se izvaja s ključnimi\n"
-"deležniki, da se razjasni kakršnekoli trenja, kadarkoli v fazi\n"
-"zagona ali fazi planiranja.\n"
-"Primeri področij, ki se preučijo in razjasnijo vključujejo:\n"
-"\n"
-"* Tip dostav (proizvodov), ki so v ali izven obsega\n"
-"* Glavni procesi življenjskega cikla, ki so v ali izven\n"
-"   obsega\n"
-"* Tipi podatkov, ki so v ali izven obsega\n"
-"* Podatkovni viri, ki so v ali izven obsega\n"
-"* Organizacije, ki so v ali izven obsega\n"
-"* Glavne funkcije, ki so v ali izven obsega\n"
-"        "
 
 #. module: project_charter
 #: help:project.success,success:0
@@ -88,6 +44,10 @@ msgid ""
 "* Be readily understandable\n"
 "* Be few in number\n"
 "* Have the full support and commitment of key stakeholders\n"
+"\n"
+"Examples:\n"
+"* Maximum Deadline on ...\n"
+"* Maximum Budget = ...\n"
 "        "
 msgstr ""
 "\n"
@@ -113,6 +73,11 @@ msgstr ""
 "* razumljivi\n"
 "* maloštevilni\n"
 "* podprti s strani ključnih deležnikov\n"
+"\n"
+"\n"
+"Examples:\n"
+"* Maximum Deadline on ...\n"
+"* Maximum Budget = ...\n"
 "        "
 
 #. module: project_charter
@@ -135,105 +100,6 @@ msgstr ""
 "        "
 
 #. module: project_charter
-#: help:project.scope,scope:0
-msgid ""
-"\n"
-"The scope is what the project contains or delivers (i.e. the\n"
-"products or services). When starting to plan the scope of the\n"
-"project think about the BIG PICTURE first! At this level it\n"
-"is best to concentrate on the major deliverables and not to\n"
-"get bogged down with detail.\n"
-"Examples of areas that could be examined and clarified\n"
-"include:\n"
-"\n"
-"* The type of deliverables that are in scope and out of scope\n"
-"* The major life-cycle processes that are in scope and out of\n"
-"   scope\n"
-"* The types of data that are in scope and out of scope\n"
-"* The data sources that are in scope or out of scope\n"
-"* The organisations that are in scope and out of scope\n"
-"* The major functionality that is in scope and out of scope\n"
-"        "
-msgstr ""
-"\n"
-"Obseg je tisto, kar projekt vsebuje ali dobavi (npr.\n"
-"proizvodi ali storitve). Ob začetku planiranja obsega\n"
-"razmišljamo v sklopu 'velike slike'. Na tej stopnji se raje\n"
-"osredotočamo na glavne dobave in se ne ukvarjamo\n"
-"s podrobnostmi.\n"
-"Primeri področij, ki jih preučujemo in razjasnimo, so:\n"
-"\n"
-"* Tip dobav, ki so v ali izven obsega\n"
-"* Glavni procesi življenjskega cikla, ki so v ali izven\n"
-"   obsega\n"
-"* Tipi podatkov, ki so v ali izven obsega\n"
-"* Viri podatkov, ki so v ali izven obsega\n"
-"* Organizacije, ki so v ali izven obsega\n"
-"* Glavne funkcije, ki so v ali izven obsega\n"
-"        "
-
-#. module: project_charter
-#: help:project.requirement,requirements:0
-msgid ""
-"\n"
-"The user requirements of the project must be defined and\n"
-"documented. Approval and confirmation must be obtained\n"
-"before the project can proceed. To obtain agreement about\n"
-"needs:\n"
-"\n"
-"* Separate needs from wants\n"
-"* Group the needs that are similar\n"
-"* Prioritise needs (eg essential, nice to have)\n"
-"* Identify any conflicting needs\n"
-"* Negotiate agreement between stakeholders with\n"
-"   conflicting needs\n"
-"\n"
-"This process often requires a number of meetings with\n"
-"stakeholders. Stakeholders often express their needs in\n"
-"terms of a particular product or solution to the problem,\n"
-"which has created the need for the project in the first\n"
-"place. It is important to re-state the agreed needs in\n"
-"terms of “what the end product/service(s) of the project\n"
-"should do”.\n"
-"Stating the agreed needs in functional terms permits the\n"
-"project manager to offer a range of solutions to the client\n"
-"or key stakeholders. If the project outcomes are restricted\n"
-"to solutions offered by key stakeholders too early in the\n"
-"analysis process important alternative options might be\n"
-"overlooked. Document the final set of agreed requirements\n"
-"and obtain sign-off from all key stakeholders.\n"
-"        "
-msgstr ""
-"\n"
-"Zahteve deležnikov projekta morajo biti določene in\n"
-"dokumentirane. Pridobiti je potrebno potrditev in odobritev\n"
-"preden se projekt lahko nadaljuje. Za pridobitev dogovora o\n"
-"potrebah:\n"
-"\n"
-"* Ločite potrebe od želja\n"
-"* Združujte podobne potrebe\n"
-"* Prioritizacija potreb (npr. ključne, lepo bi bilo imeti, ...)\n"
-"* Določite morebitne konflikte med potrebami\n"
-"* Pogodite se za dogovor med deležniki s potrebami, ki\n"
-"   so v medsebojnih konfliktih\n"
-"\n"
-"Ta proces navadno zajema številčne sestanke z\n"
-"deležniki. Deležniki pogosto izražajo svoje potrebe v\n"
-"obliki določenega proizvoda ali rešitve tistega\n"
-"problema, ki je sploh povzročil potrebo po projektu.\n"
-"Pomembno je določiti dogovorjene potrebe v smislu\n"
-"“kaj naj končni proizvod/storitev projekta zmore\".\n"
-"\n"
-"Določanje dogovorjenih potreb v funkcionalnih okvirih\n"
-"omogoči upravitelju projekta, da ponudi kupcu ali ključnim\n"
-"deležnikom, več rešitev. Če so proizvodi projekta omejeni\n"
-"na prezgodaj deležnikom ponujene rešitve v procesu\n"
-"analize, lahko spregledamo pomembne alternativne\n"
-"opcije. Seznam dogovorjenih potreb dokumentiramo\n"
-"in pridobimo soglasje vseh ključnih deležnikov.\n"
-"        "
-
-#. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Assumptions, Constraints"
 msgstr "Predpostavke, omejitve"
@@ -250,13 +116,23 @@ msgstr "Obračun. plan"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Boundaries"
-msgstr "Meje"
+msgid "Charter/Plan"
+msgstr "Statut/Plan"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Broad Scope"
-msgstr "Grobi obseg"
+msgid "Child WBS elements"
+msgstr "Podrejeni členi"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Class"
+msgstr "Razred"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Code"
+msgstr "Koda"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_constraints
@@ -266,39 +142,59 @@ msgid "Constraints"
 msgstr "Omejitve"
 
 #. module: project_charter
-#: field:project.constraints,create_uid:0 field:project.outscope,create_uid:0
-#: field:project.requirement,create_uid:0 field:project.scope,create_uid:0
-#: field:project.success,create_uid:0
+#: field:project.constraints,create_uid:0 field:project.success,create_uid:0
 msgid "Created by"
 msgstr "Ustvaril"
 
 #. module: project_charter
-#: field:project.constraints,create_date:0 field:project.outscope,create_date:0
-#: field:project.requirement,create_date:0 field:project.scope,create_date:0
-#: field:project.success,create_date:0
+#: field:project.constraints,create_date:0 field:project.success,create_date:0
 msgid "Created on"
 msgstr "Ustvarjeno"
 
 #. module: project_charter
-#: field:project.constraints,id:0 field:project.outscope,id:0
-#: field:project.requirement,id:0 field:project.scope,id:0
-#: field:project.success,id:0
+#: field:project.success,success:0
+msgid "Criteria"
+msgstr "Kriterij"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Deliverables"
+msgstr "Dobave"
+
+#. module: project_charter
+#: model:ir.model,name:project_charter.model_document_page
+msgid "Document Page"
+msgstr "Stran dokumenta"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "End Date"
+msgstr "Končni datum"
+
+#. module: project_charter
+#: field:project.constraints,id:0 field:project.success,id:0
 msgid "ID"
 msgstr "ID"
 
 #. module: project_charter
-#: field:project.constraints,write_uid:0 field:project.outscope,write_uid:0
-#: field:project.requirement,write_uid:0 field:project.scope,write_uid:0
-#: field:project.success,write_uid:0
+#: field:project.constraints,write_uid:0 field:project.success,write_uid:0
 msgid "Last Updated by"
 msgstr "Zadnjič posodobil"
 
 #. module: project_charter
-#: field:project.constraints,write_date:0 field:project.outscope,write_date:0
-#: field:project.requirement,write_date:0 field:project.scope,write_date:0
-#: field:project.success,write_date:0
+#: field:project.constraints,write_date:0 field:project.success,write_date:0
 msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
+
+#. module: project_charter
+#: model:ir.ui.menu,name:project_charter.project_management
+msgid "Management"
+msgstr "Upravljanje"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Name"
+msgstr "Naziv"
 
 #. module: project_charter
 #: field:project.project,notes:0
@@ -306,14 +202,19 @@ msgid "Notes"
 msgstr "Opombe"
 
 #. module: project_charter
-#: field:project.outscope,out_scope:0
-msgid "Out of Scope"
-msgstr "Izven obsega"
+#: view:project.project:project_charter.view_project_form
+msgid "Parent"
+msgstr "Nadrejeni"
 
 #. module: project_charter
-#: model:ir.model,name:project_charter.model_project_outscope
-msgid "Out of scope"
-msgstr "Izven obsega"
+#: view:project.project:project_charter.view_project_form
+msgid "Parent WBS element"
+msgstr "Nadrejeni člen"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Phases"
+msgstr "Faze"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_project
@@ -322,23 +223,18 @@ msgstr "Projekt"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Project Charter"
-msgstr "Projektni statut"
+msgid "Project Form View"
+msgstr "Obrazec projekta"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Project Description"
-msgstr "Opis projekta"
+msgid "Project Purpose"
+msgstr "Namen projekta"
 
 #. module: project_charter
-#: model:ir.model,name:project_charter.model_project_scope
+#: view:project.project:project_charter.view_project_form
 msgid "Project Scope"
 msgstr "Obseg projekta"
-
-#. module: project_charter
-#: field:project.success,success:0
-msgid "Project Success"
-msgstr "Uspeh projekta"
 
 #. module: project_charter
 #: field:project.project,project_constraints_ids:0
@@ -346,36 +242,21 @@ msgid "Project constraints ids"
 msgstr "IDji projektnih mej"
 
 #. module: project_charter
-#: field:project.project,project_outscope_ids:0
-msgid "Project outscope ids"
-msgstr "IDji izven obsega projekta"
-
-#. module: project_charter
-#: field:project.project,project_requirement_ids:0
-msgid "Project requirement ids"
-msgstr "IDju projektnih zahtev"
-
-#. module: project_charter
-#: field:project.project,project_scope_ids:0
-msgid "Project scope ids"
-msgstr "IDji projektnega obsega"
-
-#. module: project_charter
 #: field:project.project,project_success_ids:0
 msgid "Project success ids"
 msgstr "Idji uspeha"
 
 #. module: project_charter
-#: field:project.constraints,project_id:0 field:project.outscope,project_id:0
-#: field:project.requirement,project_id:0 field:project.scope,project_id:0
+#: field:project.constraints,project_id:0
+#: view:project.project:project_charter.view_project_form
 #: field:project.success,project_id:0
 msgid "Projects"
 msgstr "Projekti"
 
 #. module: project_charter
-#: model:ir.model,name:project_charter.model_project_requirement
-msgid "Requirements"
-msgstr "Zahteve deležnikov"
+#: view:project.project:project_charter.view_project_form
+msgid "Requirements and Success"
+msgstr "Zahteve in uspeh"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -398,35 +279,19 @@ msgid "Resource planning lines"
 msgstr "Plan virov"
 
 #. module: project_charter
-#: model:ir.model,name:project_charter.model_risk_management_risk
-msgid "Risk"
-msgstr "Tveganje"
-
-#. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Roles and responsibilities"
-msgstr "Vloge in odgovornost"
-
-#. module: project_charter
-#: field:project.scope,scope:0
 msgid "Scope"
 msgstr "Obseg"
 
 #. module: project_charter
-#: field:project.requirement,partner_id:0
-msgid "Stakeholder"
-msgstr "Deležnik"
-
-#. module: project_charter
-#: field:project.requirement,requirements:0
-msgid "Stakeholder Requirements"
-msgstr "Zahteve deležnikov"
-
-#. module: project_charter
-#: view:project.project:project_charter.edit_project
-#: view:project.project:project_charter.view_project_form
+#: model:ir.ui.menu,name:project_charter.menu_stakeholders_config
 msgid "Stakeholders"
 msgstr "Deležniki"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Start Date"
+msgstr "Začetni datum"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_success
@@ -435,8 +300,210 @@ msgstr "Uspeh"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Success and Requirements"
-msgstr "Uspeh in zahteve"
+msgid "Success and Acceptance Criteria"
+msgstr "Uspeh in kriteriji sprejema"
+
+#. module: project_charter
+#: model:ir.ui.menu,name:project_charter.menu_tasks_config_title
+msgid "Tasks"
+msgstr "Opravila"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "WBS elements"
+msgstr "Členi"
+
+#. module: project_charter
+#: view:project.project:project_charter.edit_project
+msgid "Work Breakdown Structure"
+msgstr "Členjenje projekta"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Work Packages"
+msgstr "Delovni seznami"
+
+#~ msgid ""
+#~ "\n"
+#~ "It is just as important to agree on what is OUT OF SCOPE as it\n"
+#~ "is to define what is IN SCOPE as stakeholders will often have\n"
+#~ "different ideas regarding what is supposed to be IN the\n"
+#~ "project and what IS NOT. Obtain agreement up front to avoid\n"
+#~ "unnecessary disputes later on.\n"
+#~ "This is a useful task to conduct with key stakeholders and\n"
+#~ "can help clarify issues at any time in the Initiation or\n"
+#~ "Planning Phases.\n"
+#~ "Examples of areas that could be examined and clarified\n"
+#~ "include:\n"
+#~ "\n"
+#~ "* The type of deliverables that are in scope and out of scope\n"
+#~ "* The major life-cycle processes that are in scope and out of\n"
+#~ "   scope\n"
+#~ "* The types of data that are in scope and out of scope\n"
+#~ "* The data sources that are in scope or out of scope\n"
+#~ "* The organisations that are in scope and out of scope\n"
+#~ "* The major functionality that is in scope and out of scope\n"
+#~ "        "
+#~ msgstr ""
+#~ "\n"
+#~ "Strinjati se kaj je IZVEN OBSEGA, je enako pomembno\n"
+#~ "kot določiti, kaj je V OBSEGU, saj imajo deležniki pogosto\n"
+#~ "drugačne poglede glede tega, kaj projekt zajema in\n"
+#~ "česa projekt ne zajema. Pridobite strinjanje, da se izognete\n"
+#~ "nepotrebnim sporom v kasnejših fazah.\n"
+#~ "To opravilo je zelo koristno in se izvaja s ključnimi\n"
+#~ "deležniki, da se razjasni kakršnekoli trenja, kadarkoli v fazi\n"
+#~ "zagona ali fazi planiranja.\n"
+#~ "Primeri področij, ki se preučijo in razjasnijo vključujejo:\n"
+#~ "\n"
+#~ "* Tip dostav (proizvodov), ki so v ali izven obsega\n"
+#~ "* Glavni procesi življenjskega cikla, ki so v ali izven\n"
+#~ "   obsega\n"
+#~ "* Tipi podatkov, ki so v ali izven obsega\n"
+#~ "* Podatkovni viri, ki so v ali izven obsega\n"
+#~ "* Organizacije, ki so v ali izven obsega\n"
+#~ "* Glavne funkcije, ki so v ali izven obsega\n"
+#~ "        "
+
+#~ msgid ""
+#~ "\n"
+#~ "The scope is what the project contains or delivers (i.e. the\n"
+#~ "products or services). When starting to plan the scope of the\n"
+#~ "project think about the BIG PICTURE first! At this level it\n"
+#~ "is best to concentrate on the major deliverables and not to\n"
+#~ "get bogged down with detail.\n"
+#~ "Examples of areas that could be examined and clarified\n"
+#~ "include:\n"
+#~ "\n"
+#~ "* The type of deliverables that are in scope and out of scope\n"
+#~ "* The major life-cycle processes that are in scope and out of\n"
+#~ "   scope\n"
+#~ "* The types of data that are in scope and out of scope\n"
+#~ "* The data sources that are in scope or out of scope\n"
+#~ "* The organisations that are in scope and out of scope\n"
+#~ "* The major functionality that is in scope and out of scope\n"
+#~ "        "
+#~ msgstr ""
+#~ "\n"
+#~ "Obseg je tisto, kar projekt vsebuje ali dobavi (npr.\n"
+#~ "proizvodi ali storitve). Ob začetku planiranja obsega\n"
+#~ "razmišljamo v sklopu 'velike slike'. Na tej stopnji se raje\n"
+#~ "osredotočamo na glavne dobave in se ne ukvarjamo\n"
+#~ "s podrobnostmi.\n"
+#~ "Primeri področij, ki jih preučujemo in razjasnimo, so:\n"
+#~ "\n"
+#~ "* Tip dobav, ki so v ali izven obsega\n"
+#~ "* Glavni procesi življenjskega cikla, ki so v ali izven\n"
+#~ "   obsega\n"
+#~ "* Tipi podatkov, ki so v ali izven obsega\n"
+#~ "* Viri podatkov, ki so v ali izven obsega\n"
+#~ "* Organizacije, ki so v ali izven obsega\n"
+#~ "* Glavne funkcije, ki so v ali izven obsega\n"
+#~ "        "
+
+#~ msgid ""
+#~ "\n"
+#~ "The user requirements of the project must be defined and\n"
+#~ "documented. Approval and confirmation must be obtained\n"
+#~ "before the project can proceed. To obtain agreement about\n"
+#~ "needs:\n"
+#~ "\n"
+#~ "* Separate needs from wants\n"
+#~ "* Group the needs that are similar\n"
+#~ "* Prioritise needs (eg essential, nice to have)\n"
+#~ "* Identify any conflicting needs\n"
+#~ "* Negotiate agreement between stakeholders with\n"
+#~ "   conflicting needs\n"
+#~ "\n"
+#~ "This process often requires a number of meetings with\n"
+#~ "stakeholders. Stakeholders often express their needs in\n"
+#~ "terms of a particular product or solution to the problem,\n"
+#~ "which has created the need for the project in the first\n"
+#~ "place. It is important to re-state the agreed needs in\n"
+#~ "terms of “what the end product/service(s) of the project\n"
+#~ "should do”.\n"
+#~ "Stating the agreed needs in functional terms permits the\n"
+#~ "project manager to offer a range of solutions to the client\n"
+#~ "or key stakeholders. If the project outcomes are restricted\n"
+#~ "to solutions offered by key stakeholders too early in the\n"
+#~ "analysis process important alternative options might be\n"
+#~ "overlooked. Document the final set of agreed requirements\n"
+#~ "and obtain sign-off from all key stakeholders.\n"
+#~ "        "
+#~ msgstr ""
+#~ "\n"
+#~ "Zahteve deležnikov projekta morajo biti določene in\n"
+#~ "dokumentirane. Pridobiti je potrebno potrditev in odobritev\n"
+#~ "preden se projekt lahko nadaljuje. Za pridobitev dogovora o\n"
+#~ "potrebah:\n"
+#~ "\n"
+#~ "* Ločite potrebe od želja\n"
+#~ "* Združujte podobne potrebe\n"
+#~ "* Prioritizacija potreb (npr. ključne, lepo bi bilo imeti, ...)\n"
+#~ "* Določite morebitne konflikte med potrebami\n"
+#~ "* Pogodite se za dogovor med deležniki s potrebami, ki\n"
+#~ "   so v medsebojnih konfliktih\n"
+#~ "\n"
+#~ "Ta proces navadno zajema številčne sestanke z\n"
+#~ "deležniki. Deležniki pogosto izražajo svoje potrebe v\n"
+#~ "obliki določenega proizvoda ali rešitve tistega\n"
+#~ "problema, ki je sploh povzročil potrebo po projektu.\n"
+#~ "Pomembno je določiti dogovorjene potrebe v smislu\n"
+#~ "“kaj naj končni proizvod/storitev projekta zmore\".\n"
+#~ "\n"
+#~ "Določanje dogovorjenih potreb v funkcionalnih okvirih\n"
+#~ "omogoči upravitelju projekta, da ponudi kupcu ali ključnim\n"
+#~ "deležnikom, več rešitev. Če so proizvodi projekta omejeni\n"
+#~ "na prezgodaj deležnikom ponujene rešitve v procesu\n"
+#~ "analize, lahko spregledamo pomembne alternativne\n"
+#~ "opcije. Seznam dogovorjenih potreb dokumentiramo\n"
+#~ "in pridobimo soglasje vseh ključnih deležnikov.\n"
+#~ "        "
+
+#~ msgid "Boundaries"
+#~ msgstr "Meje"
+
+#~ msgid "Broad Scope"
+#~ msgstr "Grobi obseg"
+
+#~ msgid "Out of Scope"
+#~ msgstr "Izven obsega"
+
+#~ msgid "Out of scope"
+#~ msgstr "Izven obsega"
+
+#~ msgid "Project Charter"
+#~ msgstr "Projektni statut"
+
+#~ msgid "Project Description"
+#~ msgstr "Opis projekta"
+
+#~ msgid "Project Success"
+#~ msgstr "Uspeh projekta"
+
+#~ msgid "Project outscope ids"
+#~ msgstr "IDji izven obsega projekta"
+
+#~ msgid "Project requirement ids"
+#~ msgstr "IDju projektnih zahtev"
+
+#~ msgid "Project scope ids"
+#~ msgstr "IDji projektnega obsega"
+
+#~ msgid "Risk"
+#~ msgstr "Tveganje"
+
+#~ msgid "Roles and responsibilities"
+#~ msgstr "Vloge in odgovornost"
+
+#~ msgid "Stakeholder"
+#~ msgstr "Deležnik"
+
+#~ msgid "Stakeholder Requirements"
+#~ msgstr "Zahteve deležnikov"
+
+#~ msgid "Success and Requirements"
+#~ msgstr "Uspeh in zahteve"
 
 #~ msgid "Assumptions"
 #~ msgstr "Predpostavke"

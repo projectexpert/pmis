@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+    <record id="partner_change_user" model="res.partner">
+        <field name="name">Change User</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="customer" eval="False"/>
+    </record>
+
+    <record id="partner_change_manager" model="res.partner">
+        <field name="name">Change Manager</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="customer" eval="False"/>
+    </record>
+
+    <record id="user_change_user" model="res.users">
+        <field name="partner_id" ref="partner_change_user"/>
+        <field name="login">changeuser</field>
+        <field name="password">changeuser</field>
+        <field name="signature">--
+            Mr Change Uesr</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('group_change_management_user')])]"/>
+    </record>
+
+    <record id="user_change_manager" model="res.users">
+        <field name="partner_id" ref="partner_change_manager"/>
+        <field name="login">changemanager</field>
+        <field name="password">changemanager</field>
+        <field name="signature">--
+            Mr Change Manager</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('group_change_management_manager')])]"/>
+    </record>
+
+</data>
+</openerp>

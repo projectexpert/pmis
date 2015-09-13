@@ -28,10 +28,10 @@ class Project(models.Model):
     _inherit = 'project.project'
 
     notes = fields.Text('Notes')
-    project_scope_ids = fields.One2many(
-        'project.scope',
-        'project_id',
-    )
+    # project_scope_ids = fields.One2many(
+    #     'project.scope',
+    #     'project_id',
+    # )
     project_outscope_ids = fields.One2many(
         'project.outscope',
         'project_id',
@@ -40,43 +40,43 @@ class Project(models.Model):
         'project.success',
         'project_id'
     )
-    project_requirement_ids = fields.One2many(
-        'project.requirement',
-        'project_id'
-    )
+    # project_requirement_ids = fields.One2many(
+    #     'project.requirement',
+    #     'project_id'
+    # )
     project_constraints_ids = fields.One2many(
         'project.constraints',
         'project_id',
     )
 
 
-class Project_scope(models.Model):
-    """Project Scope"""
-
-    _name = 'project.scope'
-    _description = __doc__
-
-    project_id = fields.Many2one('project.project', string='Projects')
-    scope = fields.Text(
-        'Scope',
-        help='''
-The scope is what the project contains or delivers (i.e. the
-products or services). When starting to plan the scope of the
-project think about the BIG PICTURE first! At this level it
-is best to concentrate on the major deliverables and not to
-get bogged down with detail.
-Examples of areas that could be examined and clarified
-include:
-
-* The type of deliverables that are in scope and out of scope
-* The major life-cycle processes that are in scope and out of
-   scope
-* The types of data that are in scope and out of scope
-* The data sources that are in scope or out of scope
-* The organisations that are in scope and out of scope
-* The major functionality that is in scope and out of scope
-        '''
-    )
+# class Project_scope(models.Model):
+#     """Project Scope"""
+#
+#     _name = 'project.scope'
+#     _description = __doc__
+#
+#     project_id = fields.Many2one('project.project', string='Projects')
+#     scope = fields.Text(
+#         'Scope',
+#         help='''
+# The scope is what the project contains or delivers (i.e. the
+# products or services). When starting to plan the scope of the
+# project think about the BIG PICTURE first! At this level it
+# is best to concentrate on the major deliverables and not to
+# get bogged down with detail.
+# Examples of areas that could be examined and clarified
+# include:
+#
+# * The type of deliverables that are in scope and out of scope
+# * The major life-cycle processes that are in scope and out of
+#    scope
+# * The types of data that are in scope and out of scope
+# * The data sources that are in scope or out of scope
+# * The organisations that are in scope and out of scope
+# * The major functionality that is in scope and out of scope
+#         '''
+#     )
 
 
 class Project_outscope(models.Model):
@@ -119,7 +119,7 @@ class Success(models.Model):
 
     project_id = fields.Many2one('project.project', string='Projects')
     success = fields.Text(
-        'Project Success',
+        'Criteria',
         help='''
 PROJECT OBJECTIVES
 The success of your project will be defined by how well you
@@ -144,49 +144,61 @@ and should:
 * Be readily understandable
 * Be few in number
 * Have the full support and commitment of key stakeholders
+
+Examples:
+* Maximum Deadline on ...
+* Maximum Budget = ...
         '''
-        )
+    )
 
 
-class Requirement(models.Model):
-    """Requirements"""
+# class Requirement(models.Model):
+#     """Requirements"""
+#
+#     _name = 'project.requirement'
+#     _description = __doc__
+#
+#     project_id = fields.Many2one('project.project', string='Projects')
+#     partner_id = fields.Many2one('project.hr.stakeholder', string='Stakeholder')
+#     issue_id = fields.Many2one('project.issue', string='Negotiation')
+#     status = fields.Selection(
+#         [('draft', 'Draft'), ('approved', 'Approved'), ('denied', 'Denied')],
+#         'Status',
+#     )
 
-    _name = 'project.requirement'
-    _description = __doc__
+# REQUIREMENTS COMMENTED OUT - REQ. MANAGEMENT TRANSFERED TO CHANGE MANAGEMENT
 
-    project_id = fields.Many2one('project.project', string='Projects')
-    partner_id = fields.Many2one('project.hr.stakeholder', string='Stakeholder')
-    requirements = fields.Text(
-        'Stakeholder Requirements',
-        help='''
-The user requirements of the project must be defined and
-documented. Approval and confirmation must be obtained
-before the project can proceed. To obtain agreement about
-needs:
-
-* Separate needs from wants
-* Group the needs that are similar
-* Prioritise needs (eg essential, nice to have)
-* Identify any conflicting needs
-* Negotiate agreement between stakeholders with
-   conflicting needs
-
-This process often requires a number of meetings with
-stakeholders. Stakeholders often express their needs in
-terms of a particular product or solution to the problem,
-which has created the need for the project in the first
-place. It is important to re-state the agreed needs in
-terms of “what the end product/service(s) of the project
-should do”.
-Stating the agreed needs in functional terms permits the
-project manager to offer a range of solutions to the client
-or key stakeholders. If the project outcomes are restricted
-to solutions offered by key stakeholders too early in the
-analysis process important alternative options might be
-overlooked. Document the final set of agreed requirements
-and obtain sign-off from all key stakeholders.
-        '''
-        )
+#     requirements = fields.Text(
+#         'Stakeholder Requirements',
+#         help='''
+# The user requirements of the project must be defined and
+# documented. Approval and confirmation must be obtained
+# before the project can proceed. To obtain agreement about
+# needs:
+#
+# * Separate needs from wants
+# * Group the needs that are similar
+# * Prioritise needs (eg essential, nice to have)
+# * Identify any conflicting needs
+# * Negotiate agreement between stakeholders with
+#    conflicting needs
+#
+# This process often requires a number of meetings with
+# stakeholders. Stakeholders often express their needs in
+# terms of a particular product or solution to the problem,
+# which has created the need for the project in the first
+# place. It is important to re-state the agreed needs in
+# terms of “what the end product/service(s) of the project
+# should do”.
+# Stating the agreed needs in functional terms permits the
+# project manager to offer a range of solutions to the client
+# or key stakeholders. If the project outcomes are restricted
+# to solutions offered by key stakeholders too early in the
+# analysis process important alternative options might be
+# overlooked. Document the final set of agreed requirements
+# and obtain sign-off from all key stakeholders.
+#         '''
+#     )
 
 
 class Project_constraint(models.Model):
@@ -205,4 +217,4 @@ factor that is outside of the project planner’s scope of
 control, which unless it is lifted or otherwise removed, will
 force project actions to work around it.
         '''
-        )
+    )

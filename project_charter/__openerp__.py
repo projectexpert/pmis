@@ -22,45 +22,46 @@
 
 {
     'name': 'Project Charter',
-    'version': '1.0.7',
+    'version': '1.1',
     'category': 'Project Management',
     'sequence': 9,
     'summary': 'Project Charter',
     'description':
-        """
+    """
 Customizes the PM UI to follow the pmbok and iso 21500
 document Project Charter, with all it's contents:
     - project charter
     - project description (with ckeditor4)
     - project scope
-    - project boundaries, assumptions and constraints
+    - project success and requirements
     - project stakeholders
     - resource and billing plan
-    - when risk_management module is installed, risk assesment is
-      integrated
-        """,
+    - risk assesment integrated with risk management
+    """,
     'author': 'Matmoz d.o.o.',
     'website': 'http://www.matmoz.si',
     'complexity': 'easy',
     'images': [],
     'depends': [
         'project',
-        'project_hr_stakeholder',
         'analytic_account_sequence',
         'analytic_plan',
         'analytic_resource_plan',
         'analytic_billing_plan',
         'project_wbs',
-        'web_ckeditor4'
+        'web_ckeditor4',
+        'document_page',
+        'project_document_page',
+        'document_page_approval',
     ],
     'data': ['views/project_charter_view.xml',
              'views/analytic_view.xml',
-             'removed_views/stakeholders_notebook.xml',
+             'removed_views/project_wbs_config.xml',
              'security/ir.model.access.csv'],
     'test': [],
     'demo': [],
     'installable': True,
     'auto_install': False,
-    'application': True,
+    'application': False,
     'license': 'AGPL-3',
 }
