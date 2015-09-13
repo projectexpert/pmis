@@ -21,7 +21,7 @@
 ##############################################################################
 {
     'name': 'Change Management',
-    'version': '2.0',
+    'version': '2.1',
     'author':   'Matmoz d.o.o.',
     'website':  'http://www.matmoz.si',
     'category': 'Project Management',
@@ -55,7 +55,7 @@ Installation
         'data/change_management_sequence.xml',
         'security/ir.model.access.csv',
         'view/project_task_view.xml',
-        'view/project_charter_view.xml',
+        # 'view/project_charter_view.xml',
         'view/change_management_view.xml',
         'view/change_management_category_view.xml',
         'view/change_management_proximity_view.xml',
