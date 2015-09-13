@@ -9,6 +9,24 @@
             <field name="arch" type="xml">
                 <data>
                     <xpath expr='//form/sheet/notebook/page/notebook/page[@string="Requirements and Success"]/group[@string="Success and Acceptance Criteria"]' position="before">
+                        <button help="Change Management"
+                                class="oe_inline oe_stat_button"
+                                name="%(action_show_changes)d"
+                                type="action"
+                                icon="fa-code-fork"
+                                context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
+                                groups="project.group_project_manager">
+                            <div>Changes</div>
+                        </button>
+                        <button help="Change Actions"
+                                class="oe_inline oe_stat_button"
+                                name="%(action_show_actions)d"
+                                type="action"
+                                icon="fa-sort-numeric-asc"
+                                context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
+                                groups="project.group_project_manager">
+                            <div>Actions</div>
+                        </button>
                         <group string='Stakeholder Requests'>
                             <field name="change_ids" nolabel="1" context="{'default_project_id': active_id}">
                             </field>

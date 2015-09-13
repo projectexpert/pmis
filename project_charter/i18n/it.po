@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-23 09:19+0200\n"
-"PO-Revision-Date: 2015-08-23 09:20+0200\n"
+"POT-Creation-Date: 2015-09-13 18:01+0200\n"
+"PO-Revision-Date: 2015-09-13 18:02+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -69,6 +69,10 @@ msgid ""
 "* Be readily understandable\n"
 "* Be few in number\n"
 "* Have the full support and commitment of key stakeholders\n"
+"\n"
+"Examples:\n"
+"* Maximum Deadline on ...\n"
+"* Maximum Budget = ...\n"
 "        "
 msgstr ""
 
@@ -81,61 +85,6 @@ msgid ""
 "factor that is outside of the project planner’s scope of\n"
 "control, which unless it is lifted or otherwise removed, will\n"
 "force project actions to work around it.\n"
-"        "
-msgstr ""
-
-#. module: project_charter
-#: help:project.scope,scope:0
-msgid ""
-"\n"
-"The scope is what the project contains or delivers (i.e. the\n"
-"products or services). When starting to plan the scope of the\n"
-"project think about the BIG PICTURE first! At this level it\n"
-"is best to concentrate on the major deliverables and not to\n"
-"get bogged down with detail.\n"
-"Examples of areas that could be examined and clarified\n"
-"include:\n"
-"\n"
-"* The type of deliverables that are in scope and out of scope\n"
-"* The major life-cycle processes that are in scope and out of\n"
-"   scope\n"
-"* The types of data that are in scope and out of scope\n"
-"* The data sources that are in scope or out of scope\n"
-"* The organisations that are in scope and out of scope\n"
-"* The major functionality that is in scope and out of scope\n"
-"        "
-msgstr ""
-
-#. module: project_charter
-#: help:project.requirement,requirements:0
-msgid ""
-"\n"
-"The user requirements of the project must be defined and\n"
-"documented. Approval and confirmation must be obtained\n"
-"before the project can proceed. To obtain agreement about\n"
-"needs:\n"
-"\n"
-"* Separate needs from wants\n"
-"* Group the needs that are similar\n"
-"* Prioritise needs (eg essential, nice to have)\n"
-"* Identify any conflicting needs\n"
-"* Negotiate agreement between stakeholders with\n"
-"   conflicting needs\n"
-"\n"
-"This process often requires a number of meetings with\n"
-"stakeholders. Stakeholders often express their needs in\n"
-"terms of a particular product or solution to the problem,\n"
-"which has created the need for the project in the first\n"
-"place. It is important to re-state the agreed needs in\n"
-"terms of “what the end product/service(s) of the project\n"
-"should do”.\n"
-"Stating the agreed needs in functional terms permits the\n"
-"project manager to offer a range of solutions to the client\n"
-"or key stakeholders. If the project outcomes are restricted\n"
-"to solutions offered by key stakeholders too early in the\n"
-"analysis process important alternative options might be\n"
-"overlooked. Document the final set of agreed requirements\n"
-"and obtain sign-off from all key stakeholders.\n"
 "        "
 msgstr ""
 
@@ -156,13 +105,23 @@ msgstr "Piano ricavi"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Boundaries"
-msgstr "Limiti"
+msgid "Charter/Plan"
+msgstr ""
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Broad Scope"
-msgstr "Portata approssimativa"
+msgid "Child WBS elements"
+msgstr ""
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Class"
+msgstr ""
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Code"
+msgstr "Codice"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_constraints
@@ -173,38 +132,63 @@ msgstr "Limitazioni"
 
 #. module: project_charter
 #: field:project.constraints,create_uid:0 field:project.outscope,create_uid:0
-#: field:project.requirement,create_uid:0 field:project.scope,create_uid:0
 #: field:project.success,create_uid:0
 msgid "Created by"
 msgstr "Creato da"
 
 #. module: project_charter
 #: field:project.constraints,create_date:0 field:project.outscope,create_date:0
-#: field:project.requirement,create_date:0 field:project.scope,create_date:0
 #: field:project.success,create_date:0
 msgid "Created on"
 msgstr "Creato il"
 
 #. module: project_charter
+#: field:project.success,success:0
+msgid "Criteria"
+msgstr ""
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Deliverables"
+msgstr ""
+
+#. module: project_charter
+#: model:ir.model,name:project_charter.model_document_page
+msgid "Document Page"
+msgstr "Pagina documento"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "End Date"
+msgstr ""
+
+#. module: project_charter
 #: field:project.constraints,id:0 field:project.outscope,id:0
-#: field:project.requirement,id:0 field:project.scope,id:0
 #: field:project.success,id:0
 msgid "ID"
 msgstr "ID"
 
 #. module: project_charter
 #: field:project.constraints,write_uid:0 field:project.outscope,write_uid:0
-#: field:project.requirement,write_uid:0 field:project.scope,write_uid:0
 #: field:project.success,write_uid:0
 msgid "Last Updated by"
 msgstr "Ultimo aggiornamento da"
 
 #. module: project_charter
 #: field:project.constraints,write_date:0 field:project.outscope,write_date:0
-#: field:project.requirement,write_date:0 field:project.scope,write_date:0
 #: field:project.success,write_date:0
 msgid "Last Updated on"
 msgstr "Ultimo aggiornamento il"
+
+#. module: project_charter
+#: model:ir.ui.menu,name:project_charter.project_management
+msgid "Management"
+msgstr ""
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Name"
+msgstr "Nome"
 
 #. module: project_charter
 #: field:project.project,notes:0
@@ -222,29 +206,44 @@ msgid "Out of scope"
 msgstr "Fuori portata"
 
 #. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Parent"
+msgstr ""
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Parent WBS element"
+msgstr ""
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Phases"
+msgstr ""
+
+#. module: project_charter
 #: model:ir.model,name:project_charter.model_project_project
 msgid "Project"
 msgstr "Progetti"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Project Charter"
-msgstr "DIP (Documento di inizio progetto)"
+msgid "Project Exclusions"
+msgstr "Escluso dal progetto"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Project Description"
-msgstr "Descrizione del progetto"
+msgid "Project Form View"
+msgstr "Formulario progetto"
 
 #. module: project_charter
-#: model:ir.model,name:project_charter.model_project_scope
+#: view:project.project:project_charter.view_project_form
+msgid "Project Purpose"
+msgstr "Scopo del progetto"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
 msgid "Project Scope"
 msgstr "Portata del progetto"
-
-#. module: project_charter
-#: field:project.success,success:0
-msgid "Project Success"
-msgstr "Successo progetto"
 
 #. module: project_charter
 #: field:project.project,project_constraints_ids:0
@@ -257,30 +256,20 @@ msgid "Project outscope ids"
 msgstr "ID fuori portata"
 
 #. module: project_charter
-#: field:project.project,project_requirement_ids:0
-msgid "Project requirement ids"
-msgstr "ID requisiti"
-
-#. module: project_charter
-#: field:project.project,project_scope_ids:0
-msgid "Project scope ids"
-msgstr "ID portata del progetto"
-
-#. module: project_charter
 #: field:project.project,project_success_ids:0
 msgid "Project success ids"
 msgstr "ID successo progetto"
 
 #. module: project_charter
 #: field:project.constraints,project_id:0 field:project.outscope,project_id:0
-#: field:project.requirement,project_id:0 field:project.scope,project_id:0
+#: view:project.project:project_charter.view_project_form
 #: field:project.success,project_id:0
 msgid "Projects"
 msgstr "Progetti"
 
 #. module: project_charter
-#: model:ir.model,name:project_charter.model_project_requirement
-msgid "Requirements"
+#: view:project.project:project_charter.view_project_form
+msgid "Requirements and Success"
 msgstr "Requisiti parti interessate"
 
 #. module: project_charter
@@ -304,35 +293,19 @@ msgid "Resource planning lines"
 msgstr "Voci pianificazione risorse"
 
 #. module: project_charter
-#: model:ir.model,name:project_charter.model_risk_management_risk
-msgid "Risk"
-msgstr "Rischio"
-
-#. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Roles and responsibilities"
-msgstr "Ruoli e responsabilità"
-
-#. module: project_charter
-#: field:project.scope,scope:0
 msgid "Scope"
 msgstr "Portata"
 
 #. module: project_charter
-#: field:project.requirement,partner_id:0
-msgid "Stakeholder"
-msgstr "Parti interessate"
-
-#. module: project_charter
-#: field:project.requirement,requirements:0
-msgid "Stakeholder Requirements"
-msgstr "Requisiti parti interessate"
-
-#. module: project_charter
-#: view:project.project:project_charter.edit_project
-#: view:project.project:project_charter.view_project_form
+#: model:ir.ui.menu,name:project_charter.menu_stakeholders_config
 msgid "Stakeholders"
 msgstr "Parti interessate"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Start Date"
+msgstr ""
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_success
@@ -341,8 +314,61 @@ msgstr "Successo"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Success and Requirements"
-msgstr "Successo e requisiti"
+msgid "Success and Acceptance Criteria"
+msgstr ""
+
+#. module: project_charter
+#: model:ir.ui.menu,name:project_charter.menu_tasks_config_title
+msgid "Tasks"
+msgstr "Attività"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "WBS elements"
+msgstr ""
+
+#. module: project_charter
+#: view:project.project:project_charter.edit_project
+msgid "Work Breakdown Structure"
+msgstr ""
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Work Packages"
+msgstr ""
+
+#~ msgid "Boundaries"
+#~ msgstr "Limiti"
+
+#~ msgid "Broad Scope"
+#~ msgstr "Portata approssimativa"
+
+#~ msgid "Project Charter"
+#~ msgstr "DIP (Documento di inizio progetto)"
+
+#~ msgid "Project Description"
+#~ msgstr "Descrizione del progetto"
+
+#~ msgid "Project requirement ids"
+#~ msgstr "ID requisiti"
+
+#~ msgid "Project scope ids"
+#~ msgstr "ID portata del progetto"
+
+#~ msgid "Risk"
+#~ msgstr "Rischio"
+
+#~ msgid "Roles and responsibilities"
+#~ msgstr "Ruoli e responsabilità"
+
+#~ msgid "Stakeholder"
+#~ msgstr "Parti interessate"
+
+#~ msgid "Stakeholder Requirements"
+#~ msgstr "Requisiti parti interessate"
+
+#~ msgid "Success and Requirements"
+#~ msgstr "Successo e requisiti"
 
 #~ msgid "Assumptions"
 #~ msgstr "Presupposti"

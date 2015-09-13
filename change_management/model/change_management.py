@@ -192,10 +192,7 @@ in accordance with the project's chosen scales or business continuity time scale
         compute='_change_response_count', type='integer'
     )
     state = fields.Selection(
-        _CHANGE_STATE, 'State', readonly=True,
-        help='''
-A change can have one of these three states: draft, active, closed.
-        '''
+        _CHANGE_STATE, 'State', readonly=True
     )
     change_owner_id = fields.Many2one(
         'res.users', 'Change Manager',

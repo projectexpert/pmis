@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-13 09:20+0200\n"
-"PO-Revision-Date: 2015-09-13 09:24+0200\n"
+"POT-Creation-Date: 2015-09-13 18:00+0200\n"
+"PO-Revision-Date: 2015-09-13 18:00+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -16,6 +16,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "X-Generator: Poedit 1.8.4\n"
+
+#. module: project_charter
+#: help:project.outscope,out_scope:0
+msgid ""
+"\n"
+"It is just as important to agree on what is OUT OF SCOPE as it\n"
+"is to define what is IN SCOPE as stakeholders will often have\n"
+"different ideas regarding what is supposed to be IN the\n"
+"project and what IS NOT. Obtain agreement up front to avoid\n"
+"unnecessary disputes later on.\n"
+"This is a useful task to conduct with key stakeholders and\n"
+"can help clarify issues at any time in the Initiation or\n"
+"Planning Phases.\n"
+"Examples of areas that could be examined and clarified\n"
+"include:\n"
+"\n"
+"* The type of deliverables that are in scope and out of scope\n"
+"* The major life-cycle processes that are in scope and out of\n"
+"   scope\n"
+"* The types of data that are in scope and out of scope\n"
+"* The data sources that are in scope or out of scope\n"
+"* The organisations that are in scope and out of scope\n"
+"* The major functionality that is in scope and out of scope\n"
+"        "
+msgstr ""
+"\n"
+"Strinjati se kaj je IZVEN OBSEGA, je enako pomembno\n"
+"kot določiti, kaj je V OBSEGU, saj imajo deležniki pogosto\n"
+"drugačne poglede glede tega, kaj projekt zajema in\n"
+"česa projekt ne zajema. Pridobite strinjanje, da se izognete\n"
+"nepotrebnim sporom v kasnejših fazah.\n"
+"To opravilo je zelo koristno in se izvaja s ključnimi\n"
+"deležniki, da se razjasni kakršnekoli trenja, kadarkoli v fazi\n"
+"zagona ali fazi planiranja.\n"
+"Primeri področij, ki se preučijo in razjasnijo vključujejo:\n"
+"\n"
+"* Tip dostav (proizvodov), ki so v ali izven obsega\n"
+"* Glavni procesi življenjskega cikla, ki so v ali izven\n"
+"   obsega\n"
+"* Tipi podatkov, ki so v ali izven obsega\n"
+"* Podatkovni viri, ki so v ali izven obsega\n"
+"* Organizacije, ki so v ali izven obsega\n"
+"* Glavne funkcije, ki so v ali izven obsega\n"
+"        "
 
 #. module: project_charter
 #: help:project.success,success:0
@@ -142,12 +186,14 @@ msgid "Constraints"
 msgstr "Omejitve"
 
 #. module: project_charter
-#: field:project.constraints,create_uid:0 field:project.success,create_uid:0
+#: field:project.constraints,create_uid:0 field:project.outscope,create_uid:0
+#: field:project.success,create_uid:0
 msgid "Created by"
 msgstr "Ustvaril"
 
 #. module: project_charter
-#: field:project.constraints,create_date:0 field:project.success,create_date:0
+#: field:project.constraints,create_date:0 field:project.outscope,create_date:0
+#: field:project.success,create_date:0
 msgid "Created on"
 msgstr "Ustvarjeno"
 
@@ -172,17 +218,20 @@ msgid "End Date"
 msgstr "Končni datum"
 
 #. module: project_charter
-#: field:project.constraints,id:0 field:project.success,id:0
+#: field:project.constraints,id:0 field:project.outscope,id:0
+#: field:project.success,id:0
 msgid "ID"
 msgstr "ID"
 
 #. module: project_charter
-#: field:project.constraints,write_uid:0 field:project.success,write_uid:0
+#: field:project.constraints,write_uid:0 field:project.outscope,write_uid:0
+#: field:project.success,write_uid:0
 msgid "Last Updated by"
 msgstr "Zadnjič posodobil"
 
 #. module: project_charter
-#: field:project.constraints,write_date:0 field:project.success,write_date:0
+#: field:project.constraints,write_date:0 field:project.outscope,write_date:0
+#: field:project.success,write_date:0
 msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
 
@@ -200,6 +249,16 @@ msgstr "Naziv"
 #: field:project.project,notes:0
 msgid "Notes"
 msgstr "Opombe"
+
+#. module: project_charter
+#: field:project.outscope,out_scope:0
+msgid "Out of Scope"
+msgstr "Izven obsega"
+
+#. module: project_charter
+#: model:ir.model,name:project_charter.model_project_outscope
+msgid "Out of scope"
+msgstr "Izven obsega"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -223,6 +282,11 @@ msgstr "Projekt"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
+msgid "Project Exclusions"
+msgstr "Ni zajeto v projektu"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
 msgid "Project Form View"
 msgstr "Obrazec projekta"
 
@@ -242,12 +306,17 @@ msgid "Project constraints ids"
 msgstr "IDji projektnih mej"
 
 #. module: project_charter
+#: field:project.project,project_outscope_ids:0
+msgid "Project outscope ids"
+msgstr "IDji izven obsega projekta"
+
+#. module: project_charter
 #: field:project.project,project_success_ids:0
 msgid "Project success ids"
 msgstr "Idji uspeha"
 
 #. module: project_charter
-#: field:project.constraints,project_id:0
+#: field:project.constraints,project_id:0 field:project.outscope,project_id:0
 #: view:project.project:project_charter.view_project_form
 #: field:project.success,project_id:0
 msgid "Projects"
@@ -322,48 +391,6 @@ msgstr "Členjenje projekta"
 #: view:project.project:project_charter.view_project_form
 msgid "Work Packages"
 msgstr "Delovni seznami"
-
-#~ msgid ""
-#~ "\n"
-#~ "It is just as important to agree on what is OUT OF SCOPE as it\n"
-#~ "is to define what is IN SCOPE as stakeholders will often have\n"
-#~ "different ideas regarding what is supposed to be IN the\n"
-#~ "project and what IS NOT. Obtain agreement up front to avoid\n"
-#~ "unnecessary disputes later on.\n"
-#~ "This is a useful task to conduct with key stakeholders and\n"
-#~ "can help clarify issues at any time in the Initiation or\n"
-#~ "Planning Phases.\n"
-#~ "Examples of areas that could be examined and clarified\n"
-#~ "include:\n"
-#~ "\n"
-#~ "* The type of deliverables that are in scope and out of scope\n"
-#~ "* The major life-cycle processes that are in scope and out of\n"
-#~ "   scope\n"
-#~ "* The types of data that are in scope and out of scope\n"
-#~ "* The data sources that are in scope or out of scope\n"
-#~ "* The organisations that are in scope and out of scope\n"
-#~ "* The major functionality that is in scope and out of scope\n"
-#~ "        "
-#~ msgstr ""
-#~ "\n"
-#~ "Strinjati se kaj je IZVEN OBSEGA, je enako pomembno\n"
-#~ "kot določiti, kaj je V OBSEGU, saj imajo deležniki pogosto\n"
-#~ "drugačne poglede glede tega, kaj projekt zajema in\n"
-#~ "česa projekt ne zajema. Pridobite strinjanje, da se izognete\n"
-#~ "nepotrebnim sporom v kasnejših fazah.\n"
-#~ "To opravilo je zelo koristno in se izvaja s ključnimi\n"
-#~ "deležniki, da se razjasni kakršnekoli trenja, kadarkoli v fazi\n"
-#~ "zagona ali fazi planiranja.\n"
-#~ "Primeri področij, ki se preučijo in razjasnijo vključujejo:\n"
-#~ "\n"
-#~ "* Tip dostav (proizvodov), ki so v ali izven obsega\n"
-#~ "* Glavni procesi življenjskega cikla, ki so v ali izven\n"
-#~ "   obsega\n"
-#~ "* Tipi podatkov, ki so v ali izven obsega\n"
-#~ "* Podatkovni viri, ki so v ali izven obsega\n"
-#~ "* Organizacije, ki so v ali izven obsega\n"
-#~ "* Glavne funkcije, ki so v ali izven obsega\n"
-#~ "        "
 
 #~ msgid ""
 #~ "\n"
@@ -466,12 +493,6 @@ msgstr "Delovni seznami"
 #~ msgid "Broad Scope"
 #~ msgstr "Grobi obseg"
 
-#~ msgid "Out of Scope"
-#~ msgstr "Izven obsega"
-
-#~ msgid "Out of scope"
-#~ msgstr "Izven obsega"
-
 #~ msgid "Project Charter"
 #~ msgstr "Projektni statut"
 
@@ -480,9 +501,6 @@ msgstr "Delovni seznami"
 
 #~ msgid "Project Success"
 #~ msgstr "Uspeh projekta"
-
-#~ msgid "Project outscope ids"
-#~ msgstr "IDji izven obsega projekta"
 
 #~ msgid "Project requirement ids"
 #~ msgstr "IDju projektnih zahtev"
