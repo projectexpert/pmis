@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-13 06:40+0000\n"
-"PO-Revision-Date: 2015-09-13 06:40+0000\n"
+"POT-Creation-Date: 2015-09-13 16:07+0000\n"
+"PO-Revision-Date: 2015-09-13 16:07+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -242,6 +242,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_stakeholder_tree
 #: model:ir.ui.menu,name:project_hr_stakeholder.menu_project_hr_stakeholder_view
 #: view:project.hr.stakeholder:project_hr_stakeholder.view_project_hr_stakeholder_search
+#: view:project.project:project_hr_stakeholder.edit_project
 msgid "Project Stakeholders"
 msgstr ""
 

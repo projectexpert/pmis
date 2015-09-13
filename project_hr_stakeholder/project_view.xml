@@ -15,6 +15,15 @@
             <field name="arch" type="xml">
             	<xpath expr='//form/sheet/notebook/page/notebook/page[@string="Requirements and Success"]' position="before">
 					<page groups="base.group_erp_manager" string="Stakeholders">
+						<button help="Project Stakeholders"
+                                class="oe_inline oe_stat_button"
+                                name="%(action_project_hr_stakeholder_tree)d"
+                                type="action"
+                                icon="fa-users"
+                                context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
+                                groups="project.group_project_manager">
+                        <div>Stakeholders</div>
+						</button>
                         <field name="stakeholder_ids" nolabel="1" context="{'default_project_id': active_id}">
                         	<tree editable="top" string="Stakeholders">
 			                	<field name="partner_id"/>

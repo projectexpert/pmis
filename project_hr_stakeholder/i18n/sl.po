@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-13 08:41+0200\n"
-"PO-Revision-Date: 2015-09-13 09:16+0200\n"
+"POT-Creation-Date: 2015-09-13 18:04+0200\n"
+"PO-Revision-Date: 2015-09-13 18:04+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "Language: sl\n"
@@ -328,6 +328,7 @@ msgstr "Vloge projektnih deležnikov"
 #: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_stakeholder_tree
 #: model:ir.ui.menu,name:project_hr_stakeholder.menu_project_hr_stakeholder_view
 #: view:project.hr.stakeholder:project_hr_stakeholder.view_project_hr_stakeholder_search
+#: view:project.project:project_hr_stakeholder.edit_project
 msgid "Project Stakeholders"
 msgstr "Projektni deležniki"
 

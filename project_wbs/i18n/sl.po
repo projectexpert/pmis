@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-05 08:31+0200\n"
-"PO-Revision-Date: 2015-09-05 08:31+0200\n"
+"POT-Creation-Date: 2015-09-13 17:58+0200\n"
+"PO-Revision-Date: 2015-09-13 17:59+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "Language: sl\n"
@@ -261,6 +261,11 @@ msgstr "Zaključevanje"
 #: view:project.project:project_wbs.view_project
 msgid "Code"
 msgstr "Koda"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project_stages
+msgid "Communications"
+msgstr "Komunikacije"
 
 #. module: project_wbs
 #: model:analytic.account.stage,name:project_wbs.project_wbs_concept
@@ -541,11 +546,6 @@ msgid "Tasks"
 msgstr "Opravila"
 
 #. module: project_wbs
-#: view:project.project:project_wbs.edit_project_stages
-msgid "Team work"
-msgstr "Ekipno delo"
-
-#. module: project_wbs
 #: selection:analytic.account.stage,state:0
 msgid "To Renew"
 msgstr "Za obnovo"
@@ -630,6 +630,9 @@ msgstr ""
 #: view:project.project:project_wbs.edit_project
 msgid "on_change_parent(parent_id)"
 msgstr "on_change_parent(parent_id)"
+
+#~ msgid "Team work"
+#~ msgstr "Ekipno delo"
 
 #~ msgid "Full WBS Name"
 #~ msgstr "Polni naziv členitve"
