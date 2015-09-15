@@ -80,7 +80,7 @@
                                 <field name="project_child_complete_ids" nolabel="1">
                                     <tree editable="bottom" string="WBS elements"
                                           colors="grey:state in ('cancelled','done','close');blue:account_class == 'work_package';green:account_class == 'phase';magenta:account_class == 'deliverable'"
-                                          fonts="bold:state == 'open'" default_order="c_wbs_code">
+                                          fonts="bold:state == 'open'" default_order="complete_wbs_code">
                                         <field name="message_unread" invisible="1"/>
                                         <button string="Parent WBS element"
                                                 name="action_openParentTreeView"
