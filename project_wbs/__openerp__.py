@@ -1,6 +1,6 @@
 {
     'name': 'Work Breakdown Structure',
-    'version': '2.0.3',
+    'version': '2.0.4',
     'author':   'Eficent, '
                 'Matmoz d.o.o.',
     'contributors': [
