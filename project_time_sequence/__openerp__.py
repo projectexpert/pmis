@@ -22,7 +22,7 @@
 
 {
     "name": "Project Time Management - Activity Sequencing",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "author": "Eficent",
     "website": "http://www.eficent.com",
     "category": "Project Management",

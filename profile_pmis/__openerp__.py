@@ -22,7 +22,7 @@
 
 {
     'name': 'Profile PMIS',
-    'version': '1.0',
+    'version': '1.0.1',
     'category': 'Project Management',
     'sequence': 9,
     'summary': 'Project Management Information System',
@@ -58,7 +58,8 @@ set the planning accounts on products and human resources.
         'project_document_page',
         'project_task_issues',
         'risk_management',
-        'change_management'
+        'change_management',
+        'crm_change_request'
     ],
     'data': [],
     'test': [],
