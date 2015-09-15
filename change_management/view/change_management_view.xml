@@ -6,7 +6,7 @@
 			<field name="model">change.management.change</field>
 			<field name="priority">10</field>
 			<field name="arch" type="xml">
-				<tree string='Changes'>
+				<tree string='Changes' colors="green:state in 'accepted';grey:state in 'rejected';blue:state in 'deferred'" fonts="bold:state in 'active'">
 					<field name="name"/>
 					<field name="description"/>
 					<field name="project_id"/>
@@ -216,10 +216,10 @@
                                 groups="project.group_project_manager">
                             <div>Actions</div>
                         </button>
-                        <group string='Stakeholder Requests'>
+                        <tree string='Stakeholder Requests' colors="green:state in 'accepted';grey:state in 'rejected';blue:state in 'deferred'" fonts="bold:state in 'active'">
                             <field name="change_ids" nolabel="1" context="{'default_project_id': active_id}">
                             </field>
-                        </group>
+                        </tree>
                     </xpath>
                 </data>
             </field>
