@@ -153,7 +153,7 @@
             <field name="arch" type="xml">
                     <xpath expr='//tree[@string="Projects"]' position="replace">
                     <tree editable="top" string="WBS elements"
-                          colors="grey:state in ('cancelled','done','close');blue:account_class == 'work_package';green:account_class == 'phase';magenta:account_class == 'deliverable'"
+                          colors="grey:state in ('cancelled','done','close');mediumpurple:account_class == 'work_package';indigo:account_class == 'phase';darkviolet:account_class == 'deliverable'"
                           fonts="bold:state == 'open'"
                           default_order="complete_wbs_code">
                         <field name="message_unread" invisible="1"/>
