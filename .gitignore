@@ -1,34 +1,57 @@
-# sphinx build directories
-_build/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
 
-# dotfiles
-.*
-!.gitignore
-# compiled python files
-*.py[co]
-*.pyc
-# setup.py egg_info
-*.egg-info
-# emacs backup files
-*~
-# hg stuff
-*.orig
-status
-# odoo filestore
-openerp/filestore
-# maintenance migration scripts
-openerp/addons/base/maintenance
+# C extensions
+*.so
 
-# generated for windows installer?
-install/win32/*.bat
-install/win32/meta.py
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# various virtualenv
-/bin/
-/build/
-/dist/
-/include/
-/lib/
-/man/
-/share/
-/src/
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
