@@ -1,0 +1,567 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_earned_value
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-03 07:09+0000\n"
+"PO-Revision-Date: 2015-03-03 07:09+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+msgid "% Complete"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,ac:0
+msgid "AC"
+msgstr ""
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+msgid "Actual Cost"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Actual Cost (AC)"
+msgstr ""
+
+#. module: project_earned_value
+#: help:project.project,ac:0
+msgid "Actual Cost (AC) or Actual Cost of Work Performed\n"
+"                               is an indication of the level of resources that have been\n"
+"                               expended to achieve the actual work performed to date."
+msgstr ""
+
+#. module: project_earned_value
+#: help:project.project,poc:0
+msgid "Aggregated Percent of Completion"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Aggregated Percent of Completion (POC)"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,bac:0
+msgid "BAC"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Basic elements"
+msgstr ""
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+msgid "Budget at Completion"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+#: help:project.project,bac:0
+msgid "Budget at Completion (BAC)"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,cpi:0
+msgid "CPI"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,cv:0
+msgid "CV"
+msgstr ""
+
+#. module: project_earned_value
+#: view:earned.value.graphs:project_earned_value.view_earned_value_graphs
+msgid "Cancel"
+msgstr ""
+
+#. module: project_earned_value
+#: model:ir.actions.act_window,name:project_earned_value.action_earned_value_graphs
+#: model:ir.ui.menu,name:project_earned_value.menu_action_earned_value_graphs
+msgid "Compute Trend Analysis"
+msgstr ""
+
+#. module: project_earned_value
+#: model:ir.actions.act_window,name:project_earned_value.action_project_evm_cost
+#: model:ir.ui.menu,name:project_earned_value.menu_project_evm_cost
+msgid "Cost Analysis"
+msgstr ""
+
+#. module: project_earned_value
+#: model:ir.actions.act_window,help:project_earned_value.action_project_evm_schedule
+msgid "Cost Analysis based\n"
+"                on the Earned Value Management method"
+msgstr ""
+
+#. module: project_earned_value
+#: model:ir.actions.act_window,help:project_earned_value.action_project_evm_cost
+msgid "Cost Analysis based on the Earned Value Management method"
+msgstr ""
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+msgid "Cost Performance Index"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Cost Performance Index (CPI)"
+msgstr ""
+
+#. module: project_earned_value
+#: help:project.project,cpi:0
+msgid "Cost Performance Index (CPI) indicates how efficiently\n"
+"                               the team is using its resources. It is determined as EV / AC.\n"
+"                               A value of 0.8 indicates that the project has a cost efficiency\n"
+"                               that provides 0.8 worth of work for every unit spent to date."
+msgstr ""
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+msgid "Cost Variance"
+msgstr ""
+
+#. module: project_earned_value
+#: help:project.project,cvp:0
+msgid "Cost Variance % (CVP) shows whether a project is under\n"
+"                               or over budget. It is determined as CV / EV.\n"
+"                               A negative value indicates that the project is over budget."
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Cost Variance (CV)"
+msgstr ""
+
+#. module: project_earned_value
+#: help:project.project,cv:0
+msgid "Cost Variance (CV) shows whether a project is under\n"
+"                              or over budget. It is determined as EV - AC.\n"
+"                              A negative value indicates that the project is\n"
+"                              over budget."
+msgstr ""
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+msgid "Cost Variance Percent"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Cost Variance Percent (CVP)"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Cost analysis"
+msgstr ""
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+#: help:project.project,pcc:0
+msgid "Costs to date / Total costs"
+msgstr ""
+
+#. module: project_earned_value
+#: field:earned.value.graphs,create_uid:0
+#: field:project.evm,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: project_earned_value
+#: field:earned.value.graphs,create_date:0
+#: field:project.evm,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.evm,date:0
+msgid "Date"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,eac:0
+msgid "EAC"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,etc:0
+msgid "ETC"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,ev:0
+msgid "EV"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.view_project_evm_cost
+msgid "EVM Cost analysis"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.view_project_evm_schedule
+msgid "EVM Schedule analysis"
+msgstr ""
+
+#. module: project_earned_value
+#: model:ir.actions.act_window,help:project_earned_value.action_project_evm_tree
+msgid "EVM Trend Analysis Records"
+msgstr ""
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+msgid "Earned Value"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Earned Value (EV)"
+msgstr ""
+
+#. module: project_earned_value
+#: help:project.project,ev:0
+msgid "Earned Value (PV) or Budgeted Cost of Work Performed\n"
+"                               is the amount of work that has been completed to date,\n"
+"                               expressed as the planned value for that work."
+msgstr ""
+
+#. module: project_earned_value
+#: model:ir.model,name:project_earned_value.model_earned_value_graphs
+msgid "Earned Value Graphs"
+msgstr ""
+
+#. module: project_earned_value
+#: model:ir.ui.menu,name:project_earned_value.menu_project_evm
+#: view:project.evm:project_earned_value.view_project_evm_graph
+msgid "Earned Value Management"
+msgstr ""
+
+#. module: project_earned_value
+#: code:addons/project_earned_value/wizard/earned_value.py:59
+#, python-format
+msgid "Earned Value Records"
+msgstr ""
+
+#. module: project_earned_value
+#: view:earned.value.graphs:project_earned_value.view_earned_value_graphs
+msgid "Earned Value Report"
+msgstr ""
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+msgid "Estimate at Completion"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Estimate at Completion (EAC)"
+msgstr ""
+
+#. module: project_earned_value
+#: help:project.project,eac:0
+msgid "Estimate at Completion (EAC) provides an estimate\n"
+"                               of the final cost of the project if current performance trends\n"
+"                               continue. It is calculated as BAC / CPI."
+msgstr ""
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+msgid "Estimate to Complete"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Estimate to Complete (ETC)"
+msgstr ""
+
+#. module: project_earned_value
+#: help:project.project,etc:0
+msgid "Estimate to Complete (ETC) provides an estimate\n"
+"                               of what will the remaining work cost. It is calculated as\n"
+"                               (BAC - EV) / CPI."
+msgstr ""
+
+#. module: project_earned_value
+#: field:earned.value.graphs,id:0
+#: field:project.evm,id:0
+msgid "ID"
+msgstr ""
+
+#. module: project_earned_value
+#: field:earned.value.graphs,write_uid:0
+#: field:project.evm,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: project_earned_value
+#: field:earned.value.graphs,write_date:0
+#: field:project.evm,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: project_earned_value
+#: view:earned.value.graphs:project_earned_value.view_earned_value_graphs
+msgid "Open Graphs"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,pcc:0
+msgid "PCC"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,poc:0
+msgid "POC"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,pv:0
+msgid "PV"
+msgstr ""
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+msgid "Planned Value"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Planned Value (PV)"
+msgstr ""
+
+#. module: project_earned_value
+#: help:project.project,pv:0
+msgid "Planned Value (PV) or Budgeted Cost of Work Scheduled\n"
+"                               is the total cost of the work scheduled/planned\n"
+"                               as of a reporting date."
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.evm,eval_date:0
+msgid "Printed Date"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Progress Analysis"
+msgstr ""
+
+#. module: project_earned_value
+#: field:earned.value.graphs,progress_measurement_type:0
+msgid "Progress Measurement Type"
+msgstr ""
+
+#. module: project_earned_value
+#: field:earned.value.graphs,project_id:0
+#: model:ir.model,name:project_earned_value.model_project_project
+#: field:project.evm,project_id:0
+msgid "Project"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.evm:project_earned_value.view_project_evm_search
+msgid "Project Earned Value"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.evm:project_earned_value.view_project_evm_edit
+#: view:project.evm:project_earned_value.view_project_evm_tree
+msgid "Project Earned Value Management"
+msgstr ""
+
+#. module: project_earned_value
+#: model:ir.model,name:project_earned_value.model_project_evm
+msgid "Project Earned Value Management indicators"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,spi:0
+msgid "SPI"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,sv:0
+msgid "SV"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,svp:0
+msgid "SVP"
+msgstr ""
+
+#. module: project_earned_value
+#: model:ir.actions.act_window,name:project_earned_value.action_project_evm_schedule
+#: model:ir.ui.menu,name:project_earned_value.menu_project_evm_schedule
+msgid "Schedule Analysis"
+msgstr ""
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+msgid "Schedule Performance Index"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Schedule Performance Index (SPI)"
+msgstr ""
+
+#. module: project_earned_value
+#: help:project.project,spi:0
+msgid "Schedule Performance Index (SPI) indicates\n"
+"                               how efficiently the project team is using its time. It is\n"
+"                               calculated as EV / PV. For example, on a day, indicates\n"
+"                               how many hours worth of the planned work is being performed."
+msgstr ""
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+msgid "Schedule Variance"
+msgstr ""
+
+#. module: project_earned_value
+#: help:project.project,svp:0
+msgid "Schedule Variance % (SVP) determines whether a project is\n"
+"                               ahead or behind schedule. It is calculated as SV / PV.\n"
+"                               A negative value indicates what percent of the planned work\n"
+"                               has not been accomplished"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Schedule Variance (SV)"
+msgstr ""
+
+#. module: project_earned_value
+#: help:project.project,sv:0
+msgid "Schedule Variance (SV) determines whether a project is\n"
+"                               ahead or behind schedule. It is calculated as EV - PV.\n"
+"                               A negative value indicates an unfavorable condition."
+msgstr ""
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+msgid "Schedule Variance Percent"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Schedule Variance Percent (SVP)"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Schedule analysis"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,tcpi:0
+msgid "TCPI"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.evm,name:0
+msgid "Title"
+msgstr ""
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+msgid "To-Complete Cost Performance Index"
+msgstr ""
+
+#. module: project_earned_value
+#: help:project.project,tcpi:0
+msgid "To-Complete Cost Performance Index (TCPI) helps the team\n"
+"                                determine the efficiency that must be achieved on the remaining work\n"
+"                                for a project to meet the Budget at Completion (BAC). It is determined\n"
+"                                as (BAC - EV) / (BAC - AC)"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "To-Complete Performance Index (TCPI)"
+msgstr ""
+
+#. module: project_earned_value
+#: model:ir.actions.act_window,name:project_earned_value.action_project_evm_tree
+#: model:ir.ui.menu,name:project_earned_value.menu_project_evm_view
+msgid "Trend Analysis Records"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.evm,kpi_type:0
+msgid "Type"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,vac:0
+msgid "VAC"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,vacp:0
+msgid "VACP"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.evm,kpi_value:0
+msgid "Value"
+msgstr ""
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+msgid "Variance at Completion"
+msgstr ""
+
+#. module: project_earned_value
+#: help:project.project,vacp:0
+msgid "Variance at Completion % (VACP) shows the team\n"
+"                                whether the project will finish under or over budget.\n"
+"                                It is calculated as VAC / BAC."
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Variance at Completion (VAC)"
+msgstr ""
+
+#. module: project_earned_value
+#: help:project.project,vac:0
+msgid "Variance at Completion (VAC) shows the team\n"
+"                               whether the project will finish under or over budget.\n"
+"                               It is calculated as BAC - EAC."
+msgstr ""
+
+#. module: project_earned_value
+#: selection:project.evm,kpi_type:0
+msgid "Variance at Completion Percent"
+msgstr ""
+
+#. module: project_earned_value
+#: view:project.project:project_earned_value.edit_project
+msgid "Variance at Completion Percent (VACP)"
+msgstr ""
+
+#. module: project_earned_value
+#: view:earned.value.graphs:project_earned_value.view_earned_value_graphs
+msgid "or"
+msgstr ""
+
+#. module: project_earned_value
+#: field:project.project,cvp:0
+msgid "unknown"
+msgstr ""
+
