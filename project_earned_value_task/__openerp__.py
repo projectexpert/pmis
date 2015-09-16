@@ -27,20 +27,19 @@
     "category": "Generic Modules/Projects & Services",
     "depends": ["project", "hr_timesheet"],
     "description": """
-        - 
- 
+        -
+
     """,
-    "init_xml": [],
-    "update_xml": [
+    "data": [
         "view/project_evm_view.xml",
         "view/project_view.xml",
         "wizard/earned_value_view.xml",
         "data/project_data.xml",
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,

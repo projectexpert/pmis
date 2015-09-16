@@ -24,8 +24,9 @@ from datetime import datetime
 from datetime import datetime as dt
 from dateutil.rrule import *
 
+
 class HrEmployee(models.Model):
-    
+
     _inherit = "hr.employee"
 
     @api.model
@@ -40,4 +41,3 @@ class HrEmployee(models.Model):
                     _('Error!:: No product is assigned to employee %s.'),
                     (employee.name,))
             return employee.product_id.standard_price
-

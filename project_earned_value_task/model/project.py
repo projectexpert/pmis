@@ -32,7 +32,7 @@ class ProjectTaskType(models.Model):
 
 
 class Project(models.Model):
-    
+
     _inherit = "project.project"
 
     @staticmethod
@@ -154,8 +154,9 @@ class Project(models.Model):
         if max_date_end_2 == 0:
             datetime_end_2 = datetime.today()
         else:
-            datetime_end_2 = datetime.strptime(max_date_end,
-                                             "%Y-%m-%d %H:%M:%S")
+            datetime_end_2 = datetime.strptime(
+                max_date_end, "%Y-%m-%d %H:%M:%S"
+            )
         datetime_end = max(datetime_end, datetime_end_2)
 
         return datetime_start, datetime_end
@@ -351,11 +352,11 @@ class Project(models.Model):
                        indicates how many hours worth of the planned work
                        is being performed.""")
     eac = fields.Float(compute='_earned_value', string='EAC',
-                          digits_compute=dp.get_precision('Account'),
-                          help="""Estimate at Completion (EAC) provides
-                          an estimate of the final cost of the project if
-                          current performance trends continue. It is
-                          calculated as BAC / CPI.""")
+                       digits_compute=dp.get_precision('Account'),
+                       help="""Estimate at Completion (EAC) provides
+                       an estimate of the final cost of the project if
+                       current performance trends continue. It is
+                       calculated as BAC / CPI.""")
     etc = fields.Float(compute='_earned_value', string='ETC',
                        digits_compute=dp.get_precision('Account'),
                        help="""Estimate to Complete (ETC) provides an
@@ -428,8 +429,8 @@ class Project(models.Model):
             time_start = datetime.strptime('00:00:00', '%H:%M:%S').time()
             time_end = datetime.strptime('23:59:59', '%H:%M:%S').time()
 
-            datetime_start = datetime.combine(day_date,time_start)
-            datetime_end = datetime.combine(day_date,time_end)
+            datetime_start = datetime.combine(day_date, time_start)
+            datetime_end = datetime.combine(day_date, time_end)
 
             cr.execute('''SELECT PTW.user_id, sum(PTW.hours)
                        FROM project_task_work AS PTW
@@ -451,9 +452,11 @@ class Project(models.Model):
                     "%Y-%m-%d %H:%M:%S")
                 date_done = datetime_stage.date()
                 if date_done == day_date:
-                    ev += user_cost.get(project_task.user_id.id, 0.0) * \
-                          project_task.planned_hours * \
-                          project_task.stage_id.poc / 100
+                    ev += (
+                        user_cost.get(project_task.user_id.id, 0.0) *
+                        project_task.planned_hours *
+                        project_task.stage_id.poc / 100
+                    )
 
                 # If task is planned to complete on this date then
                 # record planned value
@@ -465,8 +468,10 @@ class Project(models.Model):
                     date_end = False
 
                 if date_end == day_date:
-                    pv += user_cost.get(project_task.user_id.id, 0.0) * \
-                          project_task.planned_hours
+                    pv += (
+                        user_cost.get(project_task.user_id.id, 0.0) *
+                        project_task.planned_hours
+                    )
 
             ratios = self._get_evm_ratios(ac, pv, ev, bac)
             # Create the EVM records

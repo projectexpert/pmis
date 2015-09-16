@@ -30,13 +30,14 @@ _KPI_TYPE = [('PV', 'Planned Value'),
              ('SV', 'Schedule Variance'),
              ('SVP', 'Schedule Variance Percent'),
              ('SPI', 'Schedule Performance Index'),
-             ('EAC', 'Estimate at Completion'), 
+             ('EAC', 'Estimate at Completion'),
              ('ETC', 'Estimate to Complete'),
              ('VAC', 'Variance at Completion'),
              ('VACP', 'Variance at Completion Percent'),
              ('BAC', 'Budget at Completion'),
              ('PCC', 'Costs to date / Total costs'),
              ('POC', '% Complete')]
+
 
 class project_evm_task(models.Model):
 
