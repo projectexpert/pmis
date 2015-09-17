@@ -23,13 +23,14 @@ from openerp import tools
 from openerp.osv import fields, osv
 from openerp.tools.translate import _
 
+
 _ANALYTIC_ACCOUNT_STATE = [
-     ('draft', 'New'),
-     ('open', 'In Progress'),
-     ('pending', 'To Renew'),
-     ('close', 'Closed'),
-     ('cancelled', 'Cancelled')
- ]
+    ('draft', 'New'),
+    ('open', 'In Progress'),
+    ('pending', 'To Renew'),
+    ('close', 'Closed'),
+    ('cancelled', 'Cancelled')
+]
 
 
 class analytic_account_stage(osv.osv):
