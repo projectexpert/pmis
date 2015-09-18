@@ -25,6 +25,8 @@
     "category": "Tools",
     "summary": "Modules Technical Guides in RST and Relationship Graphs",
     "description": """
+*This is a frozen version. The module is in process of being moved to OCA's repo.
+
 This module generates the Technical Guides of selected modules in Restructured Text format (RST).
 =================================================================================================
 
@@ -50,5 +52,5 @@ for the Odoo version 8 by the Odoo Community Association.
         "module_report.xml",
     ],
     "demo": [],
-    "installable": True,
+    "installable": False,
 }
