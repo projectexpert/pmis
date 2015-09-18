@@ -29,7 +29,7 @@ This module generates the Technical Guides of selected modules in Restructured T
 =================================================================================================
 
 Originally developed by OpenERP SA (version 6.1, http://www.odoo.com). This version was adapted
-for the Odoo version 8 by Matmoz d.o.o. (http://www.matmoz.si).
+for the Odoo version 8 by the Odoo Community Association.
 
     * It uses the Sphinx (http://sphinx.pocoo.org) implementation of RST
     * It creates a tarball (.tgz file suffix) containing an index file and one file per module
