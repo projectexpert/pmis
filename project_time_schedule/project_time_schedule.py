@@ -36,29 +36,53 @@ class task(osv.osv):
     _description = "Activity"
 
     _columns = {
-        'duration': fields.integer('Activity duration', help='Duration in calendar hours'),
-        'date_early_start': fields.datetime('Early Start Date', select=True),
-        'date_early_finish': fields.datetime('Early Finish Date', select=True),
-        'date_late_start': fields.datetime('Late Start Date', select=True),
-        'date_late_finish': fields.datetime('Late Finish Date', select=True),
-        'is_critical_path': fields.boolean('Critical Path'),
-        'date_earliest_start': fields.datetime('Earliest Start Date', select=True),
-        'date_latest_finish': fields.datetime('Latest Finish Date', select=True),
+        'duration': fields.integer(
+            'Activity duration', help='Duration in calendar hours'
+        ),
+        'date_early_start': fields.datetime(
+            'Early Start Date', select=True
+        ),
+        'date_early_finish': fields.datetime(
+            'Early Finish Date', select=True
+        ),
+        'date_late_start': fields.datetime(
+            'Late Start Date', select=True
+        ),
+        'date_late_finish': fields.datetime(
+            'Late Finish Date', select=True
+        ),
+        'is_critical_path': fields.boolean(
+            'Critical Path'
+        ),
+        'date_earliest_start': fields.datetime(
+            'Earliest Start Date', select=True
+        ),
+        'date_latest_finish': fields.datetime(
+            'Latest Finish Date', select=True
+        ),
         'total_float': fields.integer(
             'Total float',
-            help='Number of hours that the activity can be delayed without delaying the project.'
+            help='''
+Number of hours that the activity can be delayed without delaying the project.
+            '''
         ),
         'free_float': fields.integer(
             'Free float',
-            help='Number of hours that the activity can be delayed without delaying the next subsequent activity.'
+            help='''
+Number of hours that the activity can be delayed without delaying the next
+subsequent activity.
+            '''
         ),
-        }
+    }
 
     def onchange_duration(self, cr, uid, ids, duration):
         result = {}
 
         if duration < 0:
-            raise osv.except_osv(_('Error'), _("The task duration cannot be set to a value less than zero."))
+            raise osv.except_osv(
+                _('Error'),
+                _("The task duration cannot be set to a value less than zero.")
+            )
 
         return result
 
@@ -77,7 +101,9 @@ class task(osv.osv):
         task_stage_obj = self.pool.get('project.task.type')
         closed = True
         if read_data['stage_id']:
-            stage_data = task_stage_obj.read(cr, uid, read_data['stage_id'][0], ['fold'])
+            stage_data = task_stage_obj.read(
+                cr, uid, read_data['stage_id'][0], ['fold']
+            )
             closed = stage_data['fold']
 
         if closed:
@@ -101,7 +127,9 @@ class task(osv.osv):
         else:
             date_latest_finish = read_data['date_latest_finish']
 
-        d_activities[ids[0]] = network_activity(ids[0], replan_duration, date_earliest_start, date_latest_finish)
+        d_activities[ids[0]] = network_activity(
+            ids[0], replan_duration, date_earliest_start, date_latest_finish
+        )
 
         if not child_ids:
             d_activities[ids[0]].add_successor(d_activities['stop'])
@@ -117,7 +145,11 @@ class task(osv.osv):
             else:
                 lchild_id = []
                 lchild_id.append(child_id)
-                d_activities.update(self.get_network(cr, uid, lchild_id, d_activities))
+                d_activities.update(
+                    self.get_network(
+                        cr, uid, lchild_id, d_activities
+                    )
+                )
 
             d_activities[ids[0]].add_successor(d_activities[child_id])
 
@@ -127,7 +159,11 @@ class task(osv.osv):
             else:
                 lparent_id = []
                 lparent_id.append(parent_id)
-                d_activities.update(self.get_network(cr, uid, lparent_id, d_activities))
+                d_activities.update(
+                    self.get_network(
+                        cr, uid, lparent_id, d_activities
+                    )
+                )
 
             d_activities[ids[0]].add_predecessor(d_activities[parent_id])
 
@@ -161,12 +197,18 @@ class task(osv.osv):
         l_successor_date_earliest_start = []
         for successor in start_activity.successors:
             if successor.date_earliest_start:
-                l_successor_date_earliest_start.append(successor.date_earliest_start)
+                l_successor_date_earliest_start.append(
+                    successor.date_earliest_start
+                )
 
         if l_successor_date_earliest_start:
-            start_activity.date_early_start = min(l_successor_date_earliest_start)
+            start_activity.date_early_start = min(
+                l_successor_date_earliest_start
+            )
         else:
-            start_activity.date_early_start = network_activity.next_work_day(datetime.today())
+            start_activity.date_early_start = network_activity.next_work_day(
+                datetime.today()
+            )
 
         network_activity.walk_list_ahead(start_activity)
 
@@ -197,7 +239,9 @@ class task(osv.osv):
                 [act.free_float, rr] = network_activity.work_days_diff(
                     act.date_early_finish, min(l_successor_date_early_start)
                 )
-            [act.total_float, rr] = network_activity.work_days_diff(act.date_early_start, act.date_late_start)
+            [act.total_float, rr] = network_activity.work_days_diff(
+                act.date_early_start, act.date_late_start
+            )
 
         # Calculate shortest path
         C_INFINITE = 9999
@@ -237,13 +281,20 @@ class task(osv.osv):
         for task_id in d_activities.keys():
             if (not task_id == 'start') and (not task_id == 'stop'):
                 task_obj.write(cr, uid, task_id, {
-                    'date_early_start': d_activities[task_id].date_early_start,
-                    'date_early_finish': d_activities[task_id].date_early_finish,
-                    'date_late_start': d_activities[task_id].date_late_start,
-                    'date_late_finish': d_activities[task_id].date_late_finish,
-                    'is_critical_path': d_activities[task_id].is_critical_path,
-                    'total_float': d_activities[task_id].total_float,
-                    'free_float': d_activities[task_id].free_float,
+                    'date_early_start': d_activities[
+                        task_id].date_early_start,
+                    'date_early_finish': d_activities[
+                        task_id].date_early_finish,
+                    'date_late_start': d_activities[
+                        task_id].date_late_start,
+                    'date_late_finish': d_activities[
+                        task_id].date_late_finish,
+                    'is_critical_path': d_activities[
+                        task_id].is_critical_path,
+                    'total_float': d_activities[
+                        task_id].total_float,
+                    'free_float': d_activities[
+                        task_id].free_float,
                 }, context=context)
 
     def create(self, cr, uid, vals, context=None):
@@ -256,9 +307,12 @@ class task(osv.osv):
             context = {}
         res = super(task, self).write(cr, uid, ids, vals, context)
         if not context.get('calculate_network') and ids and (
-            vals.get('duration') or vals.get('stage_id') or vals.get('date_latest_finish') or vals.get(
-                'date_earliest_start'
-            ) or vals.get('parent_ids') or vals.get('child_ids')
+            vals.get('duration') or
+            vals.get('stage_id') or
+            vals.get('date_latest_finish') or
+            vals.get('date_earliest_start') or
+            vals.get('parent_ids') or
+            vals.get('child_ids')
         ):
             if not isinstance(ids, list):
                 ids = [ids]
@@ -266,13 +320,14 @@ class task(osv.osv):
         return res
 
 task()
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
 
 
 class network_activity(object):
     'Activity in network diagram'
 
-    def __init__(self, activity_id, duration, date_earliest_start, date_latest_finish):
+    def __init__(
+        self, activity_id, duration, date_earliest_start, date_latest_finish
+    ):
 
         DATE_FORMAT = "%Y-%m-%d"
         DATE_INIT = datetime(1900, 01, 01, 9, 0)
@@ -283,12 +338,16 @@ class network_activity(object):
         self.total_duration = int(duration)
 
         if date_earliest_start:
-            self.date_earliest_start = datetime.strptime(date_earliest_start, "%Y-%m-%d %H:%M:%S")
+            self.date_earliest_start = datetime.strptime(
+                date_earliest_start, "%Y-%m-%d %H:%M:%S"
+            )
         else:
             self.date_earliest_start = None
 
         if date_latest_finish:
-            self.date_latest_finish = datetime.strptime(date_latest_finish, "%Y-%m-%d %H:%M:%S")
+            self.date_latest_finish = datetime.strptime(
+                date_latest_finish, "%Y-%m-%d %H:%M:%S"
+            )
         else:
             self.date_latest_finish = None
 
@@ -309,23 +368,47 @@ class network_activity(object):
     @staticmethod
     def work_days(dtstart, until):
 
-        work_days = count(rrule(DAILY, byweekday=(MO, TU, WE, TH, FR), dtstart=date, until=until))
+        work_days = count(
+            rrule(
+                DAILY,
+                byweekday=(MO, TU, WE, TH, FR),
+                dtstart=date,
+                until=until
+            )
+        )
         return work_days
 
     @staticmethod
     def work_days_diff(start_date, end_date):
         if end_date > start_date:
-            rr = rrule(HOURLY, byweekday=(MO, TU, WE, TH, FR), byhour=range(9, 17), dtstart=start_date, until=end_date)
+            rr = rrule(
+                HOURLY,
+                byweekday=(MO, TU, WE, TH, FR),
+                byhour=range(9, 17),
+                dtstart=start_date,
+                until=end_date
+            )
             return [rr.count(), rr]
         elif start_date > end_date:
-            rr = rrule(HOURLY, byweekday=(MO, TU, WE, TH, FR), byhour=range(9, 17), dtstart=end_date, until=start_date)
+            rr = rrule(
+                HOURLY,
+                byweekday=(MO, TU, WE, TH, FR),
+                byhour=range(9, 17),
+                dtstart=end_date,
+                until=start_date
+            )
             return [-(rr.count()), rr]
         else:
             return [0, None]
 
     @staticmethod
     def next_work_day(date):
-        rr = rrule(HOURLY, byweekday=(MO, TU, WE, TH, FR), byhour=range(9, 17), dtstart=date)
+        rr = rrule(
+            HOURLY,
+            byweekday=(MO, TU, WE, TH, FR),
+            byhour=range(9, 17),
+            dtstart=date
+        )
         return rr.after(date, inc=True)
 
     @staticmethod
@@ -333,7 +416,13 @@ class network_activity(object):
         if duration:
             l_days = []
             l_days = list(
-                rrule(HOURLY, count=duration + 1, byweekday=(MO, TU, WE, TH, FR), byhour=range(9, 17), dtstart=date)
+                rrule(
+                    HOURLY,
+                    count=duration + 1,
+                    byweekday=(MO, TU, WE, TH, FR),
+                    byhour=range(9, 17),
+                    dtstart=date
+                )
             )
             return l_days[-1]
         else:
@@ -345,7 +434,9 @@ class network_activity(object):
         if duration:
             correct_date_init = False
             while correct_date_init is False:
-                [rr_count, rr] = network_activity.work_days_diff(DATE_INIT, date)
+                [rr_count, rr] = network_activity.work_days_diff(
+                    DATE_INIT, date
+                )
                 if rr_count < duration:
                     DATE_INIT -= timedelta(hours=duration + 1 - rr_count)
                 else:
@@ -365,13 +456,16 @@ class network_activity(object):
     def walk_list_ahead(position):
 
         # Start No Earlier Than Milestone
-        # A "Start No Earlier Than" milestone fixes the start of an activity to begin no earlier than the date provided.
+        # A "Start No Earlier Than" milestone fixes the start of an activity
+        #   to begin no earlier than the date provided.
         # The start milestone's impact is on the forward pass only.
-        # When the activity with the start milestone is reached in the forward pass,
-        #  then the milestone date is considered in the calculation.
-        # If the milestone start date is later than the calculated early start date, then the milestone date
-        #  is substituted for the calculated early start date.
-        # If the calculated date is later than the early start date, then the calculated date is used.
+        # When the activity with the start milestone is reached in the forward
+        #   pass, then the milestone date is considered in the calculation.
+        # If the milestone start date is later than the calculated early start
+        #   date, then the milestone date is substituted for the calculated
+        #   early start date.
+        # If the calculated date is later than the early start date, then the
+        #   calculated date is used.
 
         if position.date_earliest_start:
             position.date_early_start = position.date_earliest_start
@@ -381,7 +475,8 @@ class network_activity(object):
                 position.date_early_start, position.replan_duration
             )
 
-        # Earliest start of successor task = Latest of the early finish dates of all predecessors
+        # Earliest start of successor task = Latest of the early finish dates
+        #   of all predecessors
         for successor in position.successors:
 
             if successor.date_earliest_start:

@@ -27,22 +27,24 @@
 #
 #
 ##############################################################################
-{'name': 'Swiss ZIP completion list',
- 'version': '2.0.0.1',
- 'depends': ['l10n_base'],
- 'category': 'Localisation/Swiss',
- 'author': 'Didotech',
- 'description': """Swiss Localization module - Base version
+{
+    'name': 'Swiss ZIP completion list',
+    'version': '2.0.0.1',
+    'depends': ['l10n_base'],
+    'category': 'Localisation/Swiss',
+    'author': 'Didotech',
+    'description': """Swiss Localization module - Base version
 
-Funcionalities:
+    Funcionalities:
 
-- Data import for Swiss Municipalities, zip codes, ...
-""",
- 'website': 'http://www.didotech.com',
- 'data': [
-    'data/l10n_base_data_ch.xml',
-    'data/res.country.csv'
-  ],
- 'demo_xml': [],
- 'installable': True,
- 'active': False}
+    - Data import for Swiss Municipalities, zip codes, ...
+    """,
+    'website': 'http://www.didotech.com',
+    'data': [
+        'data/l10n_base_data_ch.xml',
+        'data/res.country.csv'
+    ],
+    'demo': [],
+    'installable': True,
+    'active': False
+}

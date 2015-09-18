@@ -59,11 +59,26 @@ class change_management_change (models.Model):
 
     _track = {
         'state': {
-            'change.mt_change_draft': lambda self, cr, uid, obj, ctx=None: obj['state'] in ['draft'],
-            'change.mt_change_active': lambda self, cr, uid, obj, ctx=None: obj['state'] in ['active'],
-            'change.mt_change_rejected': lambda self, cr, uid, obj, ctx=None: obj['state'] in ['rejected'],
-            'change.mt_change_accepted': lambda self, cr, uid, obj, ctx=None: obj['state'] in ['accepted'],
-            'change.mt_change_deferred': lambda self, cr, uid, obj, ctx=None: obj['state'] in ['deferred']
+            'change.mt_change_draft': (
+                lambda self, cr, uid, obj,
+                ctx=None: obj['state'] in ['draft']
+            ),
+            'change.mt_change_active': (
+                lambda self, cr, uid, obj,
+                ctx=None: obj['state'] in ['active']
+            ),
+            'change.mt_change_rejected': (
+                lambda self, cr, uid, obj,
+                ctx=None: obj['state'] in ['rejected']
+            ),
+            'change.mt_change_accepted': (
+                lambda self, cr, uid, obj,
+                ctx=None: obj['state'] in ['accepted']
+            ),
+            'change.mt_change_deferred': (
+                lambda self, cr, uid, obj,
+                ctx=None: obj['state'] in ['deferred']
+            )
         }
     }
 
@@ -97,7 +112,8 @@ class change_management_change (models.Model):
     #
 
     name = fields.Char(
-        'Request Id', size=64, required=True, readonly=True, states={'draft': [('readonly', False)]}, select=True,
+        'Request Id', size=64, required=True, readonly=True,
+        states={'draft': [('readonly', False)]}, select=True,
         help='''
 Change label. Can be changed as long as change is in state 'draft'.
         '''
@@ -156,7 +172,8 @@ and obtain sign-off from all key stakeholders.
         'Color'
     )
     date_registered = fields.Date(
-        'Date Registered', required=True, help="Date of the change registered. Auto populated."
+        'Date Registered', required=True,
+        help="Date of the change registered. Auto populated."
     )
     date_modified = fields.Date(
         'Date Revised', help="Date of last revision."
@@ -164,8 +181,8 @@ and obtain sign-off from all key stakeholders.
     change_category_id = fields.Many2one(
         'change.management.category', 'Change Category', required=True,
         help='''
-Change Category: The type of change in terms of the project's or business' chosen categories
-(e.g. Schedule, quality, legal etc.)
+Change Category: The type of change in terms of the project's or business'
+chosen categories (e.g. Schedule, quality, legal etc.)
         '''
     )
     description_cause = fields.Text(
@@ -180,9 +197,10 @@ Change Category: The type of change in terms of the project's or business' chose
     proximity_id = fields.Many2one(
         'change.management.proximity', 'Proximity',
         help='''
-Proximity: This would typically state how close to the present time the change event is anticipated to happen
-(e.g. for project changes Imminent, within stage, within project, beyond project). Proximity should be recorded
-in accordance with the project's chosen scales or business continuity time scales.
+Proximity: This would typically state how close to the present time the change
+event is anticipated to happen (e.g. for project changes Imminent, within
+stage, within project, beyond project). Proximity should be recorded in
+accordance with the project's chosen scales or business continuity time scales.
         '''
     )
     change_response_ids = fields.One2many(
@@ -197,8 +215,9 @@ in accordance with the project's chosen scales or business continuity time scale
     change_owner_id = fields.Many2one(
         'res.users', 'Change Manager',
         help='''
-Change Manager: The person responsible for managing the change (there can be only one change owner per change),
-change ownership is assigned to a managerial level, in case of business continuity to a C-level manager.
+Change Manager: The person responsible for managing the change (there can be
+only one change owner per change), change ownership is assigned to a managerial
+level, in case of business continuity to a C-level manager.
         '''
     )
 
@@ -210,13 +229,20 @@ change ownership is assigned to a managerial level, in case of business continui
         'author_id': lambda s, cr, uid, c: uid,
         'date_registered': lambda *a: date.today().strftime('%Y-%m-%d'),
         'state': 'draft',
-        'name': lambda s, cr, uid, c: s.pool.get('ir.sequence').get(cr, uid, 'change.management.change'),
+        'name': lambda s, cr, uid, c: s.pool.get('ir.sequence').get(
+            cr, uid, 'change.management.change'
+        ),
         'color': '0'
     }
 
     def _subscribe_extra_followers(self, cr, uid, ids, vals, context=None):
         user_ids = [
-            vals[x] for x in ['author_id', 'change_owner_id'] if x in vals and vals[x] != False
+            vals[x] for
+            x in
+            ['author_id', 'change_owner_id'] if
+            x in
+            vals and
+            vals[x] != False
         ]
         if len(user_ids) > 0:
             self.message_subscribe_users(
@@ -227,18 +253,26 @@ change ownership is assigned to a managerial level, in case of business continui
             cr, uid, ids, ['message_follower_ids', 'change_response_ids']
         )
         for change in changes:
-            if 'change_response_ids' in change and change['change_response_ids']:
+            if 'change_response_ids' in change and change[
+                'change_response_ids'
+            ]:
                 task_ob = self.pool.get('project.task')
                 task_ob.message_subscribe(
-                    cr, uid, change['change_response_ids'], change['message_follower_ids'], context=context
+                    cr, uid, change['change_response_ids'], change[
+                        'message_follower_ids'
+                    ], context=context
                 )
 
     def write(self, cr, uid, ids, vals, context=None):
-        ret = super(change_management_change, self).write(cr, uid, ids, vals, context)
+        ret = super(change_management_change, self).write(
+            cr, uid, ids, vals, context
+        )
         self._subscribe_extra_followers(cr, uid, ids, vals, context)
         return ret
 
     def create(self, cr, uid, vals, context=None):
-        change_id = super(change_management_change, self).create(cr, uid, vals, context)
+        change_id = super(change_management_change, self).create(
+            cr, uid, vals, context
+        )
         self._subscribe_extra_followers(cr, uid, [change_id], vals, context)
         return change_id

@@ -159,7 +159,9 @@ Examples:
 #     _description = __doc__
 #
 #     project_id = fields.Many2one('project.project', string='Projects')
-#     partner_id = fields.Many2one('project.hr.stakeholder', string='Stakeholder')
+#     partner_id = fields.Many2one(
+#         'project.hr.stakeholder', string='Stakeholder'
+#     )
 #     issue_id = fields.Many2one('project.issue', string='Negotiation')
 #     status = fields.Selection(
 #         [('draft', 'Draft'), ('approved', 'Approved'), ('denied', 'Denied')],

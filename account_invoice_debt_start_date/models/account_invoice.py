@@ -42,7 +42,9 @@ class account_invoice(osv.osv):
             readonly=True,
             states={'draft': [('readonly', False)]},
             select=True,
-            help="Date when debt relationship between customer and supplier started."
+            help="""
+            Date when debt relationship between customer and supplier started.
+            """
         ),
         'date_invoice_recieved': fields.date(
             'Date Recieved',
@@ -62,7 +64,9 @@ class account_invoice(osv.osv):
     def action_date_assign(self, cr, uid, ids, *args):
         for inv in self.browse(cr, uid, ids):
             if not inv.date_due:
-                super(account_invoice, self).action_date_assign(cr, uid, ids, *args)
+                super(account_invoice, self).action_date_assign(
+                    cr, uid, ids, *args
+                )
         return True
 
 account_invoice()

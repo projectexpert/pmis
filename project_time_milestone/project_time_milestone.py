@@ -29,11 +29,16 @@ class task(osv.osv):
     _columns = {
         'milestone': fields.boolean(
             'Milestone',
-            help="If the active field is set, the task is considered to be a milestone"
+            help="""
+If the active field is set, the task is considered to be a milestone
+            """
         ),
         'public_milestone': fields.boolean(
             'Public Milestone',
-            help="If the active field is set, the task is considered to be a client-relevant milestone"
+            help="""
+If the active field is set, the task is considered to be a client-relevant
+milestone
+            """
         ),
         'project_poc': fields.float(
             'Project percentage of completion',
@@ -43,7 +48,7 @@ class task(osv.osv):
             'Invoice percentage',
             help="Percentage to invoice"
         ),
-     }
+    }
 
 
 task()
@@ -69,13 +74,13 @@ class project(osv.osv):
         return res
 
     _columns = {
-            'milestones': fields.function(
-                _milestones_ids,
-                method=True,
-                type='one2many',
-                obj='project.task',
-                string='Milestones'
-            ),
+        'milestones': fields.function(
+            _milestones_ids,
+            method=True,
+            type='one2many',
+            obj='project.task',
+            string='Milestones'
+        ),
     }
 
 

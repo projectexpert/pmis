@@ -39,9 +39,12 @@ class TestChanges(common.TransactionCase):
         self.test_project_id = self.project_model.create(
             cr, uid, {'name': 'ChangeTestProject'}
         )
-        self.change_owner_id = self.user_model.search(cr, uid, [('name', '=', 'Demo User')])[0]
-        self.change_author_id = self.user_model.search(cr, uid, [('name', '=', 'Change User')])[0]
-        self.change_second_author_id = self.user_model.search(cr, uid, [('login', '=', 'changemanager')])[0]
+        self.change_owner_id = self.user_model.search(
+            cr, uid, [('name', '=', 'Demo User')])[0]
+        self.change_author_id = self.user_model.search(
+            cr, uid, [('name', '=', 'Change User')])[0]
+        self.change_second_author_id = self.user_model.search(
+            cr, uid, [('login', '=', 'changemanager')])[0]
 
         self.test_change_id = self.change_model.create(
             cr, uid, {
@@ -58,26 +61,48 @@ class TestChanges(common.TransactionCase):
         cr, uid = self.cr, self.uid
         change = self.change_model.browse(cr, uid, self.test_change_id)
         followers = [follower.name for follower in change.message_follower_ids]
-        self.assertTrue(len(followers) == 3, msg='Expecting 3 followers - got:%s' % len(followers))
+        self.assertTrue(
+            len(followers) == 3, msg='Expecting 3 followers - got:%s' % len(
+                followers
+            )
+        )
 
-        self.assertTrue(change.author_id.name in followers,
-                        msg='Change Author NOT in followers:%s' % change.author_id.name)
-        self.assertTrue(change.change_owner_id.name in followers,
-                        msg='Change Owner NOT in followers:%s' % change.change_owner_id.name)
-        self.assertEqual('ChangeTest0001', change.name, msg='Change name incorrect')
+        self.assertTrue(
+            change.author_id.name in followers,
+            msg='Change Author NOT in followers:%s' % change.author_id.name
+        )
+        self.assertTrue(
+            change.change_owner_id.name in followers,
+            msg='''
+            Change Owner NOT in followers:%s
+            ''' % change.change_owner_id.name
+        )
+        self.assertEqual(
+            'ChangeTest0001', change.name, msg='Change name incorrect'
+        )
 
     def test_saving_a_change_in_users_as_followers_works(self):
         cr, uid = self.cr, self.uid
-        self.change_model.write(cr, uid, [self.test_change_id], {'author_id': self.change_second_author_id})
+        self.change_model.write(
+            cr, uid, [self.test_change_id],
+            {'author_id': self.change_second_author_id}
+        )
         change = self.change_model.browse(cr, uid, self.test_change_id)
         followers = [follower.name for follower in change.message_follower_ids]
-        self.assertTrue(len(followers) == 4, msg='Expecting 4 followers - got:%s' % len(followers))
-        self.assertTrue(change.author_id.name in followers,
-                        msg='Change Author NOT in followers:%s' % change.change_id.name)
+        self.assertTrue(
+            len(followers) == 4,
+            msg='Expecting 4 followers - got:%s' % len(followers)
+        )
+        self.assertTrue(
+            change.author_id.name in followers,
+            msg='Change Author NOT in followers:%s' % change.change_id.name
+        )
 
     def test_adding_a_task_on_a_change(self):
         cr, uid = self.cr, self.uid
-        change = self.change_model.read(cr, uid, self.test_change_id, ['message_follower_ids'])
+        change = self.change_model.read(
+            cr, uid, self.test_change_id, ['message_follower_ids']
+        )
         followers = change['message_follower_ids']
         self.change_model.write(
             cr, uid, [self.test_change_id],
@@ -108,8 +133,12 @@ class TestChanges(common.TransactionCase):
             ]}
         )
 
-        task_ids = self.change_model.read(cr, uid, self.test_change_id, ['change_response_ids'])
-        tasks = self.task_model.read(cr, uid, task_ids['change_response_ids'], ['message_follower_ids'])
+        task_ids = self.change_model.read(
+            cr, uid, self.test_change_id, ['change_response_ids']
+        )
+        tasks = self.task_model.read(
+            cr, uid, task_ids['change_response_ids'], ['message_follower_ids']
+        )
         for task in tasks:
             self.assertEqual(
                 followers,

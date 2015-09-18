@@ -3,14 +3,20 @@ from openerp.osv import osv, fields
 
 
 class crm_lead_to_change_request_wizard(osv.TransientModel):
-    """ wizard to convert a Lead into a Change Request and move the Mail Thread """
+    """
+    wizard to convert a Lead into a Change Request and move the Mail Thread
+    """
     _name = "crm.lead2cr.wizard"
     _inherit = 'crm.partner.binding'
 
     _columns = {
-        "lead_id": fields.many2one("crm.lead", "Lead", domain=[("type", "=", "lead")]),
+        "lead_id": fields.many2one(
+            "crm.lead", "Lead", domain=[("type", "=", "lead")]
+        ),
         "project_id": fields.many2one("project.project", "Project"),
-        "change_category_id": fields.many2one("change.management.category", "Change Category"),
+        "change_category_id": fields.many2one(
+            "change.management.category", "Change Category"
+        ),
     }
 
     _defaults = {
@@ -29,7 +35,9 @@ class crm_lead_to_change_request_wizard(osv.TransientModel):
 
             partner = self._find_matching_partner(cr, uid, context=context)
             if not partner and (lead.partner_name or lead.contact_name):
-                partner_ids = Lead.handle_partner_assignation(cr, uid, [lead.id], context=context)
+                partner_ids = Lead.handle_partner_assignation(
+                    cr, uid, [lead.id], context=context
+                )
                 partner = partner_ids[lead.id]
 
             # create new project.issue
@@ -42,12 +50,19 @@ class crm_lead_to_change_request_wizard(osv.TransientModel):
             }
             change_id = CR.create(cr, uid, vals, context=None)
             # move the mail thread
-            Lead.message_change_thread(cr, uid, lead.id, change_id, "change.management.change", context=context)
+            Lead.message_change_thread(
+                cr, uid, lead.id, change_id,
+                "change.management.change", context=context
+            )
             # delete the lead
             Lead.unlink(cr, uid, [lead.id], context=None)
         # return the action to go to the form view of the new Issue
         view_id = self.pool.get('ir.ui.view').search(
-            cr, uid, [('model', '=', 'change.management.change'), ('name', '=', 'change_form_view')]
+            cr, uid,
+            [
+                ('model', '=', 'change.management.change'),
+                ('name', '=', 'change_form_view')
+            ]
         )
         return {
             'name': 'CR created',

@@ -5,8 +5,8 @@
 #    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -36,7 +36,6 @@ Funcionalities:
     "depends": [
         'l10n_base'
     ],
-    "init_xml": [],
     "data": [
         'data_it/res.region.csv',
         'data_it/res.province.csv',
@@ -44,6 +43,7 @@ Funcionalities:
         'data_it/res.partner.title.csv',
         'data_it/res.country.csv',
     ],
+    "demo": []
     "active": False,
     "installable": True
 }

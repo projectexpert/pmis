@@ -40,7 +40,7 @@ class task(models.Model):
         string='Main Issue',
         compute='get_issue',
         store=True,
-        )
+    )
 
     @api.one
     @api.depends('issue_ids')

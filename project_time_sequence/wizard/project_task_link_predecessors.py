@@ -39,7 +39,9 @@ class project_task_link_predecessors_str(osv.osv_memory):
         """
         This function gets default values
         """
-        res = super(project_task_link_predecessors_str, self).default_get(cr, uid, fields, context=context)
+        res = super(project_task_link_predecessors_str, self).default_get(
+            cr, uid, fields, context=context
+        )
         if context is None:
             context = {}
         record_id = context and context.get('active_id', False) or False
@@ -65,7 +67,9 @@ class project_task_link_predecessors_str(osv.osv_memory):
             context = {}
         task_id = context.get('active_id', False)
         task_pool = self.pool.get('project.task')
-        link_predecessors_data_str = self.read(cr, uid, ids, context=context)[0]
+        link_predecessors_data_str = self.read(
+            cr, uid, ids, context=context
+        )[0]
         pred_data_str = link_predecessors_data_str['predecessor_ids_str']
         try:
             link_predecessors_data = pred_data_str.split(',')
@@ -82,14 +86,19 @@ class project_task_link_predecessors_str(osv.osv_memory):
             try:
                 task_ids = task_pool.search(cr, uid, [('id', '=', pred_id)])
             except:
-                raise orm.except_orm(_('Error!'), _('Task "%s" does not exist.') % (pred_id,))
+                raise orm.except_orm(
+                    _('Error!'),
+                    _('Task "%s" does not exist.') % (pred_id,)
+                )
 
             task_ids_list.append(task_ids[0])
 
         predecessor_ids = {}
         predecessor_ids.update({'predecessor_ids': task_ids_list})
 
-        task_pool.do_link_predecessors(cr, uid, task_id, predecessor_ids, context=context)
+        task_pool.do_link_predecessors(
+            cr, uid, task_id, predecessor_ids, context=context
+        )
 
         return {'type': 'ir.actions.act_window_close'}
 
@@ -106,10 +115,12 @@ class project_task_link_predecessors(osv.osv_memory):
             'project.task', 'Target task'
         ),
         'project_id': fields.related(
-            'task.id', 'project_id', string="Project", type="many2one", relation="project.task"
+            'task.id', 'project_id', string="Project", type="many2one",
+            relation="project.task"
         ),
         'predecessor_ids': fields.many2many(
-            'project.task', 'project_task_parent_rel', 'task_id', 'parent_id', 'Parent Tasks'
+            'project.task', 'project_task_parent_rel', 'task_id',
+            'parent_id', 'Parent Tasks'
         ),
 
     }
@@ -118,16 +129,26 @@ class project_task_link_predecessors(osv.osv_memory):
         """
         This function gets default values
         """
-        res = super(project_task_link_predecessors, self).default_get(cr, uid, fields, context=context)
+        res = super(project_task_link_predecessors, self).default_get(
+            cr, uid, fields, context=context
+        )
         if context is None:
             context = {}
         record_id = context and context.get('active_id', False) or False
         task_pool = self.pool.get('project.task')
         task_data = []
-        task_data = task_pool.read(cr, uid, record_id, ['predecessor_ids', 'project_id'])
+        task_data = task_pool.read(
+            cr, uid, record_id, ['predecessor_ids', 'project_id']
+        )
         predecessor_ids = task_data['predecessor_ids']
 
-        res.update({'predecessor_ids': predecessor_ids, 'task_id': record_id, 'project_id': task_data['project_id']})
+        res.update(
+            {
+                'predecessor_ids': predecessor_ids,
+                'task_id': record_id,
+                'project_id': task_data['project_id']
+            }
+        )
         return res
 
     def link_predecessors(self, cr, uid, ids, context=None):
@@ -136,7 +157,9 @@ class project_task_link_predecessors(osv.osv_memory):
         task_id = context.get('active_id', False)
         task_pool = self.pool.get('project.task')
         link_predecessors_data = self.read(cr, uid, ids, context=context)[0]
-        task_pool.do_link_predecessors(cr, uid, task_id, link_predecessors_data, context=context)
+        task_pool.do_link_predecessors(
+            cr, uid, task_id, link_predecessors_data, context=context
+        )
 
         return {'type': 'ir.actions.act_window_close'}
 

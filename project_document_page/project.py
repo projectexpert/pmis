@@ -29,7 +29,11 @@ class project(models.Model):
     _inherit = 'project.project'
 
     page_ids = fields.Many2many(
-        'document.page', 'project_docu_rel', 'project_id', 'page_id', 'Document pages'
+        'document.page',
+        'project_docu_rel',
+        'project_id',
+        'page_id',
+        'Document pages'
     )
 
 project()
@@ -39,7 +43,11 @@ class project(models.Model):
     _inherit = 'project.task'
 
     page_ids = fields.Many2many(
-        'document.page', 'task_page_rel', 'task_id', 'page_id', 'Document pages'
+        'document.page',
+        'task_page_rel',
+        'task_id',
+        'page_id',
+        'Document pages'
     )
 
 project()

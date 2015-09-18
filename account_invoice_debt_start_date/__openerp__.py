@@ -29,9 +29,9 @@
     'description': """
     This module adds two new date fields on invoice.
 
-    According to Slovenian accounting standards old 'invoice_date' field on invoice
-    acts as start debt relation date, while new 'invoice_date_creation' field serves
-    as date of invoice.
+    According to Slovenian accounting standards old 'invoice_date' field on
+    invoice acts as start debt relation date, while new 'invoice_date_creation'
+    field serves as date of invoice.
 
     New field 'invoice_date_recieved' also exist on supplier invoices.
     """,

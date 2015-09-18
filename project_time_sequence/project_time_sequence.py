@@ -41,7 +41,9 @@ class task(osv.osv):
 
         return result
 
-    def _predecessor_ids_calc(self, cr, uid, ids, prop, unknow_none, unknow_dict):
+    def _predecessor_ids_calc(
+        self, cr, uid, ids, prop, unknow_none, unknow_dict
+    ):
         if not ids:
             return []
         res = []
@@ -65,7 +67,9 @@ class task(osv.osv):
 
         return dict(res)
 
-    def _predecessor_names_calc(self, cr, uid, ids, prop, unknow_none, unknow_dict):
+    def _predecessor_names_calc(
+        self, cr, uid, ids, prop, unknow_none, unknow_dict
+    ):
         if not ids:
             return []
         res = []

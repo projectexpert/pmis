@@ -28,8 +28,8 @@
     'description': """
 Todo list for CRM leads and opportunities.
 ==========================================
-Based on the original crm_todo by Openerp SA, migrated from the version 7
-to the version 8 by Matmoz d.o.o. and enhanced to interact with crm_project_task
+Based on the original crm_todo by Openerp SA, migrated from the version 7 to
+the version 8 by Matmoz d.o.o. and enhanced to interact with crm_project_task
 for a better integration of CRM with project management.
     """,
     'license': "AGPL-3",
@@ -47,5 +47,3 @@ for a better integration of CRM with project management.
     'installable': True,
     'auto_install': False,
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
