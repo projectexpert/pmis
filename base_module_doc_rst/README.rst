@@ -1,11 +1,12 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License AGPL-3
 
 This module generates the Technical Guides of selected modules in Restructured Text format (RST).
 =================================================================================================
 
-Originally developed by OpenERP SA (version 6.1, http://www.odoo.com). This version was adapted
-for the Odoo version 8 by Matmoz d.o.o. (http://www.matmoz.si).
+Originally developed by OpenERP SA, migrated from the OpenERP version 6.1 to Odoo version 8.0
+by the Odoo Community Association.
 
     * It uses the Sphinx (http://sphinx.pocoo.org) implementation of RST
     * It creates a tarball (.tgz file suffix) containing an index file and one file per module
@@ -22,18 +23,28 @@ Credits
 Contributors
 ------------
 
-* OpenERP SA (http://www.odoo.com)
-* Matmoz d.o.o. (http://www.matmoz.si)
+* OpenERP SA <http://www.odoo.com>
+* Matjaž Mozetič <m.mozetic@matmoz.si>
+
+Bug Tracker
+===========
+
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/server-tools/issues>`_.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us smashing it by providing a detailed and welcomed feedback
+`here <https://github.com/OCA/server-tools/issues/new?body=module:%20base_module_doc_rst%0Aversion:%208.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Maintainer
 ----------
 
-.. image:: http://www.matmoz.si/wp-content/uploads/2014/11/128x128.png
-   :alt: MATMOZ d.o.o.
-   :target: http://www.matmoz.si
+.. image:: https://odoo-community.org/logo.png
+   :alt: Odoo Community Association
+   :target: https://odoo-community.org
 
-This module is maintained by MATMOZ d.o.o.
+This module is maintained by the OCA.
 
-MATMOZ d.o.o. is a project management services company, which is also active in various open source communities.
-One of those is OCA, or the Odoo Community Association, which is a nonprofit organization whose mission is to support the collaborative development of Odoo features and promote its widespread use.
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
 
+To contribute to this module, please visit http://odoo-community.org.

@@ -20,10 +20,11 @@
 ##############################################################################
 
 {
-    'name': 'Generate Docs of Modules',
-    'version': '1.0',
-    'category': 'Tools',
-    'description': """
+    "name": "Generate Docs of Modules",
+    "version": "1.0",
+    "category": "Tools",
+    "summary": "Modules Technical Guides in RST and Relationship Graphs",
+    "description": """
 This module generates the Technical Guides of selected modules in Restructured Text format (RST).
 =================================================================================================
 
@@ -34,20 +35,20 @@ for the Odoo version 8 by Matmoz d.o.o. (http://www.matmoz.si).
     * It creates a tarball (.tgz file suffix) containing an index file and one file per module
     * Generates Relationship Graph
     """,
-    'author': 'OpenERP SA, Matmoz d.o.o.',
-    'contributors': [
-        'OpenERP SA',
-        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    "website": "https://odoo-community.org/",
+    "author": "OpenERP SA,Odoo Community Association (OCA)",
+    "contributors": [
+        "OpenERP SA <http://www.odoo.com>",
+        "Matjaž Mozetič <m.mozetic@matmoz.si>",
     ],
-    'website': 'http://www.openerp.com',
-    'depends': ['base'],
-    'data': [
-        'base_module_doc_rst_view.xml',
-        'wizard/generate_relation_graph_view.xml',
-        'wizard/tech_guide_rst_view.xml',
-        'module_report.xml',
+    "license": "AGPL-3",
+    "depends": ["base"],
+    "data": [
+        "base_module_doc_rst_view.xml",
+        "wizard/generate_relation_graph_view.xml",
+        "wizard/tech_guide_rst_view.xml",
+        "module_report.xml",
     ],
-    'demo': [],
-    'installable': True,
-    'images': ['images/base_module_doc_rst1.jpeg'],
+    "demo": [],
+    "installable": True,
 }

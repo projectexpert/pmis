@@ -24,18 +24,17 @@ import base64
 
 import openerp.modules.registry
 from openerp import report
-from openerp.osv import fields, osv
+from openerp import models, fields
 from openerp import modules, tools
 from openerp import addons
 from openerp.modules import get_module_resource
 
 
-class module(osv.osv):
+class module(models.Model):
     _inherit = 'ir.module.module'
     _description = 'Module With Relationship Graph'
-    _columns = {
-        'file_graph': fields.binary('Relationship Graph'),
-    }
+
+    file_graph = fields.Binary('Relationship Graph')
 
     def _get_graphical_representation(self, cr, uid, model_ids, level=1, context=None):
         obj_model = self.pool.get('ir.model')
