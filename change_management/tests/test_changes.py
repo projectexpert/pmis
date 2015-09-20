@@ -20,7 +20,6 @@
 #
 ##############################################################################
 from openerp.tests import common
-from datetime import datetime
 
 
 class TestChanges(common.TransactionCase):
