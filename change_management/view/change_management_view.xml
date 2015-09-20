@@ -45,7 +45,7 @@
 				 	    <group>
                             <group>
 						        <field name="project_id" context="{'default_project_id':project_id}"/>
-						        <field name="stakeholder_id" domain="[('project_id','=',project_id)]"/>
+						        <field name="stakeholder_id" domain="[('project_id','=',project_id)]" context="{'default_project_id':project_id}"/>
 						        <field name="date_registered" readonly="1"/>
                             </group>
                             <group>
