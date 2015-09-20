@@ -28,7 +28,7 @@
 ##############################################################################
 {
     'name': 'Project Task Issues',
-    'version': '0.1.3',
+    'version': '0.1.4',
     'category': 'Projects Management',
     'summary': """Creatable issues list on task view form""",
     'author': 'Matmoz d.o.o.',
