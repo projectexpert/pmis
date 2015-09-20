@@ -43,7 +43,7 @@ Funcionalities:
         'data_it/res.partner.title.csv',
         'data_it/res.country.csv',
     ],
-    "demo": []
+    "demo": [],
     "active": False,
     "installable": True
 }
