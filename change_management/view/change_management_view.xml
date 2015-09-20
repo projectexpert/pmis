@@ -175,8 +175,9 @@
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">change.management.change</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">kanban,tree,form</field>
+			<field name="view_mode">tree,form,kanban</field>
 			<field name="search_view_id" ref="change_search_form_view"/>
+			<field name="context">{'search_default_active': 1}</field>
 		</record>
 
         <record model="ir.actions.act_window" id="action_show_actions">
