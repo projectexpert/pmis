@@ -20,10 +20,10 @@
                     <page string="Cases and Issues">
                         <notebook>
                             <page string="Cases">
-                                <field name="lead_ids" nolabel="1" colspan="4" domain="[]"/>
+                                <field name="lead_ids" nolabel="1" colspan="4" domain="[]" context="{'default_project_id': active_id}"/>
                             </page>
                             <page string="Issues">
-                                <field name="issue_ids" nolabel="1" colspan="4" domain="[]"/>
+                                <field name="issue_ids" nolabel="1" colspan="4" domain="[]" context="{'default_project_id': active_id}"/>
                             </page>
                         </notebook>
                     </page>
