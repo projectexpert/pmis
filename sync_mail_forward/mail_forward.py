@@ -86,7 +86,7 @@ class mail_compose_message(osv.osv):
                     for partner in self.pool.get('res.partner').browse(
                         cr, uid, [parent.partner_ids.id], context=context
                     ):
-                        to_partner_ids.append(partner_obj.id)
+                        to_partner_ids.append(partner.id)
                 else:
                     to_partner_ids = result['partner_ids']
                     del to_partner_ids[0]
