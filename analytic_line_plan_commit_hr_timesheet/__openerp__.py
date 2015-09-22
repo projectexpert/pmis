@@ -21,7 +21,7 @@
 
 {
     "name": "Project Cost committed costs on timesheets",
-    "version": "1.0",
+    "version": "1.1",
     "author": "Jordi Ballester (Eficent)",
     "website": "http://www.eficent.com",
     "category": "Generic Modules/Projects & Services",

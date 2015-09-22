@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+	
+       <record id="view_account_analytic_line_plan_form" model="ir.ui.view">
+            <field name="name">account.analytic.line.plan.form</field>
+            <field name="model">account.analytic.line.plan</field>
+            <field name="inherit_id"
+                   ref="analytic_plan.view_account_analytic_line_plan_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='ref']" position="after">
+                    <field name="resource_plan_id"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

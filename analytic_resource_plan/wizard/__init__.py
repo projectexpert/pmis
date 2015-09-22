@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#               <contact@eficent.com>
+#    OpenERP, Open Source Management Solution
+#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,23 +18,5 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-{
-    "name": "Analytic committed revenues on sales orders",
-    "version": "1.1",
-    "author": "Eficent",
-    "website": "http://www.eficent.com",
-    "category": "Generic Modules/Projects & Services",
-    "depends": ["analytic_plan", "sale"],
-    "description": """
-    Maintain analytic committed revenues associated to sales orders
-    """,
-    "data": [
-        "sale_filters.xml"
-    ],
-    'test': [
-    ],
-    'installable': True,
-    'active': False,
-    'certificate': '',
-}
+from . import analytic_resource_plan_copy_version
+from . import resource_plan_line_change_state

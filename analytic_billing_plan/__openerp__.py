@@ -21,7 +21,7 @@
 
 {
     "name": "Analytic billing plan",
-    "version": "1.0.3",
+    "version": "1.1",
     "author": "Eficent",
     "website": "",
     "category": "Generic Modules/Projects & Services",

@@ -43,14 +43,22 @@ class report_account_analytic_plan_actual(osv.osv):
                                    ('11', 'November'),
                                    ('12', 'December')],
                                   'Month', readonly=True),
-        'year': fields.char('Year', size=64, required=False, readonly=True),
-        'account_id': fields.many2one('account.analytic.account', 'Analytic Account', readonly=True),
-        'complete_wbs_code': fields.related('account_id', 'complete_wbs_code',
-                                            type='char', size=250,
-                                            string='Full WBS Code', store=True),
-        'complete_wbs_name': fields.related('account_id', 'complete_wbs_name',
-                                            type='char', size=250,
-                                            string='Full WBS Name', store=True),
+        'year': fields.char(
+            'Year', size=64, required=False, readonly=True
+        ),
+        'account_id': fields.many2one(
+            'account.analytic.account', 'Analytic Account', readonly=True
+        ),
+        'complete_wbs_code': fields.related(
+            'account_id', 'complete_wbs_code',
+            type='char', size=250,
+            string='Full WBS Code', store=True
+        ),
+        'complete_wbs_name': fields.related(
+            'account_id', 'complete_wbs_name',
+            type='char', size=250,
+            string='Full WBS Name', store=True
+        ),
         'kpi_type': fields.selection([('PC', 'Cost - Plan'),
                                       ('AC', 'Cost - Actual'),
                                       ('PR', 'Revenue - Plan'),
@@ -62,10 +70,16 @@ class report_account_analytic_plan_actual(osv.osv):
                                       ('BV', 'Gross Margin - Variance')],
                                      'Type', size=12, readonly=True),
         'kpi_amount': fields.float('Amount'),
-        'kpi_quantity': fields.float('Quantity'),
-        'version_id': fields.many2one('account.analytic.plan.version', 'Planning Version', readonly=True),
-        'product_id': fields.many2one('product.product', 'Product', readonly=True),
+        'version_id': fields.many2one(
+            'account.analytic.plan.version', 'Planning Version', readonly=True
+        ),
+        'product_id': fields.many2one(
+            'product.product', 'Product', readonly=True
+        ),
         'product_uom_id': fields.many2one('product.uom', 'UoM', readonly=True),
+        'general_account_id': fields.many2one(
+            'account.account', 'General Account', readonly=True
+        ),
 
     }
 
@@ -90,228 +104,267 @@ class report_account_analytic_plan_actual(osv.osv):
                     tot.complete_wbs_name,
                     tot.kpi_type,
                     sum(tot.kpi_amount) as kpi_amount,
-                    sum(tot.kpi_quantity) as kpi_quantity,
                     tot.product_id,
                     tot.product_uom_id,
-                    tot.version_id
+                    tot.version_id,
+                    tot.general_account_id
                 FROM
                     (SELECT
-                         CAST( abs(AAL.amount) AS FLOAT) AS kpi_amount,
-                         CAST( -1* AAL.unit_amount AS FLOAT) AS kpi_quantity,
-                         'AC' AS kpi_type,
+                         CAST(AAL.amount AS FLOAT) AS kpi_amount,
+                         'AC'::text AS kpi_type,
                          AAL.date,
                          AAL.account_id,
                          AAC.complete_wbs_code,
                          AAC.complete_wbs_name,
                          AAL.product_id,
                          AAL.product_uom_id,
+                         AAL.general_account_id,
                          AAPV.id AS version_id
                     FROM account_analytic_line AAL
                     INNER JOIN account_analytic_account AAC
-                    ON AAL.account_id = AAC.id,
+                    ON AAL.account_id = AAC.id
+                    INNER JOIN account_account AC
+                    ON AAL.general_account_id = AC.id
+                    INNER JOIN account_account_type AT
+                    ON AT.id = AC.user_type,
                     account_analytic_plan_version AAPV
-                    WHERE AAL.amount < 0
-
-                UNION ALL
-                    SELECT
-                         CAST( abs(AAL.amount) AS FLOAT) AS kpi_amount,
-                         CAST( AAL.unit_amount AS FLOAT) AS kpi_quantity,
-                         'AR' AS kpi_type,
-                         AAL.date,
-                         AAL.account_id,
-                         AAC.complete_wbs_code,
-                         AAC.complete_wbs_name,
-                         AAL.product_id,
-                         AAL.product_uom_id,
-                         AAPV.id AS version_id
-                    FROM account_analytic_line AAL
-                    INNER JOIN account_analytic_account AAC
-                    ON AAL.account_id = AAC.id,
-                    account_analytic_plan_version AAPV
-                    WHERE AAL.amount > 0
-
-
-                UNION ALL
-                    SELECT
-                         CAST( abs(AALP.amount) AS FLOAT) AS kpi_amount,
-                         CAST( -1 * AALP.unit_amount AS FLOAT) AS kpi_quantity,
-                         'PC' AS kpi_type,
-                         AALP.date,
-                         AALP.account_id,
-                         AAC.complete_wbs_code,
-                         AAC.complete_wbs_name,
-                         AALP.product_id,
-                         AALP.product_uom_id,
-                         AALP.version_id
-                    FROM account_analytic_line_plan as AALP
-                    INNER JOIN account_analytic_account AAC
-                    ON AALP.account_id = AAC.id
-                    WHERE AALP.amount < 0
-
-                UNION ALL
-                    SELECT
-                         CAST( abs(AALP.amount) AS FLOAT) AS kpi_amount,
-                         CAST( AALP.unit_amount AS FLOAT) AS kpi_quantity,
-                         'PR' AS kpi_type,
-                         AALP.date,
-                         AALP.account_id,
-                         AAC.complete_wbs_code,
-                         AAC.complete_wbs_name,
-                         AALP.product_id,
-                         AALP.product_uom_id,
-                         AALP.version_id
-                    FROM account_analytic_line_plan as AALP
-                    INNER JOIN account_analytic_account AAC
-                    ON AALP.account_id = AAC.id
-                    WHERE AALP.amount > 0
-
-                UNION ALL
-                    SELECT
-                         CAST( AALP.amount AS FLOAT) AS kpi_amount,
-                         CAST( -1 * AALP.unit_amount AS FLOAT) AS kpi_quantity,
-                         'CV' AS kpi_type,
-                         AALP.date,
-                         AALP.account_id,
-                         AAC.complete_wbs_code,
-                         AAC.complete_wbs_name,
-                         AALP.product_id,
-                         AALP.product_uom_id,
-                         AALP.version_id
-                    FROM account_analytic_line_plan as AALP
-                    INNER JOIN account_analytic_account AAC
-                    ON AALP.account_id = AAC.id
-                    WHERE AALP.amount < 0
-
-                UNION ALL
-                    SELECT
-                         CAST( -1 * AAL.amount AS FLOAT) AS kpi_amount,
-                         CAST( AAL.unit_amount AS FLOAT) AS kpi_quantity,
-                         'CV' AS kpi_type,
-                         AAL.date,
-                         AAL.account_id,
-                         AAC.complete_wbs_code,
-                         AAC.complete_wbs_name,
-                         AAL.product_id,
-                         AAL.product_uom_id,
-                         AAPV.id AS version_id
-                    FROM account_analytic_line as AAL
-                    INNER JOIN account_analytic_account AAC
-                    ON AAL.account_id = AAC.id,
-                    account_analytic_plan_version AAPV
-                    WHERE AAL.amount < 0
-
-                UNION ALL
-                    SELECT
-                         CAST( AALP.amount AS FLOAT) AS kpi_amount,
-                         CAST( AALP.unit_amount AS FLOAT) AS kpi_quantity,
-                         'RV' AS kpi_type,
-                         AALP.date,
-                         AALP.account_id,
-                         AAC.complete_wbs_code,
-                         AAC.complete_wbs_name,
-                         AALP.product_id,
-                         AALP.product_uom_id,
-                         AALP.version_id
-                    FROM account_analytic_line_plan AS AALP
-                    INNER JOIN account_analytic_account AAC
-                    ON AALP.account_id = AAC.id
-                    WHERE AALP.amount > 0
-
-                UNION ALL
-                    SELECT
-                         CAST( -1 * AAL.amount AS FLOAT) AS kpi_amount,
-                         CAST( -1 * AAL.unit_amount AS FLOAT) AS kpi_quantity,
-                         'RV' AS kpi_type,
-                         AAL.date,
-                         AAL.account_id,
-                         AAC.complete_wbs_code,
-                         AAC.complete_wbs_name,
-                         AAL.product_id,
-                         AAL.product_uom_id,
-                         AAPV.id AS version_id
-                    FROM account_analytic_line AS AAL
-                    INNER JOIN account_analytic_account AAC
-                    ON AAL.account_id = AAC.id,
-                    account_analytic_plan_version AAPV
-                    WHERE AAL.amount > 0
-
-                UNION ALL
-                    SELECT
-                         CAST(AALP.amount AS FLOAT) AS kpi_amount,
-                         CAST(CASE WHEN (AALP.amount < 0)
-                            THEN (-1 * AALP.unit_amount)
-                            ELSE AALP.unit_amount
-                            END AS FLOAT)  AS kpi_quantity,
-                         'PB' AS kpi_type,
-                         AALP.date,
-                         AALP.account_id,
-                         AAC.complete_wbs_code,
-                         AAC.complete_wbs_name,
-                         AALP.product_id,
-                         AALP.product_uom_id,
-                         AALP.version_id
-                    FROM account_analytic_line_plan AS AALP
-                    INNER JOIN account_analytic_account AAC
-                    ON AALP.account_id = AAC.id
+                    WHERE AT.report_type = 'expense'
 
                 UNION ALL
                     SELECT
                          CAST(AAL.amount AS FLOAT) AS kpi_amount,
-                         CAST(CASE WHEN (AAL.amount < 0)
-                            THEN (-1 * AAL.unit_amount)
-                            ELSE AAL.unit_amount
-                            END AS FLOAT)  AS kpi_quantity,
-                         'AB' AS kpi_type,
+                         'AR'::text AS kpi_type,
                          AAL.date,
                          AAL.account_id,
                          AAC.complete_wbs_code,
                          AAC.complete_wbs_name,
                          AAL.product_id,
                          AAL.product_uom_id,
+                         AAL.general_account_id,
                          AAPV.id AS version_id
-                    FROM account_analytic_line AS AAL
+                    FROM account_analytic_line AAL
                     INNER JOIN account_analytic_account AAC
-                    ON AAL.account_id = AAC.id,
+                    ON AAL.account_id = AAC.id
+                    INNER JOIN account_account AC
+                    ON AAL.general_account_id = AC.id
+                    INNER JOIN account_account_type AT
+                    ON AT.id = AC.user_type,
                     account_analytic_plan_version AAPV
+                    WHERE AT.report_type = 'income'
 
                 UNION ALL
                     SELECT
-                         CAST( AALP.amount AS FLOAT) AS kpi_amount,
-                         CAST(CASE WHEN (AALP.amount < 0)
-                            THEN (-1 * AALP.unit_amount)
-                            ELSE AALP.unit_amount
-                            END AS FLOAT)  AS kpi_quantity,
-                         'BV' AS kpi_type,
+                         CAST(AALP.amount AS FLOAT) AS kpi_amount,
+                         'PC'::text AS kpi_type,
                          AALP.date,
                          AALP.account_id,
                          AAC.complete_wbs_code,
                          AAC.complete_wbs_name,
                          AALP.product_id,
                          AALP.product_uom_id,
+                         AALP.general_account_id,
                          AALP.version_id
                     FROM account_analytic_line_plan as AALP
                     INNER JOIN account_analytic_account AAC
                     ON AALP.account_id = AAC.id
+                    INNER JOIN account_account AC
+                    ON AALP.general_account_id = AC.id
+                    INNER JOIN account_account_type AT
+                    ON AT.id = AC.user_type
+                    WHERE AT.report_type = 'expense'
+
+                UNION ALL
+                    SELECT
+                         CAST(AALP.amount AS FLOAT) AS kpi_amount,
+                         'PR'::text AS kpi_type,
+                         AALP.date,
+                         AALP.account_id,
+                         AAC.complete_wbs_code,
+                         AAC.complete_wbs_name,
+                         AALP.product_id,
+                         AALP.product_uom_id,
+                         AALP.general_account_id,
+                         AALP.version_id
+                    FROM account_analytic_line_plan as AALP
+                    INNER JOIN account_analytic_account AAC
+                    ON AALP.account_id = AAC.id
+                    INNER JOIN account_account AC
+                    ON AALP.general_account_id = AC.id
+                    INNER JOIN account_account_type AT
+                    ON AT.id = AC.user_type
+                    WHERE AT.report_type = 'income'
+
+                UNION ALL
+                    SELECT
+                         CAST( AALP.amount AS FLOAT) AS kpi_amount,
+                         'CV'::text AS kpi_type,
+                         AALP.date,
+                         AALP.account_id,
+                         AAC.complete_wbs_code,
+                         AAC.complete_wbs_name,
+                         AALP.product_id,
+                         AALP.product_uom_id,
+                         AALP.general_account_id,
+                         AALP.version_id
+                    FROM account_analytic_line_plan as AALP
+                    INNER JOIN account_analytic_account AAC
+                    ON AALP.account_id = AAC.id
+                    INNER JOIN account_account AC
+                    ON AALP.general_account_id = AC.id
+                    INNER JOIN account_account_type AT
+                    ON AT.id = AC.user_type
+                    WHERE AT.report_type = 'expense'
 
                 UNION ALL
                     SELECT
                          CAST( -1 * AAL.amount AS FLOAT) AS kpi_amount,
-                         CAST(CASE WHEN (AAL.amount < 0)
-                            THEN (AAL.unit_amount)
-                            ELSE -1 * AAL.unit_amount
-                            END AS FLOAT)  AS kpi_quantity,
-                         'BV' AS kpi_type,
+                         'CV'::text AS kpi_type,
                          AAL.date,
                          AAL.account_id,
                          AAC.complete_wbs_code,
                          AAC.complete_wbs_name,
                          AAL.product_id,
                          AAL.product_uom_id,
+                         AAL.general_account_id,
                          AAPV.id AS version_id
                     FROM account_analytic_line as AAL
                     INNER JOIN account_analytic_account AAC
-                    ON AAL.account_id = AAC.id,
+                    ON AAL.account_id = AAC.id
+                    INNER JOIN account_account AC
+                    ON AAL.general_account_id = AC.id
+                    INNER JOIN account_account_type AT
+                    ON AT.id = AC.user_type,
                     account_analytic_plan_version AAPV
+                    WHERE AT.report_type = 'expense'
+
+                UNION ALL
+                    SELECT
+                         CAST( AALP.amount AS FLOAT) AS kpi_amount,
+                         'RV'::text AS kpi_type,
+                         AALP.date,
+                         AALP.account_id,
+                         AAC.complete_wbs_code,
+                         AAC.complete_wbs_name,
+                         AALP.product_id,
+                         AALP.product_uom_id,
+                         AALP.general_account_id,
+                         AALP.version_id
+                    FROM account_analytic_line_plan AS AALP
+                    INNER JOIN account_analytic_account AAC
+                    ON AALP.account_id = AAC.id
+                    INNER JOIN account_account AC
+                    ON AALP.general_account_id = AC.id
+                    INNER JOIN account_account_type AT
+                    ON AT.id = AC.user_type
+                    WHERE AT.report_type = 'income'
+
+                UNION ALL
+                    SELECT
+                         CAST( -1 * AAL.amount AS FLOAT) AS kpi_amount,
+                         'RV'::text AS kpi_type,
+                         AAL.date,
+                         AAL.account_id,
+                         AAC.complete_wbs_code,
+                         AAC.complete_wbs_name,
+                         AAL.product_id,
+                         AAL.product_uom_id,
+                         AAL.general_account_id,
+                         AAPV.id AS version_id
+                    FROM account_analytic_line AS AAL
+                    INNER JOIN account_analytic_account AAC
+                    ON AAL.account_id = AAC.id
+                    INNER JOIN account_account AC
+                    ON AAL.general_account_id = AC.id
+                    INNER JOIN account_account_type AT
+                    ON AT.id = AC.user_type,
+                    account_analytic_plan_version AAPV
+                    WHERE AT.report_type = 'income'
+
+                UNION ALL
+                    SELECT
+                         CAST(AALP.amount AS FLOAT) AS kpi_amount,
+                         'PB'::text AS kpi_type,
+                         AALP.date,
+                         AALP.account_id,
+                         AAC.complete_wbs_code,
+                         AAC.complete_wbs_name,
+                         AALP.product_id,
+                         AALP.product_uom_id,
+                         AALP.general_account_id,
+                         AALP.version_id
+                    FROM account_analytic_line_plan AS AALP
+                    INNER JOIN account_analytic_account AAC
+                    ON AALP.account_id = AAC.id
+                    INNER JOIN account_account AC
+                    ON AALP.general_account_id = AC.id
+                    INNER JOIN account_account_type AT
+                    ON AT.id = AC.user_type
+                    WHERE AT.report_type IN ('expense', 'income')
+
+                UNION ALL
+                    SELECT
+                         CAST(AAL.amount AS FLOAT) AS kpi_amount,
+                         'AB'::text AS kpi_type,
+                         AAL.date,
+                         AAL.account_id,
+                         AAC.complete_wbs_code,
+                         AAC.complete_wbs_name,
+                         AAL.product_id,
+                         AAL.product_uom_id,
+                         AAL.general_account_id,
+                         AAPV.id AS version_id
+                    FROM account_analytic_line AS AAL
+                    INNER JOIN account_analytic_account AAC
+                    ON AAL.account_id = AAC.id
+                    INNER JOIN account_account AC
+                    ON AAL.general_account_id = AC.id
+                    INNER JOIN account_account_type AT
+                    ON AT.id = AC.user_type,
+                    account_analytic_plan_version AAPV
+                    WHERE AT.report_type IN ('expense', 'income')
+
+                UNION ALL
+                    SELECT
+                         CAST( AALP.amount AS FLOAT) AS kpi_amount,
+                         'BV'::text AS kpi_type,
+                         AALP.date,
+                         AALP.account_id,
+                         AAC.complete_wbs_code,
+                         AAC.complete_wbs_name,
+                         AALP.product_id,
+                         AALP.product_uom_id,
+                         AALP.general_account_id,
+                         AALP.version_id
+                    FROM account_analytic_line_plan as AALP
+                    INNER JOIN account_analytic_account AAC
+                    ON AALP.account_id = AAC.id
+                    INNER JOIN account_account AC
+                    ON AALP.general_account_id = AC.id
+                    INNER JOIN account_account_type AT
+                    ON AT.id = AC.user_type
+                    WHERE AT.report_type IN ('expense', 'income')
+
+                UNION ALL
+                    SELECT
+                         CAST( -1 * AAL.amount AS FLOAT) AS kpi_amount,
+                         'BV'::text AS kpi_type,
+                         AAL.date,
+                         AAL.account_id,
+                         AAC.complete_wbs_code,
+                         AAC.complete_wbs_name,
+                         AAL.product_id,
+                         AAL.product_uom_id,
+                         AAL.general_account_id,
+                         AAPV.id AS version_id
+                    FROM account_analytic_line as AAL
+                    INNER JOIN account_analytic_account AAC
+                    ON AAL.account_id = AAC.id
+                    INNER JOIN account_account AC
+                    ON AAL.general_account_id = AC.id
+                    INNER JOIN account_account_type AT
+                    ON AT.id = AC.user_type,
+                    account_analytic_plan_version AAPV
+                    WHERE AT.report_type IN ('expense', 'income')
                 ) AS tot
                 GROUP BY
                     tot.date,
@@ -321,6 +374,7 @@ class report_account_analytic_plan_actual(osv.osv):
                     tot.kpi_type,
                     tot.product_id,
                     tot.product_uom_id,
+                    tot.general_account_id,
                     tot.version_id
                 ORDER BY tot.date
 

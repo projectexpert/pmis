@@ -21,7 +21,7 @@
 
 {
     "name": "Analytic Plan",
-    "version": "1.0.3",
+    "version": "1.1",
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",

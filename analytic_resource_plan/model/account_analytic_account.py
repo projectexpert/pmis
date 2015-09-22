@@ -18,22 +18,31 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import time
-from openerp.report import report_sxw
+
+from openerp.osv import orm
 
 
-class analytic_wip_report(report_sxw.rml_parse):
-    def __init__(self, cr, uid, name, context):
-        super(analytic_wip_report, self).__init__(
-            cr, uid, name, context=context
-        )
-        self.localcontext.update({
-            'time': time,
-        })
+class AccountAnalyticAccount(orm.Model):
 
-report_sxw.report_sxw(
-    'report.analytic.wip',
-    'account.analytic.account',
-    'addons/analytic_wip_report/report/analytic_wip_report.rml',
-    parser=analytic_wip_report, header="internal landscape"
-)
+    _inherit = 'account.analytic.account'
+
+    def write(self, cr, uid, ids, vals, context=None):
+        if context is None:
+            context = {}
+        if isinstance(ids, (int, long)):
+            ids = [ids]
+
+        res = super(AccountAnalyticAccount, self).write(
+            cr, uid, ids, vals, context=context)
+
+        plan_line_obj = self.pool.get('analytic.resource.plan.line')
+        if 'date' in vals and vals['date']:
+            for analytic_account in self.browse(cr, uid, ids,
+                                                context=context):
+                plan_line_ids = plan_line_obj.search(
+                    cr, uid, [('account_id', '=', analytic_account.id)],
+                    context=context)
+                if plan_line_ids:
+                    plan_line_obj.write(
+                        cr, uid, plan_line_ids, {'date': vals['date']})
+        return res

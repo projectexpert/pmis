@@ -18,10 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp.tools.translate import _
-from openerp.osv import fields, osv
-from datetime import datetime, date
-from datetime import datetime as dt
+from openerp.osv import osv
 
 
 class project(osv.osv):
@@ -42,7 +39,9 @@ class project(osv.osv):
                 resource_vals = {}
                 for p in self.browse(cr, uid, ids, context=context):
                     for task_id in vals['tasks'][0][2]:
-                        task = task_obj.browse(cr, uid, task_id, context=context)
+                        task = task_obj.browse(
+                            cr, uid, task_id, context=context
+                        )
                         for resource_plan_line in task.resource_plan_lines:
                             resource_vals['account_id'] = (
                                 p.analytic_account_id and
@@ -50,7 +49,10 @@ class project(osv.osv):
                                 False
                             )
                             resource_plan_line_obj.write(
-                                cr, uid, resource_plan_line.id, resource_vals, context=context
+                                cr, uid,
+                                resource_plan_line.id,
+                                resource_vals,
+                                context=context
                             )
 
         return super(project, self).write(cr, uid, ids, vals, context=context)

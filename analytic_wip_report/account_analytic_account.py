@@ -32,7 +32,8 @@ class account_analytic_account(osv.osv):
             context = {}
 
         for account in self.browse(cr, uid, ids, context=context):
-            all_ids = self.get_child_accounts(cr, uid, [account.id], context=context).keys()
+            all_ids = self.get_child_accounts(
+                cr, uid, [account.id], context=context).keys()
 
             res[account.id] = {'total_value': 0,
                                'actual_billings': 0,
@@ -123,29 +124,34 @@ class account_analytic_account(osv.osv):
 
             # Estimated costs to complete
             res[account.id]['estimated_costs_to_complete'] = (
-                res[account.id]['total_estimated_costs'] - res[account.id]['actual_costs']
+                res[account.id]['total_estimated_costs'] - res[
+                    account.id]['actual_costs']
             )
 
             # Estimated gross profit
             res[account.id]['estimated_gross_profit'] = (
-                res[account.id]['total_value'] - res[account.id]['total_estimated_costs']
+                res[account.id]['total_value'] - res[account.id][
+                    'total_estimated_costs']
             )
 
             # Percent complete
             try:
                 res[account.id]['percent_complete'] = (
-                    (res[account.id]['actual_costs'] / res[account.id]['total_estimated_costs']) * 100
+                    (res[account.id]['actual_costs'] / res[account.id][
+                        'total_estimated_costs']) * 100
                 )
             except ZeroDivisionError:
                 res[account.id]['percent_complete'] = 0
 
             # Earned revenue
             res[account.id]['earned_revenue'] = (
-                res[account.id]['percent_complete']/100 * res[account.id]['total_value']
+                res[account.id]['percent_complete']/100 * res[account.id][
+                    'total_value']
             )
 
             # Over/Under billings
-            over_under_billings = res[account.id]['actual_billings'] - res[account.id]['earned_revenue']
+            over_under_billings = res[account.id]['actual_billings'] - res[
+                account.id]['earned_revenue']
             if over_under_billings > 0:
                 res[account.id]['over_billings'] = over_under_billings
             else:
@@ -230,7 +236,8 @@ class account_analytic_account(osv.osv):
             method=True,
             type='float',
             string='Over billings',
-            help="Total Billings on Contract – Earned Revenue to Date (when > 0 )",
+            help="Total Billings on Contract – Earned Revenue to Date"
+                 " (when > 0 )",
             multi='wip_report',
             digits_compute=dp.get_precision('Account')
         ),
@@ -239,7 +246,8 @@ class account_analytic_account(osv.osv):
             method=True,
             type='float',
             string='Under billings',
-            help="Total Billings on Contract – Earned Revenue to Date (when < 0 )",
+            help="Total Billings on Contract – Earned Revenue to Date"
+                 " (when < 0 )",
             multi='wip_report',
             digits_compute=dp.get_precision('Account')
         ),

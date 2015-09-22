@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#               <contact@eficent.com>
+#              <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,22 +19,26 @@
 #
 ##############################################################################
 
-{
-    "name": "Analytic committed revenues on sales orders",
-    "version": "1.1",
-    "author": "Eficent",
-    "website": "http://www.eficent.com",
-    "category": "Generic Modules/Projects & Services",
-    "depends": ["analytic_plan", "sale"],
-    "description": """
-    Maintain analytic committed revenues associated to sales orders
-    """,
-    "data": [
-        "sale_filters.xml"
-    ],
-    'test': [
-    ],
-    'installable': True,
-    'active': False,
-    'certificate': '',
-}
+from openerp.osv import fields, orm
+
+
+class account_analytic_line_plan(orm.Model):
+    _inherit = 'account.analytic.line.plan'
+
+    _columns = {
+        'resource_plan_id': fields.many2one(
+            'analytic.resource.plan.line',
+            'Resource Plan Line',
+            ondelete='cascade'
+        )
+    }
+
+    def copy(self, cr, uid, id, default=None, context=None):
+        if context is None:
+            context = {}
+        if default is None:
+            default = {}
+        default['resource_plan_id'] = False
+        res = super(account_analytic_line_plan, self).copy(
+            cr, uid, id, default, context)
+        return res

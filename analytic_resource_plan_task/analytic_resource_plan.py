@@ -124,7 +124,9 @@ class analytic_resource_plan_line(osv.osv):
                 task.project_id.analytic_account_id.id or
                 False
             )
-        return super(analytic_resource_plan_line, self).create(cr, uid, vals, *args, **kwargs)
+        return super(analytic_resource_plan_line, self).create(
+            cr, uid, vals, *args, **kwargs
+        )
 
     def write(
         self, cr, uid, ids, vals, context=None
@@ -146,12 +148,19 @@ class analytic_resource_plan_line(osv.osv):
                 task = task_obj.browse(cr, uid, task_id, context=context)
 
                 if 'unit_amount' in vals:
-                    if task.default_resource_plan_line and task.default_resource_plan_line.id == p.id:
+                    if (
+                        task.default_resource_plan_line and
+                        task.default_resource_plan_line.id
+                    ) == p.id:
                         if task.planned_hours != vals['unit_amount']:
-                            raise osv.except_osv(_('Error !'),
-                                                 _('The quantity is different to the number of planned hours '
-                                                   'in the associated task.'))
+                            raise osv.except_osv(
+                                _('Error !'),
+                                _('The quantity is different to the number of '
+                                  'planned hours in the associated task.')
+                            )
 
-        return super(analytic_resource_plan_line, self).write(cr, uid, ids, vals, context=context)
+        return super(analytic_resource_plan_line, self).write(
+            cr, uid, ids, vals, context=context
+        )
 
 analytic_resource_plan_line()
