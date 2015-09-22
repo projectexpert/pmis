@@ -18,5 +18,31 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import model
-from . import wizard
+
+from openerp.osv import orm
+
+
+class AccountAnalyticAccount(orm.Model):
+
+    _inherit = 'account.analytic.account'
+
+    def write(self, cr, uid, ids, vals, context=None):
+        if context is None:
+            context = {}
+        if isinstance(ids, (int, long)):
+            ids = [ids]
+
+        res = super(AccountAnalyticAccount, self).write(
+            cr, uid, ids, vals, context=context)
+
+        plan_line_obj = self.pool.get('analytic.resource.plan.line')
+        if 'date' in vals and vals['date']:
+            for analytic_account in self.browse(cr, uid, ids,
+                                                context=context):
+                plan_line_ids = plan_line_obj.search(
+                    cr, uid, [('account_id', '=', analytic_account.id)],
+                    context=context)
+                if plan_line_ids:
+                    plan_line_obj.write(
+                        cr, uid, plan_line_ids, {'date': vals['date']})
+        return res

@@ -19,6 +19,16 @@
                 </xpath>
             </field>
         </record>
+
+        <act_window
+            name="Resource plan lines"
+            id="resource_plan_line_action_project"
+            res_model="analytic.resource.plan.line"
+            src_model="project.project"
+            context="{'default_account_id': analytic_account_id,'search_default_account_id': [analytic_account_id]}"
+            groups="project.group_project_user,project.group_project_manager"/>
+
+
     </data>
 
 </openerp>

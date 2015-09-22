@@ -26,7 +26,7 @@ from openerp.osv import fields, orm
 # ----------------------------------------------------------
 
 
-class product_template(orm.Model):
+class ProductTemplate(orm.Model):
     _inherit = "product.template"
     _columns = {
         'expense_analytic_plan_journal_id': fields.many2one(
@@ -36,4 +36,4 @@ class product_template(orm.Model):
         ),
     }
 
-product_template()
+ProductTemplate()
