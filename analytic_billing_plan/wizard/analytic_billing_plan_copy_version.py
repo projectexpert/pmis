@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from openerp.osv import orm, fields, osv
+from openerp.osv import fields, osv
 from openerp.tools.translate import _
 
 
@@ -84,16 +84,22 @@ class analytic_billing_plan_copy_version(osv.osv_memory):
             context=context)
 
         for line_plan_id in line_plan_ids:
-            new_line_plan_id = line_plan_obj.copy(cr, uid,
-                                                  line_plan_id,
-                                                  context=context)
+            new_line_plan_id = line_plan_obj.copy(
+                cr, uid, line_plan_id, context=context
+            )
             new_line_plan_ids.append(new_line_plan_id)
 
-        line_plan_obj.write(cr, uid, new_line_plan_ids,
-                            {'version_id': dest_version_id[0]}, context=context)
+        line_plan_obj.write(
+            cr, uid, new_line_plan_ids,
+            {'version_id': dest_version_id[0]}, context=context
+        )
 
         return {
-            'domain': "[('id','in', ["+','.join(map(str, new_line_plan_ids))+"])]",
+            'domain': "[('id','in', ["+','.join(
+                map(
+                    str, new_line_plan_ids
+                )
+            )+"])]",
             'name': _('Billing Plan Lines'),
             'view_type': 'form',
             'view_mode': 'tree,form',

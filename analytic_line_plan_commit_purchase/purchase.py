@@ -26,53 +26,78 @@ class purchase_order(osv.osv):
 
     _inherit = 'purchase.order'
 
-    def write(self, cr, uid, ids, data, context=None):
-        if context is None:
-            context = {}
 
-        po_line_obj = self.pool.get('purchase.order.line')
-        line_plan_obj = self.pool.get('account.analytic.line.plan')
-        currency_obj = self.pool.get('res.currency')
+def write(self, cr, uid, ids, data, context=None):
+    if context is None:
+        context = {}
 
-        for po in self.browse(cr, uid, ids, context=context):
-            vals_line = {}
-            for order_line_id in po.order_line:
-                for order_line in po_line_obj.browse(
-                    cr, uid, [order_line_id.id], context=context
-                ):
-                    if order_line.analytic_line_plan:
-                        if 'state' in data:
-                            if data['state'] in ('approved',
-                                                 'except_picking',
-                                                 'except_invoice',
-                                                 'done'):
+    po_line_obj = self.pool.get('purchase.order.line')
+    line_plan_obj = self.pool.get('account.analytic.line.plan')
+    currency_obj = self.pool.get('res.currency')
 
-                                if po.currency_id.id != po.company_id.currency_id.id:
-                                    amount_company_currency = currency_obj.compute(
+    for po in self.browse(cr, uid, ids, context=context):
+        vals_line = {}
+        for order_line_id in po.order_line:
+            for order_line in po_line_obj.browse(
+                cr, uid, [order_line_id.id], context=context
+            ):
+                if order_line.analytic_line_plan:
+
+                    crx = po.currency_id
+
+                    if 'state' in data:
+
+                        if data['state'] in (
+                            'approved',
+                            'except_picking',
+                            'except_invoice',
+                            'done'
+                        ):
+
+                            if crx.id != (
+                                po.company_id.currency_id.id
+                            ):
+                                amount_company_currency = (
+                                    currency_obj.compute(
                                         cr,
                                         uid,
-                                        po.currency_id.id,
+                                        crx.id,
                                         po.company_id.currency_id.id,
                                         order_line.price_subtotal,
                                         context=context
                                     )
-                                else:
-                                    amount_company_currency = order_line.price_subtotal
-
-                                vals_line['amount_currency'] = -1 * order_line.price_subtotal
-                                if po.currency_id:
-                                    vals_line['currency_id'] = po.currency_id.id
-                                vals_line['amount'] = -1 * amount_company_currency
-                                vals_line['unit_amount'] = order_line.product_qty
+                                )
                             else:
-                                vals_line['amount'] = 0
-                                vals_line['unit_amount'] = 0
-                        if 'company_id' in data:
-                            vals_line['company_id'] = data['company_id']
 
-                        line_plan_obj.write(cr, uid, [order_line.analytic_line_plan.id], vals_line, context)
+                                olpsx = order_line.price_subtotal
 
-        return super(purchase_order, self).write(cr, uid, ids, data, context=context)
+                                amount_company_currency = olpsx
+
+                            vals_line['amount_currency'] = -1 * olpsx
+                            if po.currency_id:
+                                vals_line['currency_id'] = po.currency_id.id
+                            vals_line['amount'] = -1 * amount_company_currency
+                            vals_line['unit_amount'] = order_line.product_qty
+                        else:
+                            vals_line['amount'] = 0
+                            vals_line['unit_amount'] = 0
+                    if 'company_id' in data:
+                        vals_line['company_id'] = data['company_id']
+
+                    line_plan_obj.write(
+                        cr, uid,
+                        [order_line.analytic_line_plan.id],
+                        vals_line,
+                        context
+                    )
+
+    return super(purchase_order, self).write(
+        cr, uid, ids, data, context=context
+    )
+
+    return super(purchase_order, self).write(
+        cr, uid, ids, data, context=context
+    )
 
 purchase_order()
 
@@ -110,31 +135,47 @@ class purchase_order_line(osv.osv):
                     )
                 )
 
-            j_ids = plan_journal_obj.search(cr, uid, [('type', '=', 'purchase')])
+            j_ids = plan_journal_obj.search(
+                cr, uid, [('type', '=', 'purchase')]
+            )
             journal_id = j_ids and j_ids[0] or False
             if not journal_id:
                 raise osv.except_osv(
-                    _('Error!'),
-                    _('Please define an analytic planning journal for purchases.')
+                    _(
+                        'Error!'
+                    ),
+                    _(
+                        'Please define an analytic planning journal'
+                        'for purchases.'
+                    )
                 )
 
             order = False
             if 'order_id' in vals:
-                order = purchase_order_obj.browse(cr, uid, vals['order_id'], context=context)
+                order = purchase_order_obj.browse(
+                    cr, uid, vals['order_id'], context=context
+                )
                 if order.currency_id:
                     vals_line['currency_id'] = order.currency_id.id
 
             general_account_id = False
             if 'product_id' in vals:
-                prod = product_obj.browse(cr, uid, vals['product_id'], context=context)
-                general_account_id = prod.product_tmpl_id.property_account_expense.id
+                prod = product_obj.browse(
+                    cr, uid, vals['product_id'], context=context
+                )
+
+                pptix = prod.product_tmpl_id
+                pcpaecx = prod.categ_id.property_account_expense_categ
+
+                general_account_id = pptix.property_account_expense.id
                 if not general_account_id:
-                    general_account_id = prod.categ_id.property_account_expense_categ.id
+                    general_account_id = pcpaecx.id
                 if not general_account_id:
-                    raise osv.except_osv(_('Error !'),
-                                         _('There is no expense account defined '
-                                           'for this product: "%s" (id:%d)')
-                                         % (prod.name, prod.id,))
+                    raise osv.except_osv(
+                        _('Error !'),
+                        _('There is no expense account defined '
+                          'for this product: "%s" (id:%d)')
+                        % (prod.name, prod.id,))
 
             vals_line['name'] = vals['name']
             vals_line['date'] = vals['date_planned']
@@ -142,7 +183,10 @@ class purchase_order_line(osv.osv):
             vals_line['amount_currency'] = 0
             vals_line['unit_amount'] = 0
             vals_line['account_id'] = vals['account_analytic_id']
-            vals_line['company_id'] = order.company_id and order.company_id.id
+            vals_line['company_id'] = (
+                order.company_id and
+                order.company_id.id
+            )
             vals_line['product_uom_id'] = vals['product_uom']
             vals_line['product_id'] = vals['product_id']
             vals_line['version_id'] = version_id
@@ -155,7 +199,9 @@ class purchase_order_line(osv.osv):
 
             vals['analytic_line_plan'] = new_line_plan_id
 
-        order_line = super(purchase_order_line, self).create(cr, uid, vals, *args, **kwargs)
+        order_line = super(purchase_order_line, self).create(
+            cr, uid, vals, *args, **kwargs
+        )
 
         return order_line
 
@@ -187,18 +233,24 @@ class purchase_order_line(osv.osv):
                 )
             )
 
-        j_ids = plan_journal_obj.search(cr, uid, [('type', '=', 'purchase')])
+        j_ids = plan_journal_obj.search(
+            cr, uid, [('type', '=', 'purchase')]
+        )
         journal_id = j_ids and j_ids[0] or False
         if not journal_id:
             raise osv.except_osv(
                 _('Error!'),
-                _('Please define an analytic planning journal for purchases.')
+                _('Please define an analytic planning journal'
+                  'for purchases.'
+                  )
             )
 
         for po_line in self.browse(cr, uid, ids, context=context):
 
             order_id = po_line.order_id and po_line.order_id.id
-            order = purchase_order_obj.browse(cr, uid, order_id, context=context)
+            order = purchase_order_obj.browse(
+                cr, uid, order_id, context=context
+            )
 
             if 'state' in vals:
                 line_state = vals['state']
@@ -228,31 +280,54 @@ class purchase_order_line(osv.osv):
             if 'account_analytic_id' in vals:
                 vals_line['account_id'] = vals['account_analytic_id']
             else:
-                vals_line['account_id'] = po_line.account_analytic_id and po_line.account_analytic_id.id
+                vals_line['account_id'] = (
+                    po_line.account_analytic_id and
+                    po_line.account_analytic_id.id
+                )
 
-            vals_line['company_id'] = order.company_id and order.company_id.id or False
+            vals_line['company_id'] = (
+                order.company_id and
+                order.company_id.id or
+                False
+            )
 
             if 'product_uom' in vals:
                 vals_line['product_uom_id'] = vals['product_uom']
             else:
-                vals_line['product_uom_id'] = po_line.product_uom and po_line.product_uom.id
+                vals_line['product_uom_id'] = (
+                    po_line.product_uom and
+                    po_line.product_uom.id
+                )
 
             if 'product_id' in vals:
                 vals_line['product_id'] = vals['product_id']
             else:
-                vals_line['product_id'] = po_line.product_id and po_line.product_id.id or False
+                vals_line['product_id'] = (
+                    po_line.product_id and
+                    po_line.product_id.id or
+                    False
+                )
 
             general_account_id = False
             if vals_line['product_id']:
-                prod = product_obj.browse(cr, uid, vals_line['product_id'], context=context)
-                general_account_id = prod.product_tmpl_id.property_account_expense.id
+                prod = product_obj.browse(
+                    cr, uid,
+                    vals_line['product_id'],
+                    context=context
+                )
+
+                pptidx = prod.product_tmpl_id
+                pcatecpx = prod.categ_id.property_account_expense_categ
+
+                general_account_id = pptidx.property_account_expense.id
                 if not general_account_id:
-                    general_account_id = prod.categ_id.property_account_expense_categ.id
+                    general_account_id = pcatecpx.id
                 if not general_account_id:
-                    raise osv.except_osv(_('Error !'),
-                                         _('There is no expense account defined '
-                                           'for this product: "%s" (id:%d)')
-                                         % (prod.name, prod.id,))
+                    raise osv.except_osv(
+                        _('Error !'),
+                        _('There is no expense account defined '
+                          'for this product: "%s" (id:%d)')
+                        % (prod.name, prod.id,))
 
             vals_line['general_account_id'] = general_account_id
 
@@ -281,15 +356,28 @@ class purchase_order_line(osv.osv):
 
             if po_line.analytic_line_plan:
                 if vals_line['account_id']:
-                    line_plan_obj.write(cr, uid, [po_line.analytic_line_plan.id], vals_line, context)
+                    line_plan_obj.write(
+                        cr, uid,
+                        [po_line.analytic_line_plan.id],
+                        vals_line,
+                        context
+                    )
                 else:
-                    line_plan_obj.unlink(cr, uid, [po_line.analytic_line_plan.id], context)
+                    line_plan_obj.unlink(
+                        cr, uid,
+                        [po_line.analytic_line_plan.id],
+                        context
+                    )
             else:
                 if vals_line['account_id']:
-                    new_ana_line_plan = line_plan_obj.create(cr, uid, vals_line, context=context)
+                    new_ana_line_plan = line_plan_obj.create(
+                        cr, uid, vals_line, context=context
+                    )
                     vals['analytic_line_plan'] = new_ana_line_plan
 
-        return super(purchase_order_line, self).write(cr, uid, ids, vals, context=context)
+        return super(purchase_order_line, self).write(
+            cr, uid, ids, vals, context=context
+        )
 
     def unlink(self, cr, uid, ids, context=None):
         line_plan_obj = self.pool.get('account.analytic.line.plan')
@@ -297,7 +385,9 @@ class purchase_order_line(osv.osv):
         for order_line in self.browse(cr, uid, ids, context=context):
             if order_line.analytic_line_plan:
                 ana_line_plan_ids.append(order_line.analytic_line_plan.id)
-        res = super(purchase_order_line, self).unlink(cr, uid, ids, context=context)
+        res = super(purchase_order_line, self).unlink(
+            cr, uid, ids, context=context
+        )
         line_plan_obj.unlink(cr, uid, ana_line_plan_ids, context=context)
         return res
 

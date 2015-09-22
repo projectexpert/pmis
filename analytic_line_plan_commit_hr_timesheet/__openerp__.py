@@ -26,20 +26,21 @@
     "website": "http://www.eficent.com",
     "category": "Generic Modules/Projects & Services",
     "depends": ["analytic_plan", "hr_timesheet"],
-    "description": """Eficent Project Management. Project Cost Planning Integration with HR Timesheets
-        - When timesheets are recorded, the corresponding cost is registered as a commitment cost
+    "description": """
+Eficent Project Management. Project Cost Planning Integration with HR
+Timesheets:
+   - When timesheets are recorded, the corresponding cost is registered as a
+     commitment cost
     """,
-    "init_xml": [],
-    "update_xml": [                                      
-        "hr_timesheet_view.xml",        
+    "data": [
+        "hr_timesheet_view.xml",
     ],
-    'demo_xml': [
+    'demo': [
 
     ],
-    'test':[
+    'test': [
     ],
     'installable': True,
     'active': False,
     'certificate': '',
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

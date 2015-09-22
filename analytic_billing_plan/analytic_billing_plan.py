@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-import time
+# import time
 import openerp.addons.decimal_precision as dp
 from openerp.tools.translate import _
 from openerp.osv import fields, osv
@@ -308,7 +308,9 @@ class analytic_billing_plan_line(osv.osv):
         if account_id:
             analytic = analytic_obj.browse(cr, uid, account_id, context)
             version_id = (
-                analytic.active_analytic_planning_version and analytic.active_analytic_planning_version.id or False
+                analytic.active_analytic_planning_version and
+                analytic.active_analytic_planning_version.id or
+                False
             )
             res['value'].update({'version_id': version_id})
 
@@ -348,13 +350,25 @@ class analytic_billing_plan_line(osv.osv):
         res = {}
         res['value'] = {}
 
-        analytic_account = analytic_account_obj.browse(cr, uid, account_id, context=context)
-        customer_id = analytic_account.partner_id and analytic_account.partner_id.id
-        customer = partner_obj.browse(cr, uid, customer_id, context=context)
-        pricelist_id = customer.property_product_pricelist and customer.property_product_pricelist.id or False
+        analytic_account = analytic_account_obj.browse(
+            cr, uid, account_id, context=context
+        )
+        customer_id = (
+            analytic_account.partner_id and
+            analytic_account.partner_id.id
+        )
+        customer = partner_obj.browse(
+            cr, uid, customer_id, context=context
+        )
+        pricelist_id = (
+            customer.property_product_pricelist and
+            customer.property_product_pricelist.id or
+            False
+        )
 
         # TODO: Check if the new product is allowed for the current pricelist
-        # If there's a pricelist and a product, get the unit price for the new UoM
+        # If there's a pricelist and a product, get the unit price for the new
+        # UoM
         if pricelist_id and product_id and product_uom_id:
             price_unit = pricelist_obj.price_get(
                 cr,
@@ -439,7 +453,9 @@ class analytic_billing_plan_line(osv.osv):
         res['value'] = {}
 
         if product_id:
-            prod = self.pool.get('product.product').browse(cr, uid, product_id, context=context)
+            prod = self.pool.get('product.product').browse(
+                cr, uid, product_id, context=context
+            )
             prod_uom = prod.uos_id and prod.uos_id.id or False
             if not prod_uom:
                 prod_uom = prod.uom_id and prod.uom_id.id or False
@@ -469,17 +485,28 @@ class analytic_billing_plan_line(osv.osv):
 
             res['value'].update(res_uom)
 
-            journal_id = prod.revenue_analytic_plan_journal_id and prod.revenue_analytic_plan_journal_id.id or False
+            journal_id = (
+                prod.revenue_analytic_plan_journal_id and
+                prod.revenue_analytic_plan_journal_id.id or
+                False
+            )
             res['value'].update({'journal_id': journal_id})
 
-            general_account_id = prod.product_tmpl_id.property_account_income.id
+            tmplx = prod.product_tmpl_id.property_account_income
+            categx = prod.categ_id.property_account_income_categ
+
+            general_account_id = tmplx.id
             if not general_account_id:
-                general_account_id = prod.categ_id.property_account_income_categ.id
+                general_account_id = categx.id
             if not general_account_id:
-                    raise osv.except_osv(_('Error !'),
-                                         _('There is no income account defined '
-                                           'for this product: "%s" (id:%d)')
-                                         % (prod.name, product_id,))
+                    raise osv.except_osv(
+                        _(
+                            'Error !'
+                        ),
+                        _(
+                            'There is no income account defined '
+                            'for this product: "%s" (id:%d)'
+                          ) % (prod.name, product_id,))
 
             res['value'].update({'general_account_id': general_account_id})
 
@@ -493,8 +520,12 @@ class analytic_billing_plan_line(osv.osv):
         analytic_line_plan_obj = self.pool.get('account.analytic.line.plan')
         for billing_plan_line in self.browse(cr, uid, ids, context=context):
             if billing_plan_line.analytic_line_plan_id:
-                line_plan_ids.append(billing_plan_line.analytic_line_plan_id.id)
-        res = super(analytic_billing_plan_line, self).unlink(cr, uid, ids, context=context)
+                line_plan_ids.append(
+                    billing_plan_line.analytic_line_plan_id.id
+                )
+        res = super(analytic_billing_plan_line, self).unlink(
+            cr, uid, ids, context=context
+        )
         analytic_line_plan_obj.unlink(cr, uid, line_plan_ids, context=context)
         return res
 

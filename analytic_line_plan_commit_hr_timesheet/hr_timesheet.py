@@ -19,8 +19,6 @@
 #
 ##############################################################################
 
-import time
-
 from openerp.osv import fields
 from openerp.osv import osv
 from openerp.tools.translate import _
@@ -54,7 +52,9 @@ class hr_analytic_timesheet(osv.osv):
         if context is None:
             context = {}
         emp_id = emp_obj.search(
-            cr, uid, [('user_id', '=', context.get('user_id', uid))], context=context
+            cr, uid,
+            [('user_id', '=', context.get('user_id', uid))],
+            context=context
         )
         if emp_id:
             emp = emp_obj.browse(cr, uid, emp_id[0], context=context)
@@ -85,7 +85,9 @@ class hr_analytic_timesheet(osv.osv):
         vals_line['amount_currency'] = vals['amount']
         vals_line['unit_amount'] = vals['unit_amount']
         vals_line['account_id'] = vals['account_id']
-        vals_line['company_id'] = self.pool.get('res.company')._company_default_get(
+        vals_line['company_id'] = self.pool.get(
+            'res.company'
+        )._company_default_get(
             cr, uid, 'account.analytic.line', context=context
         )
         vals_line['product_uom_id'] = vals['product_uom_id']
@@ -103,7 +105,9 @@ class hr_analytic_timesheet(osv.osv):
 
         vals['analytic_line_plan'] = new_line_plan_id
 
-        analytic_timesheet = super(hr_analytic_timesheet, self).create(cr, uid, vals, *args, **kwargs)
+        analytic_timesheet = super(hr_analytic_timesheet, self).create(
+            cr, uid, vals, *args, **kwargs
+        )
 
         return analytic_timesheet
 
@@ -140,12 +144,21 @@ class hr_analytic_timesheet(osv.osv):
 
         for hr_timesheet in self.browse(cr, uid, ids, context=context):
             if hr_timesheet.analytic_line_plan:
-                line_plan_obj.write(cr, uid, [hr_timesheet.analytic_line_plan.id], vals_line, context)
+                line_plan_obj.write(
+                    cr, uid,
+                    [hr_timesheet.analytic_line_plan.id],
+                    vals_line,
+                    context
+                )
             else:
-                new_ana_line_plan = line_plan_obj.create(cr, uid, vals_line, context=context)
+                new_ana_line_plan = line_plan_obj.create(
+                    cr, uid, vals_line, context=context
+                )
                 vals['analytic_line_plan'] = new_ana_line_plan
 
-        return super(hr_analytic_timesheet, self).write(cr, uid, ids, vals, context=context)
+        return super(hr_analytic_timesheet, self).write(
+            cr, uid, ids, vals, context=context
+        )
 
     def unlink(self, cr, uid, ids, context=None):
         toremove = {}
@@ -153,7 +166,11 @@ class hr_analytic_timesheet(osv.osv):
             if obj.analytic_line_plan:
                 toremove[obj.analytic_line_plan.id] = True
         if toremove:
-            self.pool.get('account.analytic.line.plan').unlink(cr, uid, toremove.keys(), context=context)
-        return super(hr_analytic_timesheet, self).unlink(cr, uid, ids, context=context)
+            self.pool.get('account.analytic.line.plan').unlink(
+                cr, uid, toremove.keys(), context=context
+            )
+        return super(hr_analytic_timesheet, self).unlink(
+            cr, uid, ids, context=context
+        )
 
 hr_analytic_timesheet()

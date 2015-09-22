@@ -357,7 +357,10 @@ class analytic_account_sequence(osv.osv):
             cr,
             uid,
             seq_ids,
-            ['name', 'company_id', 'implementation', 'number_next', 'prefix', 'suffix', 'padding']
+            [
+                'name', 'company_id', 'implementation',
+                'number_next', 'prefix', 'suffix', 'padding'
+            ]
         )
         preferred_sequences = (
             [s for s in sequences if s['company_id'] and
@@ -384,11 +387,17 @@ class analytic_account_sequence(osv.osv):
             interpolated_prefix = self._interpolate(seq['prefix'], d)
             interpolated_suffix = self._interpolate(seq['suffix'], d)
         except ValueError:
-            raise osv.except_osv(_('Warning'),
-                                 _('Invalid prefix or suffix '
-                                   'for sequence \'%s\'') % (seq.get('name')))
-        return interpolated_prefix + '%%0%sd' % seq['padding'] \
-                                     % seq['number_next'] + interpolated_suffix
+            raise osv.except_osv(
+                _('Warning'),
+                _('Invalid prefix or suffix '
+                  'for sequence \'%s\''
+                  ) % (seq.get('name'))
+            )
+        return (
+            interpolated_prefix +
+            '%%0%sd' % seq['padding'] % seq['number_next'] +
+            interpolated_suffix
+        )
 
     def next_by_id(self, cr, uid, sequence_id, context=None):
         """
@@ -423,7 +432,10 @@ class analytic_account_sequence(osv.osv):
         ids = self.search(
             cr,
             uid,
-            ['&', ('code', '=', sequence_code), ('company_id', 'in', company_ids)]
+            [
+                '&', ('code', '=', sequence_code),
+                ('company_id', 'in', company_ids)
+            ]
         )
         return self._next(cr, uid, ids, context)
 
