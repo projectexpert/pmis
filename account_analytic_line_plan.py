@@ -304,6 +304,11 @@ class account_analytic_line_plan(orm.Model):
             {'amount_currency': result, 'general_account_id': a, }
         )
 
+        res['value'].update({
+            'amount_currency': result,
+            'general_account_id': a,
+        })
+        
         return res
 
     def on_change_product_id(
