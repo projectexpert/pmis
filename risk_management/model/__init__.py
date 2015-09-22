@@ -3,7 +3,7 @@
 #
 #    OpenERP, Open Source Enterprise Management Solution
 #    risk_management Module
-#    Copyright (C) 2011-2014 ValueDecision Ltd (<http://www.valuedecision.com>).
+#    Copyright (C) 2011-2014 ValueDecision Ltd (<http://www.valuedecision.com>)
 #    Copyright (C) 2015 Matmoz d.o.o. (<http://www.matmoz.si>).
 #
 #    This program is free software: you can redistribute it and/or modify

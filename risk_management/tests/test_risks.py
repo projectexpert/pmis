@@ -1,7 +1,6 @@
 # __author__ = 'valdec'
 
 from openerp.tests import common
-from datetime import datetime
 
 
 class TestRisks(common.TransactionCase):
