@@ -27,7 +27,7 @@
                         <group colspan="3" col="4">
                             <field name="account_id" on_change="on_change_account_id(account_id)"/>
                                 <field name="name"/>
-                                <field name="date" readonly="False"/>
+                                <field name="date" readonly="True"/>
                         </group>
                         <group colspan="2" col="4" string="Product Information">
                             <field name="product_id" on_change="on_change_product_id(product_id)"/>
@@ -71,7 +71,7 @@
             <field name="arch" type="xml">
 				<tree string="Analytic resource plan line" editable="top" colors = "darkmagenta:has_child == True;blue:state=='draft'">
                     <field name="account_id" on_change="on_change_account_id(account_id)"/>
-                    <field name="date" readonly="False"/>
+                    <field name="date" readonly="True"/>
                     <field name="name" invisible="True"/>
 	                <field name="product_id" on_change="on_change_product_id(product_id)"/>
                     <field name="name"/>
