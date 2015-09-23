@@ -40,35 +40,45 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
             requisition_line_ids = []
             line_plan_obj = self.pool.get('analytic.resource.plan.line')
 
-            for line in line_plan_obj.browse(cr, uid, record_ids, context=context):
-                    for requisition_line in line.requisition_line_ids:
-                        requisition_line_id = requisition_line and requisition_line.id
-                        requisition_line_ids.extend([requisition_line_id])
+            for line in line_plan_obj.browse(
+                cr, uid, record_ids, context=context
+            ):
+                for requisition_line in line.requisition_line_ids:
+                    requisition_line_id = (
+                        requisition_line and requisition_line.id
+                    )
+                    requisition_line_ids.extend(
+                        [requisition_line_id]
+                    )
             if requisition_line_ids:
                 return requisition_line_ids
         return False
 
     _columns = {
-        'requisition_type': fields.selection([('exclusive',
-                                               'Purchase Requisition (exclusive)'),
-                                              ('multiple',
-                                               'Multiple Requisitions')],
-                                             'Requisition Type',
-                                             required=True,
-                                             help="Purchase Requisition (exclusive):  "
-                                                  "On the confirmation of a purchase order, "
-                                                  "it cancels the remaining purchase order.\n"
-                                                  "Purchase Requisition(Multiple):  "
-                                                  "It allows to have multiple purchase orders."
-                                                  " On confirmation of a purchase order it does "
-                                                  "not cancel the remaining orders"""),
+        'requisition_type': fields.selection(
+            [
+                ('exclusive', 'Purchase Requisition (exclusive)'),
+                ('multiple', 'Multiple Requisitions')
+            ],
+            'Requisition Type',
+            required=True,
+            help="Purchase Requisition (exclusive):  "
+            "On the confirmation of a purchase order, "
+            "it cancels the remaining purchase order.\n"
+            "Purchase Requisition(Multiple):  "
+            "It allows to have multiple purchase orders."
+            " On confirmation of a purchase order it does "
+            "not cancel the remaining orders"""
+        ),
 
         'date_end': fields.datetime('Requisition Deadline'),
 
-        'requisition_line_ids': fields.many2many('purchase.requisition.line',
-                                                 'make_purchase_requisition_line_rel',
-                                                 'requisition_line_id',
-                                                 'make_purchase_requisition_id'),
+        'requisition_line_ids': fields.many2many(
+            'purchase.requisition.line',
+            'make_purchase_requisition_line_rel',
+            'requisition_line_id',
+            'make_purchase_requisition_id'
+        ),
     }
 
     _defaults = {
@@ -100,38 +110,50 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
             requisition_obj = self.pool.get('purchase.requisition')
             requisition_line_obj = self.pool.get('purchase.requisition.line')
 
-            company_id = False
+            # company_id = False
             account_analytic_id = False
             purchase_id = False
             product_names = []
 
-            for line in line_plan_obj.browse(cr, uid, record_ids, context=context):
+            for line in line_plan_obj.browse(
+                cr, uid, record_ids, context=context
+            ):
                 if line.product_id.name:
                     product_names.insert(0, line.product_id.name)
                 else:
                     product_names.insert(0, '')
 
-            requisition_name = ', '.join(product_names)
-            for line in line_plan_obj.browse(cr, uid, record_ids, context=context):
-                    uom_id = line.product_uom_id
-                    line_company_id = line.company_id and line.company_id.id or False
-                    if company_id is not False and line_company_id != company_id:
-                        raise osv.except_osv(
-                            _('Could not create purchase requisition !'),
-                            _('You have to select lines from the same company.'))
-                    else:
-                        company_id = line_company_id
+            for line in line_plan_obj.browse(
+                cr, uid, record_ids, context=context
+            ):
+                uom_id = line.product_uom_id
+                # line_company_id = (
+                #     line.company_id and
+                #     line.company_id.id or
+                #     False
+                # )
+                # if company_id is not False and line_company_id != company_id:
+                #     raise osv.except_osv(
+                #         _('Could not create purchase requisition !'),
+                #         _('You have to select lines from the same company.'))
+                # else:
+                #     company_id = line_company_id
 
-                    line_account_analytic_id = \
-                        line.account_id and line.account_id.id or False
-                    if account_analytic_id is not False \
-                            and line_account_analytic_id != account_analytic_id:
-                        raise osv.except_osv(
-                            _('Could not create purchase requisition !'),
-                            _('You have to select lines from the same '
-                              'analytic account.'))
-                    else:
-                        account_analytic_id = line_account_analytic_id
+                line_account_analytic_id = (
+                    line.account_id and
+                    line.account_id.id or
+                    False
+                )
+
+                if account_analytic_id is not False and (
+                    line_account_analytic_id != account_analytic_id
+                ):
+                    raise osv.except_osv(
+                        _('Could not create purchase requisition !'),
+                        _('You have to select lines from the same '
+                          'analytic account.'))
+                else:
+                    account_analytic_id = line_account_analytic_id
 
                     purchase_requisition_line = {
                         'product_qty': line.unit_amount,
@@ -143,21 +165,37 @@ class analytic_resouce_plan_line_make_purchase_requisition(orm.TransientModel):
                             'origin': '',
                             'exclusive': make_requisition.requisition_type,
                             'date_end': make_requisition.date_end,
-                            'company_id': company_id,
+                            # 'company_id': company_id,
                             'account_analytic_id': account_analytic_id,
 
                         }, context=context)
 
-                    purchase_requisition_line.update({'requisition_id': purchase_id})
+                    if line.account_id.user_id:
+                            requisition_obj.message_subscribe_users(
+                                cr, uid, [purchase_id],
+                                user_ids=[line.account_id.user_id.id]
+                            )
 
-                    requisition_line_id = requisition_line_obj.create(cr,
-                                                                      uid,
-                                                                      purchase_requisition_line,
-                                                                      context=context)
+                    purchase_requisition_line.update(
+                        {
+                            'requisition_id': purchase_id,
+                            'account_analytic_id':
+                                (
+                                    line.account_id and
+                                    line.account_id.id
+                                ),
+                        }
+                    )
+
+                    requisition_line_id = requisition_line_obj.create(
+                        cr, uid, purchase_requisition_line, context=context
+                    )
                     values = {
                         'requisition_line_ids': [(4, requisition_line_id)]
                     }
-                    line_plan_obj.write(cr, uid, [line.id], values, context=context)
+                    line_plan_obj.write(
+                        cr, uid, [line.id], values, context=context
+                    )
                     res.append(requisition_line_id)
 
         return {

@@ -115,7 +115,8 @@ class AnalyticResourcePlanLine(orm.Model):
         'parent_id': fields.many2one(
             'analytic.resource.plan.line',
             'Parent',
-            readonly=True
+            readonly=True,
+            ondelete='cascade'
         ),
         'child_ids': fields.one2many(
             'analytic.resource.plan.line',
@@ -284,4 +285,15 @@ class AnalyticResourcePlanLine(orm.Model):
 
         return super(AnalyticResourcePlanLine, self).write(
             cr, uid, ids, vals, context=context
+        )
+
+    def unlink(self, cr, uid, ids, context=None):
+        for line in self.browse(cr, uid, ids, context=context):
+            if line.analytic_line_plan_ids:
+                raise orm.except_orm(
+                    _('Error!'),
+                    _('You cannot delete a record that refers to analytic '
+                      'plan lines!'))
+        return super(AnalyticResourcePlanLine, self).unlink(
+            cr, uid, ids, context=context
         )
