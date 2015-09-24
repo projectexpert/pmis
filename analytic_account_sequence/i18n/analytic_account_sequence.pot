@@ -6,14 +6,66 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-03 14:24+0000\n"
-"PO-Revision-Date: 2015-03-03 14:24+0000\n"
+"POT-Creation-Date: 2015-09-24 11:14+0000\n"
+"PO-Revision-Date: 2015-09-24 11:14+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: analytic_account_sequence
+#: help:analytic.account.sequence,number_next_actual:0
+msgid "\n"
+"            Next number that will be used. This number can be\n"
+"            incremented frequently so the displayed value might\n"
+"            already be obsolete\n"
+"            "
+msgstr ""
+
+#. module: analytic_account_sequence
+#: help:analytic.account.sequence,padding:0
+msgid "\n"
+"            OpenERP will automatically adds\n"
+"            some '0' on the left of the\n"
+"            'Next Number' to get the required\n"
+"            padding size."
+msgstr ""
+
+#. module: analytic_account_sequence
+#: help:analytic.account.sequence,prefix:0
+msgid "\n"
+"            Prefix value of the record for\n"
+"            the sequence\n"
+"            "
+msgstr ""
+
+#. module: analytic_account_sequence
+#: help:analytic.account.sequence,suffix:0
+msgid "\n"
+"            Suffix value of the record for\n"
+"            the sequence\n"
+"            "
+msgstr ""
+
+#. module: analytic_account_sequence
+#: help:analytic.account.sequence,number_increment:0
+msgid "\n"
+"            The next number of the\n"
+"            sequence will be incremented\n"
+"            by this number\n"
+"            "
+msgstr ""
+
+#. module: analytic_account_sequence
+#: help:analytic.account.sequence,implementation:0
+msgid "\n"
+"            Two sequence object implementations are offered: Standard\n"
+"            and 'No gap'. The later is slower than the former but forbids any\n"
+"            gap in the sequence (while they are possible in the former).\n"
+"            "
+msgstr ""
 
 #. module: analytic_account_sequence
 #: field:analytic.account.sequence,active:0
@@ -28,6 +80,11 @@ msgstr ""
 #. module: analytic_account_sequence
 #: field:analytic.account.sequence,analytic_account_id:0
 msgid "Analytic account"
+msgstr ""
+
+#. module: analytic_account_sequence
+#: view:project.project:analytic_account_sequence.edit_project
+msgid "Child Stages"
 msgstr ""
 
 #. module: analytic_account_sequence
@@ -153,11 +210,6 @@ msgid "Next number of this sequence"
 msgstr ""
 
 #. module: analytic_account_sequence
-#: help:analytic.account.sequence,number_next_actual:0
-msgid "Next number that will be used. This number can be incremented frequently so the displayed value might already be obsolete"
-msgstr ""
-
-#. module: analytic_account_sequence
 #: selection:analytic.account.sequence,implementation:0
 msgid "No gap"
 msgstr ""
@@ -168,18 +220,8 @@ msgid "Number Padding"
 msgstr ""
 
 #. module: analytic_account_sequence
-#: help:analytic.account.sequence,padding:0
-msgid "OpenERP will automatically adds some '0' on the left of the 'Next Number' to get the required padding size."
-msgstr ""
-
-#. module: analytic_account_sequence
 #: field:analytic.account.sequence,prefix:0
 msgid "Prefix"
-msgstr ""
-
-#. module: analytic_account_sequence
-#: help:analytic.account.sequence,prefix:0
-msgid "Prefix value of the record for the sequence"
 msgstr ""
 
 #. module: analytic_account_sequence
@@ -213,23 +255,8 @@ msgid "Suffix"
 msgstr ""
 
 #. module: analytic_account_sequence
-#: help:analytic.account.sequence,suffix:0
-msgid "Suffix value of the record for the sequence"
-msgstr ""
-
-#. module: analytic_account_sequence
 #: sql_constraint:analytic.account.sequence:0
 msgid "The analytic account must be unique"
-msgstr ""
-
-#. module: analytic_account_sequence
-#: help:analytic.account.sequence,number_increment:0
-msgid "The next number of the sequence will be incremented by this number"
-msgstr ""
-
-#. module: analytic_account_sequence
-#: help:analytic.account.sequence,implementation:0
-msgid "Two sequence object implementations are offered: Standard and 'No gap'. The later is slower than the former but forbids any gap in the sequence (while they are possible in the former)."
 msgstr ""
 
 #. module: analytic_account_sequence

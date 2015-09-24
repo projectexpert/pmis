@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-24 13:46+0200\n"
-"PO-Revision-Date: 2015-08-03 13:08+0200\n"
+"POT-Creation-Date: 2015-09-24 13:09+0200\n"
+"PO-Revision-Date: 2015-09-24 13:10+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -15,7 +15,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.2\n"
+"X-Generator: Poedit 1.8.4\n"
+
+#. module: analytic_billing_plan
+#: help:analytic.billing.plan.line,has_active_order:0
+msgid ""
+"\n"
+"            Indicates that this billing plan line\n"
+"            contains at least one non-cancelled billing request.\n"
+"            "
+msgstr ""
+"\n"
+"            Prikazuje, da ta obračunski plan vsebuje\n"
+"\t    vsaj en ne preklican obračunski zahtevek.\n"
+"            "
 
 #. module: analytic_billing_plan
 #: model:ir.model,name:analytic_billing_plan.model_analytic_billing_plan_copy_version
@@ -140,15 +153,6 @@ msgstr "ID"
 #: field:analytic.billing.plan.copy.version,include_child:0
 msgid "Include child accounts"
 msgstr "Vključno podrejeni konti"
-
-#. module: analytic_billing_plan
-#: help:analytic.billing.plan.line,has_active_order:0
-msgid ""
-"Indicates that this billing plan line contains at least one non-cancelled "
-"billing request."
-msgstr ""
-"Prikazuje, da ta obračunski plan vsebuje vsaj en ne preklican obračunski "
-"zahtevek"
 
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line.make.sale,invoice_quantity:0

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-24 13:56+0200\n"
-"PO-Revision-Date: 2015-08-03 13:08+0200\n"
+"POT-Creation-Date: 2015-09-24 13:02+0200\n"
+"PO-Revision-Date: 2015-09-24 13:02+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "Language: sl\n"
@@ -16,7 +16,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.2\n"
+"X-Generator: Poedit 1.8.4\n"
+
+#. module: analytic_resource_plan_purchase
+#: help:analytic.resource.plan.line,has_active_order:0
+msgid ""
+"\n"
+"            Indicates that this resource plan line\n"
+"            contains at least one non-cancelled purchase order.\n"
+"            "
+msgstr ""
+"\n"
+"            Prikazuje, da ta postavka plana virov\n"
+"\t    vsebuje vsaj en ne preklican nabavni nalog.\n"
+"            "
 
 #. module: analytic_resource_plan_purchase
 #: model:ir.model,name:analytic_resource_plan_purchase.model_analytic_resource_plan_line
@@ -57,15 +70,6 @@ msgstr "Ustvarjeno"
 #: field:analytic.resource.plan.line.make.purchase,id:0
 msgid "ID"
 msgstr "ID"
-
-#. module: analytic_resource_plan_purchase
-#: help:analytic.resource.plan.line,has_active_order:0
-msgid ""
-"Indicates that this resource plan line contains at least one non-cancelled "
-"purchase order."
-msgstr ""
-"Prikazuje, da ta postavka plana virov vsebuje vsaj en ne preklican nabavni "
-"nalog."
 
 #. module: analytic_resource_plan_purchase
 #: field:analytic.resource.plan.line.make.purchase,write_uid:0

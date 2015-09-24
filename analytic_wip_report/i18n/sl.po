@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-24 13:57+0200\n"
-"PO-Revision-Date: 2015-08-03 13:08+0200\n"
+"POT-Creation-Date: 2015-09-24 13:18+0200\n"
+"PO-Revision-Date: 2015-09-24 13:18+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.2\n"
+"X-Generator: Poedit 1.8.4\n"
 
 #. module: analytic_wip_report
 #: report:analytic.wip:0
@@ -116,8 +116,7 @@ msgid "Total Billings on Contract – Earned Revenue to Date (when > 0 )"
 msgstr "Skupaj obračunano na pogodbi - Prisluženi prihodki do zdaj (ko > 0)"
 
 #. module: analytic_wip_report
-#: field:account.analytic.account,total_estimated_costs:0
-#: report:analytic.wip:0
+#: field:account.analytic.account,total_estimated_costs:0 report:analytic.wip:0
 msgid "Total Estimated Costs"
 msgstr "Skupaj predvideni stroški"
 

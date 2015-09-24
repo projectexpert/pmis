@@ -6,21 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-11 06:38+0000\n"
-"PO-Revision-Date: 2015-08-11 08:42+0200\n"
+"POT-Creation-Date: 2015-09-24 13:08+0200\n"
+"PO-Revision-Date: 2015-09-24 13:09+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: sl\n"
-"X-Generator: Poedit 1.8.2\n"
-
-#. module: analytic_plan_analysis
-#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_search
-msgid "Account"
-msgstr "Konto"
+"X-Generator: Poedit 1.8.4\n"
 
 #. module: analytic_plan_analysis
 #: field:report.account.analytic.plan.actual,kpi_amount:0
@@ -28,6 +23,7 @@ msgid "Amount"
 msgstr "Znesek"
 
 #. module: analytic_plan_analysis
+#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_search
 #: field:report.account.analytic.plan.actual,account_id:0
 msgid "Analytic Account"
 msgstr "Analitični konto"
@@ -91,6 +87,12 @@ msgstr "Polna koda členitve"
 #: field:report.account.analytic.plan.actual,complete_wbs_name:0
 msgid "Full WBS Name"
 msgstr "Polni naziv členitve"
+
+#. module: analytic_plan_analysis
+#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_search
+#: field:report.account.analytic.plan.actual,general_account_id:0
+msgid "General Account"
+msgstr "Konto glavne knjige"
 
 #. module: analytic_plan_analysis
 #: selection:report.account.analytic.plan.actual,kpi_type:0
@@ -166,18 +168,11 @@ msgstr "Oktober"
 #. module: analytic_plan_analysis
 #: model:ir.actions.act_window,name:analytic_plan_analysis.action_account_analytic_plan_actual_amounts
 #: model:ir.ui.menu,name:analytic_plan_analysis.menu_action_account_analytic_plan_actual_tree
-msgid "Plan vs. Actual (amounts)"
-msgstr "Planirano - Dejansko (zneski)"
-
-#. module: analytic_plan_analysis
-#: model:ir.actions.act_window,name:analytic_plan_analysis.action_account_analytic_plan_actual_quantities
-#: model:ir.ui.menu,name:analytic_plan_analysis.menu_action_account_analytic_plan_actual_tree_2
-msgid "Plan vs. Actual (quantities)"
-msgstr "Planirano - Dejansko (količine)"
+msgid "Plan vs. Actual"
+msgstr "Planirano - dejansko"
 
 #. module: analytic_plan_analysis
 #: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_graph
-#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_graph_2
 #: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_search
 msgid "Plan vs. Actual analysis"
 msgstr "Analiza planirano - dejansko"
@@ -185,7 +180,6 @@ msgstr "Analiza planirano - dejansko"
 #. module: analytic_plan_analysis
 #: model:ir.model,name:analytic_plan_analysis.model_report_account_analytic_plan_actual
 #: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_tree
-#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_tree_2
 msgid "Plan vs. actual analysis"
 msgstr "Analiza planirano - dejansko"
 
@@ -205,11 +199,6 @@ msgstr "Proizvod"
 #: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_search
 msgid "Product UoM"
 msgstr "EM proizvoda"
-
-#. module: analytic_plan_analysis
-#: field:report.account.analytic.plan.actual,kpi_quantity:0
-msgid "Quantity"
-msgstr "Količina"
 
 #. module: analytic_plan_analysis
 #: selection:report.account.analytic.plan.actual,kpi_type:0
@@ -233,13 +222,12 @@ msgstr "September"
 
 #. module: analytic_plan_analysis
 #: model:ir.actions.act_window,help:analytic_plan_analysis.action_account_analytic_plan_actual_amounts
-msgid "This report allows you to compare plan vs. actuals. The chart is based on amounts"
-msgstr "To poročilo omogoča primerjavo plana z dejanskim stanjem. Graf je osnovan na zneskih"
-
-#. module: analytic_plan_analysis
-#: model:ir.actions.act_window,help:analytic_plan_analysis.action_account_analytic_plan_actual_quantities
-msgid "This report allows you to compare plan vs. actuals. The chart is based on quantities"
-msgstr "To poročilo omogoča primerjavo plana z dejanskim stanjem. Graf je osnovan na količinah"
+msgid ""
+"This report allows you to compare plan vs. actuals. The chart is based on "
+"amounts"
+msgstr ""
+"To poročilo omogoča primerjavo plana z dejanskim stanjem. Graf je osnovan na "
+"zneskih"
 
 #. module: analytic_plan_analysis
 #: field:report.account.analytic.plan.actual,kpi_type:0
@@ -256,3 +244,22 @@ msgstr "EM"
 #: field:report.account.analytic.plan.actual,year:0
 msgid "Year"
 msgstr "Leto"
+
+#~ msgid "Account"
+#~ msgstr "Konto"
+
+#~ msgid "Plan vs. Actual (amounts)"
+#~ msgstr "Planirano - Dejansko (zneski)"
+
+#~ msgid "Plan vs. Actual (quantities)"
+#~ msgstr "Planirano - Dejansko (količine)"
+
+#~ msgid "Quantity"
+#~ msgstr "Količina"
+
+#~ msgid ""
+#~ "This report allows you to compare plan vs. actuals. The chart is based on "
+#~ "quantities"
+#~ msgstr ""
+#~ "To poročilo omogoča primerjavo plana z dejanskim stanjem. Graf je osnovan "
+#~ "na količinah"
