@@ -16,7 +16,7 @@
             <field name="arch" type="xml">
             	<field name="name" position="after">
             		<field name="predecessor_ids_str"/>    
-            		<button  name="%(action_project_task_link_predecessors)d" string="Link" type="action" icon="gtk-sort-descending" help="For linking to a predecessor task"/>        		
+            		<button name="%(action_project_task_link_predecessors)d" string="Link" type="action" icon="gtk-sort-descending" help="For linking to a predecessor task"/>        		
             	</field>            	            	            	            	                    		
             </field>
         </record>	
@@ -31,15 +31,13 @@
         		<xpath expr="//page[@string='Delegation']" position="replace">        		        			
 					<page  string="Relationships">
                         <separator string="Predecessor Activities" colspan="4"/>
-                        <field colspan="4" height="150" name="predecessor_ids" nolabel="1" domain="[('project_id','=',project_id)]" context="{'default_project_id': project_id}"/>
+                        <field colspan="4" height="150" name="parent_ids" nolabel="1"/>
                         <separator string="Successor Activities" colspan="4"/>
-                        <field colspan="4" height="150" name="successor_ids" nolabel="1" domain="[('project_id','=',project_id)]" context="{'default_project_id': project_id}"/>                            
+                        <field colspan="4" height="150" name="child_ids" nolabel="1"/>                            
                     </page>                    
         		</xpath>              	        		        		
             </field>
         </record>
-
-
 
     </data>
 </openerp>

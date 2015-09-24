@@ -40,7 +40,7 @@ class crm_lead_to_change_request_wizard(osv.TransientModel):
                 )
                 partner = partner_ids[lead.id]
 
-            # create new project.issue
+            # create new change request
             vals = {
                 "description": lead.name,
                 "description_event": lead.description,

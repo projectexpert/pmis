@@ -19,12 +19,13 @@
 #
 ##############################################################################
 
-import time
 from datetime import datetime, date, timedelta
 from openerp.tools.translate import _
 from openerp.osv import fields, osv
-from dijkstra import *
-from dateutil.rrule import *
+from dijkstra import shortestPath
+from itertools import count
+from dateutil.rrule import rrule
+from dateutil.rrule import DAILY, MO, TU, WE, TH, FR, HOURLY
 import logging
 
 
@@ -185,7 +186,7 @@ subsequent activity.
         self.update_tasks(cr, uid, ids, d_activities)
 
     def get_critical_activities(self, d_activities):
-        warning = {}
+        # warning = {}
 
         # Read the activity details
         activities = d_activities.values()
@@ -262,7 +263,7 @@ subsequent activity.
         l_spath = []
         try:
             l_spath = shortestPath(d_graph, 'start', 'stop')
-        except Exception as e:
+        except Exception:
             _logger.warning(
                 """Could not calculate the critical path due to existing negative floats
                 in one or more of the network activities."""
@@ -329,7 +330,7 @@ class network_activity(object):
         self, activity_id, duration, date_earliest_start, date_latest_finish
     ):
 
-        DATE_FORMAT = "%Y-%m-%d"
+        # DATE_FORMAT = "%Y-%m-%d"
         DATE_INIT = datetime(1900, 01, 01, 9, 0)
 
         self.activity_id = activity_id

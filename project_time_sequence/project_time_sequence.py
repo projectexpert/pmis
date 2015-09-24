@@ -28,15 +28,15 @@ class task(osv.osv):
 
     def get_related_tasks(self, cr, uid, ids, context=None):
         result = {}
-        data = []
-        read_data = []
+        # data = []
+        # read_data = []
 
         tasks_br = self.browse(cr, uid, ids, context=None)
 
         for t in tasks_br:
             result[t.id] = True
 
-            for child in t.successor_ids:
+            for child in t.child_ids:
                 result[child.id] = True
 
         return result
@@ -54,8 +54,8 @@ class task(osv.osv):
         for t in tasks_br:
             data = []
             str_data = ""
-            if t.predecessor_ids:
-                for parent in t.predecessor_ids:
+            if t.parent_ids:
+                for parent in t.parent_ids:
                     data.insert(0, str(parent.id))
             else:
                 data.insert(0, '')
@@ -80,8 +80,8 @@ class task(osv.osv):
         for t in tasks_br:
             data = []
             str_data = ""
-            if t.predecessor_ids:
-                for parent in t.predecessor_ids:
+            if t.parent_ids:
+                for parent in t.parent_ids:
                     data.insert(0, tools.ustr(parent.name))
             else:
                 data.insert(0, '')
@@ -94,70 +94,43 @@ class task(osv.osv):
         return dict(res)
 
     _columns = {
-        'predecessor_ids': fields.many2many(
-            'project.task',
-            'project_task_predecessor_rel',
-            'task_id',
-            'parent_id',
-            'Predecessor Tasks'
-        ),
-        'successor_ids': fields.many2many(
-            'project.task',
-            'project_task_predecessor_rel',
-            'parent_id',
-            'task_id',
-            'Successor Tasks'
-        ),
-
         'predecessor_ids_str': fields.function(
             _predecessor_ids_calc,
-            method=True,
-            type='char',
+            method=True, type='char',
             string='Predecessor tasks',
-            size=20,
-            help='Predecessor tasks ids',
-        ),
+            size=20, help='Predecessor tasks ids',
+            # store={
+            #     'project.task': (
+            #         get_related_tasks,
+            #         ['parent_ids','child_ids'], 10
+            #     ),
+            # }
+            ),
         'predecessor_names_str': fields.function(
             _predecessor_names_calc,
-            method=True,
-            type='char',
+            method=True, type='char',
             string='Predecessor tasks',
-            size=512,
-            help='Predecessor tasks ids',
-        ),
-    }
+            size=512, help='Predecessor tasks ids',
+            # store={
+            #     'project.task': (
+            #         get_related_tasks,
+            #         ['parent_ids','child_ids'], 10
+            #     ),
+            # }
+            ),
+
+        }
 
     def do_link_predecessors(
-        self,
-        cr,
-        uid,
-        task_id,
-        link_predecessors_data,
-        context=None
+        self, cr, uid, task_id, link_predecessors_data={}, context=None
     ):
 
-        task_br = self.browse(
-            cr,
-            uid,
-            task_id,
-            context=context
-        )
+        task_br = self.browse(cr, uid, task_id, context=context)
 
-        self.write(
-            cr,
-            uid,
-            [task_br.id],
-            {
-                'predecessor_ids':
-                [
-                    (
-                        6, 0, link_predecessors_data['predecessor_ids']
-                    )
-                ],
-            }
-        )
+        self.write(cr, uid, [task_br.id], {
+                'parent_ids': [(6, 0, link_predecessors_data['parent_ids'])],
+            })
 
         return True
-
 
 task()

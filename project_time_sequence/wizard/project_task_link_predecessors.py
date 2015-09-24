@@ -30,9 +30,9 @@ class project_task_link_predecessors_str(osv.osv_memory):
 
     _columns = {
         'predecessor_ids_str': fields.char(
-            'Predecessors', size=64, required=False, select=True,
-            help='List of predecessor task id''s separated by comma'
-        ),
+            'Predecessors',
+            size=64, required=False, select=True,
+            help='List of predecessor task id''s separated by comma'),
     }
 
     def default_get(self, cr, uid, fields, context=None):
@@ -47,11 +47,11 @@ class project_task_link_predecessors_str(osv.osv_memory):
         record_id = context and context.get('active_id', False) or False
         task_pool = self.pool.get('project.task')
         task_data = []
-        task_data = task_pool.read(cr, uid, record_id, ['predecessor_ids'])
-        predecessor_ids = task_data['predecessor_ids']
+        task_data = task_pool.read(cr, uid, record_id, ['parent_ids'])
+        parent_ids = task_data['parent_ids']
         data = []
-        if predecessor_ids:
-            for parent in predecessor_ids:
+        if parent_ids:
+            for parent in parent_ids:
                 data.insert(0, str(parent))
         else:
             data.insert(0, '')
@@ -68,8 +68,7 @@ class project_task_link_predecessors_str(osv.osv_memory):
         task_id = context.get('active_id', False)
         task_pool = self.pool.get('project.task')
         link_predecessors_data_str = self.read(
-            cr, uid, ids, context=context
-        )[0]
+            cr, uid, ids, context=context)[0]
         pred_data_str = link_predecessors_data_str['predecessor_ids_str']
         try:
             link_predecessors_data = pred_data_str.split(',')
@@ -94,7 +93,7 @@ class project_task_link_predecessors_str(osv.osv_memory):
             task_ids_list.append(task_ids[0])
 
         predecessor_ids = {}
-        predecessor_ids.update({'predecessor_ids': task_ids_list})
+        predecessor_ids.update({'parent_ids': task_ids_list})
 
         task_pool.do_link_predecessors(
             cr, uid, task_id, predecessor_ids, context=context
@@ -111,18 +110,13 @@ class project_task_link_predecessors(osv.osv_memory):
     _description = 'Link predecessor tasks'
 
     _columns = {
-        'task_id': fields.many2one(
-            'project.task', 'Target task'
+        'parent_ids': fields.many2many(
+            'project.task',
+            'project_task_parent_rel',
+            'task_id',
+            'parent_id',
+            'Parent Tasks'
         ),
-        'project_id': fields.related(
-            'task.id', 'project_id', string="Project", type="many2one",
-            relation="project.task"
-        ),
-        'predecessor_ids': fields.many2many(
-            'project.task', 'project_task_parent_rel', 'task_id',
-            'parent_id', 'Parent Tasks'
-        ),
-
     }
 
     def default_get(self, cr, uid, fields, context=None):
@@ -137,18 +131,10 @@ class project_task_link_predecessors(osv.osv_memory):
         record_id = context and context.get('active_id', False) or False
         task_pool = self.pool.get('project.task')
         task_data = []
-        task_data = task_pool.read(
-            cr, uid, record_id, ['predecessor_ids', 'project_id']
-        )
-        predecessor_ids = task_data['predecessor_ids']
+        task_data = task_pool.read(cr, uid, record_id, ['parent_ids'])
+        parent_ids = task_data['parent_ids']
 
-        res.update(
-            {
-                'predecessor_ids': predecessor_ids,
-                'task_id': record_id,
-                'project_id': task_data['project_id']
-            }
-        )
+        res.update({'parent_ids': parent_ids})
         return res
 
     def link_predecessors(self, cr, uid, ids, context=None):
