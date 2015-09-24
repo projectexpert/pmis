@@ -6,49 +6,57 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
-"Report-Msgid-Bugs-To: info@matmoz.si\n"
-"POT-Creation-Date: 2012-02-22 03:55+0000\n"
-"PO-Revision-Date: 2015-08-03 13:08+0200\n"
-"Last-Translator: Matjaz Mozetic <info@matmoz.si>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-24 12:42+0200\n"
+"PO-Revision-Date: 2015-09-24 12:43+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <info@matmoz.si>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 1.8.2\n"
-"Language: sl\n"
+"X-Generator: Poedit 1.8.4\n"
 
 #. module: project_time_sequence
-#: view:project.task:0
-msgid "Relationships"
-msgstr "Razmerja"
+#: field:project.task.link.predecessors,create_uid:0
+#: field:project.task.link.predecessors.str,create_uid:0
+msgid "Created by"
+msgstr "Ustvaril"
 
 #. module: project_time_sequence
-#: code:addons/project_time_sequence/wizard/project_task_link_predecessors.py:87
-#, python-format
-msgid "Task \"%s\" does not exist."
-msgstr "Opravilo %s ne obstaja!"
+#: field:project.task.link.predecessors,create_date:0
+#: field:project.task.link.predecessors.str,create_date:0
+msgid "Created on"
+msgstr "Ustvarjeno"
 
 #. module: project_time_sequence
-#: view:project.task:0
-msgid "Predecessor Activities"
-msgstr "Dejanja predhodnika"
+#: view:project.task:project_time_sequence.view_task_tree2
+msgid "For linking to a predecessor task"
+msgstr "Povezava s predhodnimi opravili"
 
 #. module: project_time_sequence
-#: constraint:project.task:0
-msgid "Error ! Task end-date must be greater then task start-date"
-msgstr "Začetni datum mora biti pred končnim."
+#: field:project.task.link.predecessors,id:0
+#: field:project.task.link.predecessors.str,id:0
+msgid "ID"
+msgstr "ID"
 
 #. module: project_time_sequence
-#: help:project.task.link.predecessors.str,predecessor_ids_str:0
-msgid "List of predecessor task ids separated by comma"
-msgstr "Seznam IDjev predhodnih opravil ločenih z vejicami"
+#: field:project.task.link.predecessors,write_uid:0
+#: field:project.task.link.predecessors.str,write_uid:0
+msgid "Last Updated by"
+msgstr "Zadnjič posodobil"
 
 #. module: project_time_sequence
-#: model:ir.actions.act_window,name:project_time_sequence.action_project_task_link_predecessors
-#: model:ir.actions.act_window,name:project_time_sequence.action_project_task_link_predecessors_str
-msgid "Project Task add Predecessors"
-msgstr "Projektno opravilo dodaj predhodnike"
+#: field:project.task.link.predecessors,write_date:0
+#: field:project.task.link.predecessors.str,write_date:0
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: project_time_sequence
+#: view:project.task:project_time_sequence.view_task_tree2
+msgid "Link"
+msgstr "Povezava"
 
 #. module: project_time_sequence
 #: model:ir.model,name:project_time_sequence.model_project_task_link_predecessors
@@ -57,27 +65,9 @@ msgid "Link predecessor tasks"
 msgstr "Poveži predhodna opravila"
 
 #. module: project_time_sequence
-#: help:project.task,predecessor_ids_str:0
-#: help:project.task,predecessor_names_str:0
-msgid "Predecessor tasks ids"
-msgstr "IDji predhodnih opravil"
-
-#. module: project_time_sequence
-#: view:project.task.link.predecessors:0
-#: view:project.task.link.predecessors.str:0
-msgid "Save"
-msgstr "Shrani"
-
-#. module: project_time_sequence
-#: view:project.task.link.predecessors:0
-#: view:project.task.link.predecessors.str:0
-msgid "Project Task Link Predecessors"
-msgstr "Projektno opravilo poveži predhodnike"
-
-#. module: project_time_sequence
-#: constraint:project.task:0
-msgid "Error ! You cannot create recursive tasks."
-msgstr "Napaka ! Ne morete ustvarjati rekurzivnih opravil."
+#: help:project.task.link.predecessors.str,predecessor_ids_str:0
+msgid "List of predecessor task ids separated by comma"
+msgstr "Seznam IDjev predhodnih opravil ločenih z vejicami"
 
 #. module: project_time_sequence
 #: field:project.task.link.predecessors,parent_ids:0
@@ -85,25 +75,14 @@ msgid "Parent Tasks"
 msgstr "Nadrejena opravila"
 
 #. module: project_time_sequence
-#: view:project.task:0
-msgid "Successor Activities"
-msgstr "Dejanja naslednika"
+#: view:project.task:project_time_sequence.view_task_form2
+msgid "Predecessor Activities"
+msgstr "Dejanja predhodnika"
 
 #. module: project_time_sequence
-#: view:project.task:0
-msgid "Link"
-msgstr "Povezava"
-
-#. module: project_time_sequence
-#: code:addons/project_time_sequence/wizard/project_task_link_predecessors.py:77
-#, python-format
-msgid "You should separate the ids by comma and space \", \" "
-msgstr "Idje morate ločiti z vejicami in presledkom \", \" "
-
-#. module: project_time_sequence
-#: field:project.task.link.predecessors.str,predecessor_ids_str:0
-msgid "Predecessors"
-msgstr "Predhodniki"
+#: view:project.task.link.predecessors:project_time_sequence.view_project_task_link_predecessors
+msgid "Predecessor Tasks"
+msgstr "Predhodna opravila"
 
 #. module: project_time_sequence
 #: field:project.task,predecessor_ids_str:0
@@ -112,53 +91,85 @@ msgid "Predecessor tasks"
 msgstr "Predhodna opravila"
 
 #. module: project_time_sequence
+#: help:project.task,predecessor_ids_str:0
+#: help:project.task,predecessor_names_str:0
+msgid "Predecessor tasks ids"
+msgstr "IDji predhodnih opravil"
+
+#. module: project_time_sequence
+#: field:project.task.link.predecessors.str,predecessor_ids_str:0
+msgid "Predecessors"
+msgstr "Predhodniki"
+
+#. module: project_time_sequence
+#: view:project.task.link.predecessors:project_time_sequence.view_project_task_link_predecessors
+#: view:project.task.link.predecessors.str:project_time_sequence.view_project_task_link_predecessors_str
+msgid "Project Task Link Predecessors"
+msgstr "Projektno opravilo poveži predhodnike"
+
+#. module: project_time_sequence
+#: model:ir.actions.act_window,name:project_time_sequence.action_project_task_link_predecessors
+#: model:ir.actions.act_window,name:project_time_sequence.action_project_task_link_predecessors_str
+msgid "Project Task add Predecessors"
+msgstr "Projektno opravilo dodaj predhodnike"
+
+#. module: project_time_sequence
+#: view:project.task:project_time_sequence.view_task_form2
+msgid "Relationships"
+msgstr "Razmerja"
+
+#. module: project_time_sequence
+#: view:project.task.link.predecessors:project_time_sequence.view_project_task_link_predecessors
+#: view:project.task.link.predecessors.str:project_time_sequence.view_project_task_link_predecessors_str
+msgid "Save"
+msgstr "Shrani"
+
+#. module: project_time_sequence
+#: view:project.task:project_time_sequence.view_task_form2
+msgid "Successor Activities"
+msgstr "Dejanja naslednika"
+
+#. module: project_time_sequence
 #: model:ir.model,name:project_time_sequence.model_project_task
 msgid "Task"
 msgstr "Opravilo"
 
 #. module: project_time_sequence
-#: code:addons/project_time_sequence/wizard/project_task_link_predecessors.py:76
-#: code:addons/project_time_sequence/wizard/project_task_link_predecessors.py:87
-#, python-format
-msgid "Error!"
-msgstr "Napaka!"
-
-#. module: project_time_sequence
-#: model:ir.module.module,shortdesc:project_time_sequence.module_meta_information
-msgid "Project Management"
-msgstr "Upravljanje projektov"
-
-#. module: project_time_sequence
-#: view:project.task.link.predecessors:0
-msgid "Predecessor Tasks"
-msgstr "Predhodna opravila"
-
-#. module: project_time_sequence
-#: model:ir.module.module,description:project_time_sequence.module_meta_information
-msgid ""
-"Eficent Project Management. Project Time Management. Activity Sequencing\n"
-"        - The aim is to enable the department responsible for projects to "
-"identify the\n"
-"        relationship between activities (tasks and milestones) of the "
-"project.\n"
-"\n"
-"    "
-msgstr ""
-"Eficent upravljanje projektov. Upravljanje časa na projektih. Zaporedje "
-"aktivnosti\n"
-"        - Cilj je omogočiti odgovornim oddelkom za projekte, da "
-"identificirajo\n"
-"        razmerja med aktivnostmi (opravila in mejniki) projekta.\n"
-"\n"
-"    "
-
-#. module: project_time_sequence
-#: view:project.task:0
-msgid "Extra Info"
-msgstr "Dodatne informacije"
-
-#. module: project_time_sequence
-#: view:project.task.link.predecessors:0
-#: view:project.task.link.predecessors.str:0
+#: view:project.task.link.predecessors:project_time_sequence.view_project_task_link_predecessors
+#: view:project.task.link.predecessors.str:project_time_sequence.view_project_task_link_predecessors_str
 msgid "_Cancel"
 msgstr "_Preklic"
+
+#~ msgid "Task \"%s\" does not exist."
+#~ msgstr "Opravilo %s ne obstaja!"
+
+#~ msgid "Error ! Task end-date must be greater then task start-date"
+#~ msgstr "Začetni datum mora biti pred končnim."
+
+#~ msgid "Error ! You cannot create recursive tasks."
+#~ msgstr "Napaka ! Ne morete ustvarjati rekurzivnih opravil."
+
+#~ msgid "You should separate the ids by comma and space \", \" "
+#~ msgstr "Idje morate ločiti z vejicami in presledkom \", \" "
+
+#~ msgid "Error!"
+#~ msgstr "Napaka!"
+
+#~ msgid "Project Management"
+#~ msgstr "Upravljanje projektov"
+
+#~ msgid ""
+#~ "Eficent Project Management. Project Time Management. Activity Sequencing\n"
+#~ "        - The aim is to enable the department responsible for projects to identify the\n"
+#~ "        relationship between activities (tasks and milestones) of the project.\n"
+#~ "\n"
+#~ "    "
+#~ msgstr ""
+#~ "Eficent upravljanje projektov. Upravljanje časa na projektih. Zaporedje aktivnosti\n"
+#~ "        - Cilj je omogočiti odgovornim oddelkom za projekte, da identificirajo\n"
+#~ "        razmerja med aktivnostmi (opravila in mejniki) projekta.\n"
+#~ "\n"
+#~ "    "
+
+#~ msgid "Extra Info"
+#~ msgstr "Dodatne informacije"

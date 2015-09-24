@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-13 08:39+0200\n"
-"PO-Revision-Date: 2015-09-13 08:39+0200\n"
+"POT-Creation-Date: 2015-09-24 12:53+0200\n"
+"PO-Revision-Date: 2015-09-24 12:54+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -21,115 +21,105 @@ msgstr ""
 #: help:risk.management.risk,state:0
 msgid ""
 "\n"
-"        A risk can have one of these three states: draft, active, closed.\n"
-"        "
+"A risk can have one of these three states: draft, active, closed.\n"
 msgstr ""
 
 #. module: risk_management
 #: help:risk.management.risk,expected_value_inherent:0
 msgid ""
 "\n"
-"        Expected Value. Cost of inherent impact * inherent probability. This "
-"is the pre-response value."
+"Expected Value. Cost of inherent impact * inherent probability. This is the\n"
+"pre-response value.\n"
 msgstr ""
 
 #. module: risk_management
 #: help:risk.management.risk,expected_value_residual:0
 msgid ""
 "\n"
-"        Expected Value. Cost of residual impact * residual probability. This "
-"is the post-response value.\n"
-"        "
+"Expected Value. Cost of residual impact * residual probability. This is the\n"
+"post-response value.\n"
 msgstr ""
 
 #. module: risk_management
 #: help:risk.management.risk,impact_residual:0
 msgid ""
 "\n"
-"        Impact: The result of a particular threat or opportunity actually "
-"occurring, or the anticipation of such\n"
-"        a result. This is the post-response value, common used scales are 1 "
-"to 10 or 1 to 100.\n"
-"        "
+"Impact: The result of a particular threat or opportunity actually "
+"occurring,\n"
+"or the anticipation of such a result. This is the post-response value, "
+"common\n"
+"used scales are 1 to 10 or 1 to 100.\n"
 msgstr ""
 
 #. module: risk_management
 #: help:risk.management.risk,impact_inherent:0
 msgid ""
 "\n"
-"        Impact: The result of a particular threat or opportunity actually "
-"occurring, or the anticipation of such\n"
-"        a result. This is the pre-response value, common used scales are 1 "
-"to 10 or 1 to 100.\n"
-"        "
+"Impact: The result of a particular threat or opportunity actually "
+"occurring,\n"
+"or the anticipation of such a result. This is the pre-response value, "
+"common\n"
+"used scales are 1 to 10 or 1 to 100.\n"
 msgstr ""
 
 #. module: risk_management
 #: help:risk.management.risk,probability_residual:0
 msgid ""
 "\n"
-"        Probability: The evaluated likelihood of a particular threat or "
-"opportunity actually happening,\n"
-"        including a consideration of the frequency with which this may "
-"arise. This is the post-response value,\n"
-"        common used scales are 1 to 10 or 1 to 100.\n"
-"        "
+"Probability: The evaluated likelihood of a particular threat or opportunity\n"
+"actually happening, including a consideration of the frequency with which "
+"this\n"
+"may arise. This is the post-response value, common used scales are 1 to 10\n"
+"or 1 to 100.\n"
 msgstr ""
 
 #. module: risk_management
 #: help:risk.management.risk,probability_inherent:0
 msgid ""
 "\n"
-"        Probability: The evaluated likelihood of a particular threat or "
-"opportunity actually happening,\n"
-"        including a consideration of the frequency with which this may "
-"arise. This is the pre-response value,\n"
-"        common used scales are 1 to 10 or 1 to 100.\n"
-"        "
+"Probability: The evaluated likelihood of a particular threat or opportunity\n"
+"actually happening, including a consideration of the frequency with which "
+"this\n"
+"may arise. This is the pre-response value, common used scales are 1 to 10\n"
+"or 1 to 100.\n"
 msgstr ""
 
 #. module: risk_management
 #: help:risk.management.risk,proximity_id:0
 msgid ""
 "\n"
-"        Proximity: This would typically state how close to the present time "
-"the risk event is anticipated to happen\n"
-"        (e.g. for project risks Imminent, within stage, within project, "
-"beyond project). Proximity should be recorded\n"
-"        in accordance with the project's chosen scales or business "
-"continuity time scales.\n"
-"        "
+"Proximity: This would typically state how close to the present time the "
+"risk\n"
+"event is anticipated to happen (e.g. for project risks Imminent, within "
+"stage,\n"
+"within project, beyond project). Proximity should be recorded in accordance\n"
+"with the project's chosen scales or business continuity time scales.\n"
 msgstr ""
 
 #. module: risk_management
 #: help:risk.management.risk,risk_category_id:0
 msgid ""
 "\n"
-"        Risk Category: The type of risk in terms of the project's or "
-"business' chosen categories\n"
-"        (e.g. Schedule, quality, legal etc.)\n"
-"        "
+"Risk Category: The type of risk in terms of the project's or business' "
+"chosen\n"
+"categories (e.g. Schedule, quality, legal etc.)\n"
 msgstr ""
 
 #. module: risk_management
 #: help:risk.management.risk,risk_owner_id:0
 msgid ""
 "\n"
-"        Risk Owner: The person responsible for managing the risk (there can "
-"be only one risk owner per risk), risk\n"
-"        ownership is assigned to a managerial level, in case of business "
-"continuity to a C-level manager.\n"
-"        "
+"Risk Owner: The person responsible for managing the risk (there can be only\n"
+"one risk owner per risk), risk ownership is assigned to a managerial level,\n"
+"in case of business continuity to a C-level manager.\n"
 msgstr ""
 
 #. module: risk_management
 #: help:risk.management.risk,risk_response_category_id:0
 msgid ""
 "\n"
-"        Risk Response Categories: How the project will treat the risk in "
-"terms of the project's\n"
-"        (or business continuity planning) chosen categories.\n"
-"        "
+"Risk Response Categories: How the project will treat the risk in terms of\n"
+"the project's (or business continuity planning) chosen categories.\n"
 msgstr ""
 
 #. module: risk_management
@@ -137,7 +127,6 @@ msgstr ""
 msgid ""
 "\n"
 "Risk label. Can be changed as long as risk is in state 'draft'.\n"
-"        "
 msgstr ""
 
 #. module: risk_management
@@ -158,7 +147,6 @@ msgid ""
 "certain elements that are vital to the management of\n"
 "the project. Assumptions must be tested prior to\n"
 "finalising the Project Plan.\n"
-"        "
 msgstr ""
 
 #. module: risk_management
@@ -464,7 +452,7 @@ msgstr ""
 #: field:risk.management.risk,project_id:0
 #, fuzzy
 msgid "Project"
-msgstr "Progetto"
+msgstr "Progetti"
 
 #. module: risk_management
 #: field:project.project,risk_ids:0
@@ -597,7 +585,6 @@ msgstr ""
 #. module: risk_management
 #: model:ir.ui.menu,name:risk_management.menu_configuration_risks
 #: model:ir.ui.menu,name:risk_management.menu_risk_management
-#: model:ir.ui.menu,name:risk_management.menu_risk_top
 msgid "Risk Management"
 msgstr ""
 
