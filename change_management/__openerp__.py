@@ -21,7 +21,7 @@
 ##############################################################################
 {
     "name": "Change Management",
-    "version": "2.4",
+    "version": "2.5",
     "author":   "Matmoz d.o.o.",
     "website":  "http://www.matmoz.si",
     "category": "Project Management",

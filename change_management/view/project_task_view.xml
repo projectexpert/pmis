@@ -40,6 +40,7 @@
                     <filter string="Change Action" context="{'change_id_visible': False}"
                             domain="[('change_id','&lt;&gt;',False)]" help="Show only tasks (actions) on change"
                             icon="terp-emblem-important"/>
+                    <filter string="Active Tasks" domain="[('progress','!=','100')]" help="Active tasks" name="active_tasks" icon="gtk-execute"/>
                 </xpath>
                <filter name="project" position="after">
                     <filter string="Change" name="group_change_id" icon="terp-rating-rated" domain="[]" context="{'group_by' : 'change_id'}"/>
