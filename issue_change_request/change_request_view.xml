@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<openerp>
+<data>
+
+    <!-- action of converting, via wizard -->
+    <record model="ir.actions.act_window" id="convert_issue2cr_wizard_action" >
+        <field name="name">Convert to Change Request</field>
+        <field name="res_model">project.issue2cr.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- view of the Wizard Form --> 
+    <record model="ir.ui.view" id="view_project_issue2cr_wizard" >
+        <field name="name">project.issue2cr.wizard.form</field>
+        <field name="model">project.issue2cr.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Convert to Change Request">
+                <group>
+                    <field name="project_id"/>
+                    <field name="change_category_id"/>
+                </group>
+                <footer>
+                    <button type="object" name="action_issue_to_change_request" string="Create CR" class="oe_highlight"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- inherit view of Issue Form : adding the "convert to issue" button -->
+    <record model="ir.ui.view" id="project_issue_form_view_issue_change_request">
+        <field name="name">Project Issue Form</field>
+        <field name="model">project.issue</field>
+        <field name="inherit_id" ref="project_issue.project_issue_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='kanban_state']" position="before">
+                    <button class="oe_inline oe_stat_button" type="action" name="%(convert_issue2cr_wizard_action)d" icon="fa-code-fork"
+                        help="Convert to Change Request">
+                        <div>Convert To<br/>CR</div>
+                    </button>
+            </xpath>
+        </field>
+    </record>
+
+</data>
+</openerp>
