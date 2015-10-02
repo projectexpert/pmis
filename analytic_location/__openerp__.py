@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
+#             <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,6 +18,29 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import model
-from . import report
-from . import wizard
+
+
+{
+    "name": "Stock Location in Analytic Account",
+    "version": "1.0",
+    "author": "Eficent",
+    "website": "www.eficent.com",
+    "category": "Generic Modules/Projects & Services",
+    "depends": ["analytic", "stock", "stock_analytic_account"],
+    "description": """
+Stock Location in Analytic Account
+==================================
+Features of this module:
+    - Adds the stock location in the analytic account.
+
+    """,
+    "data": [
+        "view/analytic_account_view.xml",
+    ],
+    'demo': [],
+    'test': [],
+    'installable': True,
+    'active': False,
+    'certificate': '',
+    'application': True,
+}

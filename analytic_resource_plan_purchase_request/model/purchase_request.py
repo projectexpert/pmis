@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
+#              <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,6 +18,18 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import model
-from . import report
-from . import wizard
+from openerp.osv import fields, orm
+
+
+class PurchaseRequestLine(orm.Model):
+
+    _inherit = 'purchase.request.line'
+
+    _columns = {
+        'analytic_resource_plan_lines': fields.many2many(
+            'analytic.resource.plan.line',
+            'purchase_request_line_analytic_resource_plan_line_line_rel',
+            'purchase_request_line_id',
+            'analytic_resource_plan_line_id',
+            'Purchase Request Lines', readonly=True),
+    }

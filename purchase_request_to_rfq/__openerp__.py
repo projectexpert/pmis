@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
+#              <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,6 +18,31 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import model
-from . import report
-from . import wizard
+
+{
+    "name": "Purchase Request to RFQ",
+    "author": "Eficent,"
+              "Odoo Community Association (OCA)",
+    "version": "1.0",
+    "contributors": [
+        'Jordi Ballester Alomar',
+    ],
+    "website": "www.eficent.com",
+    "category": "Purchase Management",
+    "depends": [
+        "purchase_request",
+        "purchase"],
+    "data": [
+        "wizard/purchase_request_line_make_purchase_order_view.xml",
+        "views/purchase_request_view.xml",
+        "views/purchase_order_view.xml",
+    ],
+    'demo': [],
+    'test': [
+        'test/purchase_request_users.yml',
+        'test/purchase_request_data.yml',
+        'test/purchase_request.yml',
+    ],
+    "license": 'AGPL-3',
+    "installable": True
+}

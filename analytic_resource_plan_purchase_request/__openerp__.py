@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
+#              <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,6 +18,33 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import model
-from . import report
-from . import wizard
+
+{
+    "name": "Analytic Resource Planning - Purchase Requests",
+    "version": "1.0",
+    "author": "Eficent",
+    "website": "www.eficent.com",
+    "category": "Generic Modules/Projects & Services",
+    "depends": [
+        "analytic_resource_plan",
+        "analytic_location",
+        "purchase_request"
+    ],
+    "description": """
+Analytic Resource Planning - Purchase Requests
+==============================================
+Module features:
+    - Create purchase requests from analytic resource planning lines
+
+    """,
+    "data": [
+        "wizard/analytic_resource_plan_line_make_purchase_request.xml",
+        "views/purchase_request_view.xml",
+        "views/analytic_resource_plan_view.xml",
+    ],
+    'demo_xml': [],
+    'test': [],
+    'installable': True,
+    'active': False,
+    'certificate': '',
+}

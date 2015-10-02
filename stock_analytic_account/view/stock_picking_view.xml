@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_picking_internal_analytic_search" model="ir.ui.view">
+            <field name="name">stock.picking.internal.search</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+            <field name="arch" type="xml">
+				<xpath expr="//search/field[@name='group_id']" position="after">
+					<field name="analytic_account_ids" groups="analytic.group_analytic_accounting"/>
+					<field name="analytic_account_user_ids" groups="analytic.group_analytic_accounting"/>
+				</xpath>
+            </field>
+        </record>
+
+        <!--<record id="view_picking_out_analytic_search" model="ir.ui.view">
+            <field name="name">stock.picking.out.search</field>
+            <field name="model">stock.picking.out</field>
+            <field name="inherit_id" ref="stock.view_picking_out_search"/>
+            <field name="arch" type="xml">
+				<xpath expr="//search/field[@name='group_id']" position="after">
+					<field name="analytic_account_ids" groups="analytic.group_analytic_accounting"/>
+					<field name="analytic_account_user_ids" groups="analytic.group_analytic_accounting"/>
+				</xpath>
+            </field>
+        </record>-->
+
+        <record id="action_picking_out_analytic_tree"
+                model="ir.actions.act_window">
+            <field name="name">Delivery Orders</field>
+            <field name="res_model">stock.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="domain">[('type','=','out')]</field>
+            <field name="context">{'default_type': 'out', 'contact_display': 'partner_address'}</field>
+            <field name="search_view_id" ref="view_picking_internal_analytic_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a delivery order.
+              </p><p>
+                This is the list of all delivery orders that have to be
+                prepared, according to your different sales orders and your
+                logistics rules.
+              </p>
+            </field>
+        </record>
+
+        <record id="action_picking_in_analytic_tree"
+                model="ir.actions.act_window">
+            <field name="name">Incoming Shipments</field>
+            <field name="res_model">stock.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="domain">[('type','=','in')]</field>
+            <field name="context">{'contact_display': 'partner_address', 'default_type': 'in'}</field>
+            <field name="search_view_id" ref="view_picking_internal_analytic_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create an incoming shipment.
+              </p><p>
+                The Incoming Shipments is the list of all orders you will
+                receive from your suppliers. An incoming shipment contains a
+                list of products to be received according to the original
+                purchase order.
+              </p>
+            </field>
+        </record>
+
+    </data>
+</openerp>

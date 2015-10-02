@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record model="ir.ui.view"
+                id="report_stock_analytic_account_tree">
+            <field name="name">stock.report.analytic.account.tree</field>
+            <field name="model">stock.report.analytic.account</field>
+            <field name="arch" type="xml">
+                <tree string="Stock by analytic account" create="false">
+                    <field name="analytic_account_id"
+                       groups="analytic.group_analytic_accounting"/>
+                    <field name="analytic_reserved"
+                       groups="analytic.group_analytic_accounting"/>
+                    <field name="location_id"/>
+                    <field name="product_id"/>
+                    <field name="qty"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="report_stock_analytic_account_search">
+            <field name="name">stock.report.analytic.account.search</field>
+            <field name="model">stock.report.analytic.account</field>
+            <field name="arch" type="xml">
+                <search string="Stock by analytic account">
+                    <field name="location_id"/>
+                    <field name="usage"/>
+                    <field name="product_id"/>
+                    <field name="analytic_account_id" groups="analytic.group_analytic_accounting"/>
+                    <field name="analytic_reserved" groups="analytic.group_analytic_accounting"/>
+                    <filter string="Internal Location"
+                            icon="terp-personal"
+                            domain="[('usage','=','internal')]"
+                            name="internal"/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Analytic Account" name="group_analytic"
+                                icon="terp-folder-orange" domain="[]"
+                                context="{'group_by':'analytic_account_id'}"
+                                groups="analytic.group_analytic_accounting"/>
+                        <filter string="Location" name="group_location"
+                                icon="terp-folder-orange" domain="[]"
+                                context="{'group_by':'location_id'}"/>
+                        <filter string="Product" name="group_product"
+                                icon="terp-folder-orange" domain="[]"
+                                context="{'group_by':'product_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="report_stock_analytic_account_form">
+            <field name="name">stock.report.analytic.account.form</field>
+            <field name="model">stock.report.analytic.account</field>
+            <field name="arch" type="xml">
+                <form string="Stock by analytic account" version="7.0">
+                    <group>
+                        <field name="analytic_account_id" groups="analytic.group_analytic_accounting"/>
+                        <field name="location_id"/>
+                        <field name="product_id"/>
+                        <field name="qty"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window"
+                id="action_report_stock_analytic_account">
+            <field name="name">Reserved Project Stock</field>
+            <field name="res_model">stock.report.analytic.account</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help">Display the stock reserved for an analytic account.</field>
+            <field name="search_view_id" ref="report_stock_analytic_account_search"/>
+            <field name="domain">[('analytic_reserved','=',True)]</field>
+            <field name="context">{'search_default_internal':1,'search_default_group_location':1,'search_default_group_analytic': 1,'search_default_group_product': 1,'group_by':[]}</field>
+        </record>
+
+        <menuitem parent="stock.next_id_61"
+                  action="action_report_stock_analytic_account"
+                  id="menu_report_stock_analytic_account" sequence="3"
+                  groups="analytic.group_analytic_accounting"/>
+
+    </data>
+</openerp>

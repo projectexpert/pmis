@@ -18,6 +18,25 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import model
-from . import report
-from . import wizard
+from openerp.osv import fields, osv
+
+
+class stock_picking(osv.osv):
+
+    _inherit = "stock.picking"
+
+    _columns = {
+        'analytic_account_ids': fields.related(
+            'move_lines', 'analytic_account_id', type='many2many',
+            relation='account.analytic.account', string='Analytic Account',
+            readonly=True
+        ),
+        'analytic_account_user_ids': fields.related(
+            'move_lines',
+            'analytic_account_user_id',
+            type='many2many',
+            relation='res.users',
+            string='Project Manager',
+            readonly=True
+        ),
+    }

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <record id="view_stock_tree" model="ir.ui.view">
+        <field name="name">report.stock.move.tree</field>
+        <field name="model">report.stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_tree"/>
+        <field name="arch" type="xml">
+            <field name="picking_id" position="after">
+                <field name="analytic_account_id" invisible="1"
+                       groups="analytic.group_analytic_accounting"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_stock_search" model="ir.ui.view">
+        <field name="name">report.stock.move.search</field>
+        <field name="model">report.stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_search"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="analytic_account_id"
+                       groups="analytic.group_analytic_accounting"/>
+            </field>
+            <filter name="group_picking" position="after">
+                <filter name="group_analytic_account" string="Analytic Account"
+                        icon="terp-accessories-archiver"
+                        context="{'group_by':'analytic_account_id'}"
+                        groups="analytic.group_analytic_accounting"/>
+            </filter>
+        </field>
+    </record>
+
+    <!-- Inventory Control -->
+    <record id="view_stock_inventory_tree" model="ir.ui.view">
+        <field name="name">report.stock.inventory.tree</field>
+        <field name="model">report.stock.inventory</field>
+        <field name="inherit_id" ref="stock.view_inventory_tree"/>
+        <field name="arch" type="xml">
+            <field name="prodlot_id" position="after">
+                <field name="analytic_account_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_stock_inventory_search" model="ir.ui.view">
+        <field name="name">report.stock.inventory.search</field>
+        <field name="model">report.stock.inventory</field>
+        <field name="inherit_id" ref="stock.view_inventory_filter"/>
+        <field name="arch" type="xml">
+            <field name="company_id" position="after">
+                <field name="analytic_account_id"
+                       groups="analytic.group_analytic_accounting"/>
+                <field name="analytic_reserved"
+                   groups="analytic.group_analytic_accounting"/>
+                <filter string="Reserved for Analytic Account"
+                        icon="terp-personal"
+                        domain="[('analytic_reserved','=', True)]"/>
+                <filter string="Not Reserved for Analytic Account"
+                        icon="terp-personal"
+                        domain="[('analytic_reserved','=', False)]"/>
+            </field>
+            <filter name="Inventories Month" position="after">
+                <filter name="group_analytic_account" string="Analytic Account"
+                        icon="terp-accessories-archiver"
+                        context="{'group_by':'analytic_account_id'}"
+                        groups="analytic.group_analytic_accounting"/>
+            </filter>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window"
+            id="action_stock_analytic_reserved_inventory_report">
+        <field name="name">Reserved Project Inventory Analysis</field>
+        <field name="res_model">report.stock.inventory</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">Analyze the inventory reserved for an analytic account or project.</field>
+        <field name="search_view_id" ref="view_stock_inventory_search"/>
+        <field name="domain">[('analytic_reserved','=',True)]</field>
+        <field name="context">{'search_default_real':1, 'search_default_year':1,'search_default_month':1, 'search_default_location_type_internal':1,'search_default_group_analytic_account':1, 'search_default_group_product':1}</field>
+        <field name="help">Inventory Analysis allows you to easily check and analyse your company stock levels. Sort and group by selection criteria in order to better analyse and manage your company  activities.</field>
+    </record>
+
+    <menuitem action="action_stock_analytic_reserved_inventory_report"
+        id="menu_action_stock_inventory_report"
+        parent="stock.next_id_61"/>
+
+</data>
+</openerp>

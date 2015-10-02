@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
+#    Copyright (C) 2015 Eficent (<http://www.eficent.com/>)
+#              <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,6 +18,17 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import model
-from . import report
-from . import wizard
+from openerp import fields, models
+
+
+class ProductTemplate(models.Model):
+    _inherit = "product.template"
+
+    purchase_request = fields.Boolean(
+        string='Purchase Request',
+        help="Check this box to generate "
+        "purchase request instead of "
+        "generating requests for "
+        "quotation from procurement.",
+        default=False
+    )
