@@ -117,18 +117,20 @@ class PurchaseRequest(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('assigned_to'):
+        if vals.get('assigned_to', False):
             assigned_to = self.env['res.users'].browse(vals.get(
                 'assigned_to'))
-            vals['message_follower_ids'] = [(4, assigned_to.partner_id.id)]
+            if assigned_to.partner_id:
+                vals['message_follower_ids'] = [(4, assigned_to.partner_id.id)]
         return super(PurchaseRequest, self).create(vals)
 
     @api.one
     def write(self, vals):
-        if vals.get('assigned_to'):
+        if vals.get('assigned_to', False):
             assigned_to = self.env['res.users'].browse(
                 vals.get('assigned_to'))
-            vals['message_follower_ids'] = [(4, assigned_to.partner_id.id)]
+            if assigned_to.partner_id:
+                vals['message_follower_ids'] = [(4, assigned_to.partner_id.id)]
         res = super(PurchaseRequest, self).write(vals)
         return res
 
