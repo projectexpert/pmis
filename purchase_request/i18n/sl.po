@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-02 12:58+0000\n"
-"PO-Revision-Date: 2015-10-02 15:06+0200\n"
+"PO-Revision-Date: 2015-10-03 10:27+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -294,7 +294,7 @@ msgstr "Zavrnjeno"
 #: field:purchase.request.line,date_required:0
 #: field:purchase.request.line,date_start:0
 msgid "Request Date"
-msgstr "Datum zavrnitve"
+msgstr "Datum zahteve"
 
 #. module: purchase_request
 #: field:purchase.request,name:0
