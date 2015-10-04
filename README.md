@@ -2,7 +2,7 @@
 Odoo as a Project Management Information System
 
 [![License](https://img.shields.io/badge/licence-AGPL--3-blue.svg)](http://www.gnu.org/licenses/agpl-3.0-standalone.html)
-
+[![Odoo version](https://img.shields.io/badge/Odoo-8.0-brightgreen.svg?style=flat-square)]()
 
 Project Information System
 ==============================

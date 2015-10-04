@@ -9,7 +9,9 @@ document Project Charter, with all it's contents:
     - project charter
     - project description (with ckeditor4)
     - project scope
-    - project success and requirements
+    - project success
+    - project requirements integrated with change management
+      (when the change management module is installed)
     - project stakeholders
     - resource and billing plan
     - risk assesment integrated with risk management
