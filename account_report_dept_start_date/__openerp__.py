@@ -5,7 +5,9 @@
     'category': 'Reports',
     'summary': 'Extended Sale Reports',
     'description': """
-    Dummy module for renaming purposes
+    Enhanced Sale Reports (sale order, invoice)
+    - added company VAT n. on header
+    - added due date, debt date and place of issue
     """,
     'author': 'Matmoz d.o.o.',
     'website': 'http://www.matmoz.si',
@@ -14,9 +16,15 @@
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
     'depends': [
-        'account_report_dept_start_date'
+        'base_setup',
+        'report',
+        'account_invoice_debt_start_date',
+        'sale'
     ],
     'data': [
+        'views/report.external_layout_header_ext.xml',
+        'views/account.report_invoice_document_ext.xml',
+        'views/sale.report_saleorder_document_ext.xml',
     ],
     'demo': [],
     'installable': True,

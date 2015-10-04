@@ -1,16 +1,12 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
 
-Invoice Start Debt Relation Date
-================================
+Start Debt Relation Date on Report
+==================================
 
-This module adds two new date fields on invoice.
-
-This module makes the old 'invoice_date' field on invoice act as start debt
-relation date, while new 'invoice_date_creation' field serves as date of
-invoice.
-
-New field 'invoice_date_recieved' also exist on supplier invoices.
+Enhanced Sale Reports (sale order, invoice)
+* added company VAT n. on header
+* added due date, debt date and place of issue
 
 
 Credits
