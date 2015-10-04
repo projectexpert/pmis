@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 {
     'name': 'Matmoz Extended Reports',
-    'version': '1.2.1',
+    'version': '1.2.2',
     'category': 'Reports',
     'summary': 'Extended Sale Reports',
     'description': """

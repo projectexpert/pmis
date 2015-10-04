@@ -157,10 +157,10 @@
                 </div>
             </xpath>
         </template>
-        <template id="matmoz_reports.report_invoice_document_ext">
+        <template id="account_report_dept_start_date.report_invoice_document_ext">
             <t t-call="report.html_container">
                 <t t-foreach="doc_ids" t-as="doc_id">
-                    <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'matmoz_reports.report_invoice_document_ext')"/>
+                    <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'account_report_dept_start_date.report_invoice_document_ext')"/>
                 </t>
             </t>
         </template>
