@@ -29,13 +29,11 @@
 
 {
     'name': 'CRM cases part of Projects',
-    'version': '0.7.5',
+    'version': '0.8',
     'author': 'Matmoz d.o.o.',
     'website': 'http://www.matmoz.si',
     'category': 'Project Management',
     'description': """
-    Dummy module for renaming purposes
-
     CRM tasks and CRM leads connected to project,
     crm cases tab on project view. In a project oriented
     company, every activity and comunication is part of a
@@ -50,8 +48,13 @@
     ],
     'summary': '''CRM tasks and CRM leads connected to project''',
     'website':  'http://www.matmoz.si',
-    'depends': ['crm_project'],
+    'depends': ['crm_todo', 'project', 'project_issue'],
     'data': [
+        'crm_todo_opportunity.xml',
+        'crm_todo_project_task_tree.xml',
+        'project_lead.xml',
+        'project_opportunity.xml',
+        'leads_project_view.xml'
     ],
     'qweb': [],
     'demo': [],

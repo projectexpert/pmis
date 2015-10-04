@@ -27,35 +27,27 @@
 #
 ##############################################################################
 
-{
-    'name': 'CRM cases part of Projects',
-    'version': '0.7.5',
-    'author': 'Matmoz d.o.o.',
-    'website': 'http://www.matmoz.si',
-    'category': 'Project Management',
-    'description': """
-    Dummy module for renaming purposes
+from openerp import api, models, fields
 
-    CRM tasks and CRM leads connected to project,
-    crm cases tab on project view. In a project oriented
-    company, every activity and comunication is part of a
-    project thus all the leads and opportunities can be
-    tracked also from the project form and since the issues
-    are also a source of project communications, they're
-    added as well in the view.
-    """,
-    'license': "AGPL-3",
-    'contributors': [
-        'Matjaž Mozetič <m.mozetic@matmoz.si>',
-    ],
-    'summary': '''CRM tasks and CRM leads connected to project''',
-    'website':  'http://www.matmoz.si',
-    'depends': ['crm_project'],
-    'data': [
-    ],
-    'qweb': [],
-    'demo': [],
-    'test': [],
-    'active': False,
-    'installable': True
-}
+
+class lead_project(models.Model):
+    _inherit = 'crm.lead'
+
+    project_id = fields.Many2one('project.project', 'Project')
+
+
+class project_lead(models.Model):
+    _inherit = 'project.project'
+
+    @api.one
+    def _project_lead_count(self):
+        self.project_lead_count = self.env['crm.lead'].search_count(
+            [('project_id', 'in', self.ids)]
+        )
+
+    lead_ids = fields.One2many(
+        'crm.lead', 'project_id', 'Lead / Opportunity'
+    )
+    project_lead_count = fields.Integer(
+        compute="_project_lead_count", string="Leads"
+    )

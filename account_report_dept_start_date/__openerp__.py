@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 {
-    'name': 'Matmoz Extended Reports',
-    'version': '1.2.1',
+    'name': 'Dept start date on sale reports and invoices',
+    'version': '1.3',
     'category': 'Reports',
     'summary': 'Extended Sale Reports',
     'description': """
