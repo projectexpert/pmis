@@ -21,7 +21,7 @@
 
 {
     "name": "Analytic Resource Planning",
-    "version": "1.2",
+    "version": "1.2.1",
     "author": "Eficent",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
