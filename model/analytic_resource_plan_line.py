@@ -22,6 +22,15 @@ from openerp.osv import fields, orm
 from openerp.tools.translate import _
 
 
+_REQUEST_STATE = [
+    ('none', 'No Request'),
+    ('draft', 'Draft'),
+    ('to_approve', 'To be approved'),
+    ('approved', 'Approved'),
+    ('rejected', 'Rejected')
+]
+
+
 class AnalyticResourcePlanLine(orm.Model):
 
     _inherit = 'analytic.resource.plan.line'
@@ -35,17 +44,69 @@ class AnalyticResourcePlanLine(orm.Model):
             res[line.id] = requested_qty
         return res
 
+    def _get_request_state(self, cr, uid, ids, names, arg, context=None):
+            res = {}
+            for line in self.browse(cr, uid, ids, context=context):
+                res[line.id] = 'none'
+                if any([pr_line.request_id.state == 'approved' for pr_line in
+                        line.purchase_request_lines]):
+                    res[line.id] = 'approved'
+                elif all([pr_line.request_id.state == 'cancel' for pr_line in
+                          line.purchase_request_lines]):
+                    res[line.id] = 'cancel'
+                elif all([po_line.request_id.state in ('to_approve', 'cancel')
+                          for po_line in line.purchase_request_lines]):
+                    res[line.id] = 'to_approve'
+                elif any([po_line.request_id.state == 'approved' for po_line in
+                          line.purchase_request_lines]):
+                    res[line.id] = 'approved'
+                elif all([po_line.request_id.state in ('draft', 'cancel')
+                          for po_line in line.purchase_request_lines]):
+                    res[line.id] = 'draft'
+            return res
+
+    def _get_rpls_from_purchase_requests(self, cr, uid, ids, context=None):
+        rpl_ids = []
+        for request in self.pool['purchase.request'].browse(
+                cr, uid, ids, context=context):
+            for request_line in request.line_ids:
+                for rpl in request_line.analytic_resource_plan_lines:
+                    rpl_ids.append(rpl.id)
+        return list(set(rpl_ids))
+
+    def _get_rpls_from_purchase_request_lines(self, cr, uid, ids,
+                                              context=None):
+        rpl_ids = []
+        for request_line in self.pool['purchase.request.line'].browse(
+                cr, uid, ids, context=context):
+            for rpl in request_line.analytic_resource_plan_lines:
+                rpl_ids.append(rpl.id)
+        return list(set(rpl_ids))
+
     _columns = {
         'requested_qty': fields.function(_requested_qty,
                                          string='Requested quantity',
                                          type='float',
                                          readonly=True),
+        'request_state': fields.function(
+            _get_request_state, string='Request status', type='selection',
+            selection=_REQUEST_STATE,
+            store={'purchase.request':
+                   (_get_rpls_from_purchase_requests,
+                    ['state', 'line_ids'], 10),
+                   'purchase.request.line':
+                   (_get_rpls_from_purchase_request_lines,
+                    ['analytic_resource_plan_lines'], 10)}),
         'purchase_request_lines': fields.many2many(
             'purchase.request.line',
             'purchase_request_line_analytic_resource_plan_line_line_rel',
             'analytic_resource_plan_line_id',
             'purchase_request_line_id',
             'Purchase Request Lines', readonly=True),
+    }
+
+    _defaults = {
+        'request_state': 'none',
     }
 
     def unlink(self, cr, uid, ids, context=None):
