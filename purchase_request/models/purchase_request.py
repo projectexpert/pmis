@@ -67,6 +67,20 @@ class PurchaseRequest(models.Model):
         else:
             self.is_editable = True
 
+    _track = {
+        'state': {
+            'purchase_request.mt_request_to_approve':
+                lambda self, cr, uid, obj,
+                ctx=None: obj.state == 'to_approve',
+            'purchase_request.mt_request_approved':
+                lambda self, cr, uid, obj,
+                ctx=None: obj.state == 'approved',
+            'purchase_request.mt_request_rejected':
+                lambda self, cr, uid, obj,
+                ctx=None: obj.state == 'rejected',
+        },
+    }
+
     name = fields.Char('Request Reference', size=32, required=True,
                        default=_get_default_name,
                        track_visibility='onchange')
@@ -117,20 +131,18 @@ class PurchaseRequest(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('assigned_to', False):
+        if vals.get('assigned_to'):
             assigned_to = self.env['res.users'].browse(vals.get(
                 'assigned_to'))
-            if assigned_to.partner_id:
-                vals['message_follower_ids'] = [(4, assigned_to.partner_id.id)]
+            vals['message_follower_ids'] = [(4, assigned_to.partner_id.id)]
         return super(PurchaseRequest, self).create(vals)
 
     @api.one
     def write(self, vals):
-        if vals.get('assigned_to', False):
+        if vals.get('assigned_to'):
             assigned_to = self.env['res.users'].browse(
                 vals.get('assigned_to'))
-            if assigned_to.partner_id:
-                vals['message_follower_ids'] = [(4, assigned_to.partner_id.id)]
+            vals['message_follower_ids'] = [(4, assigned_to.partner_id.id)]
         res = super(PurchaseRequest, self).write(vals)
         return res
 

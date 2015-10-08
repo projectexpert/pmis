@@ -25,28 +25,25 @@ class StockPicking(models.Model):
     _inherit = "stock.picking"
 
     @api.model
-    def _purchase_request_picking_confirm_message_content(
-        self, picking, request, request_dict
-    ):
+    def _purchase_request_picking_confirm_message_content(self, picking,
+                                                          request,
+                                                          request_dict):
         if not request_dict:
             request_dict = {}
         title = _('Receipt confirmation %s for your Request %s') % (
-            picking.name, request.name
-        )
+            picking.name, request.name)
         message = '<h3>%s</h3>' % title
         message += _('The following requested items from Purchase Request %s '
                      'have now been received in Incoming Shipment %s:') % (
-            request.name, picking.name
-        )
+            request.name, picking.name)
         message += '<ul>'
         for line in request_dict.values():
             message += _(
                 '<li><b>%s</b>: Received quantity %s %s</li>'
-            ) % (
-                line['name'],
-                line['product_qty'],
-                line['product_uom'],
-            )
+            ) % (line['name'],
+                 line['product_qty'],
+                 line['product_uom'],
+                 )
         message += '</ul>'
         return message
 
@@ -60,9 +57,8 @@ class StockPicking(models.Model):
                 continue
             for move in picking.move_lines:
                 if move.purchase_line_id:
-                    for request_line in (
-                        move.purchase_line_id.purchase_request_lines
-                    ):
+                    for request_line in \
+                            move.purchase_line_id.purchase_request_lines:
                         request_id = request_line.request_id.id
                         if request_id not in requests_dict:
                             requests_dict[request_id] = {}
@@ -74,9 +70,7 @@ class StockPicking(models.Model):
                         requests_dict[request_id][request_line.id] = data
             for request_id in requests_dict.keys():
                 request = request_obj.browse(request_id)
-                message = (
+                message = \
                     self._purchase_request_picking_confirm_message_content(
-                        picking, request, requests_dict[request_id]
-                    )
-                )
+                        picking, request, requests_dict[request_id])
                 request.message_post(body=message)

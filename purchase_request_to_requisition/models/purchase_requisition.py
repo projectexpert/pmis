@@ -25,20 +25,17 @@ class PurchaseRequisition(models.Model):
     _inherit = "purchase.requisition"
 
     @api.model
-    def _purchase_request_confirm_message_content(
-        self, pr, request, request_dict
-    ):
+    def _purchase_request_confirm_message_content(self, pr, request,
+                                                  request_dict):
         if not request_dict:
             request_dict = {}
         title = _('Bid confirmation %s for your Request %s') % (
-            pr.name, request.name
-        )
+            pr.name, request.name)
         message = '<h3>%s</h3><ul>' % title
         message += _('The following requested items from Purchase Request %s '
                      'have now being sent to Suppliers using Purchase Bid '
                      '%s:') % (
-            request.name, pr.name
-        )
+            request.name, pr.name)
 
         for line in request_dict.values():
             message += _(
@@ -80,22 +77,15 @@ class PurchaseRequisition(models.Model):
         return res
 
     @api.model
-    def _prepare_purchase_order_line(
-        self, requisition, requisition_line,
-        purchase_id, supplier
-    ):
+    def _prepare_purchase_order_line(self, requisition, requisition_line,
+                                     purchase_id, supplier):
         vals = super(PurchaseRequisition, self)._prepare_purchase_order_line(
-            requisition, requisition_line, purchase_id, supplier
-        )
-        vals.update(
-            {
-                'purchase_request_lines':
-                [
-                    (4, line.id) for line
-                    in requisition_line.purchase_request_lines
-                ],
-            }
-        )
+            requisition, requisition_line, purchase_id, supplier)
+        vals.update({
+            'purchase_request_lines':
+                [(4, line.id) for line
+                 in requisition_line.purchase_request_lines],
+        })
         return vals
 
 
@@ -114,12 +104,10 @@ class PurchaseRequisitionLine(models.Model):
         'purchase_request_purchase_requisition_line_rel',
         'purchase_requisition_line_id',
         'purchase_request_line_id',
-        string='Purchase Request Lines', readonly=True
-    )
+        string='Purchase Request Lines', readonly=True)
     has_purchase_request_lines = fields.Boolean(
         compute="_has_purchase_request_lines",
-        string="Has Purchase Request Lines"
-    )
+        string="Has Purchase Request Lines")
 
     @api.one
     def copy(self, default=None):
@@ -137,10 +125,8 @@ class PurchaseRequisitionLine(models.Model):
         """
         request_line_ids = []
         for line in self:
-            request_line_ids = [
-                request_line.id for request_line
-                in line.purchase_request_lines
-            ]
+            request_line_ids = [request_line.id for request_line
+                                in line.purchase_request_lines]
         domain = [('id', 'in', request_line_ids)]
 
         return {'name': _('Purchase Request Lines'),

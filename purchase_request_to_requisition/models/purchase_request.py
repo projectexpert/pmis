@@ -73,20 +73,15 @@ class PurchaseRequestLine(models.Model):
         'purchase_requisition_line_id',
         string='Purchase Requisition Lines', readonly=True)
 
-    requisition_qty = fields.Float(
-        compute='_requisition_qty',
-        string='Quantity in a Bid'
-    )
+    requisition_qty = fields.Float(compute='_requisition_qty',
+                                   string='Quantity in a Bid')
     requisition_state = fields.Selection(
         compute='_get_requisition_state', string="Bid Status",
         type='selection', selection=_PURCHASE_REQUISITION_STATE, store=True,
-        default='none'
-    )
+        default='none')
 
-    is_editable = fields.Boolean(
-        compute='_get_is_editable',
-        string="Is editable"
-    )
+    is_editable = fields.Boolean(compute='_get_is_editable',
+                                 string="Is editable")
 
     @api.one
     def copy(self, default=None):

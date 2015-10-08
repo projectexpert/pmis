@@ -18,17 +18,27 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import fields, models
+from openerp import fields, models, api
 
 
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    purchase_request = fields.Boolean(
-        string='Purchase Request',
-        help="Check this box to generate "
-        "purchase request instead of "
-        "generating requests for "
-        "quotation from procurement.",
-        default=False
-    )
+    purchase_request = fields.Boolean(string='Purchase Request',
+                                      help="Check this box to generate "
+                                           "purchase request instead of "
+                                           "generating requests for "
+                                           "quotation from procurement.",
+                                      default=False)
+
+    @api.multi
+    def _check_request_requisition(self):
+        for product in self:
+            if product.purchase_request and product.purchase_requisition:
+                return False
+        return True
+
+    _constraints = [
+        (_check_request_requisition,
+         'Only one selection of Purchase Request or Call for Bids allowed',
+         ['purchase_request', 'purchase_requisition'])]

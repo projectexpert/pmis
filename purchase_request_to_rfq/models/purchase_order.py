@@ -25,19 +25,16 @@ class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
     @api.model
-    def _purchase_request_confirm_message_content(
-        self, po, request, request_dict
-    ):
+    def _purchase_request_confirm_message_content(self, po, request,
+                                                  request_dict):
         if not request_dict:
             request_dict = {}
         title = _('Order confirmation %s for your Request %s') % (
-            po.name, request.name
-        )
+            po.name, request.name)
         message = '<h3>%s</h3><ul>' % title
         message += _('The following requested items from Purchase Request %s '
                      'have now been confirmed in Purchase Order %s:') % (
-            request.name, po.name
-        )
+            request.name, po.name)
 
         for line in request_dict.values():
             message += _(
@@ -71,8 +68,7 @@ class PurchaseOrder(models.Model):
             for request_id in requests_dict.keys():
                 request = request_obj.browse(request_id)
                 message = self._purchase_request_confirm_message_content(
-                    po, request, requests_dict[request_id]
-                )
+                    po, request, requests_dict[request_id])
                 request.message_post(body=message)
         return True
 
@@ -83,10 +79,8 @@ class PurchaseOrder(models.Model):
                 for request_line in line.purchase_request_lines:
                     if request_line.purchase_state == 'done':
                         raise exceptions.Warning(
-                            _(
-                                'Purchase Request %s has already '
-                                'been completed'
-                            ) % request_line.request_id.name)
+                            _('Purchase Request %s has already '
+                              'been completed') % request_line.request_id.name)
         return True
 
     @api.multi

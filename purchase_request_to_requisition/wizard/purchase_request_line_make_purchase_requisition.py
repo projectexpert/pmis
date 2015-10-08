@@ -54,10 +54,8 @@ class PurchaseRequestLineMakePurchaseRequisition(models.TransientModel):
 
         if not request_line_ids:
             return res
-        assert active_model == (
-            'purchase.request.line',
+        assert active_model == 'purchase.request.line', \
             'Bad context propagation'
-        )
 
         items = []
         for line in request_line_obj.browse(request_line_ids):
@@ -71,7 +69,7 @@ class PurchaseRequestLineMakePurchaseRequisition(models.TransientModel):
             'origin': '',
             'warehouse_id': warehouse_id,
             'company_id': company_id,
-        }
+            }
         return data
 
     @api.model
@@ -88,14 +86,12 @@ class PurchaseRequestLineMakePurchaseRequisition(models.TransientModel):
 
     @api.model
     def _get_requisition_line_search_domain(self, requisition, item):
-        vals = [
-            ('requisition_id', '=', requisition.id),
-            ('product_id', '=', item.product_id.id or False),
-            ('product_uom_id', '=', item.product_uom_id.id or False),
-            ('account_analytic_id', '=',
-             item.line_id.analytic_account_id.id or False
-             )
-        ]
+        vals = [('requisition_id', '=', requisition.id),
+                ('product_id', '=', item.product_id.id or False),
+                ('product_uom_id', '=',
+                 item.product_uom_id.id or False),
+                ('account_analytic_id', '=',
+                 item.line_id.analytic_account_id.id or False)]
         if not item.product_id:
             vals['name'] = item.name
         return vals
@@ -112,56 +108,39 @@ class PurchaseRequestLineMakePurchaseRequisition(models.TransientModel):
             line = item.line_id
             if item.product_qty <= 0.0:
                 raise exceptions.Warning(
-                    _('Enter a positive quantity.')
-                )
-            line_company_id = (
-                line.company_id and
-                line.company_id.id or
-                False
-            )
-            if (
-                company_id is not
-                False and
-                line_company_id != company_id
-            ):
+                    _('Enter a positive quantity.'))
+            line_company_id = line.company_id \
+                and line.company_id.id or False
+            if company_id is not False \
+                    and line_company_id != company_id:
                 raise exceptions.Warning(
                     _('You have to select lines '
-                      'from the same company.')
-                )
+                      'from the same company.'))
             else:
                 company_id = line_company_id
 
-            line_warehouse_id = (
-                line.request_id.warehouse_id and
-                line.request_id.warehouse_id.id or
-                False
-            )
-            if (
-                warehouse_id is not
-                False and
-                line_warehouse_id != warehouse_id
-            ):
+            line_warehouse_id = line.request_id.warehouse_id \
+                and line.request_id.warehouse_id.id or False
+            if warehouse_id is not False \
+                    and line_warehouse_id != warehouse_id:
                 raise exceptions.Warning(
                     _('You have to select lines '
-                      'from the same warehouse.')
-                )
+                      'from the same warehouse.'))
             else:
                 warehouse_id = line_warehouse_id
 
             if self.purchase_requisition_id:
                 requisition = self.purchase_requisition_id
             if not requisition:
-                preq_data = self._prepare_purchase_requisition(
-                    warehouse_id, company_id
-                )
+                preq_data = self._prepare_purchase_requisition(warehouse_id,
+                                                               company_id)
                 requisition = pr_obj.create(preq_data)
 
             # Look for any other PO line in the selected PO with same
             # product and UoM to sum quantities instead of creating a new
             # po line
-            domain = self._get_requisition_line_search_domain(
-                requisition, item
-            )
+            domain = self._get_requisition_line_search_domain(requisition,
+                                                              item)
             available_pr_lines = pr_line_obj.search(domain)
             if available_pr_lines:
                 pr_line = available_pr_lines[0]
@@ -170,8 +149,7 @@ class PurchaseRequestLineMakePurchaseRequisition(models.TransientModel):
                 pr_line.purchase_request_lines = [(4, line.id)]
             else:
                 po_line_data = self._prepare_purchase_requisition_line(
-                    requisition, item
-                )
+                    requisition, item)
                 pr_line_obj.create(po_line_data)
             res.append(requisition.id)
 
@@ -194,25 +172,19 @@ class PurchaseRequestLineMakePurchaseRequisitionItem(models.TransientModel):
     wiz_id = fields.Many2one(
         'purchase.request.line.make.purchase.requisition',
         string='Wizard', required=True, ondelete='cascade',
-        readonly=True
-    )
-    line_id = fields.Many2one(
-        'purchase.request.line',
-        string='Purchase Request Line', required=True,
-        readonly=True
-    )
-    request_id = fields.Many2one(
-        'purchase.request',
-        related='line_id.request_id',
-        string='Purchase Request',
-        readonly=True
-    )
+        readonly=True)
+    line_id = fields.Many2one('purchase.request.line',
+                              string='Purchase Request Line',
+                              required=True,
+                              readonly=True)
+    request_id = fields.Many2one('purchase.request',
+                                 related='line_id.request_id',
+                                 string='Purchase Request',
+                                 readonly=True)
     product_id = fields.Many2one('product.product', string='Product')
     name = fields.Char(string='Description', required=True)
-    product_qty = fields.Float(
-        string='Quantity to Bid',
-        digits_compute=dp.get_precision('Product UoS')
-    )
+    product_qty = fields.Float(string='Quantity to Bid',
+                               digits_compute=dp.get_precision('Product UoS'))
     product_uom_id = fields.Many2one('product.uom', string='UoM')
 
     @api.onchange('product_id', 'product_uom_id')

@@ -22,7 +22,7 @@
 
 {
     "name": "Stock Analytic Account",
-    "version": "1.0",
+    "version": "1.0.1",
     "author": "Eficent",
     "website": "www.eficent.com",
     'summary': 'Adds the analytic account to stock moves',

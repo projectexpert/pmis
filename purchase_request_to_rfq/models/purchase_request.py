@@ -71,19 +71,14 @@ class PurchaseRequestLine(models.Model):
     purchased_qty = fields.Float(string='Quantity in RFQ or PO',
                                  compute="_purchased_qty")
     purchase_lines = fields.Many2many(
-        'purchase.order.line',
-        'purchase_request_purchase_order_line_rel',
+        'purchase.order.line', 'purchase_request_purchase_order_line_rel',
         'purchase_request_line_id',
-        'purchase_order_line_id',
-        'Purchase Order Lines', readonly=True
-    )
-    purchase_state = fields.Selection(
-        compute="_get_purchase_state",
-        string="Purchase Status",
-        selection=_PURCHASE_ORDER_LINE_STATE,
-        store=True,
-        default='none'
-    )
+        'purchase_order_line_id', 'Purchase Order Lines', readonly=True)
+    purchase_state = fields.Selection(compute="_get_purchase_state",
+                                      string="Purchase Status",
+                                      selection=_PURCHASE_ORDER_LINE_STATE,
+                                      store=True,
+                                      default='none')
 
     @api.one
     def copy(self, default=None):
@@ -98,39 +93,32 @@ class PurchaseRequestLine(models.Model):
     def _planned_date(self, request_line, delay=0.0):
         company = request_line.company_id
         date_planned = datetime.strptime(
-            request_line.date_required, '%Y-%m-%d'
-        ) - relativedelta(days=company.po_lead)
+            request_line.date_required, '%Y-%m-%d') - \
+            relativedelta(days=company.po_lead)
         if delay:
             date_planned -= relativedelta(days=delay)
-        return date_planned and date_planned.strftime(
-            '%Y-%m-%d'
-        ) or False
+        return date_planned and date_planned.strftime('%Y-%m-%d') \
+            or False
 
     @api.model
     def _calc_new_qty_price(self, request_line, po_line=None, cancel=False):
         uom_obj = self.env['product.uom']
-        qty = uom_obj._compute_qty(
-            request_line.product_uom_id.id,
-            request_line.product_qty,
-            request_line.product_id.uom_po_id.id
-        )
+        qty = uom_obj._compute_qty(request_line.product_uom_id.id,
+                                   request_line.product_qty,
+                                   request_line.product_id.uom_po_id.id)
         # Make sure we use the minimum quantity of the partner corresponding
         # to the PO. This does not apply in case of dropshipping
         supplierinfo_min_qty = 0.0
         if po_line.order_id.location_id.usage != 'customer':
-            if po_line.product_id.seller_id.id == (
-                po_line.order_id.partner_id.id
-            ):
+            if po_line.product_id.seller_id.id == \
+                    po_line.order_id.partner_id.id:
                 supplierinfo_min_qty = po_line.product_id.seller_qty
             else:
                 supplierinfo_obj = self.env['product.supplierinfo']
                 supplierinfos = supplierinfo_obj.search(
-                    [
-                        ('name', '=', po_line.order_id.partner_id.id),
-                        ('product_tmpl_id', '=',
-                         po_line.product_id.product_tmpl_id.id)
-                    ]
-                )
+                    [('name', '=', po_line.order_id.partner_id.id),
+                     ('product_tmpl_id', '=',
+                      po_line.product_id.product_tmpl_id.id)])
                 if supplierinfos:
                     supplierinfo_min_qty = supplierinfos[0].min_qty
 
@@ -139,26 +127,21 @@ class PurchaseRequestLine(models.Model):
         else:
             # Recompute quantity by adding existing running procurements.
             for rl in po_line.purchase_request_lines:
-                qty += uom_obj._compute_qty(
-                    rl.product_uom_id.id,
-                    rl.product_qty,
-                    rl.product_id.uom_po_id.id
-                )
+                qty += uom_obj._compute_qty(rl.product_uom_id.id,
+                                            rl.product_qty,
+                                            rl.product_id.uom_po_id.id)
             qty = max(qty, supplierinfo_min_qty) if qty > 0.0 else 0.0
 
         price = po_line.price_unit
         if qty != po_line.product_qty:
             pricelist_obj = self.pool['product.pricelist']
-            pricex = po_line.order_id.partner_id
-            pricelist_id = (
-                pricex.property_product_pricelist_purchase.id
-            )
+            pricelist_id = po_line.order_id.partner_id.\
+                property_product_pricelist_purchase.id
             price = pricelist_obj.price_get(
                 self.env.cr, self.env.uid, [pricelist_id],
                 request_line.product_id.id, qty,
                 po_line.order_id.partner_id.id,
-                {'uom': request_line.product_id.uom_po_id.id}
-            )[pricelist_id]
+                {'uom': request_line.product_id.uom_po_id.id})[pricelist_id]
 
         return qty, price
 

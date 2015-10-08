@@ -103,7 +103,8 @@
                         <field name="parent_id"/>
                         <field name="state"/>
                     </group>
-					<group expand="0" string="Group By">
+					<group name='filters' expand="0" string="Filters"/>
+                    <group name='group_by' expand="0" string="Group By...">
                         <filter string="Parent" name="Parent"
 						context="{'group_by':'parent_id'}"/>
 						<filter string="Analytic Account"

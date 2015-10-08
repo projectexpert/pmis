@@ -24,9 +24,8 @@ from openerp import api, fields, models, _
 class Procurement(models.Model):
     _inherit = 'procurement.order'
 
-    request_id = fields.Many2one(
-        'purchase.request', string='Latest Purchase Request'
-    )
+    request_id = fields.Many2one('purchase.request',
+                                 string='Latest Purchase Request')
 
     @api.one
     def copy(self, default=None):
@@ -49,9 +48,8 @@ class Procurement(models.Model):
     def _prepare_purchase_request(self, procurement):
         warehouse_obj = self.env['stock.warehouse']
         request_line_data = self._prepare_purchase_request_line(procurement)
-        warehouse_id = warehouse_obj.search(
-            [('company_id', '=', procurement.company_id.id)]
-        )
+        warehouse_id = warehouse_obj.search([('company_id', '=',
+                                              procurement.company_id.id)])
         return {
             'origin': procurement.origin,
             'company_id': procurement.company_id.id,
@@ -62,10 +60,8 @@ class Procurement(models.Model):
     @api.model
     def _run(self, procurement):
         request_obj = self.env['purchase.request']
-        if procurement.rule_id and procurement.rule_id.action == (
-            'buy' and
-            procurement.product_id.purchase_request
-        ):
+        if procurement.rule_id and procurement.rule_id.action == 'buy' \
+                and procurement.product_id.purchase_request:
             request_data = self._prepare_purchase_request(procurement)
             req = request_obj.create(request_data)
             procurement.message_post(body=_("Purchase Request created"))
