@@ -19,9 +19,9 @@
 #
 ##############################################################################
 
-from lxml import etree
+# from lxml import etree
 import time
-import pdb
+# import pdb
 from datetime import datetime, date
 
 from openerp.tools.translate import _
@@ -244,7 +244,9 @@ class project(osv.osv):
                 uid,
                 [
                     (
-                        'analytic_account_id', '=', context['default_parent_id']
+                        'analytic_account_id',
+                        '=',
+                        context['default_parent_id']
                     )
                 ]
             ):
@@ -291,7 +293,8 @@ class project(osv.osv):
     _order = "c_wbs_code"
 
     def name_search(
-        self, cr, uid, name, args=None, operator='ilike', context=None, limit=100
+        self, cr, uid, name, args=None, operator='ilike',
+        context=None, limit=100
     ):
 
         if not args:
@@ -445,7 +448,8 @@ class project(osv.osv):
                 False
             ),
         }
-        res['domain'] = "[('id', 'in', ["+','.join(map(str, child_project_ids))+"])]"
+        res['domain'] = "[('id', 'in', ["+','.join(
+            map(str, child_project_ids))+"])]"
         res['nodestroy'] = False
         return res
 
@@ -454,7 +458,8 @@ class project(osv.osv):
     ):
 
         return self.action_openChildView(
-            cr, uid, ids, 'project_wbs', 'open_view_project_projects', context=context
+            cr, uid, ids, 'project_wbs', 'open_view_project_projects',
+            context=context
         )
 
     def action_openPhasesView(
@@ -462,13 +467,15 @@ class project(osv.osv):
     ):
 
         return self.action_openChildView(
-            cr, uid, ids, 'project_wbs', 'open_view_project_phases', context=context
+            cr, uid, ids, 'project_wbs', 'open_view_project_phases',
+            context=context
         )
 
     def action_openDeliverablesView(self, cr, uid, ids, context=None):
 
         return self.action_openChildView(
-            cr, uid, ids, 'project_wbs', 'open_view_project_deliverables', context=context
+            cr, uid, ids, 'project_wbs', 'open_view_project_deliverables',
+            context=context
         )
 
     def action_openWorkPackagesView(
@@ -476,7 +483,8 @@ class project(osv.osv):
     ):
 
         return self.action_openChildView(
-            cr, uid, ids, 'project_wbs', 'open_view_project_work_packages', context=context
+            cr, uid, ids, 'project_wbs', 'open_view_project_work_packages',
+            context=context
         )
 
     def action_openUnclassifiedView(
@@ -511,7 +519,9 @@ class project(osv.osv):
             for parent_project_id in self.pool.get(
                 'project.project'
             ).search(
-                    cr, uid, [('analytic_account_id', '=', project.parent_id.id)]
+                    cr, uid, [
+                        ('analytic_account_id', '=', project.parent_id.id)
+                    ]
             ):
                 res['domain'] = "[('id','=',"+str(parent_project_id)+")]"
 

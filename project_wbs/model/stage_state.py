@@ -24,7 +24,8 @@ _ANALYTIC_ACCOUNT_STATE = [
     ('open', 'In Progress'),
     ('pending', 'To Renew'),
     ('close', 'Closed'),
-    ('cancelled', 'Cancelled')
+    ('cancelled', 'Cancelled'),
+    ('template', 'Template')
 ]
 
 
@@ -35,4 +36,6 @@ class analytic_account_state(models.Model):
 
 class analytic_stage_state(models.Model):
     _inherit = 'project.project'
-    state = fields.Selection(related='stage_id.state', store=True, readonly=True)
+    state = fields.Selection(
+        related='stage_id.state', store=True, readonly=True
+    )

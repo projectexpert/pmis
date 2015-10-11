@@ -53,7 +53,9 @@ class account_analytic_account(osv.osv):
             result[y] = True
         return result
 
-    def _complete_wbs_code_calc(self, cr, uid, ids, prop, unknow_none, unknow_dict):
+    def _complete_wbs_code_calc(
+        self, cr, uid, ids, prop, unknow_none, unknow_dict
+    ):
         if not ids:
             return []
         res = []
@@ -73,7 +75,9 @@ class account_analytic_account(osv.osv):
             res.append((account.id, data))
         return dict(res)
 
-    def _complete_wbs_name_calc(self, cr, uid, ids, prop, unknow_none, unknow_dict):
+    def _complete_wbs_name_calc(
+        self, cr, uid, ids, prop, unknow_none, unknow_dict
+    ):
         if not ids:
             return []
         res = []
@@ -117,10 +121,14 @@ class account_analytic_account(osv.osv):
         ctx = context.copy()
         ctx['active_test'] = False
         for analytic_account in self.browse(cr, uid, ids, context=context):
-            deliverable_ids = self.pool.get('account.analytic.account').search(
+            deliverable_ids = self.pool.get(
+                'account.analytic.account').search(
                 cr,
                 uid,
-                [('parent_id', '=', analytic_account.id), ('account_class', '=', account_class)],
+                [
+                    ('parent_id', '=', analytic_account.id),
+                    ('account_class', '=', account_class)
+                ],
                 context=ctx
             )
             if deliverable_ids:
@@ -130,7 +138,9 @@ class account_analytic_account(osv.osv):
 
         return res
 
-    def _child_project_count(self, cr, uid, ids, field_name, arg, context=None):
+    def _child_project_count(
+        self, cr, uid, ids, field_name, arg, context=None
+    ):
         if context is None:
             context = {}
         return self._child_count(cr, uid, ids, 'project', arg, context=context)
@@ -140,26 +150,36 @@ class account_analytic_account(osv.osv):
             context = {}
         return self._child_count(cr, uid, ids, 'phase', arg, context=context)
 
-    def _child_deliverable_count(self, cr, uid, ids, field_name, arg, context=None):
+    def _child_deliverable_count(
+        self, cr, uid, ids, field_name, arg, context=None
+    ):
         if context is None:
             context = {}
-        return self._child_count(cr, uid, ids, 'deliverable', arg, context=context)
+        return self._child_count(
+            cr, uid, ids, 'deliverable', arg, context=context
+        )
 
-    def _child_work_package_count(self, cr, uid, ids, field_name, arg, context=None):
+    def _child_work_package_count(
+        self, cr, uid, ids, field_name, arg, context=None
+    ):
         if context is None:
             context = {}
-        return self._child_count(cr, uid, ids, 'work_package', arg, context=context)
+        return self._child_count(
+            cr, uid, ids, 'work_package', arg, context=context
+        )
 
-    def _child_unclassified_count(self, cr, uid, ids, field_name, arg, context=None):
+    def _child_unclassified_count(
+        self, cr, uid, ids, field_name, arg, context=None
+    ):
         if context is None:
             context = {}
         return self._child_count(cr, uid, ids, '', arg, context=context)
 
     def _resolve_analytic_account_id_from_context(self, cr, uid, context=None):
         """
-        Returns ID of parent analytic account based on the value of 'default_parent_id'
-        context key, or None if it cannot be resolved to a single
-        account.analytic.account
+        Returns ID of parent analytic account based on the value of
+        'default_parent_id' context key, or None if it cannot be resolved to
+        a single account.analytic.account
         """
         if context is None:
             context = {}
@@ -167,33 +187,48 @@ class account_analytic_account(osv.osv):
             return context['default_parent_id']
         if isinstance(context.get('default_parent_id'), basestring):
             analytic_account_name = context['default_parent_id']
-            analytic_account_ids = self.pool.get('account.analytic.account').name_search(
+            analytic_account_ids = self.pool.get(
+                'account.analytic.account').name_search(
                 cr, uid, name=analytic_account_name, context=context
             )
             if len(analytic_account_ids) == 1:
                 return analytic_account_ids[0][0]
         return None
 
-    def _read_group_stage_ids(self, cr, uid, ids, domain, read_group_order=None, access_rights_uid=None, context=None):
+    def _read_group_stage_ids(
+        self, cr, uid, ids, domain, read_group_order=None,
+        access_rights_uid=None, context=None
+    ):
         stage_obj = self.pool.get('analytic.account.stage')
         order = stage_obj._order
         access_rights_uid = access_rights_uid or uid
         if read_group_order == 'stage_id desc':
             order = '%s desc' % order
         search_domain = []
-        analytic_account_id = self._resolve_analytic_account_id_from_context(cr, uid, context=context)
+        analytic_account_id = self._resolve_analytic_account_id_from_context(
+            cr, uid, context=context
+        )
         if analytic_account_id:
-            search_domain += ['|', ('analytic_account_ids', '=', analytic_account_id)]
+            search_domain += [
+                '|', ('analytic_account_ids', '=', analytic_account_id)
+            ]
         search_domain += [('id', 'in', ids)]
         stage_ids = stage_obj._search(
-            cr, uid, search_domain, order=order, access_rights_uid=access_rights_uid, context=context
+            cr, uid, search_domain, order=order,
+            access_rights_uid=access_rights_uid, context=context
         )
-        result = stage_obj.name_get(cr, access_rights_uid, stage_ids, context=context)
+        result = stage_obj.name_get(
+            cr, access_rights_uid, stage_ids, context=context
+        )
         # restore order of the search
-        result.sort(lambda x, y: cmp(stage_ids.index(x[0]), stage_ids.index(y[0])))
+        result.sort(
+            lambda x, y: cmp(stage_ids.index(x[0]), stage_ids.index(y[0]))
+        )
 
         fold = {}
-        for stage in stage_obj.browse(cr, access_rights_uid, stage_ids, context=context):
+        for stage in stage_obj.browse(
+            cr, access_rights_uid, stage_ids, context=context
+        ):
             fold[stage.id] = stage.fold or False
         return result, fold
 
@@ -257,7 +292,6 @@ class account_analytic_account(osv.osv):
         'stage_id': fields.many2one(
             'analytic.account.stage',
             'Stage',
-            # domain="['&', ('fold', '=', False), ('analytic_account_ids', '=', parent_id)]"
             domain="[('analytic_account_ids', '=', parent_id)]"
         ),
 
@@ -267,7 +301,10 @@ class account_analytic_account(osv.osv):
             'analytic_account_id',
             'stage_id',
             'Child Stages',
-            states={'close': [('readonly', True)], 'cancelled': [('readonly', True)]}
+            states={
+                'close': [('readonly', True)],
+                'cancelled': [('readonly', True)]
+            }
         ),
         'child_project_count': fields.function(
             _child_project_count, type='integer', string="Projects"
@@ -282,7 +319,8 @@ class account_analytic_account(osv.osv):
             _child_work_package_count, type='integer', string="Work Packages"
         ),
         'child_unclassified_count': fields.function(
-            _child_unclassified_count, type='integer', string="Unclassified projects"
+            _child_unclassified_count, type='integer',
+            string="Unclassified projects"
         ),
     }
 
@@ -302,7 +340,10 @@ class account_analytic_account(osv.osv):
 
     _order = 'complete_wbs_code'
 
-    def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):
+    def name_search(
+        self, cr, uid, name, args=None, operator='ilike',
+        context=None, limit=100
+    ):
         if not args:
             args = []
         if context is None:
@@ -310,10 +351,12 @@ class account_analytic_account(osv.osv):
 
         args = args[:]
         accountbycode = self.search(
-            cr, uid, [('complete_wbs_code', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context
+            cr, uid, [('complete_wbs_code', 'ilike', '%%%s%%' % name)]+args,
+            limit=limit, context=context
         )
         accountbyname = self.search(
-            cr, uid, [('complete_wbs_name', 'ilike', '%%%s%%' % name)]+args, limit=limit, context=context
+            cr, uid, [('complete_wbs_name', 'ilike', '%%%s%%' % name)]+args,
+            limit=limit, context=context
         )
         account = accountbycode + accountbyname
 
@@ -370,34 +413,35 @@ class account_analytic_account(osv.osv):
             res.append((account.id, data))
         return res
 
-    def write(self, cr, uid, ids, values, context=None):
-        res = super(account_analytic_account, self).write(
-            cr, uid, ids, values, context=context)
-        if values.get('stage_id'):
-            project_obj = self.pool.get('project.project')
-            stage_obj = self.pool.get('analytic.account.stage')
-            for acc_id in ids:
-                # Search if there's an associated project
-                project_ids = project_obj.search(
-                    cr, uid, [('analytic_account_id', '=', acc_id)],
-                    context=context)
-                stage = stage_obj.browse(cr, uid, values.get('stage_id'),
-                                         context=context)
-
 # THIS PART OF CODE IS IN CONFLICT WITH THE OCA MODULE project_closing
 # thus I had to comment it out - the change of the status from stage is
 # handled with the file stage_state
-                # if stage.project_state == 'close':
-                #     project_obj.set_done(cr, uid, project_ids,
-                #                          context=context)
-                # elif stage.project_state == 'cancelled':
-                #     project_obj.set_cancel(cr, uid, project_ids,
-                #                            context=context)
-                # elif stage.project_state == 'pending':
-                #     project_obj.set_pending(cr, uid, project_ids,
-                #                             context=context)
-                # elif stage.project_state == 'open':
-                #     project_obj.set_open(cr, uid, project_ids,
-                #                          context=context)
+
+    # def write(self, cr, uid, ids, values, context=None):
+    #     res = super(account_analytic_account, self).write(
+    #         cr, uid, ids, values, context=context)
+    #     if values.get('stage_id'):
+    #         project_obj = self.pool.get('project.project')
+    #         stage_obj = self.pool.get('analytic.account.stage')
+    #         for acc_id in ids:
+    #             # Search if there's an associated project
+    #             project_ids = project_obj.search(
+    #                 cr, uid, [('analytic_account_id', '=', acc_id)],
+    #                 context=context)
+    #             stage = stage_obj.browse(cr, uid, values.get('stage_id'),
+    #                                      context=context)
+    #
+    #             if stage.project_state == 'close':
+    #                 project_obj.set_done(cr, uid, project_ids,
+    #                                      context=context)
+    #             elif stage.project_state == 'cancelled':
+    #                 project_obj.set_cancel(cr, uid, project_ids,
+    #                                        context=context)
+    #             elif stage.project_state == 'pending':
+    #                 project_obj.set_pending(cr, uid, project_ids,
+    #                                         context=context)
+    #             elif stage.project_state == 'open':
+    #                 project_obj.set_open(cr, uid, project_ids,
+    #                                      context=context)
 
 account_analytic_account()

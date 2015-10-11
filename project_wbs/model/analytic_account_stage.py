@@ -19,9 +19,9 @@
 #
 ##############################################################################
 
-from openerp import tools
+# from openerp import tools
 from openerp.osv import fields, osv
-from openerp.tools.translate import _
+# from openerp.tools.translate import _
 
 
 _ANALYTIC_ACCOUNT_STATE = [
@@ -97,7 +97,8 @@ class analytic_account_stage(osv.osv):
             default = {}
 
         default['analytic_account_ids'] = []
-        res = super(analytic_account_stage, self).copy(cr, uid, id, default, context)
+        res = super(analytic_account_stage, self).copy(
+            cr, uid, id, default, context)
         return res
 
 analytic_account_stage()
