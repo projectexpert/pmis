@@ -61,7 +61,7 @@ please visit us at www.eficent.com or conact us at contact@eficent.com
     ],
     'test': [
     ],
-    'installable': True,
+    'installable': False,
     'active': False,
     'certificate': '',
 }

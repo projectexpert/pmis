@@ -173,7 +173,7 @@
                     <group expand="0" string="Group By...">
                         <filter string="Requested by" icon="terp-personal"
                                 domain="[]"
-                                context="{'group_by':'assigned_to'}"/>
+                                context="{'group_by':'requested_by'}"/>
                         <filter string="Assigned to" icon="terp-personal"
                                 domain="[]"
                                 context="{'group_by':'assigned_to'}"/>
@@ -313,6 +313,7 @@
                     <field name="assigned_to"/>
                     <field name="date_start"/>
                     <field name="date_required"/>
+                    <field name="analytic_account_id"/>
                     <filter name="request_state_draft" string="Draft"
                             domain="[('request_state','=','draft')]"
                             help="Request is to be approved"/>
@@ -330,10 +331,16 @@
                                 domain="[]" context="{'group_by' : 'product_id'}" />
                         <filter string="Requested by"
                                 domain="[]"
-                                context="{'group_by':'assigned_to'}"/>
+                                context="{'group_by':'requested_by'}"/>
                         <filter string="Assigned to"
                                 domain="[]"
                                 context="{'group_by':'assigned_to'}"/>
+                        <filter string="Request status"
+                                domain="[]"
+                                context="{'group_by':'request_state'}"/>
+                        <filter string="Analytic Account"
+                                domain="[]"
+                                context="{'group_by':'analytic_account_id'}"/>
                     </group>
                 </search>
             </field>
