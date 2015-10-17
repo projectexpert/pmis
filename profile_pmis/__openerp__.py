@@ -22,7 +22,7 @@
 
 {
     'name': 'Profile PMIS',
-    'version': '1.1',
+    'version': '8.0.1.1.0',
     'category': 'Project Management',
     'sequence': 9,
     'summary': 'Project Management Information System',
@@ -47,8 +47,8 @@ set the planning accounts on products and human resources.
         'project_time_schedule',
         'project_time_sequence',
         'project_wbs_task',
-        'sale_order_line_analytic_search',
-        'purchase_order_analytic_search',
+        # 'sale_order_line_analytic_search',
+        # 'purchase_order_analytic_search',
         'account_invoice_debt_start_date',
         'crm_project',
         'crm_todo',
