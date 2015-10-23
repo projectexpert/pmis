@@ -57,19 +57,20 @@ total value and progress of work on hand inventory.
 Source:
 http://www.accountingunplugged.com/2008/09/11/percentage-of-completion-work-in-progress/
 
-The statement provides the following information
-    * Contract/Project name.
-    * Contract/Project code.
-    * Contract/Project Value. As the Total Estimated Revenue of the contract.
-    * Actual Billings to Date. Total invoiced amount issued to the customer to date.
-    * Actual Costs to Date.
-    * Total Estimated Costs.
-    * Estimated Costs to Complete. Total Estimated Costs – Actual Costs to Date.
-    * Estimated Gross Profit. Contract Value – Total Estimated Costs.
-    * Percent Complete. Actual Costs to Date / Total Estimated Costs.
-    * Earned Revenue to Date. Percent Complete * Total Estimated Revenue
-    * Over Billings. Total Billings on Contract – Earned Revenue to Date (when > 0 )
-    * Under Billings. Total Billings on Contract – Earned Revenue to Date (when < 0 )
+The statement provides the following information:
+
+* Contract/Project name.
+* Contract/Project code.
+* Contract/Project Value. As the Total Estimated Revenue of the contract.
+* Actual Billings to Date. Total invoiced amount issued to the customer to date.
+* Actual Costs to Date.
+* Total Estimated Costs.
+* Estimated Costs to Complete. Total Estimated Costs – Actual Costs to Date.
+* Estimated Gross Profit. Contract Value – Total Estimated Costs.
+* Percent Complete. Actual Costs to Date / Total Estimated Costs.
+* Earned Revenue to Date. Percent Complete * Total Estimated Revenue
+* Over Billings. Total Billings on Contract – Earned Revenue to Date (when > 0 )
+* Under Billings. Total Billings on Contract – Earned Revenue to Date (when < 0 )
 
 
 Credits

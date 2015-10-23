@@ -11,9 +11,9 @@ http://www.neovahealth.co.uk). This version is integrated with project_charter m
 
 This module allows to manage risk in at least two different contexts:
 
-    * Project Management
+* Project Management
 
-    * Business Continuity Planning
+* Business Continuity Planning
 
 A risk is always associated with a project and has an impact and probability assessment pre- and post-response
 with resulting expected values (scores). Actions on risk are tasks, which can be identified easily in the

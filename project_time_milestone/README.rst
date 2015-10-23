@@ -6,10 +6,11 @@ Project Time Management - Milestones
 ====================================
 
 This module introduces the possibility to classify tasks as milestones.
-    * It is possible to introduce the Project Percentage of Completion and the
-      invoice percentage for informative purposes.
-    * A separate entry is created in the menu to register milestones.
-    * The project form is extended to add a 'Milestones' tab.
+
+* It is possible to introduce the Project Percentage of Completion and the
+  invoice percentage for informative purposes.
+* A separate entry is created in the menu to register milestones.
+* The project form is extended to add a 'Milestones' tab.
 
 Installation
 ============

@@ -21,12 +21,13 @@ Define Planning Versions:
 Organizations typically maintain different versions of their planned
 costs (rough cut, detailed, approved budget, committed,...).
 A Planning Version is defined by the following attributes:
-    * Name
-    * Code
-    * Active: The planning version is active for use in the cost planning
-    * Default version for committed costs: This planning version should be
-      used for committed costs
-    * Default planning version: This version is proposed by default
+
+* Name
+* Code
+* Active: The planning version is active for use in the cost planning
+* Default version for committed costs: This planning version should be
+  used for committed costs
+* Default planning version: This version is proposed by default
 
 Define Analytic Planning Journals:
 ----------------------------------
@@ -44,12 +45,13 @@ analytic lines, used to capture the actual cost or revenue.
 Changes to the Analytic Account:
 --------------------------------
 The analytic account incorporates new analytic account planning attributes:
-    * Cumulated planned costs. Adds up all the planned costs of this
-      analytic account as well as the child analytic accounts.
-    * Cumulated planned revenues. Adds up all the planned revenues of this
-      analytic account as well as the child analytic accounts.
-    * Cumulated balance. Provides the difference between cumulated costs
-      and revenues.
+
+* Cumulated planned costs. Adds up all the planned costs of this
+  analytic account as well as the child analytic accounts.
+* Cumulated planned revenues. Adds up all the planned revenues of this
+  analytic account as well as the child analytic accounts.
+* Cumulated balance. Provides the difference between cumulated costs
+  and revenues.
 
 The attributes are calculated, for an analytic account, based on the
 planning analytic journal lines and based on the active planning version

@@ -16,12 +16,13 @@ Define Project Progress Measurements:
 
 Project Progress Measurements record the results of the measurement on
 a project. A Progress Measurement is defined by the following attributes:
-    * Project
-    * Date: When the measurement occurred
-    * Progress Type
-    * Value: Results of the measurement. Must be defined in the precision indicated by the progress type. The user cannot enter a value that exceeds the maximum permitted value for that progress type.
-    * Description: description of the measurement
-    * Entered by: User that entered the measurement
+
+* Project
+* Date: When the measurement occurred
+* Progress Type
+* Value: Results of the measurement. Must be defined in the precision indicated by the progress type. The user cannot enter a value that exceeds the maximum permitted value for that progress type.
+* Description: description of the measurement
+* Entered by: User that entered the measurement
 
 Installation
 ============

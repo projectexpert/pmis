@@ -20,20 +20,22 @@ progress differently.
 For example, a project can be measured on a percent basis, or by
 quantity used of a given resource.
 A Progress Type is defined by the following attributes:
-    * Name: Name given to the type of progress
-    * Maximum value: Maximum value that is permitted for the object being measured as a total measure of progress.
-    * Precision: Value of increments permitted for the given progress type measured as a total measure of progress.
+
+* Name: Name given to the type of progress
+* Maximum value: Maximum value that is permitted for the object being measured as a total measure of progress.
+* Precision: Value of increments permitted for the given progress type measured as a total measure of progress.
 
 
 Define Progress Measurements:
 -----------------------------
 Progress Measurements record the results of the measurement.
 A Progress Measurement is defined by the following attributes:
-    * Date: When the measurement occurred
-    * Progress Type.
-    * Value: Results of the measurement. Must be defined in the precision indicated by the progress type. The user cannot enter a value that exceeds the maximum permitted value for that progress type.
-    * Description: description of the measurement
-    * Entered by: User that entered the measurement
+
+* Date: When the measurement occurred
+* Progress Type.
+* Value: Results of the measurement. Must be defined in the precision indicated by the progress type. The user cannot enter a value that exceeds the maximum permitted value for that progress type.
+* Description: description of the measurement
+* Entered by: User that entered the measurement
 
 Installation
 ============

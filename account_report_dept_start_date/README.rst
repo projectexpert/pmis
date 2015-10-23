@@ -5,8 +5,9 @@ Start Debt Relation Date on Report
 ==================================
 
 Enhanced Sale Reports (sale order, invoice)
-    * added company VAT n. on header
-    * added due date, debt date and place of issue
+
+* added company VAT n. on header
+* added due date, debt date and place of issue
 
 
 Credits

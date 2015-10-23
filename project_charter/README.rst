@@ -7,15 +7,16 @@ Project Charter
 
 Customizes the PM UI to follow the pmbok and iso 21500
 document Project Charter, with all it's contents:
-    * project charter
-    * project description (with ckeditor4)
-    * project scope
-    * project success
-    * project requirements integrated with change management
-      (when the change management module is installed)
-    * project stakeholders
-    * resource and billing plan
-    * risk assesment integrated with risk management
+
+* project charter
+* project description (with ckeditor4)
+* project scope
+* project success
+* project requirements integrated with change management
+  (when the change management module is installed)
+* project stakeholders
+* resource and billing plan
+* risk assesment integrated with risk management
 
 The project form is redesigned in a two-level notebook (to simulate sub menus) to keep
 the main project view less cluttered. It also aims to keep the insertion order oriented

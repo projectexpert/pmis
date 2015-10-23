@@ -8,13 +8,14 @@ Stock Analytic Account
 Project Procurement
 -------------------
 Features of this module:
-    * Adds the analytic account to the stock move
-    * Makes it possible to search stock moves by analytic account or its
-      project manager
-    * Makes it possible to search picking lists by analytic account or its
-      project manager
-    * Adds button in the Project Form and an Action from Project's 'More'
-      menu to list the Procurement Orders associated to the selected project.
+
+* Adds the analytic account to the stock move
+* Makes it possible to search stock moves by analytic account or its
+  project manager
+* Makes it possible to search picking lists by analytic account or its
+  project manager
+* Adds button in the Project Form and an Action from Project's 'More'
+  menu to list the Procurement Orders associated to the selected project.
 
 Installation
 ============
