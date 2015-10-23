@@ -21,7 +21,7 @@ Planning workflow as per PMBOK and ISO 21500.
 Maintainer
 ----------
 
-[![Project Expert](https://www.project.expert/logo.png)](http://project.expert)
+[![Project Expert](http://www.project.expert/logo.png)](http://project.expert)
 
 This module is maintained by Project Expert Team.
 
