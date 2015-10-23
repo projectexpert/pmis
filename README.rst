@@ -6,7 +6,8 @@ Stock Location in Analytic Account
 ==================================
 
 Features of this module:
-    * Adds the stock location in the analytic account.
+
+* Adds the stock location in the analytic account.
 
 Credits
 =======
