@@ -21,21 +21,27 @@
 
 
 {
-    "name": "Stock Location in Analytic Account",
-    "version": "1.0",
-    "author": "Eficent",
-    "website": "www.eficent.com",
-    "category": "Generic Modules/Projects & Services",
-    "depends": ["analytic", "stock", "stock_analytic_account"],
-    "description": """
+    'name': 'Stock Location in Analytic Account',
+    'version': '8.0.1.0.0',
+    'author':   'Eficent, '
+                'Project Expert Team',
+    'contributors': [
+        'Jordi Ballester <jordi.ballester@eficent.com>',
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
+    'website': 'http://project.expert',
+    'category': 'Project Management',
+    'license': 'AGPL-3',
+    'depends': ['analytic', 'stock', 'stock_analytic_account'],
+    'description': '''
 Stock Location in Analytic Account
 ==================================
 Features of this module:
     - Adds the stock location in the analytic account.
 
-    """,
-    "data": [
-        "view/analytic_account_view.xml",
+    ''',
+    'data': [
+        'view/analytic_account_view.xml',
     ],
     'demo': [],
     'test': [],
