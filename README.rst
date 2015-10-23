@@ -1,41 +1,10 @@
-# -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              <contact@eficent.com>
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+    :alt: License AGPL-3
 
-{
-    'name': 'Analytic Plan',
-    'version': '8.0.1.1.0',
-    'author':   'Eficent, '
-                'Project Expert Team',
-    'contributors': [
-        'Jordi Ballester <jordi.ballester@eficent.com>',
-        'Matjaž Mozetič <m.mozetic@matmoz.si>',
-    ],
-    'website': 'http://project.expert',
-    'category': 'Project Management',
-    'license': 'AGPL-3',
-    'depends': ['account', 'analytic', 'project', 'project_wbs'],
-    'description': '''
 Analytic Plan
-====================================
-    An effective planning of costs and revenues associated to projects or to
+=============
+
+An effective planning of costs and revenues associated to projects or to
     other analytic accounts becomes essential in organizations that are run
     by projects, or profit center accounting. The process of cost planning
     generally follows an rolling wave planning approach, in which the level
@@ -47,7 +16,7 @@ Analytic Plan
     originate planned costs or revenues during the business process execution.
 
 Define Planning Versions:
-------------------------------------
+-------------------------
     Organizations typically maintain different versions of their planned
     costs (rough cut, detailed, approved budget, committed,...).
     A Planning Version is defined by the following attributes:
@@ -59,20 +28,20 @@ Define Planning Versions:
         * Default planning version: This version is proposed by default
 
 Define Analytic Planning Journals:
-------------------------------------
+----------------------------------
     The Analytic Planning Journal serves as an attribute to classify the
     costs or revenue by the it's origin. It is equivalent to the Analytic
     Journal.
 
 
 Define Analytic Planning Lines:
-------------------------------------
+-------------------------------
     The analytic planning lines are used to capture the planned cost or
     revenue, for a given planning version. They are equivalent to the
     analytic lines, used to capture the actual cost or revenue.
 
 Changes to the Analytic Account:
-------------------------------------------------------------------
+--------------------------------
     The analytic account incorporates new analytic account planning attributes:
         * Cumulated planned costs. Adds up all the planned costs of this
           analytic account as well as the child analytic accounts.
@@ -88,22 +57,33 @@ Changes to the Analytic Account:
     Users with permissions to access to analytic accounts can navigate from
     the analytic account to the to the associated Analytic Planning Lines.
 
-    ''',
 
-    'data': [
-        'account_analytic_plan_version_view.xml',
-        'account_analytic_plan_version_data.xml',
-        'account_analytic_plan_journal_view.xml',
-        'account_analytic_line_plan_view.xml',
-        'account_analytic_account_view.xml',
-        'security/ir.model.access.csv',
-        'account_analytic_plan_journal_data.xml',
-        'project_view.xml',
-        'wizard/analytic_plan_copy_version.xml',
-    ],
-    'test': [
-    ],
-    'installable': True,
-    'active': False,
-    'certificate': '',
-}
+Credits
+=======
+
+Contributors
+------------
+
+* Eficent <http://www.eficent.com>
+* Matmoz d.o.o. <http://www.matmoz.si>
+
+
+Maintainer
+----------
+
+.. image:: https://www.project.expert/logo.png
+   :alt: Project Expert
+   :target: http://project.expert
+
+This module is maintained by Project Expert Team.
+
+Project Expert is a joint effort between EFICENT (Barcelona, Spain) and MATMOZ (Ljubljana, Slovenia),
+both active members of Odoo Community Association (OCA).
+
+.. image:: http://odoo-community.org/logo.png
+   :alt: Odoo Community Association
+   :target: http://odoo-community.org
+
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.

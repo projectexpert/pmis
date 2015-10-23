@@ -176,7 +176,8 @@ class account_analytic_line_plan(orm.Model):
         return True
 
     def on_change_amount_currency(
-        self, cr, uid, id, amount_currency, currency_id, company_id, context=None
+        self, cr, uid, id, amount_currency, currency_id, company_id,
+        context=None
     ):
 
         res = {}
@@ -190,7 +191,8 @@ class account_analytic_line_plan(orm.Model):
 
         if amount_currency:
             amount_company_currency = currency_obj.compute(
-                cr, uid, currency_id, company_currency_id, amount_currency, context=context
+                cr, uid, currency_id, company_currency_id, amount_currency,
+                context=context
             )
         else:
             amount_company_currency = 0.0
@@ -308,15 +310,17 @@ class account_analytic_line_plan(orm.Model):
             'amount_currency': result,
             'general_account_id': a,
         })
-        
+
         return res
 
     def on_change_product_id(
-        self, cr, uid, id, prod_id, quantity, currency_id, company_id, unit=False, journal_id=False, context=None
+        self, cr, uid, id, prod_id, quantity, currency_id, company_id,
+        unit=False, journal_id=False, context=None
     ):
 
         res = self.on_change_unit_amount(
-            cr, uid, id, prod_id, quantity, currency_id, company_id, unit, journal_id, context
+            cr, uid, id, prod_id, quantity, currency_id, company_id,
+            unit, journal_id, context
         )
         if prod_id:
             prod = self.pool.get('product.product').browse(

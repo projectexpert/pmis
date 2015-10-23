@@ -62,7 +62,8 @@ class account_analytic_plan_version(orm.Model):
         if 'default_committed' in vals:
             if vals['default_committed'] is True:
                 other_default_committed = self.search(
-                    cr, uid, [('default_committed', '=', True)], context=context
+                    cr, uid, [('default_committed', '=', True)],
+                    context=context
                 )
                 if other_default_committed:
                     raise orm.except_orm(

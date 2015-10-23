@@ -170,7 +170,8 @@ class account_analytic_account(orm.Model):
         ),
 
         'active_analytic_planning_version': fields.many2one(
-            'account.analytic.plan.version', 'Active plan version', required=True
+            'account.analytic.plan.version', 'Active plan version',
+            required=True
         ),
     }
 

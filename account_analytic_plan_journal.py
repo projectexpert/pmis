@@ -64,7 +64,8 @@ class account_analytic_plan_journal(orm.Model):
             'res.company', 'Company', required=True
         ),
         'analytic_journal': fields.many2one(
-            'account.analytic.journal', 'Actual Analytic journal', required=False
+            'account.analytic.journal', 'Actual Analytic journal',
+            required=False
         ),
     }
 
