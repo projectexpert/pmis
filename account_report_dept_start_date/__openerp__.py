@@ -2,8 +2,7 @@
 {
     'name': 'Dept start date on sale reports and invoices',
     'version': '8.0.1.3.0',
-    'category': 'Reports',
-    'summary': 'Extended Sale Reports',
+    'category': 'Accounting',
     'summary': 'VAT n., due date, debt date and place of issue on invoice',
     'author':   'Matmoz d.o.o., '
                 'Project Expert Team',

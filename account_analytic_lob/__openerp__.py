@@ -42,9 +42,5 @@
     'demo': [
 
     ],
-    'test': [
-    ],
     'installable': True,
-    'active': False,
-    'certificate': '',
 }
