@@ -29,7 +29,6 @@
     'website': 'http://project.expert',
     'license': 'AGPL-3',
     'category': 'Social Network',
-    """,
     'depends': ['base'],
     'data': [],
     'installable': True
