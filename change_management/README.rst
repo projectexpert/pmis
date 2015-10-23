@@ -31,7 +31,7 @@ Contributors
 Maintainer
 ----------
 
-.. image:: https://www.project.expert/logo.png
+.. image:: http://www.project.expert/logo.png
    :alt: Project Expert
    :target: http://project.expert
 
