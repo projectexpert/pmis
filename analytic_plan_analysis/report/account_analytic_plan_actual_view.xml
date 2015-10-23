@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+        <record id="view_account_analytic_plan_actual_tree" model="ir.ui.view">
+            <field name="name">report.account.analytic.plan.actual.amounts.tree</field>
+            <field name="model">report.account.analytic.plan.actual</field>
+            <field name="arch" type="xml">
+                <tree string="Plan vs. actual analysis">
+                    <field name="date" />
+                    <field name="month"/>
+                    <field name="year"/>
+                    <field name="account_id"/>
+                    <field name="general_account_id"/>
+                    <field name="product_id"/>
+                    <field name="version_id"/>
+                    <field name="kpi_type"/>                    
+                    <field name="kpi_amount"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_account_analytic_plan_actual_graph" model="ir.ui.view">
+            <field name="name">report.account.analytic.plan.actual.amounts.graph</field>
+            <field name="model">report.account.analytic.plan.actual</field>
+            <field name="arch" type="xml">
+                <graph string="Plan vs. Actual analysis" type="bar">
+                     <field name="date"/>
+                     <field name="kpi_type" group="True"/>                     
+                     <field name="kpi_amount" operator="+"/>                                          
+                </graph>
+             </field>
+        </record>
+        
+        <record id="view_account_analytic_plan_actual_search" model="ir.ui.view">
+            <field name="name">report.account.analytic.plan.actual.search</field>
+            <field name="model">report.account.analytic.plan.actual</field>
+            <field name="arch" type="xml">
+                <search string="Plan vs. Actual analysis">        
+                	<group colspan="5" col="5">                                
+	                    <field name="date"/>
+	                    <field name="month"/>
+	                    <field name="year"/>
+	                    <field name="account_id"/>
+                        <field name="complete_wbs_code"/>
+                        <field name="complete_wbs_name"/>
+	                    <field name="product_id"/>
+	                    <field name="product_uom_id"/>
+	                    <field name="version_id"/>	  
+	                    <field name="kpi_type"/>
+                        <field name="general_account_id"/>
+                    </group> 
+                    <newline/>                   
+                    <group expand="1" string="Group By..." colspan="7" col="8">
+                        <filter string="Analytic Account" name="account_id" context="{'group_by':'account_id'}"/>
+                        <filter string="General Account" name="general_account_id" context="{'group_by':'general_account_id'}"/>
+                        <filter string="Product" name="product_id" context="{'group_by':'product_id'}"/>
+                        <filter string="Product UoM" name="product_uom_id" context="{'group_by':'product_uom_id'}"/>
+                        <filter string="Planning Version" name="version_id" context="{'group_by':'version_id'}"/>
+						<filter string="KPI Type" name="kpi_type" context="{'group_by':'kpi_type'}"/>                                                                                                                                               
+                        <filter string="Month" name="month" icon="terp-go-month" context="{'group_by':'month'}" help="Creation Date"/>
+                        <filter string="Year" name="year" icon="terp-go-year" context="{'group_by':'year'}" help="Creation Date"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+       <record id="action_account_analytic_plan_actual_amounts" model="ir.actions.act_window">
+            <field name="name">Plan vs. Actual</field>
+            <field name="res_model">report.account.analytic.plan.actual</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,graph</field>
+            <field name="search_view_id" ref="view_account_analytic_plan_actual_search"/>            
+            <field name="help">This report allows you to compare plan vs. actuals. The chart is based on amounts</field>
+        </record>
+        <record model="ir.actions.act_window.view" id="action_account_analytic_plan_actual_tree">
+	        <field name="sequence" eval="1"/>
+	        <field name="view_mode">tree</field>
+	        <field name="view_id" ref="view_account_analytic_plan_actual_tree"/>
+	        <field name="act_window_id" ref="action_account_analytic_plan_actual_amounts"/>
+	   	</record>
+        <record model="ir.actions.act_window.view" id="action_account_analytic_plan_actual_graph">
+	        <field name="sequence" eval="2"/>
+	        <field name="view_mode">graph</field>
+	        <field name="view_id" ref="view_account_analytic_plan_actual_graph"/>
+	        <field name="act_window_id" ref="action_account_analytic_plan_actual_amounts"/>
+	   	</record>
+
+        <menuitem action="action_account_analytic_plan_actual_amounts" id="menu_action_account_analytic_plan_actual_tree" parent="base.menu_project_report"/>
+
+    </data>
+</openerp>

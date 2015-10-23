@@ -21,16 +21,23 @@
 
 
 {
-    "name": "Project Time Management - Activity Scheduling",
-    "version": "1.0",
-    "author": "Eficent",
-    "website": "http://www.eficent.com",
-    "category": "Project Management",
-    "depends": ["project"],
-    "description": """
+    'name': 'Project Time Management - Activity Scheduling',
+    'version': '8.0.1.0.0',
+    'author':   'Eficent, '
+                'Matmoz d.o.o., '
+                'Project Expert Team',
+    'contributors': [
+        'Jordi Ballester <jordi.ballester@eficent.com>',
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
+    'website': 'http://project.expert',
+    'category': 'Project Management',
+    'license': 'AGPL-3',
+    'depends': ['project'],
+    'description': '''
 - The user accesses from Project - Project – Tasks to the list of tasks and
   milestones.
-- A new tab "Scheduling" appears under Other Info.
+- A new tab 'Scheduling' appears under Other Info.
   This tab displays attributes relating to the task scheduling.
 
 - The network diagram is first determined, based on the relationships between
@@ -46,7 +53,7 @@
   dates.
 
 - For those tasks that are in the critical path of the network indicator is
-  marked "Is in the Critical Path
+  marked 'Is in the Critical Path
 
 - The Total Margin (Total float) and Free margin (Free Float) is determined.
 
@@ -58,9 +65,9 @@
   (http://www.codeproject.com/KB/recipes/CriticalPathMethod.aspx).
 
 - The critical path is calculated using the Dijkstra algorithm
-    """,
-    "data": [
-        "project_time_schedule_view.xml",
+    ''',
+    'data': [
+        'project_time_schedule_view.xml',
     ],
     'demo': [
 

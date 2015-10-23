@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="analytic_plan_copy_version_form" model="ir.ui.view">
+            <field name="name">analytic.plan.copy.version.form</field>
+            <field name="model">analytic.plan.copy.version</field>
+            <field name="arch" type="xml">
+                <form string="Copy analytic plan lines to a different version" version="7.0">
+                    <group>
+                        <field name="source_version_id"/>
+                        <field name="dest_version_id"/>
+                        <field name="include_child"/>
+                    </group>
+                    <footer>
+                        <button string="Create" name="analytic_plan_copy_version_open_window" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_analytic_plan_copy_version_form" model="ir.actions.act_window">
+            <field name="name">Copy analytic plan lines to a different version</field>
+            <field name="res_model">analytic.plan.copy.version</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="view_id" ref="analytic_plan_copy_version_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <act_window name="Copy Analytic Plan Lines"
+            res_model="analytic.plan.copy.version"
+            src_model="account.analytic.account"
+            view_mode="form"
+            target="new"
+            multi="True"
+            key2="client_action_multi"
+            id="action_analytic_plan_copy_version_form"/>
+
+    </data>
+</openerp>

@@ -21,7 +21,7 @@
 ##############################################################################
 {
     'name': 'Operations Management Board',
-    'version': '2.0.6',
+    'version': '8.0.2.0.6',
     'category': 'Board/Projects & Services',
     'description': """
         Central operations menu that collects all the

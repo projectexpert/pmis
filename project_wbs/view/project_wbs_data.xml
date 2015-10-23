@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!-- Project Stages -->
+
+        <record id="project_wbs_pending" model="analytic.account.stage">
+            <field name="sequence">1</field>
+            <field name="name">Pending</field>
+            <field name="case_default" eval="True"/>
+            <field name="fold" eval="True"/>
+            <field name="state">pending</field>
+        </record>
+        <record id="project_wbs_concept" model="analytic.account.stage">
+            <field name="sequence">5</field>
+            <field name="name">Conceptual stage</field>
+            <field name="case_default" eval="True"/>
+            <field name="fold" eval="False"/>
+            <field name="state">draft</field>
+        </record>
+        <record id="project_wbs_init" model="analytic.account.stage">
+            <field name="sequence">8</field>
+            <field name="name">Initalization</field>
+            <field name="case_default" eval="True"/>
+            <field name="fold" eval="False"/>
+            <field name="state">open</field>
+        </record>
+        <record id="project_wbs_plan" model="analytic.account.stage">
+            <field name="sequence">10</field>
+            <field name="name">Planning</field>
+            <field name="case_default" eval="True"/>
+            <field name="fold" eval="False"/>
+            <field name="state">open</field>
+        </record>
+        <record id="project_wbs_execution" model="analytic.account.stage">
+            <field name="sequence">15</field>
+            <field name="name">Execution</field>
+            <field name="case_default" eval="True"/>
+            <field name="fold" eval="False"/>
+            <field name="state">open</field>
+        </record>
+        <record id="project_wbs_closure" model="analytic.account.stage">
+            <field name="sequence">20</field>
+            <field name="name">Closure</field>
+            <field name="case_default" eval="True"/>
+            <field name="fold" eval="False"/>
+            <field name="state">open</field>
+        </record>
+        <record id="project_wbs_closed" model="analytic.account.stage">
+            <field name="sequence">50</field>
+            <field name="name">Closed</field>
+            <field name="case_default" eval="True"/>
+            <field name="fold" eval="True"/>
+            <field name="state">close</field>
+        </record>
+        <record id="project_wbs_cancelled" model="analytic.account.stage">
+            <field name="sequence">51</field>
+            <field name="name">Cancelled</field>
+            <field name="case_default" eval="True"/>
+            <field name="fold" eval="True"/>
+            <field name="state">cancelled</field>
+        </record>
+        <record id="project_wbs_template" model="analytic.account.stage">
+            <field name="sequence">99</field>
+            <field name="name">Template</field>
+            <field name="case_default" eval="True"/>
+            <field name="fold" eval="True"/>
+            <field name="state">template</field>
+        </record>
+    </data>
+</openerp>

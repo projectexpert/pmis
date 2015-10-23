@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stock_report_analytic_account_user,stock.report.analytic.account manager,model_stock_report_analytic_account,stock.group_stock_manager,1,0,0,0
+

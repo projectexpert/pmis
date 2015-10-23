@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Project roles -->
+        
+        <record id="view_project_hr_role_search" model="ir.ui.view">
+            <field name="name">project.hr.role.search</field>
+            <field name="model">project.hr.role</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Project Role">
+                	<field name="code"/>                    
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>        
+        
+        <record id="view_project_hr_role_edit" model="ir.ui.view">
+            <field name="name">project.hr.role.form</field>
+            <field name="model">project.hr.role</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Project Role">
+                    <field name="code"/>
+                    <field name="name"/>                    
+                    <separator string="Description" colspan="4"/>
+                    <field colspan="4" name="description" nolabel="1"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_project_hr_role_tree" model="ir.ui.view">
+            <field name="name">project.hr.role.tree</field>
+            <field name="model">project.hr.role</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Project Role">                    
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_project_hr_role_tree" model="ir.actions.act_window">
+            <field name="name">Roles</field>
+            <field name="res_model">project.hr.role</field>
+            <field name="view_id" ref="view_project_hr_role_tree"/>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_project_hr_role_search"/>            
+            <field name="help">Define the roles for stakeholders in projects.</field>
+        </record>
+
+        <!--<menuitem id="menu_roles_config" name="Roles" parent="base.menu_definitions" sequence="1"/>-->
+        <menuitem action="action_project_hr_role_tree"
+			name="Roles"
+			id="menu_project_hr_role_view"
+			parent="project_charter.menu_stakeholders_config"
+			sequence="2"/>                  	                    
+    </data>
+</openerp>

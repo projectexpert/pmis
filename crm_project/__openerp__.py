@@ -29,10 +29,15 @@
 
 {
     'name': 'CRM cases part of Projects',
-    'version': '0.8',
-    'author': 'Matmoz d.o.o.',
-    'website': 'http://www.matmoz.si',
+    'version': '8.0.0.8.0',
+    'author':   'Matmoz d.o.o., '
+                'Project Expert Team',
+    'contributors': [
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
+    'website': 'http://project.expert',
     'category': 'Project Management',
+    'license': 'AGPL-3',
     'description': """
     CRM tasks and CRM leads connected to project,
     crm cases tab on project view. In a project oriented
@@ -42,12 +47,7 @@
     are also a source of project communications, they're
     added as well in the view.
     """,
-    'license': "AGPL-3",
-    'contributors': [
-        'Matjaž Mozetič <m.mozetic@matmoz.si>',
-    ],
     'summary': '''CRM tasks and CRM leads connected to project''',
-    'website':  'http://www.matmoz.si',
     'depends': ['crm_todo', 'project', 'project_issue'],
     'data': [
         'crm_todo_opportunity.xml',

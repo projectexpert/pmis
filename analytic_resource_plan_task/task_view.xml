@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+#---------------------------------------------------------------------------------------------------------
+#  Extend the task
+#---------------------------------------------------------------------------------------------------------
+
+
+        <act_window
+            id="act_task_2_analytic_resource_plan_line"
+            name="Resource plan lines"
+            res_model="analytic.resource.plan.line"
+            src_model="project.task"
+            context = "{'search_default_task_id': [active_id], 'default_task_id' :active_id}"
+            groups="project.group_project_manager,project.group_project_user"/>
+
+		<record model="ir.actions.act_window.view" id="act_task_2_analytic_resource_plan_line_tree">
+	        <field name="sequence" eval="1"/>
+	        <field name="view_mode">tree</field>
+	        <field name="view_id" ref="view_analytic_resource_plan_line_tree"/>
+	        <field name="act_window_id" ref="act_task_2_analytic_resource_plan_line"/>
+	   	</record>
+
+
+        <record id="view_task_search_form" model="ir.ui.view">
+            <field name="name">project.task.search.form</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_search_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='project_id']" position="after">
+            		<field name="analytic_account_id"/>
+            	</xpath>
+            </field>
+        </record>
+
+		<record model="ir.ui.view" id="project.project_task_buttons">
+            <field name="name">project.task.button.form</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2" />
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='oe_right']" position="attributes">
+                    <attribute name="class">oe_right oe_button_box
+                    </attribute>
+                    <attribute name="name">buttons</attribute>
+                </xpath>
+            </field>
+        </record>
+
+ 		<record id="view_task_form2" model="ir.ui.view">
+            <field name="name">project.task.form</field>
+            <field name="model">project.task</field>
+            <field name="type">form</field>
+            <field eval="2" name="priority"/>
+            <field name="inherit_id" ref="project.project_task_buttons"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='project_id']" position="after">
+            		<field name="analytic_account_id" invisible="True"/>
+            	</xpath>
+                <xpath expr="//div[@name='buttons']" position="inside">
+                    <button name="%(act_task_2_analytic_resource_plan_line)d" help="Resource plan lines" type="action"
+                            context ="{'default_account_id': analytic_account_id}" class="oe_inline oe_stat_button"
+							icon="fa-pencil-square-o">
+					<div>Resource plan<br/>lines</div>
+					</button>
+				</xpath>
+            </field>
+        </record>
+
+
+
+    </data>
+</openerp>

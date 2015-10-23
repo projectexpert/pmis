@@ -1,0 +1,254 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* analytic_resource_plan
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-24 13:05+0200\n"
+"PO-Revision-Date: 2015-09-24 13:06+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: \n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.4\n"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,name:0
+msgid "Activity description"
+msgstr "Descrizione attività"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+#: field:analytic.resource.plan.line,account_id:0
+#: model:ir.model,name:analytic_resource_plan.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Conto analitico"
+
+#. module: analytic_resource_plan
+#: view:product.template:analytic_resource_plan.product_template_form_view
+msgid "Analytic Planning Journal for expenses"
+msgstr "Giornale piano costi"
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_analytic_resource_plan_copy_version
+msgid "Analytic Resource Plan copy versions"
+msgstr "Coppia versioni piano risorse"
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_analytic_resource_plan_line
+msgid "Analytic Resource Planning lines"
+msgstr "Voci del piano risorse"
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_account_analytic_line_plan
+msgid "Analytic planning line"
+msgstr "Voce di pianificazione analitica"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_tree
+msgid "Analytic resource plan line"
+msgstr "Voce del piano risorse"
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_resource_plan_line_change_state
+msgid "Change state of resource plan line"
+msgstr "Cambiamento stato voce piano risorse"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,child_ids:0
+#: field:analytic.resource.plan.line,has_child:0
+msgid "Child lines"
+msgstr "Voci subordinate"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_tree
+msgid "Confirm"
+msgstr "Conferma"
+
+#. module: analytic_resource_plan
+#: field:product.template,expense_analytic_plan_journal_id:0
+msgid "Cost Planning Analytic Journal"
+msgstr "Giornale piano costi"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Costs"
+msgstr "Costi"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,create_uid:0
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,create_date:0
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,date:0
+msgid "Date"
+msgstr "Data"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_tree
+msgid "Draft"
+msgstr "Bozza"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Group By"
+msgstr "Raggruppa per"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Hierarchy"
+msgstr "Gerarchia"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,write_uid:0
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento da"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,write_date:0
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+#: field:analytic.resource.plan.line,notes:0
+msgid "Notes"
+msgstr "Note"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+#: field:analytic.resource.plan.line,parent_id:0
+msgid "Parent"
+msgstr "Superiore"
+
+#. module: analytic_resource_plan
+#: model:ir.actions.act_window,name:analytic_resource_plan.action_analytic_resource_plan_line_open_form
+#: model:ir.ui.menu,name:analytic_resource_plan.analytic_resource_plan_line_entries
+msgid "Plan resources"
+msgstr "Piano risorse"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,unit_amount:0
+msgid "Planned Quantity"
+msgstr "Quantità pianificata"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,analytic_line_plan_ids:0
+msgid "Planned costs"
+msgstr "Costi pianificati"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+#: field:analytic.resource.plan.line,product_id:0
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Product Information"
+msgstr "Informazioni sul prodotto"
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_product_template
+msgid "Product Template"
+msgstr "Template del prodotto"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,pricelist_id:0
+msgid "Purchasing Pricelist"
+msgstr "Preziario d'acquisto"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Resource Plan Lines"
+msgstr "Voci piano risorse"
+
+#. module: analytic_resource_plan
+#: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
+#: view:project.project:analytic_resource_plan.edit_project
+msgid "Resource plan"
+msgstr "Piano risorse"
+
+#. module: analytic_resource_plan
+#: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
+#: model:ir.actions.act_window,name:analytic_resource_plan.act_account_analytic_2_analytic_resource_plan_line
+#: model:ir.actions.act_window,name:analytic_resource_plan.resource_plan_line_action_project
+msgid "Resource plan lines"
+msgstr "Voce del piano risorse"
+
+#. module: analytic_resource_plan
+#: view:project.project:analytic_resource_plan.edit_project
+msgid "Resource planning lines"
+msgstr "Voci pianificazione risorse"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Search resource plan lines"
+msgstr "Ricerca voci piano risorse"
+
+#. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,unit_amount:0
+msgid "Specifies the quantity that has been planned."
+msgstr "Specifica la quantità pianificata."
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Status"
+msgstr "Status"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,supplier_id:0
+msgid "Supplier"
+msgstr "Fornitore"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,price_unit:0
+msgid "Unit Price"
+msgstr "Prezzo unitario"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,product_uom_id:0
+msgid "UoM"
+msgstr "Unità di misura"
+
+#. module: analytic_resource_plan
+#: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
+msgid "lines"
+msgstr "voci"
+
+#~ msgid "Analytic Information"
+#~ msgstr "Informazioni analitiche"
+
+#~ msgid "Planning Journal"
+#~ msgstr "Giornale di pianificazione"
+
+#~ msgid "Planning analytic lines"
+#~ msgstr "Voci di pianificazione"
+
+#~ msgid "Project"
+#~ msgstr "Progetto"
+
+#~ msgid "Purchase Order Information"
+#~ msgstr "Informazioni sul ordine d'acquisto"
+
+#~ msgid "Version"
+#~ msgstr "Versione"

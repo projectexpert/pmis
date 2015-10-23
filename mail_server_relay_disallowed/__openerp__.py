@@ -20,10 +20,15 @@
 ##############################################################################
 {
     'name': 'Mail server relay disallowed',
-    'version': '1.0.0',
-    'author': 'Eficent',
+    'version': '8.0.1.0.0',
+    'author':   'Eficent, '
+                'Project Expert Team',
+    'contributors': [
+        'Jordi Ballester <jordi.ballester@eficent.com>',
+    ],
+    'website': 'http://project.expert',
+    'license': 'AGPL-3',
     'category': 'Social Network',
-    'website': 'www.eficent.com',
     'description': """
 Fixes the issue of using a mail client where relaying is disallowed.
 See:

@@ -23,9 +23,10 @@
 ##############################################################################
 {
     'name': 'Risk Management',
-    'version': '2.1.2',
+    'version': '8.0.2.1.2',
     'author':   'Neova Health ,'
-                'Matmoz d.o.o.',
+                'Matmoz d.o.o., '
+                'Project Expert Team',
     'website':  'http://www.matmoz.si',
     'category': 'Project Management',
     'license': "AGPL-3",

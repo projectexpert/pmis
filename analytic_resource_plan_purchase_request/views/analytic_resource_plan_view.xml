@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_analytic_resource_plan_line_tree" model="ir.ui.view">
+            <field name="name">analytic.resource.plan.line.tree</field>
+            <field name="model">analytic.resource.plan.line</field>
+            <field name="inherit_id"
+                   ref="analytic_resource_plan.view_analytic_resource_plan_line_tree"/>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <field name="state" position="after">
+                    <field name="requested_qty"/>
+					<field name="request_state"/>
+                </field>
+            </field>
+        </record>
+
+       <record id="view_analytic_resource_plan_line_form" model="ir.ui.view">
+            <field name="name">analytic.resource.plan.line.form</field>
+            <field name="model">analytic.resource.plan.line</field>
+            <field name="inherit_id"
+                   ref="analytic_resource_plan.view_analytic_resource_plan_line_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page name="purchase_request_lines"
+                          string="Purchase Requests">
+                        <group>
+                            <field name="requested_qty"/>
+							<field name="request_state"/>
+                        </group>
+                        <newline/>
+                        <group>
+                            <field name="purchase_request_lines"
+                                     nolabel="1"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+		<record id="view_analytic_resource_plan_line_filter" model="ir.ui.view">
+            <field name="name">analytic.resource.plan.line.select</field>
+            <field name="model">analytic.resource.plan.line</field>
+            <field name="inherit_id"
+                   ref="analytic_resource_plan.view_analytic_resource_plan_line_filter"/>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <field name="state" position="after">
+                    <field name="request_state"/>
+                </field>
+                <group name="filters" position="inside">
+                    <filter name="filter_no_request"
+                        string="Not Requested"
+                        domain="[('request_state', '=', 'none')]"
+                        help="No purchase request has been created yet"/>
+                </group>
+                <filter string="Status" position="after">
+                        <filter string="Request Status"
+                                domain="[]"
+                                context="{'group_by':'request_state'}"/>
+                </filter>
+            </field>
+        </record>
+
+	</data>
+</openerp>

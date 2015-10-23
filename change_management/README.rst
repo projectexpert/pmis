@@ -30,12 +30,20 @@ Contributors
 Maintainer
 ----------
 
-.. image:: http://www.matmoz.si/wp-content/uploads/2014/11/128x128.png
-   :alt: MATMOZ d.o.o.
-   :target: http://www.matmoz.si
+.. image:: https://www.project.expert/logo.png
+   :alt: Project Expert
+   :target: http://project.expert
 
-This module is maintained by MATMOZ d.o.o.
+This module is maintained by Project Expert Team.
 
-MATMOZ d.o.o. is a project management services company, which is also active in various open source communities.
-One of those is OCA, or the Odoo Community Association, which is a nonprofit organization whose mission is to support the collaborative development of Odoo features and promote its widespread use.
+Project Expert is a joint effort between EFICENT (Barcelona, Spain) and MATMOZ (Ljubljana, Slovenia),
+both active members of Odoo Community Association (OCA).
+
+.. image:: http://odoo-community.org/logo.png
+   :alt: Odoo Community Association
+   :target: http://odoo-community.org
+
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
 

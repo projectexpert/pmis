@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_progress_measurement_type_search" model="ir.ui.view">
+            <field name="name">progress.measurement.type.search</field>
+            <field name="model">progress.measurement.type</field>
+            <field name="arch" type="xml">
+                <search string="Progress Measurement Type">
+                    <field name="name"/>
+                    <field name="active"/>
+                    <field name="default_max_value"/>
+                    <field name="precision"/>
+                    <field name="is_percent"/>
+                    <field name="is_default"/>
+                </search>
+            </field>
+        </record>        
+        
+        <record id="view_progress_measurement_type_edit" model="ir.ui.view">
+            <field name="name">progress.measurement.type.form</field>
+            <field name="model">progress.measurement.type</field>
+            <field name="arch" type="xml">
+                <form string="Progress Measurement Type">
+                    <group>
+                        <field name="name" select="1"/>
+                        <field name="default_max_value"/>
+                        <field name="precision"/>
+                        <field name="active"/>
+                        <field name="is_percent" on_change="on_change_is_percent(is_percent)"/>
+                        <field name="is_default"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_progress_measurement_type_tree" model="ir.ui.view">
+            <field name="name">progress.measurement.type.tree</field>
+            <field name="model">progress.measurement.type</field>
+            <field name="arch" type="xml">
+                <tree string="Progress Measurement Type">
+                    <field name="name"/>
+                    <field name="default_max_value"/>
+                    <field name="precision"/>
+                    <field name="active"/>
+                    <field name="is_percent"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_progress_measurement_type_tree" model="ir.actions.act_window">
+            <field name="name">Measurement Types</field>
+            <field name="res_model">progress.measurement.type</field>
+            <field name="view_id" ref="view_progress_measurement_type_tree"/>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_progress_measurement_type_search"/>     
+            <field name="help">Define the Progress Measurement Types.</field>
+        </record>
+
+        <menuitem id="menu_progress_measurement_config" name="Progress Measurement" parent="base.menu_definitions" sequence="1"/>
+        <menuitem action="action_progress_measurement_type_tree" id="menu_progress_measurement_type_view" parent="menu_progress_measurement_config" sequence="1"/>
+    </data>
+</openerp>

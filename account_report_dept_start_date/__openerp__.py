@@ -1,17 +1,18 @@
 # -*- encoding: utf-8 -*-
 {
     'name': 'Dept start date on sale reports and invoices',
-    'version': '1.3',
+    'version': '8.0.1.3.0',
     'category': 'Reports',
     'summary': 'Extended Sale Reports',
-    'description': """
+    'description': '''
     Enhanced Sale Reports (sale order, invoice)
     - added company VAT n. on header
     - added due date, debt date and place of issue
-    """,
-    'author': 'Matmoz d.o.o.',
-    'website': 'http://www.matmoz.si',
-    'license': "AGPL-3",
+    ''',
+    'author':   'Matmoz d.o.o., '
+                'Project Expert Team',
+    'website': 'http://project.expert',
+    'license': 'AGPL-3',
     'contributors': [
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],

@@ -22,8 +22,15 @@
 
 {
     'name': 'Project Charter',
-    'version': '1.1.2',
+    'version': '8.0.1.1.2',
+    'author':   'Matmoz d.o.o., '
+                'Project Expert Team',
+    'contributors': [
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
+    'website': 'http://project.expert',
     'category': 'Project Management',
+    'license': 'AGPL-3',
     'sequence': 9,
     'summary': 'Project Charter',
     'description':
@@ -38,8 +45,6 @@ document Project Charter, with all it's contents:
     - resource and billing plan
     - risk assesment integrated with risk management
     """,
-    'author': 'Matmoz d.o.o.',
-    'website': 'http://www.matmoz.si',
     'complexity': 'easy',
     'images': [],
     'depends': [
@@ -63,5 +68,4 @@ document Project Charter, with all it's contents:
     'installable': True,
     'auto_install': False,
     'application': False,
-    'license': 'AGPL-3',
 }
