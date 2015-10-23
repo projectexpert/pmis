@@ -24,9 +24,6 @@
 {
     'name': 'Document pages for project',
     'version': '8.0.1.0.2',
-    'description': """This module allows linking of document pages to projects
-        Based on the original project_wiki module from OpenERP 6.1 version
-        by Agile Business Group""",
     'author':   'Agile Business Group, '
                 'Matmoz d.o.o., '
                 'Project Expert Team',

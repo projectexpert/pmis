@@ -34,13 +34,6 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'depends': ['project', 'project_time_schedule', 'project_charter'],
-    'description': '''
-        This module introduces the possibility to classify tasks as milestones.
-        - It is possible to introduce the Project Percentage of Completion and
-          the invoice percentage for informative purposes.
-        - A separate entry is created in the menu to register milestones.
-        - The project form is extended to add a 'Milestones' tab.
-    ''',
     'data': [
         'project_time_milestone_view.xml',
     ],

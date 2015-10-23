@@ -32,12 +32,6 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'depends': ['analytic_plan', 'hr_timesheet'],
-    'description': '''
-Project Cost Planning Integration with HR
-Timesheets:
-   - When timesheets are recorded, the corresponding cost is registered as a
-     commitment cost
-    ''',
     'data': [
         'hr_timesheet_view.xml',
     ],

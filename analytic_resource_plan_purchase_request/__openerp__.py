@@ -36,13 +36,6 @@
         'analytic_location',
         'purchase_request'
     ],
-    'description': '''
-Analytic Resource Planning - Purchase Requests
-==============================================
-Module features:
-    - Create purchase requests from analytic resource planning lines
-
-    ''',
     'data': [
         'wizard/analytic_resource_plan_line_make_purchase_request.xml',
         'views/purchase_request_view.xml',

@@ -13,12 +13,6 @@
     'website': 'http://project.expert',
     'category': 'Project Management',
     'license': 'AGPL-3',
-    'description': """
-Lead to Change Requests
-=======================
-
-Link module to map leads to change requests
-        """,
     'data': [
         'change_request_view.xml'
     ],

@@ -1,8 +1,9 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
 
+==========================
 CRM cases part of Projects
-==============================
+==========================
 
 CRM tasks and CRM leads connected to project,
 crm cases tab on project view. In a project oriented

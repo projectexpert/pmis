@@ -23,9 +23,6 @@
     'name': 'Sale Stock Analytic',
     'version': '8.0.1.0.0',
     'summary': 'Copies the sales order analytic account to the stock move.',
-    'description': '''
-Copies the analytic account of the sales order to the stock move.
-''',
     'author':   'Eficent, '
                 'Project Expert Team',
     'contributors': [

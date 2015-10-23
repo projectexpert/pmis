@@ -26,17 +26,6 @@
     'name': 'Invoice Start Debt Relation Date',
     'version': '8.0.1.2.1',
     'category': 'Accounting',
-    'description': '''
-    This module adds two new date fields on invoice.
-
-    The old 'invoice_date' field on the invoice acts as start debt relation
-    date, while new 'invoice_date_creation' field serves as date of invoice.
-
-    New field 'invoice_date_recieved' also exist on supplier invoices.
-
-    Based on the original 7.0 version made by Mentis. Migrated to the version
-    8.0 by Matmoz.
-    ''',
     'author':   'Mentis d.o.o., '
                 'Matmoz d.o.o., '
                 'Project Expert Team',

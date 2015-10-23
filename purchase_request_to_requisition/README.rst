@@ -1,6 +1,7 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
 
+=================================
 Purchase Request to Call for Bids
 =================================
 This module introduces the following features:

@@ -1,8 +1,9 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
 
+===============
 Project Charter
-==============================
+===============
 
 Customizes the PM UI to follow the pmbok and iso 21500
 document Project Charter, with all it's contents:

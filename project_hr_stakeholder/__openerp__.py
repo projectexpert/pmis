@@ -39,15 +39,6 @@
         'analytic_plan',
         'project_charter'
     ],
-    'description': '''
-This module offers the possibility to register at project level the
-stakeholders involved in a project.
-* It adds a 'Stakeholders' tab in the project form.
-* The stakeholder can be registered as a partner, or a contact person.
-* You can specify the roles and responsibilities of the stakeholders in this
-  project.
-* You can maintain a master data for roles and responsibilities.
-    ''',
     'data': [
         'project_hr_role.xml',
         'project_hr_responsibility.xml',

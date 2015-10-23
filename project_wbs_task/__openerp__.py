@@ -34,16 +34,6 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'depends': ['project_wbs'],
-    'description': '''
-Work Breakdown Structure - Tasks
-================================
-This module extends the standard Odoo functionality by adding:
-
-- A button in the project tree view that will conduct the user to the list
-view for the associated tasks.
-- The possibility to search for task by the WBS complete reference or name.
-
-    ''',
     'data': [
         'view/project_task_view.xml',
         'view/project_view.xml',

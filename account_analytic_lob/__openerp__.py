@@ -33,10 +33,7 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'depends': ['account', 'analytic', 'project_wbs'],
-    'description': '''
-    Introduce business segments in analytic accounts.
-    Provides the possibility to perform economic analysis by business segment.
-    ''',
+    'summary': 'Introduce business segments in analytic accounts.',
     'data': [
         'security/ir.model.access.csv',
         'account_analytic_lob_view.xml',

@@ -1,8 +1,9 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
 
+========================================
 Creatable issues list on task view form.
-==========================================
+========================================
 
 Issue is not always the initiator of a task, an issue could arise
 also while completing a task and to ease the workflow, this module

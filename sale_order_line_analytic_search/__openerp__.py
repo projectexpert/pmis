@@ -31,12 +31,6 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'depends': ['analytic', 'sale'],
-    'description': '''
-Organizations often require to quickly find the sales order lines associated
-to a project or to an analytic account, searching by it's code, name or
-project/account manager. This module introduces the possibility search sales
-order lines by analytic account or by project manager.
-''',
     'data': [
         'sale_order_line_view.xml',
     ],

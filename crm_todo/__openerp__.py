@@ -24,13 +24,6 @@
 {
     'name': 'Tasks on CRM',
     'version': '8.0.1.0.3',
-    'description': '''
-Todo list for CRM leads and opportunities.
-==========================================
-Based on the original crm_todo by Openerp SA, migrated from the version 7 to
-the version 8 by Matmoz d.o.o. and enhanced to interact with crm_project_task
-for a better integration of CRM with project management.
-    ''',
     'author':   'Matmoz d.o.o., '
                 'Project Expert Team',
     'contributors': [

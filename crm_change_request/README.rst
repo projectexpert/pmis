@@ -1,8 +1,9 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
 
+======================
 Lead to Change Request
-=============================
+======================
 
 Introduces the button Change to CR on Lead Form to give the possibility to change leads to CRs.
 

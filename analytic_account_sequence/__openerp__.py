@@ -22,6 +22,7 @@
 
 {
     'name': 'Analytic account code sequence',
+    'summary': 'Analytic account code sequence',
     'version': '8.0.1.0.0',
     'author':   'Eficent, '
                 'Project Expert Team',
@@ -32,8 +33,6 @@
     'website': 'http://project.expert',
     'category': 'Project Management',
     'depends': ['base', 'project', 'analytic', 'project_wbs'],
-    'description': '''
-    ''',
     'data': [
         'analytic_account_sequence_view.xml',
         'analytic_account_sequence_data.xml',

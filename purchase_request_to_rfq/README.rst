@@ -1,6 +1,7 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
 
+=======================
 Purchase Request to RFQ
 =======================
 This module adds the possibility to create or update Requests for

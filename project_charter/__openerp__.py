@@ -33,18 +33,6 @@
     'license': 'AGPL-3',
     'sequence': 9,
     'summary': 'Project Charter',
-    'description':
-    """
-Customizes the PM UI to follow the pmbok and iso 21500
-document Project Charter, with all it's contents:
-    - project charter
-    - project description (with ckeditor4)
-    - project scope
-    - project success and requirements
-    - project stakeholders
-    - resource and billing plan
-    - risk assesment integrated with risk management
-    """,
     'complexity': 'easy',
     'images': [],
     'depends': [

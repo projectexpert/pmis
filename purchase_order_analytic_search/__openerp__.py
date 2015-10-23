@@ -31,13 +31,6 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'depends': ['analytic', 'purchase'],
-    'description': '''
-Organizations often require to quickly find the purchase orders associated to
-a project or to an analytic account, searching by it's code, name or
-project/account manager. This module introduces the possibility search
-purchase orders by analytic account or by project manager. It also introduces
-a new menu entry in Purchasing to list purchase order lines.
-''',
     'data': [
         'purchase_order_view.xml',
     ],

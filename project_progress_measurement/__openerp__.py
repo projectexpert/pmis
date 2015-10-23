@@ -32,29 +32,6 @@
     'license': 'AGPL-3',
     'category': 'Generic Modules',
     'depends': ['project', 'progress_measurement', 'project_wbs'],
-    'description': '''
-Project progress measurement.
-====================================
-    The progress of a project indicates the degree of completion, with respect
-    to the estimated scope of work. Generally the progress cannot be
-    automatically measured and it is based on the expert judgement or the
-    completion of checklists that determine the degree of completion of a
-    project.
-
-Define Project Progress Measurements:
--------------------------------------
-    Project Progress Measurements record the results of the measurement on
-    a project. A Progress Measurement is defined by the following attributes:
-        * Project
-        * Date: When the measurement occurred
-        * Progress Type
-        * Value: Results of the measurement. Must be defined in the precision
-          indicated by the progress type.
-          The user cannot enter a value that exceeds the maximum permitted
-          value for that progress type.
-        * Description: description of the measurement
-        * Entered by: User that entered the measurement
-    ''',
     'data': [
         'project_progress_measurement_view.xml',
         'wizard/progress_measurements_entry_view.xml',

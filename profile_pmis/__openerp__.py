@@ -25,12 +25,6 @@
     'version': '8.0.1.1.1',
     'sequence': 9,
     'summary': 'Project Management Information System',
-    'description': '''
-Installs the dependencies needed to set up a Project Management
-Information System on Odoo framework. Manual setup is needed to
-set the planning accounts on products and human resources and to
-set up the Analytic Account Stages.
-        ''',
     'author':   'Matmoz d.o.o., '
                 'Project Expert Team',
     'contributors': [

@@ -31,9 +31,6 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     "depends": ["purchase", "stock_move_line"],
-    "description": """
-Copies the analytic account of the purchase order item to the stock move
-    """,
     "data": [
     ],
     'test': [

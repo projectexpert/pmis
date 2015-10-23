@@ -1,6 +1,7 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
 
+==========================================
 Todo list for CRM leads and opportunities.
 ==========================================
 

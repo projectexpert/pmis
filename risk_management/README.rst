@@ -1,8 +1,9 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
 
+===============
 Risk Management
-=============================
+===============
 
 Originally developed by Tactix4 Ltd (version 7, http://www.tactix4.com) and Neova Health (version 8,
 http://www.neovahealth.co.uk). This version is integrated with project_charter module by Matmoz d.o.o.

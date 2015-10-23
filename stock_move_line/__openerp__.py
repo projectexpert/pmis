@@ -33,10 +33,6 @@
     'license': 'AGPL-3',
     'summary': 'Adds the analytic account to stock moves.',
     'depends': ['stock', 'analytic', 'stock_analytic_account'],
-    'description': '''
-    - Limits the creation of analytic lines associated to stock moves to only occur when the move is associated
-      to an expense or revenue account.
-    ''',
     'data': [
     ],
     'test': [

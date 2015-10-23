@@ -32,16 +32,6 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'depends': ['account', 'sale', 'analytic_plan'],
-    'description': '''
-
-  == Record planned sales and create sales orders  ==
-
-    Eficent brings you this module to automatically record the analytic
-    planned sales associated to sales orders.
-
-    You can create sales orders out of the planned sales.
-
-    ''',
     'data': [
         'wizard/analytic_billing_plan_line_make_sale.xml',
         'analytic_billing_plan_view.xml',

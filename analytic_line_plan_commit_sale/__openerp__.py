@@ -32,9 +32,6 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'depends': ['analytic_plan', 'sale'],
-    'description': '''
-    Maintain analytic committed revenues associated to sales orders
-    ''',
     'data': [
         'sale_filters.xml'
     ],

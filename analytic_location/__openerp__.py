@@ -33,13 +33,6 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'depends': ['analytic', 'stock', 'stock_analytic_account'],
-    'description': '''
-Stock Location in Analytic Account
-==================================
-Features of this module:
-    - Adds the stock location in the analytic account.
-
-    ''',
     'data': [
         'view/analytic_account_view.xml',
     ],

@@ -1,8 +1,9 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
 
+===========================
 Document pages for project.
-==========================================
+===========================
 
 This module allows linking of document pages to projects.
 Based on the original project_wiki module from OpenERP 6.1 version

@@ -1,6 +1,7 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
 
+====================
 Progress measurement
 ====================
     The progress of a project indicates the degree of completion, with respect

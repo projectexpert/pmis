@@ -33,11 +33,6 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'depends': ['analytic_plan'],
-    'description': '''
-
-    == Analyze the plan vs. actuals of your project ==
-    Module for a better project costs analysis.
-    ''',
     'data': [
         'security/ir.model.access.csv',
         'report/account_analytic_plan_actual_view.xml',

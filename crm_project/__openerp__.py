@@ -38,15 +38,6 @@
     'website': 'http://project.expert',
     'category': 'Project Management',
     'license': 'AGPL-3',
-    'description': """
-    CRM tasks and CRM leads connected to project,
-    crm cases tab on project view. In a project oriented
-    company, every activity and comunication is part of a
-    project thus all the leads and opportunities can be
-    tracked also from the project form and since the issues
-    are also a source of project communications, they're
-    added as well in the view.
-    """,
     'summary': '''CRM tasks and CRM leads connected to project''',
     'depends': ['crm_todo', 'project', 'project_issue'],
     'data': [
