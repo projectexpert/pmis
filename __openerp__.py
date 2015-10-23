@@ -20,27 +20,33 @@
 ##############################################################################
 
 {
-    "name": "Analytic Resource Planning - Purchase Requests",
-    "version": "1.0.1",
-    "author": "Eficent",
-    "website": "www.eficent.com",
-    "category": "Generic Modules/Projects & Services",
-    "depends": [
-        "analytic_resource_plan",
-        "analytic_location",
-        "purchase_request"
+    'name': 'Analytic Resource Planning - Purchase Requests',
+    'version': '8.0.1.0.1',
+    'author':   'Eficent, '
+                'Project Expert Team',
+    'contributors': [
+        'Jordi Ballester <jordi.ballester@eficent.com>',
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
-    "description": """
+    'website': 'http://project.expert',
+    'category': 'Project Management',
+    'license': 'AGPL-3',
+    'depends': [
+        'analytic_resource_plan',
+        'analytic_location',
+        'purchase_request'
+    ],
+    'description': '''
 Analytic Resource Planning - Purchase Requests
 ==============================================
 Module features:
     - Create purchase requests from analytic resource planning lines
 
-    """,
-    "data": [
-        "wizard/analytic_resource_plan_line_make_purchase_request.xml",
-        "views/purchase_request_view.xml",
-        "views/analytic_resource_plan_view.xml",
+    ''',
+    'data': [
+        'wizard/analytic_resource_plan_line_make_purchase_request.xml',
+        'views/purchase_request_view.xml',
+        'views/analytic_resource_plan_view.xml',
     ],
     'demo_xml': [],
     'test': [],
