@@ -89,8 +89,9 @@ class analytic_resource_plan_copy_version(osv.osv_memory):
                                                   context=context)
             new_line_plan_ids.append(new_line_plan_id)
 
-        line_plan_obj.write(cr, uid, new_line_plan_ids,
-                            {'version_id': dest_version_id[0]}, context=context)
+        line_plan_obj.write(
+            cr, uid, new_line_plan_ids,
+            {'version_id': dest_version_id[0]}, context=context)
 
         return {
             'domain': "[('id','in', ["+','.join(map(str, new_line_plan_ids))+"])]",

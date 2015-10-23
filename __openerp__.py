@@ -20,13 +20,19 @@
 ##############################################################################
 
 {
-    "name": "Analytic Resource Planning",
-    "version": "1.2.1",
-    "author": "Eficent",
-    "website": "www.eficent.com",
-    "category": "Generic Modules/Projects & Services",
-    "depends": ["account", "purchase", "analytic_plan"],
-    "description": """
+    'name': 'Analytic Resource Planning',
+    'version': '8.0.1.2.1',
+    'author':   'Eficent, '
+                'Project Expert Team',
+    'contributors': [
+        'Jordi Ballester <jordi.ballester@eficent.com>',
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
+    'website': 'http://project.expert',
+    'category': 'Project Management',
+    'license': 'AGPL-3',
+    'depends': ['account', 'purchase', 'analytic_plan'],
+    'description': '''
 Analytic Resource Planning
 ====================================
 An effective planning of the resources required for a project or analytic
@@ -45,13 +51,13 @@ supplier's price list.
 Multiple planning versions can be maintained for a resource plan, so that
 the organization can create a first rough-cut resource plan, that can then
 be refined as the project progresses.
-    """,
-    "data": [
-        "view/analytic_resource_plan_view.xml",
-        "view/analytic_account_view.xml",
-        "view/product_view.xml",
-        "view/project_view.xml",
-        "security/ir.model.access.csv",
+    ''',
+    'data': [
+        'view/analytic_resource_plan_view.xml',
+        'view/analytic_account_view.xml',
+        'view/product_view.xml',
+        'view/project_view.xml',
+        'security/ir.model.access.csv',
 
     ],
     'demo': [
