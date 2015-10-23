@@ -4,12 +4,12 @@
 Analytic billing plan
 =====================
 
-== Record planned sales and create sales orders  ==
+Record planned sales and create sales orders
+--------------------------------------------
 
-    Eficent brings you this module to automatically record the analytic
-    planned sales associated to sales orders.
+Automatically record the analytic planned sales associated to sales orders.
 
-    You can create sales orders out of the planned sales.
+You can create sales orders out of the planned sales.
 
 Credits
 =======

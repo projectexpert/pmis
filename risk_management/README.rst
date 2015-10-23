@@ -9,23 +9,23 @@ Originally developed by Tactix4 Ltd (version 7, http://www.tactix4.com) and Neov
 http://www.neovahealth.co.uk). This version is integrated with project_charter module by Matmoz d.o.o.
 (version 8, http://www.matmoz.si).
 
-       This module allows to manage risk in at least two different contexts:
+This module allows to manage risk in at least two different contexts:
 
-       1) Project Management
+    * Project Management
 
-       2) Business Continuity Planning
+    * Business Continuity Planning
 
-       A risk is always associated with a project and has an impact and probability assessment pre- and post-response
-       with resulting expected values (scores). Actions on risk are tasks, which can be identified easily in the
-       extended task view (Projects > Tasks) via the 'Action on Risk' filter and associated risk id. In addition,
-       tasks which are actions on risks are coloured green in the task list (tree) view.
+A risk is always associated with a project and has an impact and probability assessment pre- and post-response
+with resulting expected values (scores). Actions on risk are tasks, which can be identified easily in the
+extended task view (Projects > Tasks) via the 'Action on Risk' filter and associated risk id. In addition,
+tasks which are actions on risks are coloured green in the task list (tree) view.
 
-       Risk categories, response categories and proximity are set-up according to the PRINCE2 project methodology as
-       well as for Business Continuity Planning. They are easily changed via the 'Configuration' menu to get them in
-       accordance with PIP, SCRUM or DSDM.
+Risk categories, response categories and proximity are set-up according to the PRINCE2 project methodology as
+well as for Business Continuity Planning. They are easily changed via the 'Configuration' menu to get them in
+accordance with PIP, SCRUM or DSDM.
 
-       Besides the above mentioned information the following information can and ought to be documented as well:
-       Risk description, author, date registered, date modified, event, effect, cause and risk owner.
+Besides the above mentioned information the following information can and ought to be documented as well:
+Risk description, author, date registered, date modified, event, effect, cause and risk owner.
 
 Installation
 ============

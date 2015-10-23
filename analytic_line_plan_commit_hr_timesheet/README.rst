@@ -5,7 +5,8 @@
 Project Cost committed costs on timesheets
 ==========================================
 
-== Project Cost Planning Integration with HR Timesheets ==
+Project Cost Planning Integration with HR Timesheets
+----------------------------------------------------
 
 When timesheets are recorded, the corresponding cost is registered as a
 commitment cost.

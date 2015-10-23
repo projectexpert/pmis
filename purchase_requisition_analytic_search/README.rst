@@ -9,10 +9,13 @@ Organizations often require to integrate purchase requisitions with projects
 or contracts,and to find requisitions by searching by it the project/contract
 code, name or project/contract manager.
 This module adds the following features to purchase requisitions:
-* Adds the analytic account to the purchase requisition lines,
-* When the purchase order is created from the purchase requisition, it copies the analytic account.
-* Introduces the possibility to search purchase requisitions by analytic account or by project manager.
-* Introduces a new menu entry in Purchasing to list purchase requisition lines.
+    * Adds the analytic account to the purchase requisition lines.
+    * When the purchase order is created from the purchase requisition, it
+      copies the analytic account.
+    * Introduces the possibility to search purchase requisitions by
+      analytic account or by project manager.
+    * Introduces a new menu entry in Purchasing to list purchase
+      requisition lines.
 
 Installation
 ============

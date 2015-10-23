@@ -6,7 +6,7 @@ Analytic Resource Planning - Purchase Requests
 ==============================================
 
 Module features:
-    - Create purchase requests from analytic resource planning lines
+    * Create purchase requests from analytic resource planning lines
 
 
 Credits
