@@ -18,11 +18,10 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-
 {
     'name': 'Account Analytic Line of Business',
     'version': '8.0.1.0.1',
+    'summary': 'Introduce business segments in analytic accounts.',
     'author':   'Eficent, '
                 'Project Expert Team',
     'contributors': [
@@ -33,7 +32,6 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'depends': ['account', 'analytic', 'project_wbs'],
-    'summary': 'Introduce business segments in analytic accounts.',
     'data': [
         'security/ir.model.access.csv',
         'account_analytic_lob_view.xml',
@@ -43,4 +41,6 @@
 
     ],
     'installable': True,
+    'auto_install': False,
+    'application': False,
 }

@@ -21,6 +21,7 @@
 
 {
     'name': 'Invoice Analytic Search',
+    'summary': 'Search invoices by analytic account or by project manager',
     'version': '8.0.1.0.0',
     'author':   'Project Expert Team, '
                 'Eficent',
@@ -31,7 +32,6 @@
     'website': 'http://project.expert',
     'category': 'Project Management',
     'depends': ['analytic', 'account'],
-    'summary': 'Search invoices by analytic account or by project manager',
     'data': [
         'account_invoice_view.xml',
     ],
