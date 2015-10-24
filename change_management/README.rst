@@ -31,7 +31,7 @@ Contributors
 Maintainer
 ----------
 
-.. image:: http://www.project.expert/logo.png
+.. image:: http://www.matmoz.si/wp-content/uploads/2015/10/PME.png
    :alt: Project Expert
    :target: http://project.expert
 
