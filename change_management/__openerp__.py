@@ -21,7 +21,7 @@
 ##############################################################################
 {
     'name': 'Change Management',
-    'version': '8.0.2.5.0',
+    'version': '8.0.2.5.1',
     'author':   'Matmoz d.o.o., '
                 'Project Expert Team',
     'contributors': [
