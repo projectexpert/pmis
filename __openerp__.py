@@ -32,6 +32,14 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'depends': ['account', 'purchase', 'analytic_plan'],
+    'data': [
+        'view/analytic_resource_plan_view.xml',
+        'view/analytic_account_view.xml',
+        'view/product_view.xml',
+        'view/project_view.xml',
+        'security/ir.model.access.csv',
+
+    ],
     'demo': [
 
     ],
