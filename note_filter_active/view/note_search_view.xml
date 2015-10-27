@@ -8,7 +8,7 @@
       <field name="view_type">form</field>
       <field name="view_mode">kanban,tree,form</field>
       <field name="search_view_id" ref="note.view_note_note_filter"/>
-      <field name="domain">[('open', '=', True)]</field>
+      <field name="context">{'search_default_open_true': 1}</field>
       <field name="help" type="html">
           <p class="oe_view_nocontent_create">
             Click to add a personal note.
