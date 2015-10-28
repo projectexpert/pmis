@@ -22,7 +22,7 @@
 
 {
     'name': 'Profile PMIS',
-    'version': '8.0.1.1.1',
+    'version': '8.0.1.1.2',
     'sequence': 9,
     'summary': 'Project Management Information System',
     'author':   'Matmoz d.o.o., '
@@ -37,11 +37,15 @@
     'images': [],
     'depends': [
         'project_charter',
+        'account_invoice_debt_start_date',
+        'account_report_dept_start_date',
         'analytic_line_plan_commit_hr_timesheet',
         'analytic_line_plan_commit_purchase',
         'analytic_line_plan_commit_sale',
         'analytic_resource_plan_purchase_request',
+        'analytic_resource_plan_stock',
         'analytic_wip_report',
+        'analytic_schedule',
         'account_analytic_lob',
         'project_time_milestone',
         'project_time_schedule',
@@ -49,11 +53,9 @@
         'project_wbs_task',
         # 'sale_order_line_analytic_search',
         # 'purchase_order_analytic_search',
-        'account_invoice_debt_start_date',
         'crm_project',
         'crm_todo',
         'hr_timesheet_product',
-        'account_report_dept_start_date',
         'operations_board',
         'project_document_page',
         'project_task_issues',
