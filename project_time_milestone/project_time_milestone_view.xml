@@ -38,7 +38,7 @@
             <field name="help">Manage Project milestones</field>
         </record>
 
-        <menuitem action="action_view_milestone" id="menu_action_view_milestone" parent="project.menu_project_management" sequence="4"/>
+        <menuitem action="action_view_milestone" id="menu_action_view_milestone" parent="project.menu_action_view_task" sequence="4"/>
 	 	
         <record id="project.action_view_task" model="ir.actions.act_window">
             <field name="domain">[('milestone', '=', False)]</field>

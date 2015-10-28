@@ -23,7 +23,7 @@
 
 {
     'name': 'Tasks on CRM',
-    'version': '8.0.1.0.3',
+    'version': '8.0.1.0.4',
     'author':   'Matmoz d.o.o., '
                 'Project Expert Team',
     'contributors': [

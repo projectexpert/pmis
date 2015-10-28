@@ -22,7 +22,7 @@
 
 {
     'name': 'Project Time Management - Milestones',
-    'version': '8.0.1.0.0',
+    'version': '8.0.1.0.1',
     'author':   'Eficent, '
                 'Matmoz d.o.o., '
                 'Project Expert Team',

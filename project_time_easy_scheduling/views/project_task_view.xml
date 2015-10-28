@@ -136,7 +136,7 @@
 	        <field name="act_window_id" ref="action_view_activity"/>	        
 	   	</record>
 	   	
-        <menuitem action="action_view_activity" id="menu_action_view_activities" parent="project.menu_project_management" sequence="5"/>
+        <menuitem action="action_view_activity" id="menu_action_view_activities" parent="project.menu_action_view_task" sequence="1"/>
 
         <record model="ir.actions.act_window.view" id="action_view_activity_scheduling_tree">
 	        <field name="sequence" eval="1"/>
@@ -145,7 +145,7 @@
 	        <field name="act_window_id" ref="action_activity_scheduling_view"/>	      
 	   </record>
     
-        <menuitem action="action_activity_scheduling_view" id="menu_action_view_activity_scheduling" parent="project.menu_project_management" sequence="6"/>
+        <menuitem action="action_activity_scheduling_view" id="menu_action_view_activity_scheduling" parent="project.menu_action_view_task" sequence="2"/>
         
 		<act_window			            
             domain="[('project_id', '=', active_id)]"
