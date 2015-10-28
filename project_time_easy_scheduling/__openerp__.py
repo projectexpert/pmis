@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Analytic Resource Plan Stock',
+    'name': 'Project Easy Scheduling tool',
     'version': '8.0.1.0.0',
     'author':   'Eficent, '
                 'Project Expert Team',
@@ -11,13 +11,15 @@
     'website': 'http://project.expert',
     'category': 'Project Management',
     'license': 'AGPL-3',
-    'summary': 'Stock on Resource Plan',
+    'summary': 'Better project schedule by introducing an activities view',
     'depends': [
-        'analytic_resource_plan',
-        'stock'
+        'project_time_milestone',
+        'project_time_schedule',
+        'project_time_sequence',
+        'project_wbs',
     ],
     'data': [
-        'views/analytic_resource_plan_line_view.xml'
+        'views/project_task_view.xml'
     ],
     'test': [
     ],

@@ -1,0 +1,100 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_time_easy_scheduling
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-28 11:27+0000\n"
+"PO-Revision-Date: 2015-10-28 12:30+0100\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: sl\n"
+"X-Generator: Poedit 1.8.5\n"
+
+#. module: project_time_easy_scheduling
+#: model:ir.actions.act_window,name:project_time_easy_scheduling.action_view_activity
+#: model:ir.ui.menu,name:project_time_easy_scheduling.menu_action_view_activities
+msgid "Activities"
+msgstr "Aktivnosti"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_tree
+msgid "Activity"
+msgstr "Aktivnost"
+
+#. module: project_time_easy_scheduling
+#: model:ir.actions.act_window,name:project_time_easy_scheduling.action_activity_scheduling_view
+#: model:ir.ui.menu,name:project_time_easy_scheduling.menu_action_view_activity_scheduling
+msgid "Activity Scheduling"
+msgstr "Razporejanje aktivnosti"
+
+#. module: project_time_easy_scheduling
+#: model:ir.actions.act_window,name:project_time_easy_scheduling.act_project_2_easy_scheduling
+msgid "Easy scheduling"
+msgstr "Enostavni razpored"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_tree
+#: view:project.task:project_time_easy_scheduling.view_activity_tree
+msgid "For linking to a predecessor task"
+msgstr "Za povezavo s predhodnim opravilom"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_tree
+#: view:project.task:project_time_easy_scheduling.view_activity_tree
+msgid "Link"
+msgstr "Povezava"
+
+#. module: project_time_easy_scheduling
+#: model:ir.actions.act_window,help:project_time_easy_scheduling.action_view_activity
+msgid "Manage Project activities, including tasks and milestones"
+msgstr "Upravljanje projektnih aktivnosti vključno opravila in mejniki"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_tree
+#: view:project.task:project_time_easy_scheduling.view_activity_tree
+msgid "Predecessor IDs"
+msgstr "ID-ji predhodnih"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_tree
+#: view:project.task:project_time_easy_scheduling.view_activity_tree
+msgid "Predecessors"
+msgstr "Predhodna"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_tree
+msgid "Schedule network"
+msgstr "Razporedi omrežje"
+
+#. module: project_time_easy_scheduling
+#: model:ir.actions.act_window,help:project_time_easy_scheduling.action_activity_scheduling_view
+msgid "Schedule project activities, including tasks and milestones"
+msgstr "Razporedi projektne aktivnosti vključno opravila in mejniki"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_tree
+msgid "Scheduling"
+msgstr "Razporejanje"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_search
+#: view:project.task:project_time_easy_scheduling.view_activity_search
+msgid "Task Edition"
+msgstr "Urejanje opravila"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_search
+msgid "WBS Path code"
+msgstr "WBS koda"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_search
+msgid "WBS Path name"
+msgstr "WBS naziv"
