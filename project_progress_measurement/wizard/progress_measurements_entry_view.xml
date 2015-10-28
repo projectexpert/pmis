@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="progress_measurements_entry_form" model="ir.ui.view">
+            <field name="name">progress.measurements.entry.form</field>
+            <field name="model">progress.measurements.entry</field>
+            <field name="arch" type="xml">
+                <form string="Progress Measurements entry" version="7.0">
+                    <group>
+                        <field name="communication_date"/>
+                        <field name="progress_measurement_type_id"/>
+                    </group>
+                    <footer>
+                        <button string="Create" name="progress_measurements_open_window" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_progress_measurements_entry_form" model="ir.actions.act_window">
+            <field name="name">Enter non-aggregated progress Measurements</field>
+            <field name="res_model">progress.measurements.entry</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="view_id" ref="progress_measurements_entry_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <act_window name="Enter Progress Measurements"
+            res_model="progress.measurements.entry"
+            src_model="project.project"
+            view_mode="form"
+            target="new"
+            multi="True"
+            key2="client_action_multi"
+            id="action_progress_measurements_entry_form"/>
+
+    </data>
+</openerp>

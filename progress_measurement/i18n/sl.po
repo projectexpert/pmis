@@ -1,0 +1,227 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* progress_measurement
+#
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-29 16:02+0000\n"
+"PO-Revision-Date: 2015-08-03 13:08+0200\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian <translate@matmoz.si>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: sl\n"
+"X-Generator: Poedit 1.8.2\n"
+
+#. module: progress_measurement
+#: field:progress.measurement.type,active:0
+msgid "Active"
+msgstr "Aktivno"
+
+#. module: progress_measurement
+#: field:progress.measurement,communication_date_print:0
+msgid "Communication Date"
+msgstr "Datum objave"
+
+#. module: progress_measurement
+#: field:progress.measurement,communication_date:0
+msgid "Communication date"
+msgstr "Datum objave"
+
+#. module: progress_measurement
+#: field:progress.measurement,create_uid:0
+#: field:progress.measurement.type,create_uid:0
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: progress_measurement
+#: field:progress.measurement,create_date:0
+#: field:progress.measurement.type,create_date:0
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: progress_measurement
+#: help:progress.measurement,communication_date:0
+msgid "Date when the measurement was communicated"
+msgstr "Datum objave meritve"
+
+#. module: progress_measurement
+#: field:progress.measurement.type,default_max_value:0
+msgid "Default Maximum Value"
+msgstr "Privzeta najvišja vrednost"
+
+#. module: progress_measurement
+#: field:progress.measurement.type,is_default:0
+msgid "Default measurement type"
+msgstr "Privzeti tip meritve"
+
+#. module: progress_measurement
+#: model:ir.actions.act_window,help:progress_measurement.action_progress_measurement_type_tree
+msgid "Define the Progress Measurement Types."
+msgstr "Določi tipe meritve napredka"
+
+#. module: progress_measurement
+#: field:progress.measurement,name:0
+msgid "Description"
+msgstr "Opis"
+
+#. module: progress_measurement
+#: help:progress.measurement,name:0
+msgid "Description given to the measure"
+msgstr "Opis podan za meritev"
+
+#. module: progress_measurement
+#: field:progress.measurement,user_id:0
+msgid "Entered by"
+msgstr "Vnesel"
+
+#. module: progress_measurement
+#: constraint:progress.measurement.type:0
+msgid "Error! Default maximum value must be greater than precision value"
+msgstr ""
+"Napaka! Privzeta najvišja vrednost mora biti večja od vrednosti natančnosti"
+
+#. module: progress_measurement
+#: constraint:progress.measurement.type:0
+msgid "Error! The maximum percentage must not exceed 100"
+msgstr "Napaka! Maksimalni odstotek ne sme presegati 100"
+
+#. module: progress_measurement
+#: constraint:progress.measurement.type:0
+msgid "Error! The maximum value must be greater than 0"
+msgstr "Napaka! Najvišja vrednost mora biti večja od 0"
+
+#. module: progress_measurement
+#: constraint:progress.measurement.type:0
+msgid "Error! The precision value must be greater than 0"
+msgstr "Napaka! Vrednost natančnosti mora biti večja od 0"
+
+#. module: progress_measurement
+#: constraint:progress.measurement:0
+msgid ""
+"Error! The value is entered in a higher precision to thatdefined in the "
+"progress measurement type"
+msgstr ""
+"Napaka! Vrednost je podana v večji natančnosti, kot je podana v tipu meritve "
+"napredka"
+
+#. module: progress_measurement
+#: constraint:progress.measurement:0
+msgid ""
+"Error! The value must be less than the maximum permitted defined in the "
+"progress measurement type"
+msgstr ""
+"Napaka! Vrednost mora biti nižja od najvišje dovoljene vrednosti v tipu "
+"meritve napredka"
+
+#. module: progress_measurement
+#: field:progress.measurement,id:0 field:progress.measurement.type,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: progress_measurement
+#: help:progress.measurement.type,is_percent:0
+msgid ""
+"Indicates that progress measurements of this type are entered on a percent "
+"basis"
+msgstr "Kaže, da se meritve napredka tega tipa vnašajo v odstotkih"
+
+#. module: progress_measurement
+#: help:progress.measurement.type,is_default:0
+msgid "Indicates that this progress measurements is to be used by default"
+msgstr "Kaže, da je ta meritev napredka privzeta"
+
+#. module: progress_measurement
+#: help:progress.measurement.type,active:0
+msgid "Indicates that this type of progress can be used"
+msgstr "Kaže, da se lahko uporabi ta tip napredka"
+
+#. module: progress_measurement
+#: field:progress.measurement,write_uid:0
+#: field:progress.measurement.type,write_uid:0
+msgid "Last Updated by"
+msgstr "Zadnjič posodobil"
+
+#. module: progress_measurement
+#: field:progress.measurement,write_date:0
+#: field:progress.measurement.type,write_date:0
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: progress_measurement
+#: help:progress.measurement.type,default_max_value:0
+msgid ""
+"Maximum value that is permitted for the object being measured as a total "
+"measure of progress."
+msgstr ""
+"Najvišja dovoljena vrednost za merjeni objekt kot skupna meritev napredka."
+
+#. module: progress_measurement
+#: model:ir.actions.act_window,name:progress_measurement.action_progress_measurement_type_tree
+#: model:ir.ui.menu,name:progress_measurement.menu_progress_measurement_type_view
+msgid "Measurement Types"
+msgstr "Tipi meritev"
+
+#. module: progress_measurement
+#: field:progress.measurement.type,name:0
+msgid "Name"
+msgstr "Naziv"
+
+#. module: progress_measurement
+#: help:progress.measurement.type,name:0
+msgid "Name given to the progress measurement type"
+msgstr "Naziv tipa meritve napredka"
+
+#. module: progress_measurement
+#: field:progress.measurement.type,is_percent:0
+msgid "Percentage"
+msgstr "Odstotek"
+
+#. module: progress_measurement
+#: field:progress.measurement.type,precision:0
+msgid "Precision"
+msgstr "Natančnost"
+
+#. module: progress_measurement
+#: model:ir.model,name:progress_measurement.model_progress_measurement
+#: model:ir.ui.menu,name:progress_measurement.menu_progress_measurement_config
+msgid "Progress Measurement"
+msgstr "Meritev napredka"
+
+#. module: progress_measurement
+#: model:ir.model,name:progress_measurement.model_progress_measurement_type
+#: field:progress.measurement,progress_measurement_type:0
+#: view:progress.measurement.type:progress_measurement.view_progress_measurement_type_edit
+#: view:progress.measurement.type:progress_measurement.view_progress_measurement_type_search
+#: view:progress.measurement.type:progress_measurement.view_progress_measurement_type_tree
+msgid "Progress Measurement Type"
+msgstr "Tip meritve napredka"
+
+#. module: progress_measurement
+#: sql_constraint:progress.measurement.type:0
+msgid "Progress type name already exists"
+msgstr "Naziv tipa napredka že obstaja"
+
+#. module: progress_measurement
+#: field:progress.measurement,value:0
+msgid "Value"
+msgstr "Vrednost"
+
+#. module: progress_measurement
+#: help:progress.measurement.type,precision:0
+msgid ""
+"Value of increments permitted for the given progress measurement type "
+"measured as a total measure of progress."
+msgstr ""
+"Dovoljena vrednost prirastkov za dani tip meritve napredka merjenega kot "
+"skupna izmera napredka"
+
+#. module: progress_measurement
+#: help:progress.measurement,value:0
+msgid "Value of the measure"
+msgstr "Vrednost meritve"

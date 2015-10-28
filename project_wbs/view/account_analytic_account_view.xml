@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+#---------------------------------------------------------------------------------------------------------
+#   Extend the analytic account
+#---------------------------------------------------------------------------------------------------------
+        <record id="view_account_analytic_account_list" model="ir.ui.view">
+            <field name="name">account.analytic.account.list</field>
+            <field name="model">account.analytic.account</field>
+            <field name="type">tree</field>
+            <field eval="8" name="priority"/>
+            <field name="inherit_id" ref="account.view_account_analytic_account_list"/>
+            <field name="arch" type="xml">
+				<xpath expr="//tree" position="attributes">
+                    <attribute name="colors">grey:state in
+                        ('cancelled','close');blue:account_class ==
+                        'work_package'</attribute>
+                </xpath>
+                <field name="complete_name" position="before">
+                    <field name="complete_wbs_code" string="WBS code"/>
+                </field>
+                <field name="code" position="replace"/>
+                <field name="partner_id" position="after">
+            		<field name="account_class" string="Class" attrs="{'invisible':[('type','not in',['contract','template'])]}"/>
+                    <field name="stage_id"/>
+            	</field>
+            </field>
+        </record>
+
+        <record id="view_account_analytic_account_search" model="ir.ui.view">
+            <field name="name">account.analytic.account.search</field>
+            <field name="model">account.analytic.account</field>
+            <field name="type">search</field>
+            <field name="inherit_id" ref="account.view_account_analytic_account_search"/>
+            <field name="arch" type="xml">
+            	<field name="name" position="after">
+            		<field name="complete_wbs_name" string="WBS name"/>
+            		<field name="complete_wbs_code" string="WBS code"/>
+					<field name="account_class" string="Class"/>
+                    <field name="stage_id" domain="[]"/>
+            	</field>
+            </field>
+        </record>
+
+		<record id="view_account_analytic_account_tree" model="ir.ui.view">
+            <field name="name">account.analytic.account.tree</field>
+            <field name="model">account.analytic.account</field>
+            <field name="type">tree</field>
+            <field name="field_parent">child_complete_ids</field>
+            <field name="inherit_id" ref="account.view_account_analytic_account_tree"/>
+            <field name="arch" type="xml">
+				<xpath expr="//tree" position="attributes">
+                    <attribute name="colors">grey:state in
+                        ('cancelled','close');blue:account_class ==
+                        'work_package'</attribute>
+                </xpath>
+            	<field name="code" position="after">
+            		<field name="complete_wbs_code" string="WBS code"/>
+					<field name="account_class" string="Class"/>
+                    <field name="stage_id"/>
+            	</field>
+            </field>
+        </record>
+
+        <record id="view_account_analytic_account_form" model="ir.ui.view">
+            <field name="name">account.analytic.account.form</field>
+            <field name="model">account.analytic.account</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="arch" type="xml">
+            	<field name="code" position="after">
+            		<field name="account_class" string="Class"/>
+                    <field name="state" invisible="True"/>
+                    <field name="stage_id"/>
+            		<field name="complete_wbs_code" string="WBS code" readonly="1"/>
+            	</field>
+                <notebook position="inside">
+                    <page string="Child Stages" name="child_stages">
+                        <field name="child_stage_ids"/>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+
+
+    </data>
+</openerp>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="analytic_plan_version_P00" model="account.analytic.plan.version">
+            <field name="code">P00</field>
+            <field name="name">committed</field>
+            <field name="active">true</field>
+            <field name="default_committed">true</field>            
+        </record>    
+        <record id="analytic_plan_version_P01" model="account.analytic.plan.version">
+            <field name="code">P01</field>
+            <field name="name">Rough-cut</field>
+            <field name="active">true</field>            
+        </record>
+        <record id="analytic_plan_version_P02" model="account.analytic.plan.version">
+            <field name="code">P02</field>
+            <field name="name">Detailed</field>
+            <field name="active">true</field>
+            <field name="default_plan">true</field>
+        </record>
+        <record id="analytic_plan_version_S01" model="account.analytic.plan.version">
+            <field name="code">S01</field>
+            <field name="name">Simulation 1</field>
+            <field name="active">true</field>            
+        </record>        
+    </data>
+</openerp>

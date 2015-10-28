@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+#---------------------------------------------------------------------------------------------------------
+#   Add Project purchase line planning entries
+#---------------------------------------------------------------------------------------------------------
+       <record id="view_analytic_resource_plan_line_form" model="ir.ui.view">
+            <field name="name">analytic.resource.plan.line.form</field>
+            <field name="model">analytic.resource.plan.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+				<form string="Analytic resource plan line" version="7.0">
+					<header>
+                        <button name="action_button_draft" states="confirm"
+                                string="Draft" type="object"
+                                class="oe_highlight"/>
+                        <button name="action_button_confirm" states="draft"
+                                string="Confirm" type="object" class="oe_highlight"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+					<sheet string="Resource Plan Lines">
+                        <div class="oe_right oe_button_box" name="buttons">
+                        </div>
+                    <group>
+                        <group colspan="3" col="4">
+                            <field name="account_id" on_change="on_change_account_id(account_id)"/>
+                                <field name="name"/>
+                                <field name="date" readonly="True"/>
+                        </group>
+                        <group colspan="2" col="4" string="Product Information">
+                            <field name="product_id" on_change="on_change_product_id(product_id)"/>
+                            <field name="unit_amount"/>
+                            <field name="product_uom_id"/>
+                            <!--<field name="price_unit" required="True" on_change="on_change_price_unit_resource(price_unit)"/>-->
+                        </group>
+                        <!--<group colspan="2" col="4"  string="Analytic Information" groups="analytic.group_analytic_accounting">
+                            <field name="version_id"/>
+                            <field name="journal_id"/>
+                            <field name="ref"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="amount" colspan="4"/>
+                            <field name="general_account_id"/>
+                        </group>-->
+                    </group>
+                    <notebook>
+                        <page string="Notes" name="notes">
+                                <field name="notes"/>
+                            </page>
+                            <page string="Hierarchy" name="hierarchy">
+                                <group>
+                                    <field name="parent_id"/>
+                                </group>
+                                <group>
+                                    <field name="child_ids"/>
+                                </group>
+                            </page>
+                            <page string="Costs" name="costs">
+                                <field name="analytic_line_plan_ids"/>
+                            </page>
+                    </notebook>
+					</sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_analytic_resource_plan_line_tree" model="ir.ui.view">
+            <field name="name">analytic.resource.plan.line.tree</field>
+            <field name="model">analytic.resource.plan.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+				<tree string="Analytic resource plan line" editable="top" colors = "darkmagenta:has_child == True;blue:state=='draft'">
+                    <field name="account_id" on_change="on_change_account_id(account_id)"/>
+                    <field name="date" readonly="True"/>
+                    <field name="name" invisible="True"/>
+	                <field name="product_id" on_change="on_change_product_id(product_id)"/>
+                    <field name="name"/>
+					<field name="unit_amount"/>
+                    <field name="product_uom_id"/>
+                    <!--<field name="price_unit" required="True" on_change="on_change_price_unit_resource(price_unit)"/>-->
+                    <button name="action_button_draft" states="confirm"
+                            string="Draft" type="object"
+                            icon="gtk-ok"/>
+                    <button name="action_button_confirm" states="draft"
+                            string="Confirm" type="object"
+                            icon="gtk-go-forward"/>
+                    <field name="state"/>
+                    <field name="has_child"/>
+                    <field name="parent_id"/>
+	            </tree>
+            </field>
+        </record>
+        <record id="view_analytic_resource_plan_line_filter" model="ir.ui.view">
+            <field name="name">analytic.resource.plan.line.select</field>
+            <field name="model">analytic.resource.plan.line</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Search resource plan lines">
+                    <group col='6' colspan='5'>
+                        <field name="account_id"/>
+                        <field name="product_id"/>
+                        <field name="name"/>
+                        <field name="parent_id"/>
+                        <field name="state"/>
+                    </group>
+					<group name='filters' expand="0" string="Filters"/>
+                    <group name='group_by' expand="0" string="Group By...">
+                        <filter string="Parent" name="Parent"
+						context="{'group_by':'parent_id'}"/>
+						<filter string="Analytic Account"
+                                domain="[]"
+                                context="{'group_by':'account_id'}"/>
+                        <filter string="Product"
+                                domain="[]"
+                                context="{'group_by':'product_id'}"/>
+                        <filter string="Status"
+                                domain="[]"
+                                context="{'group_by':'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_analytic_resource_plan_line_open_form" model="ir.actions.act_window">
+            <field name="name">Plan resources</field>
+            <field name="res_model">analytic.resource.plan.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_analytic_resource_plan_line_filter" />
+        </record>
+        
+		<record model="ir.actions.act_window.view" id="action_analytic_resource_plan_line_tree">
+	        <field name="sequence" eval="1"/>
+	        <field name="view_mode">tree</field>
+	        <field name="view_id" ref="view_analytic_resource_plan_line_tree"/>
+	        <field name="act_window_id" ref="action_analytic_resource_plan_line_open_form"/>
+	   	</record>
+	   	
+	   	<record model="ir.actions.act_window.view" id="action_analytic_resource_plan_line_form2">
+	        <field name="sequence" eval="2"/>
+	        <field name="view_mode">form</field>
+	        <field name="view_id" ref="view_analytic_resource_plan_line_form"/>
+	        <field name="act_window_id" ref="action_analytic_resource_plan_line_open_form"/>
+	   	</record>
+
+<!--		<menuitem id="analytic_resource_plan_menu" name="Resource Plan"
+          parent="project.menu_project_management"
+          groups="project.group_project_manager"/>-->
+
+        <menuitem groups="project.group_project_manager,project.group_project_user"
+            action="action_analytic_resource_plan_line_open_form"
+            id="analytic_resource_plan_line_entries"
+            parent="analytic_plan.project_plan"
+            sequence="1"/>
+
+	</data>
+
+</openerp>

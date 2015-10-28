@@ -23,24 +23,16 @@
 
 {
     'name': 'Tasks on CRM',
-    'version': '1.0.3',
-    'category': 'Project Management',
-    'description': """
-Todo list for CRM leads and opportunities.
-==========================================
-Based on the original crm_todo by Openerp SA, migrated from the version 7 to
-the version 8 by Matmoz d.o.o. and enhanced to interact with crm_project_task
-for a better integration of CRM with project management.
-    """,
-    'license': "AGPL-3",
+    'version': '8.0.1.0.3',
+    'author':   'Matmoz d.o.o., '
+                'Project Expert Team',
     'contributors': [
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
+    'website': 'http://project.expert',
+    'category': 'Project Management',
+    'license': 'AGPL-3',
     'summary': '''Todo list for CRM leads and opportunities''',
-    'website':  'http://www.matmoz.si',
-    'author':   'OpenERP SA, '
-                'Matmoz d.o.o.',
-    'website': 'http://www.matmoz.si',
     'depends': ['crm', 'project_gtd'],
     'data': ['crm_todo_view.xml'],
     'demo': ['crm_todo_demo.xml'],

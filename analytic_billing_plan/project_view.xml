@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="edit_project" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <xpath expr='//div[@name="buttons"]' position='inside'>
+                    <button help="Billing plan lines"
+                        class="oe_inline oe_stat_button"
+                        name="%(action_analytic_billing_plan_line_open_form)d"
+                        type="action"
+                        icon="fa-money"
+                        context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
+                        groups="project.group_project_user, project.group_project_manager">
+                    <div>Billing plan</div>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+
+        <act_window
+            name="Billing plan lines"
+            id="billing_plan_line_action_project"
+            res_model="analytic.billing.plan.line"
+            src_model="project.project"
+            context="{'default_account_id': analytic_account_id,'search_default_account_id': [analytic_account_id]}"
+            groups="project.group_project_user,project.group_project_manager"/>
+
+    </data>
+
+</openerp>

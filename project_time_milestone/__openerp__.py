@@ -21,27 +21,21 @@
 
 
 {
-    "name": "Project Time Management - Milestones",
-    "version": "1.0",
-    "author":   "Eficent,"
-                "Matmoz d.o.o.",
-    "website":  "http://www.eficent.com ,"
-                "http://www.matmoz.si",
-    'license': "AGPL-3",
+    'name': 'Project Time Management - Milestones',
+    'version': '8.0.1.0.0',
+    'author':   'Eficent, '
+                'Matmoz d.o.o., '
+                'Project Expert Team',
     'contributors': [
+        'Jordi Ballester <jordi.ballester@eficent.com>',
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
-    "category": "Project Management",
-    "depends": ["project", "project_time_schedule", "project_charter"],
-    "description": """
-        This module introduces the possibility to classify tasks as milestones.
-        - It is possible to introduce the Project Percentage of Completion and
-          the invoice percentage for informative purposes.
-        - A separate entry is created in the menu to register milestones.
-        - The project form is extended to add a 'Milestones' tab.
-    """,
-    "data": [
-        "project_time_milestone_view.xml",
+    'website': 'http://project.expert',
+    'category': 'Project Management',
+    'license': 'AGPL-3',
+    'depends': ['project', 'project_time_schedule', 'project_charter'],
+    'data': [
+        'project_time_milestone_view.xml',
     ],
     'demo': [
 

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Project responsibilities -->
+        
+        <record id="view_project_hr_responsibility_search" model="ir.ui.view">
+            <field name="name">project.hr.responsibility.search</field>
+            <field name="model">project.hr.responsibility</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Project Responsibility">
+                	<field name="code"/>                     
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>        
+        
+        <record id="view_project_hr_responsibility_edit" model="ir.ui.view">
+            <field name="name">project.hr.responsibility.form</field>
+            <field name="model">project.hr.responsibility</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Project Responsibility">
+                	<field name="code"/> 
+                    <field name="name"/>                    
+                    <separator string="Description" colspan="4"/>
+                    <field colspan="4" name="description" nolabel="1"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_project_hr_responsibility_tree" model="ir.ui.view">
+            <field name="name">project.hr.responsibility.tree</field>
+            <field name="model">project.hr.responsibility</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Project Responsibility">     
+                	<field name="code"/>                
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_project_hr_responsibility_tree" model="ir.actions.act_window">
+            <field name="name">Responsibilities</field>
+            <field name="res_model">project.hr.responsibility</field>
+            <field name="view_id" ref="view_project_hr_responsibility_tree"/>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_project_hr_responsibility_search"/>     
+            <field name="help">Define the responsibilities for stakeholders in projects.</field>
+        </record>
+
+        <!--<menuitem id="menu_responsibilities_config" name="Responsibilities" parent="base.menu_definitions" sequence="1"/>-->
+        <menuitem action="action_project_hr_responsibility_tree" id="menu_project_hr_responsibility_view" parent="project_charter.menu_stakeholders_config" sequence="1"/>                  	                    
+    </data>
+</openerp>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Project stakeholders -->
+        
+        
+        <record id="project_hr_stakeholder_edit" model="ir.ui.view">
+            <field name="name">project.hr.stakeholder.form</field>
+            <field name="model">project.hr.stakeholder</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Stakeholders">
+                	<group colspan="4" col="4">
+	                    <field name="project_id"/>	                                
+	                    <field name="partner_id"/>  	                    
+					</group>
+					<newline/>						                                        
+                    <group colspan="6" col="6">
+                    	<separator string="Roles and responsibilities" colspan="6"/>
+	                    <field name="role_ids" mode="tree,form" colspan="6"/>      
+	                    <field name="responsibility_ids" mode="tree,form" colspan="6"/>
+	                </group>									                
+	                <group colspan="6" col="6">	                                        
+	                    <field name="influence"/>	                    
+					</group>	                	        
+                </form>
+            </field>
+        </record>
+
+        <record id="project_hr_stakeholder_tree" model="ir.ui.view">
+            <field name="name">project.hr.stakeholder.tree</field>
+            <field name="model">project.hr.stakeholder</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Stakeholders">   
+                	<field name="project_id"/>                   	  
+                	<field name="partner_id"/>
+                	<field name="name"/>              
+                    <field name="role_ids" widget="many2many_tags"/>                                        
+					<field name="responsibility_ids" widget="many2many_tags"/>
+					<field name="influence"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="project_hr_stakeholder_tree_2" model="ir.ui.view">
+            <field name="name">project.hr.stakeholder.tree</field>
+            <field name="model">project.hr.stakeholder</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Stakeholders">
+                	<field name="project_id"/>                 	         
+                	<field name="partner_id"/>
+                	<field name="name"/>               
+                    <field name="role_ids" widget="many2many_tags"/>                                        
+					<field name="responsibility_ids" widget="many2many_tags"/>
+					<field name="influence"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_project_hr_stakeholder_search" model="ir.ui.view">
+            <field name="name">project.hr.stakeholder.search</field>
+            <field name="model">project.hr.stakeholder</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Project Stakeholders">
+                	<group col="3" colspan="3">
+                		<field name="project_id"/>                   		       
+                		<field name="partner_id"/>
+                		<field name="name"/>  
+                	</group>
+                	<newline/>
+                	<group col="3" colspan="3">
+	                	<field name="role_ids"/>      
+		                <field name="responsibility_ids"/>
+		                <field name="influence"/>
+		            </group>
+					<group expand="0" string="Group By">
+                        <filter string="Project" name="Project" context="{'group_by':'project_id'}"/>
+						<filter string="Partner" name="Partner" context="{'group_by':'partner_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>      
+
+        <record id="action_project_hr_stakeholder_tree" model="ir.actions.act_window">
+            <field name="name">Project Stakeholders</field>
+            <field name="res_model">project.hr.stakeholder</field>
+            <field name="view_id" ref="project_hr_stakeholder_tree_2"/>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_project_hr_stakeholder_search"/>     
+            <field name="help">Define the responsibilities for stakeholders in projects.</field>
+        </record>
+
+        <menuitem id="project_hr_stakeholder_menu" 
+			name="Stakeholders" 
+			parent="analytic_plan.project_plan" 
+			sequence="2"
+			groups="project.group_project_manager,project.group_project_user" />
+		
+        <menuitem action="action_project_hr_stakeholder_tree" 
+        		id="menu_project_hr_stakeholder_view" 
+        		parent="project_hr_stakeholder_menu" 
+        		sequence="10"/>
+           
+    </data>
+</openerp>

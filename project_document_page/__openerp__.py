@@ -23,19 +23,17 @@
 ##############################################################################
 {
     'name': 'Document pages for project',
-    'version': '0.2',
-    'category': 'Project Management',
-    'description': """This module allows linking of document pages to projects
-        Based on the original project_wiki module from OpenERP 6.1 version
-        by Agile Business Group""",
+    'version': '8.0.1.0.2',
     'author':   'Agile Business Group, '
-                'Matmoz d.o.o.',
-    'website':  'http://www.agilebg.com',
-    'website':  'http://www.matmoz.si',
-    'license': "AGPL-3",
+                'Matmoz d.o.o., '
+                'Project Expert Team',
     'contributors': [
+        'Lorenzo Battistini <lorenzo.battistini@domsense.com>',
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
+    'website': 'http://project.expert',
+    'category': 'Project Management',
+    'license': 'AGPL-3',
     "depends": ['project', 'document_page'],
     "data": ['project_view.xml'],
     "qweb": [],
@@ -44,4 +42,3 @@
     "active": False,
     "installable": True
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -22,38 +22,40 @@
 
 {
     'name': 'Profile PMIS',
-    'version': '1.1',
-    'category': 'Project Management',
+    'version': '8.0.1.1.2',
     'sequence': 9,
     'summary': 'Project Management Information System',
-    'description': """
-Installs the dependencies needed to set up a Project Management
-Information System on Odoo framework. Manual setup is needed to
-set the planning accounts on products and human resources.
-        """,
-    'author': 'Matmoz d.o.o.',
-    'website': 'http://www.matmoz.si',
+    'author':   'Matmoz d.o.o., '
+                'Project Expert Team',
+    'contributors': [
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
+    'website': 'http://project.expert',
+    'category': 'Project Management',
+    'license': 'AGPL-3',
     'complexity': 'easy',
     'images': [],
     'depends': [
         'project_charter',
+        'account_invoice_debt_start_date',
+        'account_report_dept_start_date',
         'analytic_line_plan_commit_hr_timesheet',
         'analytic_line_plan_commit_purchase',
         'analytic_line_plan_commit_sale',
         'analytic_resource_plan_purchase_request',
+        'analytic_resource_plan_stock',
         'analytic_wip_report',
+        'analytic_schedule',
         'account_analytic_lob',
         'project_time_milestone',
         'project_time_schedule',
         'project_time_sequence',
         'project_wbs_task',
-        'sale_order_line_analytic_search',
-        'purchase_order_analytic_search',
-        'account_invoice_debt_start_date',
+        # 'sale_order_line_analytic_search',
+        # 'purchase_order_analytic_search',
         'crm_project',
         'crm_todo',
         'hr_timesheet_product',
-        'account_report_dept_start_date',
         'operations_board',
         'project_document_page',
         'project_task_issues',
@@ -61,7 +63,12 @@ set the planning accounts on products and human resources.
         'change_management',
         'crm_change_request',
         'issue_change_request',
-        'purchase_request_to_rfq'
+        'purchase_request_to_rfq',
+        'gantt_improvement',
+        'web_sheet_full_width',
+        'web_dialog_size',
+        'web_export_view',
+        'web_advanced_search_x2x'
     ],
     'data': [],
     'test': [],
@@ -69,5 +76,4 @@ set the planning accounts on products and human resources.
     'installable': True,
     'auto_install': False,
     'application': True,
-    'license': 'AGPL-3',
 }

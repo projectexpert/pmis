@@ -24,27 +24,18 @@
 
 {
     'name': 'Invoice Start Debt Relation Date',
-    'version': '1.2.1',
+    'version': '8.0.1.2.1',
     'category': 'Accounting',
-    'description': """
-    This module adds two new date fields on invoice.
-
-    According to Slovenian accounting standards old 'invoice_date' field on
-    invoice acts as start debt relation date, while new 'invoice_date_creation'
-    field serves as date of invoice.
-
-    New field 'invoice_date_recieved' also exist on supplier invoices.
-    """,
-    'author':   "Mentis d.o.o., "
-                "Matmoz d.o.o.",
-    'license': "AGPL-3",
+    'author':   'Mentis d.o.o., '
+                'Matmoz d.o.o., '
+                'Project Expert Team',
+    'license': 'AGPL-3',
     'contributors': [
         'Dušan Laznik <laznik@mentis.si>',
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
     'summary': '''Debt start date on invoice different than invoice date''',
-    'website':  'http://www.mentis.si',
-    'website':  'http://www.matmoz.si',
+    'website':  'http://project.expert',
     'depends': ['account'],
     'data': ['views/account_invoice_view.xml'],
     'demo': [],

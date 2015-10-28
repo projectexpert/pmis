@@ -1,0 +1,164 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_analytic_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-02 12:40+0000\n"
+"PO-Revision-Date: 2015-10-02 14:45+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: sl\n"
+"X-Generator: Poedit 1.8.5\n"
+
+#. module: stock_analytic_account
+#: model:ir.actions.act_window,help:stock_analytic_account.action_picking_out_analytic_tree
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create a delivery order.\n"
+"              </p><p>\n"
+"                This is the list of all delivery orders that have to be\n"
+"                prepared, according to your different sales orders and your\n"
+"                logistics rules.\n"
+"              </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Ustvari nabavni nalog.\n"
+"              </p><p>\n"
+"                To je seznam dostavnih nalogov, ki se jih mora\n"
+"                pripraviti, glede na različne prodajne naloge in vaša\n"
+"                logistična pravila.\n"
+"              </p>\n"
+"            "
+
+#. module: stock_analytic_account
+#: model:ir.actions.act_window,help:stock_analytic_account.action_picking_in_analytic_tree
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create an incoming shipment.\n"
+"              </p><p>\n"
+"                The Incoming Shipments is the list of all orders you will\n"
+"                receive from your suppliers. An incoming shipment contains a\n"
+"                list of products to be received according to the original\n"
+"                purchase order.\n"
+"              </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Ustvari vhodno pošiljko.\n"
+"              </p><p>\n"
+"                Vhodne pošiljke so seznam vseh nalogov, ki bodo\n"
+"                prejeti od dobaviteljev. Vhodna pošiljka vsebuje seznam\n"
+"                proizvodov, ki bodo prejeti skladno z izvornim\n"
+"                nabavnim nalogom.\n"
+"              </p>\n"
+"            "
+
+#. module: stock_analytic_account
+#: model:ir.model,name:stock_analytic_account.model_account_analytic_account
+#: field:stock.change.product.qty,analytic_account_id:0
+#: field:stock.inventory.line,analytic_account_id:0
+#: field:stock.move,analytic_account_id:0
+#: field:stock.picking,analytic_account_ids:0
+msgid "Analytic Account"
+msgstr "Analitični konto"
+
+#. module: stock_analytic_account
+#: model:ir.model,name:stock_analytic_account.model_stock_change_product_qty
+msgid "Change Product Quantity"
+msgstr "Sprememba količine proizvoda"
+
+#. module: stock_analytic_account
+#: model:ir.actions.act_window,name:stock_analytic_account.action_picking_out_analytic_tree
+msgid "Delivery Orders"
+msgstr "Dostavni nalogi"
+
+#. module: stock_analytic_account
+#: constraint:stock.inventory.line:0
+msgid "Duplicate line detected"
+msgstr "Zaznan je dvojnik postavke"
+
+#. module: stock_analytic_account
+#: model:ir.actions.act_window,name:stock_analytic_account.action_picking_in_analytic_tree
+msgid "Incoming Shipments"
+msgstr "Vhodne pošiljke"
+
+#. module: stock_analytic_account
+#: model:ir.model,name:stock_analytic_account.model_stock_inventory
+msgid "Inventory"
+msgstr "Inventar"
+
+#. module: stock_analytic_account
+#: model:ir.model,name:stock_analytic_account.model_stock_inventory_line
+msgid "Inventory Line"
+msgstr "Postavka inventarja"
+
+#. module: stock_analytic_account
+#: model:ir.model,name:stock_analytic_account.model_stock_location
+msgid "Inventory Locations"
+msgstr "Lokacije inventarja"
+
+#. module: stock_analytic_account
+#: field:account.analytic.account,move_ids:0
+msgid "Moves for this analytic account"
+msgstr "Premiki za ta analitičen konto"
+
+#. module: stock_analytic_account
+#: model:ir.model,name:stock_analytic_account.model_stock_picking
+msgid "Picking List"
+msgstr "Zbirnik"
+
+#. module: stock_analytic_account
+#: model:ir.model,name:stock_analytic_account.model_product_product
+msgid "Product"
+msgstr "Proizvod"
+
+#. module: stock_analytic_account
+#: field:stock.move,analytic_account_user_id:0
+#: field:stock.picking,analytic_account_user_ids:0
+msgid "Project Manager"
+msgstr "Upravitelj projekta"
+
+#. module: stock_analytic_account
+#: field:stock.move,analytic_reserved:0
+msgid "Reserved"
+msgstr "Rezervirano"
+
+#. module: stock_analytic_account
+#: help:stock.move,analytic_reserved:0
+msgid "Reserved for the Analytic Account"
+msgstr "Rezervirano za analitični konto"
+
+#. module: stock_analytic_account
+#: view:account.analytic.account:stock_analytic_account.view_account_analytic_account_form_stock_move
+msgid "Stock"
+msgstr "Zaloga"
+
+#. module: stock_analytic_account
+#: model:ir.model,name:stock_analytic_account.model_stock_move
+msgid "Stock Move"
+msgstr "Premik zaloge"
+
+#. module: stock_analytic_account
+#: view:account.analytic.account:stock_analytic_account.view_account_analytic_account_form_stock_move
+#: model:ir.actions.act_window,name:stock_analytic_account.act_analytic_account_2_stock_move
+#: model:ir.actions.act_window,name:stock_analytic_account.analytic_account_stock_move
+msgid "Stock Moves"
+msgstr "Premiki zaloge"
+
+#. module: stock_analytic_account
+#: help:account.analytic.account,use_reserved_stock:0
+msgid "Stock with reference to this analytic account is considered to be reserved."
+msgstr "Zaloga s sklicem na ta analitični konto je rezervirana."
+
+#. module: stock_analytic_account
+#: field:account.analytic.account,use_reserved_stock:0
+msgid "Use reserved stock"
+msgstr "Uporabi rezervirano zalogo"

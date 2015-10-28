@@ -1,0 +1,173 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* analytic_wip_report
+#
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-24 13:18+0200\n"
+"PO-Revision-Date: 2015-09-24 13:18+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian <translate@matmoz.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.8.4\n"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Account Name"
+msgstr "Naziv konta"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Actual Billings to Date"
+msgstr "Dejanski obračuni do zdaj"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,actual_billings:0
+msgid "Actual Billings to date"
+msgstr "Dejanski obračuni do zdaj"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Actual Costs to Date"
+msgstr "Dejanski stroški do zdaj"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,percent_complete:0
+msgid "Actual Costs to Date / Total Estimated Costs"
+msgstr "Dejanski stroški do zdaj / Skupni predvideni stroški"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,actual_costs:0
+msgid "Actual Costs to date"
+msgstr "Dejanski stroški do zdaj"
+
+#. module: analytic_wip_report
+#: model:ir.model,name:analytic_wip_report.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Analitični konto"
+
+#. module: analytic_wip_report
+#: view:account.analytic.account:analytic_wip_report.view_account_analytic_account_wip_tree
+msgid "Analytic account"
+msgstr "Analitični konto"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Code"
+msgstr "Koda"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Earned Revenue to Date"
+msgstr "Prisluženi prihodki do zdaj"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,earned_revenue:0
+msgid "Earned Revenue to date"
+msgstr "Prisluženi prihodki do zdaj"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,estimated_costs_to_complete:0
+#: report:analytic.wip:0
+msgid "Estimated Costs to Complete"
+msgstr "Ocena stroškov do dokončanja"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,estimated_gross_profit:0
+#: report:analytic.wip:0
+msgid "Estimated Gross Profit"
+msgstr "Ocena bruto dobička"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Over Billings"
+msgstr "Prekomerno zaračunano"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,over_billings:0
+msgid "Over billings"
+msgstr "Prekomerno zaračunano"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,percent_complete:0 report:analytic.wip:0
+msgid "Percent Complete"
+msgstr "Odstotek dokončanja"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,earned_revenue:0
+msgid "Percent Complete * Total Estimated Revenue"
+msgstr "Odstotek dokončanja * Skupni predvideni prihodki"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,under_billings:0
+msgid "Total Billings on Contract – Earned Revenue to Date (when < 0 )"
+msgstr "Skupaj obračunano na pogodbi - Prisluženi prihodki do zdaj (ko < 0)"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,over_billings:0
+msgid "Total Billings on Contract – Earned Revenue to Date (when > 0 )"
+msgstr "Skupaj obračunano na pogodbi - Prisluženi prihodki do zdaj (ko > 0)"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,total_estimated_costs:0 report:analytic.wip:0
+msgid "Total Estimated Costs"
+msgstr "Skupaj predvideni stroški"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,estimated_costs_to_complete:0
+msgid "Total Estimated Costs – Actual Costs to Date"
+msgstr "Skupaj predvideni stroški - Dejanski stroški do zdaj"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,total_value:0
+msgid "Total Value"
+msgstr "Skupna vrednost"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,estimated_gross_profit:0
+msgid "Total Value – Total Estimated Costs"
+msgstr "Skupna vrednost - Skupaj predvideni stroški"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,total_value:0
+msgid "Total estimated revenue of the contract"
+msgstr "Skupaj predvideni prihodki za pogodbo"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,actual_billings:0
+msgid "Total invoiced amount issued to the customer to date"
+msgstr "Skupaj zneski zaračunani kupcu do danes"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Total value"
+msgstr "Skupna vrednost"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Under Billings"
+msgstr "Premalo zaračunano"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,under_billings:0
+msgid "Under billings"
+msgstr "Premalo zaračunano"
+
+#. module: analytic_wip_report
+#: model:ir.actions.act_window,name:analytic_wip_report.action_account_analytic_account_wip_form
+#: model:ir.actions.report.xml,name:analytic_wip_report.analytic_wip_report_print
+#: model:ir.ui.menu,name:analytic_wip_report.account_analytic_account_wip
+msgid "Work In Progress Statement"
+msgstr "Izkaz napredovanja del"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Work In Progress Statement -"
+msgstr "Izkaz napredovanja del -"

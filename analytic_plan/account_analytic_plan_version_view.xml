@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+#---------------------------------------------------------------------------------------------------------
+#   Analytic Journal
+#---------------------------------------------------------------------------------------------------------
+        <record id="view_account_analytic_plan_version_tree" model="ir.ui.view">
+            <field name="name">account.analytic.plan.version.tree</field>
+            <field name="model">account.analytic.plan.version</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Analytic Planning Version">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="active"/>                                    
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_account_analytic_plan_version_search" model="ir.ui.view">
+            <field name="name">account.analytic.plan.version.search</field>
+            <field name="model">account.analytic.plan.version</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Analytic Planning Version">
+                  <group>
+                      <field name="code"/>
+                      <field name="name"/>                                      
+                  </group>
+                  <group string="Group By..." expand="0">
+                   	<filter string="Active" context="{'group_by':'active'}"/>                   	
+                  </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_account_analytic_plan_version_form" model="ir.ui.view">
+            <field name="name">account.analytic.plan.version.form</field>
+            <field name="model">account.analytic.plan.version</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Analytic Planning Version">
+                    <field name="name"/>
+                    <field name="code"/>                    
+                    <field name="active"/>  
+ 					<field name="default_committed"/>
+					<field name="default_plan"/> 					                                     
+                    <field name="company_id" groups="base.group_multi_company" widget="selection"/>                   
+                    <notebook>
+	                    <page string="Notes" name="notes">
+	                    	<field name="notes"/>
+	                    </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        <record id="action_account_analytic_plan_version_form" model="ir.actions.act_window">
+            <field name="name">Analytic Planning Versions</field>
+            <field name="res_model">account.analytic.plan.version</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_account_analytic_plan_version_search"/>            
+        </record>
+        <menuitem groups="analytic.group_analytic_accounting" 
+        	action="action_account_analytic_plan_version_form" 
+        	id="account_analytic_plan_version" 
+        	parent="account.menu_analytic_accounting"/>         	                    
+    </data>
+</openerp>

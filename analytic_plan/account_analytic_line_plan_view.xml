@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+	
+                 	
+#---------------------------------------------------------------------------------------------------------
+#   Add Plan analytic account lines
+#---------------------------------------------------------------------------------------------------------
+       <record id="view_account_analytic_line_plan_form" model="ir.ui.view">
+            <field name="name">account.analytic.line.plan.form</field>
+            <field name="model">account.analytic.line.plan</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Analytic Entry" version="7.0">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="account_id"/>
+                            <field name="journal_id"/>
+                            <field name="version_id"/>
+                            <field name="user_id"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="ref"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Amount">
+                            <field name="amount_currency" on_change="on_change_amount_currency(amount_currency, currency_id, company_id)"/>
+                            <field name="currency_id" on_change="on_change_amount_currency(amount_currency, currency_id, company_id)"/>
+                            <field name="amount"/>
+                        </group>
+                        <group string="Product Information">
+                            <field name="product_id" on_change="on_change_product_id(product_id, unit_amount, currency_id, company_id, product_uom_id, journal_id)"/>
+                            <label for="unit_amount"/>
+                            <div>
+                                <field name="unit_amount" on_change="on_change_unit_amount(product_id, unit_amount, currency_id, company_id, product_uom_id, journal_id)" class="oe_inline"/>
+                                <field name="product_uom_id" on_change="on_change_unit_amount(product_id, unit_amount, currency_id, company_id, product_uom_id, journal_id)" class="oe_inline"/>
+                            </div>
+                        </group>
+                        <group string="General Accounting">
+                            <field name="general_account_id"/>
+                        </group>                        
+                    </group>
+                    <notebook>
+                    <page string="Notes" name="notes">
+                    	<field name="notes"/>
+                    </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        <record id="view_account_analytic_line_plan_tree" model="ir.ui.view">
+            <field name="name">account.analytic.line.plan.tree</field>
+            <field name="model">account.analytic.line.plan</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Analytic Entries" editable="top">
+                    <field name="account_id"/>
+                    <field name="date"/>                    
+                    <field name="name"/>
+                    <field name="journal_id" invisible="False"/>     
+                    <field name="version_id"/>               
+                    <field name="product_id" on_change="on_change_product_id(product_id, unit_amount, currency_id, company_id, product_uom_id, journal_id)"/>
+                    <field name="unit_amount" on_change="on_change_unit_amount(product_id, unit_amount, currency_id, company_id, product_uom_id, journal_id)" sum="Total Quantity" invisible="False"/>
+                    <field name="product_uom_id" on_change="on_change_unit_amount(product_id, unit_amount, currency_id, company_id, product_uom_id, journal_id)" invisible="False"/>
+                    <field name="amount_currency" on_change="on_change_amount_currency(amount_currency, currency_id, company_id)"/>
+                    <field name="currency_id" on_change="on_change_amount_currency(amount_currency, currency_id, company_id)"/>
+                    <field name="amount" sum="Total"/>
+                    <field name="company_id" invisible="True"/>
+                    <field name="general_account_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_account_analytic_line_plan_filter" model="ir.ui.view">
+            <field name="name">account.analytic.line.plan.select</field>
+            <field name="model">account.analytic.line.plan</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+				<search string="Search Planning Analytic Lines">
+                    <field name="name" string="Analytic Line"/>
+                    <field name="date"/>
+                    <filter name="sales" string="Sales" domain="[('journal_id.type','=','sale')]" help="Analytic Journal Items related to a sale journal."/>
+                    <filter name="purchases" string="Purchases" domain="[('journal_id.type','=','purchase')]" help="Analytic Journal Items related to a purchase journal."/>
+                    <filter name="others" string="Others" domain="[('journal_id.type','in',('cash','general','situation'))]"/>
+                    <separator/>
+                    <filter string="My Entries" domain="[('user_id','=',uid)]"/>
+                    <field name="account_id"/>
+                    <field name="user_id"/>
+                    <group string="Group By..." expand="0">
+                        <filter string="Analytic Account" context="{'group_by':'account_id'}"/>
+                        <filter string="Fin. Account" context="{'group_by':'general_account_id'}"/>
+                        <filter string="Journal" context="{'group_by':'journal_id'}" name="group_journal"/>
+                        <filter string="Version" context="{'group_by':'version_id'}" name="group_version"/>
+                        <separator/>
+                        <filter string="Product" context="{'group_by':'product_id'}"/>
+                        <filter string="User" context="{'group_by':'user_id'}"/>
+                        <separator/>
+                        <filter string="Date" context="{'group_by':'date'}" name="group_date"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="view_account_analytic_line_plan_graph" model="ir.ui.view">
+            <field name="name">account.analytic.line.plan.graph</field>
+            <field name="model">account.analytic.line.plan</field>
+            <field name="arch" type="xml">
+                <graph string="Analytic line planning" type="bar">
+                    <field name="date"/>
+                    <field name="product_id" group="True"/>
+                    <field name="amount" operator="+"/>
+                </graph>
+             </field>
+        </record>
+
+        <record id="action_account_analytic_line_plan_form" model="ir.actions.act_window">
+            <field name="name">Planning Analytic Entries</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.analytic.line.plan</field>
+            <field name="view_type">form</field>
+            <field name="context">{"search_default_user_id":uid}</field>
+            <field name="view_id" ref="view_account_analytic_line_plan_tree"/>
+        </record>
+        
+
+#---------------------------------------------------------------------------------------------------------
+#   Open journal entries
+#---------------------------------------------------------------------------------------------------------
+
+        <record id="action_account_analytic_plan_journal_open_form" model="ir.actions.act_window">
+            <field name="name">Analytic Journal Plan Items</field>
+            <field name="res_model">account.analytic.line.plan</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="search_view_id" ref="view_account_analytic_line_plan_filter" />
+        </record>
+        
+        <menuitem groups="analytic.group_analytic_accounting"
+            action="action_account_analytic_plan_journal_open_form"
+            id="account_analytic_plan_journal_entries"
+            parent="account.menu_finance_entries" 
+            sequence="7"/>
+
+    </data>
+</openerp>

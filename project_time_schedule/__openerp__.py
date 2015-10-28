@@ -21,46 +21,21 @@
 
 
 {
-    "name": "Project Time Management - Activity Scheduling",
-    "version": "1.0",
-    "author": "Eficent",
-    "website": "http://www.eficent.com",
-    "category": "Project Management",
-    "depends": ["project"],
-    "description": """
-- The user accesses from Project - Project – Tasks to the list of tasks and
-  milestones.
-- A new tab "Scheduling" appears under Other Info.
-  This tab displays attributes relating to the task scheduling.
-
-- The network diagram is first determined, based on the relationships between
-  activities.
-
-- Starting from the first activity identified, the network goes forward first
-  to determine the early dates of tasks, taking into account the task
-  durations, limitations imposed start date of tasks or actual start date.
-
-- Starting from the last activity identified, the network is executed
-  backwards to determine the late date, taking into account the task
-  durations, limitations to date of completion of the work or the actual end
-  dates.
-
-- For those tasks that are in the critical path of the network indicator is
-  marked "Is in the Critical Path
-
-- The Total Margin (Total float) and Free margin (Free Float) is determined.
-
-- The method used is the Critical Chain Method
-  (http://en.wikipedia.org/wiki/Critical_Path_Method).
-
-- The method is calculated taking into account an existing algorithm, similar
-  to the following existing code:
-  (http://www.codeproject.com/KB/recipes/CriticalPathMethod.aspx).
-
-- The critical path is calculated using the Dijkstra algorithm
-    """,
-    "data": [
-        "project_time_schedule_view.xml",
+    'name': 'Project Time Management - Activity Scheduling',
+    'version': '8.0.1.0.0',
+    'author':   'Eficent, '
+                'Matmoz d.o.o., '
+                'Project Expert Team',
+    'contributors': [
+        'Jordi Ballester <jordi.ballester@eficent.com>',
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
+    'website': 'http://project.expert',
+    'category': 'Project Management',
+    'license': 'AGPL-3',
+    'depends': ['project'],
+    'data': [
+        'project_time_schedule_view.xml',
     ],
     'demo': [
 

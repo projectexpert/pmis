@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="purchase_request_line_form" model="ir.ui.view">
+            <field name="name">purchase.request.line.form</field>
+            <field name="model">purchase.request.line</field>
+            <field name="inherit_id"
+                   ref="purchase_request.purchase_request_line_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page name="resource_plan_lines" string="Resource Plan Lines">
+                          <group>
+                              <field name="analytic_resource_plan_lines"
+                                     nolabel="1"/>
+                          </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</openerp>

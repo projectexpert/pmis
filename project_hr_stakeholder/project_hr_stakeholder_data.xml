@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <!--
+        Responsibilities
+        -->
+        <record id="project_hr_responsibility_responsible" model="project.hr.responsibility">
+            <field name="code">R</field>
+            <field name="name">Responsible</field>
+            <field name="description">Those who do the work to achieve the task. 
+There is typically one role with a participation type of Responsible, 
+although others can be delegated to assist in the work required.
+            	</field>
+        </record>
+
+        <record id="project_hr_responsibility_accountable" model="project.hr.responsibility">
+            <field name="code">A</field>
+            <field name="name">Accountable</field>
+            <field name="description">The one ultimately answerable for the correct and thorough completion of the 
+deliverable or task, and the one from whom Responsible is delegated the work.
+In other words, an Accountable must sign off (Approve) on work that Responsible provides. 
+There must be only one Accountable specified for each task or deliverable.
+            	</field>            
+        </record>
+
+        <record id="project_hr_responsibility_consulted" model="project.hr.responsibility">
+            <field name="code">C</field>
+            <field name="name">Consulted</field>
+            <field name="description">Those whose opinions are sought, 
+typically subject matter experts; and with whom there is two-way communication.
+            	</field>                 
+        </record>
+        
+        <record id="project_hr_responsibility_informed" model="project.hr.responsibility">
+            <field name="code">I</field>
+            <field name="name">Informed</field>
+            <field name="description">Those who are kept up-to-date on progress, 
+often only on completion of the task or deliverable; 
+and with whom there is just one-way communication
+            </field>  
+        </record>
+        
+        <!--
+        Roles
+        -->
+        <record id="project_hr_role_sp" model="project.hr.role">
+            <field name="code">SP</field>
+            <field name="name">Project Sponsor</field>
+			<field name="description">Sponsor.
+			A sponsor is the person or group who provides resources and support for the project and is
+accountable for enabling success. The sponsor may be external or internal to the project manager’s
+organization. From initial conception through project closure, the sponsor promotes the project. This
+includes serving as spokesperson to higher levels of management to gather support throughout the
+organization and promoting the benefits the project brings. The sponsor leads the project through the
+initiating processes until formally authorized, and plays a significant role in the development of the initial
+scope and charter. For issues that are beyond the control of the project manager, the sponsor serves
+as an escalation path. The sponsor may also be involved in other important issues such as authorizing
+changes in scope, phase-end reviews, and go/no-go decisions when risks are particularly high. The
+sponsor also ensures a smooth transfer of the project’s deliverables into the business of the requesting
+organization after project closure.
+            </field>  
+        </record>        
+        
+		<record id="project_hr_role_pm" model="project.hr.role">
+            <field name="code">PM</field>
+            <field name="name">Project Manager</field>
+        </record>    
+
+		<record id="project_hr_role_cu" model="project.hr.role">
+            <field name="code">CU</field>
+            <field name="name">Customer or User</field>
+			<field name="description">Customers and users.
+Customers are the persons or organizations who will approve and manage the
+project’s product, service, or result. Users are the persons or organizations who will use the project’s
+product, service, or result. Customers and users may be internal or external to the performing organization
+and may also exist in multiple layers. For example, the customers for a new pharmaceutical product
+could include the doctors who prescribe it, the patients who use it and the insurers who pay for it. In some
+application areas, customers and users are synonymous, while in others, customers refer to the entity
+acquiring the project’s product, and users refer to those who will directly utilize the project’s product.
+            </field>  
+        </record>        
+                    
+		<record id="project_hr_role_se" model="project.hr.role">
+            <field name="code">SE</field>
+            <field name="name">Seller</field>
+			<field name="description">Sellers.
+Sellers, also called vendors, suppliers, or contractors, are external companies that enter
+into a contractual agreement to provide components or services necessary for the project.
+            </field>  
+        </record>    
+
+		<record id="project_hr_role_bp" model="project.hr.role">
+            <field name="code">BP</field>
+            <field name="name">Business partner</field>
+			<field name="description">Business partners.
+Business partners are external organizations that have a special relationship with
+the enterprise, sometimes attained through a certification process. Business partners provide specialized
+expertise or fill a specified role such as installation, customization, training, or support.
+            </field>  
+        </record>
+
+		<record id="project_hr_role_og" model="project.hr.role">
+            <field name="code">OG</field>
+            <field name="name">Organizational Group</field>
+			<field name="description">Organizational groups.
+Organizational groups are internal stakeholders who are affected by the activities
+of the project team. Examples of various business elements of an organization that may be affected by
+the project include marketing and sales, human resources, legal, finance, operations, manufacturing, and
+customer service. These groups support the business environment where projects are executed, and
+are therefore affected by the activities of the project. As a result, there is generally a significant amount
+of interaction between the various business elements of an organization and the project team as they
+work together to achieve project goals. These groups may provide input to requirements and accept
+deliverables necessary for a smooth transition to production or related operations.
+            </field>  
+        </record>
+
+		<record id="project_hr_role_fm" model="project.hr.role">
+            <field name="code">FM</field>
+            <field name="name">Functional Manager</field>
+			<field name="description">Functional managers.
+Functional managers are key individuals who play a management role within
+an administrative or functional area of the business, such as human resources, finance, accounting, or
+procurement. They are assigned their own permanent staff to carry out the ongoing work, and they have
+a clear directive to manage all tasks within their functional area of responsibility. The functional manager
+may provide subject matter expertise or their function may provide services to the project.
+            </field>  
+        </record>
+    </data>
+</openerp>

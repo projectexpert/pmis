@@ -21,21 +21,22 @@
 
 
 {
-    "name": "Project Time Management - Activity Sequencing",
-    "version": "1.1",
-    "author": "Eficent",
-    "website": "http://www.eficent.com",
-    "category": "Project Management",
-    "depends": ["project"],
-    "description": """
-Eficent Project Management. Project Time Management. Activity Sequencing
-
-- The aim is to enable the department responsible for projects to identify the
-    relationship between activities (tasks and milestones) of the project.
-    """,
-    "data": [
-        "wizard/project_task_link_predecessors.xml",
-        "project_time_sequence_view.xml",
+    'name': 'Project Time Management - Activity Sequencing',
+    'version': '8.0.1.1.0',
+    'author':   'Eficent, '
+                'Matmoz d.o.o., '
+                'Project Expert Team',
+    'contributors': [
+        'Jordi Ballester <jordi.ballester@eficent.com>',
+        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+    ],
+    'website': 'http://project.expert',
+    'category': 'Project Management',
+    'license': 'AGPL-3',
+    'depends': ['project'],
+    'data': [
+        'wizard/project_task_link_predecessors.xml',
+        'project_time_sequence_view.xml',
     ],
     'demo': [
     ],

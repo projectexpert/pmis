@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+
+#---------------------------------------------------------------------------------------------------------
+#   Extend the project
+#---------------------------------------------------------------------------------------------------------
+       <record id="edit_project" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="project_wbs.edit_project"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//form/sheet/notebook/page[@string='Project configuration']/notebook/page[@string='Other Info']/group[@string='Miscellaneous']/field[@name='parent_id']" position="after">	
+            		<field name="lob"/>          				            		
+            	</xpath>
+            </field>            	        
+        </record>  
+
+        
+
+#---------------------------------------------------------------------------------------------------------
+#   Extend the analytic account
+#---------------------------------------------------------------------------------------------------------
+       
+           	
+        <record id="view_account_analytic_account_form" model="ir.ui.view">
+            <field name="name">account.analytic.account.form</field>
+            <field name="model">account.analytic.account</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="arch" type="xml">
+				<xpath expr="//form/sheet/notebook/page[@string='Contract Information']/field[@name='description']" position="after">
+            		<field name="lob"/>
+            	</xpath>      				            		            	              
+            </field>
+        </record>         
+         
+    </data>
+</openerp>        
