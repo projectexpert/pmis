@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_analytic_resource_plan_line_tree" model="ir.ui.view">
+            <field name="name">analytic.resource.plan.line.tree</field>
+            <field name="model">analytic.resource.plan.line</field>
+            <field name="inherit_id" ref="analytic_resource_plan.view_analytic_resource_plan_line_tree"/>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <xpath expr='//field[@name="product_uom_id"]' position='after'>
+                    <field name="qty_available"/>
+                    <field name="virtual_available"/>
+                    <field name="incoming_qty"/>
+                    <field name="incoming_done_qty"/>
+                    <field name="outgoing_qty"/>
+                    <field name="outgoing_done_qty"/>
+                </xpath>
+            </field>
+        </record>
+	</data>
+</openerp>
