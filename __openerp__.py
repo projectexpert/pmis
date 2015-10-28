@@ -11,7 +11,7 @@
     'website': 'http://project.expert',
     'category': 'Project Management',
     'license': 'AGPL-3',
-    'summary': 'Start and End Dates from Children',
+    'summary': 'Stock on Resource Plan',
     'depends': [
         'analytic_resource_plan',
         'stock'
