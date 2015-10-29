@@ -7,7 +7,7 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="project_wbs.edit_project"/>
             <field name="arch" type="xml">
-            	<page string="WBS" position="replace"/>
+            	<page string="Work Breakdown Structure" position="replace"/>
             </field>            	        
         </record>
     </data>
