@@ -49,7 +49,8 @@
                     <field name="project_id"/> 
                     <field name="duration"/>    
                     <!--<field name="state" invisible="True"/>                -->
-                    <field name="stage_id" on_change="onchange_stage_id(stage_id)"/>   
+                    <!--<field name="stage_id" on_change="onchange_stage_id(stage_id)"/>   -->
+					<field name="stage_id"/>
                     <field name="predecessor_ids_str" readonly ="1" string="Predecessor IDs"/>    
                     <field name="predecessor_names_str" readonly ="1" string="Predecessors"/>
             		<field name="user_id" invisible="context.get('user_invisible', False)"/>
