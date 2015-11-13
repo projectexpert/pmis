@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-02 12:36+0000\n"
-"PO-Revision-Date: 2015-10-02 12:36+0000\n"
+"POT-Creation-Date: 2015-11-13 07:34+0000\n"
+"PO-Revision-Date: 2015-11-13 07:34+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,11 @@ msgstr ""
 #. module: analytic_resource_plan_purchase_request
 #: model:ir.model,name:analytic_resource_plan_purchase_request.model_analytic_resource_plan_line
 msgid "Analytic Resource Planning lines"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: selection:analytic.resource.plan.line,request_state:0
+msgid "Approved"
 msgstr ""
 
 #. module: analytic_resource_plan_purchase_request
@@ -63,6 +68,11 @@ msgid "Details"
 msgstr ""
 
 #. module: analytic_resource_plan_purchase_request
+#: selection:analytic.resource.plan.line,request_state:0
+msgid "Draft"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
 #: field:analytic.resource.plan.line.make.purchase.request,id:0
 #: field:analytic.resource.plan.line.make.purchase.request.item,id:0
 msgid "ID"
@@ -83,6 +93,21 @@ msgstr ""
 #: field:analytic.resource.plan.line.make.purchase.request,write_date:0
 #: field:analytic.resource.plan.line.make.purchase.request.item,write_date:0
 msgid "Last Updated on"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: selection:analytic.resource.plan.line,request_state:0
+msgid "No Request"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: view:analytic.resource.plan.line:analytic_resource_plan_purchase_request.view_analytic_resource_plan_line_filter
+msgid "No purchase request has been created yet"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: view:analytic.resource.plan.line:analytic_resource_plan_purchase_request.view_analytic_resource_plan_line_filter
+msgid "Not Requested"
 msgstr ""
 
 #. module: analytic_resource_plan_purchase_request
@@ -117,6 +142,21 @@ msgid "Quantity to request"
 msgstr ""
 
 #. module: analytic_resource_plan_purchase_request
+#: selection:analytic.resource.plan.line,request_state:0
+msgid "Rejected"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: view:analytic.resource.plan.line:analytic_resource_plan_purchase_request.view_analytic_resource_plan_line_filter
+msgid "Request Status"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line,request_state:0
+msgid "Request status"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
 #: field:analytic.resource.plan.line,requested_qty:0
 msgid "Requested quantity"
 msgstr ""
@@ -139,6 +179,16 @@ msgstr ""
 #. module: analytic_resource_plan_purchase_request
 #: model:ir.model,name:analytic_resource_plan_purchase_request.model_analytic_resource_plan_line_make_purchase_request_item
 msgid "Resource plan make purchase request item"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: view:analytic.resource.plan.line:analytic_resource_plan_purchase_request.view_analytic_resource_plan_line_filter
+msgid "Status"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: selection:analytic.resource.plan.line,request_state:0
+msgid "To be approved"
 msgstr ""
 
 #. module: analytic_resource_plan_purchase_request
