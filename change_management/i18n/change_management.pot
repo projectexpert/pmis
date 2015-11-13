@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-13 16:13+0000\n"
-"PO-Revision-Date: 2015-09-13 16:13+0000\n"
+"POT-Creation-Date: 2015-11-13 07:36+0000\n"
+"PO-Revision-Date: 2015-11-13 07:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,16 +18,17 @@ msgstr ""
 #. module: change_management
 #: help:change.management.change,change_category_id:0
 msgid "\n"
-"Change Category: The type of change in terms of the project's or business' chosen categories\n"
-"(e.g. Schedule, quality, legal etc.)\n"
+"Change Category: The type of change in terms of the project's or business'\n"
+"chosen categories (e.g. Schedule, quality, legal etc.)\n"
 "        "
 msgstr ""
 
 #. module: change_management
 #: help:change.management.change,change_owner_id:0
 msgid "\n"
-"Change Manager: The person responsible for managing the change (there can be only one change owner per change),\n"
-"change ownership is assigned to a managerial level, in case of business continuity to a C-level manager.\n"
+"Change Manager: The person responsible for managing the change (there can be\n"
+"only one change owner per change), change ownership is assigned to a managerial\n"
+"level, in case of business continuity to a C-level manager.\n"
 "        "
 msgstr ""
 
@@ -41,9 +42,10 @@ msgstr ""
 #. module: change_management
 #: help:change.management.change,proximity_id:0
 msgid "\n"
-"Proximity: This would typically state how close to the present time the change event is anticipated to happen\n"
-"(e.g. for project changes Imminent, within stage, within project, beyond project). Proximity should be recorded\n"
-"in accordance with the project's chosen scales or business continuity time scales.\n"
+"Proximity: This would typically state how close to the present time the change\n"
+"event is anticipated to happen (e.g. for project changes Imminent, within\n"
+"stage, within project, beyond project). Proximity should be recorded in\n"
+"accordance with the project's chosen scales or business continuity time scales.\n"
 "        "
 msgstr ""
 
@@ -129,8 +131,18 @@ msgid "Active Changes"
 msgstr ""
 
 #. module: change_management
+#: view:project.task:change_management.change_management_project_task_search_view
+msgid "Active Tasks"
+msgstr ""
+
+#. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
 msgid "Active changes"
+msgstr ""
+
+#. module: change_management
+#: view:project.task:change_management.change_management_project_task_search_view
+msgid "Active tasks"
 msgstr ""
 
 #. module: change_management
@@ -575,6 +587,16 @@ msgstr ""
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
 msgid "Very Important"
+msgstr ""
+
+#. module: change_management
+#: field:change.management.change,website_message_ids:0
+msgid "Website Messages"
+msgstr ""
+
+#. module: change_management
+#: help:change.management.change,website_message_ids:0
+msgid "Website communication history"
 msgstr ""
 
 #. module: change_management

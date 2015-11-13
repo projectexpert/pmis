@@ -6,23 +6,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-13 16:13+0000\n"
-"PO-Revision-Date: 2015-09-13 18:38+0200\n"
+"POT-Creation-Date: 2015-11-13 08:53+0100\n"
+"PO-Revision-Date: 2015-11-13 08:55+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: sl\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
 
 #. module: change_management
 #: help:change.management.change,change_category_id:0
 msgid ""
 "\n"
-"Change Category: The type of change in terms of the project's or business' chosen categories\n"
-"(e.g. Schedule, quality, legal etc.)\n"
+"Change Category: The type of change in terms of the project's or "
+"business'\n"
+"chosen categories (e.g. Schedule, quality, legal etc.)\n"
 "        "
 msgstr ""
 "\n"
@@ -34,13 +35,19 @@ msgstr ""
 #: help:change.management.change,change_owner_id:0
 msgid ""
 "\n"
-"Change Manager: The person responsible for managing the change (there can be only one change owner per change),\n"
-"change ownership is assigned to a managerial level, in case of business continuity to a C-level manager.\n"
+"Change Manager: The person responsible for managing the change (there can "
+"be\n"
+"only one change owner per change), change ownership is assigned to a "
+"managerial\n"
+"level, in case of business continuity to a C-level manager.\n"
 "        "
 msgstr ""
 "\n"
-"Upravitelj spremembe: oseba odgovorna za upravljanje spremembe (vsaka sprememba ima lahko le enega lastnika),\n"
-"sprememba lastništva se dodeli na vodstveni nivo, v primeru poslovne kontinuitete C-nivojskemu upravitelju.\n"
+"Upravitelj spremembe: oseba odgovorna za upravljanje spremembe (vsaka\n"
+"sprememba ima lahko le enega lastnika), sprememba lastništva se dodeli "
+"na\n"
+"vodstveni nivo, v primeru poslovne kontinuitete C-nivojskemu "
+"upravitelju.\n"
 "        "
 
 #. module: change_management
@@ -58,15 +65,20 @@ msgstr ""
 #: help:change.management.change,proximity_id:0
 msgid ""
 "\n"
-"Proximity: This would typically state how close to the present time the change event is anticipated to happen\n"
-"(e.g. for project changes Imminent, within stage, within project, beyond project). Proximity should be recorded\n"
-"in accordance with the project's chosen scales or business continuity time scales.\n"
+"Proximity: This would typically state how close to the present time the "
+"change\n"
+"event is anticipated to happen (e.g. for project changes Imminent, "
+"within\n"
+"stage, within project, beyond project). Proximity should be recorded in\n"
+"accordance with the project's chosen scales or business continuity time "
+"scales.\n"
 "        "
 msgstr ""
 "\n"
 "Bližina: običajno pove, kako kmalu naj bi prišlo do spremembe\n"
-"(npr. za projektne spremembe takojšnja, tekom stopnje, tekom projekta, po projektu). Bližina se zapisuje v\n"
-"skladu s projektno lestvico ali lestvicami poslovne kontinuitete.\n"
+"(npr. za projektne spremembe takojšnja, tekom stopnje, tekom\n"
+"projekta, po projektu). Bližina se zapisuje v skladu s projektno\n"
+"lestvico ali lestvicami poslovne kontinuitete.\n"
 "        "
 
 #. module: change_management
@@ -188,9 +200,19 @@ msgid "Active Changes"
 msgstr "Aktivne spremembe"
 
 #. module: change_management
+#: view:project.task:change_management.change_management_project_task_search_view
+msgid "Active Tasks"
+msgstr "Aktivna opravila"
+
+#. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
 msgid "Active changes"
 msgstr "Aktivne spremembe"
+
+#. module: change_management
+#: view:project.task:change_management.change_management_project_task_search_view
+msgid "Active tasks"
+msgstr "Aktivna opravila"
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
@@ -430,8 +452,12 @@ msgstr "Združi po..."
 
 #. module: change_management
 #: help:change.management.change,message_summary:0
-msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
-msgstr "Povzetek pogovorov (število sporočil,..). Povzetek je neposredno v html formatu, da se lahko neposredno vstavi v poglede tipa kanban."
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+"Povzetek pogovorov (število sporočil,..). Povzetek je neposredno v html "
+"formatu, da se lahko neposredno vstavi v poglede tipa kanban."
 
 #. module: change_management
 #: field:change.management.category,id:0 field:change.management.change,id:0
@@ -634,6 +660,16 @@ msgstr "Overitev planiranega časa"
 #: view:project.task:change_management.view_task_kanban
 msgid "Very Important"
 msgstr "Zelo pomembno"
+
+#. module: change_management
+#: field:change.management.change,website_message_ids:0
+msgid "Website Messages"
+msgstr "Sporočila iz spletne strani"
+
+#. module: change_management
+#: help:change.management.change,website_message_ids:0
+msgid "Website communication history"
+msgstr "Kronologija komunikacij spletne strani"
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-24 12:47+0200\n"
-"PO-Revision-Date: 2015-09-24 12:47+0200\n"
+"POT-Creation-Date: 2015-11-13 08:53+0100\n"
+"PO-Revision-Date: 2015-11-13 08:53+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "Language: sl\n"
@@ -16,37 +16,34 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
 
-#. module: crm_project_task
-#: view:project.project:crm_project_task.view_project_leads
+#. module: crm_project
+#: view:project.project:crm_project.view_project_leads
 msgid "Cases"
 msgstr "Casi"
 
-#. module: crm_project_task
-#: view:project.project:crm_project_task.view_project_leads
+#. module: crm_project
+#: view:project.project:crm_project.view_project_leads
 msgid "Cases and Issues"
 msgstr "Casi e vicende"
 
-#. module: crm_project_task
-#: view:project.project:crm_project_task.view_project_leads
+#. module: crm_project
+#: view:project.project:crm_project.view_project_leads
 msgid "Issues"
 msgstr "Vicende"
 
-#. module: crm_project_task
-#: field:project.project,lead_ids:0
-msgid "Lead / Opportunity"
-msgstr "Indizio / Opportunita"
-
-#. module: crm_project_task
-#: model:ir.model,name:crm_project_task.model_crm_lead
+#. module: crm_project
+#: model:ir.model,name:crm_project.model_crm_lead
 msgid "Lead/Opportunity"
 msgstr "Indizio/Opportunita"
 
-#. module: crm_project_task
-#: view:crm.lead:crm_project_task.lead_project_connect
-#: view:crm.lead:crm_project_task.oppor_project_connect
-#: field:crm.lead,project_id:0
-#: model:ir.model,name:crm_project_task.model_project_project
+#. module: crm_project
+#: view:crm.lead:crm_project.lead_project_connect
+#: view:crm.lead:crm_project.oppor_project_connect
+#: model:ir.model,name:crm_project.model_project_project
 msgid "Project"
 msgstr "Progetto"
+
+#~ msgid "Lead / Opportunity"
+#~ msgstr "Indizio / Opportunita"

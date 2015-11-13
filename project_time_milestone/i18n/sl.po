@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-24 12:47+0200\n"
-"PO-Revision-Date: 2015-09-24 12:47+0200\n"
+"POT-Creation-Date: 2015-11-13 08:49+0100\n"
+"PO-Revision-Date: 2015-11-13 08:50+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -15,7 +15,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
+
+#. module: project_time_milestone
+#: help:project.task,public_milestone:0
+msgid ""
+"\n"
+"If the active field is set, the task is considered to be a client-relevant\n"
+"milestone\n"
+"            "
+msgstr ""
+"\n"
+"Če je polje nastavljeno na aktivno, se opravilo smatra za\n"
+"mejnik\n"
+"            "
+
+#. module: project_time_milestone
+#: help:project.task,milestone:0
+msgid ""
+"\n"
+"If the active field is set, the task is considered to be a milestone\n"
+"            "
+msgstr ""
+"\n"
+"Če je polje nastavljeno na aktivno, se opravilo smatra za mejnik\n"
+"            "
 
 #. module: project_time_milestone
 #: view:project.project:project_time_milestone.edit_project
@@ -28,12 +52,18 @@ msgid "For changing to delegate state"
 msgstr "Za spremembo v delegirano stanje"
 
 #. module: project_time_milestone
+#: field:project.task,invoice_percentage:0
+msgid "Invoice percentage"
+msgstr "Odstotek zaračunavanja"
+
+#. module: project_time_milestone
 #: model:ir.actions.act_window,help:project_time_milestone.action_view_milestone
 msgid "Manage Project milestones"
 msgstr "Upravljanje projektnih mejnikov"
 
 #. module: project_time_milestone
 #: view:project.task:project_time_milestone.view_task_form2
+#: field:project.task,milestone:0
 msgid "Milestone"
 msgstr "Mejnik"
 
@@ -41,8 +71,19 @@ msgstr "Mejnik"
 #: model:ir.actions.act_window,name:project_time_milestone.action_view_milestone
 #: model:ir.ui.menu,name:project_time_milestone.menu_action_view_milestone
 #: view:project.project:project_time_milestone.edit_project
+#: field:project.project,milestones:0
 msgid "Milestones"
 msgstr "Mejniki"
+
+#. module: project_time_milestone
+#: help:project.task,project_poc:0
+msgid "Percentage of completion for the linked project"
+msgstr "Odstotek dokončanja povezanega projekta"
+
+#. module: project_time_milestone
+#: help:project.task,invoice_percentage:0
+msgid "Percentage to invoice"
+msgstr "Odstotek za zaračunavanje"
 
 #. module: project_time_milestone
 #: model:ir.model,name:project_time_milestone.model_project_project
@@ -50,30 +91,19 @@ msgid "Project"
 msgstr "Projekt"
 
 #. module: project_time_milestone
+#: field:project.task,project_poc:0
+msgid "Project percentage of completion"
+msgstr "Odstotek dokončanja projekta"
+
+#. module: project_time_milestone
+#: field:project.task,public_milestone:0
+msgid "Public Milestone"
+msgstr "Javni mejnik"
+
+#. module: project_time_milestone
 #: model:ir.model,name:project_time_milestone.model_project_task
 msgid "Task"
 msgstr "Opravilo"
-
-#~ msgid "If the active field is set, the task is considered to be a client-relevant milestone"
-#~ msgstr "Če je polje nastavljeno na aktivno, se opravilo smatra za mejnik"
-
-#~ msgid "If the active field is set, the task is considered to be a milestone"
-#~ msgstr "Če je polje nastavljeno na aktivno, se opravilo smatra za mejnik"
-
-#~ msgid "Invoice percentage"
-#~ msgstr "Odstotek zaračunavanja"
-
-#~ msgid "Percentage of completion for the linked project"
-#~ msgstr "Odstotek dokončanja povezanega projekta"
-
-#~ msgid "Percentage to invoice"
-#~ msgstr "Odstotek za zaračunavanje"
-
-#~ msgid "Project percentage of completion"
-#~ msgstr "Odstotek dokončanja projekta"
-
-#~ msgid "Public Milestone"
-#~ msgstr "Javni mejnik"
 
 #~ msgid "Reactivate"
 #~ msgstr "Ponovno aktiviranje"
