@@ -26,18 +26,21 @@
     "category": "Social Network",
     "summary": "Mail Forward",
     "description": """
-    Mail forwarding feature is a normal practice to convey the message to third party. While the option is missing,
-    we have to go for lengthy procedure which contains download and upload. In Odoo, we have facilitated our user with
-    the advancement of some clicks as stated here.
+    Mail forwarding feature is a normal practice to convey the message to third
+    party. While the option is missing, you have to go for lengthy procedure
+    which contains download and upload. In Odoo, we have facilitated our user
+    with the advancement of some clicks as stated here.
 
-    User can forward the mail to another recipient or group of recipient using one click.
-    The Icon (Green Coloured) shows the button having mail forwarding option.
+    User can forward the mail to another recipient or group of recipient using
+    one click. The Icon (Green Coloured) shows the button having mail forwarding
+    option.
 
-    Subject will highlight "FWD:" text preceding with the original content of subject. In the body of mail, we can
-    see the data of previous mails and on the top we can draft using various formatting option as usual.
+    Subject will highlight "FWD:" text preceding with the original content
+    of subject. In the body of mail, you can see the data of previous mails and
+    on the top you can draft using various formatting option as usual.
 
-    While forwarding mail, If mail contains any attachment then the forward mail carry forward the same to the newly
-    composed mail.
+    While forwarding mail, If mail contains any attachment then the forward mail
+    carry forward the same to the newly composed mail.
     """,
     "depends": ["mail"],
     'data': ["views/mail_forward.xml"],

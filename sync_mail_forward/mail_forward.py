@@ -35,8 +35,7 @@ class mail_compose_message(osv.osv):
     def default_get(self, cr, uid, fields, context=None):
         result = {}
         result = super(mail_compose_message, self).default_get(
-            cr, uid, fields, context=context
-        )
+            cr, uid, fields, context=context)
         if context.get('option') == 'forward':
             result['parent_id'] = False
             result['partner_ids'] = False
@@ -50,24 +49,18 @@ class mail_compose_message(osv.osv):
         to_partner_ids = attachment_ids = []
 
         result = super(mail_compose_message, self).get_record_data(
-            cr, uid, values, context=context
-        )
+            cr, uid, values, context=context)
         if context.get('option') == 'forward':
             parent_id = values.get('parent_id')
             for parent in self.pool.get('mail.message').browse(
                 cr, uid, parent_id, context=context
             ):
                 active_tz = pytz.timezone(
-                    context.get("tz", "UTC")if
-                    context else
-                    "Europe/Rome"
+                    context.get("tz", "UTC")if context else "Europe/Rome"
                 )  # For CE time
                 attendance_start = datetime.strptime(
-                    parent.create_date,
-                    DEFAULT_SERVER_DATETIME_FORMAT
-                ).replace(
-                    tzinfo=pytz.utc
-                ).astimezone(active_tz)
+                    parent.create_date, DEFAULT_SERVER_DATETIME_FORMAT
+                ).replace(tzinfo=pytz.utc).astimezone(active_tz)
                 next_attendance_date = datetime.strftime(
                     attendance_start, "%a, %b %d, %Y at %H:%M %p"
                 )
@@ -76,12 +69,8 @@ class mail_compose_message(osv.osv):
                 ).strftime("%a, %b %d, %Y at %H:%M %p")
                 body = tools.ustr(parent.body)
                 from_email = parent.email_from
-                subject = tools.ustr(
-                    parent.subject or parent.record_name or ''
-                )
-                attachment_ids = [
-                    attach.id for attach in parent.attachment_ids
-                ]
+                subject = tools.ustr(parent.subject or parent.record_name or '')
+                attachment_ids = [attach.id for attach in parent.attachment_ids]
                 if not result['partner_ids']:
                     for partner in self.pool.get('res.partner').browse(
                         cr, uid, [parent.partner_ids.id], context=context
@@ -111,7 +100,7 @@ class mail_compose_message(osv.osv):
             body1_format = "<br><br><br>"
             body2 = """
 <br><br>---------- Forwarded message ----------<br><b>Subject: </b>
-"""
+            """
 
             if type(from_email) == bool:
                 from_email = ''
@@ -119,16 +108,9 @@ class mail_compose_message(osv.osv):
                 from_email1 = from_email.replace("<", "(")
                 from_email2 = from_email1.replace(">", ")")
             body1 = (
-                body2 +
-                subject +
-                from_format +
-                from_email2 +
-                date_format +
-                mail_date +
-                to_format +
-                to_email_id +
-                body1_format +
-                body
+                body2 + subject + from_format + from_email2 +
+                date_format + mail_date + to_format + to_email_id +
+                body1_format + body
             )
             result['body'] = body1
         return result
