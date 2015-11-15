@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-19 04:56+0000\n"
-"PO-Revision-Date: 2015-08-03 13:48+0200\n"
-"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"POT-Creation-Date: 2015-11-15 11:08+0100\n"
+"PO-Revision-Date: 2015-11-15 11:08+0100\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: sl\n"
-"X-Generator: Poedit 1.8.2\n"
+"X-Generator: Poedit 1.8.5\n"
 
 #. module: project_events
 #: view:event.event:project_events.view_event_form
@@ -24,43 +24,43 @@ msgid "Agenda"
 msgstr "Dnevni red"
 
 #. module: project_events
-#: view:project.task.create.meeting:project_events.project_task_create_meeting_form
+#: view:project.task.create.event:project_events.project_task_create_event_form
 msgid "Cancel"
 msgstr "Preklic"
 
 #. module: project_events
-#: view:project.task.create.meeting:project_events.project_task_create_meeting_form
+#: view:project.task.create.event:project_events.project_task_create_event_form
 msgid "Create"
 msgstr "Ustvari"
 
 #. module: project_events
-#: view:project.task.create.meeting:project_events.project_task_create_meeting_form
-msgid "Create Meetings from Tasks"
+#: view:project.task.create.event:project_events.project_task_create_event_form
+msgid "Create Events from Tasks"
 msgstr "Ustvari dogodke iz opravil"
 
 #. module: project_events
-#: model:ir.actions.act_window,name:project_events.action_create_meetings_from_task
-#: model:ir.actions.act_window,name:project_events.action_create_tasks_meetings
-msgid "Create meetings"
+#: model:ir.actions.act_window,name:project_events.action_create_events_from_task
+#: model:ir.actions.act_window,name:project_events.action_create_tasks_events
+msgid "Create events"
 msgstr "Ustvari dogodke"
 
 #. module: project_events
-#: field:project.task.create.meeting,create_uid:0
+#: field:project.task.create.event,create_uid:0
 msgid "Created by"
 msgstr "Ustvaril"
 
 #. module: project_events
-#: field:project.task.create.meeting,create_date:0
+#: field:project.task.create.event,create_date:0
 msgid "Created on"
 msgstr "Ustvarjeno"
 
 #. module: project_events
-#: field:project.task.create.meeting,date:0
+#: field:project.task.create.event,date:0
 msgid "Date"
 msgstr "Datum"
 
 #. module: project_events
-#: field:project.task.create.meeting,duration:0
+#: field:project.task.create.event,duration:0
 msgid "Duration"
 msgstr "Trajanje"
 
@@ -75,12 +75,17 @@ msgid "Event Category"
 msgstr "Kategorija dogodka"
 
 #. module: project_events
-#: field:project.task.create.meeting,type:0
+#: field:project.task.create.event,type:0
 msgid "Event Type"
 msgstr "Tip dogodka"
 
 #. module: project_events
+#: model:ir.actions.act_window,name:project_events.act_project_2_events_all
+#: view:project.project:project_events.edit_project_event_tab
+#: view:project.project:project_events.project_project_form_view
+#: field:project.project,event_count:0 field:project.project,event_ids:0
 #: view:project.task:project_events.project_task_form_view
+#: field:project.task,event_count:0
 msgid "Events"
 msgstr "Dogodki"
 
@@ -90,28 +95,19 @@ msgid "Group By"
 msgstr "Združi po"
 
 #. module: project_events
-#: field:project.task.create.meeting,id:0
+#: field:project.task.create.event,id:0
 msgid "ID"
 msgstr "ID"
 
 #. module: project_events
-#: field:project.task.create.meeting,write_uid:0
+#: field:project.task.create.event,write_uid:0
 msgid "Last Updated by"
 msgstr "Zadnjič posodobil"
 
 #. module: project_events
-#: field:project.task.create.meeting,write_date:0
+#: field:project.task.create.event,write_date:0
 msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
-
-#. module: project_events
-#: model:ir.actions.act_window,name:project_events.act_project_2_events_all
-#: view:project.project:project_events.project_project_form_view
-#: field:project.project,meeting_count:0 field:project.project,meeting_ids:0
-#: view:project.task:project_events.project_task_form_view
-#: field:project.task,meeting_count:0
-msgid "Meetings"
-msgstr "Dogodki"
 
 #. module: project_events
 #: view:project.task:project_events.project_task_form_view
@@ -119,9 +115,9 @@ msgid "Name"
 msgstr "Naziv"
 
 #. module: project_events
-#: field:project.task,pending_meeting_count:0
-msgid "Pending Meetings"
-msgstr "Prihajajoči sestanki"
+#: field:project.task,pending_event_count:0
+msgid "Pending Events"
+msgstr "Čakajoči dogodki"
 
 #. module: project_events
 #: view:event.event:project_events.view_event_search
@@ -136,7 +132,7 @@ msgid "Project:"
 msgstr "Projekt:"
 
 #. module: project_events
-#: view:project.task.create.meeting:project_events.project_task_create_meeting_form
+#: view:project.task.create.event:project_events.project_task_create_event_form
 msgid "Select Date and Duration"
 msgstr "Izbira datuma in trajanja"
 
@@ -148,11 +144,14 @@ msgstr "Opravilo"
 #. module: project_events
 #: view:event.event:project_events.view_event_form
 #: field:event.event,task_count:0 field:event.event,task_ids:0
-#: field:project.task,meeting_ids:0
+#: field:project.task,event_ids:0
 msgid "Tasks"
 msgstr "Opravila"
 
 #. module: project_events
-#: view:project.task.create.meeting:project_events.project_task_create_meeting_form
+#: view:project.task.create.event:project_events.project_task_create_event_form
 msgid "or"
 msgstr "ali"
+
+#~ msgid "Meetings"
+#~ msgstr "Dogodki"

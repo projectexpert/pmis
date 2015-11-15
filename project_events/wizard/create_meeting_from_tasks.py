@@ -20,8 +20,8 @@ from openerp.osv import orm, fields
 from datetime import datetime, timedelta
 
 
-class MeetingFromTask(orm.TransientModel):
-    _name = 'project.task.create.meeting'
+class EventFromTask(orm.TransientModel):
+    _name = 'project.task.create.event'
 
     _columns = {
         'date': fields.datetime('Date'),
@@ -34,7 +34,7 @@ class MeetingFromTask(orm.TransientModel):
         'duration': 4.0,
     }
 
-    def action_meeting(self, cr, uid, ids, context=None):
+    def action_event(self, cr, uid, ids, context=None):
         if context is None:
             context = {}
 

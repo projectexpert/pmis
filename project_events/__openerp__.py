@@ -1,12 +1,12 @@
 # -*- encoding: utf-8 -*-
 {
-    "name": "Meetings in Projects",
+    "name": "Events in Projects",
     "version": "8.0.1.0.1",
     "depends": [
         "project_charter",
         "event",
     ],
-    'summary': 'Meetings in project communications tab',
+    'summary': 'Events in project communications tab',
     'author':   'Matmoz d.o.o., '
                 'Avanzosc, S.L., '
                 'Project Expert Team',
