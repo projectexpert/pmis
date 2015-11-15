@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="event.type" id="meeting_type">
+            <field name="name">Conference</field>
+        </record>
+        <record model="event.type" id="meeting_type">
+            <field name="name">Seminar</field>
+        </record>
+        <record model="event.type" id="meeting_type">
+            <field name="name">Trade Show</field>
+        </record>
+    </data>
+</openerp>

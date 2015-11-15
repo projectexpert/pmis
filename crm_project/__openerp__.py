@@ -29,7 +29,7 @@
 
 {
     'name': 'CRM cases part of Projects',
-    'version': '8.0.0.8.0',
+    'version': '8.0.0.8.1',
     'author':   'Matmoz d.o.o., '
                 'Project Expert Team',
     'contributors': [
@@ -39,7 +39,7 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'summary': '''CRM tasks and CRM leads connected to project''',
-    'depends': ['crm_todo', 'project', 'project_issue'],
+    'depends': ['crm_todo', 'project_charter', 'project_issue'],
     'data': [
         'crm_todo_opportunity.xml',
         'crm_todo_project_task_tree.xml',

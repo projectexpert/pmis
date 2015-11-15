@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Meeting Form -->
+        <record id="view_calendar_event_with_project" model="ir.ui.view">
+            <field name="name">calendar.event.form</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_form" />
+            <field name="arch" type="xml">
+                <field name="categ_ids" position="after">
+                    <field name="project_id"/>
+                </field>
+            </field>
+        </record>
+    
+        <!-- Meeting Search  -->
+        <record id="view_calendar_event_search_with_project" model="ir.ui.view">
+            <field name="name">calendar.event.search</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_search" />
+            <field name="arch" type="xml">
+                <field name="categ_ids" position="after">
+                    <field name="project_id"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
