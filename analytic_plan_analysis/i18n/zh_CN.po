@@ -1,0 +1,244 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* analytic_plan_analysis
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-13 11:14+0800\n"
+"PO-Revision-Date: 2015-11-13 11:20+0800\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.6\n"
+"Last-Translator: Jason Cui <jason@qdodoo.com>\n"
+"Language: zh_CN\n"
+
+#. module: analytic_plan_analysis
+#: field:report.account.analytic.plan.actual,kpi_amount:0
+msgid "Amount"
+msgstr "金额"
+
+#. module: analytic_plan_analysis
+#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_search
+#: field:report.account.analytic.plan.actual,account_id:0
+msgid "Analytic Account"
+msgstr "分析账户"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,month:0
+msgid "April"
+msgstr "四月"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,month:0
+msgid "August"
+msgstr "八月"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,kpi_type:0
+msgid "Cost - Actual"
+msgstr "成本 - 实际"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,kpi_type:0
+msgid "Cost - Plan"
+msgstr "成本 - 计划"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,kpi_type:0
+msgid "Cost - Variance"
+msgstr "成本 - 差异"
+
+#. module: analytic_plan_analysis
+#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_search
+msgid "Creation Date"
+msgstr "创建日期"
+
+#. module: analytic_plan_analysis
+#: field:report.account.analytic.plan.actual,date:0
+msgid "Date"
+msgstr "日期"
+
+#. module: analytic_plan_analysis
+#: field:report.account.analytic.plan.actual,day:0
+msgid "Day"
+msgstr "日"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,month:0
+msgid "December"
+msgstr "十二月"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,month:0
+msgid "February"
+msgstr "二月"
+
+#. module: analytic_plan_analysis
+#: field:report.account.analytic.plan.actual,complete_wbs_code:0
+msgid "Full WBS Code"
+msgstr "WBS完整编号"
+
+#. module: analytic_plan_analysis
+#: field:report.account.analytic.plan.actual,complete_wbs_name:0
+msgid "Full WBS Name"
+msgstr "WBS全称"
+
+#. module: analytic_plan_analysis
+#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_search
+#: field:report.account.analytic.plan.actual,general_account_id:0
+msgid "General Account"
+msgstr "总账"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,kpi_type:0
+msgid "Gross Margin - Actual"
+msgstr "毛利 - 实际"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,kpi_type:0
+msgid "Gross Margin - Plan"
+msgstr "毛利 - 计划"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,kpi_type:0
+msgid "Gross Margin - Variance"
+msgstr "毛利 - 差异"
+
+#. module: analytic_plan_analysis
+#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_search
+msgid "Group By..."
+msgstr "分组项..."
+
+#. module: analytic_plan_analysis
+#: field:report.account.analytic.plan.actual,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,month:0
+msgid "January"
+msgstr "一月"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,month:0
+msgid "July"
+msgstr "七月"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,month:0
+msgid "June"
+msgstr "六月"
+
+#. module: analytic_plan_analysis
+#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_search
+msgid "KPI Type"
+msgstr "KPI类型"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,month:0
+msgid "March"
+msgstr "三月"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,month:0
+msgid "May"
+msgstr "五月"
+
+#. module: analytic_plan_analysis
+#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_search
+#: field:report.account.analytic.plan.actual,month:0
+msgid "Month"
+msgstr "月"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,month:0
+msgid "November"
+msgstr "十一月"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,month:0
+msgid "October"
+msgstr "十月"
+
+#. module: analytic_plan_analysis
+#: model:ir.actions.act_window,name:analytic_plan_analysis.action_account_analytic_plan_actual_amounts
+#: model:ir.ui.menu,name:analytic_plan_analysis.menu_action_account_analytic_plan_actual_tree
+msgid "Plan vs. Actual"
+msgstr "计划对实际"
+
+#. module: analytic_plan_analysis
+#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_graph
+#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_search
+msgid "Plan vs. Actual analysis"
+msgstr "计划对实际分析"
+
+#. module: analytic_plan_analysis
+#: model:ir.model,name:analytic_plan_analysis.model_report_account_analytic_plan_actual
+#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_tree
+msgid "Plan vs. actual analysis"
+msgstr "计划对实际分析"
+
+#. module: analytic_plan_analysis
+#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_search
+#: field:report.account.analytic.plan.actual,version_id:0
+msgid "Planning Version"
+msgstr "规划版本"
+
+#. module: analytic_plan_analysis
+#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_search
+#: field:report.account.analytic.plan.actual,product_id:0
+msgid "Product"
+msgstr "产品"
+
+#. module: analytic_plan_analysis
+#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_search
+msgid "Product UoM"
+msgstr "产品单位"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,kpi_type:0
+msgid "Revenue - Actual"
+msgstr "收入 - 实际"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,kpi_type:0
+msgid "Revenue - Plan"
+msgstr "收入 - 计划"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,kpi_type:0
+msgid "Revenue - Variance"
+msgstr "收入 - 差异"
+
+#. module: analytic_plan_analysis
+#: selection:report.account.analytic.plan.actual,month:0
+msgid "September"
+msgstr "九月"
+
+#. module: analytic_plan_analysis
+#: model:ir.actions.act_window,help:analytic_plan_analysis.action_account_analytic_plan_actual_amounts
+msgid ""
+"This report allows you to compare plan vs. actuals. The chart is based on "
+"amounts"
+msgstr "本报表用来比较计划和实际。图表以金额计"
+
+#. module: analytic_plan_analysis
+#: field:report.account.analytic.plan.actual,kpi_type:0
+msgid "Type"
+msgstr "类型"
+
+#. module: analytic_plan_analysis
+#: field:report.account.analytic.plan.actual,product_uom_id:0
+msgid "UoM"
+msgstr "单位"
+
+#. module: analytic_plan_analysis
+#: view:report.account.analytic.plan.actual:analytic_plan_analysis.view_account_analytic_plan_actual_search
+#: field:report.account.analytic.plan.actual,year:0
+msgid "Year"
+msgstr "年"

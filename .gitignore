@@ -34,3 +34,4 @@ install/win32/meta.py
 
 .hg/
 .hg
+*.mo

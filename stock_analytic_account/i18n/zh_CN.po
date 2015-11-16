@@ -1,0 +1,163 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_analytic_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-13 16:44+0800\n"
+"PO-Revision-Date: 2015-11-13 16:50+0800\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.6\n"
+"Last-Translator: Jason Cui <jason@qdodoo.com>\n"
+"Language: zh_CN\n"
+
+#. module: stock_analytic_account
+#: model:ir.actions.act_window,help:stock_analytic_account.action_picking_out_analytic_tree
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create a delivery order.\n"
+"              </p><p>\n"
+"                This is the list of all delivery orders that have to be\n"
+"                prepared, according to your different sales orders and "
+"your\n"
+"                logistics rules.\n"
+"              </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                点击创建出库单。\n"
+"              </p><p>\n"
+"                这是根据不同销售订单和物流规则而需要准备的所有出库单的明"
+"细。\n"
+"            "
+
+#. module: stock_analytic_account
+#: model:ir.actions.act_window,help:stock_analytic_account.action_picking_in_analytic_tree
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create an incoming shipment.\n"
+"              </p><p>\n"
+"                The Incoming Shipments is the list of all orders you will\n"
+"                receive from your suppliers. An incoming shipment contains "
+"a\n"
+"                list of products to be received according to the original\n"
+"                purchase order.\n"
+"              </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                点击创建收货单。\n"
+"              </p><p>\n"
+"                收货单是从供应商处需接收的所有订单的明细。收货单含有原始\n"
+"                采购单上的产品明细。\n"
+"              </p>\n"
+"            "
+
+#. module: stock_analytic_account
+#: model:ir.model,name:stock_analytic_account.model_account_analytic_account
+#: field:stock.change.product.qty,analytic_account_id:0
+#: field:stock.inventory.line,analytic_account_id:0
+#: field:stock.move,analytic_account_id:0
+#: field:stock.picking,analytic_account_ids:0
+msgid "Analytic Account"
+msgstr "分析账户"
+
+#. module: stock_analytic_account
+#: model:ir.model,name:stock_analytic_account.model_stock_change_product_qty
+msgid "Change Product Quantity"
+msgstr "更改产品数量"
+
+#. module: stock_analytic_account
+#: model:ir.actions.act_window,name:stock_analytic_account.action_picking_out_analytic_tree
+msgid "Delivery Orders"
+msgstr "出库单"
+
+#. module: stock_analytic_account
+#: constraint:stock.inventory.line:0
+msgid "Duplicate line detected"
+msgstr "检测到重复的品项"
+
+#. module: stock_analytic_account
+#: model:ir.actions.act_window,name:stock_analytic_account.action_picking_in_analytic_tree
+msgid "Incoming Shipments"
+msgstr "收货单"
+
+#. module: stock_analytic_account
+#: model:ir.model,name:stock_analytic_account.model_stock_inventory
+msgid "Inventory"
+msgstr "库存"
+
+#. module: stock_analytic_account
+#: model:ir.model,name:stock_analytic_account.model_stock_inventory_line
+msgid "Inventory Line"
+msgstr "库存项"
+
+#. module: stock_analytic_account
+#: model:ir.model,name:stock_analytic_account.model_stock_location
+msgid "Inventory Locations"
+msgstr "库存位置"
+
+#. module: stock_analytic_account
+#: field:account.analytic.account,move_ids:0
+msgid "Moves for this analytic account"
+msgstr "本分析账户的移动"
+
+#. module: stock_analytic_account
+#: model:ir.model,name:stock_analytic_account.model_stock_picking
+msgid "Picking List"
+msgstr "拣货单"
+
+#. module: stock_analytic_account
+#: model:ir.model,name:stock_analytic_account.model_product_product
+msgid "Product"
+msgstr "产品"
+
+#. module: stock_analytic_account
+#: field:stock.move,analytic_account_user_id:0
+#: field:stock.picking,analytic_account_user_ids:0
+msgid "Project Manager"
+msgstr "项目经理"
+
+#. module: stock_analytic_account
+#: field:stock.move,analytic_reserved:0
+msgid "Reserved"
+msgstr "已占用"
+
+#. module: stock_analytic_account
+#: help:stock.move,analytic_reserved:0
+msgid "Reserved for the Analytic Account"
+msgstr "为分析账户占用"
+
+#. module: stock_analytic_account
+#: view:account.analytic.account:stock_analytic_account.view_account_analytic_account_form_stock_move
+msgid "Stock"
+msgstr "库存"
+
+#. module: stock_analytic_account
+#: model:ir.model,name:stock_analytic_account.model_stock_move
+msgid "Stock Move"
+msgstr "库存移动"
+
+#. module: stock_analytic_account
+#: view:account.analytic.account:stock_analytic_account.view_account_analytic_account_form_stock_move
+#: model:ir.actions.act_window,name:stock_analytic_account.act_analytic_account_2_stock_move
+#: model:ir.actions.act_window,name:stock_analytic_account.analytic_account_stock_move
+msgid "Stock Moves"
+msgstr "库存移动"
+
+#. module: stock_analytic_account
+#: help:account.analytic.account,use_reserved_stock:0
+msgid ""
+"Stock with reference to this analytic account is considered to be reserved."
+msgstr "跟此分析账户关联的库存被认定已占用"
+
+#. module: stock_analytic_account
+#: field:account.analytic.account,use_reserved_stock:0
+msgid "Use reserved stock"
+msgstr "使用已占用库存"
