@@ -1,0 +1,380 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_charter
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-13 14:07+0800\n"
+"PO-Revision-Date: 2015-11-13 14:33+0800\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.6\n"
+"Last-Translator: Jason Cui <jason@qdodoo.com>\n"
+"Language: zh_CN\n"
+
+#. module: project_charter
+#: help:project.outscope,out_scope:0
+msgid ""
+"\n"
+"It is just as important to agree on what is OUT OF SCOPE as it\n"
+"is to define what is IN SCOPE as stakeholders will often have\n"
+"different ideas regarding what is supposed to be IN the\n"
+"project and what IS NOT. Obtain agreement up front to avoid\n"
+"unnecessary disputes later on.\n"
+"This is a useful task to conduct with key stakeholders and\n"
+"can help clarify issues at any time in the Initiation or\n"
+"Planning Phases.\n"
+"Examples of areas that could be examined and clarified\n"
+"include:\n"
+"\n"
+"* The type of deliverables that are in scope and out of scope\n"
+"* The major life-cycle processes that are in scope and out of\n"
+"   scope\n"
+"* The types of data that are in scope and out of scope\n"
+"* The data sources that are in scope or out of scope\n"
+"* The organisations that are in scope and out of scope\n"
+"* The major functionality that is in scope and out of scope\n"
+"        "
+msgstr ""
+"\n"
+"跟定义项目范围涵盖哪些内容同等重要的是，也需要对不在范围内的\n"
+"内容达成共识，因为相关利益方对项目包括什么和不包括什么常常有\n"
+"不同的理解。在开始阶段获得大家的认同会避免后续不必要的争执。\n"
+"这是需要跟主要利益相关方执行的一项有意义的任务，能帮助在启动\n"
+"或规划期内的任何时候澄清问题。举例来说，可被检查和澄清的领域包括：\n"
+"\n"
+"* 范围内和范围外可交付物的类型\n"
+"* 范围内和范围外主要的生命周期流程\n"
+"* 范围内和范围外数据的类型\n"
+"* 范围内和范围外的数据来源\n"
+"* 范围内和范围外的组织\n"
+"* 范围内和范围外的主要功能\n"
+"        "
+
+#. module: project_charter
+#: help:project.success,success:0
+msgid ""
+"\n"
+"PROJECT OBJECTIVES\n"
+"The success of your project will be defined by how well you\n"
+"meet your objectives. The more explicitly you state your\n"
+"objectives at the outset, the less disagreement there will\n"
+"be at the end about whether you have met them. Remember\n"
+"that at this early stage of the project, there are still\n"
+"many “unknown factors”. Be prepared to revise your\n"
+"objectives as you gather more information about what you\n"
+"need to achieve.\n"
+"\n"
+"WRITING PROJECT OBJECTIVES\n"
+"Project objectives are concrete statements that describe\n"
+"what the project is trying to achieve. Objectives should\n"
+"be developed for time, cost, quality (or functionality)\n"
+"and should:\n"
+"\n"
+"* Be aligned to business objectives\n"
+"* Be measurable\n"
+"* Be achievable\n"
+"* Be consistent\n"
+"* Be readily understandable\n"
+"* Be few in number\n"
+"* Have the full support and commitment of key stakeholders\n"
+"\n"
+"Examples:\n"
+"* Maximum Deadline on ...\n"
+"* Maximum Budget = ...\n"
+"        "
+msgstr ""
+"\n"
+"项目目标\n"
+"项目的成功度将依据满足目标的程度来定义。在一开始越能清晰地\n"
+"说明目标，在项目结束就越能减少对是否达标的争论。要记住在项目\n"
+"的早期，仍旧有许多的未知因素。随着收集到越多关于要实现目标\n"
+"的信息，要随时准备好修正你的目标。\n"
+"\n"
+"书写项目目标\n"
+"项目目标是对项目要实现结果的具体陈述。目标是对时间、成本、\n"
+"质量（或功能）的开发，并应该：\n"
+"\n"
+"* 跟业务目标一致\n"
+"* 可度量\n"
+"* 可实现\n"
+"* 可持续\n"
+"* 易被理解\n"
+"* 数量上精简\n"
+"* 获得主要利益相关者的全力支持和委任\n"
+"\n"
+"例如：\n"
+"* 最迟完成期限是...\n"
+"* 最大预算 = ...\n"
+"        "
+
+#. module: project_charter
+#: help:project.constraints,constraints:0
+msgid ""
+"\n"
+"Project constraints are known facts that will influence how\n"
+"the project is planned and managed. A constraint is a given\n"
+"factor that is outside of the project planner’s scope of\n"
+"control, which unless it is lifted or otherwise removed, will\n"
+"force project actions to work around it.\n"
+"        "
+msgstr ""
+"\n"
+"项目约束是影响到项目如何规划和管理的已知事实。约束是超出\n"
+"项目规划者控制范围的给定因素，除非撤销或移除，否则将迫使\n"
+"项目行为来解决它。\n"
+"        "
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Assumptions, Constraints"
+msgstr "假定， 约束"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Billing plan"
+msgstr "计费计划"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Billing plan lines"
+msgstr "计费计划品项"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Charter/Plan"
+msgstr "章程/计划"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Child WBS elements"
+msgstr "下级WBS要素"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Class"
+msgstr "类"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Code"
+msgstr "编号"
+
+#. module: project_charter
+#: model:ir.model,name:project_charter.model_project_constraints
+#: field:project.constraints,constraints:0
+#: view:project.project:project_charter.view_project_form
+msgid "Constraints"
+msgstr "约束"
+
+#. module: project_charter
+#: field:project.constraints,create_uid:0 field:project.outscope,create_uid:0
+#: field:project.success,create_uid:0
+msgid "Created by"
+msgstr "创建人"
+
+#. module: project_charter
+#: field:project.constraints,create_date:0 field:project.outscope,create_date:0
+#: field:project.success,create_date:0
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: project_charter
+#: field:project.success,success:0
+msgid "Criteria"
+msgstr "条件"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Deliverables"
+msgstr "交付物"
+
+#. module: project_charter
+#: model:ir.model,name:project_charter.model_document_page
+msgid "Document Page"
+msgstr "文档页"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "End Date"
+msgstr "终止日期"
+
+#. module: project_charter
+#: field:project.constraints,id:0 field:project.outscope,id:0
+#: field:project.success,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: project_charter
+#: field:project.constraints,write_uid:0 field:project.outscope,write_uid:0
+#: field:project.success,write_uid:0
+msgid "Last Updated by"
+msgstr "最后更新者"
+
+#. module: project_charter
+#: field:project.constraints,write_date:0 field:project.outscope,write_date:0
+#: field:project.success,write_date:0
+msgid "Last Updated on"
+msgstr "上次更新日期"
+
+#. module: project_charter
+#: model:ir.ui.menu,name:project_charter.project_management
+msgid "Management"
+msgstr "管理"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Name"
+msgstr "名称"
+
+#. module: project_charter
+#: field:project.project,notes:0
+msgid "Notes"
+msgstr "备注"
+
+#. module: project_charter
+#: field:project.outscope,out_scope:0
+msgid "Out of Scope"
+msgstr "超出范围"
+
+#. module: project_charter
+#: model:ir.model,name:project_charter.model_project_outscope
+msgid "Out of scope"
+msgstr "超出范围"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Parent"
+msgstr "上级"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Parent WBS element"
+msgstr "上级WBS要素"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Phases"
+msgstr "阶段"
+
+#. module: project_charter
+#: model:ir.model,name:project_charter.model_project_project
+msgid "Project"
+msgstr "项目"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Project Exclusions"
+msgstr "项目不包括的内容"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Project Form View"
+msgstr "项目表单视图"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Project Purpose"
+msgstr "项目目的"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Project Scope"
+msgstr "项目范围"
+
+#. module: project_charter
+#: field:project.project,project_constraints_ids:0
+msgid "Project constraints ids"
+msgstr "项目约束ID"
+
+#. module: project_charter
+#: field:project.project,project_outscope_ids:0
+msgid "Project outscope ids"
+msgstr "项目超限ID"
+
+#. module: project_charter
+#: field:project.project,project_success_ids:0
+msgid "Project success ids"
+msgstr "项目成功ID"
+
+#. module: project_charter
+#: field:project.constraints,project_id:0 field:project.outscope,project_id:0
+#: view:project.project:project_charter.view_project_form
+#: field:project.success,project_id:0
+msgid "Projects"
+msgstr "项目"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Requirements and Success"
+msgstr "需求和成功"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Resource and Billing Plan"
+msgstr "资源和计费计划"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Resource and Billing plan"
+msgstr "资源和计费计划"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Resource plan"
+msgstr "资源计划"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Resource planning lines"
+msgstr "资源规划项"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Scope"
+msgstr "范围"
+
+#. module: project_charter
+#: model:ir.ui.menu,name:project_charter.menu_stakeholders_config
+msgid "Stakeholders"
+msgstr "利益相关方"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Start Date"
+msgstr "起始日期"
+
+#. module: project_charter
+#: model:ir.model,name:project_charter.model_project_success
+msgid "Success"
+msgstr "成功"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Success and Acceptance Criteria"
+msgstr "成功和接收条件"
+
+#. module: project_charter
+#: model:ir.ui.menu,name:project_charter.menu_tasks_config_title
+msgid "Tasks"
+msgstr "任务"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "WBS elements"
+msgstr "WBS要素"
+
+#. module: project_charter
+#: view:project.project:project_charter.edit_project
+msgid "Work Breakdown Structure"
+msgstr "任务分解结构"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Work Packages"
+msgstr "任务包"
