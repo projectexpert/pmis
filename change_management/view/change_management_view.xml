@@ -30,11 +30,11 @@
 			<field name="arch" type="xml">
 				<form string="Change">
                     <header>
-                        <button name="set_state_draft" type="object" states="active,deferred" string="Set Draft"/>
+                        <button name="set_state_draft" type="object" states="active,rejected,accepted,deferred" string="Set Draft"/>
                         <button name="set_state_rejected" type="object" states="active" string="Reject Change" class="oe_highlight"/>
 						<button name="set_state_accepted" type="object" states="active" string="Accept Change" class="oe_highlight"/>
 						<button name="set_state_deferred" type="object" states="active" string="Defer Change"/>
-                        <button name="set_state_active" type="object" states="draft" string="Set Active" class="oe_highlight"/>
+                        <button name="set_state_active" type="object" states="draft,deferred" string="Set Active" class="oe_highlight"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,active,rejected,accepted,deferred"/>
                     </header>
                     <sheet string="Change">

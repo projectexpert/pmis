@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-24 12:46+0200\n"
-"PO-Revision-Date: 2015-09-24 12:46+0200\n"
+"POT-Creation-Date: 2015-11-13 09:05+0100\n"
+"PO-Revision-Date: 2015-11-13 09:05+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -15,101 +15,113 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
 
-#. module: crm_change_request
-#: view:crm.lead2cr.wizard:crm_change_request.view_crm_lead2cr_wizard
+#. module: issue_change_request
+#: view:project.issue2cr.wizard:issue_change_request.view_project_issue2cr_wizard
 msgid "Cancel"
 msgstr "Preklic"
 
-#. module: crm_change_request
-#: field:crm.lead2cr.wizard,change_category_id:0
+#. module: issue_change_request
+#: field:project.issue2cr.wizard,change_category_id:0
 msgid "Change Category"
 msgstr "Sprememba kategorije"
 
-#. module: crm_change_request
-#: view:crm.lead:crm_change_request.crm_case_form_view_leads_change_request
+#. module: issue_change_request
+#: view:project.issue:issue_change_request.project_issue_form_view_issue_change_request
 msgid "Convert To"
 msgstr "Spremeni v"
 
-#. module: crm_change_request
-#: view:crm.lead:crm_change_request.crm_case_form_view_leads_change_request
-#: view:crm.lead2cr.wizard:crm_change_request.view_crm_lead2cr_wizard
-#: model:ir.actions.act_window,name:crm_change_request.convert_lead2cr_wizard_action
+#. module: issue_change_request
+#: model:ir.actions.act_window,name:issue_change_request.convert_issue2cr_wizard_action
+#: view:project.issue:issue_change_request.project_issue_form_view_issue_change_request
+#: view:project.issue2cr.wizard:issue_change_request.view_project_issue2cr_wizard
 msgid "Convert to Change Request"
 msgstr "Spremeni v Zahtevek za spremembo"
 
-#. module: crm_change_request
-#: view:crm.lead2cr.wizard:crm_change_request.view_crm_lead2cr_wizard
+#. module: issue_change_request
+#: view:project.issue2cr.wizard:issue_change_request.view_project_issue2cr_wizard
 msgid "Create CR"
 msgstr "Ustvari CR"
 
-#. module: crm_change_request
-#: selection:crm.lead2cr.wizard,action:0
+#. module: issue_change_request
+#: selection:issue.partner.binding,action:0
+#: selection:project.issue2cr.wizard,action:0
 msgid "Create a new customer"
 msgstr "Ustvari novega kupca"
 
-#. module: crm_change_request
-#: field:crm.lead2cr.wizard,create_uid:0
+#. module: issue_change_request
+#: field:issue.partner.binding,create_uid:0
+#: field:project.issue2cr.wizard,create_uid:0
 msgid "Created by"
 msgstr "Ustvaril"
 
-#. module: crm_change_request
-#: field:crm.lead2cr.wizard,create_date:0
+#. module: issue_change_request
+#: field:issue.partner.binding,create_date:0
+#: field:project.issue2cr.wizard,create_date:0
 msgid "Created on"
 msgstr "Ustvarjeno"
 
-#. module: crm_change_request
-#: field:crm.lead2cr.wizard,partner_id:0
+#. module: issue_change_request
+#: field:issue.partner.binding,partner_id:0
+#: field:project.issue2cr.wizard,partner_id:0
 msgid "Customer"
 msgstr "Kupec"
 
-#. module: crm_change_request
-#: selection:crm.lead2cr.wizard,action:0
+#. module: issue_change_request
+#: selection:issue.partner.binding,action:0
+#: selection:project.issue2cr.wizard,action:0
 msgid "Do not link to a customer"
 msgstr "Ne poveži s kupcem"
 
-#. module: crm_change_request
-#: model:ir.model,name:crm_change_request.model_crm_lead2cr_wizard
-msgid "Handle partner binding or generation in CRM wizards."
-msgstr "Upravljaj povezovanje ali ustvarjanje partnerjev s CRM čarovniki."
+#. module: issue_change_request
+#: model:ir.model,name:issue_change_request.model_issue_partner_binding
+#: model:ir.model,name:issue_change_request.model_project_issue2cr_wizard
+msgid "Handle partner binding or generation in Issue wizards."
+msgstr "Upravljaj povezovanje ali ustvarjanje partnerjev s čarovniki za zadeve."
 
-#. module: crm_change_request
-#: field:crm.lead2cr.wizard,id:0
+#. module: issue_change_request
+#: field:issue.partner.binding,id:0 field:project.issue2cr.wizard,id:0
 msgid "ID"
 msgstr "ID"
 
-#. module: crm_change_request
-#: field:crm.lead2cr.wizard,write_uid:0
+#. module: issue_change_request
+#: field:project.issue2cr.wizard,issue_id:0
+msgid "Issue"
+msgstr "Zadeva"
+
+#. module: issue_change_request
+#: field:issue.partner.binding,write_uid:0
+#: field:project.issue2cr.wizard,write_uid:0
 msgid "Last Updated by"
 msgstr "Zadnjič posodobil"
 
-#. module: crm_change_request
-#: field:crm.lead2cr.wizard,write_date:0
+#. module: issue_change_request
+#: field:issue.partner.binding,write_date:0
+#: field:project.issue2cr.wizard,write_date:0
 msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
 
-#. module: crm_change_request
-#: field:crm.lead2cr.wizard,lead_id:0
-msgid "Lead"
-msgstr "Indic"
-
-#. module: crm_change_request
-#: selection:crm.lead2cr.wizard,action:0
+#. module: issue_change_request
+#: selection:issue.partner.binding,action:0
+#: selection:project.issue2cr.wizard,action:0
 msgid "Link to an existing customer"
 msgstr "Poveži z obstoječim kupcem"
 
-#. module: crm_change_request
-#: field:crm.lead2cr.wizard,project_id:0
+#. module: issue_change_request
+#: field:project.issue2cr.wizard,project_id:0
 msgid "Project"
 msgstr "Projekt"
 
-#. module: crm_change_request
-#: field:crm.lead2cr.wizard,action:0
+#. module: issue_change_request
+#: field:issue.partner.binding,action:0 field:project.issue2cr.wizard,action:0
 msgid "Related Customer"
 msgstr "Povezani kupec"
 
-#. module: crm_change_request
-#: view:crm.lead2cr.wizard:crm_change_request.view_crm_lead2cr_wizard
+#. module: issue_change_request
+#: view:project.issue2cr.wizard:issue_change_request.view_project_issue2cr_wizard
 msgid "or"
 msgstr "ali"
+
+#~ msgid "Lead"
+#~ msgstr "Indic"

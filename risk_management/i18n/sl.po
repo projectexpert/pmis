@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-24 12:49+0200\n"
-"PO-Revision-Date: 2015-09-24 12:53+0200\n"
+"POT-Creation-Date: 2015-11-13 08:45+0100\n"
+"PO-Revision-Date: 2015-11-13 08:46+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
 
 #. module: risk_management
 #: help:risk.management.risk,state:0
@@ -765,15 +765,19 @@ msgid "Very Important"
 msgstr "Zelo pomembno"
 
 #. module: risk_management
+#: field:risk.management.risk,website_message_ids:0
+msgid "Website Messages"
+msgstr "Sporočila iz spletne strani"
+
+#. module: risk_management
+#: help:risk.management.risk,website_message_ids:0
+msgid "Website communication history"
+msgstr "Kronologija komunikacij spletne strani"
+
+#. module: risk_management
 #: view:project.task:risk_management.view_task_kanban
 msgid "oe_kanban_text_red"
 msgstr "oe_kanban_text_red"
-
-#~ msgid "Website Messages"
-#~ msgstr "Sporočila iz spletne strani"
-
-#~ msgid "Website communication history"
-#~ msgstr "Kronologija komunikacij spletne strani"
 
 #~ msgid "Short description of the Risk."
 #~ msgstr "Kratek opis tveganja."

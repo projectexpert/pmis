@@ -21,7 +21,7 @@
 ##############################################################################
 {
     'name': 'Change Management',
-    'version': '8.0.2.5.1',
+    'version': '8.0.2.5.2',
     'author':   'Matmoz d.o.o., '
                 'Project Expert Team',
     'contributors': [
@@ -44,7 +44,6 @@
     ],
     'demo': ['demo/change_management_demo.xml'],
     'test': ['test/test_change_management.yml'],
-    'license': 'AGPL-3',
     'installable': True,
     'application': True,
     'active': False,

@@ -1,0 +1,125 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* issue_change_request
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-13 07:30+0000\n"
+"PO-Revision-Date: 2015-11-13 07:30+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: issue_change_request
+#: view:project.issue2cr.wizard:issue_change_request.view_project_issue2cr_wizard
+msgid "Cancel"
+msgstr ""
+
+#. module: issue_change_request
+#: field:project.issue2cr.wizard,change_category_id:0
+msgid "Change Category"
+msgstr ""
+
+#. module: issue_change_request
+#: view:project.issue:issue_change_request.project_issue_form_view_issue_change_request
+msgid "Convert To"
+msgstr ""
+
+#. module: issue_change_request
+#: model:ir.actions.act_window,name:issue_change_request.convert_issue2cr_wizard_action
+#: view:project.issue:issue_change_request.project_issue_form_view_issue_change_request
+#: view:project.issue2cr.wizard:issue_change_request.view_project_issue2cr_wizard
+msgid "Convert to Change Request"
+msgstr ""
+
+#. module: issue_change_request
+#: view:project.issue2cr.wizard:issue_change_request.view_project_issue2cr_wizard
+msgid "Create CR"
+msgstr ""
+
+#. module: issue_change_request
+#: selection:issue.partner.binding,action:0
+#: selection:project.issue2cr.wizard,action:0
+msgid "Create a new customer"
+msgstr ""
+
+#. module: issue_change_request
+#: field:issue.partner.binding,create_uid:0
+#: field:project.issue2cr.wizard,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: issue_change_request
+#: field:issue.partner.binding,create_date:0
+#: field:project.issue2cr.wizard,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: issue_change_request
+#: field:issue.partner.binding,partner_id:0
+#: field:project.issue2cr.wizard,partner_id:0
+msgid "Customer"
+msgstr ""
+
+#. module: issue_change_request
+#: selection:issue.partner.binding,action:0
+#: selection:project.issue2cr.wizard,action:0
+msgid "Do not link to a customer"
+msgstr ""
+
+#. module: issue_change_request
+#: model:ir.model,name:issue_change_request.model_issue_partner_binding
+#: model:ir.model,name:issue_change_request.model_project_issue2cr_wizard
+msgid "Handle partner binding or generation in Issue wizards."
+msgstr ""
+
+#. module: issue_change_request
+#: field:issue.partner.binding,id:0
+#: field:project.issue2cr.wizard,id:0
+msgid "ID"
+msgstr ""
+
+#. module: issue_change_request
+#: field:project.issue2cr.wizard,issue_id:0
+msgid "Issue"
+msgstr ""
+
+#. module: issue_change_request
+#: field:issue.partner.binding,write_uid:0
+#: field:project.issue2cr.wizard,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: issue_change_request
+#: field:issue.partner.binding,write_date:0
+#: field:project.issue2cr.wizard,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: issue_change_request
+#: selection:issue.partner.binding,action:0
+#: selection:project.issue2cr.wizard,action:0
+msgid "Link to an existing customer"
+msgstr ""
+
+#. module: issue_change_request
+#: field:project.issue2cr.wizard,project_id:0
+msgid "Project"
+msgstr ""
+
+#. module: issue_change_request
+#: field:issue.partner.binding,action:0
+#: field:project.issue2cr.wizard,action:0
+msgid "Related Customer"
+msgstr ""
+
+#. module: issue_change_request
+#: view:project.issue2cr.wizard:issue_change_request.view_project_issue2cr_wizard
+msgid "or"
+msgstr ""
+

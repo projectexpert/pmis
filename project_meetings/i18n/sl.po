@@ -1,0 +1,33 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_meetings
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-15 07:43+0000\n"
+"PO-Revision-Date: 2015-11-15 08:45+0100\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: sl\n"
+"X-Generator: Poedit 1.8.5\n"
+
+#. module: project_meetings
+#: model:ir.model,name:project_meetings.model_calendar_event
+msgid "Event"
+msgstr "Dogodek"
+
+#. module: project_meetings
+#: view:project.project:project_meetings.edit_project_meeting_tab_statbutton
+msgid "Meetings"
+msgstr "Sestanki"
+
+#. module: project_meetings
+#: model:ir.model,name:project_meetings.model_project_project
+msgid "Project"
+msgstr "Projekt"

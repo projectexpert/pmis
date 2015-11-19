@@ -1,0 +1,44 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* crm_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-13 07:36+0000\n"
+"PO-Revision-Date: 2015-11-13 07:36+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: crm_project
+#: view:project.project:crm_project.view_project_leads
+msgid "Cases"
+msgstr ""
+
+#. module: crm_project
+#: view:project.project:crm_project.view_project_leads
+msgid "Cases and Issues"
+msgstr ""
+
+#. module: crm_project
+#: view:project.project:crm_project.view_project_leads
+msgid "Issues"
+msgstr ""
+
+#. module: crm_project
+#: model:ir.model,name:crm_project.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr ""
+
+#. module: crm_project
+#: view:crm.lead:crm_project.lead_project_connect
+#: view:crm.lead:crm_project.oppor_project_connect
+#: model:ir.model,name:crm_project.model_project_project
+msgid "Project"
+msgstr ""
+

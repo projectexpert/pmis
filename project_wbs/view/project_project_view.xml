@@ -117,11 +117,11 @@
         </record>
 
         <menuitem action="open_view_project_wbs" id="project.menu_projects" name="Work Breakdown Structure" parent="project.menu_project_management" sequence="1" string="Work Breakdown Structure"/>
-        <menuitem action="open_view_project_projects" id="menu_project_wbs_projects" name="Projects" parent="project.menu_projects" sequence="2"/>
-        <menuitem action="open_view_project_phases" id="menu_project_wbs_phases" name="Phases" parent="project.menu_projects" sequence="3"/>
-        <menuitem action="open_view_project_deliverables" id="menu_project_wbs_deliverables" name="Deliverables" parent="project.menu_projects" sequence="4"/>
-        <menuitem action="open_view_project_work_packages" id="menu_project_work_packages" name="Work Packages" parent="project.menu_projects" sequence="5"/>
-        <menuitem action="project.action_view_task" id="project.menu_action_view_task" parent="project.menu_projects" sequence="6"/>
+            <menuitem action="open_view_project_projects" id="menu_project_wbs_projects" name="Projects" parent="project.menu_projects" sequence="2"/>
+            <menuitem action="open_view_project_phases" id="menu_project_wbs_phases" name="Phases" parent="project.menu_projects" sequence="3"/>
+            <menuitem action="open_view_project_deliverables" id="menu_project_wbs_deliverables" name="Deliverables" parent="project.menu_projects" sequence="4"/>
+            <menuitem action="open_view_project_work_packages" id="menu_project_work_packages" name="Work Packages" parent="project.menu_projects" sequence="5"/>
+        <menuitem action="project.action_view_task" id="project.menu_action_view_task" parent="project.menu_project_management" sequence="2" name="Tasks"/>
 
 
 #---------------------------------------------------------------------------------------------------------

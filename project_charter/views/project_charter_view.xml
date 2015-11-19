@@ -247,7 +247,10 @@
                     </page>
 
                 </xpath>
-
+				<page name="team" position="inside">
+					<notebook>
+					</notebook>
+				</page>
             </field>
         </record>
     </data>

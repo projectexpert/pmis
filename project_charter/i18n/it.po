@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-13 18:01+0200\n"
-"PO-Revision-Date: 2015-09-13 18:02+0200\n"
+"POT-Creation-Date: 2015-11-13 09:07+0100\n"
+"PO-Revision-Date: 2015-11-13 09:07+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
 
 #. module: project_charter
 #: help:project.outscope,out_scope:0
@@ -153,11 +153,6 @@ msgid "Deliverables"
 msgstr ""
 
 #. module: project_charter
-#: model:ir.model,name:project_charter.model_document_page
-msgid "Document Page"
-msgstr "Pagina documento"
-
-#. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "End Date"
 msgstr ""
@@ -207,8 +202,9 @@ msgstr "Fuori portata"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
+#, fuzzy
 msgid "Parent"
-msgstr ""
+msgstr "Superiore"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -336,6 +332,9 @@ msgstr ""
 #: view:project.project:project_charter.view_project_form
 msgid "Work Packages"
 msgstr ""
+
+#~ msgid "Document Page"
+#~ msgstr "Pagina documento"
 
 #~ msgid "Boundaries"
 #~ msgstr "Limiti"

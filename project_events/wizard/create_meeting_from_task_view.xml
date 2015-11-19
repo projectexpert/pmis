@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- Merge Opportunities  -->
+        <record model="ir.ui.view" id="project_task_create_event_form">
+            <field name="name">project.task.create.event.form</field>
+            <field name="model">project.task.create.event</field>
+            <field name="arch" type="xml">
+                <form string="Create Events from Tasks" version="7.0">
+                    <group string="Select Date and Duration">
+                        <field name="date"/>
+                        <field name="duration" widget="float_time"/>
+                        <field name="type" widget="selection"/>
+                    </group>
+                    <footer>
+                        <button name="action_event" type="object" string="Create" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!--  Merge leads/opportunities action -->
+        <record model="ir.actions.act_window" id="action_create_tasks_events">
+            <field name="name">Create events</field>
+            <field name="res_model">project.task.create.event</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="project_task_create_event_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <act_window id="action_create_events_from_task"
+            multi="True"
+            key2="client_action_multi" name="Create events"
+            res_model="project.task.create.event" src_model="project.task"
+            view_mode="form" target="new" view_type="form"
+            />
+
+    </data>
+</openerp>

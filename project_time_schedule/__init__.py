@@ -19,4 +19,5 @@
 #
 ##############################################################################
 
-import project_time_schedule
+import models
+import wizard

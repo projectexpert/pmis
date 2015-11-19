@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-24 13:19+0200\n"
-"PO-Revision-Date: 2015-09-24 13:19+0200\n"
+"POT-Creation-Date: 2015-11-13 08:48+0100\n"
+"PO-Revision-Date: 2015-11-13 08:48+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
 
 #. module: project_wbs
 #: help:analytic.account.stage,case_default:0
@@ -544,6 +544,12 @@ msgstr "Opravilo"
 #: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Tasks"
 msgstr "Opravila"
+
+#. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_template
+#: selection:analytic.account.stage,state:0
+msgid "Template"
+msgstr "Predloga"
 
 #. module: project_wbs
 #: selection:analytic.account.stage,state:0

@@ -88,6 +88,8 @@
                 action="crm_todo_action"
                 sequence="7"/>
 
+        <menuitem action="project_gtd.open_gtd_all_tasks" id="project_gtd.menu_open_gtd_timebox_all_tree" parent="project.menu_action_view_task" sequence="5"/>
+        <menuitem action="project_gtd.open_gtd_task" id="project_gtd.menu_open_gtd_timebox_tree" parent="project.menu_action_view_task" sequence="6"/>
 
     </data>
 </openerp>

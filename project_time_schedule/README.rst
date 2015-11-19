@@ -1,9 +1,11 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
 
-=============================================
-Project Time Management - Activity Scheduling
-=============================================
+=======================
+Project Time Management
+=======================
+
+ACTIVITY SCHEDULING
 
 * The user accesses from Project - Project – Tasks to the list of tasks
   and milestones.

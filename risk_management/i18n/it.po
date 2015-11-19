@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-24 12:53+0200\n"
-"PO-Revision-Date: 2015-09-24 12:54+0200\n"
+"POT-Creation-Date: 2015-11-13 08:46+0100\n"
+"PO-Revision-Date: 2015-11-13 08:46+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
 
 #. module: risk_management
 #: help:risk.management.risk,state:0
@@ -291,8 +291,9 @@ msgstr "Descrizione"
 
 #. module: risk_management
 #: selection:risk.management.risk,state:0
+#, fuzzy
 msgid "Draft"
-msgstr ""
+msgstr "Bozza"
 
 #. module: risk_management
 #: view:project.task:risk_management.view_task_kanban
@@ -438,8 +439,9 @@ msgstr ""
 
 #. module: risk_management
 #: selection:risk.management.response.category,type:0
+#, fuzzy
 msgid "Opportunity"
-msgstr ""
+msgstr "Lead/Opportunità"
 
 #. module: risk_management
 #: field:risk.management.risk,risk_owner_id:0
@@ -452,7 +454,7 @@ msgstr ""
 #: field:risk.management.risk,project_id:0
 #, fuzzy
 msgid "Project"
-msgstr "Progetti"
+msgstr "Progetto"
 
 #. module: risk_management
 #: field:project.project,risk_ids:0
@@ -729,6 +731,18 @@ msgstr ""
 #: view:project.task:risk_management.view_task_kanban
 msgid "Very Important"
 msgstr ""
+
+#. module: risk_management
+#: field:risk.management.risk,website_message_ids:0
+#, fuzzy
+msgid "Website Messages"
+msgstr "Messaggi"
+
+#. module: risk_management
+#: help:risk.management.risk,website_message_ids:0
+#, fuzzy
+msgid "Website communication history"
+msgstr "Messaggi e cronologia communicazioni"
 
 #. module: risk_management
 #: view:project.task:risk_management.view_task_kanban

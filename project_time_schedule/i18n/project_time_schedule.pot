@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-24 10:43+0000\n"
-"PO-Revision-Date: 2015-09-24 10:43+0000\n"
+"POT-Creation-Date: 2015-11-13 07:39+0000\n"
+"PO-Revision-Date: 2015-11-13 07:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -43,6 +43,16 @@ msgstr ""
 #. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
 msgid "Calculate Network"
+msgstr ""
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,create_date:0
+msgid "Created on"
 msgstr ""
 
 #. module: project_time_schedule
@@ -91,6 +101,21 @@ msgid "Free float"
 msgstr ""
 
 #. module: project_time_schedule
+#: field:project.task.calculate.network,id:0
+msgid "ID"
+msgstr ""
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: project_time_schedule
 #: field:project.task,date_late_finish:0
 msgid "Late Finish Date"
 msgstr ""
@@ -121,13 +146,38 @@ msgid "Margins"
 msgstr ""
 
 #. module: project_time_schedule
+#: view:project.task.calculate.network:project_time_schedule.view_project_task_calculate_network
+msgid "Project Task Calculate Network"
+msgstr ""
+
+#. module: project_time_schedule
+#: model:ir.actions.act_window,name:project_time_schedule.action_project_task_calculate_network
+msgid "Project Task add Predecessors"
+msgstr ""
+
+#. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
 msgid "Remaining"
 msgstr ""
 
 #. module: project_time_schedule
+#: view:project.task.calculate.network:project_time_schedule.view_project_task_calculate_network
+msgid "Schedule Network"
+msgstr ""
+
+#. module: project_time_schedule
+#: model:ir.model,name:project_time_schedule.model_project_task_calculate_network
+msgid "Schedule network"
+msgstr ""
+
+#. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
 msgid "Scheduling"
+msgstr ""
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,task_id:0
+msgid "Target task"
 msgstr ""
 
 #. module: project_time_schedule
@@ -144,5 +194,10 @@ msgstr ""
 #. module: project_time_schedule
 #: field:project.task,total_float:0
 msgid "Total float"
+msgstr ""
+
+#. module: project_time_schedule
+#: view:project.task.calculate.network:project_time_schedule.view_project_task_calculate_network
+msgid "_Cancel"
 msgstr ""
 
