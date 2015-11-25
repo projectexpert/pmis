@@ -171,20 +171,13 @@ class AnalyticResourcePlanLine(orm.Model):
                                  % (line.product_id.name,
                                     line.product_id.id,))
         default_plan_ids = plan_version_obj.search(
-            cr, uid, [('default_plan', '=', True)],  context=context)
-        if default_plan_ids:
-            default_plan = plan_version_obj.browse(cr, uid,
-                                                   default_plan_ids[0],
-                                                   context=context)
-        else:
-            default_plan = False
+            cr, uid, [('default_resource_plan', '=', True)],
+            limit=1, context=context)
 
-        if line.account_id.active_analytic_planning_version != default_plan:
+        if not default_plan_ids:
             raise orm.except_orm(_('Error !'),
-                                 _('The active planning version of the '
-                                   'analytic account must be %s. '
-                                   '')
-                                 % (default_plan.name,))
+                                 _('No active planning version for resource '
+                                   'plan exists.'))
 
         return [{
             'resource_plan_id': line.id,
@@ -198,7 +191,7 @@ class AnalyticResourcePlanLine(orm.Model):
             'general_account_id': general_account_id,
             'journal_id': journal_id,
             'notes': line.notes,
-            'version_id': line.account_id.active_analytic_planning_version.id,
+            'version_id': default_plan_ids[0],
             'currency_id': line.account_id.company_id.currency_id.id,
             'amount_currency': line.product_id.standard_price,
         }]

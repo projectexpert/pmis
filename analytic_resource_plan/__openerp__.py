@@ -33,6 +33,7 @@
     'license': 'AGPL-3',
     'depends': ['account', 'purchase', 'analytic_plan'],
     'data': [
+        "view/account_analytic_plan_version_view.xml",
         'view/analytic_resource_plan_view.xml',
         'view/analytic_account_view.xml',
         'view/product_view.xml',
