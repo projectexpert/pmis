@@ -41,12 +41,18 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Analytic Planning Version">
-                    <field name="name"/>
-                    <field name="code"/>                    
-                    <field name="active"/>  
- 					<field name="default_committed"/>
-					<field name="default_plan"/> 					                                     
-                    <field name="company_id" groups="base.group_multi_company" widget="selection"/>                   
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                    </group>
+                    <group>
+                        <field name="active"/>
+                        <field name="default_committed"/>
+                        <field name="default_plan"/>
+                    </group>
+                    <group>
+                        <field name="company_id" groups="base.group_multi_company" widget="selection"/>
+                    </group>
                     <notebook>
 	                    <page string="Notes" name="notes">
 	                    	<field name="notes"/>
