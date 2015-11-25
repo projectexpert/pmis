@@ -21,7 +21,7 @@
 
 {
     'name': 'Analytic Resource Planning',
-    'version': '8.0.1.2.1',
+    'version': '8.0.1.2.2',
     'author':   'Eficent, '
                 'Project Expert Team',
     'contributors': [
