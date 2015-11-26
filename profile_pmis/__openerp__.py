@@ -22,7 +22,7 @@
 
 {
     'name': 'Profile PMIS',
-    'version': '8.0.1.1.2',
+    'version': '8.0.1.1.3',
     'sequence': 9,
     'summary': 'Project Management Information System',
     'author':   'Matmoz d.o.o., '
@@ -41,7 +41,7 @@
         'account_report_dept_start_date',
         'analytic_line_plan_commit_hr_timesheet',
         'analytic_line_plan_commit_purchase',
-        'analytic_line_plan_commit_sale',
+        #'analytic_line_plan_commit_sale',
         'analytic_resource_plan_purchase_request',
         'analytic_resource_plan_stock',
         'analytic_wip_report',
