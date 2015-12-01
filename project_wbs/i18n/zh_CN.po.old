@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-01 15:09+0800\n"
-"PO-Revision-Date: 2015-12-01 16:28+0800\n"
+"POT-Creation-Date: 2015-11-13 15:16+0800\n"
+"PO-Revision-Date: 2015-11-13 15:35+0800\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,8 +27,8 @@ msgid ""
 "            "
 msgstr ""
 "\n"
-"如果勾选该字段，新创建的项目中此阶段将默认展示。\n"
-"已经存在的项目不会被分配。\n"
+"            如果该字段勾选，新创建的项目中此阶段将默认展示。\n"
+"            已经存在的项目不会被分配。\n"
 "            "
 
 #. module: project_wbs
@@ -40,7 +40,7 @@ msgid ""
 "            "
 msgstr ""
 "\n"
-"进行分类将有助于对项目创建适当的任务分解结构（WBS）\n"
+"            进行分类将有助于创建合适的项目任务分解结构（WBS）\n"
 "            "
 
 #. module: project_wbs
@@ -52,7 +52,7 @@ msgid ""
 "            "
 msgstr ""
 "\n"
-"完整的WBS编号描述了该组成部分在WBS框架下的完整路径\n"
+"            完整的WBS编号描述了该组件在WBS框架下的完整路径\n"
 "            "
 
 #. module: project_wbs
@@ -65,7 +65,8 @@ msgid ""
 "            "
 msgstr ""
 "\n"
-"当该阶段下没有记录时，该阶段不可见（比如在状态栏和看板视图中）\n"
+"            当该阶段下没有记录时，该阶段不可见\n"
+"            （比如在状态栏和看板视图中）。\n"
 "            "
 
 #. module: project_wbs
@@ -76,7 +77,9 @@ msgid ""
 "                </p>\n"
 "            "
 msgstr ""
-"<p class=\"oe_view_nocontent_create\">点击以创建一个新交付物。</p>\n"
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  点击开始创建一个新交付物。\n"
+"                </p>\n"
 "            "
 
 #. module: project_wbs
@@ -87,7 +90,9 @@ msgid ""
 "                </p>\n"
 "            "
 msgstr ""
-"<p class=\"oe_view_nocontent_create\">点击以创建一个新阶段。</p>\n"
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  点击开始创建一个新阶段。\n"
+"                </p>\n"
 "            "
 
 #. module: project_wbs
@@ -98,7 +103,9 @@ msgid ""
 "                </p>\n"
 "            "
 msgstr ""
-"<p class=\"oe_view_nocontent_create\">点击以创建一个新项目。</p>\n"
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  点击开始创建一个新项目。\n"
+"                </p>\n"
 "            "
 
 #. module: project_wbs
@@ -118,11 +125,16 @@ msgid ""
 "                </p>\n"
 "            "
 msgstr ""
-"<p class=\"oe_view_nocontent_create\">点击以创建一个新项目。</p>\n"
-"<p>项目用来组织你的活动、计划任务、跟踪问题、为计工单开票。\n"
-"你可以定义内部项目（如研发，改进销售流程）、私有项目（我的Todos）或者客户"
-"项目。 </p>\n"
-"<p>你将能跟项目的内部用户进行协作，或者邀请客户来分享你的活动。</p>\n"
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  Click to start a new project.\n"
+"                </p><p>\n"
+"                  项目用来组织你的活动，计划任务，跟踪问题，为工单开票。\n"
+"                  你可以定义内部项目（如研发，改进销售流程）、\n"
+"                  私有项目（我的Todos）或者客户项目。\n"
+"                </p><p>\n"
+"                  你将能跟项目的内部用户进行协作，或者邀请客户来分享\n"
+"                  你的活动。\n"
+"                </p>\n"
 "            "
 
 #. module: project_wbs
@@ -133,7 +145,9 @@ msgid ""
 "                </p>\n"
 "            "
 msgstr ""
-"<p class=\"oe_view_nocontent_create\">点击以创建一个新的工作包。</p>\n"
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  点击开始创建一个新的工作包。\n"
+"                </p>\n"
 "            "
 
 #. module: project_wbs
@@ -153,10 +167,11 @@ msgid ""
 "            "
 msgstr ""
 "<p class=\"oe_view_nocontent_create\">\n"
-"点击，在项目/分析账户管道中加入一个阶段。 </p>\n"
-"<p>对项目中用到的步骤进行定义，期间涵盖从创建直到结束。\n"
-"你将能跟项目的内部用户进行协作，或者邀请客户来分享你的活动。\n"
-"应该利用这些阶段来跟踪项目、阶段、交付物或工作包的进度。</p>\n"
+"                点击，在项目/分析账户执行途径中加入一个阶段。\n"
+"              </p><p>\n"
+"                对项目中用到的步骤进行定义，期间涵盖从创建直到结束。\n"
+"                应该利用这些阶段来跟踪项目、阶段、交付物或工作包的进度。\n"
+"              </p>\n"
 "            "
 
 #. module: project_wbs
@@ -208,7 +223,7 @@ msgstr "下级阶段"
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project
 msgid "Child WBS elements"
-msgstr "下级WBS元素"
+msgstr "下级WBS要素"
 
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
@@ -252,7 +267,7 @@ msgstr "概念阶段"
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 msgid "Create child WBS element"
-msgstr "创建下级WBS元素"
+msgstr "创建下级WBS要素"
 
 #. module: project_wbs
 #: field:analytic.account.stage,create_uid:0
@@ -373,7 +388,7 @@ msgstr "上次更新日期"
 #. module: project_wbs
 #: field:account.analytic.account,wbs_indent:0
 msgid "Level"
-msgstr "层级"
+msgstr "级别"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
@@ -404,7 +419,7 @@ msgstr "上级"
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project
 msgid "Parent WBS element"
-msgstr "上级WBS元素"
+msgstr "上级WBS要素"
 
 #. module: project_wbs
 #: model:analytic.account.stage,name:project_wbs.project_wbs_pending
@@ -525,7 +540,7 @@ msgstr "任务"
 #. module: project_wbs
 #: selection:analytic.account.stage,state:0
 msgid "To Renew"
-msgstr "续约"
+msgstr "待重启"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
@@ -556,7 +571,7 @@ msgstr "WBS编号"
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 msgid "WBS element name"
-msgstr "WBS元素名称"
+msgstr "WBS要素名称"
 
 #. module: project_wbs
 #: model:ir.actions.act_window,name:project_wbs.create_wbs_element
@@ -564,7 +579,7 @@ msgstr "WBS元素名称"
 #: model:ir.actions.act_window,name:project_wbs.open_view_wbs_tree
 #: view:project.project:project_wbs.view_project
 msgid "WBS elements"
-msgstr "WBS元素"
+msgstr "WBS要素"
 
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_search
@@ -599,9 +614,8 @@ msgid ""
 "                        ('cancelled','close');blue:account_class ==\n"
 "                        'work_package'"
 msgstr ""
-"grey:state in('cancelled','close');blue:account_class =='work_package'"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 msgid "on_change_parent(parent_id)"
-msgstr "on_change_parent(parent_id)"
+msgstr ""

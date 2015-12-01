@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+﻿# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* change_management
 #
@@ -19,59 +19,47 @@ msgstr ""
 
 #. module: change_management
 #: help:change.management.change,change_category_id:0
-msgid ""
-"\n"
-"Change Category: The type of change in terms of the project's or business' "
-"chosen categories\n"
-"(e.g. Schedule, quality, legal etc.)\n"
+msgid "\n"
+"Change Category: The type of change in terms of the project's or business'\n"
+"chosen categories (e.g. Schedule, quality, legal etc.)\n"
 "        "
-msgstr ""
-"\n"
-"变动分类：变更的类型依据项目或业务选择的分类而定\n"
+msgstr "\n"
+"变更分类：变更的类型依据项目或业务选择的分类而定"
 "(例如：计划、质量、法务等)\n"
 "        "
 
 #. module: change_management
 #: help:change.management.change,change_owner_id:0
-msgid ""
-"\n"
-"Change Manager: The person responsible for managing the change (there can be "
-"only one change owner per change),\n"
-"change ownership is assigned to a managerial level, in case of business "
-"continuity to a C-level manager.\n"
+msgid "\n"
+"Change Manager: The person responsible for managing the change (there can be\n"
+"only one change owner per change), change ownership is assigned to a managerial\n"
+"level, in case of business continuity to a C-level manager.\n"
 "        "
-msgstr ""
-"\n"
-"变动经理：负责变动管理的责任人（每个变动只能有一个变动所有者），\n"
-"变动的所有权指派给管理层级，如果是业务持续性的变更则指派给C级经理。\n"
+msgstr "\n"
+"变更经理：负责变更管理的责任人（每个变更只能有一个变更所有者），\n"
+"变更的所有权指派给管理层级，如果是业务持续性的变更则指派给C级经理。\n"
 "        "
 
 #. module: change_management
 #: help:change.management.change,name:0
-msgid ""
-"\n"
+msgid "\n"
 "Change label. Can be changed as long as change is in state 'draft'.\n"
 "        "
-msgstr ""
-"\n"
+msgstr "\n"
 "变更的标签。只要是在'草稿'状态则允许更改。\n"
 "        "
 
 #. module: change_management
 #: help:change.management.change,proximity_id:0
-msgid ""
-"\n"
-"Proximity: This would typically state how close to the present time the "
-"change event is anticipated to happen\n"
-"(e.g. for project changes Imminent, within stage, within project, beyond "
-"project). Proximity should be recorded\n"
-"in accordance with the project's chosen scales or business continuity time "
-"scales.\n"
+msgid "\n"
+"Proximity: This would typically state how close to the present time the change\n"
+"event is anticipated to happen (e.g. for project changes Imminent, within\n"
+"stage, within project, beyond project). Proximity should be recorded in\n"
+"accordance with the project's chosen scales or business continuity time scales.\n"
 "        "
-msgstr ""
-"\n"
-"接近度：通常用来说明预计的变更事件跟现在所处时间的接近程度\n"
-"(比如，项目变更中的即将发生、阶段内、项目内、项目外)。\n"
+msgstr "\n"
+"接近度：通常用来说明预计的变更事件跟现在所处时间的接近程度"
+"(比如，项目变更中的即将发生、阶段内、项目内、项目外)。"
 "接近度应该根据项目的所选尺度或业务的持续性时间尺度来进行记录。\n"
 "        "
 
@@ -121,13 +109,13 @@ msgstr ""
 "\n"
 "对变更的简短描述。\n"
 "\n"
-"项目变更是项目环境的性质、境况或特征可能会对项目\n"
+"项目变更是项目环境的性质、境况或特征可能会对项目"
 "在预算、日程、交付物和结果产生不利影响的变化。\n"
 "\n"
-"利益相关方的要求可以当作变动来对待和管理，因为\n"
+"利益方的要求可以当作变动来对待和管理，因为"
 "我们改动的是对项目宪章和范畴的定义。\n"
 "\n"
-"用户对项目的要求必须进行定义和存档。项目进行\n"
+"用户对项目的要求必须进行定义和存档。项目进行"
 "之前必须获得审批和确认。为了对需求达成协议：\n"
 "\n"
 "* 将需要跟想要区分开\n"
@@ -136,22 +124,22 @@ msgstr ""
 "* 找出相对立的需求\n"
 "* 针对相对立的需求在利益相关方之间协调达成协议\n"
 "\n"
-"此过程通常需要跟利益相关方开多次会议。利益相关方\n"
-"常常会用一个特定的产品或问题的解决方案来表述他们的\n"
-"需求，而这也是产生该项目的第一原因。重要的是要用\n"
-"“项目的最终产品/服务用来做什么”来再次阐述需求，\n"
+"此过程通常需要跟利益相关方开多次会议。利益方"
+"常常会用一个特定的产品或问题的解决方案来表述他们的"
+"需求，而这也是产生该项目的第一原因。重要的是要用"
+"“项目的最终产品/服务用来做什么”来再次阐述需求，"
 "并达成一致。\n"
-"用功能性的词语来阐述达成协议的需求将允许项目经理对\n"
-"客户或关键利益相关方提供一系列的解决方案。如果项目\n"
-"产出在分析阶段就被过早限定在关键利益相关者提供的\n"
-"方案中，重要的可选方案可能就会被忽视。将达成协议的\n"
+"用功能性的词语来阐述达成协议的需求将允许项目经理对"
+"客户或关键利益相关方提供一系列的解决方案。如果项目"
+"产出在分析阶段就被过早限定在关键利益相关者提供的"
+"方案中，重要的可选方案可能就会被忽视。将达成协议的"
 "最终需求记录下来并让关键利益相关者签字。\n"
 "        "
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
-msgid "Accept Change"
-msgstr "接受变更"
+msgid "Active Changes"
+msgstr "生效的变更"
 
 #. module: change_management
 #: selection:change.management.change,state:0
@@ -182,6 +170,11 @@ msgid "Active"
 msgstr "启用"
 
 #. module: change_management
+#: view:project.task:change_management.change_management_project_task_search_view
+msgid "Active Tasks"
+msgstr "生效的任务"
+
+#. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
 msgid "Active Changes"
 msgstr "生效的变更"
@@ -190,6 +183,11 @@ msgstr "生效的变更"
 #: view:change.management.change:change_management.change_search_form_view
 msgid "Active changes"
 msgstr "生效的变更"
+
+#. module: change_management
+#: view:project.task:change_management.change_management_project_task_search_view
+msgid "Active tasks"
+msgstr "生效的任务"
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
@@ -228,7 +226,7 @@ msgstr "变更已批准"
 #: model:ir.actions.act_window,name:change_management.action_show_categories
 #: model:ir.ui.menu,name:change_management.menu_change_categories
 msgid "Change Categories"
-msgstr "变更类别"
+msgstr "变更分类"
 
 #. module: change_management
 #: view:change.management.category:change_management.category_tree_view
@@ -277,17 +275,17 @@ msgstr "变更所有人"
 #. module: change_management
 #: model:mail.message.subtype,name:change_management.mt_change_rejected
 msgid "Change Rejected"
-msgstr "变革已被拒"
+msgstr "变更已被拒"
 
 #. module: change_management
 #: model:mail.message.subtype,description:change_management.mt_change_accepted
 msgid "Change approved"
-msgstr "变革已批准"
+msgstr "变更已批准"
 
 #. module: change_management
 #: model:mail.message.subtype,description:change_management.mt_change_deferred
 msgid "Change deferred"
-msgstr "变革已延期"
+msgstr "变更已延期"
 
 #. module: change_management
 #: model:mail.message.subtype,description:change_management.mt_change_draft
@@ -432,7 +430,7 @@ msgstr "分组项..."
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr "保存交谈概要(信息数量，...)。概要存为html格式，以便插入看板视图中。"
+msgstr "保存交谈概要(信息数量，...)。概要为html格式，以便插入看板视图中。"
 
 #. module: change_management
 #: field:change.management.category,id:0 field:change.management.change,id:0
@@ -635,6 +633,16 @@ msgstr "确认计划时间"
 #: view:project.task:change_management.view_task_kanban
 msgid "Very Important"
 msgstr "非常重要"
+
+#. module: change_management
+#: field:change.management.change,website_message_ids:0
+msgid "Website Messages"
+msgstr "网站信息"
+
+#. module: change_management
+#: help:change.management.change,website_message_ids:0
+msgid "Website communication history"
+msgstr "网站沟通历史"
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban

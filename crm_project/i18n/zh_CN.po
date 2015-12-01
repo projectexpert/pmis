@@ -1,6 +1,6 @@
-# Translation of Odoo Server.
+﻿# Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* crm_project_task
+#	* crm_project
 #
 msgid ""
 msgstr ""
@@ -17,35 +17,30 @@ msgstr ""
 "Last-Translator: Jason Cui <jason@qdodoo.com>\n"
 "Language: zh_CN\n"
 
-#. module: crm_project_task
-#: view:project.project:crm_project_task.view_project_leads
+#. module: crm_project
+#: view:project.project:crm_project.view_project_leads
 msgid "Cases"
 msgstr "案例"
 
-#. module: crm_project_task
-#: view:project.project:crm_project_task.view_project_leads
+#. module: crm_project
+#: view:project.project:crm_project.view_project_leads
 msgid "Cases and Issues"
 msgstr "案例和问题"
 
-#. module: crm_project_task
-#: view:project.project:crm_project_task.view_project_leads
+#. module: crm_project
+#: view:project.project:crm_project.view_project_leads
 msgid "Issues"
 msgstr "问题"
 
-#. module: crm_project_task
-#: field:project.project,lead_ids:0
-msgid "Lead / Opportunity"
-msgstr "线索/机会"
-
-#. module: crm_project_task
-#: model:ir.model,name:crm_project_task.model_crm_lead
+#. module: crm_project
+#: model:ir.model,name:crm_project.model_crm_lead
 msgid "Lead/Opportunity"
 msgstr "线索/机会"
 
-#. module: crm_project_task
-#: view:crm.lead:crm_project_task.lead_project_connect
-#: view:crm.lead:crm_project_task.oppor_project_connect
-#: field:crm.lead,project_id:0
-#: model:ir.model,name:crm_project_task.model_project_project
+#. module: crm_project
+#: view:crm.lead:crm_project.lead_project_connect
+#: view:crm.lead:crm_project.oppor_project_connect
+#: model:ir.model,name:crm_project.model_project_project
 msgid "Project"
 msgstr "项目"
+

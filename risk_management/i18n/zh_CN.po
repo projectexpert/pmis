@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+﻿# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* risk_management
 #
@@ -741,6 +741,16 @@ msgstr "确认计划的时间"
 #: view:project.task:risk_management.view_task_kanban
 msgid "Very Important"
 msgstr "非常重要"
+
+#. module: risk_management
+#: field:risk.management.risk,website_message_ids:0
+msgid "Website Messages"
+msgstr "网站信息"
+
+#. module: risk_management
+#: help:risk.management.risk,website_message_ids:0
+msgid "Website communication history"
+msgstr "网站沟通历史"
 
 #. module: risk_management
 #: view:project.task:risk_management.view_task_kanban

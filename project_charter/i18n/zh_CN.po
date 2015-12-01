@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+﻿# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* project_charter
 #
@@ -42,10 +42,10 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"跟定义项目范围涵盖哪些内容同等重要的是，也需要对不在范围内的\n"
-"内容达成共识，因为相关利益方对项目包括什么和不包括什么常常有\n"
-"不同的理解。在开始阶段获得大家的认同会避免后续不必要的争执。\n"
-"这是需要跟主要利益相关方执行的一项有意义的任务，能帮助在启动\n"
+"跟定义项目范围涵盖哪些内容同等重要的是，也需要对不在范围内的"
+"内容达成共识，因为相关利益方对项目包括什么和不包括什么常常有"
+"不同的理解。在开始阶段获得大家的认同会避免后续不必要的争执。"
+"这是需要跟主要利益相关方执行的一项有意义的任务，能帮助在启动"
 "或规划期内的任何时候澄清问题。举例来说，可被检查和澄清的领域包括：\n"
 "\n"
 "* 范围内和范围外可交付物的类型\n"
@@ -91,13 +91,13 @@ msgid ""
 msgstr ""
 "\n"
 "项目目标\n"
-"项目的成功度将依据满足目标的程度来定义。在一开始越能清晰地\n"
-"说明目标，在项目结束就越能减少对是否达标的争论。要记住在项目\n"
-"的早期，仍旧有许多的未知因素。随着收集到越多关于要实现目标\n"
+"项目的成功度将依据满足目标的程度来定义。在一开始越能清晰地"
+"说明目标，在项目结束就越能减少对是否达标的争论。要记住在项目"
+"的早期，仍旧有许多的未知因素。随着收集到越多关于要实现目标"
 "的信息，要随时准备好修正你的目标。\n"
 "\n"
 "书写项目目标\n"
-"项目目标是对项目要实现结果的具体陈述。目标是对时间、成本、\n"
+"项目目标是对项目要实现结果的具体陈述。目标是对时间、成本、"
 "质量（或功能）的开发，并应该：\n"
 "\n"
 "* 跟业务目标一致\n"
@@ -125,15 +125,15 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"项目约束是影响到项目如何规划和管理的已知事实。约束是超出\n"
-"项目规划者控制范围的给定因素，除非撤销或移除，否则将迫使\n"
+"项目约束是影响到项目如何规划和管理的已知事实。约束是超出"
+"项目规划者控制范围的给定因素，除非撤销或移除，否则将迫使"
 "项目行为来解决它。\n"
 "        "
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Assumptions, Constraints"
-msgstr "假定， 约束"
+msgstr "假定和约束"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -143,7 +143,7 @@ msgstr "计费计划"
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Billing plan lines"
-msgstr "计费计划品项"
+msgstr "计费计划项"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -153,7 +153,7 @@ msgstr "章程/计划"
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Child WBS elements"
-msgstr "下级WBS要素"
+msgstr "下级WBS元素"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -193,11 +193,6 @@ msgstr "条件"
 #: view:project.project:project_charter.view_project_form
 msgid "Deliverables"
 msgstr "交付物"
-
-#. module: project_charter
-#: model:ir.model,name:project_charter.model_document_page
-msgid "Document Page"
-msgstr "文档页"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -255,7 +250,7 @@ msgstr "上级"
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Parent WBS element"
-msgstr "上级WBS要素"
+msgstr "上级WBS元素"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -342,7 +337,7 @@ msgstr "范围"
 #. module: project_charter
 #: model:ir.ui.menu,name:project_charter.menu_stakeholders_config
 msgid "Stakeholders"
-msgstr "利益相关方"
+msgstr "利益方"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -367,7 +362,7 @@ msgstr "任务"
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "WBS elements"
-msgstr "WBS要素"
+msgstr "WBS元素"
 
 #. module: project_charter
 #: view:project.project:project_charter.edit_project
