@@ -95,7 +95,6 @@
                                                 type="object"
                                                 icon="gtk-edit"/>
                                         <field name="complete_wbs_code" string="Code"/>
-                                        <field name="wbs_indent"/>
                                         <field name="name" string="Name"/>
                                         <field name="parent_id" on_change="on_change_parent(parent_id)" string="Parent"/>
                                         <field name="account_class" string="Class"/>
