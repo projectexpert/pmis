@@ -85,8 +85,8 @@ msgid ""
 "or 1 to 100.\n"
 msgstr ""
 "\n"
-"概率: 特定威胁或机会实际发生的评估可能性，包括考虑其可能发生的频率。\n"
-"\"这是响应后值，常用的尺度是1到10或者1到100。\n"
+"概率: 特定威胁或机会实际发生的评估可能性，包括考虑其可能发生的频率。"
+"这是响应后值，常用的尺度是1到10或者1到100。\n"
 
 #. module: risk_management
 #: help:risk.management.risk,probability_inherent:0
@@ -99,8 +99,8 @@ msgid ""
 "or 1 to 100.\n"
 msgstr ""
 "\n"
-"概率: 特定威胁或机会实际发生的评估可能性，包括考虑其可能发生的频率。\n"
-"\"这是预响应值，常用的尺度是1到10或者1到100。\n"
+"概率: 特定威胁或机会实际发生的评估可能性，包括考虑其可能发生的频率。"
+"这是预响应值，常用的尺度是1到10或者1到100。\n"
 
 #. module: risk_management
 #: help:risk.management.risk,proximity_id:0
@@ -114,8 +114,8 @@ msgid ""
 "with the project's chosen scales or business continuity time scales.\n"
 msgstr ""
 "\n"
-"接近度：通常用来表述风险事件预期发生的时间跟现在时间点有多接近（比如：\n"
-"项目风险的立即、阶段内、项目内、项目外）。接近度应该以与项目所选尺度\n"
+"接近度：通常用来表述风险事件预期发生的时间跟现在时间点有多接近（比如："
+"项目风险的立即、阶段内、项目内、项目外）。接近度应该以与项目所选尺度"
 "或业务持续的时间尺度相对应的尺度来记录。\n"
 
 #. module: risk_management
@@ -138,7 +138,7 @@ msgid ""
 "in case of business continuity to a C-level manager.\n"
 msgstr ""
 "\n"
-"风险所有者：管理风险的责任人（每个风险只能有一个所有者）。风险所有者\n"
+"风险所有者：管理风险的责任人（每个风险只能有一个所有者）。风险所有者"
 "被分配到管理层，如果是业务的持续性风险则分配到C级经理。\n"
 
 #. module: risk_management
@@ -149,7 +149,7 @@ msgid ""
 "the project's (or business continuity planning) chosen categories.\n"
 msgstr ""
 "\n"
-"风险响应分类：以项目（或业务持续性规划）选定的分类来表述项目如何对待风险。\n"
+"风险响应分类：以项目（或业务持续性规划）选定的分类来表述项目如何对待风险。"
 
 #. module: risk_management
 #: help:risk.management.risk,name:0
@@ -182,12 +182,12 @@ msgstr ""
 "\n"
 "对风险的简短描述。\n"
 "\n"
-"项目风险是对项目本身或对交付物的质量产生负面影响的\n"
+"项目风险是对项目本身或对交付物的质量产生负面影响的"
 "项目环境的特性、事件或者特征。\n"
 "\n"
-"项目假设是出于项目规划目的而认定为成立或正确的对项目\n"
-"的了解。设定假设条件是为了用有限的对项目管理\n"
-"起关键作用的信息而能进行项目规划。在完成项目计划之前\n"
+"项目假设是出于项目规划目的而认定为成立或正确的对项目"
+"的了解。设定假设条件是为了用有限的对项目管理"
+"起关键作用的信息而能进行项目规划。在完成项目计划之前"
 "必须对假设进行检验。\n"
 
 #. module: risk_management
@@ -235,7 +235,7 @@ msgstr "生效的风险"
 #. module: risk_management
 #: view:project.project:risk_management.risk_management_project_charter_tree_view
 msgid "Assumptions, Risks"
-msgstr "假设，风险"
+msgstr "假设和风险"
 
 #. module: risk_management
 #: field:risk.management.risk,author_id:0
@@ -250,7 +250,7 @@ msgstr "已屏蔽"
 #. module: risk_management
 #: view:risk.management.risk:risk_management.risk_search_form_view
 msgid "Category"
-msgstr "分类"
+msgstr "类别"
 
 #. module: risk_management
 #: field:risk.management.risk,description_cause:0
@@ -370,7 +370,7 @@ msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
 msgstr ""
-"保存交谈概要（信息数量，...）。此概要直接为html格式，以便于插入看板视图中。"
+"保存交谈概要（信息数量，...）。此概要为html格式，以便于插入看板视图中。"
 
 #. module: risk_management
 #: field:risk.management.category,id:0 field:risk.management.proximity,id:0
@@ -530,13 +530,13 @@ msgstr "反应行为"
 #. module: risk_management
 #: model:ir.ui.menu,name:risk_management.menu_risk_response_categories
 msgid "Response Categories"
-msgstr "反应类别"
+msgstr "反应分类"
 
 #. module: risk_management
 #: field:risk.management.response.category,name:0
 #: field:risk.management.risk,risk_response_category_id:0
 msgid "Response Category"
-msgstr "反应分类"
+msgstr "反应类别"
 
 #. module: risk_management
 #: field:risk.management.risk,risk_response_ids:0
@@ -558,20 +558,20 @@ msgstr "风险行为"
 #. module: risk_management
 #: view:project.project:risk_management.risk_management_project_charter_tree_view
 msgid "Risk Assesment, Assumptions"
-msgstr "风险评估，假设"
+msgstr "风险评估和假设"
 
 #. module: risk_management
 #: model:ir.actions.act_window,name:risk_management.action_show_categories
 #: model:ir.ui.menu,name:risk_management.menu_risk_categories
 msgid "Risk Categories"
-msgstr "风险类别"
+msgstr "风险分类"
 
 #. module: risk_management
 #: view:risk.management.category:risk_management.category_tree_view
 #: field:risk.management.category,name:0
 #: field:risk.management.risk,risk_category_id:0
 msgid "Risk Category"
-msgstr "风险分类"
+msgstr "风险类别"
 
 #. module: risk_management
 #: model:mail.message.subtype,name:risk_management.mt_risk_closed
@@ -617,12 +617,12 @@ msgstr "风险响应"
 #. module: risk_management
 #: model:ir.actions.act_window,name:risk_management.action_show_response_categories
 msgid "Risk Response Categories"
-msgstr "风险响应类别"
+msgstr "风险响应分类"
 
 #. module: risk_management
 #: view:risk.management.response.category:risk_management.response_category_tree_view
 msgid "Risk Response Category"
-msgstr "风险响应分类"
+msgstr "风险响应类别"
 
 #. module: risk_management
 #: view:risk.management.risk:risk_management.risk_form_view

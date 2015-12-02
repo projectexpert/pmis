@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+﻿# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* project_hr_stakeholder
 #
@@ -31,9 +31,8 @@ msgid ""
 "            "
 msgstr ""
 "\n"
-"            角色和职责分配决定了项目经理、项目组成员或者个人贡献者在项目中的"
-"行为。\n"
-"            因为是在项目中进行协作，角色和责任通常是用来支撑项目范围的。\n"
+"角色和职责分配决定了项目经理、项目组成员或者个人贡献者在项目中的行为。"
+"因为是在项目中进行协作，角色和责任通常是来支撑整个项目范围的。\n"
 "            "
 
 #. module: project_hr_stakeholder
@@ -59,7 +58,7 @@ msgid ""
 "            "
 msgstr ""
 "业务伙伴。\n"
-"业务伙伴是跟企业有特殊关系的外部组织，有时是通过认证过程来获取的。\n"
+"业务伙伴是跟企业有特殊关系的外部组织，有时是通过认证过程来获取的。"
 "业务伙伴提供专业知识，或者担当诸如安装、定制、培训或支持之类的特定角色。\n"
 "            "
 
@@ -111,12 +110,10 @@ msgid ""
 "            "
 msgstr ""
 "客户和用户。\n"
-"客户是批准和管理项目的产品、服务或结果的个人或组织。用户是要使用项目的产"
-"品、\n"
-"服务或结果的个人或组织。客户和用户可能隶属于执行项目的组织的内部或外部，\n"
-"也可能存在于不同层级。比如，某种医疗产品的客户可能包括开药方的医生、使用它"
-"的 \n"
-"病人以及实际付款的保险人。在一些应用领域，客户和用户是同义的，但在另外一些\n"
+"客户是批准和管理项目的产品、服务或结果的个人或组织。用户是要使用项目的产品、"
+"服务或结果的个人或组织。客户和用户可能隶属于执行项目的组织的内部或外部，"
+"也可能存在于不同层级。比如，某种医疗产品的客户可能包括开药方的医生、使用它的"
+"病人以及实际付款的保险人。在一些应用领域，客户和用户是同义的，但在另外一些"
 "领域，客户指的是取得项目产品的实体，而用户则是直接使用项目产品的实体。\n"
 "            "
 
@@ -124,12 +121,12 @@ msgstr ""
 #: model:ir.actions.act_window,help:project_hr_stakeholder.action_project_hr_responsibility_tree
 #: model:ir.actions.act_window,help:project_hr_stakeholder.action_project_hr_stakeholder_tree
 msgid "Define the responsibilities for stakeholders in projects."
-msgstr "定义项目中利益相关方的责任。"
+msgstr "定义项目中利益方的责任。"
 
 #. module: project_hr_stakeholder
 #: model:ir.actions.act_window,help:project_hr_stakeholder.action_project_hr_role_tree
 msgid "Define the roles for stakeholders in projects."
-msgstr "定义项目中利益相关方的角色。"
+msgstr "定义项目中利益方的角色。"
 
 #. module: project_hr_stakeholder
 #: view:project.hr.responsibility:project_hr_stakeholder.view_project_hr_responsibility_edit
@@ -160,8 +157,8 @@ msgid ""
 "            "
 msgstr ""
 "职能经理。\n"
-"职能经理是业务中进行管理或职能领域里担当管理角色的关键个人。他们有分配\"\n"
-"给的固定员工，完成进行中的工作，并有明确的指令来管理责任领域内的所有任务。\n"
+"职能经理是业务中进行管理或职能领域里担当管理角色的关键个人。他们有分配"
+"给的固定员工，完成进行中的工作，并有明确的指令来管理责任领域内的所有任务。"
 "职能经理可以提供事务性的专业指导，或者其职能可以为项目提供服务。\n"
 "            "
 
@@ -231,11 +228,11 @@ msgid ""
 "            "
 msgstr ""
 "组织群。\n"
-"组织群是受项目组活动影响的内部利益相关方。例如，可能会受项目影响的\n"
-"组织群组包括市场和销售、人力资源、法务、财务、运营、生产和客户服务。\n"
-"这些部门支撑实施项目的业务环境，因此也就受到项目行为的影响。\n"
-"作为结果，为了实现项目目标，各个业务部门跟项目组之间会有大量的\n"
-"互动和协作。为了平顺过度到投产阶段，这些群组可能会提出需求\n"
+"组织群是受项目组活动影响的内部利益相关方。例如，可能会受项目影响的"
+"组织群组包括市场和销售、人力资源、法务、财务、运营、生产和客户服务。"
+"这些部门支撑实施项目的业务环境，因此也就受到项目行为的影响。"
+"作为结果，为了实现项目目标，各个业务部门跟项目组之间会有大量的"
+"互动和协作。为了平顺过度到投产阶段，这些群组可能会提出需求"
 "和接受交付物。\n"
 "            "
 
@@ -281,17 +278,17 @@ msgstr "项目发起人"
 #. module: project_hr_stakeholder
 #: model:ir.model,name:project_hr_stakeholder.model_project_hr_stakeholder
 msgid "Project Stakeholder"
-msgstr "项目利益相关方"
+msgstr "项目利益方"
 
 #. module: project_hr_stakeholder
 #: help:project.hr.stakeholder,responsibilities_name_str:0
 msgid "Project Stakeholder responsibilities"
-msgstr "项目利益相关方的职责"
+msgstr "项目利益方的职责"
 
 #. module: project_hr_stakeholder
 #: help:project.hr.stakeholder,roles_name_str:0
 msgid "Project Stakeholder roles"
-msgstr "项目利益相关方的角色"
+msgstr "项目利益方的角色"
 
 #. module: project_hr_stakeholder
 #: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_stakeholder_tree
@@ -299,7 +296,7 @@ msgstr "项目利益相关方的角色"
 #: view:project.hr.stakeholder:project_hr_stakeholder.view_project_hr_stakeholder_search
 #: view:project.project:project_hr_stakeholder.edit_project
 msgid "Project Stakeholders"
-msgstr "项目利益相关方"
+msgstr "项目利益方"
 
 #. module: project_hr_stakeholder
 #: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_responsibility_tree
@@ -344,8 +341,7 @@ msgid ""
 "            "
 msgstr ""
 "卖方。\n"
-"卖方，也称为供应商、承包商，是根据所签协议为项目提供所需组件或服务的外部公"
-"司。\n"
+"卖方，也称为供应商、承包商，是根据所签协议为项目提供所需组件或服务的外部公司。\n"
 "            "
 
 #. module: project_hr_stakeholder
@@ -376,14 +372,14 @@ msgid ""
 "            "
 msgstr ""
 "发起人。\n"
-"\t\t\t发起人是为项目提供资源和支持的个人或团体，为项目的成功负责。\n"
-" 发起人可能位于项目经理所在组织的内部或者外部。从项目的构想到结束，\n"
-" 发起者都在做推广，包括担任代言人向上级管理层争取整个组织的支持，\n"
-" 并推广项目能带来的效益。发起人引导项目从发起阶段直到正式授权，\n"
-" 在开发初始的范围和章程方面担任重要的角色。对于超出项目经理所及的问题，\n"
-" 发起人起到提升问题渠道的作用。发起人也可能介入到其他重要的事务，\n"
-" 比如授权范围的变更、阶段末的复查、风险极高时判断是否继续等。\n"
-" 发起人也确保项目结束之后将项目的交付物顺利转交给组织的需求方。\n"
+"\t\t\t发起人是为项目提供资源和支持的个人或团体，为项目的成功负责。"
+" 发起人可能位于项目经理所在组织的内部或者外部。从项目的构想到结束，"
+" 发起者都在做推广，包括担任代言人向上级管理层争取整个组织的支持，"
+" 并推广项目能带来的效益。发起人引导项目从发起阶段直到正式授权，"
+" 在开发初始的范围和章程方面担任重要的角色。对于超出项目经理所及的问题，"
+" 发起人起到提升问题渠道的作用。发起人也可能介入到其他重要的事务，"
+" 比如授权范围的变更、阶段末的复查、风险极高时判断是否继续等。"
+" 发起人也确保项目结束之后将项目的交付物顺利转交给组织的需求方。"
 "            "
 
 #. module: project_hr_stakeholder
@@ -395,7 +391,7 @@ msgstr ""
 #: view:project.project:project_hr_stakeholder.edit_project
 #: field:project.project,stakeholder_ids:0
 msgid "Stakeholders"
-msgstr "利益相关方"
+msgstr "利益方"
 
 #. module: project_hr_stakeholder
 #: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_accountable
@@ -409,8 +405,8 @@ msgid ""
 "There must be only one Accountable specified for each task or deliverable.\n"
 "            \t"
 msgstr ""
-"对是否正确、完整地完成交付物或任务做出判断的一方，并将责任进行委任。\n"
-"换句话说，就是对责任人提供的工作进行审批的负责人。每个任务或交付物\n"
+"对是否正确、完整地完成交付物或任务做出判断的一方，并将责任进行委任。"
+"换句话说，就是对责任人提供的工作进行审批的负责人。每个任务或交付物"
 "必须只有一个负责人。\n"
 "            \t"
 
@@ -422,7 +418,7 @@ msgid ""
 "and with whom there is just one-way communication\n"
 "            "
 msgstr ""
-"需将项目进展保持对其汇报，通常是在任务或交付物\n"
+"需将项目进展保持对其汇报，通常是在任务或交付物"
 "完成的时候，对其沟通也仅仅是单向的。\n"
 "            "
 
@@ -434,8 +430,8 @@ msgid ""
 "although others can be delegated to assist in the work required.\n"
 "            \t"
 msgstr ""
-"为完成任务而付出工作的一方。责任人的参与类型通常只有\n"
-"一个角色，虽然为了有助于工作可以委任其他角色。\\n\"\n"
+"为完成任务而付出工作的一方。责任人的参与类型通常只有"
+"一个角色，虽然为了有助于工作可以委任其他角色。\n"
 "            \t"
 
 #. module: project_hr_stakeholder

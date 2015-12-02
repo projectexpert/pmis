@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+﻿# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* purchase_order_analytic_search
 #
@@ -41,4 +41,4 @@ msgstr "采购订单项"
 #: model:ir.actions.act_window,name:purchase_order_analytic_search.purchase_line_form_action_3
 #: model:ir.ui.menu,name:purchase_order_analytic_search.menu_purchase_line_order_analytic
 msgid "Purchase Order Lines"
-msgstr "采购订单项"
+msgstr "采购订单明细"

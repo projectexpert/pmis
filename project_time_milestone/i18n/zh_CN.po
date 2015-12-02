@@ -23,14 +23,14 @@ msgid "\n"
 "If the active field is set, the task is considered to be a client-relevant\n"
 "milestone\n"
 "            "
-msgstr "如果将生效字段勾选，则该任务将被认为是跟客户相关的里程碑。\n"
+msgstr "如果将该字段勾选，则该任务将被认为是跟客户相关的里程碑。\n"
 
 #. module: project_time_milestone
 #: help:project.task,milestone:0
 msgid "\n"
 "If the active field is set, the task is considered to be a milestone\n"
 "            "
-msgstr "如果将生效字段勾选，则该任务将被认为是里程碑。"
+msgstr "如果将该字段勾选，则该任务将被认为是里程碑。"
 
 #. module: project_time_milestone
 #: view:project.project:project_time_milestone.edit_project
@@ -69,7 +69,7 @@ msgstr "里程碑"
 #. module: project_time_milestone
 #: help:project.task,project_poc:0
 msgid "Percentage of completion for the linked project"
-msgstr ""
+msgstr "所关联项目的完成百分比"
 
 #. module: project_time_milestone
 #: help:project.task,invoice_percentage:0

@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+﻿# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* project_time_schedule
 #
@@ -45,7 +45,7 @@ msgstr ""
 #. module: project_time_schedule
 #: field:project.task,duration:0
 msgid "Activity duration"
-msgstr "活动持续时间"
+msgstr "活动持续时长"
 
 #. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
@@ -55,7 +55,7 @@ msgstr "实际日期"
 #. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
 msgid "Calculate Network"
-msgstr "计算网格"
+msgstr "计算进度网络"
 
 #. module: project_time_schedule
 #: field:project.task,is_critical_path:0
@@ -70,7 +70,7 @@ msgstr "日期"
 #. module: project_time_schedule
 #: help:project.task,duration:0
 msgid "Duration in calendar hours"
-msgstr "日历时间长短"
+msgstr "日历小时时长"
 
 #. module: project_time_schedule
 #: field:project.task,date_earliest_start:0
@@ -100,7 +100,7 @@ msgstr "附加信息"
 #. module: project_time_schedule
 #: field:project.task,free_float:0
 msgid "Free float"
-msgstr "自由浮动"
+msgstr "自由浮动时长"
 
 #. module: project_time_schedule
 #: field:project.task,date_late_finish:0
@@ -130,7 +130,7 @@ msgstr "限制条件"
 #. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
 msgid "Margins"
-msgstr "盈余"
+msgstr "边际时长"
 
 #. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
@@ -156,4 +156,4 @@ msgstr "任务"
 #. module: project_time_schedule
 #: field:project.task,total_float:0
 msgid "Total float"
-msgstr "总浮动"
+msgstr "总浮动时长"

@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+﻿# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* project_time_sequence
 #
@@ -32,7 +32,7 @@ msgstr "创建时间"
 #. module: project_time_sequence
 #: view:project.task:project_time_sequence.view_task_tree2
 msgid "For linking to a predecessor task"
-msgstr "用于连接前置任务"
+msgstr "用于链接前置任务"
 
 #. module: project_time_sequence
 #: field:project.task.link.predecessors,id:0
@@ -55,13 +55,13 @@ msgstr "上次更新日期"
 #. module: project_time_sequence
 #: view:project.task:project_time_sequence.view_task_tree2
 msgid "Link"
-msgstr "连接"
+msgstr "链接"
 
 #. module: project_time_sequence
 #: model:ir.model,name:project_time_sequence.model_project_task_link_predecessors
 #: model:ir.model,name:project_time_sequence.model_project_task_link_predecessors_str
 msgid "Link predecessor tasks"
-msgstr "连接前置任务"
+msgstr "链接前置任务"
 
 #. module: project_time_sequence
 #: help:project.task.link.predecessors.str,predecessor_ids_str:0
@@ -76,7 +76,7 @@ msgstr "上级任务"
 #. module: project_time_sequence
 #: view:project.task:project_time_sequence.view_task_form2
 msgid "Predecessor Activities"
-msgstr "前置任务"
+msgstr "前置活动"
 
 #. module: project_time_sequence
 #: view:project.task.link.predecessors:project_time_sequence.view_project_task_link_predecessors
@@ -104,7 +104,7 @@ msgstr "前置项"
 #: view:project.task.link.predecessors:project_time_sequence.view_project_task_link_predecessors
 #: view:project.task.link.predecessors.str:project_time_sequence.view_project_task_link_predecessors_str
 msgid "Project Task Link Predecessors"
-msgstr "项目任务连接前置项"
+msgstr "项目任务链接前置项"
 
 #. module: project_time_sequence
 #: model:ir.actions.act_window,name:project_time_sequence.action_project_task_link_predecessors

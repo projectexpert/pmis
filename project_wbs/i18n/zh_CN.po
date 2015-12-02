@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+﻿# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* project_wbs
 #
@@ -120,8 +120,7 @@ msgid ""
 msgstr ""
 "<p class=\"oe_view_nocontent_create\">点击以创建一个新项目。</p>\n"
 "<p>项目用来组织你的活动、计划任务、跟踪问题、为计工单开票。\n"
-"你可以定义内部项目（如研发，改进销售流程）、私有项目（我的Todos）或者客户"
-"项目。 </p>\n"
+"你可以定义内部项目（如研发，改进销售流程）、私有项目（我的Todos）或者客户项目。 </p>\n"
 "<p>你将能跟项目的内部用户进行协作，或者邀请客户来分享你的活动。</p>\n"
 "            "
 

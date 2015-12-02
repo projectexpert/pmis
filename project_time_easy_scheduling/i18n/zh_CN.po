@@ -1,0 +1,100 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_time_easy_scheduling
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-02 09:25+0800\n"
+"PO-Revision-Date: 2015-12-02 09:33+0800\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.6\n"
+"Last-Translator: Jason Cui <jason@qdodoo.com>\n"
+"Language: zh_CN\n"
+
+#. module: project_time_easy_scheduling
+#: model:ir.actions.act_window,name:project_time_easy_scheduling.action_view_activity
+#: model:ir.ui.menu,name:project_time_easy_scheduling.menu_action_view_activities
+msgid "Activities"
+msgstr "活动"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_tree
+msgid "Activity"
+msgstr "活动"
+
+#. module: project_time_easy_scheduling
+#: model:ir.actions.act_window,name:project_time_easy_scheduling.action_activity_scheduling_view
+#: model:ir.ui.menu,name:project_time_easy_scheduling.menu_action_view_activity_scheduling
+msgid "Activity Scheduling"
+msgstr "活动调度"
+
+#. module: project_time_easy_scheduling
+#: model:ir.actions.act_window,name:project_time_easy_scheduling.act_project_2_easy_scheduling
+msgid "Easy scheduling"
+msgstr "简易调度"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_tree
+#: view:project.task:project_time_easy_scheduling.view_activity_tree
+msgid "For linking to a predecessor task"
+msgstr "用于链接到前置任务"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_tree
+#: view:project.task:project_time_easy_scheduling.view_activity_tree
+msgid "Link"
+msgstr "链接"
+
+#. module: project_time_easy_scheduling
+#: model:ir.actions.act_window,help:project_time_easy_scheduling.action_view_activity
+msgid "Manage Project activities, including tasks and milestones"
+msgstr "管理项目活动，包括任务和里程碑"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_tree
+#: view:project.task:project_time_easy_scheduling.view_activity_tree
+msgid "Predecessor IDs"
+msgstr "前置任务 ID"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_tree
+#: view:project.task:project_time_easy_scheduling.view_activity_tree
+msgid "Predecessors"
+msgstr "前置项"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_tree
+msgid "Schedule network"
+msgstr "计划网络安排"
+
+#. module: project_time_easy_scheduling
+#: model:ir.actions.act_window,help:project_time_easy_scheduling.action_activity_scheduling_view
+msgid "Schedule project activities, including tasks and milestones"
+msgstr "安排项目活动，包括任务和里程碑"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_tree
+msgid "Scheduling"
+msgstr "调度"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_search
+#: view:project.task:project_time_easy_scheduling.view_activity_search
+msgid "Task Edition"
+msgstr "任务版本"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_search
+msgid "WBS Path code"
+msgstr "WBS路径编码"
+
+#. module: project_time_easy_scheduling
+#: view:project.task:project_time_easy_scheduling.view_activity_scheduling_search
+msgid "WBS Path name"
+msgstr "WBS路径名称"
