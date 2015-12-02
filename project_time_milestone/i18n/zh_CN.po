@@ -1,0 +1,97 @@
+﻿# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_time_milestone
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-13 15:03+0800\n"
+"PO-Revision-Date: 2015-11-13 15:04+0800\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.6\n"
+"Last-Translator: Jason Cui <jason@qdodoo.com>\n"
+"Language: zh_CN\n"
+
+#. module: project_time_milestone
+#: help:project.task,public_milestone:0
+msgid "\n"
+"If the active field is set, the task is considered to be a client-relevant\n"
+"milestone\n"
+"            "
+msgstr "如果将该字段勾选，则该任务将被认为是跟客户相关的里程碑。\n"
+
+#. module: project_time_milestone
+#: help:project.task,milestone:0
+msgid "\n"
+"If the active field is set, the task is considered to be a milestone\n"
+"            "
+msgstr "如果将该字段勾选，则该任务将被认为是里程碑。"
+
+#. module: project_time_milestone
+#: view:project.project:project_time_milestone.edit_project
+msgid "Delegate"
+msgstr "授权"
+
+#. module: project_time_milestone
+#: view:project.project:project_time_milestone.edit_project
+msgid "For changing to delegate state"
+msgstr "用于变为授权状态"
+
+#. module: project_time_milestone
+#: field:project.task,invoice_percentage:0
+msgid "Invoice percentage"
+msgstr "发票百分比"
+
+#. module: project_time_milestone
+#: model:ir.actions.act_window,help:project_time_milestone.action_view_milestone
+msgid "Manage Project milestones"
+msgstr "管理项目里程碑"
+
+#. module: project_time_milestone
+#: view:project.task:project_time_milestone.view_task_form2
+#: field:project.task,milestone:0
+msgid "Milestone"
+msgstr "里程碑"
+
+#. module: project_time_milestone
+#: model:ir.actions.act_window,name:project_time_milestone.action_view_milestone
+#: model:ir.ui.menu,name:project_time_milestone.menu_action_view_milestone
+#: view:project.project:project_time_milestone.edit_project
+#: field:project.project,milestones:0
+msgid "Milestones"
+msgstr "里程碑"
+
+#. module: project_time_milestone
+#: help:project.task,project_poc:0
+msgid "Percentage of completion for the linked project"
+msgstr "所关联项目的完成百分比"
+
+#. module: project_time_milestone
+#: help:project.task,invoice_percentage:0
+msgid "Percentage to invoice"
+msgstr "需开票的百分比"
+
+#. module: project_time_milestone
+#: model:ir.model,name:project_time_milestone.model_project_project
+msgid "Project"
+msgstr "项目"
+
+#. module: project_time_milestone
+#: field:project.task,project_poc:0
+msgid "Project percentage of completion"
+msgstr "项目完成的百分比"
+
+#. module: project_time_milestone
+#: field:project.task,public_milestone:0
+msgid "Public Milestone"
+msgstr "公开的里程碑"
+
+#. module: project_time_milestone
+#: model:ir.model,name:project_time_milestone.model_project_task
+msgid "Task"
+msgstr "任务"

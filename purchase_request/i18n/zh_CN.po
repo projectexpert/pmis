@@ -1,0 +1,456 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* purchase_request
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-13 15:38+0800\n"
+"PO-Revision-Date: 2015-11-13 15:48+0800\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.6\n"
+"Last-Translator: Jason Cui <jason@qdodoo.com>\n"
+"Language: zh_CN\n"
+
+#. module: purchase_request
+#: model:ir.actions.act_window,help:purchase_request.purchase_request_form_action
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Click to start a new purchase request process.\n"
+"              </p><p>\n"
+"                A purchase request is an instruction to Purchasing to "
+"procure\n"
+"                a certain quantity of materials services, so that they are\n"
+"                available at a certain point in time.\n"
+"              </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                点击开始一个新的请购单流程。\n"
+"              </p><p>\n"
+"                请购单是一个购买指示，用来采购一定数量的物料或服务，\n"
+"                做到在指定的时间点可用。\n"
+"              </p>\n"
+"            "
+
+#. module: purchase_request
+#: field:purchase.request.line,analytic_account_id:0
+#: view:website:purchase_request.report_purchaserequests
+msgid "Analytic Account"
+msgstr "分析账户"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_form
+msgid "Approve"
+msgstr "批准"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_search
+#: selection:purchase.request,state:0
+#: view:purchase.request.line:purchase_request.purchase_request_line_search
+msgid "Approved"
+msgstr "已批准"
+
+#. module: purchase_request
+#: field:purchase.request,assigned_to:0
+msgid "Approver"
+msgstr "批准人"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_search
+#: view:purchase.request.line:purchase_request.purchase_request_line_search
+#: field:purchase.request.line,assigned_to:0
+msgid "Assigned to"
+msgstr "分配到"
+
+#. module: purchase_request
+#: view:website:purchase_request.report_purchaserequests
+msgid "Assigned to:"
+msgstr "分配到："
+
+#. module: purchase_request
+#: field:purchase.request,company_id:0 field:purchase.request.line,company_id:0
+msgid "Company"
+msgstr "公司"
+
+#. module: purchase_request
+#: field:purchase.request,create_uid:0 field:purchase.request.line,create_uid:0
+msgid "Created by"
+msgstr "创建人"
+
+#. module: purchase_request
+#: field:purchase.request,create_date:0
+#: field:purchase.request.line,create_date:0
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: purchase_request
+#: view:website:purchase_request.report_purchaserequests
+msgid "Creation Date:"
+msgstr "创建日期："
+
+#. module: purchase_request
+#: field:purchase.request,date_start:0
+msgid "Creation date"
+msgstr "创建日期"
+
+#. module: purchase_request
+#: help:purchase.request,message_last_post:0
+#: help:purchase.request.line,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr "记录最后添加信息的日期"
+
+#. module: purchase_request
+#: help:purchase.request,date_start:0 help:purchase.request.line,date_start:0
+msgid "Date when the user initiated the request."
+msgstr "用户发起申请的日期。"
+
+#. module: purchase_request
+#: field:purchase.request,description:0
+#: field:purchase.request.line,description:0 field:purchase.request.line,name:0
+#: view:website:purchase_request.report_purchaserequests
+msgid "Description"
+msgstr "描述"
+
+#. module: purchase_request
+#: view:website:purchase_request.report_purchaserequests
+msgid "Description:"
+msgstr "描述："
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_search
+#: selection:purchase.request,state:0
+#: view:purchase.request.line:purchase_request.purchase_request_line_search
+msgid "Draft"
+msgstr "草稿"
+
+#. module: purchase_request
+#: field:purchase.request,message_follower_ids:0
+#: field:purchase.request.line,message_follower_ids:0
+msgid "Followers"
+msgstr "关注人"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_search
+#: view:purchase.request.line:purchase_request.purchase_request_line_search
+msgid "Group By..."
+msgstr "分组项..."
+
+#. module: purchase_request
+#: help:purchase.request,message_summary:0
+#: help:purchase.request.line,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+"保存交谈概要（信息数量，...）。此概要直接为html格式，以便于插入看板视图中。"
+
+#. module: purchase_request
+#: field:purchase.request,id:0 field:purchase.request.line,id:0
+msgid "ID"
+msgstr ""
+
+#. module: purchase_request
+#: help:purchase.request,message_unread:0
+#: help:purchase.request.line,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "如果勾选，新信息将需要你进行关注。"
+
+#. module: purchase_request
+#: field:purchase.request,message_is_follower:0
+#: field:purchase.request.line,message_is_follower:0
+msgid "Is a Follower"
+msgstr "是关注人"
+
+#. module: purchase_request
+#: field:purchase.request,message_last_post:0
+#: field:purchase.request.line,message_last_post:0
+msgid "Last Message Date"
+msgstr "最后信息的日期"
+
+#. module: purchase_request
+#: field:purchase.request,write_uid:0 field:purchase.request.line,write_uid:0
+msgid "Last Updated by"
+msgstr "最后更新者"
+
+#. module: purchase_request
+#: field:purchase.request,write_date:0 field:purchase.request.line,write_date:0
+msgid "Last Updated on"
+msgstr "上次更新日期"
+
+#. module: purchase_request
+#: field:purchase.request,message_ids:0
+#: field:purchase.request.line,message_ids:0
+msgid "Messages"
+msgstr "信息"
+
+#. module: purchase_request
+#: help:purchase.request,message_ids:0 help:purchase.request.line,message_ids:0
+msgid "Messages and communication history"
+msgstr "信息和交流历史"
+
+#. module: purchase_request
+#: view:purchase.request.line:purchase_request.purchase_request_line_search
+#: field:purchase.request.line,product_id:0
+msgid "Product"
+msgstr "产品"
+
+#. module: purchase_request
+#: field:purchase.request.line,product_uom_id:0
+msgid "Product Unit of Measure"
+msgstr "产品单位"
+
+#. module: purchase_request
+#: view:website:purchase_request.report_purchaserequests
+msgid "Product UoM"
+msgstr "产品单位"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_form
+#: view:website:purchase_request.report_purchaserequests
+msgid "Products"
+msgstr "产品"
+
+#. module: purchase_request
+#: field:purchase.request,line_ids:0
+msgid "Products to Purchase"
+msgstr "待购产品"
+
+#. module: purchase_request
+#: model:ir.actions.report.xml,name:purchase_request.action_report_purchase_requests
+#: model:ir.model,name:purchase_request.model_purchase_request
+#: model:ir.module.category,name:purchase_request.module_category_purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_form
+#: view:purchase.request:purchase_request.view_purchase_request_search
+#: view:purchase.request:purchase_request.view_purchase_request_tree
+#: field:purchase.request.line,request_id:0
+#: view:website:purchase_request.report_purchaserequests
+msgid "Purchase Request"
+msgstr "请购单"
+
+#. module: purchase_request
+#: model:ir.model,name:purchase_request.model_purchase_request_line
+#: view:purchase.request.line:purchase_request.purchase_request_line_form
+msgid "Purchase Request Line"
+msgstr "请购单项"
+
+#. module: purchase_request
+#: model:ir.actions.act_window,name:purchase_request.purchase_request_line_form_action
+#: model:ir.ui.menu,name:purchase_request.menu_purchase_request_line
+#: model:ir.ui.menu,name:purchase_request.menu_purchase_request_line_act
+#: view:purchase.request.line:purchase_request.purchase_request_line_tree
+msgid "Purchase Request Lines"
+msgstr "请购单项"
+
+#. module: purchase_request
+#: model:res.groups,name:purchase_request.group_purchase_request_manager
+msgid "Purchase Request Manager"
+msgstr "请购单经理"
+
+#. module: purchase_request
+#: model:res.groups,name:purchase_request.group_purchase_request_user
+msgid "Purchase Request User"
+msgstr "请购单用户"
+
+#. module: purchase_request
+#: model:ir.actions.act_window,name:purchase_request.action_purchase_request_line_product_tree
+#: model:ir.actions.act_window,name:purchase_request.purchase_request_form_action
+#: model:ir.ui.menu,name:purchase_request.menu_purchase_request
+#: model:ir.ui.menu,name:purchase_request.menu_purchase_request_act
+#: model:ir.ui.menu,name:purchase_request.menu_purchase_request_pro_mgt
+msgid "Purchase Requests"
+msgstr "请购单"
+
+#. module: purchase_request
+#: model:ir.ui.menu,name:purchase_request.parent_menu_purchase_request
+msgid "Purchase requests"
+msgstr "请购单项"
+
+#. module: purchase_request
+#: view:website:purchase_request.report_purchaserequests
+msgid "Qty"
+msgstr "数量"
+
+#. module: purchase_request
+#: field:purchase.request.line,product_qty:0
+msgid "Quantity"
+msgstr "数量"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_form
+msgid "Reject"
+msgstr "拒绝"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_search
+#: selection:purchase.request,state:0
+#: view:purchase.request.line:purchase_request.purchase_request_line_search
+msgid "Rejected"
+msgstr "已拒绝"
+
+#. module: purchase_request
+#: field:purchase.request.line,date_required:0
+#: field:purchase.request.line,date_start:0
+msgid "Request Date"
+msgstr "申请日期"
+
+#. module: purchase_request
+#: field:purchase.request,name:0
+msgid "Request Reference"
+msgstr "请购参考"
+
+#. module: purchase_request
+#: view:website:purchase_request.report_purchaserequests
+msgid "Request Reference:"
+msgstr "请购参考："
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_form
+msgid "Request approval"
+msgstr "请购审批"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_search
+#: view:purchase.request.line:purchase_request.purchase_request_line_search
+msgid "Request is approved"
+msgstr "申请已批准"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_search
+#: view:purchase.request.line:purchase_request.purchase_request_line_search
+msgid "Request is rejected"
+msgstr "申请被拒绝"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_search
+#: view:purchase.request.line:purchase_request.purchase_request_line_search
+msgid "Request is to be approved"
+msgstr "申请待批准"
+
+#. module: purchase_request
+#: field:purchase.request.line,request_state:0
+msgid "Request state"
+msgstr "申请日期"
+
+#. module: purchase_request
+#: view:website:purchase_request.report_purchaserequests
+msgid "Requested Date"
+msgstr "申请提交日期"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_search
+#: field:purchase.request,requested_by:0
+#: view:purchase.request.line:purchase_request.purchase_request_line_search
+#: field:purchase.request.line,requested_by:0
+msgid "Requested by"
+msgstr "申请人"
+
+#. module: purchase_request
+#: view:website:purchase_request.report_purchaserequests
+msgid "Requested by:"
+msgstr "申请人："
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_form
+msgid "Reset"
+msgstr "复位"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_search
+#: view:purchase.request.line:purchase_request.purchase_request_line_search
+msgid "Search Purchase Request"
+msgstr "搜索采购申请"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_search
+msgid "Source"
+msgstr "源"
+
+#. module: purchase_request
+#: field:purchase.request,origin:0 field:purchase.request.line,origin:0
+msgid "Source Document"
+msgstr "源单据"
+
+#. module: purchase_request
+#: view:website:purchase_request.report_purchaserequests
+msgid "Source:"
+msgstr "源："
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_form
+#: view:purchase.request.line:purchase_request.purchase_request_line_form
+#: field:purchase.request.line,specifications:0
+#: view:website:purchase_request.report_purchaserequests
+msgid "Specifications"
+msgstr "规格"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_search
+msgid "Start Date"
+msgstr "起始日期"
+
+#. module: purchase_request
+#: field:purchase.request,state:0
+msgid "Status"
+msgstr "状态"
+
+#. module: purchase_request
+#: field:purchase.request,message_summary:0
+#: field:purchase.request.line,message_summary:0
+msgid "Summary"
+msgstr "概要"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_search
+#: view:purchase.request.line:purchase_request.purchase_request_line_search
+msgid "To Approve"
+msgstr "待批准"
+
+#. module: purchase_request
+#: selection:purchase.request,state:0
+msgid "To be approved"
+msgstr "需批准"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_search
+msgid "Unassigned"
+msgstr "未指派"
+
+#. module: purchase_request
+#: view:purchase.request:purchase_request.view_purchase_request_search
+msgid "Unassigned Request"
+msgstr "未指派的申请"
+
+#. module: purchase_request
+#: field:purchase.request,message_unread:0
+#: field:purchase.request.line,message_unread:0
+msgid "Unread Messages"
+msgstr "未读信息"
+
+#. module: purchase_request
+#: field:purchase.request,warehouse_id:0
+#: field:purchase.request.line,warehouse_id:0
+msgid "Warehouse"
+msgstr "仓库"
+
+#. module: purchase_request
+#: view:website:purchase_request.report_purchaserequests
+msgid "Warehouse:"
+msgstr "仓库："
+
+#. module: purchase_request
+#: field:purchase.request,website_message_ids:0
+#: field:purchase.request.line,website_message_ids:0
+msgid "Website Messages"
+msgstr "网站信息"
+
+#. module: purchase_request
+#: help:purchase.request,website_message_ids:0
+#: help:purchase.request.line,website_message_ids:0
+msgid "Website communication history"
+msgstr "网站沟通历史"

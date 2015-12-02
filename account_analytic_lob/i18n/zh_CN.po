@@ -1,0 +1,75 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_analytic_lob
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-13 09:26+0800\n"
+"PO-Revision-Date: 2015-11-13 09:29+0800\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.6\n"
+"Last-Translator: Jason Cui <jason@qdodoo.com>\n"
+"Language: zh_CN\n"
+
+#. module: account_analytic_lob
+#: model:ir.model,name:account_analytic_lob.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "分析账户"
+
+#. module: account_analytic_lob
+#: field:account.analytic.lob,code:0
+msgid "Code"
+msgstr "编码"
+
+#. module: account_analytic_lob
+#: field:account.analytic.lob,create_uid:0
+msgid "Created by"
+msgstr "创建人"
+
+#. module: account_analytic_lob
+#: field:account.analytic.lob,create_date:0
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: account_analytic_lob
+#: model:ir.actions.act_window,help:account_analytic_lob.action_account_analytic_lob_tree
+msgid "Define the Lines of Business."
+msgstr "定义业务范围"
+
+#. module: account_analytic_lob
+#: field:account.analytic.lob,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: account_analytic_lob
+#: field:account.analytic.lob,write_uid:0
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: account_analytic_lob
+#: field:account.analytic.lob,write_date:0
+msgid "Last Updated on"
+msgstr "上次更新日期"
+
+#. module: account_analytic_lob
+#: field:account.analytic.account,lob:0
+#: view:account.analytic.lob:account_analytic_lob.view_account_analytic_lob_edit
+#: view:account.analytic.lob:account_analytic_lob.view_account_analytic_lob_search
+#: view:account.analytic.lob:account_analytic_lob.view_account_analytic_lob_tree
+#: model:ir.actions.act_window,name:account_analytic_lob.action_account_analytic_lob_tree
+#: model:ir.model,name:account_analytic_lob.model_account_analytic_lob
+#: model:ir.ui.menu,name:account_analytic_lob.menu_account_analytic_lob_config
+#: model:ir.ui.menu,name:account_analytic_lob.menu_account_analytic_lob_view
+msgid "Line of Business"
+msgstr "业务范围"
+
+#. module: account_analytic_lob
+#: field:account.analytic.lob,name:0
+msgid "Name"
+msgstr "名称"

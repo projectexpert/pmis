@@ -1,0 +1,172 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* analytic_wip_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-13 11:48+0800\n"
+"PO-Revision-Date: 2015-11-13 11:57+0800\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.6\n"
+"Last-Translator: Jason Cui <jason@qdodoo.com>\n"
+"Language: zh_CN\n"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Account Name"
+msgstr "账户名称"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Actual Billings to Date"
+msgstr "迄今实际计费"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,actual_billings:0
+msgid "Actual Billings to date"
+msgstr "迄今实际计费"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Actual Costs to Date"
+msgstr "迄今实际成本"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,percent_complete:0
+msgid "Actual Costs to Date / Total Estimated Costs"
+msgstr "迄今实际成本/预估总成本"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,actual_costs:0
+msgid "Actual Costs to date"
+msgstr "迄今实际成本"
+
+#. module: analytic_wip_report
+#: model:ir.model,name:analytic_wip_report.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "分析账户"
+
+#. module: analytic_wip_report
+#: view:account.analytic.account:analytic_wip_report.view_account_analytic_account_wip_tree
+msgid "Analytic account"
+msgstr "分析账户"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Code"
+msgstr "编号"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Earned Revenue to Date"
+msgstr "迄今已获收入"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,earned_revenue:0
+msgid "Earned Revenue to date"
+msgstr "迄今已获收入"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,estimated_costs_to_complete:0
+#: report:analytic.wip:0
+msgid "Estimated Costs to Complete"
+msgstr "预估待发生成本"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,estimated_gross_profit:0
+#: report:analytic.wip:0
+msgid "Estimated Gross Profit"
+msgstr "预估总利润"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Over Billings"
+msgstr "超额计费"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,over_billings:0
+msgid "Over billings"
+msgstr "超额计费"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,percent_complete:0 report:analytic.wip:0
+msgid "Percent Complete"
+msgstr "完成百分比"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,earned_revenue:0
+msgid "Percent Complete * Total Estimated Revenue"
+msgstr "完成百分百 X 预估总收入"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,under_billings:0
+msgid "Total Billings on Contract – Earned Revenue to Date (when < 0 )"
+msgstr "合同总计费 - 迄今已获收入 （当 <0 时）"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,over_billings:0
+msgid "Total Billings on Contract – Earned Revenue to Date (when > 0 )"
+msgstr "合同总计费 - 迄今已获收入 （当 >0 时）"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,total_estimated_costs:0 report:analytic.wip:0
+msgid "Total Estimated Costs"
+msgstr "总计预估成本"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,estimated_costs_to_complete:0
+msgid "Total Estimated Costs – Actual Costs to Date"
+msgstr "总计预估成本 - 迄今实际成本"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,total_value:0
+msgid "Total Value"
+msgstr "总额"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,estimated_gross_profit:0
+msgid "Total Value – Total Estimated Costs"
+msgstr "总额 - 总计预估成本"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,total_value:0
+msgid "Total estimated revenue of the contract"
+msgstr "合同的预估总收入"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,actual_billings:0
+msgid "Total invoiced amount issued to the customer to date"
+msgstr "迄今对客户已开票总金额"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Total value"
+msgstr "总额"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Under Billings"
+msgstr "不足计费"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,under_billings:0
+msgid "Under billings"
+msgstr "不足计费"
+
+#. module: analytic_wip_report
+#: model:ir.actions.act_window,name:analytic_wip_report.action_account_analytic_account_wip_form
+#: model:ir.actions.report.xml,name:analytic_wip_report.analytic_wip_report_print
+#: model:ir.ui.menu,name:analytic_wip_report.account_analytic_account_wip
+msgid "Work In Progress Statement"
+msgstr "进行中的任务项声明"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Work In Progress Statement -"
+msgstr "进行中的任务项声明 -"
