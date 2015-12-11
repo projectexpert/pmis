@@ -10,7 +10,7 @@
             <field name="inherit_id" ref="project_time_schedule.view_task_form2"/>       
             <field name="arch" type="xml">       
             	<field name="name" position="after">
-            		<field name="milestone"/>            		  
+            		<field name="milestone" invisible="1"/>
             	</field>
 
 	            <xpath expr="//sheet//page[@string='Extra Info']//notebook[@name='Scheduling']" position="inside">
@@ -33,7 +33,7 @@
             <field eval="False" name="filter"/>
             <field name="inherit_id" ref="project.view_task_tree2"/>   
             <field name="domain">[('milestone', '=', True)]</field>
-            <field name="context">{"search_default_user_id":uid, "search_default_current": 1,'milestone': True}</field>
+            <field name="context">{"search_default_user_id":uid, "search_default_current": 1,'default_milestone': True}</field>
             <field name="search_view_id" ref="project.view_task_search_form"/>
             <field name="help">Manage Project milestones</field>
         </record>
@@ -42,7 +42,7 @@
 	 	
         <record id="project.action_view_task" model="ir.actions.act_window">
             <field name="domain">[('milestone', '=', False)]</field>
-            <field name="context">{"search_default_user_id":uid, "search_default_current": 1,'milestone': True}</field>            
+            <field name="context">{"search_default_user_id":uid, "search_default_current": 1,'default_milestone': True}</field>
         </record>
 
 		<record id="edit_project" model="ir.ui.view">
