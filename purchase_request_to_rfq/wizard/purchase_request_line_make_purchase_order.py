@@ -154,6 +154,9 @@ class PurchaseRequestLineMakePurchaseOrder(models.TransientModel):
         purchase = False
         for item in self.item_ids:
             line = item.line_id
+            if line.request_state != 'approved':
+                raise exceptions.Warning(
+                    _('You can purchase only approved items'))
             if line.purchase_state == 'done':
                 raise exceptions.Warning(
                     _('The purchase has already been completed.'))
