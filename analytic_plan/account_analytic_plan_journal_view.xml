@@ -44,13 +44,15 @@
             <field name="model">account.analytic.plan.journal</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <form string="Analytic Journal">
+                <form string="Analytic Journal" version="7.0">
+                  <group>  
                     <field name="name" select="1"/>
                     <field name="code" select="1"/>
                     <field name="type" select="2"/>
                     <field name="active" select="2"/>
                     <field name="company_id" groups="base.group_multi_company" widget="selection"/>
                     <field name="analytic_journal"/>
+                  </group>
                 </form>
             </field>
         </record>
