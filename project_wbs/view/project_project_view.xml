@@ -214,7 +214,6 @@
                 </xpath>
                 <xpath expr='//field[@name="state"]' position="after">
                     <field name="stage_id" widget="statusbar" clickable="True"/>
-                    <field name="stage_id" class="oe_inline" required="1"/>
                 </xpath>
                 <!--<xpath expr='//sheet/div/div[@name="options_active"]' position="before">
                     <div name="stage_selector">

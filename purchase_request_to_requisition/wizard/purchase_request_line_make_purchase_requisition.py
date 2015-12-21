@@ -106,6 +106,9 @@ class PurchaseRequestLineMakePurchaseRequisition(models.TransientModel):
         res = []
         for item in self.item_ids:
             line = item.line_id
+            if line.request_state != 'approved':
+                raise exceptions.Warning(
+                    _('You can purchase only approved items'))
             if item.product_qty <= 0.0:
                 raise exceptions.Warning(
                     _('Enter a positive quantity.'))
