@@ -130,8 +130,7 @@ class AnalyticResourcePlanLine(orm.Model):
         'analytic_line_plan_ids': fields.one2many(
             'account.analytic.line.plan',
             'resource_plan_id',
-            'Planned costs',
-            readonly=True
+            'Planned costs'
         ),
     }
 

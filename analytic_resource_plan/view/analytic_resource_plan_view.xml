@@ -57,7 +57,7 @@
                                 </group>
                             </page>
                             <page string="Costs" name="costs">
-                                <field name="analytic_line_plan_ids"/>
+                                <field name="analytic_line_plan_ids" readonly="1"/>
                             </page>
                     </notebook>
 					</sheet>

@@ -36,6 +36,7 @@
         "view/account_analytic_plan_version_view.xml",
         'view/analytic_resource_plan_view.xml',
         'view/analytic_account_view.xml',
+        'view/account_analytic_line_plan_view.xml',
         'view/product_view.xml',
         'view/project_view.xml',
         'security/ir.model.access.csv',

@@ -2,18 +2,31 @@
 <openerp>
     <data>
 	
-       <record id="view_account_analytic_line_plan_form" model="ir.ui.view">
-            <field name="name">account.analytic.line.plan.form</field>
+       <record id="view_account_analytic_line_plan_form_resource" model="ir.ui.view">
+            <field name="name">account.analytic.line.plan.form.resource</field>
             <field name="model">account.analytic.line.plan</field>
             <field name="inherit_id"
                    ref="analytic_plan.view_account_analytic_line_plan_form"/>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='ref']" position="after">
-                    <field name="resource_plan_id"/>
+                    <field name="resource_plan_id" domain="[('account_id','=',account_id)]"/>
                 </xpath>
             </field>
         </record>
+
+        <record id="view_account_analytic_line_plan_tree_resource" model="ir.ui.view">
+            <field name="name">account.analytic.line.plan.tree.resource</field>
+            <field name="model">account.analytic.line.plan</field>
+            <field name="inherit_id"
+                   ref="analytic_plan.view_account_analytic_line_plan_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='general_account_id']" position="after">
+                    <field name="resource_plan_id" domain="[('account_id','=',account_id)]"/>
+                </xpath>
+
+            </field>
+        </record>
+
 
     </data>
 </openerp>
