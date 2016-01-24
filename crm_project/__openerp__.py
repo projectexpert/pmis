@@ -29,7 +29,7 @@
 
 {
     'name': 'CRM cases part of Projects',
-    'version': '8.0.0.8.1',
+    'version': '8.0.0.8.2',
     'author':   'Matmoz d.o.o., '
                 'Project Expert Team',
     'contributors': [
