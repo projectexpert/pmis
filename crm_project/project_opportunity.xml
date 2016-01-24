@@ -17,5 +17,19 @@
                 </group>
             </field>
         </record>
+
+        <record id="view_crm_case_opportunities_filter" model="ir.ui.view">
+            <field name="name">CRM - Opportunities Search</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+            <field name="type">form</field>
+
+            <field name="arch" type="xml">
+                <group string="Group By" position="inside">
+                    <filter string="Project" context="{'group_by':'project_id'}" />
+                </group>
+            </field>
+        </record>
+
     </data>
 </openerp>
