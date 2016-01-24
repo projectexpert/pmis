@@ -12,9 +12,6 @@
                     <field name="project_id" string="Project"/>
                     <newline/>
                 </field>
-                <group string="Group By" position="inside">
-                    <filter string="Project" context="{'group_by':'project_id'}" />
-                </group>
             </field>
         </record>
 
