@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#               <jordi.ballester@eficent.com>
+#               <contact@eficent.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,14 +19,4 @@
 #
 ##############################################################################
 
-from openerp import models, fields
-
-
-class AccountAnalyticAccount(models.Model):
-
-    _inherit = 'account.analytic.account'
-
-    lob = fields.Many2one(
-        'account.analytic.lob',
-        'Line of Business'
-    )
+from . import analytic_wip_report

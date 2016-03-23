@@ -187,3 +187,28 @@ class account_analytic_account(orm.Model):
         return super(account_analytic_account, self).copy(
             cr, uid, id, default, context=context
         )
+
+    def action_openPlanCostTreeView(self, cr, uid, ids, context=None):
+        """
+        :return dict: dictionary value for created view
+        """
+        if context is None:
+            context = {}
+        account = self.browse(cr, uid, ids[0], context)
+        res = self.pool.get('ir.actions.act_window').for_xml_id(
+            cr, uid, 'analytic_plan',
+            'action_account_analytic_plan_journal_open_form', context)
+        plan_obj = self.pool['account.analytic.line.plan']
+
+        acc_ids = self.get_child_accounts(cr, uid, [account.id],
+                                          context=context)
+        line_ids = plan_obj.search(
+            cr, uid, [('account_id', 'in', acc_ids.keys()),
+                      ('version_id', '=',
+                       account.active_analytic_planning_version.id)],
+            context=context)
+
+        res['domain'] = "[('id', 'in', ["+','.join(
+            map(str, line_ids))+"])]"
+        res['nodestroy'] = False
+        return res

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="analytic_wip_report_view" model="ir.ui.view">
+            <field name="name">Work In Progress Statement</field>
+            <field name="model">analytic.wip.report</field>
+            <field name="arch" type="xml">
+                <form string="Analytic Work In Progress Statement" version="7.0">
+                    <group name='period'
+                           string="Select the Period for Analysis"
+                           col="4">
+                        <field name="from_date"/>
+                        <field name="to_date"/>
+                        <label string="(Keep empty to open the current situation)" colspan="4"/>
+                    </group>
+                    <footer>
+                        <button name="analytic_wip_report_open_window" string="Open" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_analytic_wip_report" model="ir.actions.act_window">
+            <field name="name">Work In Progress Statement</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">analytic.wip.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="analytic_wip_report_view"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="action_analytic_wip_report"
+                  id="analytic_wip_report"
+            parent="base.menu_project_report"
+            groups="project.group_project_manager"/>
+
+    </data>
+</openerp>

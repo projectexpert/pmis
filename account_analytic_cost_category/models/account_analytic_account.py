@@ -18,7 +18,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
 from openerp import models, fields
 
 
@@ -26,7 +25,13 @@ class AccountAnalyticAccount(models.Model):
 
     _inherit = 'account.analytic.account'
 
-    lob = fields.Many2one(
-        'account.analytic.lob',
-        'Line of Business'
+    cost_category = fields.Selection(
+        [
+            ('cogs', 'Cost of Goods Sold'),
+            ('expense', 'Expense')
+        ],
+        'Type of Cost',
+        help="Defines what type of cost does the analytic account carry "
+             "from an employee perspective.",
+        default='expense'
     )

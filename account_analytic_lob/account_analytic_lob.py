@@ -19,28 +19,25 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv
+from openerp import models, fields
 
 
-class account_analytic_lob(osv.osv):
+class AccountAnalyticLob(models.Model):
 
     _name = "account.analytic.lob"
     _description = 'Line of Business'
     _order = 'name'
 
-    _columns = {
-        'code': fields.char(
-            'Code',
-            size=4,
-            required=True,
-            translate=True
-        ),
-        'name': fields.char(
-            'Name',
-            size=32,
-            required=True,
-            translate=True
-        ),
-    }
+    code = fields.Char(
+        'Code',
+        size=4,
+        required=True,
+        translate=True
+    )
 
-account_analytic_lob()
+    name = fields.Char(
+        'Name',
+        size=32,
+        required=True,
+        translate=True
+    )

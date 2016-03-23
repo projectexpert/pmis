@@ -22,7 +22,7 @@
 
 {
     'name': 'Work In Progress Statement',
-    'version': '8.0.1.1.0',
+    'version': '8.0.1.1.1',
     'author':   'Eficent, '
                 'Project Expert Team',
     'contributors': [
@@ -41,6 +41,7 @@
         'analytic_wip_report.xml',
         'security/ir.model.access.csv',
         'account_analytic_account_view.xml',
+        'wizards/analytic_wip_report_view.xml'
     ],
     'demo': [
 

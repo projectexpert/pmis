@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="analytic_account_open_view" model="ir.ui.view">
+            <field name="name">Open analytic account</field>
+            <field name="model">analytic.account.open</field>
+            <field name="arch" type="xml">
+                <form string="Open single analytic account" version="7.0">
+                    <group name='basic'
+                           string="Select the analytic account"
+                           col="4">
+                        <field name="analytic_account_id"/>
+                        <field name="include_child"/>
+                    </group>
+                    <footer>
+                        <button name="analytic_account_open_window" string="Open" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_analytic_account_open_window" model="ir.actions.act_window">
+            <field name="name">Open analytic account</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">analytic.account.open</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="analytic_account_open_view"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="action_analytic_account_open_window"
+                  id="menu_analytic_account_open_window"
+            parent="account.menu_analytic_accounting"/>
+
+
+    </data>
+</openerp>
