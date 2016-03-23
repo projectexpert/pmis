@@ -41,6 +41,10 @@
             	    <field name="debit_plan"/>            	   
                     <field name="credit_plan"/>                    
                     <field name="balance_plan"/>
+					<button string="Planned cost lines"
+                        name="action_openPlanCostTreeView"
+                        type="object"
+                        icon="gtk-open"/>
             	</field>
                 <field name="debit" position="before">
                     <field name="active_analytic_planning_version" string="Active Plan Version"/>

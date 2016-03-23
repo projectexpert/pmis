@@ -78,7 +78,7 @@ class account_analytic_line_plan(orm.Model):
         'account_id': fields.many2one(
             'account.analytic.account', 'Analytic Account',
             required=True,
-            ondelete='cascade',
+            ondelete='restrict',
             select=True,
             domain=[('type', '<>', 'view')]
         ),
