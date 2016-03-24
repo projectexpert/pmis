@@ -24,7 +24,7 @@
                             <field name="sequence"/>
                             <field name="fold"/>
                             <field name="case_default"/>
-							<field name="state"/>
+                            <field name="project_state"/>
                         </group>
                     </group>
                     <field name="description" placeholder="Add a description..."/>
@@ -39,9 +39,7 @@
                 <tree string="Analytic Account Stage">
                     <field name="sequence" widget="handle"/>
                     <field name="name"/>
-					<field name="fold"/>
                     <field name="case_default"/>
-					<field name="state"/>
                 </tree>
             </field>
         </record>

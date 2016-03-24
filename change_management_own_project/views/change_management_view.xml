@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="change_form_view" model="ir.ui.view">
+            <field name="name">change.management.change.form.view</field>
+            <field name="model">change.management.change</field>
+            <field name="inherit_id" ref="change_management.change_form_view"/>
+            <field name="arch" type="xml">
+                <field name="project_id" position="after">
+                    <field name="change_project_id" readonly="True"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="change_search_form_view" model="ir.ui.view">
+            <field name="name">change.management.change.search.form.view</field>
+            <field name="model">change.management.change</field>
+            <field name="inherit_id"
+                   ref="change_management.change_search_form_view"/>
+            <field name="arch" type="xml">
+                <field name="project_id" position="after">
+                    <field name="change_project_id"/>
+                </field>
+            </field>
+        </record>   
+
+    </data>
+</openerp>
