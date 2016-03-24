@@ -100,11 +100,13 @@ class AccountAnalyticAccount(models.Model):
         ctx = self._context.copy()
         ctx['active_test'] = False
         for analytic_account in self:
-            deliverable = self.env['account.analytic.account'].\
-                with_context(ctx).search([('parent_id', '=',
-                                           analytic_account.id),
-                                          ('account_class', '=',
-                                           account_class)])
+            deliverable = self.env[
+                'account.analytic.account'].with_context(ctx).search(
+                [
+                    ('parent_id', '=', analytic_account.id),
+                    ('account_class', '=', account_class)
+                ]
+            )
             if deliverable:
                 res[analytic_account.id] = len(deliverable.ids)
             else:
@@ -127,15 +129,15 @@ class AccountAnalyticAccount(models.Model):
     @api.depends('child_deliverable_count')
     def _child_deliverable_count(self):
         for account in self:
-            account.child_deliverable_count = account.\
-                _child_count('deliverable')
+            account.child_deliverable_count = account._child_count(
+                'deliverable')
 
     @api.multi
     @api.depends('child_work_package_count')
     def _child_work_package_count(self):
         for account in self:
-            account.child_work_package_count = account.\
-                _child_count('work_package')
+            account.child_work_package_count = account._child_count(
+                'work_package')
 
     @api.multi
     @api.depends('child_unclassified_count')
@@ -154,9 +156,10 @@ class AccountAnalyticAccount(models.Model):
             return self._context['default_parent_id']
         if isinstance(self._context.get('default_parent_id'), basestring):
             analytic_account_name = self._context['default_parent_id']
-            analytic_account_ids = \
-                self.env['account.analytic.account'].\
-                name_search(name=analytic_account_name)
+            analytic_account_ids = (
+                self.env['account.analytic.account'].name_search(
+                    name=analytic_account_name)
+            )
             if len(analytic_account_ids) == 1:
                 return analytic_account_ids[0][0]
         return None
@@ -205,8 +208,9 @@ class AccountAnalyticAccount(models.Model):
 
     @api.model
     def _get_type_common(self):
-        return self.env['analytic.account.stage'].search([('case_default',
-                                                            '=', 1)])
+        return self.env['analytic.account.stage'].search(
+            [('case_default', '=', 1)]
+        )
 
     wbs_indent = fields.Char(compute='_wbs_indent_calc', string='Level',
                              readonly=True, store=True)
@@ -219,11 +223,14 @@ class AccountAnalyticAccount(models.Model):
                                     string='Full WBS path',
                                     help='Full path in the WBS hierarchy',
                                     store=True)
-    project_analytic_account_id =\
-        fields.Many2one('account.analytic.account',
-                        compute='_get_project_account_id',
-                        string='Root Project',
-                        help='Root Project in the WBS hierarchy', store=True)
+    project_analytic_account_id = (
+        fields.Many2one(
+            'account.analytic.account',
+            compute='_get_project_account_id',
+            string='Root Project',
+            help='Root Project in the WBS hierarchy', store=True
+        )
+    )
     account_class = fields.Selection([('project', 'Project'),
                                       ('phase', 'Phase'),
                                       ('deliverable', 'Deliverable'),
@@ -248,14 +255,15 @@ class AccountAnalyticAccount(models.Model):
                                          store=True)
     child_phase_count = fields.Integer("Phases", compute='_child_phase_count',
                                        store=True)
-    child_deliverable_count = fields.\
-        Integer("Deliverables", compute='_child_deliverable_count', store=True)
-    child_work_package_count = fields.\
-        Integer("Work Packages", compute='_child_work_package_count',
-                store=True)
-    child_unclassified_count = fields.\
-        Integer("Unclassified projects", compute='_child_unclassified_count',
-                store=True)
+    child_deliverable_count = fields.Integer(
+        "Deliverables", compute='_child_deliverable_count', store=True)
+    child_work_package_count = fields.Integer(
+        "Work Packages", compute='_child_work_package_count', store=True
+    )
+    child_unclassified_count = fields.Integer(
+        "Unclassified projects", compute='_child_unclassified_count',
+        store=True
+    )
 
     _group_by_full = {
         'stage_id': _read_group_stage_ids,
@@ -340,8 +348,9 @@ class AccountAnalyticAccount(models.Model):
             stage_obj = self.env['analytic.account.stage']
             for acc in self:
                 # Search if there's an associated project
-                project = project_obj.search([('analytic_account_id', '=',
-                                               acc.id)])
+                project = project_obj.search(
+                    [('analytic_account_id', '=', acc.id)]
+                )
                 if old_stage_id[acc.id]:
                     old_stage = acc.stage_id
                 else:
@@ -358,11 +367,15 @@ class AccountAnalyticAccount(models.Model):
                 if new_stage.id in [st.id for st in acc.child_stage_ids]:
                     child = self.search([('parent_id', '=', acc.id)])
                     if child.stage_id.sequence < new_stage.sequence:
-                        child.with_context(context).\
-                            write({'stage_id': new_stage.id})
+                        child.with_context(context).write(
+                            {'stage_id': new_stage.id}
+                        )
                         self.env.args = cr, uid, misc.frozendict(context)
-                if old_stage and old_stage.project_state == \
-                        new_stage.project_state:
+                if (
+                    old_stage and (
+                        old_stage.project_state == new_stage.project_state
+                    )
+                ):
                     continue
                 if new_stage.project_state == 'close':
                     project.set_done()

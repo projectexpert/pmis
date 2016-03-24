@@ -128,9 +128,9 @@ class Project(models.Model):
             return self._context['default_parent_id']
         if isinstance(self._context.get('default_parent_id'), basestring):
             analytic_account_name = self._context['default_parent_id']
-            analytic_account_ids = \
-                self.env['account.analytic.account'].\
-                name_search(name=analytic_account_name)
+            analytic_account_ids = self.env[
+                'account.analytic.account'
+            ].name_search(name=analytic_account_name)
             if len(analytic_account_ids) == 1:
                 return analytic_account_ids[0][0]
         return None
@@ -165,8 +165,10 @@ class Project(models.Model):
     def _get_parent_members(self):
         member_ids = []
         project_obj = self.env['project.project']
-        if 'default_parent_id' in self._context and\
-                self._context['default_parent_id']:
+        if 'default_parent_id' in (
+            self._context and
+            self._context['default_parent_id']
+        ):
             for project in project_obj.search([]):
                 for member in project.members:
                     member_ids.append(member.id)
@@ -223,10 +225,12 @@ class Project(models.Model):
                 start_date = date(*time.strptime(proj.date_start,
                                                  '%Y-%m-%d')[:3])
                 end_date = date(*time.strptime(proj.date, '%Y-%m-%d')[:3])
-                new_date_end = (datetime(*time.strptime(
-                    new_date_start,
-                    '%Y-%m-%d')[:3]) + (end_date - start_date)).\
-                    strftime('%Y-%m-%d')
+                new_date_end = (
+                    datetime(
+                        *time.strptime(
+                            new_date_start,
+                            '%Y-%m-%d'
+                        )[:3]) + (end_date - start_date)).strftime('%Y-%m-%d')
             context.update({'copy': True})
             new = proj.copy(default={
                 'name': _("%s") % (proj.name),
@@ -247,8 +251,8 @@ class Project(models.Model):
             res_id = result[0]
             form_view = data_obj.xmlid_to_res_id('project.edit_project')
             tree_view = data_obj.xmlid_to_res_id('project.view_project')
-            search_view = data_obj.\
-                xmlid_to_res_id('project.view_project_project_filter')
+            search_view = data_obj.xmlid_to_res_id(
+                'project.view_project_project_filter')
             return {
                 'name': _('Projects'),
                 'view_type': 'form',
@@ -268,8 +272,9 @@ class Project(models.Model):
         :return dict: dictionary value for created view
         """
         project = self[0]
-        child_project = self.env['project.project'].\
-            search([('parent_id', '=', project.analytic_account_id.id)])
+        child_project = self.env['project.project'].search(
+            [('parent_id', '=', project.analytic_account_id.id)]
+        )
         res = self.env['ir.actions.act_window'].for_xml_id(module, act_window)
         res['context'] = {
             'default_parent_id': project.analytic_account_id and
@@ -318,12 +323,14 @@ class Project(models.Model):
         :return dict: dictionary value for created view
         """
         project = self[0]
-        res = self.env['ir.actions.act_window'].\
-            for_xml_id('project_wbs', 'open_view_wbs_tree')
+        res = self.env['ir.actions.act_window'].for_xml_id(
+            'project_wbs', 'open_view_wbs_tree')
         if project.parent_id:
-            for parent_project in self.env['project.project'].\
-                    search([('analytic_account_id', '=',
-                             project.parent_id.id)]):
+            for parent_project in (
+                self.env['project.project'].search(
+                    [('analytic_account_id', '=', project.parent_id.id)]
+                )
+            ):
                 res['domain'] = "[('id','='," + str(parent_project.id) + ")]"
         res['nodestroy'] = False
         return res
