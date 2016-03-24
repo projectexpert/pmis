@@ -328,19 +328,24 @@ class Project(models.Model):
         res['nodestroy'] = False
         return res
 
+    # @api.multi
+    # def button_save_data(self):
+    #     return True
+
     @api.multi
     def action_open_view_project_form(self):
-        self._context['view_buttons'] = True
+        context = self.env.context.copy()
+        context['view_buttons'] = True
         view = {
             'name': _('Details'),
             'view_type': 'form',
-            'view_mode': 'form, tree, kanban, gantt',
+            'view_mode': 'form,tree,kanban,gantt',
             'res_model': 'project.project',
             'view_id': False,
             'type': 'ir.actions.act_window',
             'target': 'current',
-            'res_id': self._ids[0],
-            'context': self._context
+            'res_id': self.id,
+            'context': context
         }
         return view
 

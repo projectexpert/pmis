@@ -12,7 +12,7 @@
             <field eval="8" name="priority"/>
             <field name="inherit_id" ref="account.view_account_analytic_account_list"/>
             <field name="arch" type="xml">
-                <xpath expr="//tree" position="attributes">
+				<xpath expr="//tree" position="attributes">
                     <attribute name="colors">grey:state in
                         ('cancelled','close');blue:account_class ==
                         'work_package'</attribute>
@@ -23,9 +23,6 @@
                 <field name="code" position="replace"/>
                 <field name="partner_id" position="after">
             		<field name="account_class" string="Class" attrs="{'invisible':[('type','not in',['contract','template'])]}"/>
-                    <field name="project_analytic_account_id"
-                           attrs="{'invisible':[('type','not in',['contract','template'])]}"
-                           domain="[('account_class', '=', 'project')]"/>
                     <field name="stage_id"/>
             	</field>
             </field>
@@ -41,8 +38,6 @@
             		<field name="complete_wbs_name" string="WBS name"/>
             		<field name="complete_wbs_code" string="WBS code"/>
 					<field name="account_class" string="Class"/>
-                    <field name="project_analytic_account_id"
-                           domain="[('account_class', '=', 'project')]"/>
                     <field name="stage_id" domain="[]"/>
             	</field>
             </field>
@@ -55,7 +50,7 @@
             <field name="field_parent">child_complete_ids</field>
             <field name="inherit_id" ref="account.view_account_analytic_account_tree"/>
             <field name="arch" type="xml">
-                <xpath expr="//tree" position="attributes">
+				<xpath expr="//tree" position="attributes">
                     <attribute name="colors">grey:state in
                         ('cancelled','close');blue:account_class ==
                         'work_package'</attribute>
@@ -76,8 +71,6 @@
             <field name="arch" type="xml">
             	<field name="code" position="after">
             		<field name="account_class" string="Class"/>
-                    <field name="project_analytic_account_id"
-                           domain="[('account_class', '=', 'project')]"/>
                     <field name="state" invisible="True"/>
                     <field name="stage_id"/>
             		<field name="complete_wbs_code" string="WBS code" readonly="1"/>

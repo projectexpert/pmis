@@ -43,7 +43,8 @@ class AnalyticAccountStage(models.Model):
                                   "will be proposed by default on each new "
                                   "project. It will not assign this stage to "
                                   "existing projects.")
-    project_state = fields.Selection([('open', 'In Progress'),
+    project_state = fields.Selection([('draft', 'New'),
+                                      ('open', 'In Progress'),
                                       ('cancelled', 'Cancelled'),
                                       ('pending', 'Pending'),
                                       ('close', 'Closed')],
