@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Work Breakdown Structure',
-    'version': '8.0.2.1.1',
+    'version': '8.0.2.1.2',
     'author':   'Eficent, '
+                'SerpentCS ,'
                 'Matmoz d.o.o., '
                 'Project Expert Team',
     'contributors': [
         'Jordi Ballester <jordi.ballester@eficent.com>',
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
+        'Sudhir Arya <>'
     ],
     'website': 'http://project.expert',
     'category': 'Project Management',
