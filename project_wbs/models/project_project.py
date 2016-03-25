@@ -233,7 +233,7 @@ class Project(models.Model):
                         )[:3]) + (end_date - start_date)).strftime('%Y-%m-%d')
             context.update({'copy': True})
             new = proj.copy(default={
-                'name': _("%s") % (proj.name),
+                'name': _("%s") % proj.name,
                 'state': 'open',
                 'date_start': new_date_start,
                 'date': new_date_end,

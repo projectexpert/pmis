@@ -1,7 +1,7 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
 
-==========================
+
 Work In Progress Statement
 ==========================
 
@@ -48,7 +48,7 @@ reflects over-billings) or Costs in Excess of Billings (asset account that
 reflects under-billings).
 
 Work in Progress Statement
------------------------------------------------
+--------------------------
 The Work In Progress Statement is associated to the Percentage of Completion
 Method, and is used to compile the information necessary for the percentage
 of completion calculations, but also to provide crucial information about the

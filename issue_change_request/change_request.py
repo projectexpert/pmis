@@ -43,7 +43,7 @@ class IssuePartnerBinding(osv.osv_memory):
             )
 
         # Find the best matching partner for the active model
-        if (active_model):
+        if active_model:
             partner_obj = self.pool.get('res.partner')
 
             # A partner is set already

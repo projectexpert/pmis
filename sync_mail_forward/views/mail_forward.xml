@@ -3,7 +3,7 @@
 	<data>
     	<template id="assets_backend" name="web_tests assets" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
-			    <script type="text/javascript" src="/sync_mail_forward/static/src/js/mail_forward.js"></script>
+				<script type="text/javascript" src="/sync_mail_forward/static/src/js/mail_forward.js"/>
 			    <link rel="stylesheet" href="/sync_mail_forward/static/src/css/mail_forward.css"/>
 			</xpath>
 		</template>

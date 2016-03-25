@@ -12,7 +12,7 @@ class ChangeManagementChange(models.Model):
         data = {
             'name': '%s - %s' % (change.name, change.description),
             'parent_id': change.project_id.analytic_account_id.id
-            }
+        }
         return data
 
     change_project_id = fields.Many2one(
@@ -20,7 +20,6 @@ class ChangeManagementChange(models.Model):
         'Project created by this '
         'change'
     )
-
 
     def create(self, cr, uid, vals, context=None):
         if context is None:
@@ -45,6 +44,6 @@ class ChangeManagementChange(models.Model):
                 if change.change_project_id:
                     project_obj.write(
                         cr, uid, [change.change_project_id.id],
-                        {'parent_id':
-                            change.project_id.analytic_account_id.id})
+                        {'parent_id': change.project_id.analytic_account_id.id}
+                    )
         return res

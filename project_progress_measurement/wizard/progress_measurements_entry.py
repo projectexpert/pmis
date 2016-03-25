@@ -23,6 +23,7 @@ from openerp.osv import orm, fields, osv
 from openerp.tools.translate import _
 import time
 
+
 class progress_measurements_entry(osv.osv_memory):
     """
     For Bulk entry of progress measurements
@@ -53,8 +54,11 @@ class progress_measurements_entry(osv.osv_memory):
         project_ids = project_obj._get_project_wbs(cr, uid, record_ids, context=context)
         data = self.read(cr, uid, ids, [], context=context)[0]
         communication_date = data.get('communication_date', False)
-        progress_measurement_type_id = data.get('progress_measurement_type_id', False) \
-                                    and data['progress_measurement_type_id'][0] or False
+        progress_measurement_type_id = (
+            data.get('progress_measurement_type_id', False) and
+            data['progress_measurement_type_id'][0] or
+            False
+        )
 
         cr.execute('SELECT DISTINCT ON (a.project_id) project_id, id, communication_date, value '
                    'FROM project_progress_measurement AS a '
@@ -85,11 +89,11 @@ class progress_measurements_entry(osv.osv_memory):
                     vals['value'] = measurements[project_id]['value']
                     res.append(meas_obj.create(cr, uid, vals, context=context))
             else:
-                    vals['value'] = 0
-                    res.append(meas_obj.create(cr, uid, vals, context=context))
+                vals['value'] = 0
+                res.append(meas_obj.create(cr, uid, vals, context=context))
 
         return {
-            'domain': "[('id','in', ["+','.join(map(str, res))+"])]",
+            'domain': "[('id','in', [" + ','.join(map(str, res)) + "])]",
             'name': _('Non-aggregated progress measurements'),
             'view_type': 'form',
             'view_mode': 'tree,form',
@@ -98,5 +102,6 @@ class progress_measurements_entry(osv.osv_memory):
             'context': False,
             'type': 'ir.actions.act_window'
         }
+
 
 progress_measurements_entry()
