@@ -1,24 +1,7 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Odoo, Open Source Enterprise Management Solution
-#
-#    Copyright (C) 2015 Matmoz d.o.o. (<http://www.matmoz.si>).
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright (C) 2015 Matmoz d.o.o. (<http://www.matmoz.si>).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+
 from openerp import models, fields, api
 from datetime import date
 import logging
@@ -34,25 +17,25 @@ _CHANGE_STATE = [
 ]
 
 
-class change_management_change_category (models.Model):
+class CMChangeCategory (models.Model):
     _name = 'change.management.category'
     _description = 'Change log category table'
 
     name = fields.Char(string='Change Category', size=64, required=True)
 
-change_management_change_category()
+CMChangeCategory()
 
 
-class change_management_proximity (models.Model):
+class CMProximity (models.Model):
     _name = 'change.management.proximity'
     _description = 'Change log proximity table'
 
     name = fields.Char(string='Proximity', size=64, required=True)
 
-change_management_proximity()
+CMProximity()
 
 
-class change_management_change (models.Model):
+class CMChange (models.Model):
     _name = 'change.management.change'
     _description = 'Change'
     _inherit = ['mail.thread', 'ir.needaction_mixin']
@@ -264,14 +247,14 @@ level, in case of business continuity to a C-level manager.
                 )
 
     def write(self, cr, uid, ids, vals, context=None):
-        ret = super(change_management_change, self).write(
+        ret = super(CMChange, self).write(
             cr, uid, ids, vals, context
         )
         self._subscribe_extra_followers(cr, uid, ids, vals, context)
         return ret
 
     def create(self, cr, uid, vals, context=None):
-        change_id = super(change_management_change, self).create(
+        change_id = super(CMChange, self).create(
             cr, uid, vals, context
         )
         self._subscribe_extra_followers(cr, uid, [change_id], vals, context)
