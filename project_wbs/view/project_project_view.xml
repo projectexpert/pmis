@@ -182,7 +182,7 @@
                         <field name="stage_id"/>
                         <field name="state" invisible="True"/>
                         <field name="child_ids" invisible="True"/>
-                        <field name="progress_rate" readonly="True"/>
+                        <field name="progress_rate" readonly="True" widget="progressbar"/>
                     </tree>
                 </xpath>
             </field>

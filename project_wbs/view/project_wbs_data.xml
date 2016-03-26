@@ -59,12 +59,12 @@
             <field name="fold" eval="True"/>
             <field name="project_state">cancelled</field>
         </record>
-        <record id="project_wbs_template" model="analytic.account.stage">
+        <!--<record id="project_wbs_template" model="analytic.account.stage">
             <field name="sequence">99</field>
             <field name="name">Template</field>
             <field name="case_default" eval="True"/>
             <field name="fold" eval="True"/>
             <field name="project_state">template</field>
-        </record>
+        </record>-->
     </data>
 </openerp>

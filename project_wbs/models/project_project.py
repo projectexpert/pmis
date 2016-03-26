@@ -165,8 +165,7 @@ class Project(models.Model):
     def _get_parent_members(self):
         member_ids = []
         project_obj = self.env['project.project']
-        if 'default_parent_id' in (
-            self._context and
+        if 'default_parent_id' in self._context and (
             self._context['default_parent_id']
         ):
             for project in project_obj.search([]):
