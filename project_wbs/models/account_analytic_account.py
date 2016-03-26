@@ -52,7 +52,7 @@ class account_analytic_account(osv.osv):
                     data.insert(0, '')
 
                 acc = acc.parent_id
-            data = ' / '.join(data)
+            data = '/'.join(data)
             data = '[' + data + '] '
 
             res.append((account.id, data))
@@ -75,7 +75,7 @@ class account_analytic_account(osv.osv):
 
                 acc = acc.parent_id
 
-            data = ' / '.join(data)
+            data = '/'.join(data)
             res.append((account.id, data))
         return dict(res)
 

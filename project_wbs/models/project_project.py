@@ -83,7 +83,7 @@ class project(osv.osv):
                     data.insert(0, '')
 
                 proj = proj.parent_id
-            data = ' / '.join(data)
+            data = '/'.join(data)
             res2 = self.code_get(cr, uid, [project_item.id], context=None)
             if res2:
                 data = '[' + res2[0][1] + '] ' + data
@@ -106,7 +106,7 @@ class project(osv.osv):
 
                 proj = proj.parent_id
 
-            data = ' / '.join(data)
+            data = '/'.join(data)
             res.append((project_item.id, data))
         return res
 
