@@ -56,7 +56,7 @@ class crm_lead_to_change_request_wizard(osv.TransientModel):
             )
             # delete the lead
             Lead.unlink(cr, uid, [lead.id], context=None)
-        # return the action to go to the form view of the new Issue
+        # return the action to go to the form view of the new CR
         view_id = self.pool.get('ir.ui.view').search(
             cr, uid,
             [
