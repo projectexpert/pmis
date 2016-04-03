@@ -275,7 +275,8 @@ class account_analytic_account(osv.osv):
         'stage_id': fields.many2one(
             'analytic.account.stage',
             'Stage',
-            domain="[('analytic_account_ids', '=', parent_id)]"
+            domain="['&', ('fold', '=', False), "
+            "('analytic_account_ids', '=', parent_id)]"
         ),
 
         'child_stage_ids': fields.many2many(
