@@ -224,6 +224,11 @@ class account_analytic_account(osv.osv):
             size=32,
             readonly=True
         ),
+        'complete_wbs_code_calc': fields.function(
+            _complete_wbs_code_calc, method=True, type='char',
+            string='Full WBS Code', size=250,
+            help='Computed WBS code'
+        ),
         'complete_wbs_code': fields.function(
             _complete_wbs_code_calc,
             method=True,

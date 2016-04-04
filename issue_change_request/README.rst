@@ -5,7 +5,7 @@
 Issue to Change Request
 =======================
 
-Introduces the button Change to CR on Issue Form to give the possibility to change leads to CRs.
+Introduces the button Change to CR on Issue Form to give the possibility to change issues to CRs.
 
 
 Installation

@@ -24,7 +24,7 @@ from openerp.tools.translate import _
 import time
 
 
-class analytic_plan_copy_version(osv.osv_memory):
+class AnalyticPlanCopyVersion(osv.osv_memory):
     """
     For copying all the planned costs to a separate planning version
     """
@@ -129,4 +129,4 @@ class analytic_plan_copy_version(osv.osv_memory):
             'type': 'ir.actions.act_window'
         }
 
-analytic_plan_copy_version()
+AnalyticPlanCopyVersion()

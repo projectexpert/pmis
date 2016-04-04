@@ -5,7 +5,7 @@
 from openerp import models, api, _
 
 
-class formView(models.Model):
+class FormView(models.Model):
     _inherit = 'project.project'
 
     @api.multi

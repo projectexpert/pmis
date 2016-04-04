@@ -5,10 +5,10 @@ from openerp.tests import common
 
 class TestRisks(common.TransactionCase):
 
-    def setUp(self):
+    def setup(self):
 
         """***setup risk tests***"""
-        super(TestRisks, self).setUp()
+        super(TestRisks, self).setup()
         cr, uid, = self.cr, self.uid
 
         self.risk_model = self.registry('risk.management.risk')

@@ -260,10 +260,14 @@ class AnalyticAccountSequence(models.Model):
             interpolated_prefix = self._interpolate(seq.prefix, d)
             interpolated_suffix = self._interpolate(seq.suffix, d)
         except ValueError:
-            raise UserError(_('Invalid prefix or suffix for sequence \'%s\'') %
-                          (seq.get('name')))
-        return interpolated_prefix + '%%0%sd' % seq['padding'] \
-                                     % seq['number_next'] + interpolated_suffix
+            raise UserError(
+                _(
+                    'Invalid prefix or suffix for sequence \'%s\''
+                ) %
+                (seq.get('name'))
+            )
+        return interpolated_prefix + '%%0%sd' % seq[
+            'padding'] % seq['number_next'] + interpolated_suffix
 
     @api.model
     def next_by_id(self, sequence_id):

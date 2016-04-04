@@ -7,7 +7,7 @@ CRM cases part of Projects
 
 CRM tasks and CRM leads connected to project,
 crm cases tab on project view. In a project oriented
-company, every activity and comunication is part of a
+company, every activity and communication is part of a
 project thus all the leads and opportunities can be
 tracked also from the project form and since the issues
 are also a source of project communications, they're

@@ -240,24 +240,49 @@ class project(osv.osv):
                     member_ids.append(member.id)
         return member_ids
 
+    def _get_analytic_complete_wbs_code(
+            self, cr, uid, ids, field_name, arg,
+            context=None
+    ):
+        result = {}
+        for project in self.browse(cr, uid, ids, context=context):
+            result[project.id] = project.analytic_account_id.complete_wbs_code_calc
+
+        return result
+
+    def _complete_wbs_code_search_analytic(
+            self, cr, uid, ids, context=None
+    ):
+        """ Finds projects for an analytic account.
+        @return: List of ids
+        """
+        project_ids = self.pool['project.project'].search(
+            cr, uid, [('analytic_account_id', 'in', ids)], context=context
+        )
+        return project_ids
+
 # END part 1
 
     _columns = {
         'project_child_complete_ids': fields.function(
-            _child_compute,
-            relation='project.project',
-            method=True,
-            string="Project Hierarchy",
-            type='many2many'
+            _child_compute, relation='project.project',
+            method=True, string="Project Hierarchy", type='many2many'
         ),
 
-        'c_wbs_code': fields.related(
-            'analytic_account_id',
-            'complete_wbs_code',
-            string='WBS Code',
-            type='char',
-            store=True,
-            readonly=True,
+        'c_wbs_code': fields.function(
+            _get_analytic_complete_wbs_code, type='char', string='WBS Code',
+            method=True, readonly=True,
+            store={
+                'account.analytic.account': (
+                    _complete_wbs_code_search_analytic,
+                    [
+                        'name', 'code',
+                        'parent_id',
+                        'complete_wbs_code'
+                    ],
+                    10
+                )
+            }
         )
     }
 

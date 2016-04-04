@@ -2,7 +2,7 @@
 from openerp.osv import osv, fields
 
 
-class crm_lead_to_change_request_wizard(osv.TransientModel):
+class LeadToChangeRequestWizard(osv.TransientModel):
     """
     wizard to convert a Lead into a Change Request and move the Mail Thread
     """
