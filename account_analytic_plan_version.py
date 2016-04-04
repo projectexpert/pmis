@@ -22,7 +22,7 @@ from openerp.tools.translate import _
 from openerp.osv import fields, orm
 
 
-class account_analytic_plan_version(orm.Model):
+class AnalyticPlanVersion(orm.Model):
     _name = 'account.analytic.plan.version'
     _description = 'Plan Version'
     _columns = {
