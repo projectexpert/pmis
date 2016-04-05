@@ -79,7 +79,7 @@ class Project(models.Model):
 #     )
 
 
-class Project_outscope(models.Model):
+class ProjectOutscope(models.Model):
     """Out of scope"""
 
     _name = 'project.outscope'
@@ -203,7 +203,7 @@ Examples:
 #     )
 
 
-class Project_constraint(models.Model):
+class ProjectConstraint(models.Model):
     """Constraints"""
 
     _name = 'project.constraints'

@@ -24,10 +24,10 @@ from openerp.tests import common
 
 class TestChanges(common.TransactionCase):
 
-    def setUp(self):
+    def setup(self):
 
         """***setup change tests***"""
-        super(TestChanges, self).setUp()
+        super(TestChanges, self).setup()
         cr, uid, = self.cr, self.uid
 
         self.change_model = self.registry('change.management.change')

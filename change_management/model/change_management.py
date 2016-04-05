@@ -263,10 +263,10 @@ level, in case of business continuity to a C-level manager.
     # create CR from mail
 
 
-class project(models.Model):
+class Project(models.Model):
     _inherit = "project.project"
 
     def _get_alias_models(self, cr, uid, context=None):
-        res = super(project, self)._get_alias_models(cr, uid, context=context)
+        res = super(Project, self)._get_alias_models(cr, uid, context=context)
         res.append(("change.management.change", "Change Requests"))
         return res

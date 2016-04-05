@@ -30,13 +30,13 @@
 from openerp import api, models, fields
 
 
-class lead_project(models.Model):
+class LeadProject(models.Model):
     _inherit = 'crm.lead'
 
     project_id = fields.Many2one('project.project', 'Project')
 
 
-class project_lead(models.Model):
+class ProjectLead(models.Model):
     _inherit = 'project.project'
 
     @api.one
