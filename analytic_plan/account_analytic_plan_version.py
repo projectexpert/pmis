@@ -120,5 +120,5 @@ class AnalyticPlanVersion(orm.Model):
         self._check_default_committed(cr, uid, vals, context)
         self._check_default_plan(cr, uid, vals, context)
 
-        return super(account_analytic_plan_version, self).write(
+        return super(AnalyticPlanVersion, self).write(
             cr, uid, ids, vals, context=context)
