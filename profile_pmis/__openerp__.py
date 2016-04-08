@@ -44,7 +44,6 @@
         'analytic_billing_plan',
         'analytic_location',
         'analytic_resource_plan_purchase_request',
-        'analytic_resource_plan_stock',
         'analytic_wip_report',
         'analytic_schedule',
         'change_management',
