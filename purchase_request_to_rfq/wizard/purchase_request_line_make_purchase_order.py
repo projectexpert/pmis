@@ -84,6 +84,7 @@ class PurchaseRequestLineMakePurchaseOrder(models.TransientModel):
     @api.model
     def _prepare_purchase_order(self, warehouse_id, company_id):
         warehouse_obj = self.env['stock.warehouse']
+        picking_type_obj = self.env['stock.picking.type']
         if not self.supplier_id:
             raise exceptions.Warning(
                 _('Enter a supplier.'))
@@ -92,6 +93,15 @@ class PurchaseRequestLineMakePurchaseOrder(models.TransientModel):
         location_id = warehouse.wh_input_stock_loc_id.id
         supplier_pricelist = supplier.property_product_pricelist_purchase  \
             or False
+
+        picking_type = picking_type_obj.search(
+            [('code', '=', 'incoming'), ('warehouse_id', '=', warehouse_id)],
+            limit=1)
+        if not picking_type:
+            raise exceptions.Warning(_(
+                "Make sure you have at an incoming picking type defined "
+                "on warehouse '%s'") % warehouse.name)
+
         data = {
             'origin': '',
             'partner_id': self.supplier_id.id,
@@ -100,6 +110,7 @@ class PurchaseRequestLineMakePurchaseOrder(models.TransientModel):
             'fiscal_position': supplier.property_account_position and
             supplier.property_account_position.id or False,
             'warehouse_id': warehouse_id,
+            'picking_type_id': picking_type.id,
             'company_id': company_id,
             }
         return data
