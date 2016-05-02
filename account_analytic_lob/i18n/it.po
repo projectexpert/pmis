@@ -1,0 +1,75 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_analytic_lob
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-13 07:30+0000\n"
+"PO-Revision-Date: 2016-05-02 17:03+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: it\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: account_analytic_lob
+#: model:ir.model,name:account_analytic_lob.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Conto analitico"
+
+#. module: account_analytic_lob
+#: field:account.analytic.lob,code:0
+msgid "Code"
+msgstr "Codice"
+
+#. module: account_analytic_lob
+#: field:account.analytic.lob,create_uid:0
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: account_analytic_lob
+#: field:account.analytic.lob,create_date:0
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: account_analytic_lob
+#: model:ir.actions.act_window,help:account_analytic_lob.action_account_analytic_lob_tree
+msgid "Define the Lines of Business."
+msgstr "Definisci i rami d'affari"
+
+#. module: account_analytic_lob
+#: field:account.analytic.lob,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: account_analytic_lob
+#: field:account.analytic.lob,write_uid:0
+msgid "Last Updated by"
+msgstr "Ultimo ad aggiornare"
+
+#. module: account_analytic_lob
+#: field:account.analytic.lob,write_date:0
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento"
+
+#. module: account_analytic_lob
+#: field:account.analytic.account,lob:0
+#: view:account.analytic.lob:account_analytic_lob.view_account_analytic_lob_edit
+#: view:account.analytic.lob:account_analytic_lob.view_account_analytic_lob_search
+#: view:account.analytic.lob:account_analytic_lob.view_account_analytic_lob_tree
+#: model:ir.actions.act_window,name:account_analytic_lob.action_account_analytic_lob_tree
+#: model:ir.model,name:account_analytic_lob.model_account_analytic_lob
+#: model:ir.ui.menu,name:account_analytic_lob.menu_account_analytic_lob_config
+#: model:ir.ui.menu,name:account_analytic_lob.menu_account_analytic_lob_view
+msgid "Line of Business"
+msgstr "Ramo d'affari"
+
+#. module: account_analytic_lob
+#: field:account.analytic.lob,name:0
+msgid "Name"
+msgstr "Nome"
