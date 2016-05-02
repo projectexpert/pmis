@@ -1,0 +1,140 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_time_sequence
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-24 10:41+0000\n"
+"PO-Revision-Date: 2016-05-02 15:53+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: it\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: project_time_sequence
+#: field:project.task.link.predecessors,create_uid:0
+#: field:project.task.link.predecessors.str,create_uid:0
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: project_time_sequence
+#: field:project.task.link.predecessors,create_date:0
+#: field:project.task.link.predecessors.str,create_date:0
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: project_time_sequence
+#: view:project.task:project_time_sequence.view_task_tree2
+msgid "For linking to a predecessor task"
+msgstr "Per collegare l'attività precedente"
+
+#. module: project_time_sequence
+#: field:project.task.link.predecessors,id:0
+#: field:project.task.link.predecessors.str,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: project_time_sequence
+#: field:project.task.link.predecessors,write_uid:0
+#: field:project.task.link.predecessors.str,write_uid:0
+msgid "Last Updated by"
+msgstr "Ultimo ad aggiornare"
+
+#. module: project_time_sequence
+#: field:project.task.link.predecessors,write_date:0
+#: field:project.task.link.predecessors.str,write_date:0
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento"
+
+#. module: project_time_sequence
+#: view:project.task:project_time_sequence.view_task_tree2
+msgid "Link"
+msgstr "Collegamento"
+
+#. module: project_time_sequence
+#: model:ir.model,name:project_time_sequence.model_project_task_link_predecessors
+#: model:ir.model,name:project_time_sequence.model_project_task_link_predecessors_str
+msgid "Link predecessor tasks"
+msgstr "Collegamento predecessori attività"
+
+#. module: project_time_sequence
+#: help:project.task.link.predecessors.str,predecessor_ids_str:0
+msgid "List of predecessor task ids separated by comma"
+msgstr "Lista ids predecessori separati da virgola"
+
+#. module: project_time_sequence
+#: field:project.task.link.predecessors,parent_ids:0
+msgid "Parent Tasks"
+msgstr "Attività superiori"
+
+#. module: project_time_sequence
+#: view:project.task:project_time_sequence.view_task_form2
+msgid "Predecessor Activities"
+msgstr "Attività predecessori"
+
+#. module: project_time_sequence
+#: view:project.task.link.predecessors:project_time_sequence.view_project_task_link_predecessors
+msgid "Predecessor Tasks"
+msgstr "Attività predecessori"
+
+#. module: project_time_sequence
+#: field:project.task,predecessor_ids_str:0
+#: field:project.task,predecessor_names_str:0
+msgid "Predecessor tasks"
+msgstr "Attività predecessori"
+
+#. module: project_time_sequence
+#: help:project.task,predecessor_ids_str:0
+#: help:project.task,predecessor_names_str:0
+msgid "Predecessor tasks ids"
+msgstr "IDs attività predecessori"
+
+#. module: project_time_sequence
+#: field:project.task.link.predecessors.str,predecessor_ids_str:0
+msgid "Predecessors"
+msgstr "Predecessori"
+
+#. module: project_time_sequence
+#: view:project.task.link.predecessors:project_time_sequence.view_project_task_link_predecessors
+#: view:project.task.link.predecessors.str:project_time_sequence.view_project_task_link_predecessors_str
+msgid "Project Task Link Predecessors"
+msgstr "Collegamento attività predecessori"
+
+#. module: project_time_sequence
+#: model:ir.actions.act_window,name:project_time_sequence.action_project_task_link_predecessors
+#: model:ir.actions.act_window,name:project_time_sequence.action_project_task_link_predecessors_str
+msgid "Project Task add Predecessors"
+msgstr "Aggiungi predecessore dell'attività progettuale"
+
+#. module: project_time_sequence
+#: view:project.task:project_time_sequence.view_task_form2
+msgid "Relationships"
+msgstr "Relazioni"
+
+#. module: project_time_sequence
+#: view:project.task.link.predecessors:project_time_sequence.view_project_task_link_predecessors
+#: view:project.task.link.predecessors.str:project_time_sequence.view_project_task_link_predecessors_str
+msgid "Save"
+msgstr "Salva"
+
+#. module: project_time_sequence
+#: view:project.task:project_time_sequence.view_task_form2
+msgid "Successor Activities"
+msgstr "Attività successori"
+
+#. module: project_time_sequence
+#: model:ir.model,name:project_time_sequence.model_project_task
+msgid "Task"
+msgstr "Attività"
+
+#. module: project_time_sequence
+#: view:project.task.link.predecessors:project_time_sequence.view_project_task_link_predecessors
+#: view:project.task.link.predecessors.str:project_time_sequence.view_project_task_link_predecessors_str
+msgid "_Cancel"
+msgstr "_Cancella"

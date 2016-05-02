@@ -1,0 +1,646 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_wbs
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-07 05:29+0000\n"
+"PO-Revision-Date: 2016-05-02 16:18+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: it\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: project_wbs
+#: help:analytic.account.stage,case_default:0
+msgid ""
+"\n"
+"            If you check this field, this stage will be proposed\n"
+"            by default on each new project.\n"
+"            It will not assign this stage to existing projects.\n"
+"            "
+msgstr ""
+"\n"
+"            Se marcate questo campo, questo stadio verrà proposto\n"
+"            come predefinito per ogni progetto nuovo.\n"
+"            Questo stadio non verrà assegnato a progetti già esistenti.\n"
+"            "
+
+#. module: project_wbs
+#: help:account.analytic.account,account_class:0
+msgid ""
+"\n"
+"            The classification allows you to create a proper project\n"
+"            Work Breakdown Structure\n"
+"            "
+msgstr ""
+"\n"
+"            La classificazione permette di creare una struttura\n"
+"            di progetto articolata - Work Breakdown Structure\n"
+"            "
+
+#. module: project_wbs
+#: help:account.analytic.account,complete_wbs_code:0
+msgid ""
+"\n"
+"            The full WBS code describes the full path of this\n"
+"            component within the project WBS hierarchy\n"
+"            "
+msgstr ""
+"\n"
+"            Il codice WBS descrive la via completa di questa\n"
+"            componente nell'arco della gerarchia progettuale articolata\n"
+"            "
+
+#. module: project_wbs
+#: help:analytic.account.stage,fold:0
+msgid ""
+"\n"
+"            This stage is not visible,\n"
+"            for example in status bar or kanban view,\n"
+"            when there are no records in that stage to display.\n"
+"            "
+msgstr ""
+"\n"
+"            Questo stadio non è visibile,\n"
+"            per esempio la \"status bar\" o vista kanban,\n"
+"            dove non ci sono registrazioni con quel stadio da esporre.\n"
+"            "
+
+#. module: project_wbs
+#: model:ir.actions.act_window,help:project_wbs.open_view_project_deliverables
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  Click to start a new deliverable.\n"
+"                </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  Avvia nuovo consegnabile.\n"
+"                </p>\n"
+"            "
+
+#. module: project_wbs
+#: model:ir.actions.act_window,help:project_wbs.open_view_project_phases
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  Click to start a new phase.\n"
+"                </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  Avvia nuova fase.\n"
+"                </p>\n"
+"            "
+
+#. module: project_wbs
+#: model:ir.actions.act_window,help:project_wbs.open_view_project_projects
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  Click to start a new project.\n"
+"                </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  Avvia nuovo progetto.\n"
+"                </p>\n"
+"            "
+
+#. module: project_wbs
+#: model:ir.actions.act_window,help:project_wbs.open_view_project_wbs
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  Click to start a new project.\n"
+"                </p><p>\n"
+"                  Projects are used to organize your activities; plan\n"
+"                  tasks, track issues, invoice timesheets. You can define\n"
+"                  internal projects (R&amp;D, Improve Sales Process),\n"
+"                  private projects (My Todos) or customer ones.\n"
+"                </p><p>\n"
+"                  You will be able collaborate with internal users on\n"
+"                  projects or invite customers to share your activities.\n"
+"                </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  Avvia un nuovo progetto.\n"
+"                </p><p>\n"
+"                  I progetti vengono usati per organizzare le vostre attività,\n"
+"                  pianificarle, seguire le problematiche, fatturare le ore di lavoro.\n"
+"                  Si può definire progetti interni (R&amp;D, Migliora il processo di vendita),\n"
+"                  progetti privati (Miei compiti) o quelli dei clienti.\n"
+"                </p><p>\n"
+"                  Potrete collaborare sui progetti con gli utenti interni\n"
+"                  o invitare i clienti alla condivisione delle vostre attività.\n"
+"                </p>\n"
+"            "
+
+#. module: project_wbs
+#: model:ir.actions.act_window,help:project_wbs.open_view_project_work_packages
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  Click to start a new work package.\n"
+"                </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  Avvia nuovo pacco lavori.\n"
+"                </p>\n"
+"            "
+
+#. module: project_wbs
+#: model:ir.actions.act_window,help:project_wbs.open_analytic_account_stage_form
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Click to add a stage in the project/analytic account pipeline.\n"
+"              </p><p>\n"
+"                Define the steps that will be used in the project from the\n"
+"                creation of the project, up to the closing.\n"
+"                You will use these stages in order to track the progress in\n"
+"                solving a project, phase, deliverable or work package.\n"
+"              </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Aggiungi lo stadio nel flusso progetti/analitica.\n"
+"              </p><p>\n"
+"                Definisce i passi che verranno usati in un progetto\n"
+"                dalla creazione alla sua fine.\n"
+"                Questi stati li userete per tracciare il progresso del\n"
+"                completamento di un progetto, fase, consegnabile o pacco lavori.\n"
+"              </p>\n"
+"            "
+
+#. module: project_wbs
+#: view:analytic.account.stage:project_wbs.analytic_account_stage_edit
+msgid "Add a description..."
+msgstr "Aggiungi una descrizione..."
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Administration"
+msgstr "Amministrazione"
+
+#. module: project_wbs
+#: model:ir.model,name:project_wbs.model_account_analytic_account
+#: field:project.task,analytic_account_id:0
+msgid "Analytic Account"
+msgstr "Conto analitico"
+
+#. module: project_wbs
+#: view:analytic.account.stage:project_wbs.analytic_account_stage_edit
+#: view:analytic.account.stage:project_wbs.analytic_account_stage_tree
+#: model:ir.model,name:project_wbs.model_analytic_account_stage
+msgid "Analytic Account Stage"
+msgstr "Stadio conto analitico"
+
+#. module: project_wbs
+#: view:analytic.account.stage:project_wbs.analytic_account_stage_search
+#: model:ir.ui.menu,name:project_wbs.menu_analytic_account_stages_view
+msgid "Analytic Account Stages"
+msgstr "Stadi conto analitico"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Append this project to another one using analytic accounts hierarchy"
+msgstr "Sottometti questo progetto ad un altro usando la gerarchia dei conti analitici"
+
+#. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_cancelled
+#: selection:analytic.account.stage,state:0
+msgid "Cancelled"
+msgstr "Annullato"
+
+#. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_form
+#: field:account.analytic.account,child_stage_ids:0
+#: view:project.project:project_wbs.edit_project
+msgid "Child Stages"
+msgstr "Stadi subordinati"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project
+msgid "Child WBS elements"
+msgstr "Elementi WBS subordinati"
+
+#. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_form
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_list
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_tree
+#: field:account.analytic.account,account_class:0
+#: view:project.project:project_wbs.edit_project
+#: view:project.project:project_wbs.view_project
+#: view:project.project:project_wbs.view_project_project_filter
+msgid "Class"
+msgstr "Classe"
+
+#. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_closed
+#: selection:analytic.account.stage,state:0
+msgid "Closed"
+msgstr "Chiuso"
+
+#. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_closure
+msgid "Closure"
+msgstr "Chiusura"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+#: view:project.project:project_wbs.view_project
+msgid "Code"
+msgstr "Codice"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project_stages
+msgid "Communications"
+msgstr "Communicazioni"
+
+#. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_concept
+msgid "Conceptual stage"
+msgstr "Stadio concettuale"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Create child WBS element"
+msgstr "Crea elemento WBS subordinato"
+
+#. module: project_wbs
+#: field:analytic.account.stage,create_uid:0
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: project_wbs
+#: field:analytic.account.stage,create_date:0
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Current stage:"
+msgstr "Stadio corrente"
+
+#. module: project_wbs
+#: field:analytic.account.stage,case_default:0
+msgid "Default for New Projects"
+msgstr "Predefinito per i nuovi progetti"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Delete"
+msgstr "Cancella"
+
+#. module: project_wbs
+#: selection:account.analytic.account,account_class:0
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Deliverable"
+msgstr "Consegnabile"
+
+#. module: project_wbs
+#: field:account.analytic.account,child_deliverable_count:0
+#: model:ir.actions.act_window,name:project_wbs.act_project_project_2_deliverable_all
+#: model:ir.actions.act_window,name:project_wbs.open_view_project_deliverables
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_deliverables
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Deliverables"
+msgstr "Consegnabili"
+
+#. module: project_wbs
+#: field:analytic.account.stage,description:0
+msgid "Description"
+msgstr "Descrizione"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Documents"
+msgstr "Documenti"
+
+#. module: project_wbs
+#: model:ir.actions.act_window,name:project_wbs.open_view_project_form
+msgid "Edit project"
+msgstr "Edita progetto"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+#: view:project.project:project_wbs.view_project
+msgid "End Date"
+msgstr "Data finale"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Enter"
+msgstr "Entra"
+
+#. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_execution
+msgid "Execution"
+msgstr "Esecuzione"
+
+#. module: project_wbs
+#: field:analytic.account.stage,fold:0
+msgid "Folded by Default"
+msgstr "Predefinito come piegato"
+
+#. module: project_wbs
+#: field:account.analytic.account,complete_wbs_code:0
+#: field:project.task,project_complete_wbs_code:0
+msgid "Full WBS Code"
+msgstr "Codice WBS completo"
+
+#. module: project_wbs
+#: field:project.task,project_complete_wbs_name:0
+msgid "Full WBS Name"
+msgstr "Nome WBS completo"
+
+#. module: project_wbs
+#: field:account.analytic.account,complete_wbs_name:0
+msgid "Full WBS path"
+msgstr "Via WBS completa"
+
+#. module: project_wbs
+#: help:account.analytic.account,complete_wbs_name:0
+msgid "Full path in the WBS hierarchy"
+msgstr "Via completa nella gerarchia WBS"
+
+#. module: project_wbs
+#: field:analytic.account.stage,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: project_wbs
+#: selection:analytic.account.stage,state:0
+msgid "In Progress"
+msgstr "In Corso"
+
+#. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_init
+msgid "Initalization"
+msgstr "Inizializzazione"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project_kanban_inherited
+msgid "Issues"
+msgstr "Problemi"
+
+#. module: project_wbs
+#: field:analytic.account.stage,write_uid:0
+msgid "Last Updated by"
+msgstr "Ultimo ad aggiornare"
+
+#. module: project_wbs
+#: field:analytic.account.stage,write_date:0
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento"
+
+#. module: project_wbs
+#: field:account.analytic.account,wbs_indent:0
+msgid "Level"
+msgstr "Livello"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Miscellaneous"
+msgstr "Miscellaneo"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project
+msgid "Name"
+msgstr "Nome"
+
+#. module: project_wbs
+#: selection:analytic.account.stage,state:0
+msgid "New"
+msgstr "Nuovo"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Other Info"
+msgstr "Altre informazioni"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+#: view:project.project:project_wbs.view_project
+msgid "Parent"
+msgstr "Genitore"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project
+msgid "Parent WBS element"
+msgstr "Elemento WBS genitore"
+
+#. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_pending
+msgid "Pending"
+msgstr "In sospeso"
+
+#. module: project_wbs
+#: selection:account.analytic.account,account_class:0
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Phase"
+msgstr "Fase"
+
+#. module: project_wbs
+#: field:account.analytic.account,child_phase_count:0
+#: model:ir.actions.act_window,name:project_wbs.open_view_project_phases
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_phases
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Phases"
+msgstr "Fasi"
+
+#. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_plan
+msgid "Planning"
+msgstr "Pianificazione"
+
+#. module: project_wbs
+#: selection:account.analytic.account,account_class:0
+#: model:ir.model,name:project_wbs.model_project_project
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Project"
+msgstr "Progetto"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Project Form View"
+msgstr "Formulario progetto"
+
+#. module: project_wbs
+#: field:project.project,project_child_complete_ids:0
+msgid "Project Hierarchy"
+msgstr "Gerarchia progettuale"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Project Settings"
+msgstr "Impostazioni progetto"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Project Stages"
+msgstr "Stadi progetto"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Project Task Stages"
+msgstr "Stadi attività progettuali"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Project configuration"
+msgstr "Configurazione progetto"
+
+#. module: project_wbs
+#: model:ir.actions.act_window,name:project_wbs.open_analytic_account_stage_form
+msgid "Project/Analytic Stages"
+msgstr "Stadi progettuali/analitici"
+
+#. module: project_wbs
+#: field:analytic.account.stage,analytic_account_ids:0
+msgid "Project/Analytic stages"
+msgstr "Stadi progettuali/analitici"
+
+#. module: project_wbs
+#: field:account.analytic.account,child_project_count:0
+#: model:ir.actions.act_window,name:project_wbs.open_view_project_projects
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_projects
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Projects"
+msgstr "Progetti"
+
+#. module: project_wbs
+#: field:analytic.account.stage,sequence:0
+msgid "Sequence"
+msgstr "Sequenza"
+
+#. module: project_wbs
+#: field:account.analytic.account,stage_id:0
+msgid "Stage"
+msgstr "Stadio"
+
+#. module: project_wbs
+#: field:analytic.account.stage,name:0
+msgid "Stage Name"
+msgstr "Nome stadio"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+#: view:project.project:project_wbs.view_project
+msgid "Start Date"
+msgstr "Data d'inizio"
+
+#. module: project_wbs
+#: field:analytic.account.stage,state:0
+msgid "State"
+msgstr "Stadio"
+
+#. module: project_wbs
+#: model:ir.model,name:project_wbs.model_project_task
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Task"
+msgstr "Attività"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Tasks"
+msgstr "Attività"
+
+#. module: project_wbs
+#: model:analytic.account.stage,name:project_wbs.project_wbs_template
+#: selection:analytic.account.stage,state:0
+msgid "Template"
+msgstr "Modello"
+
+#. module: project_wbs
+#: selection:analytic.account.stage,state:0
+msgid "To Renew"
+msgstr "Da rinnovare"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "True"
+msgstr "Vero"
+
+#. module: project_wbs
+#: field:account.analytic.account,child_unclassified_count:0
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Unclassified projects"
+msgstr "Progetti non classificati"
+
+#. module: project_wbs
+#: field:project.project,c_wbs_code:0
+msgid "WBS Code"
+msgstr "Codice WBS"
+
+#. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_form
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_list
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_tree
+#: view:project.project:project_wbs.edit_project
+#: view:project.project:project_wbs.view_project_project_filter
+msgid "WBS code"
+msgstr "Codice WBS"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "WBS element name"
+msgstr "Nome elemento WBS"
+
+#. module: project_wbs
+#: model:ir.actions.act_window,name:project_wbs.create_wbs_element
+#: model:ir.actions.act_window,name:project_wbs.open_view_project_wbs
+#: model:ir.actions.act_window,name:project_wbs.open_view_wbs_tree
+#: view:project.project:project_wbs.view_project
+msgid "WBS elements"
+msgstr "Elementi WBS"
+
+#. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
+#: view:project.project:project_wbs.view_project_project_filter
+msgid "WBS name"
+msgstr "Nome WBS"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Work Breakdown Structure"
+msgstr "Articolazione progetti (WBS)"
+
+#. module: project_wbs
+#: selection:account.analytic.account,account_class:0
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Work Package"
+msgstr "Pacco lavori"
+
+#. module: project_wbs
+#: field:account.analytic.account,child_work_package_count:0
+#: model:ir.actions.act_window,name:project_wbs.open_view_project_work_packages
+#: model:ir.ui.menu,name:project_wbs.menu_project_work_packages
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "Work Packages"
+msgstr "Pacchi lavori"
+
+#. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_list
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_tree
+msgid ""
+"grey:state in\n"
+"                        ('cancelled','close');blue:account_class ==\n"
+"                        'work_package'"
+msgstr ""
+"grey:state in\n"
+"                        ('cancelled','close');blue:account_class ==\n"
+"                        'work_package'"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "on_change_parent(parent_id)"
+msgstr "on_change_parent(parent_id)"
