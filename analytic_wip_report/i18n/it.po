@@ -1,0 +1,172 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* analytic_wip_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-13 07:35+0000\n"
+"PO-Revision-Date: 2016-05-03 08:41+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: it\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Account Name"
+msgstr "Nome del conto"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Actual Billings to Date"
+msgstr "Fatturazione effettiva finora"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,actual_billings:0
+msgid "Actual Billings to date"
+msgstr "Fatturazione effettiva finora"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Actual Costs to Date"
+msgstr "Costi effettivi finora"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,percent_complete:0
+msgid "Actual Costs to Date / Total Estimated Costs"
+msgstr "Costi effettivi finora / Totale costi stimati"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,actual_costs:0
+msgid "Actual Costs to date"
+msgstr "Costi effettivi finora"
+
+#. module: analytic_wip_report
+#: model:ir.model,name:analytic_wip_report.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Conto analitico"
+
+#. module: analytic_wip_report
+#: view:account.analytic.account:analytic_wip_report.view_account_analytic_account_wip_tree
+msgid "Analytic account"
+msgstr "Conto analitico"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Code"
+msgstr "Codice"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Earned Revenue to Date"
+msgstr "Reddito ottenuto finora"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,earned_revenue:0
+msgid "Earned Revenue to date"
+msgstr "Reddito ottenuto finora"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,estimated_costs_to_complete:0
+#: report:analytic.wip:0
+msgid "Estimated Costs to Complete"
+msgstr "Costi stimati per copletare"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,estimated_gross_profit:0
+#: report:analytic.wip:0
+msgid "Estimated Gross Profit"
+msgstr "Utile lordo stimato"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Over Billings"
+msgstr "Fatturazione eccessiva"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,over_billings:0
+msgid "Over billings"
+msgstr "Fatturazione eccessiva"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,percent_complete:0 report:analytic.wip:0
+msgid "Percent Complete"
+msgstr "Percentuale completata"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,earned_revenue:0
+msgid "Percent Complete * Total Estimated Revenue"
+msgstr "Percentuale completata * totale stima reddito"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,under_billings:0
+msgid "Total Billings on Contract – Earned Revenue to Date (when < 0 )"
+msgstr "Totale fatturazione sul contratto - Reddito ottenuto finora (se < 0)"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,over_billings:0
+msgid "Total Billings on Contract – Earned Revenue to Date (when > 0 )"
+msgstr "Totale fatturazione sul contratto - Reddito ottenuto finora (se > 0)"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,total_estimated_costs:0 report:analytic.wip:0
+msgid "Total Estimated Costs"
+msgstr "Totale costi stimati"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,estimated_costs_to_complete:0
+msgid "Total Estimated Costs – Actual Costs to Date"
+msgstr "Totale costi stimati - costi effettivi finora"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,total_value:0
+msgid "Total Value"
+msgstr "Valore totale"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,estimated_gross_profit:0
+msgid "Total Value – Total Estimated Costs"
+msgstr "Valore totale - Totale costi stimati"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,total_value:0
+msgid "Total estimated revenue of the contract"
+msgstr "Totale reddito stimato sul contratto"
+
+#. module: analytic_wip_report
+#: help:account.analytic.account,actual_billings:0
+msgid "Total invoiced amount issued to the customer to date"
+msgstr "Totale ammontare fatturato al cliente finora"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Total value"
+msgstr "Valore totale"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Under Billings"
+msgstr "Fatturazione insufficiente"
+
+#. module: analytic_wip_report
+#: field:account.analytic.account,under_billings:0
+msgid "Under billings"
+msgstr "Fatturazione insufficiente"
+
+#. module: analytic_wip_report
+#: model:ir.actions.act_window,name:analytic_wip_report.action_account_analytic_account_wip_form
+#: model:ir.actions.report.xml,name:analytic_wip_report.analytic_wip_report_print
+#: model:ir.ui.menu,name:analytic_wip_report.account_analytic_account_wip
+msgid "Work In Progress Statement"
+msgstr "Stato d'avanzamento"
+
+#. module: analytic_wip_report
+#: report:analytic.wip:0
+msgid "Work In Progress Statement -"
+msgstr "Stato d'avanzamento -"

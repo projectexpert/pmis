@@ -1,0 +1,424 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_hr_stakeholder
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-13 07:37+0000\n"
+"PO-Revision-Date: 2016-05-03 08:29+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: it\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: project_hr_stakeholder
+#: help:project.hr.stakeholder,responsibility_ids:0
+#: help:project.hr.stakeholder,role_ids:0
+msgid ""
+"\n"
+"            The assignment of the roles and responsibilities determines what actions the project manager,\n"
+"            project team member,or individual contributor will have in the project. Roles and responsibilities\n"
+"             generally support the project scope since this is the required work for the project.\n"
+"            "
+msgstr ""
+"\n"
+"            L'assegnazione dei ruoli e responsabilità determina le azioni, che il responsabile del progetto,\n"
+"            membro del team progettuale o contributore individuale avranno nell'ambito di progetto. I ruoli\n"
+"            e le responsabilità generalmente supportano la portata del progetto, che di fatto è il lavoro\n"
+"\t    richiesto per il progetto.\n"
+"            "
+
+#. module: project_hr_stakeholder
+#: model:project.hr.responsibility,name:project_hr_stakeholder.project_hr_responsibility_accountable
+msgid "Accountable"
+msgstr "Rende conto"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_bp
+msgid "Business partner"
+msgstr "Business partner"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,description:project_hr_stakeholder.project_hr_role_bp
+msgid ""
+"Business partners.\n"
+"Business partners are external organizations that have a special relationship with\n"
+"the enterprise, sometimes attained through a certification process. Business partners provide specialized\n"
+"expertise or fill a specified role such as installation, customization, training, or support.\n"
+"            "
+msgstr ""
+"I business partner.\n"
+"I business partner sono organizzazioni esterne in relazione speciale con\n"
+"l'azienda, avvolte stabilite tramite un processo di certificazione. I business partner provvedono\n"
+"la competenza specialistica per coprire un ruolo specifico, come installazione, personalizzazione,\n"
+"formazione o supporto.\n"
+"            "
+
+#. module: project_hr_stakeholder
+#: field:project.hr.responsibility,code:0 field:project.hr.role,code:0
+msgid "Code"
+msgstr "Codice"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.responsibility,name:project_hr_stakeholder.project_hr_responsibility_consulted
+msgid "Consulted"
+msgstr "Consultato"
+
+#. module: project_hr_stakeholder
+#: field:project.hr.responsibility,create_uid:0
+#: field:project.hr.role,create_uid:0 field:project.hr.stakeholder,create_uid:0
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: project_hr_stakeholder
+#: field:project.hr.responsibility,create_date:0
+#: field:project.hr.role,create_date:0
+#: field:project.hr.stakeholder,create_date:0
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_cu
+msgid "Customer or User"
+msgstr "Cliente o utente"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,description:project_hr_stakeholder.project_hr_role_cu
+msgid ""
+"Customers and users.\n"
+"Customers are the persons or organizations who will approve and manage the\n"
+"project’s product, service, or result. Users are the persons or organizations who will use the project’s\n"
+"product, service, or result. Customers and users may be internal or external to the performing organization\n"
+"and may also exist in multiple layers. For example, the customers for a new pharmaceutical product\n"
+"could include the doctors who prescribe it, the patients who use it and the insurers who pay for it. In some\n"
+"application areas, customers and users are synonymous, while in others, customers refer to the entity\n"
+"acquiring the project’s product, and users refer to those who will directly utilize the project’s product.\n"
+"            "
+msgstr ""
+"Clienti e utenti.\n"
+"I clienti sono persone o organizzazioni che approveranno e gestiranno il prodotto,\n"
+"servizio o risultato del progetto. Gli utenti sono persone o organizzazioni che useranno il prodotto,\n"
+"servizio o risultato del progetto. I clienti e utenti possono essere interni o esterni alla organizzazione esecutrice\n"
+"e possono esistere anche a strati multipli. Per esempio, i clienti di un nuovo prodotto farmaceutico\n"
+"potrebbero includere i dottori che lo prescrivono, i pazienti che lo usano e gli assicuratori che lo pagano. In alcune\n"
+"aree d'applicazione i clienti e utenti rappresentano un sinonimo, mentre in altre i clienti rappresentano l'entità\n"
+"che acquista il prodotto del progetto, gli utenti si riferiscono invece a quelli, che utilizzeranno direttamente il prodotto.\n"
+"            "
+
+#. module: project_hr_stakeholder
+#: model:ir.actions.act_window,help:project_hr_stakeholder.action_project_hr_responsibility_tree
+#: model:ir.actions.act_window,help:project_hr_stakeholder.action_project_hr_stakeholder_tree
+msgid "Define the responsibilities for stakeholders in projects."
+msgstr "Definisci le responsabilità per i portatori di interessi nei progetti."
+
+#. module: project_hr_stakeholder
+#: model:ir.actions.act_window,help:project_hr_stakeholder.action_project_hr_role_tree
+msgid "Define the roles for stakeholders in projects."
+msgstr "Definisci i ruoli dei portatori di interessi nei progetti."
+
+#. module: project_hr_stakeholder
+#: view:project.hr.responsibility:project_hr_stakeholder.view_project_hr_responsibility_edit
+#: field:project.hr.responsibility,description:0
+#: view:project.hr.role:project_hr_stakeholder.view_project_hr_role_edit
+#: field:project.hr.role,description:0 field:project.hr.stakeholder,name:0
+msgid "Description"
+msgstr "Descrizione"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_fm
+msgid "Functional Manager"
+msgstr "Responsabile funzionale"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,description:project_hr_stakeholder.project_hr_role_fm
+msgid ""
+"Functional managers.\n"
+"Functional managers are key individuals who play a management role within\n"
+"an administrative or functional area of the business, such as human resources, finance, accounting, or\n"
+"procurement. They are assigned their own permanent staff to carry out the ongoing work, and they have\n"
+"a clear directive to manage all tasks within their functional area of responsibility. The functional manager\n"
+"may provide subject matter expertise or their function may provide services to the project.\n"
+"            "
+msgstr ""
+"Responsabili funzionali.\n"
+"I responsabili funzionali sono delle persone chiave che coprono un ruolo dirigenziale nel settore amministrativo\n"
+"o funzionale, come le risorse umane, finanze, contabilità o approvvigionamento. A loro viene assegnato il proprio\n"
+"staff permanente per svolgere il lavoro in corso ed hanno un chiaro mandato per gestire tutti i compiti\n"
+"nell'ambito della loro area funzionale e delle loro responsabilità. Il responsabile funzionale può provvedere\n"
+"alle competenze d'oggetto o la loro funzione potrebbe provvedere dei servizi al progetto.\n"
+"            "
+
+#. module: project_hr_stakeholder
+#: view:project.hr.stakeholder:project_hr_stakeholder.view_project_hr_stakeholder_search
+msgid "Group By"
+msgstr "Raggruppa per"
+
+#. module: project_hr_stakeholder
+#: field:project.hr.responsibility,id:0 field:project.hr.role,id:0
+#: field:project.hr.stakeholder,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: project_hr_stakeholder
+#: field:project.hr.stakeholder,influence:0
+msgid "Influence"
+msgstr "Influenza"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.responsibility,name:project_hr_stakeholder.project_hr_responsibility_informed
+msgid "Informed"
+msgstr "Informato"
+
+#. module: project_hr_stakeholder
+#: field:project.hr.responsibility,write_uid:0
+#: field:project.hr.role,write_uid:0 field:project.hr.stakeholder,write_uid:0
+msgid "Last Updated by"
+msgstr "Ultimo ad aggiornare"
+
+#. module: project_hr_stakeholder
+#: field:project.hr.responsibility,write_date:0
+#: field:project.hr.role,write_date:0 field:project.hr.stakeholder,write_date:0
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento"
+
+#. module: project_hr_stakeholder
+#: field:project.hr.responsibility,name:0 field:project.hr.role,name:0
+msgid "Name"
+msgstr "Nome"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_og
+msgid "Organizational Group"
+msgstr "Gruppo organizzativo"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,description:project_hr_stakeholder.project_hr_role_og
+msgid ""
+"Organizational groups.\n"
+"Organizational groups are internal stakeholders who are affected by the activities\n"
+"of the project team. Examples of various business elements of an organization that may be affected by\n"
+"the project include marketing and sales, human resources, legal, finance, operations, manufacturing, and\n"
+"customer service. These groups support the business environment where projects are executed, and\n"
+"are therefore affected by the activities of the project. As a result, there is generally a significant amount\n"
+"of interaction between the various business elements of an organization and the project team as they\n"
+"work together to achieve project goals. These groups may provide input to requirements and accept\n"
+"deliverables necessary for a smooth transition to production or related operations.\n"
+"            "
+msgstr ""
+"Gruppi organizzativi.\n"
+"I gruppi organizzativi sono dei portatori d'interessi che subiscono l'influenza delle attività\n"
+"del team di progetto. Gli esempi di vari elementi di un organizzazione che possono essere colpiti dal\n"
+"progetto includono il marketing, vendite, risorse umane, legali, finanze, produzione e servizi clienti.\n"
+"Questi gruppi supportano l'ambiente di lavoro dove i progetti si eseguono e vengono cosi influenzati\n"
+"dalle attività del progetto. Questo di solito risulta in un numero significante di interazioni tra i vari\n"
+"elementi dell'organizzazione e il team del progetto, siccome lavorano insieme per raggiungere\n"
+"gli obbiettivi progettuali. Questi gruppi potrebbero dare il contributo ai requisiti ed accettare\n"
+"i consegnabili necessari per una transizione liscia alla produzione o le operazioni collegate.\n"
+"            "
+
+#. module: project_hr_stakeholder
+#: view:project.hr.stakeholder:project_hr_stakeholder.view_project_hr_stakeholder_search
+#: field:project.hr.stakeholder,partner_id:0
+msgid "Partner"
+msgstr "Partner"
+
+#. module: project_hr_stakeholder
+#: model:ir.model,name:project_hr_stakeholder.model_project_project
+#: view:project.hr.stakeholder:project_hr_stakeholder.view_project_hr_stakeholder_search
+#: field:project.hr.stakeholder,project_id:0
+msgid "Project"
+msgstr "Progetto"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_pm
+msgid "Project Manager"
+msgstr "Responsabile progetto"
+
+#. module: project_hr_stakeholder
+#: model:ir.model,name:project_hr_stakeholder.model_project_hr_responsibility
+#: view:project.hr.responsibility:project_hr_stakeholder.view_project_hr_responsibility_edit
+#: view:project.hr.responsibility:project_hr_stakeholder.view_project_hr_responsibility_search
+#: view:project.hr.responsibility:project_hr_stakeholder.view_project_hr_responsibility_tree
+msgid "Project Responsibility"
+msgstr "Responsabilità progettuale"
+
+#. module: project_hr_stakeholder
+#: model:ir.model,name:project_hr_stakeholder.model_project_hr_role
+#: view:project.hr.role:project_hr_stakeholder.view_project_hr_role_edit
+#: view:project.hr.role:project_hr_stakeholder.view_project_hr_role_search
+#: view:project.hr.role:project_hr_stakeholder.view_project_hr_role_tree
+msgid "Project Role"
+msgstr "Ruolo progettuale"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_sp
+msgid "Project Sponsor"
+msgstr "Sponsor progettuale"
+
+#. module: project_hr_stakeholder
+#: model:ir.model,name:project_hr_stakeholder.model_project_hr_stakeholder
+msgid "Project Stakeholder"
+msgstr "Parte interessata al progetto"
+
+#. module: project_hr_stakeholder
+#: help:project.hr.stakeholder,responsibilities_name_str:0
+msgid "Project Stakeholder responsibilities"
+msgstr "Responsabilità parti interessate"
+
+#. module: project_hr_stakeholder
+#: help:project.hr.stakeholder,roles_name_str:0
+msgid "Project Stakeholder roles"
+msgstr "Ruoli parti interessate"
+
+#. module: project_hr_stakeholder
+#: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_stakeholder_tree
+#: model:ir.ui.menu,name:project_hr_stakeholder.menu_project_hr_stakeholder_view
+#: view:project.hr.stakeholder:project_hr_stakeholder.view_project_hr_stakeholder_search
+#: view:project.project:project_hr_stakeholder.edit_project
+msgid "Project Stakeholders"
+msgstr "Parti interessate al progetto"
+
+#. module: project_hr_stakeholder
+#: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_responsibility_tree
+#: model:ir.ui.menu,name:project_hr_stakeholder.menu_project_hr_responsibility_view
+#: field:project.hr.stakeholder,responsibilities_name_str:0
+#: field:project.hr.stakeholder,responsibility_ids:0
+msgid "Responsibilities"
+msgstr "Responsabilità"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.responsibility,name:project_hr_stakeholder.project_hr_responsibility_responsible
+msgid "Responsible"
+msgstr "Responsabile"
+
+#. module: project_hr_stakeholder
+#: model:ir.actions.act_window,name:project_hr_stakeholder.action_project_hr_role_tree
+#: model:ir.ui.menu,name:project_hr_stakeholder.menu_project_hr_role_view
+#: field:project.hr.stakeholder,role_ids:0
+#: field:project.hr.stakeholder,roles_name_str:0
+msgid "Roles"
+msgstr "Ruoli"
+
+#. module: project_hr_stakeholder
+#: view:project.hr.stakeholder:project_hr_stakeholder.project_hr_stakeholder_edit
+#: view:project.project:project_hr_stakeholder.edit_project
+msgid "Roles and responsibilities"
+msgstr "Ruoli e responsabilità"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_se
+msgid "Seller"
+msgstr "Venditore"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,description:project_hr_stakeholder.project_hr_role_se
+msgid ""
+"Sellers.\n"
+"Sellers, also called vendors, suppliers, or contractors, are external companies that enter\n"
+"into a contractual agreement to provide components or services necessary for the project.\n"
+"            "
+msgstr ""
+"Venditori.\n"
+"I venditori, chiamati anche fornitori, appaltatori o terzisti sono delle aziende esterne che entrano in un rapporto\n"
+"contrattuale per provvedere alle componenti o servizi necessari per il progetto.\n"
+"            "
+
+#. module: project_hr_stakeholder
+#: model:project.hr.role,description:project_hr_stakeholder.project_hr_role_sp
+msgid ""
+"Sponsor.\n"
+"\t\t\tA sponsor is the person or group who provides resources and support for the project and is\n"
+"accountable for enabling success. The sponsor may be external or internal to the project manager’s\n"
+"organization. From initial conception through project closure, the sponsor promotes the project. This\n"
+"includes serving as spokesperson to higher levels of management to gather support throughout the\n"
+"organization and promoting the benefits the project brings. The sponsor leads the project through the\n"
+"initiating processes until formally authorized, and plays a significant role in the development of the initial\n"
+"scope and charter. For issues that are beyond the control of the project manager, the sponsor serves\n"
+"as an escalation path. The sponsor may also be involved in other important issues such as authorizing\n"
+"changes in scope, phase-end reviews, and go/no-go decisions when risks are particularly high. The\n"
+"sponsor also ensures a smooth transfer of the project’s deliverables into the business of the requesting\n"
+"organization after project closure.\n"
+"            "
+msgstr ""
+"Sponsor.\n"
+"\t\t\tLo sponsor è una persona o un gruppo che provvede alle risorse ed il supporto al progetto ed è\n"
+"quello che rende conto per l'ottenimento del successo. Lo sponsor può essere esterno o interno all'organizzazione\n"
+"alla quale appartiene il responsabile del progetto. Lo sponsor promuove il progetto dal concetto iniziale alla chiusura.\n"
+"Questo include servire da portavoce verso i livelli alti di dirigenza per ottenere supporto nell'arco\n"
+"dell'organizzazione e di promuovere i benefici portati dal progetto. Lo sponsor conduce il progetto attraverso il\n"
+"processo iniziale fino l'autorizzazione formale e copre un ruolo importante nello sviluppo della portata iniziale e\n"
+"lo statuto di progetto. Per i problemi, che sono fuori dal controllo del responsabile di progetto, lo sponsor rappresenta\n"
+"la intensificazione. Lo sponsor potrebbe essere coinvolto anche in altre situazioni importanti come autorizzazione di\n"
+"cambiamenti della portata, revisioni fine fasi e decisioni si/no dove i rischi sono particolarmente elevati.\n"
+"Lo sponsor provvede anche ad una presa in consegna liscia dei consegnabili di progetto verso l'ente richiedente\n"
+"dopo la chiusura del progetto.\n"
+"            "
+
+#. module: project_hr_stakeholder
+#: model:ir.ui.menu,name:project_hr_stakeholder.project_hr_stakeholder_menu
+#: model:ir.ui.menu,name:project_hr_stakeholder.project_hr_stakeholder_menu_project_config_address_book
+#: view:project.hr.stakeholder:project_hr_stakeholder.project_hr_stakeholder_edit
+#: view:project.hr.stakeholder:project_hr_stakeholder.project_hr_stakeholder_tree
+#: view:project.hr.stakeholder:project_hr_stakeholder.project_hr_stakeholder_tree_2
+#: view:project.project:project_hr_stakeholder.edit_project
+#: field:project.project,stakeholder_ids:0
+msgid "Stakeholders"
+msgstr "Parti interessate"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_accountable
+msgid ""
+"The one ultimately answerable for the correct and thorough completion of the \n"
+"deliverable or task, and the one from whom Responsible is delegated the work.\n"
+"In other words, an Accountable must sign off (Approve) on work that Responsible provides. \n"
+"There must be only one Accountable specified for each task or deliverable.\n"
+"            \t"
+msgstr ""
+"Quello che in fin dei conti risponde per il completamento corretto e accurato del \n"
+"consegnabile o dell'attività, ed il quale delega il lavoro al responsabile.\n"
+"In altre parole, il \"rendi conto\" deve firmare (approvare) il lavoro che il responsabile svolge. \n"
+"Per ogni attività o consegnabile deve esserci solo un \"rendi-conto\".\n"
+"            \t"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_informed
+msgid ""
+"Those who are kept up-to-date on progress, \n"
+"often only on completion of the task or deliverable; \n"
+"and with whom there is just one-way communication\n"
+"            "
+msgstr ""
+"Quelli, che vengono aggiornati in riguardo al progresso, \n"
+"spesso solo dopo il completamento di un attività o consegnabile;; \n"
+"e con i quali la comunicazione si svolge in un unica direzione\n"
+"            "
+
+#. module: project_hr_stakeholder
+#: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_responsible
+msgid ""
+"Those who do the work to achieve the task. \n"
+"There is typically one role with a participation type of Responsible, \n"
+"although others can be delegated to assist in the work required.\n"
+"            \t"
+msgstr ""
+"Quelli che fanno il lavoro per realizzare il compito. \n"
+"Di solito c'è un solo ruolo partecipato del tipo \"responsabile\",, \n"
+"ma altri possono sempre essere delegati ad assistere, se il lavoro lo richiede.\n"
+"            \t"
+
+#. module: project_hr_stakeholder
+#: model:project.hr.responsibility,description:project_hr_stakeholder.project_hr_responsibility_consulted
+msgid ""
+"Those whose opinions are sought, \n"
+"typically subject matter experts; and with whom there is two-way communication.\n"
+"            \t"
+msgstr ""
+"Quelli, di cui opinioni si cercano, \n"
+"tipicamente esperti di materia e con i quali la comunicazione si svolge in entrambe direzioni.\n"
+"            \t"
