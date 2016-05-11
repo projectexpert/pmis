@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    <record id="project_color" model="ir.ui.view">
+        <field name="name">project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="project_wbs.view_project"/>
+        <field name="arch" type="xml">
+            <xpath expr='//field[@name="complete_wbs_code"]' position="attributes">
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
+                <attribute name="fg_color">white:account_class == 'project';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="wbs_indent"]' position="attributes">
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
+                <attribute name="fg_color">white:account_class == 'project';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="name"]' position="attributes">
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
+                <attribute name="fg_color">white:account_class == 'project';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="parent_id"]' position="attributes">
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
+                <attribute name="fg_color">white:account_class == 'project';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="account_class"]' position="attributes">
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
+                <attribute name="fg_color">white:account_class == 'project';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="user_id"]' position="attributes">
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
+                <attribute name="fg_color">white:account_class == 'project';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="date_start"]' position="attributes">
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
+                <attribute name="fg_color">white:account_class == 'project';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="date"]' position="attributes">
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
+                <attribute name="fg_color">white:account_class == 'project';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="stage_id"]' position="attributes">
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
+                <attribute name="fg_color">white:account_class == 'project';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="progress_rate"]' position="attributes">
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
+                <attribute name="fg_color">white:account_class == 'project';</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    </data>
+</openerp>
