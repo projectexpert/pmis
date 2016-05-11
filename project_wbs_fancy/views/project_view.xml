@@ -8,44 +8,44 @@
         <field name="inherit_id" ref="project_wbs.view_project"/>
         <field name="arch" type="xml">
             <xpath expr='//field[@name="complete_wbs_code"]' position="attributes">
-                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
-                <attribute name="fg_color">white:account_class == 'project';</attribute>
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase'; #e0e0e5:state in ('cancelled','done','close');</attribute>
+                <attribute name="fg_color">white:account_class == 'project'; #c4c4ce:state in ('cancelled','done','close','pending');</attribute>
             </xpath>
             <xpath expr='//field[@name="wbs_indent"]' position="attributes">
-                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
-                <attribute name="fg_color">white:account_class == 'project';</attribute>
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase'; #e0e0e5:state in ('cancelled','done','close');</attribute>
+                <attribute name="fg_color">white:account_class == 'project'; #c4c4ce:state in ('cancelled','done','close','pending');</attribute>
             </xpath>
             <xpath expr='//field[@name="name"]' position="attributes">
-                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
-                <attribute name="fg_color">white:account_class == 'project';</attribute>
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase'; #e0e0e5:state in ('cancelled','done','close');</attribute>
+                <attribute name="fg_color">white:account_class == 'project'; #c4c4ce:state in ('cancelled','done','close','pending');</attribute>
             </xpath>
             <xpath expr='//field[@name="parent_id"]' position="attributes">
-                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
-                <attribute name="fg_color">white:account_class == 'project';</attribute>
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase'; #e0e0e5:state in ('cancelled','done','close');</attribute>
+                <attribute name="fg_color">white:account_class == 'project'; #c4c4ce:state in ('cancelled','done','close','pending');</attribute>
             </xpath>
             <xpath expr='//field[@name="account_class"]' position="attributes">
-                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
-                <attribute name="fg_color">white:account_class == 'project';</attribute>
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase'; #e0e0e5:state in ('cancelled','done','close');</attribute>
+                <attribute name="fg_color">white:account_class == 'project'; #c4c4ce:state in ('cancelled','done','close','pending');</attribute>
             </xpath>
             <xpath expr='//field[@name="user_id"]' position="attributes">
-                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
-                <attribute name="fg_color">white:account_class == 'project';</attribute>
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase'; #e0e0e5:state in ('cancelled','done','close');</attribute>
+                <attribute name="fg_color">white:account_class == 'project'; #c4c4ce:state in ('cancelled','done','close','pending');</attribute>
             </xpath>
             <xpath expr='//field[@name="date_start"]' position="attributes">
-                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
-                <attribute name="fg_color">white:account_class == 'project';</attribute>
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase'; #e0e0e5:state in ('cancelled','done','close');</attribute>
+                <attribute name="fg_color">white:account_class == 'project'; #c4c4ce:state in ('cancelled','done','close','pending');</attribute>
             </xpath>
             <xpath expr='//field[@name="date"]' position="attributes">
-                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
-                <attribute name="fg_color">white:account_class == 'project';</attribute>
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase'; #e0e0e5:state in ('cancelled','done','close');</attribute>
+                <attribute name="fg_color">white:account_class == 'project'; #c4c4ce:state in ('cancelled','done','close','pending');</attribute>
             </xpath>
             <xpath expr='//field[@name="stage_id"]' position="attributes">
-                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
-                <attribute name="fg_color">white:account_class == 'project';</attribute>
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase'; #e0e0e5:state in ('cancelled','done','close');</attribute>
+                <attribute name="fg_color">white:account_class == 'project'; #c4c4ce:state in ('cancelled','done','close','pending');</attribute>
             </xpath>
             <xpath expr='//field[@name="progress_rate"]' position="attributes">
-                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase';</attribute>
-                <attribute name="fg_color">white:account_class == 'project';</attribute>
+                <attribute name="bg_color">#7c7bad:account_class == 'project'; #dcdce9:account_class == 'phase'; #e0e0e5:state in ('cancelled','done','close');</attribute>
+                <attribute name="fg_color">white:account_class == 'project'; #c4c4ce:state in ('cancelled','done','close','pending');</attribute>
             </xpath>
         </field>
     </record>
