@@ -22,7 +22,7 @@
 
 {
     'name': 'Profile PMIS',
-    'version': '8.0.1.1.4',
+    'version': '8.0.1.1.5',
     'sequence': 9,
     'summary': 'Project Management Information System',
     'author':   'Matmoz d.o.o., '
@@ -64,6 +64,7 @@
         'project_time_schedule',
         'project_time_sequence',
         'project_wbs_task',
+        'project_wbs_fancy',
         'risk_management',
         'purchase_request_to_rfq',
         'stock_analytic_account',

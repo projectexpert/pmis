@@ -120,6 +120,7 @@ class Issue2ChangeWizard(osv.TransientModel):
         wizards = self.browse(cr, uid, ids, context=context)
         Issue = self.pool["project.issue"]
         CR = self.pool["change.management.change"]
+        Attachment = self.pool['ir.attachment']
 
         for wizard in wizards:
             # get the issue to transform
@@ -141,13 +142,22 @@ class Issue2ChangeWizard(osv.TransientModel):
                 "change_category_id": wizard.change_category_id.id
             }
             change_id = CR.create(cr, uid, vals, context=None)
+            change = CR.browse(cr, uid, change_id, context=None)
             # move the mail thread
             Issue.message_change_thread(
                 cr, uid, issue.id, change_id,
                 "change.management.change", context=context
             )
+            # Move attachments
+            attachment_ids = Attachment.search(
+                cr, uid, [('res_model', '=', 'project.issue'), ('res_id', '=', issue.id)], context=context)
+            Attachment.write(
+                cr, uid, attachment_ids, {'res_model': 'change.management.change', 'res_id': change_id},
+                context=context)
+            # Archive the lead
+            Issue.write(cr, uid, [issue.id], {'active': False}, context=context)
             # delete the lead
-            Issue.unlink(cr, uid, [issue.id], context=None)
+            # Issue.unlink(cr, uid, [issue.id], context=None)
         # return the action to go to the form view of the new Issue
         view_id = self.pool.get('ir.ui.view').search(
             cr, uid,
