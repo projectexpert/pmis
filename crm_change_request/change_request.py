@@ -58,9 +58,15 @@ class LeadToChangeRequestWizard(osv.TransientModel):
             )
             # Move attachments
             attachment_ids = Attachment.search(
-                cr, uid, [('res_model', '=', 'crm.lead'), ('res_id', '=', lead.id)], context=context)
+                cr, uid,
+                [('res_model', '=', 'crm.lead'), ('res_id', '=', lead.id)],
+                context=context
+            )
             Attachment.write(
-                cr, uid, attachment_ids, {'res_model': 'change.management.change', 'res_id': change_id}, context=context)
+                cr, uid, attachment_ids,
+                {'res_model': 'change.management.change', 'res_id': change_id},
+                context=context
+            )
             # Archive the lead
             Lead.write(cr, uid, [lead.id], {'active': False}, context=context)
             # delete the lead

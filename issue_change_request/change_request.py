@@ -150,10 +150,18 @@ class Issue2ChangeWizard(osv.TransientModel):
             )
             # Move attachments
             attachment_ids = Attachment.search(
-                cr, uid, [('res_model', '=', 'project.issue'), ('res_id', '=', issue.id)], context=context)
+                cr, uid,
+                [
+                    ('res_model', '=', 'project.issue'),
+                    ('res_id', '=', issue.id)
+                ],
+                context=context
+            )
             Attachment.write(
-                cr, uid, attachment_ids, {'res_model': 'change.management.change', 'res_id': change_id},
-                context=context)
+                cr, uid, attachment_ids,
+                {'res_model': 'change.management.change', 'res_id': change_id},
+                context=context
+            )
             # Archive the lead
             Issue.write(cr, uid, [issue.id], {'active': False}, context=context)
             # delete the lead
