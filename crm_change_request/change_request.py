@@ -28,6 +28,7 @@ class LeadToChangeRequestWizard(osv.TransientModel):
         wizards = self.browse(cr, uid, ids, context=context)
         Lead = self.pool["crm.lead"]
         CR = self.pool["change.management.change"]
+        Attachment = self.pool['ir.attachment']
 
         for wizard in wizards:
             # get the lead to transform
@@ -49,13 +50,21 @@ class LeadToChangeRequestWizard(osv.TransientModel):
                 "change_category_id": wizard.change_category_id.id
             }
             change_id = CR.create(cr, uid, vals, context=None)
+            change = CR.browse(cr, uid, change_id, context=None)
             # move the mail thread
             Lead.message_change_thread(
                 cr, uid, lead.id, change_id,
                 "change.management.change", context=context
             )
+            # Move attachments
+            attachment_ids = Attachment.search(
+                cr, uid, [('res_model', '=', 'crm.lead'), ('res_id', '=', lead.id)], context=context)
+            Attachment.write(
+                cr, uid, attachment_ids, {'res_model': 'change.management.change', 'res_id': change_id}, context=context)
+            # Archive the lead
+            Lead.write(cr, uid, [lead.id], {'active': False}, context=context)
             # delete the lead
-            Lead.unlink(cr, uid, [lead.id], context=None)
+            # Lead.unlink(cr, uid, [lead.id], context=None)
         # return the action to go to the form view of the new CR
         view_id = self.pool.get('ir.ui.view').search(
             cr, uid,
