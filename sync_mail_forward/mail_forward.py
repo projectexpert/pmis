@@ -104,7 +104,7 @@ class mail_compose_message(osv.osv):
 
             if type(from_email) == bool:
                 from_email = ''
-            if not (from_email) == bool:
+            if not from_email == bool:
                 from_email1 = from_email.replace("<", "(")
                 from_email2 = from_email1.replace(">", ")")
             body1 = (

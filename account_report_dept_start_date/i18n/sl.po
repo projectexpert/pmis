@@ -6,17 +6,112 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-06 09:38+0000\n"
-"PO-Revision-Date: 2015-08-03 12:47+0200\n"
+"POT-Creation-Date: 2016-05-20 06:30+0200\n"
+"PO-Revision-Date: 2016-05-20 06:32+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
+"Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.2\n"
-"Language: sl_SI\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #. module: report
 #: view:website:report.external_layout_header
 msgid "VAT No.:"
 msgstr "ID za DDV:"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Place of Issue:"
+msgstr "Kraj izdaje:"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Debt Start Date:"
+msgstr "DUR:\t"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Source:"
+msgstr "Izvor:"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Invoice Date:"
+msgstr "Datum računa:"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Due Date:"
+msgstr "Zapade dne:"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Description:"
+msgstr "Opis:"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Customer Code:"
+msgstr "Koda kupca:"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Description"
+msgstr "Opis"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Quantity"
+msgstr "Količina"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Unit Price"
+msgstr "Cena enote"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Discount (%)"
+msgstr "Popust %"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Taxes"
+msgstr "Davki"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Amount"
+msgstr "Znesek"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Total Without Taxes"
+msgstr "Skupaj brez davkov"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Total"
+msgstr "Skupaj"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Base"
+msgstr "Osnova"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Comment:"
+msgstr "Opomba:"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Payment Term:"
+msgstr "Plačilni pogoji:"
+
+#. module: account
+#: view:website:account.report_invoice_document_ext
+msgid "Fiscal Position:"
+msgstr "Fiskalno območje:"

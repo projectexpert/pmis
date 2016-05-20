@@ -135,7 +135,7 @@ class AnalyticAccountSequence(models.Model):
         """ Drop the PostreSQL sequence if it exists.
         There is no access rights check.
         """
-        ids = self.ids if isinstance(self.ids, (list)) else list(self.ids)
+        ids = self.ids if isinstance(self.ids, list) else list(self.ids)
         assert all(isinstance(i, (int, long)) for i in ids), \
             "Only ids in (int, long) allowed."
         names = ','.join('analytic_account_sequence_%05d' % i for i in ids)

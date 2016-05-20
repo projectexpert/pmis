@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="resource_plan_version_R01" model="account.analytic.plan.version">
+            <field name="code">R01</field>
+            <field name="name">Resource</field>
+            <field name="active">true</field>
+            <field name="default_resource_plan">true</field>
+        </record>
+    </data>
+</openerp>

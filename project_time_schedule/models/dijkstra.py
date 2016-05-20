@@ -69,7 +69,7 @@ def Dijkstra(G, start, end=None):
                 Q[w] = vwLength
                 P[w] = v
 
-    return (D, P)
+    return D, P
 
 
 def shortestPath(G, start, end):
