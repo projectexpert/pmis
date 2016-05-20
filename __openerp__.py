@@ -21,7 +21,7 @@
 
 {
     'name': 'Analytic Resource Planning',
-    'version': '8.0.1.2.2',
+    'version': '8.0.1.2.3',
     'author':   'Eficent, '
                 'Project Expert Team',
     'contributors': [
@@ -38,6 +38,7 @@
         'view/analytic_account_view.xml',
         'view/product_view.xml',
         'view/project_view.xml',
+        'view/resource_plan_default.xml',
         'security/ir.model.access.csv',
 
     ],
