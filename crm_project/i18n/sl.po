@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-13 08:53+0100\n"
-"PO-Revision-Date: 2015-11-13 08:53+0100\n"
+"POT-Creation-Date: 2016-05-21 17:05+0200\n"
+"PO-Revision-Date: 2016-05-21 17:06+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #. module: crm_project
 #: view:project.project:crm_project.view_project_leads
@@ -24,14 +24,30 @@ msgid "Cases"
 msgstr "Primeri"
 
 #. module: crm_project
-#: view:project.project:crm_project.view_project_leads
-msgid "Cases and Issues"
-msgstr "Primeri in zadeve"
+#: field:crm.lead,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: crm_project
+#: view:crm.lead:crm_project.view_crm_case_leads_filter
+#: view:crm.lead:crm_project.view_crm_case_opportunities_filter
+msgid "Group By"
+msgstr "Združi po"
 
 #. module: crm_project
 #: view:project.project:crm_project.view_project_leads
 msgid "Issues"
 msgstr "Zadeve"
+
+#. module: crm_project
+#: field:crm.lead,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: crm_project
+#: field:project.project,lead_ids:0
+msgid "Lead / Opportunity"
+msgstr "Indic / Priložnost"
 
 #. module: crm_project
 #: model:ir.model,name:crm_project.model_crm_lead
@@ -41,9 +57,12 @@ msgstr "Indic/Priložnost"
 #. module: crm_project
 #: view:crm.lead:crm_project.lead_project_connect
 #: view:crm.lead:crm_project.oppor_project_connect
+#: view:crm.lead:crm_project.view_crm_case_leads_filter
+#: view:crm.lead:crm_project.view_crm_case_opportunities_filter
+#: field:crm.lead,project_id:0
 #: model:ir.model,name:crm_project.model_project_project
 msgid "Project"
 msgstr "Projekt"
 
-#~ msgid "Lead / Opportunity"
-#~ msgstr "Indic / Priložnost"
+#~ msgid "Cases and Issues"
+#~ msgstr "Primeri in zadeve"

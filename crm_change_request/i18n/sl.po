@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-24 12:46+0200\n"
-"PO-Revision-Date: 2015-09-24 12:46+0200\n"
+"POT-Creation-Date: 2016-05-21 17:01+0200\n"
+"PO-Revision-Date: 2016-05-21 17:07+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #. module: crm_change_request
 #: view:crm.lead2cr.wizard:crm_change_request.view_crm_lead2cr_wizard
@@ -29,20 +29,20 @@ msgstr "Sprememba kategorije"
 
 #. module: crm_change_request
 #: view:crm.lead:crm_change_request.crm_case_form_view_leads_change_request
-msgid "Convert To"
-msgstr "Spremeni v"
+#: view:crm.lead:crm_change_request.crm_case_form_view_oppor_change_request
+msgid "Convert to CR"
+msgstr "Zahteva za spremembo"
 
 #. module: crm_change_request
-#: view:crm.lead:crm_change_request.crm_case_form_view_leads_change_request
 #: view:crm.lead2cr.wizard:crm_change_request.view_crm_lead2cr_wizard
 #: model:ir.actions.act_window,name:crm_change_request.convert_lead2cr_wizard_action
 msgid "Convert to Change Request"
-msgstr "Spremeni v Zahtevek za spremembo"
+msgstr "Spremeni v Zahtevo za spremembo"
 
 #. module: crm_change_request
 #: view:crm.lead2cr.wizard:crm_change_request.view_crm_lead2cr_wizard
 msgid "Create CR"
-msgstr "Ustvari CR"
+msgstr "Ustvari zahtevo za spremembo"
 
 #. module: crm_change_request
 #: selection:crm.lead2cr.wizard,action:0
@@ -65,6 +65,11 @@ msgid "Customer"
 msgstr "Kupec"
 
 #. module: crm_change_request
+#: field:crm.lead2cr.wizard,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: crm_change_request
 #: selection:crm.lead2cr.wizard,action:0
 msgid "Do not link to a customer"
 msgstr "Ne poveži s kupcem"
@@ -78,6 +83,11 @@ msgstr "Upravljaj povezovanje ali ustvarjanje partnerjev s CRM čarovniki."
 #: field:crm.lead2cr.wizard,id:0
 msgid "ID"
 msgstr "ID"
+
+#. module: crm_change_request
+#: field:crm.lead2cr.wizard,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič posodobljeno"
 
 #. module: crm_change_request
 #: field:crm.lead2cr.wizard,write_uid:0

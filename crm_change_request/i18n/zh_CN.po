@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-13 13:28+0800\n"
-"PO-Revision-Date: 2015-11-13 13:32+0800\n"
+"POT-Creation-Date: 2016-05-21 17:16+0200\n"
+"PO-Revision-Date: 2016-05-21 17:16+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.6\n"
-"Last-Translator: Jason Cui <jason@qdodoo.com>\n"
-"Language: zh_CN\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #. module: crm_change_request
 #: view:crm.lead2cr.wizard:crm_change_request.view_crm_lead2cr_wizard
@@ -29,11 +29,12 @@ msgstr "变更分类"
 
 #. module: crm_change_request
 #: view:crm.lead:crm_change_request.crm_case_form_view_leads_change_request
-msgid "Convert To"
+#: view:crm.lead:crm_change_request.crm_case_form_view_oppor_change_request
+#, fuzzy
+msgid "Convert to CR"
 msgstr "转化为"
 
 #. module: crm_change_request
-#: view:crm.lead:crm_change_request.crm_case_form_view_leads_change_request
 #: view:crm.lead2cr.wizard:crm_change_request.view_crm_lead2cr_wizard
 #: model:ir.actions.act_window,name:crm_change_request.convert_lead2cr_wizard_action
 msgid "Convert to Change Request"
@@ -65,6 +66,11 @@ msgid "Customer"
 msgstr "客户"
 
 #. module: crm_change_request
+#: field:crm.lead2cr.wizard,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: crm_change_request
 #: selection:crm.lead2cr.wizard,action:0
 msgid "Do not link to a customer"
 msgstr "不要关联客户"
@@ -78,6 +84,12 @@ msgstr "在CRM向导中绑定或创建合作伙伴。"
 #: field:crm.lead2cr.wizard,id:0
 msgid "ID"
 msgstr "ID"
+
+#. module: crm_change_request
+#: field:crm.lead2cr.wizard,__last_update:0
+#, fuzzy
+msgid "Last Modified on"
+msgstr "上次更新日期"
 
 #. module: crm_change_request
 #: field:crm.lead2cr.wizard,write_uid:0
