@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Lead to Change Request',
-    'version': '8.0.1.0.0',
+    'version': '8.0.1.0.1',
     'summary': 'Create Change Requests from Leads',
     'sequence': '19',
     'complexity': 'easy',

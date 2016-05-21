@@ -30,7 +30,7 @@
         </field>
     </record>
 
-    <!-- inherit view of Lead Form : adding the "convert to issue" button -->
+    <!-- inherit view of Lead Form : adding the "convert to change" icon -->
     <record model="ir.ui.view" id="crm_case_form_view_leads_change_request">
         <field name="name">CRM - Leads Form</field>
         <field name="model">crm.lead</field>
@@ -41,6 +41,18 @@
                         help="Convert to Change Request">
                         <div>Convert To<br/>CR</div>
                     </button>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- inherit view of Opportunity Form : adding the "convert to change" icon -->
+    <record model="ir.ui.view" id="crm_case_form_view_leads_change_request">
+        <field name="name">Opportunities</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='stage_id']" position="before">
+                <button class="oe_highlight" type="action" name="%(convert_lead2cr_wizard_action)d" string="Convert to CR"/>
             </xpath>
         </field>
     </record>
