@@ -49,7 +49,7 @@
         'change_management',
         'crm_change_request',
         'crm_project',
-        'crm_todo',
+        # 'crm_todo',
         'gantt_improvement',
         'hr_timesheet_product',
         'issue_change_request',

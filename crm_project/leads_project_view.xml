@@ -7,15 +7,6 @@
             <field name="model">project.project</field>
             <field name="inherit_id" ref="project_charter.view_project_form"/>
             <field name="arch" type="xml">
-                <!--<xpath expr='//div[@name="buttons"]' position='inside'>
-                    <button class="oe_inline oe_stat_button" type="action"
-                            icon="fa fa-star"
-                            name="crm.crm_case_category_act_leads_all"
-                            context="{'search_default_project_id': [active_id],
-                                      'default_project_id': active_id}">
-                        <field string="Leads" name="project_lead_count" widget="statinfo"/>
-                    </button>
-                </xpath>-->
                 <xpath expr="//page[@name='team']/notebook" position='inside'>
                     <page string="Cases">
                         <field name="lead_ids" nolabel="1" colspan="4" domain="[]" context="{'default_project_id': active_id}"/>

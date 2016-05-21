@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="crm_tree_project">
+            <field name="name">project.tree.crm</field>
+            <field name="model">crm.lead</field>
+            <field name="priority">20</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_leads" />
+                <field name="arch" type="xml">
+                    <field name="section_id" position="after">
+                    <field name="project_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="crm_tree2_project">
+            <field name="name">project.tree.oppor</field>
+            <field name="model">crm.lead</field>
+            <field name="priority">20</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_oppor" />
+                <field name="arch" type="xml">
+                    <field name="section_id" position="after">
+                    <field name="project_id"/>
+                </field>
+            </field>
+        </record>
+    </data>
+
+</openerp>

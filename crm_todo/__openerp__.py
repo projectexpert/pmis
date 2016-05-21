@@ -33,8 +33,11 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'summary': '''Todo list for CRM leads and opportunities''',
-    'depends': ['crm', 'project_gtd'],
-    'data': ['crm_todo_view.xml'],
+    'depends': ['crm_project', 'project_gtd'],
+    'data': ['crm_todo_view.xml',
+             'crm_todo_opportunity.xml',
+             'crm_todo_project_task_tree.xml'
+    ],
     'demo': ['crm_todo_demo.xml'],
     'installable': True,
     'auto_install': False,

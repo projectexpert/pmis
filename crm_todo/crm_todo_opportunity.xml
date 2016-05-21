@@ -14,7 +14,7 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="crm_tree_project">
+        <!--<record model="ir.ui.view" id="crm_tree_project">
             <field name="name">project.tree.crm</field>
             <field name="model">crm.lead</field>
             <field name="priority">20</field>
@@ -37,6 +37,6 @@
                 </field>
             </field>
         </record>
-    </data>
+    </data>-->
 
 </openerp>
