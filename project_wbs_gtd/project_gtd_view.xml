@@ -31,15 +31,6 @@
         <field name="help">Contexts are defined in the "Getting Things Done" methodology. It allows you to categorize your wbs elements according to the context in which they have to be done: at the office, at home, when I take my car, etc.</field>
     </record>
 
-    <menuitem name="GTD"
-            id="menu_gtd"
-            parent="project.menu_projects"
-            sequence="10"
-            action="open_gtd_all_wbs"/>
-
-    <menuitem name="WBS Contexts" id="menu_open_gtd_time_contexts"
-                parent="menu_gtd" action="open_gtd_context_tree" groups="base.group_no_one"/>
-
     <record model="ir.ui.view" id="view_gtd_timebox_tree">
         <field name="name">wbs.gtd.timebox.tree</field>
         <field name="model">wbs.gtd.timebox</field>
@@ -72,8 +63,6 @@
         <field name="view_id" ref="view_gtd_timebox_tree"/>
         <field name="help">Timeboxes are defined in the "Getting Things Done" methodology. A timebox defines a period of time in order to categorize your wbs elements: today, this week, this month, long term.</field>
     </record>
-
-    <menuitem name="WBS Timeboxes" id="menu_open_gtd_time_timeboxes" parent="menu_gtd" action="open_gtd_timebox_tree" groups="base.group_no_one"/>
 
     <record model="ir.ui.view" id="project_wbs_tree">
         <field name="name">project.wbs.tree.timebox</field>
@@ -125,8 +114,6 @@
         <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
     </record>
-    <menuitem action="open_gtd_all_wbs" id="menu_open_wbs_timebox_all_tree"
-        parent="menu_gtd" sequence="10"/>
 
     <record model="ir.actions.act_window" id="open_gtd_wbs">
         <field name="name">My Projects (GTD)</field>
@@ -137,8 +124,18 @@
         <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
     </record>
-    <menuitem action="open_gtd_wbs" id="menu_open_gtd_timebox_tree"
-        parent="menu_gtd" sequence="11"/>
+
+
+    <menuitem name="GTD"
+            id="menu_gtd"
+            parent="project.menu_projects"
+            sequence="10"
+            action="open_gtd_all_wbs"/>
+
+    <menuitem action="open_gtd_all_wbs" id="menu_open_wbs_timebox_all_tree" parent="menu_gtd" sequence="10"/>
+    <menuitem action="open_gtd_wbs" id="menu_open_gtd_timebox_tree" parent="menu_gtd" sequence="11"/>
+    <menuitem name="WBS Contexts" id="menu_open_gtd_time_contexts" parent="menu_gtd" action="open_gtd_context_tree" groups="base.group_no_one"/>
+    <menuitem name="WBS Timeboxes" id="menu_open_gtd_time_timeboxes" parent="menu_gtd" action="open_gtd_timebox_tree" groups="base.group_no_one"/>
 
     </data>
 </openerp>
