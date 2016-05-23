@@ -34,7 +34,8 @@
     <menuitem name="GTD"
             id="menu_gtd"
             parent="project.menu_projects"
-            sequence="10"/>
+            sequence="10"
+            action="open_gtd_all_wbs"/>
 
     <menuitem name="WBS Contexts" id="menu_open_gtd_time_contexts"
                 parent="menu_gtd" action="open_gtd_context_tree" groups="base.group_no_one"/>
