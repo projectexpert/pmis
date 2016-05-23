@@ -1,0 +1,45 @@
+-
+  In order to test the process of Timebox in Project Management module,
+  I set my WBS Element from Daily to Weekly Timebox through Plannify Timebox
+-
+  !record {model: project.timebox.fill.plan, id: plan_id}:
+    wbs_ids: [project.wbselement_10]
+    timebox_id: timebox_daily
+    timebox_to_id: timebox_weekly
+-
+  I set the WBS Element from Daily Timebox to Weekly Timebox
+-
+  !python {model: wbs.timebox.fill.plan}: |
+    self.process(cr, uid, [ref("plan_id")])
+-
+  I check the WBS element is set to Weekly Timebox
+-
+  !assert {model: project.project, id: project.wbselement_10, string: WBS element should be set to weekly timebox}:
+     - timebox_id.id == ref("timebox_weekly")
+-
+  I Empty the Weekly Timebox
+-
+  !python {model: wbs.timebox.empty}: |
+      self._empty(cr, uid,  {"active_model": "wbs.gtd.timebox",
+      "active_ids":[ref("timebox_weekly")],
+      "active_id": ref("timebox_weekly"),
+      })
+-
+  I check that the WBS element 'Develop Module in Sale Management' is no more in Weekly Timebox
+-
+  !assert {model: project.project, id: project.wbselement_10 , string: WBS element is not in Weekly Timebox }:
+     - timebox_id.id != ref("timebox_weekly")
+-
+  I set Previous Timebox on WBS element
+-
+  !python {model: project.project}: |
+     previous_timebox = self.prev_timebox(cr, uid, [ref("project.wbselement_10")],
+     {'active_ids': [ref("project_gtd_workpackage.menu_open_gtd_timebox_tree")],})
+     assert previous_timebox == True, "I set Previous Timebox on WBS Element"
+-
+  I set Next Timebox on task
+-
+  !python {model: project.project}: |
+      next_timebox = self.next_timebox(cr, uid, [ref("project.wbselement_10")],
+      {'active_ids': [ref("project_gtd_workpackage.menu_open_gtd_timebox_tree")],})
+      assert next_timebox == True, "I set Next Timebox on WBS Element"

@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+    <record model="ir.ui.view" id="view_gtd_context_tree">
+        <field name="name">wbs.gtd.context.tree</field>
+        <field name="model">wbs.gtd.context</field>
+        <field name="arch" type="xml">
+            <tree string="Context">
+                <field name="sequence" invisible="1"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_gtd_context_form">
+        <field name="name">wbs.gtd.context.form</field>
+        <field name="model">wbs.gtd.context</field>
+        <field name="arch" type="xml">
+            <form string="Context" version="7.0">
+                <group col="4">
+                    <field name="name"/>
+                    <field name="sequence"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="open_gtd_context_tree">
+        <field name="name">Contexts</field>
+        <field name="res_model">wbs.gtd.context</field>
+        <field name="help">Contexts are defined in the "Getting Things Done" methodology. It allows you to categorize your wbs elements according to the context in which they have to be done: at the office, at home, when I take my car, etc.</field>
+    </record>
+
+    <menuitem name="GTD"
+            id="menu_gtd"
+            parent="project.menu_projects"
+            sequence="10"/>
+
+    <menuitem name="WBS Contexts" id="menu_open_gtd_time_contexts"
+                parent="menu_gtd" action="open_gtd_context_tree" groups="base.group_no_one"/>
+
+    <record model="ir.ui.view" id="view_gtd_timebox_tree">
+        <field name="name">wbs.gtd.timebox.tree</field>
+        <field name="model">wbs.gtd.timebox</field>
+        <field name="arch" type="xml">
+            <tree string="Timebox">
+                <field name="sequence" invisible="1"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_gtd_timebox_form">
+        <field name="name">wbs.gtd.timebox.form</field>
+        <field name="model">wbs.gtd.timebox</field>
+        <field name="arch" type="xml">
+            <form string="Timeboxes" version="7.0">
+                <group col="4" string="Timebox Definition">
+                    <field name="name"/>
+                    <field name="sequence"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="open_gtd_timebox_tree">
+        <field name="name">Timeboxes</field>
+        <field name="res_model">wbs.gtd.timebox</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_gtd_timebox_tree"/>
+        <field name="help">Timeboxes are defined in the "Getting Things Done" methodology. A timebox defines a period of time in order to categorize your wbs elements: today, this week, this month, long term.</field>
+    </record>
+
+    <menuitem name="WBS Timeboxes" id="menu_open_gtd_time_timeboxes" parent="menu_gtd" action="open_gtd_timebox_tree" groups="base.group_no_one"/>
+
+    <record model="ir.ui.view" id="project_wbs_tree">
+        <field name="name">project.wbs.tree.timebox</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project" />
+        <field name="arch" type="xml">
+            <field name="progress_rate" position="after">
+                <field string="Timeframe" name="timebox_id" invisible=" not context.get('gtd', False)"/>
+                <field name="context_id" invisible="not context.get('context_show', False)" widget="selection"/>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="project_wbs">
+        <field name="name">project.wbs.form.timebox</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project" />
+        <field name="arch" type="xml">
+            <field name="progress_rate" position="after">
+                <field name="context_id" widget="selection" options='{"no_open": True}'/>
+                <field name="timebox_id" widget="selection" options='{"no_open": True}'  string="Timeframe"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_wbs_gtd_search" model="ir.ui.view">
+        <field name="name">project.wbs.search.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_project_filter"/>
+        <field name="arch" type="xml">
+            <filter name="message_unread" position="after">
+                <group string="Timebox">
+                    <separator name="gtdsep"/>
+                </group>
+            </filter>
+            <search string="Search Project" position="inside">
+                <filter name="timebox_id" string="Timebox" domain="[]" context="{'group_by': 'timebox_id'}"/>
+                <filter name="context_id" string="Context" domain="[]" context="{'group_by': 'context_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="open_gtd_all_wbs">
+        <field name="name">Projects (GTD)</field>
+        <field name="res_model">project.project</field>
+        <field name="search_view_id" ref="view_wbs_gtd_search"/>
+        <field name="context">{'set_visible': True, 'gtd': True, 'search_default_timebox_id': 1}</field>
+        <field name="domain">[('state', '=', 'open')]</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
+    </record>
+    <menuitem action="open_gtd_all_wbs" id="menu_open_wbs_timebox_all_tree"
+        parent="menu_gtd" sequence="10"/>
+
+    <record model="ir.actions.act_window" id="open_gtd_wbs">
+        <field name="name">My Projects (GTD)</field>
+        <field name="res_model">project.project</field>
+        <field name="search_view_id" ref="view_wbs_gtd_search"/>
+        <field name="context">{'set_visible': True, 'gtd': True, 'user_invisible': True, 'search_default_timebox_id': 1}</field>
+        <field name="domain">[('user_id', '=', uid), ('state', '=', 'open')]</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
+    </record>
+    <menuitem action="open_gtd_wbs" id="menu_open_gtd_timebox_tree"
+        parent="menu_gtd" sequence="11"/>
+
+    </data>
+</openerp>

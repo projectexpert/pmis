@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+    <record model="wbs.gtd.context" id="context_home">
+        <field name="name">Home</field>
+        <field name="sequence">3</field>
+    </record>
+    <record model="wbs.gtd.context" id="context_car">
+        <field name="name">Car</field>
+        <field name="sequence">1</field>
+    </record>
+
+    <record id="project.wbselement_10" model="project.project">
+        <field name="timebox_id" ref="timebox_daily"/>
+        <field name="context_id" ref="context_office"/>
+    </record>
+
+    <record id="project.wbselement_11" model="project.project">
+        <field name="timebox_id" ref="timebox_daily"/>
+        <field name="context_id" ref="context_office"/>
+    </record>
+
+    <record id="project.wbselement_12" model="project.project">
+        <field name="timebox_id" ref="timebox_daily"/>
+        <field name="context_id" ref="context_car"/>
+    </record>
+
+    <record id="project.wbselement_13" model="project.project">
+        <field name="timebox_id" ref="timebox_daily"/>
+        <field name="context_id" ref="context_car"/>
+    </record>
+
+    </data>
+</openerp>
