@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Project Issue to Change Request',
-    'version': '8.0.1.0.0',
+    'version': '8.0.1.0.2',
     'summary': 'Create Change Requests from Project Issues',
     'sequence': '19',
     'complexity': 'easy',
@@ -14,7 +14,7 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'data': [
-        'change_request_view.xml'
+        'views/change_request_view.xml'
     ],
     'depends': ['project_issue', 'change_management'],
     'installable': True,

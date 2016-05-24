@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    Copyright (C) 2014-Today OpenERP SA (<http://www.openerp.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,16 +19,4 @@
 #
 ##############################################################################
 
-from openerp import models, fields
-
-
-class project_task(models.Model):
-    _inherit = 'project.task'
-
-    lead_id = fields.Many2one('crm.lead', 'Lead / Opportunity')
-
-
-class crm_todo(models.Model):
-    _inherit = 'crm.lead'
-
-    task_ids = fields.One2many('project.task', 'lead_id', 'Tasks')
+import change_request
