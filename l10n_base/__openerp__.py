@@ -20,25 +20,16 @@
 ##############################################################################
 {
     'name': 'Base Localization',
-    'version': '4.0.0.1',
+    'version': '8.0.0.1.0',
     'category': 'Localization',
-    'description': """Localization module - Base version
-
-Features:
-
-- res.partner.titles
-- Provinces and regions
-- res.partner.address automation
-- ZIP codes auto-completion
-
-
-""",
+    'summary': "Base Localization Module for sub-regions",
     'author':   'Didotech, '
                 'Matmoz d.o.o.',
     'website': 'http://www.matmoz.si',
     'license': "AGPL-3",
     'contributors': [
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
+	'Andrei Levin <andrei.levin@didotech.com'
     ],
     "depends": [
         'base'

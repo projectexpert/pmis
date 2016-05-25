@@ -21,6 +21,7 @@
 from openerp.osv import orm
 from openerp.osv import fields
 from openerp.tools.translate import _
+from collections import defaultdict
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -130,6 +131,9 @@ class res_partner(orm.Model):
 
         return result
 
+    def dummy(self, cr, uid, ids, field_names, arg, context):
+        return defaultdict(bool)
+
     _columns = {
         'province': fields.many2one(
             'res.province', string='Province', ondelete='restrict'
@@ -150,6 +154,10 @@ class res_partner(orm.Model):
             check_category, string='States?', type='boolean',
             readonly=True, method=True, multi=True, default=True
         ),
+	'auto_off': fields.function(
+		dummy, string=_('Auto off'), type='boolean',
+		help="Unlock address fields"
+	)
     }
 
     _defaults = {
@@ -287,9 +295,11 @@ class res_partner(orm.Model):
         return vals
 
     def create(self, cr, uid, vals, context=None):
-        vals = self._set_vals_city_data(cr, uid, vals)
+        if 'auto_off' in vals and not vals['auto_off'] or 'auto_off' not in vals:
+            vals = self._set_vals_city_data(cr, uid, vals)
         return super(res_partner, self).create(cr, uid, vals, context)
 
     def write(self, cr, uid, ids, vals, context=None):
-        vals = self._set_vals_city_data(cr, uid, vals)
+        if 'auto_off' in vals and not vals['auto_off'] or 'auto_off' not in vals:
+            vals = self._set_vals_city_data(cr, uid, vals)
         return super(res_partner, self).write(cr, uid, ids, vals, context)
