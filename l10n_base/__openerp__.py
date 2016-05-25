@@ -20,7 +20,7 @@
 ##############################################################################
 {
     'name': 'Base Localization',
-    'version': '8.0.0.1.0',
+    'version': '8.0.4.0.1',
     'category': 'Localization',
     'summary': "Base Localization Module for sub-regions",
     'author':   'Didotech, '
