@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="show_convert_note_action" model="ir.actions.act_window">           
+             <field name="name">Convert Note to CR</field>
+             <field name="res_model">convert.note.change</field>
+             <field name="view_type">form</field>                                
+             <field name="view_mode">form</field>                                
+             <field name="target">new</field>                                    
+        </record>
+
+        <record model="ir.ui.view" id="show_convert_note">
+            <field name="name">show.convert.note.wizard.form</field>                                    
+            <field name="model">convert.note.change</field>
+            <field name="arch" type="xml">                                          
+                <form string="Convert Note to CR">
+                    <label for="change_category_id" />
+                    <field name="change_category_id" />
+                    <label for="project_id" />
+                    <field name="project_id" />
+                    <footer>
+                        <button name="create_change" string="Create Change Request" class="oe_highlight" type="object"/>
+                        or
+                        <button special="cancel" string="Close" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

@@ -171,7 +171,7 @@ chosen categories (e.g. Schedule, quality, legal etc.)
     description_cause = fields.Text(
         'Change'
     )
-    description_event = fields.Text(
+    description_event = fields.Html(
         'Reason'
     )
     description_effect = fields.Text(
