@@ -22,9 +22,9 @@
 
 {
     'name': 'Project Charter',
-    'version': '8.0.1.1.3',
-    'author':   'Matmoz d.o.o., '
-                'Project Expert Team',
+    'version': '8.0.1.1.4',
+    'author': 'Matmoz d.o.o., '
+              'Project Expert Team',
     'contributors': [
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
