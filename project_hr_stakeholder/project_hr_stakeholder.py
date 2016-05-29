@@ -138,7 +138,9 @@ class project_hr_stakeholder(osv.osv):
         ),
     }
 
-    def name_get(self, cr, uid, ids, context={}):
+    def name_get(self, cr, uid, ids, context=None):
+        if context is None:
+            context = {}
         if not ids:
             return []
         res = []

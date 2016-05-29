@@ -5,8 +5,8 @@
 {
     'name': 'Change Management',
     'version': '8.0.2.5.3',
-    'author':   'Matmoz d.o.o., '
-                'Project Expert Team',
+    'author': 'Matmoz d.o.o., '
+              'Project Expert Team',
     'contributors': [
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],

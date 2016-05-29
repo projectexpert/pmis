@@ -22,6 +22,6 @@ msgstr ""
 
 #. module: change_management_own_project
 #: field:change.management.change,change_project_id:0
-msgid "Project created by this change"
+msgid "Proposed Project"
 msgstr ""
 

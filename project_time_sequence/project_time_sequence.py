@@ -122,14 +122,16 @@ class task(osv.osv):
         }
 
     def do_link_predecessors(
-        self, cr, uid, task_id, link_predecessors_data={}, context=None
+        self, cr, uid, task_id, link_predecessors_data=None, context=None
     ):
 
+        if link_predecessors_data is None:
+            link_predecessors_data = {}
         task_br = self.browse(cr, uid, task_id, context=context)
 
         self.write(cr, uid, [task_br.id], {
-                'parent_ids': [(6, 0, link_predecessors_data['parent_ids'])],
-            })
+            'parent_ids': [(6, 0, link_predecessors_data['parent_ids'])],
+        })
 
         return True
 

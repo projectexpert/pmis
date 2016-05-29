@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from openerp import models, fields
+from openerp.tools.translate import _
 
 
 class ChangeManagementChange(models.Model):
@@ -17,23 +18,24 @@ class ChangeManagementChange(models.Model):
 
     change_project_id = fields.Many2one(
         'project.project',
-        'Project created by this '
-        'change'
+        'Proposed Project'
     )
 
-    def create(self, cr, uid, vals, context=None):
-        if context is None:
-            context = {}
-        change_id = super(ChangeManagementChange, self).create(cr, uid, vals,
-                                                               context=context)
-        project_obj = self.pool['project.project']
-        change = self.browse(cr, uid, change_id, context=context)
-        project_data = self._create_change_project(cr, uid, change,
-                                                   context=context)
-        project_id = project_obj.create(cr, uid, project_data, context=context)
-        self.write(cr, uid, [change_id], {'change_project_id': project_id},
-                   context=context)
-        return change_id
+    def button_create_change_project(self, cr, uid, ids, context=None):
+        for change in self.browse(cr, uid, ids, context=context):
+            if change.change_project_id:
+                raise orm.except_orm(_('Error!'),
+                                     _('A Change Management Project already '
+                                       'exists.'))
+            project_obj = self.pool['project.project']
+            project_data = self._create_change_project(cr, uid, change,
+                                                       context=context)
+            project_id = project_obj.create(cr, uid, project_data,
+                                            context=context)
+            self.write(cr, uid, [change.id],
+                       {'change_project_id': project_id},
+                       context=context)
+        return True
 
     def write(self, cr, uid, ids, vals, context=None):
         res = super(ChangeManagementChange, self).write(cr, uid, ids, vals,
