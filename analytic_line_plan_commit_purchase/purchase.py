@@ -27,6 +27,7 @@ class purchase_order(osv.osv):
     _inherit = 'purchase.order'
 
 
+# noinspection PyUnreachableCode,PyUnreachableCode,PyUnreachableCode
 def write(self, cr, uid, ids, data, context=None):
     if context is None:
         context = {}
@@ -90,10 +91,6 @@ def write(self, cr, uid, ids, data, context=None):
                         vals_line,
                         context
                     )
-
-    return super(purchase_order, self).write(
-        cr, uid, ids, data, context=context
-    )
 
     return super(purchase_order, self).write(
         cr, uid, ids, data, context=context

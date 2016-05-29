@@ -23,11 +23,10 @@
 {
     "name": "Slovenian - Accounting - Updated",
     "version": "1.2",
-    "author":   "Mentis d.o.o., "
-                "Matmoz d.o.o.",
+    "author": "Mentis d.o.o., "
+              "Matmoz d.o.o.",
     "website": "http://www.matmoz.si",
     "category": "Localization/Account Charts",
-    "description": " ",
     "depends": [
         "account",
         "base_iban",

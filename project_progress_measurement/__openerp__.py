@@ -22,15 +22,14 @@
 {
     'name': 'Project progress measurement',
     'version': '8.0.1.0.0',
-    'author':   'Eficent, '
-                'Project Expert Team',
+    'author': 'Eficent, '
+              'Project Expert Team',
     'contributors': [
         'Jordi Ballester <jordi.ballester@eficent.com>',
     ],
     'website': 'http://project.expert',
     'category': 'Project Management',
     'license': 'AGPL-3',
-    'category': 'Generic Modules',
     'depends': ['project', 'progress_measurement', 'project_wbs'],
     'data': [
         'project_progress_measurement_view.xml',
