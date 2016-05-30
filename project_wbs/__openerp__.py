@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Work Breakdown Structure',
-    'version': '8.0.2.1.4',
-    'author':   'Eficent, '
-                'SerpentCS ,'
-                'Matmoz d.o.o., '
-                'Project Expert Team',
+    'version': '8.0.2.1.5',
+    'author': 'Eficent, '
+              'SerpentCS ,'
+              'Matmoz d.o.o., '
+              'Project Expert Team',
     'contributors': [
         'Jordi Ballester <jordi.ballester@eficent.com>',
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
@@ -14,7 +14,7 @@
     'website': 'http://project.expert',
     'category': 'Project Management',
     'license': 'AGPL-3',
-    'depends':  [
+    'depends': [
         'project',
         'analytic',
         'project_issue',
