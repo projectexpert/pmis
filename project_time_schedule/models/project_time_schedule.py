@@ -53,7 +53,9 @@ class task(osv.osv):
             'Late Finish Date', select=True
         ),
         'is_critical_path': fields.boolean(
-            'Critical Path'
+            'Critical Path',
+            help="For those tasks that are in the critical path of the"
+            " network indicator is marked 'Is in the Critical Path'"
         ),
         'date_earliest_start': fields.datetime(
             'Earliest Start Date', select=True

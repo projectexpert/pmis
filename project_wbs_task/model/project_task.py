@@ -102,7 +102,9 @@ class task(orm.Model):
             type='char',
             size=250,
             string='Full WBS Code',
-            readonly=True
+            readonly=True,
+            help="The complete WBS path code is shown in the"
+            " analytic account and in the project"
         ),
         'project_complete_wbs_name': fields.related(
             'analytic_account_id',
@@ -110,6 +112,8 @@ class task(orm.Model):
             type='char',
             size=250,
             string='Full WBS Name',
-            readonly=True
+            readonly=True,
+            help="The complete WBS path name is shown in the"
+            " analytic account and in the project"
         ),
     }
