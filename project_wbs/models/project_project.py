@@ -231,9 +231,9 @@ class project(osv.osv):
         for project in self.browse(
                 cr, uid, ids, context=context
         ):
-            result[project.id] = (
+            result[project.id] = \
                 project.analytic_account_id.complete_wbs_code_calc
-            )
+
         return result
 
     def _complete_wbs_code_search_analytic(
