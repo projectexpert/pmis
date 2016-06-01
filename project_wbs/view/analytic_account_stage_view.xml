@@ -67,5 +67,10 @@
         	id="menu_analytic_account_stages_view"
         	parent="account.menu_analytic_accounting"/>
 
+        <menuitem groups="analytic.group_analytic_accounting"
+            name="Analytic Account Stages"
+        	action="open_analytic_account_stage_form"
+        	id="menu_analytic_account_stages_view"
+        	parent="base.menu_definitions"/>
     </data>
 </openerp>

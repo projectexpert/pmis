@@ -6,11 +6,14 @@
 
 from openerp import api, fields, models
 
-_ANALYTIC_ACCOUNT_STATE = [('draft', 'New'),
-                           ('open', 'In Progress'),
-                           ('pending', 'To Renew'),
-                           ('close', 'Closed'),
-                           ('cancelled', 'Cancelled')]
+_ANALYTIC_ACCOUNT_STATE = [
+    ('template', 'Template'),
+    ('draft', 'New'),
+    ('open', 'In Progress'),
+    ('pending', 'To Renew'),
+    ('close', 'Closed'),
+    ('cancelled', 'Cancelled')
+]
 
 
 class AnalyticAccountStage(models.Model):

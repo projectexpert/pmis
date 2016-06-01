@@ -328,7 +328,7 @@ class project(osv.osv):
                             new_date_start,
                             '%Y-%m-%d'
                         )[:3]
-                    )+(end_date-start_date)
+                    ) + (end_date - start_date)
                 ).strftime('%Y-%m-%d')
             context.update({'copy': True})
             new_id = self.copy(

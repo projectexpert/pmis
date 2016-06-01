@@ -40,12 +40,9 @@ class AccountAnalyticAccount(models.Model):
 
     @api.multi
     def write(self, values):
+        cr, uid, context = self.env.args
+        context = dict(context)
         # Find the previous stage
-        old_stage_id = {}
-        old_state_id = {}
-        for acc in self:
-            old_stage_id[acc.id] = acc.stage_id or False
-            old_state_id[acc.id] = acc.state
         res = super(AccountAnalyticAccount, self).write(values)
         if values.get('stage_id'):
             project_obj = self.env['project.project']
@@ -55,37 +52,24 @@ class AccountAnalyticAccount(models.Model):
                 project = project_obj.search(
                     [('analytic_account_id', '=', acc.id)]
                 )
-                if old_stage_id[acc.id]:
-                    old_stage = acc.stage_id
-                else:
-                    old_stage = False
-                new_stage = stage_obj.browse(values.get('stage_id'))
+
+                stage = stage_obj.browse(values.get('stage_id'))
                 cr, uid, context = self.env.args
-                context = dict(context)
-                context.update({
-                    'stage_updated': True
-                })
-                # If the new stage is found in the child accounts, then set
-                # it as well (only if the new stage sequence is greater than
-                #  the current)
-                if new_stage.id in [st.id for st in acc.child_stage_ids]:
-                    child = self.search([('parent_id', '=', acc.id)])
-                    if child.stage_id.sequence < new_stage.sequence:
-                        child.with_context(context).write(
-                            {'stage_id': new_stage.id}
-                        )
-                        self.env.args = cr, uid, misc.frozendict(context)
-                if (
-                    old_stage and
-                    old_stage.project_state == new_stage.project_state
-                ):
-                    continue
-                if new_stage.project_state == 'close':
+
+                if stage.project_state == 'close':
                     project.set_done()
-                elif new_stage.project_state == 'cancelled':
+                elif stage.project_state == 'cancelled':
                     project.set_cancel()
-                elif new_stage.project_state == 'pending':
+                elif stage.project_state == 'pending':
                     project.set_pending()
-                elif new_stage.project_state == 'open':
+                elif stage.project_state == 'draft':
                     project.set_open()
+
+                # This part is commented, beacuse the progress state can belong
+                # to several stages, thus by this line we would skip to the
+                # last stage if there were more than one stages related to
+                # this state (in progress)
+                #
+                # elif stage.project_state == 'open':
+                #     project.set_open()
         return res
