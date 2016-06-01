@@ -4,14 +4,13 @@
 
 # from lxml import etree
 import time
-# import pdb
+from openerp.tools import misc
 from datetime import datetime, date
-
 from openerp.tools.translate import _
 from openerp.osv import fields, osv
 
 
-class project(osv.osv):
+class Project(osv.osv):
     _name = "project.project"
     _inherit = "project.project"
     _description = "WBS element"
