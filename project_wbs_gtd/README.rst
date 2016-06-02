@@ -6,6 +6,11 @@ WBS GTD method
 
 WBS level *Getting Things Done* methodology
 -------------------------------------------
+When dealing with WBS and WBS elements, sub-projects (example class Worklist)
+take the parent role of the tasks. Since the number of wbs elements increases a
+lot if compared to the single element projects, this module is meant as a tool
+for the portfolio managers to approach the project lists as to a simple
+personal to-do list.
 
 This module implements a simple personal to-do list based on WBS elements. It
 adds an editable list of **WBS elements** simplified to the minimum required

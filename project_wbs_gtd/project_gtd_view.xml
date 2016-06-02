@@ -125,17 +125,39 @@
         <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
     </record>
 
-
+    <!--PROJECT MENU GTD GROUP-->
     <menuitem name="GTD"
             id="menu_gtd"
             parent="project.menu_project_management"
             sequence="10"
             action="open_gtd_all_wbs"/>
 
-    <menuitem action="open_gtd_all_wbs" id="menu_open_wbs_timebox_all_tree" parent="menu_gtd" sequence="10"/>
-    <menuitem action="open_gtd_wbs" id="menu_open_gtd_timebox_tree" parent="menu_gtd" sequence="11"/>
-    <menuitem name="WBS Contexts" id="menu_open_gtd_time_contexts" parent="menu_gtd" action="open_gtd_context_tree" groups="base.group_no_one"/>
-    <menuitem name="WBS Timeboxes" id="menu_open_gtd_time_timeboxes" parent="menu_gtd" action="open_gtd_timebox_tree" groups="base.group_no_one"/>
+        <menuitem action="open_gtd_all_wbs" id="menu_open_wbs_timebox_all_tree"
+                  parent="menu_gtd" sequence="10"/>
+        <menuitem action="open_gtd_wbs" id="menu_open_gtd_timebox_tree"
+                  parent="menu_gtd" sequence="11"/>
+        <menuitem action="project_gtd.open_gtd_all_tasks" id="project_gtd.menu_open_gtd_timebox_all_tree"
+                  parent="menu_gtd" sequence="20"/>
+        <menuitem action="project_gtd.open_gtd_task" id="project_gtd.menu_open_gtd_timebox_tree"
+                  parent="menu_gtd" sequence="21"/>
 
+    <!--PROJECT CONFIG MENU GTD GROUP-->
+    <menuitem name="GTD"
+              id="menu_gtd_config"
+              parent="base.menu_definitions"
+              sequence="90"/>
+
+        <menuitem name="WBS Contexts" id="menu_open_gtd_wbs_time_contexts"
+                  parent="menu_gtd_config" action="open_gtd_context_tree"
+                  groups="base.group_no_one"/>
+        <menuitem name="WBS Timeboxes" id="menu_open_gtd_wbs_time_timeboxes"
+                  parent="menu_gtd_config" action="open_gtd_timebox_tree"
+                  groups="base.group_no_one"/>
+        <menuitem name="Contexts" id="project_gtd.menu_open_gtd_time_contexts"
+                  parent="menu_gtd_config" action="project_gtd.open_gtd_context_tree"
+                  groups="base.group_no_one"/>
+        <menuitem name="Timeboxes" id="project_gtd.menu_open_gtd_time_timeboxes"
+                  parent="menu_gtd_config" action="project_gtd.open_gtd_timebox_tree"
+                  groups="base.group_no_one"/>
     </data>
 </openerp>

@@ -61,16 +61,22 @@
             </field>
         </record>                  	   
 
+        <!--ANALYTIC ACCOUNT CONFIG GROUP-->
         <menuitem groups="analytic.group_analytic_accounting"
             name="Analytic Account Stages"
         	action="open_analytic_account_stage_form"
         	id="menu_analytic_account_stages_view"
         	parent="account.menu_analytic_accounting"/>
 
-        <menuitem groups="analytic.group_analytic_accounting"
-            name="Analytic Account Stages"
-        	action="open_analytic_account_stage_form"
-        	id="menu_analytic_account_stages_view"
-        	parent="base.menu_definitions"/>
+        <!--PROJECT CONFIG SUBMENU GROUP-->
+        <menuitem name="Projects"
+              id="menu_project_config"
+              parent="base.menu_definitions"
+              sequence="-1"/>
+            <menuitem groups="analytic.group_analytic_accounting"
+                name="Analytic Account Stages"
+                action="open_analytic_account_stage_form"
+                id="menu_analytic_account_stages_view"
+                parent="menu_project_config"/>
     </data>
 </openerp>

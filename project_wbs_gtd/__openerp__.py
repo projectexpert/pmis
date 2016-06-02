@@ -21,7 +21,7 @@
 
 {
     'name': 'Project Level Todo',
-    'version': '8.0.1.0.1',
+    'version': '8.0.1.0.2',
     'author': 'OpenERP SA, '
               'Matmoz d.o.o., '
               'Project Expert Team',
@@ -32,7 +32,7 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'summary': '''GTD View on Project WBS Level''',
-    'depends': ['project'],
+    'depends': ['project', 'project_gtd'],
     'data': [
         'project_gtd_data.xml',
         'project_gtd_view.xml',
