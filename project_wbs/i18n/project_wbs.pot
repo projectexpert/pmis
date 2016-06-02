@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-07 05:29+0000\n"
-"PO-Revision-Date: 2016-03-07 05:29+0000\n"
+"POT-Creation-Date: 2016-06-02 04:51+0000\n"
+"PO-Revision-Date: 2016-06-02 04:51+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,37 +16,14 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: project_wbs
-#: help:analytic.account.stage,case_default:0
-msgid "\n"
-"            If you check this field, this stage will be proposed\n"
-"            by default on each new project.\n"
-"            It will not assign this stage to existing projects.\n"
-"            "
+#: help:project.project,toinvoice_total:0
+msgid " Sum of everything that could be invoiced for this contract."
 msgstr ""
 
 #. module: project_wbs
-#: help:account.analytic.account,account_class:0
-msgid "\n"
-"            The classification allows you to create a proper project\n"
-"            Work Breakdown Structure\n"
-"            "
-msgstr ""
-
-#. module: project_wbs
-#: help:account.analytic.account,complete_wbs_code:0
-msgid "\n"
-"            The full WBS code describes the full path of this\n"
-"            component within the project WBS hierarchy\n"
-"            "
-msgstr ""
-
-#. module: project_wbs
-#: help:analytic.account.stage,fold:0
-msgid "\n"
-"            This stage is not visible,\n"
-"            for example in status bar or kanban view,\n"
-"            when there are no records in that stage to display.\n"
-"            "
+#: code:addons/project_wbs/models/project_project.py:335
+#, python-format
+msgid "%s"
 msgstr ""
 
 #. module: project_wbs
@@ -91,6 +68,7 @@ msgstr ""
 
 #. module: project_wbs
 #: model:ir.actions.act_window,help:project_wbs.open_view_project_work_packages
+#: model:ir.actions.act_window,help:project_wbs.open_view_unclassified
 msgid "<p class=\"oe_view_nocontent_create\">\n"
 "                  Click to start a new work package.\n"
 "                </p>\n"
@@ -122,7 +100,6 @@ msgstr ""
 
 #. module: project_wbs
 #: model:ir.model,name:project_wbs.model_account_analytic_account
-#: field:project.task,analytic_account_id:0
 msgid "Analytic Account"
 msgstr ""
 
@@ -145,15 +122,26 @@ msgid "Append this project to another one using analytic accounts hierarchy"
 msgstr ""
 
 #. module: project_wbs
+#: help:project.project,ca_theorical:0
+msgid "Based on the costs you had on the project, what would have been the revenue if all these costs have been invoiced at the normal sale price provided by the pricelist."
+msgstr ""
+
+#. module: project_wbs
 #: model:analytic.account.stage,name:project_wbs.project_wbs_cancelled
-#: selection:analytic.account.stage,state:0
+#: selection:analytic.account.stage,project_state:0
 msgid "Cancelled"
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,use_timesheets:0
+msgid "Check this field if this project manages timesheets"
 msgstr ""
 
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
 #: field:account.analytic.account,child_stage_ids:0
 #: view:project.project:project_wbs.edit_project
+#: field:project.project,child_stage_ids:0
 msgid "Child Stages"
 msgstr ""
 
@@ -171,12 +159,13 @@ msgstr ""
 #: view:project.project:project_wbs.edit_project
 #: view:project.project:project_wbs.view_project
 #: view:project.project:project_wbs.view_project_project_filter
+#: field:project.project,account_class:0
 msgid "Class"
 msgstr ""
 
 #. module: project_wbs
 #: model:analytic.account.stage,name:project_wbs.project_wbs_closed
-#: selection:analytic.account.stage,state:0
+#: selection:analytic.account.stage,project_state:0
 msgid "Closed"
 msgstr ""
 
@@ -194,6 +183,46 @@ msgstr ""
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project_stages
 msgid "Communications"
+msgstr ""
+
+#. module: project_wbs
+#: help:account.analytic.account,complete_wbs_code_calc:0
+msgid "Computed WBS code"
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,remaining_hours_to_invoice:0
+msgid "Computed using the formula: Expected on timesheets - Total invoiced on timesheets"
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,real_margin:0
+msgid "Computed using the formula: Invoiced Amount - Total Costs."
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,revenue_per_hour:0
+msgid "Computed using the formula: Invoiced Amount / Total Time"
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,remaining_ca:0
+msgid "Computed using the formula: Max Invoice Price - Invoiced Amount."
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,remaining_hours:0
+msgid "Computed using the formula: Maximum Time - Total Worked Time"
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,theorical_margin:0
+msgid "Computed using the formula: Theoretical Revenue - Total Costs"
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,real_margin_rate:0
+msgid "Computes using the formula: (Real Margin / Total Costs) * 100."
 msgstr ""
 
 #. module: project_wbs
@@ -217,8 +246,23 @@ msgid "Created on"
 msgstr ""
 
 #. module: project_wbs
-#: view:project.project:project_wbs.edit_project
-msgid "Current stage:"
+#: field:project.project,last_worked_date:0
+msgid "Date of Last Cost/Work"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,last_worked_invoiced_date:0
+msgid "Date of Last Invoiced Cost"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,recurring_next_date:0
+msgid "Date of Next Invoice"
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,last_worked_date:0
+msgid "Date of the latest work done on this account."
 msgstr ""
 
 #. module: project_wbs
@@ -243,12 +287,24 @@ msgstr ""
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_deliverables
 #: model:ir.ui.menu,name:project_wbs.menu_project_wbs_deliverables
 #: view:project.project:project_wbs.view_project_kanban_wbs
+#: field:project.project,child_deliverable_count:0
 msgid "Deliverables"
 msgstr ""
 
 #. module: project_wbs
 #: field:analytic.account.stage,description:0
 msgid "Description"
+msgstr ""
+
+#. module: project_wbs
+#: code:addons/project_wbs/models/form_button.py:20
+#, python-format
+msgid "Details"
+msgstr ""
+
+#. module: project_wbs
+#: field:analytic.account.stage,display_name:0
+msgid "Display Name"
 msgstr ""
 
 #. module: project_wbs
@@ -268,13 +324,23 @@ msgid "End Date"
 msgstr ""
 
 #. module: project_wbs
-#: view:project.project:project_wbs.view_project_kanban_wbs
-msgid "Enter"
+#: field:project.project,hours_qtt_est:0
+msgid "Estimation of Hours to Invoice"
 msgstr ""
 
 #. module: project_wbs
 #: model:analytic.account.stage,name:project_wbs.project_wbs_execution
 msgid "Execution"
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,remaining_total:0
+msgid "Expectation of remaining income for this contract. Computed as the sum of remaining subtotals which, in turn, are computed as the maximum between '(Estimation - Invoiced)' and 'To Invoice' amounts"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,fix_price_invoices:0
+msgid "Fixed Price"
 msgstr ""
 
 #. module: project_wbs
@@ -284,23 +350,26 @@ msgstr ""
 
 #. module: project_wbs
 #: field:account.analytic.account,complete_wbs_code:0
-#: field:project.task,project_complete_wbs_code:0
+#: field:account.analytic.account,complete_wbs_code_calc:0
+#: field:project.project,complete_wbs_code:0
 msgid "Full WBS Code"
 msgstr ""
 
 #. module: project_wbs
-#: field:project.task,project_complete_wbs_name:0
-msgid "Full WBS Name"
-msgstr ""
-
-#. module: project_wbs
 #: field:account.analytic.account,complete_wbs_name:0
+#: field:project.project,complete_wbs_name:0
 msgid "Full WBS path"
 msgstr ""
 
 #. module: project_wbs
 #: help:account.analytic.account,complete_wbs_name:0
+#: help:project.project,complete_wbs_name:0
 msgid "Full path in the WBS hierarchy"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,recurring_invoices:0
+msgid "Generate recurring invoices automatically"
 msgstr ""
 
 #. module: project_wbs
@@ -309,7 +378,27 @@ msgid "ID"
 msgstr ""
 
 #. module: project_wbs
-#: selection:analytic.account.stage,state:0
+#: help:project.project,ca_to_invoice:0
+msgid "If invoice from analytic account, the remaining amount you can invoice to the customer based on the total costs."
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,last_invoice_date:0
+msgid "If invoice from the costs, this is the date of the latest invoiced."
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,last_worked_invoiced_date:0
+msgid "If invoice from the costs, this is the date of the latest work or cost that have been invoiced."
+msgstr ""
+
+#. module: project_wbs
+#: help:analytic.account.stage,case_default:0
+msgid "If you check this field, this stage will be proposed by default on each new project. It will not assign this stage to existing projects."
+msgstr ""
+
+#. module: project_wbs
+#: selection:analytic.account.stage,project_state:0
 msgid "In Progress"
 msgstr ""
 
@@ -319,8 +408,44 @@ msgid "Initalization"
 msgstr ""
 
 #. module: project_wbs
+#: field:project.project,recurring_invoice_line_ids:0
+msgid "Invoice Lines"
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,recurring_rule_type:0
+msgid "Invoice automatically repeat at specified interval"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,amount_invoiced:0
+#: field:project.project,ca_invoiced:0
+msgid "Invoiced Amount"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,hours_qtt_invoiced:0
+msgid "Invoiced Time"
+msgstr ""
+
+#. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_inherited
 msgid "Issues"
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,amount_max:0
+msgid "Keep empty if this contract is not limited to a total fixed price."
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,last_invoice_date:0
+msgid "Last Invoice Date"
+msgstr ""
+
+#. module: project_wbs
+#: field:analytic.account.stage,__last_update:0
+msgid "Last Modified on"
 msgstr ""
 
 #. module: project_wbs
@@ -335,7 +460,13 @@ msgstr ""
 
 #. module: project_wbs
 #: field:account.analytic.account,wbs_indent:0
+#: field:project.project,wbs_indent:0
 msgid "Level"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,amount_max:0
+msgid "Max. Invoice Price"
 msgstr ""
 
 #. module: project_wbs
@@ -344,18 +475,49 @@ msgid "Miscellaneous"
 msgstr ""
 
 #. module: project_wbs
+#: field:project.project,month_ids:0
+msgid "Month"
+msgstr ""
+
+#. module: project_wbs
+#: field:analytic.account.stage,name:0
 #: view:project.project:project_wbs.view_project
 msgid "Name"
 msgstr ""
 
 #. module: project_wbs
-#: selection:analytic.account.stage,state:0
+#: selection:analytic.account.stage,project_state:0
 msgid "New"
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,hours_qtt_non_invoiced:0
+msgid "Number of time (hours/days) (from journal of type 'general') that can be invoiced if you invoice based on analytic account."
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,hours_qtt_invoiced:0
+msgid "Number of time (hours/days) that can be invoiced plus those that already have been invoiced."
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,hours_quantity:0
+msgid "Number of time you spent on the analytic account (from timesheet). It computes quantities on all journal of type 'general'."
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,invoice_on_timesheets:0
+msgid "On Timesheets"
 msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 msgid "Other Info"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,is_overdue_quantity:0
+msgid "Overdue Quantity"
 msgstr ""
 
 #. module: project_wbs
@@ -385,12 +547,18 @@ msgstr ""
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_phases
 #: model:ir.ui.menu,name:project_wbs.menu_project_wbs_phases
 #: view:project.project:project_wbs.view_project_kanban_wbs
+#: field:project.project,child_phase_count:0
 msgid "Phases"
 msgstr ""
 
 #. module: project_wbs
 #: model:analytic.account.stage,name:project_wbs.project_wbs_plan
 msgid "Planning"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,pricelist_id:0
+msgid "Pricelist"
 msgstr ""
 
 #. module: project_wbs
@@ -402,7 +570,6 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project
-#: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Project Form View"
 msgstr ""
 
@@ -419,6 +586,11 @@ msgstr ""
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 msgid "Project Stages"
+msgstr ""
+
+#. module: project_wbs
+#: field:analytic.account.stage,project_state:0
+msgid "Project Status"
 msgstr ""
 
 #. module: project_wbs
@@ -443,10 +615,68 @@ msgstr ""
 
 #. module: project_wbs
 #: field:account.analytic.account,child_project_count:0
+#: code:addons/project_wbs/models/project_project.py:380
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_projects
 #: model:ir.ui.menu,name:project_wbs.menu_project_wbs_projects
 #: view:project.project:project_wbs.view_project_kanban_wbs
+#: field:project.project,child_project_count:0
+#, python-format
 msgid "Projects"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,real_margin:0
+msgid "Real Margin"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,real_margin_rate:0
+msgid "Real Margin Rate (%)"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,recurring_rule_type:0
+msgid "Recurrency"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,remaining_ca:0
+msgid "Remaining Revenue"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,fix_price_to_invoice:0
+#: field:project.project,remaining_hours:0
+#: field:project.project,remaining_hours_to_invoice:0
+#: field:project.project,timesheet_ca_invoiced:0
+msgid "Remaining Time"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,recurring_interval:0
+msgid "Repeat Every"
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,recurring_interval:0
+msgid "Repeat every (Days/Week/Month/Year)"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,revenue_per_hour:0
+msgid "Revenue per Time (real)"
+msgstr ""
+
+#. module: project_wbs
+#: field:account.analytic.account,project_analytic_account_id:0
+#: field:project.project,project_analytic_account_id:0
+msgid "Root Project"
+msgstr ""
+
+#. module: project_wbs
+#: help:account.analytic.account,project_analytic_account_id:0
+#: help:project.project,project_analytic_account_id:0
+msgid "Root Project in the WBS hierarchy"
 msgstr ""
 
 #. module: project_wbs
@@ -456,12 +686,8 @@ msgstr ""
 
 #. module: project_wbs
 #: field:account.analytic.account,stage_id:0
+#: field:project.project,stage_id:0
 msgid "Stage"
-msgstr ""
-
-#. module: project_wbs
-#: field:analytic.account.stage,name:0
-msgid "Stage Name"
 msgstr ""
 
 #. module: project_wbs
@@ -471,12 +697,16 @@ msgid "Start Date"
 msgstr ""
 
 #. module: project_wbs
-#: field:analytic.account.stage,state:0
-msgid "State"
+#: help:project.project,fix_price_to_invoice:0
+msgid "Sum of quotations for this contract."
 msgstr ""
 
 #. module: project_wbs
-#: model:ir.model,name:project_wbs.model_project_task
+#: help:project.project,timesheet_ca_invoiced:0
+msgid "Sum of timesheet lines invoiced for this contract."
+msgstr ""
+
+#. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Task"
 msgstr ""
@@ -487,14 +717,100 @@ msgid "Tasks"
 msgstr ""
 
 #. module: project_wbs
-#: model:analytic.account.stage,name:project_wbs.project_wbs_template
-#: selection:analytic.account.stage,state:0
+#: selection:analytic.account.stage,project_state:0
 msgid "Template"
 msgstr ""
 
 #. module: project_wbs
-#: selection:analytic.account.stage,state:0
+#: help:account.analytic.account,account_class:0
+#: help:project.project,account_class:0
+msgid "The classification allows you to create a proper project Work Breakdown Structure"
+msgstr ""
+
+#. module: project_wbs
+#: help:account.analytic.account,complete_wbs_code:0
+#: help:project.project,complete_wbs_code:0
+msgid "The full WBS code describes the full path of this component within the project WBS hierarchy"
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,pricelist_id:0
+msgid "The product to invoice is defined on the employee form, the price will be deducted by this pricelist on the product."
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,theorical_margin:0
+msgid "Theoretical Margin"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,ca_theorical:0
+msgid "Theoretical Revenue"
+msgstr ""
+
+#. module: project_wbs
+#: help:analytic.account.stage,fold:0
+msgid "This stage is not visible,  for example in status bar or kanban view, when there are no records in that stage to display."
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,to_invoice:0
+msgid "Timesheet Invoicing Ratio"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,use_timesheets:0
+msgid "Timesheets"
+msgstr ""
+
+#. module: project_wbs
+#: selection:analytic.account.stage,project_state:0
 msgid "To Renew"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,total_cost:0
+msgid "Total Costs"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,est_total:0
+msgid "Total Estimation"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,invoiced_total:0
+msgid "Total Invoiced"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,remaining_total:0
+msgid "Total Remaining"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,hours_quantity:0
+msgid "Total Worked Time"
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,ca_invoiced:0
+msgid "Total customer invoiced amount for this account."
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,amount_invoiced:0
+msgid "Total invoiced"
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,total_cost:0
+msgid "Total of costs for this account. It includes real costs (from invoices) and indirect costs, like time spent on timesheets."
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,toinvoice_total:0
+msgid "Total to Invoice"
 msgstr ""
 
 #. module: project_wbs
@@ -504,8 +820,30 @@ msgstr ""
 
 #. module: project_wbs
 #: field:account.analytic.account,child_unclassified_count:0
+#: model:ir.actions.act_window,name:project_wbs.open_view_unclassified
 #: view:project.project:project_wbs.view_project_kanban_wbs
-msgid "Unclassified projects"
+#: field:project.project,child_unclassified_count:0
+msgid "Unclassified"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,ca_to_invoice:0
+msgid "Uninvoiced Amount"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,hours_qtt_non_invoiced:0
+msgid "Uninvoiced Time"
+msgstr ""
+
+#. module: project_wbs
+#: field:project.project,user_ids:0
+msgid "User"
+msgstr ""
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "W.P."
 msgstr ""
 
 #. module: project_wbs
@@ -549,7 +887,6 @@ msgstr ""
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
-#: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Work Package"
 msgstr ""
 
@@ -557,8 +894,13 @@ msgstr ""
 #: field:account.analytic.account,child_work_package_count:0
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_work_packages
 #: model:ir.ui.menu,name:project_wbs.menu_project_work_packages
-#: view:project.project:project_wbs.view_project_kanban_wbs
+#: field:project.project,child_work_package_count:0
 msgid "Work Packages"
+msgstr ""
+
+#. module: project_wbs
+#: help:project.project,to_invoice:0
+msgid "You usually invoice 100% of the timesheets. But if you mix fixed price and timesheet invoicing, you may use another ratio. For instance, if you do a 20% advance invoice (fixed price, based on a sales order), you should invoice the rest on timesheet with a 80% ratio."
 msgstr ""
 
 #. module: project_wbs

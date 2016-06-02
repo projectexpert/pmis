@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-13 09:07+0100\n"
-"PO-Revision-Date: 2015-11-13 09:07+0100\n"
+"POT-Creation-Date: 2016-06-02 07:42+0200\n"
+"PO-Revision-Date: 2016-06-02 07:45+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #. module: project_charter
 #: help:project.outscope,out_scope:0
@@ -89,6 +89,16 @@ msgid ""
 msgstr ""
 
 #. module: project_charter
+#: field:project.project,active_analytic_planning_version:0
+msgid "Active plan version"
+msgstr "Versione attiva del piano"
+
+#. module: project_charter
+#: field:project.project,plan_line_ids:0
+msgid "Analytic Entries"
+msgstr "Voci analitiche"
+
+#. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Assumptions, Constraints"
 msgstr "Presupposti, limitazioni"
@@ -106,17 +116,17 @@ msgstr "Piano ricavi"
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Charter/Plan"
-msgstr ""
+msgstr "Statuto/piano"
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Child WBS elements"
-msgstr ""
+#: field:project.project,sequence_ids:0
+msgid "Child code sequence"
+msgstr "Sequenza codice subordinato"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Class"
-msgstr ""
+msgstr "Classe"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -145,23 +155,44 @@ msgstr "Creato il"
 #. module: project_charter
 #: field:project.success,success:0
 msgid "Criteria"
+msgstr "Criteri"
+
+#. module: project_charter
+#: help:project.project,cost_category:0
+msgid ""
+"Defines what type of cost does the analytic account carry from an employee "
+"perspective."
 msgstr ""
+"Definisce il tipo di costo, che il conto analitico registra, dalla "
+"prospettiva del dipendente."
+
+#. module: project_charter
+#: field:project.constraints,display_name:0
+#: field:project.outscope,display_name:0 field:project.success,display_name:0
+msgid "Display Name"
+msgstr "Nome visualizzato"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Deliverables"
-msgstr ""
+msgid "Edit Scope"
+msgstr "Edita portata"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "End Date"
-msgstr ""
+msgstr "Data finale"
 
 #. module: project_charter
 #: field:project.constraints,id:0 field:project.outscope,id:0
 #: field:project.success,id:0
 msgid "ID"
 msgstr "ID"
+
+#. module: project_charter
+#: field:project.constraints,__last_update:0
+#: field:project.outscope,__last_update:0 field:project.success,__last_update:0
+msgid "Last Modified on"
+msgstr "Ultimo aggiornamento"
 
 #. module: project_charter
 #: field:project.constraints,write_uid:0 field:project.outscope,write_uid:0
@@ -178,7 +209,7 @@ msgstr "Ultimo aggiornamento il"
 #. module: project_charter
 #: model:ir.ui.menu,name:project_charter.project_management
 msgid "Management"
-msgstr ""
+msgstr "Gestione"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -202,19 +233,23 @@ msgstr "Fuori portata"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-#, fuzzy
 msgid "Parent"
 msgstr "Superiore"
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Parent WBS element"
-msgstr ""
+#: field:project.project,balance_plan:0
+msgid "Planned Balance"
+msgstr "Bilancio pianificato"
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Phases"
-msgstr ""
+#: field:project.project,credit_plan:0
+msgid "Planned Credit"
+msgstr "Credito pianificato"
+
+#. module: project_charter
+#: field:project.project,debit_plan:0
+msgid "Planned Debit"
+msgstr "Debito pianificato"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_project
@@ -225,11 +260,6 @@ msgstr "Progetti"
 #: view:project.project:project_charter.view_project_form
 msgid "Project Exclusions"
 msgstr "Escluso dal progetto"
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Project Form View"
-msgstr "Formulario progetto"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -258,10 +288,14 @@ msgstr "ID successo progetto"
 
 #. module: project_charter
 #: field:project.constraints,project_id:0 field:project.outscope,project_id:0
-#: view:project.project:project_charter.view_project_form
 #: field:project.success,project_id:0
 msgid "Projects"
 msgstr "Progetti"
+
+#. module: project_charter
+#: field:project.project,quantity_plan:0
+msgid "Quantity Debit"
+msgstr "Quantità debito"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -301,7 +335,7 @@ msgstr "Parti interessate"
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Start Date"
-msgstr ""
+msgstr "Data d'inizio"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_success
@@ -311,7 +345,7 @@ msgstr "Successo"
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Success and Acceptance Criteria"
-msgstr ""
+msgstr "Criteri di successo ed accettazione"
 
 #. module: project_charter
 #: model:ir.ui.menu,name:project_charter.menu_tasks_config_title
@@ -319,28 +353,28 @@ msgid "Tasks"
 msgstr "Attività"
 
 #. module: project_charter
+#: field:project.project,cost_category:0
+msgid "Type of Cost"
+msgstr "Tipo di costo"
+
+#. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "WBS elements"
-msgstr ""
+msgstr "Elementi WBS"
 
 #. module: project_charter
 #: view:project.project:project_charter.edit_project
 msgid "Work Breakdown Structure"
-msgstr ""
+msgstr "Articolazione progetti (WBS)"
 
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Work Packages"
-msgstr ""
+#~ msgid "Project Form View"
+#~ msgstr "Formulario progetto"
 
 #~ msgid "Document Page"
 #~ msgstr "Pagina documento"
 
 #~ msgid "Boundaries"
 #~ msgstr "Limiti"
-
-#~ msgid "Broad Scope"
-#~ msgstr "Portata approssimativa"
 
 #~ msgid "Project Charter"
 #~ msgstr "DIP (Documento di inizio progetto)"

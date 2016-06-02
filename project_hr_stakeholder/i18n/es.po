@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-24 13:00+0200\n"
-"PO-Revision-Date: 2015-09-24 13:00+0200\n"
+"POT-Creation-Date: 2016-06-02 07:47+0200\n"
+"PO-Revision-Date: 2016-06-02 07:47+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #. module: project_hr_stakeholder
 #: help:project.hr.stakeholder,responsibility_ids:0
@@ -75,7 +75,7 @@ msgstr "Consultado"
 #: field:project.hr.role,create_uid:0 field:project.hr.stakeholder,create_uid:0
 #, fuzzy
 msgid "Created by"
-msgstr "Creado por"
+msgstr "Crear"
 
 #. module: project_hr_stakeholder
 #: field:project.hr.responsibility,create_date:0
@@ -130,6 +130,13 @@ msgid "Description"
 msgstr "Descripción"
 
 #. module: project_hr_stakeholder
+#: field:project.hr.responsibility,display_name:0
+#: field:project.hr.role,display_name:0
+#: field:project.hr.stakeholder,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: project_hr_stakeholder
 #: model:project.hr.role,name:project_hr_stakeholder.project_hr_role_fm
 #, fuzzy
 msgid "Functional Manager"
@@ -173,6 +180,14 @@ msgstr "Observaciones"
 #: model:project.hr.responsibility,name:project_hr_stakeholder.project_hr_responsibility_informed
 msgid "Informed"
 msgstr "Informado"
+
+#. module: project_hr_stakeholder
+#: field:project.hr.responsibility,__last_update:0
+#: field:project.hr.role,__last_update:0
+#: field:project.hr.stakeholder,__last_update:0
+#, fuzzy
+msgid "Last Modified on"
+msgstr "Última Actualización el"
 
 #. module: project_hr_stakeholder
 #: field:project.hr.responsibility,write_uid:0

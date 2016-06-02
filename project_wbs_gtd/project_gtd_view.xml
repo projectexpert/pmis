@@ -99,8 +99,8 @@
                 </group>
             </filter>
             <search string="Search Project" position="inside">
-                <filter name="timebox_id" string="Timebox" domain="[]" context="{'group_by': 'timebox_id'}"/>
-                <filter name="context_id" string="Context" domain="[]" context="{'group_by': 'context_id'}"/>
+                <filter name="timebox_id" string="Timebox" domain="[]" context="{'group_by': 'timebox_id', 'search_default_state': 'open'}"/>
+                <filter name="context_id" string="Context" domain="[]" context="{'group_by': 'context_id', 'search_default_state': 'open'}"/>
             </search>
         </field>
     </record>
@@ -128,7 +128,7 @@
 
     <menuitem name="GTD"
             id="menu_gtd"
-            parent="project.menu_projects"
+            parent="project.menu_project_management"
             sequence="10"
             action="open_gtd_all_wbs"/>
 

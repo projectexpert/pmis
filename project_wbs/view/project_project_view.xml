@@ -172,7 +172,7 @@
                     <xpath expr='//tree[@string="Projects"]' position="replace">
                     <tree editable="top" string="WBS elements"
                           colors="grey:state in ('cancelled','done','close');black:account_class == 'work_package';#555487:account_class == 'phase';#7c7bad:account_class == 'deliverable');"
-                          fonts="bold:account_class == 'project';bold:account_class == 'deliverable';bold:account_class == 'phase';italic:state in 'cancelled'"
+                          fonts="bold:account_class == 'project';bold:account_class == 'deliverable';bold:account_class == 'phase';italic:state in 'cancelled';bold:message_unread == True"
                           default_order="complete_wbs_code">
                         <field name="message_unread" invisible="1"/>
                         <button string="Parent WBS element"
@@ -201,6 +201,7 @@
                         <field name="state" invisible="True"/>
                         <field name="child_ids" invisible="True"/>
                         <field name="progress_rate" readonly="True" widget="progressbar"/>
+                        <field name="message_unread" invisible="1"/>
                     </tree>
                 </xpath>
             </field>

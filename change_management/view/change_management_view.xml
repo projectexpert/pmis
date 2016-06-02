@@ -6,7 +6,7 @@
 			<field name="model">change.management.change</field>
 			<field name="priority">10</field>
 			<field name="arch" type="xml">
-				<tree string='Changes' colors="green:state in 'accepted';grey:state in 'rejected';blue:state in 'deferred'" fonts="bold:state in 'active'">
+				<tree string='Changes' colors="green:state in 'accepted';grey:state in 'rejected';blue:state in 'deferred'" fonts="bold:message_unread == True">
 					<field name="name"/>
 					<field name="description"/>
 					<field name="project_id"/>
@@ -19,6 +19,7 @@
 					<field name="change_response_ids" string="Actions"/>
 					<field name="state"/>
 					<field name="change_owner_id"/>
+                    <field name="message_unread" invisible="1"/>
 		   		</tree>
 			</field>
 		</record>
@@ -85,32 +86,40 @@
             <field name="model">change.management.change</field>
             <field name="arch" type="xml">
                <search string="Change Edition">
-                        <filter string="Active Changes" domain="[('state','=','active')]" help="Active changes" name="active" icon="gtk-execute"/>
-                        <separator orientation="vertical"/>
-                        <filter string="Changes without actions" domain="[('change_response_ids','=',False)]"  help="Changes without actions"  name="no_actions" icon="terp-check"/>
-                        <separator orientation="vertical"/>
-                        <field name="name" select="1"/>
-                        <field name="project_id" select="1" domain="['|',('user_id','=',uid),('members','in',uid)]">
-                            <filter domain="['|',('project_id.user_id','=',uid),('project_id.members','in',uid)]" help="My Projects" icon="terp-personal"/>
-                        </field>
-                        <field name="change_category_id" select="1"/>
-                        <field name="change_owner_id" select="1" string="Change Owner">
-                            <filter domain="[('change_owner_id','=',False)]"  help="Changes without ownership" icon="terp-personal-" separator="1"/>
-                        </field>                         
+                   <filter string="Active Changes" domain="[('state','=','active')]" help="Active changes" name="active" icon="gtk-execute"/>
+                   <filter string="Changes without actions" domain="[('change_response_ids','=',False)]"  help="Changes without actions"  name="no_actions" icon="terp-check"/>
+                   <field name="change_owner_id" select="1" string="Change Owner">
+                       <filter domain="[('change_owner_id','=',False)]"  help="Changes without ownership" icon="terp-personal-"/>
+                   </field>
+                   <separator orientation="vertical"/>
 
-                     <newline/>
-                    <group expand="0" string="Group By..." colspan="4" col="20"> 	                   
-                        <filter string="Project" name="group_project_id" icon="terp-folder-violet" domain="[]" context="{'group_by':'project_id'}"/>
-                        <separator orientation="vertical"/>
-                        <filter string="Change Owner" name="group_change_owner_id" icon="terp-stage" domain="[]" context="{'group_by':'change_owner_id'}"/>
-                        <filter string="Category" name="group_change_category_id" icon="terp-stage" domain="[]" context="{'group_by':'change_category_id'}"/>
-                        <filter string="State" name="group_state" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'state'}"/>
-                        <separator orientation="vertical"/>
-                        <filter string="Reg. Date" icon="terp-go-month" domain="[]" context="{'group_by':'date_registered'}"/>
-                        <separator orientation="vertical"/>
-                        <filter string="Mod. Date" icon="terp-go-month" domain="[]" context="{'group_by':'date_modified'}"/>               
-                    </group>
-                </search>
+                   <field name="name" select="1"/>
+                   <field name="project_id" select="1" domain="['|',('user_id','=',uid),('members','in',uid)]">
+                       <filter domain="['|',('project_id.user_id','=',uid),('project_id.members','in',uid)]" help="My Projects" icon="terp-personal"/>
+                   </field>
+                   <field name="change_category_id" select="1"/>
+                   <separator orientation="vertical"/>
+
+                   <field name="message_unread" select="1">
+                       <filter domain="[('message_unread', '=', True)]" help="Unread messages"/>
+                   </field>
+
+                   <newline/>
+                   <group expand="0" string="Group By..." colspan="4" col="20">
+                       <filter string="Project" name="group_project_id" icon="terp-folder-violet" domain="[]" context="{'group_by':'project_id'}"/>
+                       <separator orientation="vertical"/>
+
+                       <filter string="Change Owner" name="group_change_owner_id" icon="terp-stage" domain="[]" context="{'group_by':'change_owner_id'}"/>
+                       <filter string="Category" name="group_change_category_id" icon="terp-stage" domain="[]" context="{'group_by':'change_category_id'}"/>
+                       <filter string="State" name="group_state" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'state'}"/>
+                       <separator orientation="vertical"/>
+
+                       <filter string="Reg. Date" icon="terp-go-month" domain="[]" context="{'group_by':'date_registered'}"/>
+                       <separator orientation="vertical"/>
+
+                       <filter string="Mod. Date" icon="terp-go-month" domain="[]" context="{'group_by':'date_modified'}"/>
+                   </group>
+               </search>
             </field>
         </record>	
 

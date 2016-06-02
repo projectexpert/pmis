@@ -88,8 +88,8 @@
                                     <newline/>
                                     <field name="project_child_complete_ids" nolabel="1" context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}">
                                         <tree string="WBS elements"
-                                              colors="grey:state in ('cancelled','done','close');blue:account_class == 'work_package';green:account_class == 'phase';magenta:account_class == 'deliverable'"
-                                              fonts="bold:state == 'open'" default_order="complete_wbs_code" readonly="True">
+                                              colors="grey:state in ('cancelled','done','close');blue:account_class == 'work_package';green:account_class == 'phase';magenta:account_class == 'deliverable'; red:message_unread == True"
+                                              fonts="bold:state == 'open'; bold:message_unread == True" default_order="complete_wbs_code" readonly="True">
                                             <field name="message_unread" invisible="1"/>
                                             <!--<button string="Parent WBS element"
                                                     name="action_openParentTreeView"

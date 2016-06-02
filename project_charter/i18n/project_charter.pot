@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-13 07:29+0000\n"
-"PO-Revision-Date: 2015-11-13 07:29+0000\n"
+"POT-Creation-Date: 2016-06-02 05:39+0000\n"
+"PO-Revision-Date: 2016-06-02 05:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -84,6 +84,16 @@ msgid "\n"
 msgstr ""
 
 #. module: project_charter
+#: field:project.project,active_analytic_planning_version:0
+msgid "Active plan version"
+msgstr ""
+
+#. module: project_charter
+#: field:project.project,plan_line_ids:0
+msgid "Analytic Entries"
+msgstr ""
+
+#. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Assumptions, Constraints"
 msgstr ""
@@ -104,8 +114,8 @@ msgid "Charter/Plan"
 msgstr ""
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Child WBS elements"
+#: field:project.project,sequence_ids:0
+msgid "Child code sequence"
 msgstr ""
 
 #. module: project_charter
@@ -145,8 +155,20 @@ msgid "Criteria"
 msgstr ""
 
 #. module: project_charter
+#: help:project.project,cost_category:0
+msgid "Defines what type of cost does the analytic account carry from an employee perspective."
+msgstr ""
+
+#. module: project_charter
+#: field:project.constraints,display_name:0
+#: field:project.outscope,display_name:0
+#: field:project.success,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Deliverables"
+msgid "Edit Scope"
 msgstr ""
 
 #. module: project_charter
@@ -159,6 +181,13 @@ msgstr ""
 #: field:project.outscope,id:0
 #: field:project.success,id:0
 msgid "ID"
+msgstr ""
+
+#. module: project_charter
+#: field:project.constraints,__last_update:0
+#: field:project.outscope,__last_update:0
+#: field:project.success,__last_update:0
+msgid "Last Modified on"
 msgstr ""
 
 #. module: project_charter
@@ -206,13 +235,18 @@ msgid "Parent"
 msgstr ""
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Parent WBS element"
+#: field:project.project,balance_plan:0
+msgid "Planned Balance"
 msgstr ""
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Phases"
+#: field:project.project,credit_plan:0
+msgid "Planned Credit"
+msgstr ""
+
+#. module: project_charter
+#: field:project.project,debit_plan:0
+msgid "Planned Debit"
 msgstr ""
 
 #. module: project_charter
@@ -223,11 +257,6 @@ msgstr ""
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Project Exclusions"
-msgstr ""
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Project Form View"
 msgstr ""
 
 #. module: project_charter
@@ -258,9 +287,13 @@ msgstr ""
 #. module: project_charter
 #: field:project.constraints,project_id:0
 #: field:project.outscope,project_id:0
-#: view:project.project:project_charter.view_project_form
 #: field:project.success,project_id:0
 msgid "Projects"
+msgstr ""
+
+#. module: project_charter
+#: field:project.project,quantity_plan:0
+msgid "Quantity Debit"
 msgstr ""
 
 #. module: project_charter
@@ -319,6 +352,11 @@ msgid "Tasks"
 msgstr ""
 
 #. module: project_charter
+#: field:project.project,cost_category:0
+msgid "Type of Cost"
+msgstr ""
+
+#. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "WBS elements"
 msgstr ""
@@ -326,10 +364,5 @@ msgstr ""
 #. module: project_charter
 #: view:project.project:project_charter.edit_project
 msgid "Work Breakdown Structure"
-msgstr ""
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Work Packages"
 msgstr ""
 

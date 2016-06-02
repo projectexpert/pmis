@@ -20,11 +20,11 @@
 ##############################################################################
 
 {
-    'name': 'Todo Lists',
-    'version': '8.0.1.0.0',
-    'author':   'OpenERP SA, '
-                'Matmoz d.o.o., '
-                'Project Expert Team',
+    'name': 'Project Level Todo',
+    'version': '8.0.1.0.1',
+    'author': 'OpenERP SA, '
+              'Matmoz d.o.o., '
+              'Project Expert Team',
     'contributors': [
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
@@ -45,5 +45,3 @@
     'installable': True,
     'auto_install': False,
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
