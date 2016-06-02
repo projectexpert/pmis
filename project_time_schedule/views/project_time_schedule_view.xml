@@ -35,6 +35,7 @@
         		<page string='Extra Info' position="inside">
 					<notebook name="Scheduling">
 						<page  string="Scheduling">
+            <p>Task schedule is calculated using "<a href="https://en.wikipedia.org/wiki/Critical_path_method" target="_blank">Critical Path Method</a>" (<a href="https://en.wikipedia.org/wiki/Critical_path_method" target="_blank">https://en.wikipedia.org/wiki/Critical_path_method</a>)</p>
 						<group colspan="4" col="4">
 							<group colspan="2" col="2">
                                 <separator string="Limitations" colspan="2"/>
