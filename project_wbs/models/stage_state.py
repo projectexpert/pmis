@@ -62,8 +62,6 @@ class AccountAnalyticAccount(models.Model):
                     project.set_cancel()
                 elif stage.project_state == 'pending':
                     project.set_pending()
-                elif stage.project_state == 'draft':
-                    project.set_draft()
 
                 # This part is commented, beacuse the progress state can belong
                 # to several stages, thus by this line we would skip to the
