@@ -125,6 +125,16 @@
         <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
     </record>
 
+    <record model="ir.actions.act_window" id="open_context_all_wbs">
+        <field name="name">Context Projects</field>
+        <field name="res_model">project.project</field>
+        <field name="search_view_id" ref="view_wbs_gtd_search"/>
+        <field name="context">{'set_visible': True, 'gtd': True, 'search_default_context_id': 1}</field>
+        <field name="domain">[('state', '=', 'open')]</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
+    </record>
+
     <!--PROJECT MENU GTD GROUP-->
     <menuitem name="GTD"
             id="menu_gtd"
@@ -136,6 +146,8 @@
                   parent="menu_gtd" sequence="10"/>
         <menuitem action="open_gtd_wbs" id="menu_open_gtd_timebox_tree"
                   parent="menu_gtd" sequence="11"/>
+        <menuitem action="open_context_all_wbs" id="menu_open_wbs_context_tree"
+                  parent="menu_gtd" sequence="12"/>
         <menuitem action="project_gtd.open_gtd_all_tasks" id="project_gtd.menu_open_gtd_timebox_all_tree"
                   parent="menu_gtd" sequence="20"/>
         <menuitem action="project_gtd.open_gtd_task" id="project_gtd.menu_open_gtd_timebox_tree"
