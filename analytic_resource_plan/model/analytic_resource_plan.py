@@ -219,13 +219,13 @@ class AnalyticResourcePlanLine(orm.Model):
             'product_id': line.product_id.id,
             'product_uom_id': line.product_uom_id.id,
             'unit_amount': line.unit_amount,
-            'amount': -1*line.product_id.standard_price * line.unit_amount,
+            'amount': -1 * line.price_unit * line.unit_amount,
             'general_account_id': general_account_id,
             'journal_id': journal_id,
             'notes': line.notes,
             'version_id': default_plan_ids[0],
             'currency_id': line.account_id.company_id.currency_id.id,
-            'amount_currency': line.subtotal,
+            'amount_currency': line.price_unit,
         }]
 
     def create_analytic_lines(self, cr, uid, line, context=None):
@@ -281,6 +281,8 @@ class AnalyticResourcePlanLine(orm.Model):
             res['value'].update({'name': prod.name})
             prod_uom = prod.uom_id and prod.uom_id.id or False
             res['value'].update({'product_uom_id': prod_uom})
+            prod_price = prod.standard_price or 0.0
+            res['value'].update({'price_unit': prod_price})
         return res
 
     def on_change_account_id(self, cr, uid, id, account_id, context=None):
