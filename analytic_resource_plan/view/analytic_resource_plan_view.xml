@@ -77,7 +77,8 @@
                     <field name="name"/>
 					<field name="unit_amount"/>
                     <field name="product_uom_id"/>
-                    <!--<field name="price_unit" required="True" on_change="on_change_price_unit_resource(price_unit)"/>-->
+                    <field name="price_unit"/>
+                    <field name="subtotal"/>
                     <button name="action_button_draft" states="confirm"
                             string="Draft" type="object"
                             icon="gtk-ok"/>
@@ -128,14 +129,14 @@
             <field name="view_mode">tree,form</field>
             <field name="search_view_id" ref="view_analytic_resource_plan_line_filter" />
         </record>
-        
+
 		<record model="ir.actions.act_window.view" id="action_analytic_resource_plan_line_tree">
 	        <field name="sequence" eval="1"/>
 	        <field name="view_mode">tree</field>
 	        <field name="view_id" ref="view_analytic_resource_plan_line_tree"/>
 	        <field name="act_window_id" ref="action_analytic_resource_plan_line_open_form"/>
 	   	</record>
-	   	
+
 	   	<record model="ir.actions.act_window.view" id="action_analytic_resource_plan_line_form2">
 	        <field name="sequence" eval="2"/>
 	        <field name="view_mode">form</field>

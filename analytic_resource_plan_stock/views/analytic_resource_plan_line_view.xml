@@ -7,7 +7,7 @@
             <field name="inherit_id" ref="analytic_resource_plan.view_analytic_resource_plan_line_tree"/>
             <field name="type">tree</field>
             <field name="arch" type="xml">
-                <xpath expr='//field[@name="product_uom_id"]' position='after'>
+                <xpath expr='//field[@name="subtotal"]' position='after'>
                     <field name="qty_available"/>
                     <field name="virtual_available"/>
                     <field name="incoming_qty"/>

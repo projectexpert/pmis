@@ -39,36 +39,55 @@ class AnalyticResourcePlanLine(orm.Model):
                 res[line.id] = True
         return res
 
+    def _subtotal(self, cr, uid, ids, field_names, arg, context=None):
+        res = {}
+        if not ids:
+            return res
+        for line in self.browse(cr, uid, ids, context=context):
+            res[line.id] = 0.0
+            if line.unit_amount and line.price_unit:
+                res[line.id] = line.unit_amount * line.price_unit
+        return res
+
     _columns = {
         'supplier_id': fields.many2one(
             'res.partner',
-            'Supplier',
-            required=False,
-            domain=[('supplier', '=', True)]
+            string='Supplier',
+            required=False, readonly=True,
+            domain=[('supplier', '=', True)],
+            states={
+                'draft': [('readonly', False)]
+            },
         ),
         'pricelist_id': fields.many2one(
             'product.pricelist',
-            'Purchasing Pricelist',
-            required=False
+            string='Purchasing Pricelist',
+            required=False, readonly=True,
+            states={
+                'draft': [('readonly', False)]
+            },
         ),
         'price_unit': fields.float(
-            'Unit Price',
-            required=False,
-            digits_compute=dp.get_precision('Purchase Price')
+            string='Unit Price',
+            required=False, readonly=True,
+            digits_compute=dp.get_precision('Purchase Price'),
+            states={
+                'draft': [('readonly', False)]
+            },
         ),
         'account_id': fields.many2one(
             'account.analytic.account',
-            'Analytic Account', required=True,
+            string='Analytic Account',
             ondelete='cascade', select=True,
             domain=[('type', '<>', 'view')],
-            readonly=True,
+            readonly=True, required=True,
             states={
                 'draft': [('readonly', False)]
             }
         ),
         'name': fields.char(
-            'Activity description', size=256, required=True,
-            readonly=True,
+            'Activity description', size=256,
+            readonly=True, required=True,
             states={
                 'draft': [('readonly', False)]
             }
@@ -91,27 +110,27 @@ class AnalyticResourcePlanLine(orm.Model):
                  'execution of the resource plan lines.'
         ),
         'product_id': fields.many2one(
-            'product.product', 'Product',
+            'product.product', string='Product',
             readonly=True, required=True,
             states={'draft': [('readonly', False)]}
         ),
         'product_uom_id': fields.many2one(
-            'product.uom', 'UoM', required=True,
-            readonly=True,
+            'product.uom', string='UoM',
+            required=True, readonly=True,
             states={
                 'draft': [('readonly', False)]
             }
         ),
         'unit_amount': fields.float(
-            'Planned Quantity', readonly=True,
-            required=True,
+            string='Planned Quantity',
+            required=True, readonly=True,
             states={
                 'draft': [('readonly', False)]
             },
             help='Specifies the quantity that has '
             'been planned.'
         ),
-        'notes': fields.text('Notes'),
+        'notes': fields.text(string='Notes', readonly=True,),
         'parent_id': fields.many2one(
             'analytic.resource.plan.line',
             'Parent',
@@ -121,16 +140,30 @@ class AnalyticResourcePlanLine(orm.Model):
         'child_ids': fields.one2many(
             'analytic.resource.plan.line',
             'parent_id',
-            'Child lines'
+            'Child lines', readonly=True,
+            states={
+                'draft': [('readonly', False)]
+            },
         ),
         'has_child': fields.function(
             _has_child, type='boolean',
-            string="Child lines"
+            string="Child lines", readonly=True,
         ),
         'analytic_line_plan_ids': fields.one2many(
             'account.analytic.line.plan',
             'resource_plan_id',
-            'Planned costs'
+            string='Planned costs', readonly=True,
+            states={
+                'draft': [('readonly', False)]
+            },
+        ),
+        'subtotal': fields.function(
+            _subtotal, type='float',
+            string='Subtotal', readonly=True,
+            digits_compute=dp.get_precision('Purchase Price'),
+            store={
+                'analytic.resource.plan.line': (lambda self, cr, uid, ids, context=None: ids, ['unit_amount', 'unit_amount'], 10),
+            },
         ),
     }
 
@@ -192,7 +225,7 @@ class AnalyticResourcePlanLine(orm.Model):
             'notes': line.notes,
             'version_id': default_plan_ids[0],
             'currency_id': line.account_id.company_id.currency_id.id,
-            'amount_currency': line.product_id.standard_price,
+            'amount_currency': line.subtotal,
         }]
 
     def create_analytic_lines(self, cr, uid, line, context=None):
