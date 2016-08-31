@@ -21,7 +21,7 @@
 ##############################################################################
 {
     'name': 'Operations Management Board',
-    'version': '8.0.2.0.6',
+    'version': '8.0.2.0.7',
     'category': 'Board/Projects & Services',
     'description': """
         Central operations menu that collects all the
@@ -42,6 +42,7 @@
             'project_issue',
             'hr_timesheet',
             'analytic',
+            'change_management',
             'web_dashboard_open_action'
     ],
     'data': ['board_ceo_view.xml'],
