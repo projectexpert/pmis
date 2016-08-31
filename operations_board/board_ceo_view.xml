@@ -34,7 +34,7 @@
                     action="project.open_view_project_all" sequence="35"/>
 
                 <menuitem name="Change Requests"
-                    id="menu_projects" parent="menu_operations"
+                    id="menu_changes" parent="menu_operations"
                     action="change_management.action_show_changes" sequence="20"/>
 
     </data>
