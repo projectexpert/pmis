@@ -70,24 +70,29 @@ class CMChange (models.Model):
             for record in self:
                 record.change_response_count = len(record.change_response_ids)
 
-    @api.one
+    @api.multi
     def set_state_draft(self):
+        self.ensure_one()
         return self.write({'state': 'draft'})
 
-    @api.one
+    @api.multi
     def set_state_active(self):
+        self.ensure_one()
         return self.write({'state': 'active'})
 
-    @api.one
+    @api.multi
     def set_state_rejected(self):
+        self.ensure_one()
         return self.write({'state': 'rejected'})
 
-    @api.one
+    @api.multi
     def set_state_accepted(self):
+        self.ensure_one()
         return self.write({'state': 'accepted'})
 
-    @api.one
+    @api.multi
     def set_state_deferred(self):
+        self.ensure_one()
         return self.write({'state': 'deferred'})
 
     #

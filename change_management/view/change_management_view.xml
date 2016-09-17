@@ -112,6 +112,7 @@
                        <filter string="Change Owner" name="group_change_owner_id" icon="terp-stage" domain="[]" context="{'group_by':'change_owner_id'}"/>
                        <filter string="Category" name="group_change_category_id" icon="terp-stage" domain="[]" context="{'group_by':'change_category_id'}"/>
                        <filter string="State" name="group_state" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'state'}"/>
+                       <filter string="Proximity" name="group_proximity_id" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'proximity_id'}"/>
                        <separator orientation="vertical"/>
 
                        <filter string="Reg. Date" icon="terp-go-month" domain="[]" context="{'group_by':'date_registered'}"/>
@@ -128,7 +129,7 @@
             <field name="name">change.management.change.kanban.view</field>
             <field name="model">change.management.change</field>
             <field name="arch"  type="xml">
-                <kanban version="8.0" class="oe_background_grey" default_group_by="change_owner_id">
+                <kanban version="8.0" class="oe_background_grey" default_group_by="proximity_id">
 					<field name="name"/>
 					<field name="description"/>
 					<field name="state"/>
