@@ -48,7 +48,7 @@
         'analytic_schedule',
         'change_management',
         'crm_change_request',
-        'change_management_own_project'
+        'change_management_own_project',
         'crm_project',
         # 'crm_todo',
         'gantt_improvement',
@@ -66,6 +66,7 @@
         'project_time_sequence',
         'project_wbs_task',
         'project_wbs_fancy',
+        'project_wbs_gtd',
         'risk_management',
         'purchase_request_to_rfq',
         'stock_analytic_account',
