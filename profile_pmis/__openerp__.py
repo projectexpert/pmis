@@ -22,7 +22,7 @@
 
 {
     'name': 'Profile PMIS',
-    'version': '8.0.1.1.5',
+    'version': '8.0.1.1.6',
     'sequence': 9,
     'summary': 'Project Management Information System',
     'author':   'Matmoz d.o.o., '
@@ -48,6 +48,7 @@
         'analytic_schedule',
         'change_management',
         'crm_change_request',
+        'change_management_own_project'
         'crm_project',
         # 'crm_todo',
         'gantt_improvement',
