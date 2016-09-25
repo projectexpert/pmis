@@ -47,50 +47,27 @@ class Project(osv.osv):
 
         return result
 
-    def _get_child_projects(self, cr, uid, curr_id, context=None):
-
-        result = {}
-        result[curr_id] = True
-        # Now add the children
-        cr.execute('''
-                WITH RECURSIVE children AS (
-                SELECT parent_id, id
-                FROM account_analytic_account
-                WHERE parent_id = %s
-                UNION ALL
-                SELECT a.parent_id, a.id
-                FROM account_analytic_account a
-                JOIN children b ON(a.parent_id = b.id)
-                )
-                SELECT * FROM children order by parent_id
-                ''', (curr_id,))
-        res = cr.fetchall()
-        for x, y in res:
-            result[y] = True
-        return result
-
-    def project_child_open_window(self, cr, uid, ids, context=None):
-        mod_obj = self.pool['ir.model.data']
-        act_obj = self.pool['ir.actions.act_window']
-
-        if context is None:
-            context = {}
-        act_window = mod_obj.get_object_reference(
-                cr, uid, 'project_wbs',
-                'open_view_project_wbs')
-        act_window_id = act_window and act_window[1] or False
-        result = act_obj.read(cr, uid, [act_window_id], context=context)[0]
-        data = self.read(cr, uid, ids, [])[0]
-        acc_id = data['project_analytic_account_id'][0]
-        acc_ids = []
-
-        acc_ids = self._get_child_projects(
-            cr, uid, acc_id, context=context
-        )
-
-        result['domain'] = "[('id','in', ["+','.join(map(str, acc_ids))+"])]"
-
-        return result
+    # def _get_child_projects(self, cr, uid, curr_id, context=None):
+    #
+    #     result = {}
+    #     result[curr_id] = True
+    #     # Now add the children
+    #     cr.execute('''
+    #             WITH RECURSIVE children AS (
+    #             SELECT parent_id, id
+    #             FROM account_analytic_account
+    #             WHERE parent_id = %s
+    #             UNION ALL
+    #             SELECT a.parent_id, a.id
+    #             FROM account_analytic_account a
+    #             JOIN children b ON(a.parent_id = b.id)
+    #             )
+    #             SELECT * FROM children order by parent_id
+    #             ''', (curr_id,))
+    #     res = cr.fetchall()
+    #     for x, y in res:
+    #         result[y] = True
+    #     return result
 
     def _get_project_wbs(self, cr, uid, ids, context=None):
 
@@ -101,6 +78,29 @@ class Project(osv.osv):
         for ppid in projects_data.values():
             result.extend(ppid.keys())
         return result
+
+    # def project_child_open_window(self, cr, uid, ids, context=None):
+    #     mod_obj = self.pool['ir.model.data']
+    #     act_obj = self.pool['ir.actions.act_window']
+    #
+    #     if context is None:
+    #         context = {}
+    #     act_window = mod_obj.get_object_reference(
+    #             cr, uid, 'project_wbs',
+    #             'open_view_project_wbs')
+    #     act_window_id = act_window and act_window[1] or False
+    #     result = act_obj.read(cr, uid, [act_window_id], context=context)[0]
+    #     data = self.read(cr, uid, ids, [])[0]
+    #     acc_id = data['analytic_account_id'][0]
+    #     acc_ids = []
+    #
+    #     acc_ids = self._get_project_wbs(
+    #         cr, uid, acc_id, context=context
+    #     )
+    #
+    #     result['domain'] = "[('id','in', ["+','.join(map(str, acc_ids))+"])]"
+    #
+    #     return result
 
     def name_get(self, cr, uid, ids, context=None):
 
