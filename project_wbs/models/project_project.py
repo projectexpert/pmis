@@ -53,17 +53,17 @@ class Project(osv.osv):
         result[curr_id] = True
         # Now add the children
         cr.execute('''
-        WITH RECURSIVE children AS (
-        SELECT parent_id, id
-        FROM account_analytic_account
-        WHERE parent_id = %s
-        UNION ALL
-        SELECT a.parent_id, a.id
-        FROM account_analytic_account a
-        JOIN children b ON(a.parent_id = b.id)
-        )
-        SELECT * FROM children order by parent_id
-        ''', (curr_id,))
+                WITH RECURSIVE children AS (
+                SELECT parent_id, id
+                FROM account_analytic_account
+                WHERE parent_id = %s
+                UNION ALL
+                SELECT a.parent_id, a.id
+                FROM account_analytic_account a
+                JOIN children b ON(a.parent_id = b.id)
+                )
+                SELECT * FROM children order by parent_id
+                ''', (curr_id,))
         res = cr.fetchall()
         for x, y in res:
             result[y] = True
@@ -81,7 +81,7 @@ class Project(osv.osv):
         act_window_id = act_window and act_window[1] or False
         result = act_obj.read(cr, uid, [act_window_id], context=context)[0]
         data = self.read(cr, uid, ids, [])[0]
-        acc_id = data['analytic_account_id'][0]
+        acc_id = data['project_analytic_account_id'][0]
         acc_ids = []
 
         acc_ids = self._get_child_projects(
