@@ -1,29 +1,13 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# © 2015 MATMOZ d.o.o. - Matjaž Mozetič
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from openerp.osv import fields, osv
 from openerp import tools
 
 
-class wbs_gtd_context(osv.Model):
+class WbsGtdContext(osv.Model):
+
     _name = "wbs.gtd.context"
     _description = "Context"
     _columns = {
@@ -40,7 +24,8 @@ class wbs_gtd_context(osv.Model):
     _order = "sequence, name"
 
 
-class wbs_gtd_timebox(osv.Model):
+class WbsGtdTimebox(osv.Model):
+
     _name = "wbs.gtd.timebox"
     _order = "sequence"
     _columns = {
@@ -53,113 +38,92 @@ class wbs_gtd_timebox(osv.Model):
     }
 
 
-class wbs_workpackage(osv.Model):
+class WbsWorkpackage(osv.Model):
+
     _inherit = "project.project"
     _columns = {
-        'timebox_id': fields.many2one(
+        'wbstimebox_id': fields.many2one(
             'wbs.gtd.timebox',
             "Timebox",
-            help="Time-laps during which task has to be treated"),
-        'context_id': fields.many2one(
+            help="Time-laps during which the workpackage has to be treated"),
+        'wbscontext_id': fields.many2one(
             'wbs.gtd.context',
             "Context",
-            help="The context place where user has to treat task"),
+            help="The context place where user has to treat the workpackage"),
     }
 
-    def _get_context(self, cr, uid, context=None):
+    def _get_wbscontext(self, cr, uid, context=None):
         ids = self.pool.get('wbs.gtd.context').search(
             cr, uid, [], context=context)
         return ids and ids[0] or False
 
-    def _read_group_timebox_ids(
+    def _read_group_wbstimebox_ids(
             self, cr, uid, ids, domain,
             read_group_order=None, access_rights_uid=None, context=None):
         """Used to display all timeboxes on the view."""
-        timebox_obj = self.pool.get('wbs.gtd.timebox')
-        order = timebox_obj._order
+        wbstimebox_obj = self.pool.get('wbs.gtd.timebox')
+        order = wbstimebox_obj._order
         access_rights_uid = access_rights_uid or uid
-        timebox_ids = timebox_obj._search(
+        wbstimebox_ids = wbstimebox_obj._search(
             cr, uid, [],
             order=order, access_rights_uid=access_rights_uid, context=context)
-        result = timebox_obj.name_get(
-            cr, access_rights_uid, timebox_ids, context=context)
+        result = wbstimebox_obj.name_get(
+            cr, access_rights_uid, wbstimebox_ids, context=context)
         # Restore order of the search
         result.sort(
-            lambda x, y: cmp(timebox_ids.index(x[0]), timebox_ids.index(y[0])))
-        fold = dict.fromkeys(timebox_ids, False)
+            lambda x, y: cmp(wbstimebox_ids.index(x[0]), wbstimebox_ids.index(y[0])))
+        fold = dict.fromkeys(wbstimebox_ids, False)
+        return result, fold
+
+    def _read_group_stage_ids(
+            self, cr, uid, ids, domain,
+            read_group_order=None, access_rights_uid=None,
+            context=None
+    ):
+        stage_obj = self.pool.get('analytic.account.stage')
+        order = stage_obj._order
+        access_rights_uid = access_rights_uid or uid
+        if read_group_order == 'stage_id desc':
+            order = '%s desc' % order
+        search_domain = []
+        analytic_account_id = self._resolve_analytic_account_id_from_context(
+            cr, uid, context=context
+        )
+        if analytic_account_id:
+            search_domain += [
+                '|', ('analytic_account_ids', '=', analytic_account_id)
+            ]
+        search_domain += [('id', 'in', ids)]
+        stage_ids = stage_obj._search(
+            cr, uid, [], order=order,
+            access_rights_uid=access_rights_uid,
+            context=context
+        )
+        result = stage_obj.name_get(
+            cr, access_rights_uid, stage_ids,
+            context=context
+        )
+        # restore order of the search
+        result.sort(
+            lambda x, y: cmp(
+                stage_ids.index(x[0]),
+                stage_ids.index(y[0])
+            )
+        )
+
+        fold = {}
+        for stage in stage_obj.browse(
+            cr, access_rights_uid, stage_ids,
+            context=context
+        ):
+            fold[stage.id] = stage.fold or False
         return result, fold
 
     _defaults = {
-        'context_id': _get_context
+        'wbscontext_id': _get_wbscontext
     }
 
     _group_by_full = {
-        'timebox_id': _read_group_timebox_ids,
+        'wbstimebox_id': _read_group_wbstimebox_ids,
+        'stage_id': _read_group_stage_ids,
     }
-
-    def copy_data(self, cr, uid, id, default=None, context=None):
-        if context is None:
-            context = {}
-        if not default:
-            default = {}
-        default['timebox_id'] = False
-        default['context_id'] = False
-        return super(wbs_workpackage, self).copy_data(
-            cr, uid, id, default, context)
-
-    def next_timebox(self, cr, uid, ids, *args):
-        timebox_obj = self.pool.get('wbs.gtd.timebox')
-        timebox_ids = timebox_obj.search(cr, uid, [])
-        if not timebox_ids:
-            return True
-        for task in self.browse(cr, uid, ids):
-            timebox = task.timebox_id
-            if not timebox:
-                self.write(cr, uid, task.id, {'timebox_id': timebox_ids[0]})
-            elif timebox_ids.index(timebox) != len(timebox_ids)-1:
-                index = timebox_ids.index(timebox)
-                self.write(
-                    cr, uid, task.id, {'timebox_id': timebox_ids[index+1]})
-        return True
-
-    def prev_timebox(self, cr, uid, ids, *args):
-        timebox_obj = self.pool.get('wbs.gtd.timebox')
-        timebox_ids = timebox_obj.search(cr, uid, [])
-        for task in self.browse(cr, uid, ids):
-            timebox = task.timebox_id
-            if timebox:
-                if timebox_ids.index(timebox):
-                    index = timebox_ids.index(timebox)
-                    self.write(
-                        cr, uid, task.id,
-                        {'timebox_id': timebox_ids[index - 1]})
-                else:
-                    self.write(cr, uid, task.id, {'timebox_id': False})
-        return True
-
-    def fields_view_get(self, cr, uid, view_id=None, view_type='form',
-                        context=None, toolbar=False, submenu=False):
-        if not context:
-            context = {}
-        res = super(wbs_workpackage, self).fields_view_get(
-            cr, uid, view_id, view_type, context,
-            toolbar=toolbar, submenu=submenu)
-        search_extended = False
-        timebox_obj = self.pool.get('wbs.gtd.timebox')
-        if (res['type'] == 'search') and context.get('gtd', False):
-            timeboxes = timebox_obj.browse(
-                cr, uid, timebox_obj.search(cr, uid, []), context=context)
-            search_extended = ''
-            for timebox in timeboxes:
-                filter_ = u"""
-                    <filter domain="[('timebox_id', '=', {timebox_id})]"
-                            string="{string}"/>\n
-                    """.format(timebox_id=timebox.id, string=timebox.name)
-                search_extended += filter_
-            search_extended += '<separator orientation="vertical"/>'
-            res['arch'] = tools.ustr(res['arch']).replace(
-                '<separator name="gtdsep"/>', search_extended)
-
-        return res
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

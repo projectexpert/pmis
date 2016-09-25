@@ -258,9 +258,15 @@
 
                 </xpath>
 				<page name="team" position="inside">
+                    <group string="Communications">
+                    </group>
 					<notebook>
 					</notebook>
 				</page>
+                <field name="members" position="before">
+                    <group string="Project Team Members">
+                    </group>
+                </field>
             </field>
         </record>
     </data>

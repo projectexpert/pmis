@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 04:51+0000\n"
-"PO-Revision-Date: 2016-06-02 04:51+0000\n"
+"POT-Creation-Date: 2016-09-25 17:13+0000\n"
+"PO-Revision-Date: 2016-09-25 17:13+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,9 +21,17 @@ msgid " Sum of everything that could be invoiced for this contract."
 msgstr ""
 
 #. module: project_wbs
-#: code:addons/project_wbs/models/project_project.py:335
+#: code:addons/project_wbs/models/project_project.py:383
 #, python-format
 msgid "%s"
+msgstr ""
+
+#. module: project_wbs
+#: model:ir.actions.act_window,help:project_wbs.open_view_unclassified
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                  Click to start a new WBS element.\n"
+"                </p>\n"
+"            "
 msgstr ""
 
 #. module: project_wbs
@@ -67,8 +75,8 @@ msgid "<p class=\"oe_view_nocontent_create\">\n"
 msgstr ""
 
 #. module: project_wbs
+#: model:ir.actions.act_window,help:project_wbs.open_view_phases_or_deliverables
 #: model:ir.actions.act_window,help:project_wbs.open_view_project_work_packages
-#: model:ir.actions.act_window,help:project_wbs.open_view_unclassified
 msgid "<p class=\"oe_view_nocontent_create\">\n"
 "                  Click to start a new work package.\n"
 "                </p>\n"
@@ -127,7 +135,6 @@ msgid "Based on the costs you had on the project, what would have been the reven
 msgstr ""
 
 #. module: project_wbs
-#: model:analytic.account.stage,name:project_wbs.project_wbs_cancelled
 #: selection:analytic.account.stage,project_state:0
 msgid "Cancelled"
 msgstr ""
@@ -153,18 +160,15 @@ msgstr ""
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_list
-#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_tree
 #: field:account.analytic.account,account_class:0
 #: view:project.project:project_wbs.edit_project
 #: view:project.project:project_wbs.view_project
-#: view:project.project:project_wbs.view_project_project_filter
 #: field:project.project,account_class:0
 msgid "Class"
 msgstr ""
 
 #. module: project_wbs
-#: model:analytic.account.stage,name:project_wbs.project_wbs_closed
 #: selection:analytic.account.stage,project_state:0
 msgid "Closed"
 msgstr ""
@@ -187,6 +191,7 @@ msgstr ""
 
 #. module: project_wbs
 #: help:account.analytic.account,complete_wbs_code_calc:0
+#: help:project.project,complete_wbs_code_calc:0
 msgid "Computed WBS code"
 msgstr ""
 
@@ -277,7 +282,6 @@ msgstr ""
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
-#: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Deliverable"
 msgstr ""
 
@@ -285,8 +289,6 @@ msgstr ""
 #: field:account.analytic.account,child_deliverable_count:0
 #: model:ir.actions.act_window,name:project_wbs.act_project_project_2_deliverable_all
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_deliverables
-#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_deliverables
-#: view:project.project:project_wbs.view_project_kanban_wbs
 #: field:project.project,child_deliverable_count:0
 msgid "Deliverables"
 msgstr ""
@@ -309,7 +311,7 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_wbs
-msgid "Documents"
+msgid "Docs:"
 msgstr ""
 
 #. module: project_wbs
@@ -349,9 +351,15 @@ msgid "Folded by Default"
 msgstr ""
 
 #. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_fullwbs
+msgid "Full WBS"
+msgstr ""
+
+#. module: project_wbs
 #: field:account.analytic.account,complete_wbs_code:0
 #: field:account.analytic.account,complete_wbs_code_calc:0
 #: field:project.project,complete_wbs_code:0
+#: field:project.project,complete_wbs_code_calc:0
 msgid "Full WBS Code"
 msgstr ""
 
@@ -370,6 +378,12 @@ msgstr ""
 #. module: project_wbs
 #: field:project.project,recurring_invoices:0
 msgid "Generate recurring invoices automatically"
+msgstr ""
+
+#. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
+#: view:project.project:project_wbs.view_project_project_filter
+msgid "Group By"
 msgstr ""
 
 #. module: project_wbs
@@ -430,7 +444,7 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_inherited
-msgid "Issues"
+msgid "Issues:"
 msgstr ""
 
 #. module: project_wbs
@@ -462,6 +476,12 @@ msgstr ""
 #: field:account.analytic.account,wbs_indent:0
 #: field:project.project,wbs_indent:0
 msgid "Level"
+msgstr ""
+
+#. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
+#: view:project.project:project_wbs.view_project_project_filter
+msgid "Master Project"
 msgstr ""
 
 #. module: project_wbs
@@ -511,6 +531,11 @@ msgid "On Timesheets"
 msgstr ""
 
 #. module: project_wbs
+#: view:project.project:project_wbs.view_project
+msgid "Open Full WSB"
+msgstr ""
+
+#. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 msgid "Other Info"
 msgstr ""
@@ -532,23 +557,25 @@ msgid "Parent WBS element"
 msgstr ""
 
 #. module: project_wbs
-#: model:analytic.account.stage,name:project_wbs.project_wbs_pending
-msgid "Pending"
-msgstr ""
-
-#. module: project_wbs
 #: selection:account.analytic.account,account_class:0
-#: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Phase"
 msgstr ""
 
 #. module: project_wbs
 #: field:account.analytic.account,child_phase_count:0
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_phases
-#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_phases
-#: view:project.project:project_wbs.view_project_kanban_wbs
 #: field:project.project,child_phase_count:0
 msgid "Phases"
+msgstr ""
+
+#. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_wbs_phases_or_deliverables
+msgid "Phases and Deliverables"
+msgstr ""
+
+#. module: project_wbs
+#: model:ir.actions.act_window,name:project_wbs.open_view_phases_or_deliverables
+msgid "Phases or Deliverables"
 msgstr ""
 
 #. module: project_wbs
@@ -564,7 +591,6 @@ msgstr ""
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
 #: model:ir.model,name:project_wbs.model_project_project
-#: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Project"
 msgstr ""
 
@@ -615,10 +641,10 @@ msgstr ""
 
 #. module: project_wbs
 #: field:account.analytic.account,child_project_count:0
-#: code:addons/project_wbs/models/project_project.py:380
+#: code:addons/project_wbs/models/project_project.py:428
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_projects
+#: model:ir.ui.menu,name:project_wbs.menu_project_config
 #: model:ir.ui.menu,name:project_wbs.menu_project_wbs_projects
-#: view:project.project:project_wbs.view_project_kanban_wbs
 #: field:project.project,child_project_count:0
 #, python-format
 msgid "Projects"
@@ -708,12 +734,7 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_wbs
-msgid "Task"
-msgstr ""
-
-#. module: project_wbs
-#: view:project.project:project_wbs.view_project_kanban_wbs
-msgid "Tasks"
+msgid "Tasks:"
 msgstr ""
 
 #. module: project_wbs
@@ -821,7 +842,6 @@ msgstr ""
 #. module: project_wbs
 #: field:account.analytic.account,child_unclassified_count:0
 #: model:ir.actions.act_window,name:project_wbs.open_view_unclassified
-#: view:project.project:project_wbs.view_project_kanban_wbs
 #: field:project.project,child_unclassified_count:0
 msgid "Unclassified"
 msgstr ""
@@ -843,7 +863,7 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_wbs
-msgid "W.P."
+msgid "WBS"
 msgstr ""
 
 #. module: project_wbs
@@ -854,10 +874,8 @@ msgstr ""
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_list
-#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_tree
 #: view:project.project:project_wbs.edit_project
-#: view:project.project:project_wbs.view_project_project_filter
 msgid "WBS code"
 msgstr ""
 
@@ -872,12 +890,6 @@ msgstr ""
 #: model:ir.actions.act_window,name:project_wbs.open_view_wbs_tree
 #: view:project.project:project_wbs.view_project
 msgid "WBS elements"
-msgstr ""
-
-#. module: project_wbs
-#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
-#: view:project.project:project_wbs.view_project_project_filter
-msgid "WBS name"
 msgstr ""
 
 #. module: project_wbs

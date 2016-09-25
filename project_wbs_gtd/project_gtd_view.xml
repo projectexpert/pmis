@@ -16,7 +16,7 @@
         <field name="name">wbs.gtd.context.form</field>
         <field name="model">wbs.gtd.context</field>
         <field name="arch" type="xml">
-            <form string="Context" version="7.0">
+            <form string="Context">
                 <group col="4">
                     <field name="name"/>
                     <field name="sequence"/>
@@ -46,7 +46,7 @@
         <field name="name">wbs.gtd.timebox.form</field>
         <field name="model">wbs.gtd.timebox</field>
         <field name="arch" type="xml">
-            <form string="Timeboxes" version="7.0">
+            <form string="Timeboxes">
                 <group col="4" string="Timebox Definition">
                     <field name="name"/>
                     <field name="sequence"/>
@@ -70,8 +70,8 @@
         <field name="inherit_id" ref="project.view_project" />
         <field name="arch" type="xml">
             <field name="progress_rate" position="after">
-                <field string="Timeframe" name="timebox_id" invisible=" not context.get('gtd', False)"/>
-                <field name="context_id" invisible="not context.get('context_show', False)" widget="selection"/>
+                <!--<field string="Timeframe" name="wbstimebox_id" invisible=" not context.get('gtd', False)"/>-->
+                <field name="wbscontext_id" invisible="not context.get('context_show', False)" widget="selection"/>
             </field>
         </field>
     </record>
@@ -82,8 +82,8 @@
         <field name="inherit_id" ref="project.view_project" />
         <field name="arch" type="xml">
             <field name="progress_rate" position="after">
-                <field name="context_id" widget="selection" options='{"no_open": True}'/>
-                <field name="timebox_id" widget="selection" options='{"no_open": True}'  string="Timeframe"/>
+                <field name="wbscontext_id" widget="selection" options='{"no_open": True}'/>
+                <!--<field name="wbstimebox_id" widget="selection" options='{"no_open": True}'  string="Timeframe"/>-->
             </field>
         </field>
     </record>
@@ -98,29 +98,29 @@
                     <separator name="gtdsep"/>
                 </group>
             </filter>
-            <search string="Search Project" position="inside">
-                <filter name="timebox_id" string="Timebox" domain="[]" context="{'group_by': 'timebox_id', 'search_default_state': 'open'}"/>
-                <filter name="context_id" string="Context" domain="[]" context="{'group_by': 'context_id', 'search_default_state': 'open'}"/>
-            </search>
+            <group string="Group By" position="inside">
+                <filter name="wbstimebox_id" string="Timebox" domain="[]" context="{'group_by': 'wbstimebox_id'}"/>
+                <filter name="wbscontext_id" string="Context" domain="[]" context="{'group_by': 'wbscontext_id'}"/>
+            </group>
         </field>
     </record>
 
     <record model="ir.actions.act_window" id="open_gtd_all_wbs">
-        <field name="name">Projects (GTD)</field>
+        <field name="name">Work Packages (GTD)</field>
         <field name="res_model">project.project</field>
         <field name="search_view_id" ref="view_wbs_gtd_search"/>
-        <field name="context">{'set_visible': True, 'gtd': True, 'search_default_timebox_id': 1}</field>
-        <field name="domain">[('state', '=', 'open')]</field>
+        <field name="context">{'set_visible': True, 'gtd': True, 'search_default_wbstimebox_id': 1}</field>
+        <field name="domain">[('stage_id.sequence', '&lt;', 20), ('account_class','=','work_package')]</field>
         <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
     </record>
 
     <record model="ir.actions.act_window" id="open_gtd_wbs">
-        <field name="name">My Projects (GTD)</field>
+        <field name="name">My Work Packages (GTD)</field>
         <field name="res_model">project.project</field>
         <field name="search_view_id" ref="view_wbs_gtd_search"/>
-        <field name="context">{'set_visible': True, 'gtd': True, 'user_invisible': True, 'search_default_timebox_id': 1}</field>
-        <field name="domain">[('user_id', '=', uid), ('state', '=', 'open')]</field>
+        <field name="context">{'set_visible': True, 'gtd': True, 'user_invisible': True, 'search_default_wbstimebox_id': 1}</field>
+        <field name="domain">[('user_id', '=', uid), ('stage_id.sequence', '&lt;', 20), ('account_class','=','work_package')]</field>
         <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
     </record>
@@ -129,11 +129,107 @@
         <field name="name">Context Projects</field>
         <field name="res_model">project.project</field>
         <field name="search_view_id" ref="view_wbs_gtd_search"/>
-        <field name="context">{'set_visible': True, 'gtd': True, 'search_default_context_id': 1}</field>
-        <field name="domain">[('state', '=', 'open')]</field>
+        <field name="context">{'set_visible': True, 'gtd': True, 'search_default_wbscontext_id': 1}</field>
+        <field name="domain">[('stage_id.sequence', '&lt;', 20)]</field>
         <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
     </record>
+
+    <!--WBS GTD KANBAN-->
+    <record model="ir.ui.view" id="view_gtd_kanban_wbs">
+            <field name="name">project.gtd.kanban.wbs</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_kanban"/>
+            <field name="arch" type="xml">
+                <kanban position="replace">
+                <kanban default_group_by="wbstimebox_id">
+                    <field name="complete_wbs_code"/>
+	            	<field name="complete_wbs_name"/>
+                    <field name="effective_hours"/>
+                    <field name="planned_hours"/>
+                    <field name="name"/>
+                    <field name="account_class" />
+                    <field name="members"/>
+                    <field name="use_tasks"/>
+                    <field name="user_id"/>
+                    <field name="date"/>
+                    <field name="color"/>
+                    <field name="task_count"/>
+                    <!--<field name="child_project_count"/>-->
+                    <!--<field name="child_phase_count"/>-->
+                    <!--<field name="child_deliverable_count"/>-->
+                    <!--<field name="child_work_package_count"/>-->
+                    <!--<field name="child_unclassified_count"/>-->
+                    <field name="alias_id"/>
+                    <field name="alias_domain"/>
+                    <field name="doc_count"/>
+                    <templates>
+                        <t t-name="kanban-box">
+							<div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click, oe_kanban_wbs">
+                                <div class="oe_dropdown_toggle oe_dropdown_kanban" groups="base.group_user">
+                                    <span class="oe_e">í</span>
+                                    <ul class="oe_dropdown_menu">
+                                        <t t-if="widget.view.is_action_enabled('edit')"><li><a type="edit">Project Settings</a></li></t>
+                                        <t t-if="widget.view.is_action_enabled('delete')"><li><a type="delete">Delete</a></li></t>
+                                        <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+                                    </ul>
+                                </div>
+                                <div class="oe_kanban_content">
+
+                                    <a type="object" name="action_open_view_project_form">
+                                        <h3><field name="name"/></h3>
+                                        <h5><field name="complete_wbs_name"/></h5>
+                                    </a>
+                                    <h6>
+                                    <field name="complete_wbs_code"/>
+                                    <field name="account_class"/>
+                                    </h6>
+                                    <div class="oe_kanban_project_list" name="wbs_kanban_buttons">
+                                        <a name="project_child_open_window"
+                                           type="object"
+                                           style="margin-right: 10px"
+                                           class="fa fa-sitemap oe_wbs_button">
+                                            <div>WBS</div>
+                                        </a>
+                                        <a t-if="record.use_tasks.raw_value"
+                                           name="%(project.act_project_project_2_project_task_all)d"
+                                           type="action"
+                                           style="margin-right: 10px"
+                                           class="fa fa-tasks oe_wbs_button">
+                                            <div>Tasks: <field name="task_count"/></div>
+                                        </a>
+                                        <a t-if="record.doc_count.raw_value"
+                                           name="attachment_tree_view"
+                                           type="object"
+                                           style="margin-right: 10px"
+                                           class="fa fa-files-o oe_wbs_button">
+                                             <div>Docs: <field name="doc_count"/></div>
+                                        </a>
+                                    </div>
+                                    <div class="oe_kanban_footer_left">
+                                        <span groups="project.group_time_work_estimation_tasks">
+                                            <span class="oe_e">R</span>
+                                            <t t-esc="Math.round(record.effective_hours.raw_value)"/>/<t t-esc="Math.round(record.planned_hours.raw_value)"/> <field name="company_uom_id"/>
+                                        </span>
+                                        <span t-if="record.date.raw_value">
+                                            <span class="oe_e">N</span>
+                                            <field name="date"/>
+                                        </span>
+                                    </div>
+                                    <div class="oe_kanban_project_avatars">
+                                        <t t-foreach="record.members.raw_value.slice(0,11)" t-as="member">
+                                            <img t-att-src="kanban_image('res.users', 'image_small', member)" t-att-data-member_id="member"/>
+                                        </t>
+                                    </div>
+                                </div>
+                                <div class="oe_clear"/>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+                </kanban>
+			</field>
+		</record>
 
     <!--PROJECT MENU GTD GROUP-->
     <menuitem name="GTD"

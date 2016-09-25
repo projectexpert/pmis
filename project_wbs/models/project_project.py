@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
-#    Copyright (C) 2015 Eficent (Jordi Ballester Alomar)
-#    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+# © 2015 Eficent Business and IT Consulting Services S.L.
+#  - Jordi Ballester Alomar
+# © 2015 MATMOZ d.o.o.
+#  - Matjaž Mozetič
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 # from lxml import etree
 import time
@@ -41,6 +44,51 @@ class Project(osv.osv):
                 result[r[0]][r[1]] = r[2]
             else:
                 result[r[0]] = {r[1]: r[2]}
+
+        return result
+
+    def _get_child_projects(self, cr, uid, curr_id, context=None):
+
+        result = {}
+        result[curr_id] = True
+        # Now add the children
+        cr.execute('''
+        WITH RECURSIVE children AS (
+        SELECT parent_id, id
+        FROM account_analytic_account
+        WHERE parent_id = %s
+        UNION ALL
+        SELECT a.parent_id, a.id
+        FROM account_analytic_account a
+        JOIN children b ON(a.parent_id = b.id)
+        )
+        SELECT * FROM children order by parent_id
+        ''', (curr_id,))
+        res = cr.fetchall()
+        for x, y in res:
+            result[y] = True
+        return result
+
+    def project_child_open_window(self, cr, uid, ids, context=None):
+        mod_obj = self.pool['ir.model.data']
+        act_obj = self.pool['ir.actions.act_window']
+
+        if context is None:
+            context = {}
+        act_window = mod_obj.get_object_reference(
+                cr, uid, 'project_wbs',
+                'open_view_project_wbs')
+        act_window_id = act_window and act_window[1] or False
+        result = act_obj.read(cr, uid, [act_window_id], context=context)[0]
+        data = self.read(cr, uid, ids, [])[0]
+        acc_id = data['analytic_account_id'][0]
+        acc_ids = []
+
+        acc_ids = self._get_child_projects(
+            cr, uid, acc_id, context=context
+        )
+
+        result['domain'] = "[('id','in', ["+','.join(map(str, acc_ids))+"])]"
 
         return result
 
@@ -181,7 +229,7 @@ class Project(osv.osv):
             ]
         search_domain += [('id', 'in', ids)]
         stage_ids = stage_obj._search(
-            cr, uid, search_domain, order=order,
+            cr, uid, [], order=order,
             access_rights_uid=access_rights_uid,
             context=context
         )

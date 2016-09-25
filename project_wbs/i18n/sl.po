@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 06:57+0200\n"
-"PO-Revision-Date: 2016-06-02 07:37+0200\n"
+"POT-Creation-Date: 2016-09-25 19:20+0200\n"
+"PO-Revision-Date: 2016-09-25 19:21+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #. module: project_wbs
 #: help:project.project,toinvoice_total:0
@@ -23,10 +23,23 @@ msgid " Sum of everything that could be invoiced for this contract."
 msgstr "Vsota vsega, kar bi lahko bilo obračunano po tej pogodbi."
 
 #. module: project_wbs
-#: code:addons/project_wbs/models/project_project.py:335
+#: code:addons/project_wbs/models/project_project.py:383
 #, python-format
 msgid "%s"
 msgstr "%s"
+
+#. module: project_wbs
+#: model:ir.actions.act_window,help:project_wbs.open_view_unclassified
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  Click to start a new WBS element.\n"
+"                </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  Kliknite za zagon novega projektnega člena.\n"
+"                </p>\n"
+"            "
 
 #. module: project_wbs
 #: model:ir.actions.act_window,help:project_wbs.open_view_project_deliverables
@@ -98,8 +111,8 @@ msgstr ""
 "            "
 
 #. module: project_wbs
+#: model:ir.actions.act_window,help:project_wbs.open_view_phases_or_deliverables
 #: model:ir.actions.act_window,help:project_wbs.open_view_project_work_packages
-#: model:ir.actions.act_window,help:project_wbs.open_view_unclassified
 msgid ""
 "<p class=\"oe_view_nocontent_create\">\n"
 "                  Click to start a new work package.\n"
@@ -179,7 +192,6 @@ msgstr ""
 "bi ti stroški bili zaračunani po običajni prodajni ceni po ceniku."
 
 #. module: project_wbs
-#: model:analytic.account.stage,name:project_wbs.project_wbs_cancelled
 #: selection:analytic.account.stage,project_state:0
 msgid "Cancelled"
 msgstr "Preklicano"
@@ -205,18 +217,15 @@ msgstr "Podrejeni elementi členitve"
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_list
-#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_tree
 #: field:account.analytic.account,account_class:0
 #: view:project.project:project_wbs.edit_project
 #: view:project.project:project_wbs.view_project
-#: view:project.project:project_wbs.view_project_project_filter
 #: field:project.project,account_class:0
 msgid "Class"
 msgstr "Razred"
 
 #. module: project_wbs
-#: model:analytic.account.stage,name:project_wbs.project_wbs_closed
 #: selection:analytic.account.stage,project_state:0
 msgid "Closed"
 msgstr "Zaključeno"
@@ -239,6 +248,7 @@ msgstr "Komunikacije"
 
 #. module: project_wbs
 #: help:account.analytic.account,complete_wbs_code_calc:0
+#: help:project.project,complete_wbs_code_calc:0
 msgid "Computed WBS code"
 msgstr "Izračunana koda členitve"
 
@@ -332,7 +342,6 @@ msgstr "Izbris"
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
-#: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Deliverable"
 msgstr "Dobava"
 
@@ -340,8 +349,6 @@ msgstr "Dobava"
 #: field:account.analytic.account,child_deliverable_count:0
 #: model:ir.actions.act_window,name:project_wbs.act_project_project_2_deliverable_all
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_deliverables
-#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_deliverables
-#: view:project.project:project_wbs.view_project_kanban_wbs
 #: field:project.project,child_deliverable_count:0
 msgid "Deliverables"
 msgstr "Dobave"
@@ -364,8 +371,8 @@ msgstr "Prikazni naziv"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_wbs
-msgid "Documents"
-msgstr "Dokumenti"
+msgid "Docs:"
+msgstr "Priloge:"
 
 #. module: project_wbs
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_form
@@ -410,9 +417,15 @@ msgid "Folded by Default"
 msgstr "Privzeto prepognjeno"
 
 #. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_fullwbs
+msgid "Full WBS"
+msgstr "Celotna členitev"
+
+#. module: project_wbs
 #: field:account.analytic.account,complete_wbs_code:0
 #: field:account.analytic.account,complete_wbs_code_calc:0
 #: field:project.project,complete_wbs_code:0
+#: field:project.project,complete_wbs_code_calc:0
 msgid "Full WBS Code"
 msgstr "Polna WBS koda"
 
@@ -432,6 +445,12 @@ msgstr "Polna pot v WBS hierarhiji"
 #: field:project.project,recurring_invoices:0
 msgid "Generate recurring invoices automatically"
 msgstr "Samodejno ustvari ponavljajoče se račune"
+
+#. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
+#: view:project.project:project_wbs.view_project_project_filter
+msgid "Group By"
+msgstr "Združi po"
 
 #. module: project_wbs
 #: field:analytic.account.stage,id:0
@@ -501,8 +520,8 @@ msgstr "Zaračunani čas"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_inherited
-msgid "Issues"
-msgstr "Zadeve"
+msgid "Issues:"
+msgstr "Zadeve:"
 
 #. module: project_wbs
 #: help:project.project,amount_max:0
@@ -534,6 +553,12 @@ msgstr "Zadnjič posodobljeno"
 #: field:project.project,wbs_indent:0
 msgid "Level"
 msgstr "Nivo"
+
+#. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
+#: view:project.project:project_wbs.view_project_project_filter
+msgid "Master Project"
+msgstr "Nosilni projekt"
 
 #. module: project_wbs
 #: field:project.project,amount_max:0
@@ -592,6 +617,11 @@ msgid "On Timesheets"
 msgstr "Po časovnicah"
 
 #. module: project_wbs
+#: view:project.project:project_wbs.view_project
+msgid "Open Full WSB"
+msgstr "Odpri celotno členitev"
+
+#. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 msgid "Other Info"
 msgstr "Ostale informacije"
@@ -613,24 +643,26 @@ msgid "Parent WBS element"
 msgstr "Nadrejeni člen"
 
 #. module: project_wbs
-#: model:analytic.account.stage,name:project_wbs.project_wbs_pending
-msgid "Pending"
-msgstr "Na čakanju"
-
-#. module: project_wbs
 #: selection:account.analytic.account,account_class:0
-#: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Phase"
 msgstr "Faza"
 
 #. module: project_wbs
 #: field:account.analytic.account,child_phase_count:0
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_phases
-#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_phases
-#: view:project.project:project_wbs.view_project_kanban_wbs
 #: field:project.project,child_phase_count:0
 msgid "Phases"
 msgstr "Faze"
+
+#. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_wbs_phases_or_deliverables
+msgid "Phases and Deliverables"
+msgstr "Faze in dobave"
+
+#. module: project_wbs
+#: model:ir.actions.act_window,name:project_wbs.open_view_phases_or_deliverables
+msgid "Phases or Deliverables"
+msgstr "Faze ali dobave"
 
 #. module: project_wbs
 #: model:analytic.account.stage,name:project_wbs.project_wbs_plan
@@ -645,7 +677,6 @@ msgstr "Cenik"
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
 #: model:ir.model,name:project_wbs.model_project_project
-#: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Project"
 msgstr "Projekt"
 
@@ -696,10 +727,10 @@ msgstr "Stopnje projektov/analitike"
 
 #. module: project_wbs
 #: field:account.analytic.account,child_project_count:0
-#: code:addons/project_wbs/models/project_project.py:380
+#: code:addons/project_wbs/models/project_project.py:428
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_projects
+#: model:ir.ui.menu,name:project_wbs.menu_project_config
 #: model:ir.ui.menu,name:project_wbs.menu_project_wbs_projects
-#: view:project.project:project_wbs.view_project_kanban_wbs
 #: field:project.project,child_project_count:0
 #, python-format
 msgid "Projects"
@@ -788,13 +819,8 @@ msgstr "Vsota postavk časovnic zaračunanih po tej pogodbi"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_wbs
-msgid "Task"
-msgstr "Opravilo"
-
-#. module: project_wbs
-#: view:project.project:project_wbs.view_project_kanban_wbs
-msgid "Tasks"
-msgstr "Opravila"
+msgid "Tasks:"
+msgstr "Opravila:"
 
 #. module: project_wbs
 #: selection:analytic.account.stage,project_state:0
@@ -921,7 +947,6 @@ msgstr "Pravilno"
 #. module: project_wbs
 #: field:account.analytic.account,child_unclassified_count:0
 #: model:ir.actions.act_window,name:project_wbs.open_view_unclassified
-#: view:project.project:project_wbs.view_project_kanban_wbs
 #: field:project.project,child_unclassified_count:0
 msgid "Unclassified"
 msgstr "Nerazvrščeni"
@@ -943,8 +968,8 @@ msgstr "Uporabnik"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_wbs
-msgid "W.P."
-msgstr "Del. sez."
+msgid "WBS"
+msgstr "Členitev"
 
 #. module: project_wbs
 #: field:project.project,c_wbs_code:0
@@ -954,10 +979,8 @@ msgstr "Koda členitve"
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_list
-#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_tree
 #: view:project.project:project_wbs.edit_project
-#: view:project.project:project_wbs.view_project_project_filter
 msgid "WBS code"
 msgstr "Koda členitve"
 
@@ -973,12 +996,6 @@ msgstr "Naziv elementa členitve"
 #: view:project.project:project_wbs.view_project
 msgid "WBS elements"
 msgstr "Elementi členitve"
-
-#. module: project_wbs
-#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
-#: view:project.project:project_wbs.view_project_project_filter
-msgid "WBS name"
-msgstr "Naziv členitve"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
@@ -1027,6 +1044,21 @@ msgstr ""
 #: view:project.project:project_wbs.edit_project
 msgid "on_change_parent(parent_id)"
 msgstr "on_change_parent(parent_id)"
+
+#~ msgid "Documents"
+#~ msgstr "Dokumenti"
+
+#~ msgid "Pending"
+#~ msgstr "Na čakanju"
+
+#~ msgid "Task"
+#~ msgstr "Opravilo"
+
+#~ msgid "W.P."
+#~ msgstr "Del. sez."
+
+#~ msgid "WBS name"
+#~ msgstr "Naziv členitve"
 
 #~ msgid "Full WBS Name"
 #~ msgstr "Polni WBS naziv"

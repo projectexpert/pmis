@@ -1,0 +1,15 @@
+@charset "utf-8";
+/*© 2015 MATMOZ d.o.o. - Matjaž Mozetič*/
+/*License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).*/
+.openerp .oe_kanban_view .oe_kanban_wbs {
+    width: 230px;
+    min-height: 200px;
+}
+
+.openerp .oe_kanban_view .oe_wbs_button {
+    width: 80px;
+    margin: 2px;
+    background-color: rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.20);
+    border-radius: 3px;
+}

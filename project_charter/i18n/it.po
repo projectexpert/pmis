@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 07:42+0200\n"
-"PO-Revision-Date: 2016-06-02 07:45+0200\n"
+"POT-Creation-Date: 2016-09-25 19:24+0200\n"
+"PO-Revision-Date: 2016-09-25 19:25+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #. module: project_charter
 #: help:project.outscope,out_scope:0
@@ -134,6 +134,11 @@ msgid "Code"
 msgstr "Codice"
 
 #. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Communications"
+msgstr "Communicazioni"
+
+#. module: project_charter
 #: model:ir.model,name:project_charter.model_project_constraints
 #: field:project.constraints,constraints:0
 #: view:project.project:project_charter.view_project_form
@@ -156,15 +161,6 @@ msgstr "Creato il"
 #: field:project.success,success:0
 msgid "Criteria"
 msgstr "Criteri"
-
-#. module: project_charter
-#: help:project.project,cost_category:0
-msgid ""
-"Defines what type of cost does the analytic account carry from an employee "
-"perspective."
-msgstr ""
-"Definisce il tipo di costo, che il conto analitico registra, dalla "
-"prospettiva del dipendente."
 
 #. module: project_charter
 #: field:project.constraints,display_name:0
@@ -272,6 +268,11 @@ msgid "Project Scope"
 msgstr "Portata del progetto"
 
 #. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Project Team Members"
+msgstr "Membri del team progettuale"
+
+#. module: project_charter
 #: field:project.project,project_constraints_ids:0
 msgid "Project constraints ids"
 msgstr "ID delle limitazioni progettuali"
@@ -353,11 +354,6 @@ msgid "Tasks"
 msgstr "Attività"
 
 #. module: project_charter
-#: field:project.project,cost_category:0
-msgid "Type of Cost"
-msgstr "Tipo di costo"
-
-#. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "WBS elements"
 msgstr "Elementi WBS"
@@ -367,6 +363,12 @@ msgstr "Elementi WBS"
 msgid "Work Breakdown Structure"
 msgstr "Articolazione progetti (WBS)"
 
+#~ msgid "Defines what type of cost does the analytic account carry from an employee perspective."
+#~ msgstr "Definisce il tipo di costo, che il conto analitico registra, dalla prospettiva del dipendente."
+
+#~ msgid "Type of Cost"
+#~ msgstr "Tipo di costo"
+
 #~ msgid "Project Form View"
 #~ msgstr "Formulario progetto"
 
@@ -375,9 +377,6 @@ msgstr "Articolazione progetti (WBS)"
 
 #~ msgid "Boundaries"
 #~ msgstr "Limiti"
-
-#~ msgid "Project Charter"
-#~ msgstr "DIP (Documento di inizio progetto)"
 
 #~ msgid "Project Description"
 #~ msgstr "Descrizione del progetto"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 05:39+0000\n"
-"PO-Revision-Date: 2016-06-02 05:39+0000\n"
+"POT-Creation-Date: 2016-09-25 17:14+0000\n"
+"PO-Revision-Date: 2016-09-25 17:14+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -129,6 +129,11 @@ msgid "Code"
 msgstr ""
 
 #. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Communications"
+msgstr ""
+
+#. module: project_charter
 #: model:ir.model,name:project_charter.model_project_constraints
 #: field:project.constraints,constraints:0
 #: view:project.project:project_charter.view_project_form
@@ -152,11 +157,6 @@ msgstr ""
 #. module: project_charter
 #: field:project.success,success:0
 msgid "Criteria"
-msgstr ""
-
-#. module: project_charter
-#: help:project.project,cost_category:0
-msgid "Defines what type of cost does the analytic account carry from an employee perspective."
 msgstr ""
 
 #. module: project_charter
@@ -270,6 +270,11 @@ msgid "Project Scope"
 msgstr ""
 
 #. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Project Team Members"
+msgstr ""
+
+#. module: project_charter
 #: field:project.project,project_constraints_ids:0
 msgid "Project constraints ids"
 msgstr ""
@@ -349,11 +354,6 @@ msgstr ""
 #. module: project_charter
 #: model:ir.ui.menu,name:project_charter.menu_tasks_config_title
 msgid "Tasks"
-msgstr ""
-
-#. module: project_charter
-#: field:project.project,cost_category:0
-msgid "Type of Cost"
 msgstr ""
 
 #. module: project_charter

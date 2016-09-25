@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
-#    Copyright (C) 2015 Eficent (Jordi Ballester Alomar)
-#    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+# © 2015 Eficent Business and IT Consulting Services S.L.
+#  - Jordi Ballester Alomar
+# © 2015 MATMOZ d.o.o.
+#  - Matjaž Mozetič
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from openerp.osv import fields, osv, orm
 

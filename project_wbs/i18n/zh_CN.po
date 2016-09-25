@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 07:31+0200\n"
-"PO-Revision-Date: 2016-06-02 07:31+0200\n"
+"POT-Creation-Date: 2016-09-25 19:23+0200\n"
+"PO-Revision-Date: 2016-09-25 19:23+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #. module: project_wbs
 #: help:project.project,toinvoice_total:0
@@ -22,9 +22,18 @@ msgid " Sum of everything that could be invoiced for this contract."
 msgstr ""
 
 #. module: project_wbs
-#: code:addons/project_wbs/models/project_project.py:335
+#: code:addons/project_wbs/models/project_project.py:383
 #, python-format
 msgid "%s"
+msgstr ""
+
+#. module: project_wbs
+#: model:ir.actions.act_window,help:project_wbs.open_view_unclassified
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                  Click to start a new WBS element.\n"
+"                </p>\n"
+"            "
 msgstr ""
 
 #. module: project_wbs
@@ -84,8 +93,8 @@ msgstr ""
 "            "
 
 #. module: project_wbs
+#: model:ir.actions.act_window,help:project_wbs.open_view_phases_or_deliverables
 #: model:ir.actions.act_window,help:project_wbs.open_view_project_work_packages
-#: model:ir.actions.act_window,help:project_wbs.open_view_unclassified
 msgid ""
 "<p class=\"oe_view_nocontent_create\">\n"
 "                  Click to start a new work package.\n"
@@ -158,7 +167,6 @@ msgid ""
 msgstr ""
 
 #. module: project_wbs
-#: model:analytic.account.stage,name:project_wbs.project_wbs_cancelled
 #: selection:analytic.account.stage,project_state:0
 msgid "Cancelled"
 msgstr "已取消"
@@ -184,18 +192,15 @@ msgstr "下级WBS元素"
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_list
-#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_tree
 #: field:account.analytic.account,account_class:0
 #: view:project.project:project_wbs.edit_project
 #: view:project.project:project_wbs.view_project
-#: view:project.project:project_wbs.view_project_project_filter
 #: field:project.project,account_class:0
 msgid "Class"
 msgstr "类"
 
 #. module: project_wbs
-#: model:analytic.account.stage,name:project_wbs.project_wbs_closed
 #: selection:analytic.account.stage,project_state:0
 msgid "Closed"
 msgstr "已关闭"
@@ -218,9 +223,9 @@ msgstr "沟通"
 
 #. module: project_wbs
 #: help:account.analytic.account,complete_wbs_code_calc:0
-#, fuzzy
+#: help:project.project,complete_wbs_code_calc:0
 msgid "Computed WBS code"
-msgstr "WBS编号"
+msgstr ""
 
 #. module: project_wbs
 #: help:project.project,remaining_hours_to_invoice:0
@@ -311,7 +316,6 @@ msgstr "删除"
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
-#: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Deliverable"
 msgstr "交付物"
 
@@ -319,8 +323,6 @@ msgstr "交付物"
 #: field:account.analytic.account,child_deliverable_count:0
 #: model:ir.actions.act_window,name:project_wbs.act_project_project_2_deliverable_all
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_deliverables
-#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_deliverables
-#: view:project.project:project_wbs.view_project_kanban_wbs
 #: field:project.project,child_deliverable_count:0
 msgid "Deliverables"
 msgstr "交付物"
@@ -343,8 +345,8 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_wbs
-msgid "Documents"
-msgstr "文档"
+msgid "Docs:"
+msgstr ""
 
 #. module: project_wbs
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_form
@@ -386,9 +388,15 @@ msgid "Folded by Default"
 msgstr "默认折叠"
 
 #. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_fullwbs
+msgid "Full WBS"
+msgstr ""
+
+#. module: project_wbs
 #: field:account.analytic.account,complete_wbs_code:0
 #: field:account.analytic.account,complete_wbs_code_calc:0
 #: field:project.project,complete_wbs_code:0
+#: field:project.project,complete_wbs_code_calc:0
 msgid "Full WBS Code"
 msgstr "完整的WBS编号"
 
@@ -407,6 +415,12 @@ msgstr "在WBS层级结构中的完整路径"
 #. module: project_wbs
 #: field:project.project,recurring_invoices:0
 msgid "Generate recurring invoices automatically"
+msgstr ""
+
+#. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
+#: view:project.project:project_wbs.view_project_project_filter
+msgid "Group By"
 msgstr ""
 
 #. module: project_wbs
@@ -435,15 +449,10 @@ msgstr ""
 
 #. module: project_wbs
 #: help:analytic.account.stage,case_default:0
-#, fuzzy
 msgid ""
 "If you check this field, this stage will be proposed by default on each new "
 "project. It will not assign this stage to existing projects."
 msgstr ""
-"\n"
-"如果勾选该字段，新创建的项目中此阶段将默认展示。\n"
-"已经存在的项目不会被分配。\n"
-"            "
 
 #. module: project_wbs
 #: selection:analytic.account.stage,project_state:0
@@ -477,8 +486,8 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_inherited
-msgid "Issues"
-msgstr "问题"
+msgid "Issues:"
+msgstr ""
 
 #. module: project_wbs
 #: help:project.project,amount_max:0
@@ -492,9 +501,8 @@ msgstr ""
 
 #. module: project_wbs
 #: field:analytic.account.stage,__last_update:0
-#, fuzzy
 msgid "Last Modified on"
-msgstr "上次更新日期"
+msgstr ""
 
 #. module: project_wbs
 #: field:analytic.account.stage,write_uid:0
@@ -511,6 +519,12 @@ msgstr "上次更新日期"
 #: field:project.project,wbs_indent:0
 msgid "Level"
 msgstr "层级"
+
+#. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
+#: view:project.project:project_wbs.view_project_project_filter
+msgid "Master Project"
+msgstr ""
 
 #. module: project_wbs
 #: field:project.project,amount_max:0
@@ -565,6 +579,11 @@ msgid "On Timesheets"
 msgstr ""
 
 #. module: project_wbs
+#: view:project.project:project_wbs.view_project
+msgid "Open Full WSB"
+msgstr ""
+
+#. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 msgid "Other Info"
 msgstr "其他信息"
@@ -586,24 +605,26 @@ msgid "Parent WBS element"
 msgstr "上级WBS元素"
 
 #. module: project_wbs
-#: model:analytic.account.stage,name:project_wbs.project_wbs_pending
-msgid "Pending"
-msgstr "待定"
-
-#. module: project_wbs
 #: selection:account.analytic.account,account_class:0
-#: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Phase"
 msgstr "阶段"
 
 #. module: project_wbs
 #: field:account.analytic.account,child_phase_count:0
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_phases
-#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_phases
-#: view:project.project:project_wbs.view_project_kanban_wbs
 #: field:project.project,child_phase_count:0
 msgid "Phases"
 msgstr "阶段"
+
+#. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_wbs_phases_or_deliverables
+msgid "Phases and Deliverables"
+msgstr ""
+
+#. module: project_wbs
+#: model:ir.actions.act_window,name:project_wbs.open_view_phases_or_deliverables
+msgid "Phases or Deliverables"
+msgstr ""
 
 #. module: project_wbs
 #: model:analytic.account.stage,name:project_wbs.project_wbs_plan
@@ -618,7 +639,6 @@ msgstr ""
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
 #: model:ir.model,name:project_wbs.model_project_project
-#: view:project.project:project_wbs.view_project_kanban_wbs
 msgid "Project"
 msgstr "项目"
 
@@ -644,9 +664,8 @@ msgstr "项目阶段"
 
 #. module: project_wbs
 #: field:analytic.account.stage,project_state:0
-#, fuzzy
 msgid "Project Status"
-msgstr "项目阶段"
+msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
@@ -670,10 +689,10 @@ msgstr "项目/分析阶段"
 
 #. module: project_wbs
 #: field:account.analytic.account,child_project_count:0
-#: code:addons/project_wbs/models/project_project.py:380
+#: code:addons/project_wbs/models/project_project.py:428
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_projects
+#: model:ir.ui.menu,name:project_wbs.menu_project_config
 #: model:ir.ui.menu,name:project_wbs.menu_project_wbs_projects
-#: view:project.project:project_wbs.view_project_kanban_wbs
 #: field:project.project,child_project_count:0
 #, python-format
 msgid "Projects"
@@ -725,16 +744,14 @@ msgstr ""
 #. module: project_wbs
 #: field:account.analytic.account,project_analytic_account_id:0
 #: field:project.project,project_analytic_account_id:0
-#, fuzzy
 msgid "Root Project"
-msgstr "项目"
+msgstr ""
 
 #. module: project_wbs
 #: help:account.analytic.account,project_analytic_account_id:0
 #: help:project.project,project_analytic_account_id:0
-#, fuzzy
 msgid "Root Project in the WBS hierarchy"
-msgstr "在WBS层级结构中的完整路径"
+msgstr ""
 
 #. module: project_wbs
 #: field:analytic.account.stage,sequence:0
@@ -764,43 +781,29 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_wbs
-msgid "Task"
-msgstr "任务"
-
-#. module: project_wbs
-#: view:project.project:project_wbs.view_project_kanban_wbs
-msgid "Tasks"
-msgstr "任务"
+msgid "Tasks:"
+msgstr ""
 
 #. module: project_wbs
 #: selection:analytic.account.stage,project_state:0
-#, fuzzy
 msgid "Template"
-msgstr "模版"
+msgstr ""
 
 #. module: project_wbs
 #: help:account.analytic.account,account_class:0
 #: help:project.project,account_class:0
-#, fuzzy
 msgid ""
 "The classification allows you to create a proper project Work Breakdown "
 "Structure"
 msgstr ""
-"\n"
-"进行分类将有助于对项目创建适当的任务分解结构（WBS）\n"
-"            "
 
 #. module: project_wbs
 #: help:account.analytic.account,complete_wbs_code:0
 #: help:project.project,complete_wbs_code:0
-#, fuzzy
 msgid ""
 "The full WBS code describes the full path of this component within the "
 "project WBS hierarchy"
 msgstr ""
-"\n"
-"完整的WBS编号描述了该组成部分在WBS框架下的完整路径\n"
-"            "
 
 #. module: project_wbs
 #: help:project.project,pricelist_id:0
@@ -821,14 +824,10 @@ msgstr ""
 
 #. module: project_wbs
 #: help:analytic.account.stage,fold:0
-#, fuzzy
 msgid ""
 "This stage is not visible,  for example in status bar or kanban view, when "
 "there are no records in that stage to display."
 msgstr ""
-"\n"
-"当该阶段下没有记录时，该阶段不可见（比如在状态栏和看板视图中）\n"
-"            "
 
 #. module: project_wbs
 #: field:project.project,to_invoice:0
@@ -852,9 +851,8 @@ msgstr ""
 
 #. module: project_wbs
 #: field:project.project,est_total:0
-#, fuzzy
 msgid "Total Estimation"
-msgstr "初始化"
+msgstr ""
 
 #. module: project_wbs
 #: field:project.project,invoiced_total:0
@@ -901,11 +899,9 @@ msgstr "真"
 #. module: project_wbs
 #: field:account.analytic.account,child_unclassified_count:0
 #: model:ir.actions.act_window,name:project_wbs.open_view_unclassified
-#: view:project.project:project_wbs.view_project_kanban_wbs
 #: field:project.project,child_unclassified_count:0
-#, fuzzy
 msgid "Unclassified"
-msgstr "未分类的项目"
+msgstr ""
 
 #. module: project_wbs
 #: field:project.project,ca_to_invoice:0
@@ -924,7 +920,7 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project_kanban_wbs
-msgid "W.P."
+msgid "WBS"
 msgstr ""
 
 #. module: project_wbs
@@ -935,10 +931,8 @@ msgstr "WBS编号"
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_list
-#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_tree
 #: view:project.project:project_wbs.edit_project
-#: view:project.project:project_wbs.view_project_project_filter
 msgid "WBS code"
 msgstr "WBS编号"
 
@@ -954,12 +948,6 @@ msgstr "WBS元素名称"
 #: view:project.project:project_wbs.view_project
 msgid "WBS elements"
 msgstr "WBS元素"
-
-#. module: project_wbs
-#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
-#: view:project.project:project_wbs.view_project_project_filter
-msgid "WBS name"
-msgstr "WBS名称"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
@@ -1001,6 +989,18 @@ msgstr "grey:state in('cancelled','close');blue:account_class =='work_package'"
 #: view:project.project:project_wbs.edit_project
 msgid "on_change_parent(parent_id)"
 msgstr "on_change_parent(parent_id)"
+
+#~ msgid "Documents"
+#~ msgstr "文档"
+
+#~ msgid "Pending"
+#~ msgstr "待定"
+
+#~ msgid "Task"
+#~ msgstr "任务"
+
+#~ msgid "WBS name"
+#~ msgstr "WBS名称"
 
 #~ msgid "Enter"
 #~ msgstr "进入"

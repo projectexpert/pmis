@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 07:40+0200\n"
-"PO-Revision-Date: 2016-06-02 07:42+0200\n"
+"POT-Creation-Date: 2016-09-25 19:15+0200\n"
+"PO-Revision-Date: 2016-09-25 19:15+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #. module: project_charter
 #: help:project.outscope,out_scope:0
@@ -189,6 +189,11 @@ msgid "Code"
 msgstr "Koda"
 
 #. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Communications"
+msgstr "Komunikacije"
+
+#. module: project_charter
 #: model:ir.model,name:project_charter.model_project_constraints
 #: field:project.constraints,constraints:0
 #: view:project.project:project_charter.view_project_form
@@ -211,13 +216,6 @@ msgstr "Ustvarjeno"
 #: field:project.success,success:0
 msgid "Criteria"
 msgstr "Kriterij"
-
-#. module: project_charter
-#: help:project.project,cost_category:0
-msgid ""
-"Defines what type of cost does the analytic account carry from an employee "
-"perspective."
-msgstr "Določi tip stroškov na analitičnem kontu iz vidika delojemalca."
 
 #. module: project_charter
 #: field:project.constraints,display_name:0
@@ -325,6 +323,11 @@ msgid "Project Scope"
 msgstr "Obseg projekta"
 
 #. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Project Team Members"
+msgstr "Člani projektne ekipe"
+
+#. module: project_charter
 #: field:project.project,project_constraints_ids:0
 msgid "Project constraints ids"
 msgstr "IDji projektnih mej"
@@ -406,11 +409,6 @@ msgid "Tasks"
 msgstr "Opravila"
 
 #. module: project_charter
-#: field:project.project,cost_category:0
-msgid "Type of Cost"
-msgstr "Tip stroška"
-
-#. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "WBS elements"
 msgstr "Členi"
@@ -419,6 +417,12 @@ msgstr "Členi"
 #: view:project.project:project_charter.edit_project
 msgid "Work Breakdown Structure"
 msgstr "Členjenje projekta"
+
+#~ msgid "Defines what type of cost does the analytic account carry from an employee perspective."
+#~ msgstr "Določi tip stroškov na analitičnem kontu iz vidika delojemalca."
+
+#~ msgid "Type of Cost"
+#~ msgstr "Tip stroška"
 
 #~ msgid "Child WBS elements"
 #~ msgstr "Podrejeni členi"
@@ -538,9 +542,6 @@ msgstr "Členjenje projekta"
 
 #~ msgid "Boundaries"
 #~ msgstr "Meje"
-
-#~ msgid "Project Charter"
-#~ msgstr "Projektni statut"
 
 #~ msgid "Project Description"
 #~ msgstr "Opis projekta"

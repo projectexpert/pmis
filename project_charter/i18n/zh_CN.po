@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-02 07:45+0200\n"
-"PO-Revision-Date: 2016-06-02 07:45+0200\n"
+"POT-Creation-Date: 2016-09-25 19:25+0200\n"
+"PO-Revision-Date: 2016-09-25 19:25+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #. module: project_charter
 #: help:project.outscope,out_scope:0
@@ -173,6 +173,11 @@ msgid "Code"
 msgstr "编号"
 
 #. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Communications"
+msgstr ""
+
+#. module: project_charter
 #: model:ir.model,name:project_charter.model_project_constraints
 #: field:project.constraints,constraints:0
 #: view:project.project:project_charter.view_project_form
@@ -197,13 +202,6 @@ msgid "Criteria"
 msgstr "条件"
 
 #. module: project_charter
-#: help:project.project,cost_category:0
-msgid ""
-"Defines what type of cost does the analytic account carry from an employee "
-"perspective."
-msgstr ""
-
-#. module: project_charter
 #: field:project.constraints,display_name:0
 #: field:project.outscope,display_name:0 field:project.success,display_name:0
 msgid "Display Name"
@@ -211,9 +209,8 @@ msgstr ""
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-#, fuzzy
 msgid "Edit Scope"
-msgstr "范围"
+msgstr ""
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -229,9 +226,8 @@ msgstr "ID"
 #. module: project_charter
 #: field:project.constraints,__last_update:0
 #: field:project.outscope,__last_update:0 field:project.success,__last_update:0
-#, fuzzy
 msgid "Last Modified on"
-msgstr "上次更新日期"
+msgstr ""
 
 #. module: project_charter
 #: field:project.constraints,write_uid:0 field:project.outscope,write_uid:0
@@ -309,6 +305,11 @@ msgstr "项目目的"
 #: view:project.project:project_charter.view_project_form
 msgid "Project Scope"
 msgstr "项目范围"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Project Team Members"
+msgstr ""
 
 #. module: project_charter
 #: field:project.project,project_constraints_ids:0
@@ -390,11 +391,6 @@ msgstr "成功和接收条件"
 #: model:ir.ui.menu,name:project_charter.menu_tasks_config_title
 msgid "Tasks"
 msgstr "任务"
-
-#. module: project_charter
-#: field:project.project,cost_category:0
-msgid "Type of Cost"
-msgstr ""
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form

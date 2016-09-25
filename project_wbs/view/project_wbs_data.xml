@@ -3,13 +3,13 @@
     <data noupdate="1">
         <!-- Project Stages -->
 
-        <record id="project_wbs_pending" model="analytic.account.stage">
-            <field name="sequence">1</field>
-            <field name="name">Pending</field>
-            <field name="case_default" eval="True"/>
-            <field name="fold" eval="True"/>
-            <field name="project_state">pending</field>
-        </record>
+        <!--<record id="project_wbs_pending" model="analytic.account.stage">-->
+            <!--<field name="sequence">1</field>-->
+            <!--<field name="name">Pending</field>-->
+            <!--<field name="case_default" eval="True"/>-->
+            <!--<field name="fold" eval="True"/>-->
+            <!--<field name="project_state">pending</field>-->
+        <!--</record>-->
         <record id="project_wbs_concept" model="analytic.account.stage">
             <field name="sequence">5</field>
             <field name="name">Conceptual stage</field>
@@ -45,20 +45,20 @@
             <field name="fold" eval="False"/>
             <field name="project_state">open</field>
         </record>
-        <record id="project_wbs_closed" model="analytic.account.stage">
-            <field name="sequence">50</field>
-            <field name="name">Closed</field>
-            <field name="case_default" eval="True"/>
-            <field name="fold" eval="True"/>
-            <field name="project_state">close</field>
-        </record>
-        <record id="project_wbs_cancelled" model="analytic.account.stage">
-            <field name="sequence">51</field>
-            <field name="name">Cancelled</field>
-            <field name="case_default" eval="True"/>
-            <field name="fold" eval="True"/>
-            <field name="project_state">cancelled</field>
-        </record>
+        <!--<record id="project_wbs_closed" model="analytic.account.stage">-->
+            <!--<field name="sequence">50</field>-->
+            <!--<field name="name">Closed</field>-->
+            <!--<field name="case_default" eval="True"/>-->
+            <!--<field name="fold" eval="True"/>-->
+            <!--<field name="project_state">close</field>-->
+        <!--</record>-->
+        <!--<record id="project_wbs_cancelled" model="analytic.account.stage">-->
+            <!--<field name="sequence">51</field>-->
+            <!--<field name="name">Cancelled</field>-->
+            <!--<field name="case_default" eval="True"/>-->
+            <!--<field name="fold" eval="True"/>-->
+            <!--<field name="project_state">cancelled</field>-->
+        <!--</record>-->
         <!--<record id="project_wbs_template" model="analytic.account.stage">
             <field name="sequence">99</field>
             <field name="name">Template</field>
