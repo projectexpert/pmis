@@ -201,7 +201,7 @@
                         <button string="Parent WBS element"
                             name="action_openParentTreeView"
                             type="object"
-                            icon="STOCK_GO_UP" attrs="{'invisible': [('parent_id', '=', False)]}"/>
+                            icon="STOCK_GO_UP" attrs="{'invisible': [('account_class', '=', 'project')]}"/>
                         <button string="Child WBS elements"
                             name="action_openChildTreeView"
                             type="object"
@@ -212,10 +212,10 @@
                             type="object"
                             icon="gtk-edit"/>
                         <!--END OPEN FORM BUTTON-->
-                        <button name="action_openChildView"
+                        <!--<button name="action_openChildView"
                                 string="Open Full WSB"
                                 type="object"
-                                icon="STOCK_GOTO_BOTTOM"/>
+                                icon="STOCK_GOTO_BOTTOM"/>-->
                         <field name="complete_wbs_code" string="Code"/>
                         <field name="wbs_indent"/>
                         <field name="name" string="Name"/>
@@ -243,7 +243,7 @@
             <field name="view_mode">form</field>
             <field name="target">current</field>
         </record>
-
+        <!--FORM VIEW-->
         <record id="edit_project" model="ir.ui.view">
             <field name="name">project.project.form</field>
             <field name="model">project.project</field>
@@ -333,7 +333,7 @@
             <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
             <field name="search_view_id" ref="view_project_project_filter"/>
         </record>
-
+        <!--KANBAN VIEW-->
         <record model="ir.ui.view" id="view_project_kanban_wbs">
             <field name="name">project.project.kanban.wbs</field>
             <field name="model">project.project</field>
@@ -382,53 +382,54 @@
                                     <field name="complete_wbs_code"/>
                                     <field name="account_class"/>
                                     </h6>
-                                    <!--<div class="oe_kanban_project_list">-->
-                                        <!--<a name="action_openProjectsView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'project','default_account_class': 'project'}">-->
-                                            <!--<span t-if="record.child_project_count.raw_value gt 1"><field name="child_project_count"/> Projects</span>-->
-                                            <!--<span t-if="record.child_project_count.raw_value lt 2"><field name="child_project_count"/> Project</span>-->
-                                        <!--</a>-->
-                                        <!--<a name="action_openPhasesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'phase','default_account_class': 'phase'}">-->
-                                            <!--<span t-if="record.child_phase_count.raw_value gt 1"><field name="child_phase_count"/> Phases</span>-->
-                                            <!--<span t-if="record.child_phase_count.raw_value lt 2"><field name="child_phase_count"/> Phase</span>-->
-                                        <!--</a>-->
-                                        <!--<a name="action_openDeliverablesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'deliverable','default_account_class': 'deliverable'}">-->
-                                            <!--<span t-if="record.child_deliverable_count.raw_value gt 1"><field name="child_deliverable_count"/> Deliverables</span>-->
-                                            <!--<span t-if="record.child_deliverable_count.raw_value lt 2"><field name="child_deliverable_count"/> Deliverable</span>-->
-                                        <!--</a>-->
-                                        <!--<a name="action_openWorkPackagesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'work_package','default_account_class': 'work_package'}">-->
-                                            <!--<span t-if="record.child_work_package_count.raw_value gt 1"><field name="child_work_package_count"/> W.P.</span>-->
-                                            <!--<span t-if="record.child_work_package_count.raw_value lt 2"><field name="child_work_package_count"/> W.P.</span>-->
-                                        <!--</a>-->
-                                        <!--<a name="action_openUnclassifiedView" type="object" style="margin-right: 10px" context="{'search_default_account_class': False,'default_account_class': False, 'account_class': False}">-->
-                                            <!--<span t-if="record.child_unclassified_count.raw_value gt 1"><field name="child_unclassified_count"/> Unclassified</span>-->
-                                            <!--<span t-if="record.child_unclassified_count.raw_value lt 2"><field name="child_unclassified_count"/> Unclassified</span>-->
-                                        <!--</a>-->
-                                    <!--</div>-->
-                                    <div class="oe_kanban_project_list" name="wbs_kanban_buttons">
+                                    <!--<div class="oe_kanban_project_list">
+                                        <a name="action_openProjectsView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'project','default_account_class': 'project'}">
+                                            <span t-if="record.child_project_count.raw_value gt 1"><field name="child_project_count"/> Projects</span>
+                                            <span t-if="record.child_project_count.raw_value lt 2"><field name="child_project_count"/> Project</span>
+                                        </a>
+                                        <a name="action_openPhasesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'phase','default_account_class': 'phase'}">
+                                            <span t-if="record.child_phase_count.raw_value gt 1"><field name="child_phase_count"/> Phases</span>
+                                            <span t-if="record.child_phase_count.raw_value lt 2"><field name="child_phase_count"/> Phase</span>
+                                        </a>
+                                        <a name="action_openDeliverablesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'deliverable','default_account_class': 'deliverable'}">
+                                            <span t-if="record.child_deliverable_count.raw_value gt 1"><field name="child_deliverable_count"/> Deliverables</span>
+                                            <span t-if="record.child_deliverable_count.raw_value lt 2"><field name="child_deliverable_count"/> Deliverable</span>
+                                        </a>
+                                        <a name="action_openWorkPackagesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'work_package','default_account_class': 'work_package'}">
+                                            <span t-if="record.child_work_package_count.raw_value gt 1"><field name="child_work_package_count"/> W.P.</span>
+                                            <span t-if="record.child_work_package_count.raw_value lt 2"><field name="child_work_package_count"/> W.P.</span>
+                                        </a>
+                                        <a name="action_openUnclassifiedView" type="object" style="margin-right: 10px" context="{'search_default_account_class': False,'default_account_class': False, 'account_class': False}">
+                                            <span t-if="record.child_unclassified_count.raw_value gt 1"><field name="child_unclassified_count"/> Unclassified</span>
+                                            <span t-if="record.child_unclassified_count.raw_value lt 2"><field name="child_unclassified_count"/> Unclassified</span>
+                                        </a>
+                                    </div>-->
+                                    <div class="oe_kanban_project_list" name="wbs_navigation_buttons">
                                         <a name="action_openParentTreeView"
                                            type="object"
-                                           class="fa fa-level-up oe_wbs_button">
-                                            <div>GO UP</div>
+                                           class="fa fa-level-up oe_wbs_navigation"
+                                            attrs="{'invisible': [('account_class', '=', 'project')]}">
+                                            GO UP
                                         </a>
                                         <a name="action_openChildTreeView"
                                            type="object"
                                            style="margin-right: 10px"
-                                           class="fa fa-level-down oe_wbs_button">
-                                            <div>GO DOWN</div>
+                                           class="fa fa-level-down oe_wbs_navigation">
+                                            GO DOWN
                                         </a>
                                     </div>
-                                    <div class="oe_kanban_project_list" name="second_row_buttons">
+                                    <div class="oe_kanban_project_list" name="wbs_kanban_buttons">
                                         <a t-if="record.use_tasks.raw_value"
                                            name="%(project.act_project_project_2_project_task_all)d"
                                            type="action"
                                            class="fa fa-tasks oe_wbs_button">
-                                            <div>Tasks: <field name="task_count"/></div>
+                                            Tasks: <field name="task_count"/>
                                         </a>
                                         <a t-if="record.doc_count.raw_value"
                                            name="attachment_tree_view"
                                            type="object"
                                            class="fa fa-files-o oe_wbs_button">
-                                             <div>Docs: <field name="doc_count"/></div>
+                                             Docs: <field name="doc_count"/>
                                         </a>
                                     </div>
                                     <div class="oe_kanban_footer_left">
@@ -470,8 +471,7 @@
                        name="%(project_issue.act_project_project_2_project_issue_all)d"
                        type="action"
                        class="fa fa-bug oe_wbs_button">
-                        <div>Issues: <t t-raw="record.issue_ids.raw_value.length"/>
-                        </div>
+                        Issues: <t t-raw="record.issue_ids.raw_value.length"/>
                     </a>
                 </xpath>
             </field>
