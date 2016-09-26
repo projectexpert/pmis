@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-25 17:13+0000\n"
-"PO-Revision-Date: 2016-09-25 17:13+0000\n"
+"POT-Creation-Date: 2016-09-26 15:02+0000\n"
+"PO-Revision-Date: 2016-09-26 15:02+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -376,6 +376,16 @@ msgid "Full path in the WBS hierarchy"
 msgstr ""
 
 #. module: project_wbs
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "GO DOWN"
+msgstr ""
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "GO UP"
+msgstr ""
+
+#. module: project_wbs
 #: field:project.project,recurring_invoices:0
 msgid "Generate recurring invoices automatically"
 msgstr ""
@@ -528,11 +538,6 @@ msgstr ""
 #. module: project_wbs
 #: field:project.project,invoice_on_timesheets:0
 msgid "On Timesheets"
-msgstr ""
-
-#. module: project_wbs
-#: view:project.project:project_wbs.view_project
-msgid "Open Full WSB"
 msgstr ""
 
 #. module: project_wbs
@@ -859,11 +864,6 @@ msgstr ""
 #. module: project_wbs
 #: field:project.project,user_ids:0
 msgid "User"
-msgstr ""
-
-#. module: project_wbs
-#: view:project.project:project_wbs.view_project_kanban_wbs
-msgid "WBS"
 msgstr ""
 
 #. module: project_wbs

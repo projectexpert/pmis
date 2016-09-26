@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-25 19:20+0200\n"
-"PO-Revision-Date: 2016-09-25 19:21+0200\n"
+"POT-Creation-Date: 2016-09-26 17:03+0200\n"
+"PO-Revision-Date: 2016-09-26 17:03+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -442,6 +442,16 @@ msgid "Full path in the WBS hierarchy"
 msgstr "Polna pot v WBS hierarhiji"
 
 #. module: project_wbs
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "GO DOWN"
+msgstr "Podrejeni"
+
+#. module: project_wbs
+#: view:project.project:project_wbs.view_project_kanban_wbs
+msgid "GO UP"
+msgstr "Nadrejeni"
+
+#. module: project_wbs
 #: field:project.project,recurring_invoices:0
 msgid "Generate recurring invoices automatically"
 msgstr "Samodejno ustvari ponavljajoče se račune"
@@ -615,11 +625,6 @@ msgstr ""
 #: field:project.project,invoice_on_timesheets:0
 msgid "On Timesheets"
 msgstr "Po časovnicah"
-
-#. module: project_wbs
-#: view:project.project:project_wbs.view_project
-msgid "Open Full WSB"
-msgstr "Odpri celotno členitev"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
@@ -967,11 +972,6 @@ msgid "User"
 msgstr "Uporabnik"
 
 #. module: project_wbs
-#: view:project.project:project_wbs.view_project_kanban_wbs
-msgid "WBS"
-msgstr "Členitev"
-
-#. module: project_wbs
 #: field:project.project,c_wbs_code:0
 msgid "WBS Code"
 msgstr "Koda členitve"
@@ -1044,6 +1044,12 @@ msgstr ""
 #: view:project.project:project_wbs.edit_project
 msgid "on_change_parent(parent_id)"
 msgstr "on_change_parent(parent_id)"
+
+#~ msgid "Open Full WSB"
+#~ msgstr "Odpri celotno členitev"
+
+#~ msgid "WBS"
+#~ msgstr "Členitev"
 
 #~ msgid "Documents"
 #~ msgstr "Dokumenti"
