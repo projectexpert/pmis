@@ -23,7 +23,7 @@ from openerp.osv import fields, osv
 from openerp import tools
 
 
-class task(osv.osv):
+class Task(osv.osv):
     _inherit = 'project.task'
 
     def get_related_tasks(self, cr, uid, ids, context=None):
@@ -135,4 +135,4 @@ class task(osv.osv):
 
         return True
 
-task()
+Task()

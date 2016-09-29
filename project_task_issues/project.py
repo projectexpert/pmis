@@ -30,7 +30,7 @@
 from openerp import models, fields, api
 
 
-class task(models.Model):
+class Task(models.Model):
     _inherit = 'project.task'
 
     issue_ids = fields.One2many(

@@ -9,7 +9,7 @@
             <field name="inherit_id" ref="project.view_task_form2"/>
             <field name="arch" type="xml">
                 <field name="progress" position="after">
-                    <field name="change_id" />
+                    <field name="change_id" invisible="context.get('change_id_visible',True)"/>
                 </field>
             </field>
         </record>

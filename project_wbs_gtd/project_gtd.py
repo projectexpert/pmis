@@ -127,3 +127,75 @@ class WbsWorkpackage(osv.Model):
         'wbstimebox_id': _read_group_wbstimebox_ids,
         'stage_id': _read_group_stage_ids,
     }
+
+# CORRECT THE ORIGINAL PROJECT_GTD (TASK LEVEL) BEHAVIOUR ON FOLDED KANBAN
+
+class ProjectTask(osv.Model):
+    _inherit = "project.task"
+
+    def _get_context(self, cr, uid, context=None):
+        ids = self.pool.get('project.gtd.context').search(
+            cr, uid, [], context=context)
+        return ids and ids[0] or False
+
+    def _read_group_timebox_ids(
+            self, cr, uid, ids, domain,
+            read_group_order=None, access_rights_uid=None, context=None):
+        """Used to display all timeboxes on the view."""
+        timebox_obj = self.pool.get('project.gtd.timebox')
+        order = timebox_obj._order
+        access_rights_uid = access_rights_uid or uid
+        timebox_ids = timebox_obj._search(
+            cr, uid, [],
+            order=order, access_rights_uid=access_rights_uid, context=context)
+        result = timebox_obj.name_get(
+            cr, access_rights_uid, timebox_ids, context=context)
+        # Restore order of the search
+        result.sort(
+            lambda x, y: cmp(timebox_ids.index(x[0]), timebox_ids.index(y[0])))
+        fold = dict.fromkeys(timebox_ids, False)
+        return result, fold
+
+    def _read_group_stage_ids(
+            self, cr, uid, ids, domain,
+            read_group_order=None, access_rights_uid=None, context=None
+    ):
+        stage_obj = self.pool.get('project.task.type')
+        order = stage_obj._order
+        access_rights_uid = access_rights_uid or uid
+        if read_group_order == 'stage_id desc':
+            order = '%s desc' % order
+        search_domain = []
+        project_id = self._resolve_project_id_from_context(
+            cr, uid, context=context
+        )
+        if project_id:
+            search_domain += ['|', ('project_ids', '=', project_id)]
+        search_domain += [('id', 'in', ids)]
+        stage_ids = stage_obj._search(
+            cr, uid, [], order=order,
+            access_rights_uid=access_rights_uid, context=context
+        )
+        result = stage_obj.name_get(
+            cr, access_rights_uid, stage_ids, context=context
+        )
+        # restore order of the search
+        result.sort(
+            lambda x, y: cmp(stage_ids.index(x[0]), stage_ids.index(y[0]))
+        )
+
+        fold = {}
+        for stage in stage_obj.browse(
+                cr, access_rights_uid, stage_ids, context=context
+        ):
+            fold[stage.id] = stage.fold or False
+        return result, fold
+
+    _defaults = {
+        'context_id': _get_context
+    }
+
+    _group_by_full = {
+        'timebox_id': _read_group_timebox_ids,
+        'stage_id': _read_group_stage_ids,
+    }
