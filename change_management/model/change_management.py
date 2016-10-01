@@ -8,106 +8,43 @@ import logging
 
 _logger = logging.getLogger(__name__)
 
-_CHANGE_STATE = [
-    ('draft', 'Draft'),
-    ('active', 'Active'),
-    ('rejected', 'Rejected'),
-    ('accepted', 'Accepted'),
-    ('deferred', 'Deferred')
-]
-
 
 class CMChangeCategory (models.Model):
     _name = 'change.management.category'
     _description = 'Change log category table'
 
-    name = fields.Char(string='Change Category', size=64, required=True)
-
-CMChangeCategory()
+    name = fields.Char(string='Change Category', required=True)
 
 
 class CMProximity (models.Model):
     _name = 'change.management.proximity'
     _description = 'Change log proximity table'
 
-    name = fields.Char(string='Proximity', size=64, required=True)
-
-CMProximity()
+    name = fields.Char(string='Proximity', required=True)
 
 
 class CMChange (models.Model):
     _name = 'change.management.change'
     _description = 'Change'
     _inherit = ['mail.thread', 'ir.needaction_mixin']
+    _order = 'id desc'
 
-    _track = {
-        'state': {
-            'change.mt_change_draft': (
-                lambda self, cr, uid, obj,
-                ctx=None: obj['state'] in ['draft']
-            ),
-            'change.mt_change_active': (
-                lambda self, cr, uid, obj,
-                ctx=None: obj['state'] in ['active']
-            ),
-            'change.mt_change_rejected': (
-                lambda self, cr, uid, obj,
-                ctx=None: obj['state'] in ['rejected']
-            ),
-            'change.mt_change_accepted': (
-                lambda self, cr, uid, obj,
-                ctx=None: obj['state'] in ['accepted']
-            ),
-            'change.mt_change_deferred': (
-                lambda self, cr, uid, obj,
-                ctx=None: obj['state'] in ['deferred']
-            )
-        }
-    }
-
-    @api.depends('change_response_ids')
-    def _change_response_count(self):
-            for record in self:
-                record.change_response_count = len(record.change_response_ids)
-
-    @api.multi
-    def set_state_draft(self):
-        self.ensure_one()
-        return self.write({'state': 'draft'})
-
-    @api.multi
-    def set_state_active(self):
-        self.ensure_one()
-        return self.write({'state': 'active'})
-
-    @api.multi
-    def set_state_rejected(self):
-        self.ensure_one()
-        return self.write({'state': 'rejected'})
-
-    @api.multi
-    def set_state_accepted(self):
-        self.ensure_one()
-        return self.write({'state': 'accepted'})
-
-    @api.multi
-    def set_state_deferred(self):
-        self.ensure_one()
-        return self.write({'state': 'deferred'})
-
-    #
-    # FIELDS
-    #
+    # ##### FIELDS #####  #
 
     name = fields.Char(
-        'Request Id', size=64, required=True, readonly=True,
-        states={'draft': [('readonly', False)]}, select=True,
+        'Request Id',
+        required=True,
+        readonly=True,
+        states={'draft': [('readonly', False)]},
+        select=True,
         help='''
 Change label. Can be changed as long as change is in state 'draft'.
         '''
     )
+
     description = fields.Char(
-        string='Request Description', size=64, help='''
+        string='Request Description',
+        help='''
 Short description of the change.
 
 Project changes are characteristics, circumstances or
@@ -148,20 +85,41 @@ and obtain sign-off from all key stakeholders.
         '''
     )
     project_id = fields.Many2one(
-        'project.project', 'Project', required=True
+        comodel_name='project.project',
+        string='Project',
+        ondelete='set null',
+        readonly=True,
+        states={'draft': [('readonly', False)]},
+        required=True,
     )
     author_id = fields.Many2one(
-        'res.users', 'Requestor', required=True
+        'res.users', 'Requestor', required=True,
     )
     stakeholder_id = fields.Many2one(
-        'project.hr.stakeholder', string='Proposer'
+        'res.partner', string='Proposer'
     )
     color = fields.Integer(
         'Color'
     )
-    date_registered = fields.Date(
-        'Date Registered', required=True,
-        help="Date of the change registered. Auto populated."
+
+    date_confirmed = fields.Date(
+        string='Confirmation Date',
+        readonly=True,
+        help="Date of the change confirmation. Auto populated."
+    )
+    confirmed_id = fields.Many2one(
+        'res.users',
+        string='Confirmed by',
+        readonly=True
+    )
+    date_approved = fields.Datetime(
+        string='Approval Date',
+        readonly=True
+    )
+    approved_id = fields.Many2one(
+        'res.users',
+        string='Approved by',
+        readonly=True
     )
     date_modified = fields.Date(
         'Date Revised', help="Date of last revision."
@@ -198,7 +156,12 @@ accordance with the project's chosen scales or business continuity time scales.
         compute='_change_response_count', type='integer'
     )
     state = fields.Selection(
-        _CHANGE_STATE, 'State', readonly=True
+        selection="_get_states",
+        default='draft',
+        readonly=True,
+        string='State',
+        states={'draft': [('readonly', False)]},
+        track_visibility='on_change'
     )
     change_owner_id = fields.Many2one(
         'res.users', 'Change Manager',
@@ -209,64 +172,125 @@ level, in case of business continuity to a C-level manager.
         '''
     )
 
-    #
-    # DEFINITIONS
-    #
+    @api.model
+    def _get_default_company(self):
+        company_id = self.env.user._get_company()
+        if not company_id:
+            raise except_orm(
+                _('Error!'),
+                _('There is no default company for the current user!'))
+        return self.env['res.company'].browse(company_id)
 
-    _defaults = {
-        'author_id': lambda s, cr, uid, c: uid,
-        'date_registered': lambda *a: date.today().strftime('%Y-%m-%d'),
-        'state': 'draft',
-        'name': lambda s, cr, uid, c: s.pool.get('ir.sequence').get(
-            cr, uid, 'change.management.change'
-        ),
-        'color': '0'
-    }
+    company_id = fields.Many2one(
+        'res.company', string='Company',
+        required=True, readonly=True, states={'draft': [('readonly', False)]},
+        default=_get_default_company,
+    )
 
-    def _subscribe_extra_followers(self, cr, uid, ids, vals, context=None):
+    # ##### DEFINITIONS #####  #
+
+    @api.model
+    def _get_states(self):
+        states = [
+            ('draft', 'Draft'),
+            ('active', 'Confirmed'),
+            ('accepted', 'Approved'),
+            ('in_progress', 'In progress'),
+            ('done', 'Done'),
+            ('rejected', 'Rejected'),
+            ('withdraw', 'Withdrawn'),
+            ('deferred', 'Deferred')
+        ]
+        return states
+
+    @api.depends('change_response_ids')
+    def _change_response_count(self):
+        for record in self:
+            record.change_response_count = len(record.change_response_ids)
+
+    @api.multi
+    def set_state_draft(self):
+        self.write({'state': 'draft'})
+        self.confirmed_id = self.approved_id = []
+        self.date_confirmed = self.approval_date = ''
+
+    @api.multi
+    def set_state_active(self):
+        self.write({'state': 'active'})
+        self.confirmed_id = self.env.user
+        self.date_confirmed = fields.Datetime.now()
+
+    @api.multi
+    def set_state_accepted(self):
+        self.write({'state': 'accepted'})
+        self.approved_id = self.env.user
+        self.date_approved = fields.Datetime.now()
+
+    @api.multi
+    def set_in_progress(self):
+        self.write({'state': 'in_progress'})
+
+    @api.multi
+    def set_state_done(self):
+        self.write({'state': 'done'})
+
+    @api.multi
+    def set_state_rejected(self):
+        self.write({'state': 'rejected'})
+
+    @api.multi
+    def set_state_deferred(self):
+        self.write({'state': 'deferred'})
+
+    @api.multi
+    def set_state_withdrawn(self):
+        self.write({'state': 'withdraw'})
+
+    @api.multi
+    def _subscribe_extra_followers(self, vals):
         user_ids = [
             vals[x] for
             x in
             ['author_id', 'change_owner_id'] if
             x in
-            vals and
-            vals[x] != False
+            vals if not
+            vals[x] is False
         ]
         if len(user_ids) > 0:
             self.message_subscribe_users(
-                cr, uid, ids, user_ids=user_ids, context=context
+                user_ids=user_ids
             )
 
         changes = self.read(
-            cr, uid, ids, ['message_follower_ids', 'change_response_ids']
+            ['message_follower_ids', 'change_response_ids']
         )
         for change in changes:
             if 'change_response_ids' in change and change[
                 'change_response_ids'
             ]:
-                task_ob = self.pool.get('project.task')
+                task_ob = self.env['project.task']
                 task_ob.message_subscribe(
-                    cr, uid, change['change_response_ids'], change[
+                    change['change_response_ids'], change[
                         'message_follower_ids'
-                    ], context=context
+                    ]
                 )
 
-    def write(self, cr, uid, ids, vals, context=None):
+    @api.multi
+    def write(self, vals):
         ret = super(CMChange, self).write(
-            cr, uid, ids, vals, context
+            vals
         )
-        self._subscribe_extra_followers(cr, uid, ids, vals, context)
+        self._subscribe_extra_followers(vals)
         return ret
 
-    def create(self, cr, uid, vals, context=None):
-        change_id = super(CMChange, self).create(
-            cr, uid, vals, context
-        )
-        self._subscribe_extra_followers(cr, uid, [change_id], vals, context)
-        return change_id
+    @api.model
+    def create(self, vals):
+        if vals.get('name', '/') == '/':
+            vals['name'] = self.env['ir.sequence'].get(
+                'change.management.change')
+        return super(CMChange, self).create(vals)
 
-    # create CR from mail
-
+    # ##### create CR from mail #####  #
 
 class Project(models.Model):
     _inherit = "project.project"

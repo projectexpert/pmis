@@ -4,7 +4,7 @@
 
 {
     'name': 'Change Management Project Proposal',
-    'version': '8.0.1.0.1',
+    'version': '8.0.1.0.2',
     'author': 'Eficent Business and IT Consulting Services S.L., '
               'Project Expert Team',
     'contributors': [

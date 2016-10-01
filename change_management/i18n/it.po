@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-03 08:43+0200\n"
-"PO-Revision-Date: 2016-05-21 18:33+0200\n"
+"POT-Creation-Date: 2016-10-01 18:15+0200\n"
+"PO-Revision-Date: 2016-10-01 18:19+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #. module: change_management
 #: help:change.management.change,change_category_id:0
@@ -168,16 +168,6 @@ msgstr ""
 "        "
 
 #. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Accept Change"
-msgstr "Accetta modifica"
-
-#. module: change_management
-#: selection:change.management.change,state:0
-msgid "Accepted"
-msgstr "Accettato"
-
-#. module: change_management
 #: field:project.task,change_id:0
 msgid "Action on Change"
 msgstr "Azione per modifica"
@@ -194,11 +184,6 @@ msgstr "Azioni"
 #: view:change.management.change:change_management.change_kanban_view
 msgid "Actions:"
 msgstr "Azioni:"
-
-#. module: change_management
-#: selection:change.management.change,state:0
-msgid "Active"
-msgstr "Attivo"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -219,6 +204,31 @@ msgstr "Modifiche attive"
 #: view:project.task:change_management.change_management_project_task_search_view
 msgid "Active tasks"
 msgstr "Attività attive"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+msgid "Appr. Date"
+msgstr "Approvato il"
+
+#. module: change_management
+#: field:change.management.change,date_approved:0
+msgid "Approval Date"
+msgstr "Data approvazione"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Approve"
+msgstr "Approva"
+
+#. module: change_management
+#: field:change.management.change,approved_id:0
+msgid "Approved by"
+msgstr "Approvato da"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Back to Draft"
+msgstr "Metti in bozza"
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
@@ -287,8 +297,6 @@ msgid "Change In Process"
 msgstr "Modifica in corso"
 
 #. module: change_management
-#: model:ir.ui.menu,name:change_management.menu_change_management
-#: model:ir.ui.menu,name:change_management.menu_configuration_changes
 #: view:project.project:change_management.change_management_project_charter_tree_view
 msgid "Change Management"
 msgstr "Gestione modifiche"
@@ -344,9 +352,15 @@ msgid "Change rejected"
 msgstr "Modifica rifiutata"
 
 #. module: change_management
+#: field:change.management.change,change_response_count:0
+msgid "Change response count"
+msgstr "Conteggio azioni di modifica"
+
+#. module: change_management
 #: view:change.management.change:change_management.change_tree_view
 #: model:ir.actions.act_window,name:change_management.action_show_changes
-#: model:ir.ui.menu,name:change_management.menu_changes
+#: model:ir.ui.menu,name:change_management.menu_change_management
+#: model:ir.ui.menu,name:change_management.menu_configuration_changes
 #: view:project.project:change_management.change_management_project_charter_tree_view
 msgid "Changes"
 msgstr "Modifiche"
@@ -372,6 +386,31 @@ msgid "Color"
 msgstr "Colore"
 
 #. module: change_management
+#: field:change.management.change,company_id:0
+msgid "Company"
+msgstr "Società"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+msgid "Conf. Date"
+msgstr "Confermato il"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Confirm"
+msgstr "Conferma"
+
+#. module: change_management
+#: field:change.management.change,date_confirmed:0
+msgid "Confirmation Date"
+msgstr "Data conferma"
+
+#. module: change_management
+#: field:change.management.change,confirmed_id:0
+msgid "Confirmed by"
+msgstr "Confermato da"
+
+#. module: change_management
 #: field:change.management.category,create_uid:0
 #: field:change.management.change,create_uid:0
 #: field:change.management.proximity,create_uid:0
@@ -386,11 +425,6 @@ msgid "Created on"
 msgstr "Creato il"
 
 #. module: change_management
-#: field:change.management.change,date_registered:0
-msgid "Date Registered"
-msgstr "Data registrazione"
-
-#. module: change_management
 #: field:change.management.change,date_modified:0
 msgid "Date Revised"
 msgstr "Data revisione"
@@ -401,9 +435,9 @@ msgid "Date of last revision."
 msgstr "Data ultima revisione"
 
 #. module: change_management
-#: help:change.management.change,date_registered:0
-msgid "Date of the change registered. Auto populated."
-msgstr "Data registrazione modifica - auto popolata."
+#: help:change.management.change,date_confirmed:0
+msgid "Date of the change confirmation. Auto populated."
+msgstr "Data conferma modifica - auto popolata."
 
 #. module: change_management
 #: help:change.management.change,message_last_post:0
@@ -412,13 +446,8 @@ msgstr "Data pubblicazione ultimo messaggio sul record."
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
-msgid "Defer Change"
-msgstr "Rinvia modifica"
-
-#. module: change_management
-#: selection:change.management.change,state:0
-msgid "Deferred"
-msgstr "Rinviato"
+msgid "Defer"
+msgstr "Rinvia"
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
@@ -431,9 +460,16 @@ msgid "Description"
 msgstr "Descrizione"
 
 #. module: change_management
-#: selection:change.management.change,state:0
-msgid "Draft"
-msgstr "Bozza"
+#: field:change.management.category,display_name:0
+#: field:change.management.change,display_name:0
+#: field:change.management.proximity,display_name:0
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Done"
+msgstr "Fatto"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_kanban_view
@@ -445,6 +481,12 @@ msgstr "Edita..."
 #: field:change.management.change,description_effect:0
 msgid "Effect"
 msgstr "Effetto"
+
+#. module: change_management
+#: code:addons/change_management/model/change_management.py:180
+#, python-format
+msgid "Error!"
+msgstr "Errore!"
 
 #. module: change_management
 #: field:change.management.change,message_follower_ids:0
@@ -492,6 +534,13 @@ msgstr "È un seguace"
 #: field:change.management.change,message_last_post:0
 msgid "Last Message Date"
 msgstr "Data ultimo messaggio"
+
+#. module: change_management
+#: field:change.management.category,__last_update:0
+#: field:change.management.change,__last_update:0
+#: field:change.management.proximity,__last_update:0
+msgid "Last Modified on"
+msgstr "Ultimo aggiornamento"
 
 #. module: change_management
 #: field:change.management.category,write_uid:0
@@ -550,6 +599,7 @@ msgid "Proposer"
 msgstr "Proponente"
 
 #. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
 #: field:change.management.change,proximity_id:0
 #: view:change.management.proximity:change_management.proximity_tree_view
 #: field:change.management.proximity,name:0
@@ -575,13 +625,8 @@ msgstr "Data reg."
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
-msgid "Reject Change"
-msgstr "Rifiuta modifica"
-
-#. module: change_management
-#: selection:change.management.change,state:0
-msgid "Rejected"
-msgstr "Rifiutato"
+msgid "Reject"
+msgstr "Rifiuta"
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
@@ -612,16 +657,6 @@ msgstr "Azioni in risposta"
 #: field:change.management.change,change_response_ids:0
 msgid "Response Ids"
 msgstr "ID risposte"
-
-#. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Set Active"
-msgstr "Attiva"
-
-#. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Set Draft"
-msgstr "Metti in bozza"
 
 #. module: change_management
 #: view:project.task:change_management.change_management_project_task_search_view
@@ -655,8 +690,19 @@ msgid "Task is an action on a change identified by this label."
 msgstr "L'attività è una azione su modifica identificata da questo campo."
 
 #. module: change_management
+#: code:addons/change_management/model/change_management.py:181
+#, python-format
+msgid "There is no default company for the current user!"
+msgstr "L'utente attuale non contiene la società predefinita!"
+
+#. module: change_management
 #: field:change.management.change,message_unread:0
 msgid "Unread Messages"
+msgstr "Messaggi non letti"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+msgid "Unread messages"
 msgstr "Messaggi non letti"
 
 #. module: change_management
@@ -680,9 +726,38 @@ msgid "Website communication history"
 msgstr "Cronologia comunicazioni pagina web"
 
 #. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Withdraw"
+msgstr "Ritira"
+
+#. module: change_management
 #: view:project.task:change_management.view_task_kanban
 msgid "oe_kanban_text_red"
 msgstr "oe_kanban_text_red"
+
+#~ msgid "Accept Change"
+#~ msgstr "Accetta modifica"
+
+#~ msgid "Accepted"
+#~ msgstr "Accettato"
+
+#~ msgid "Active"
+#~ msgstr "Attivo"
+
+#~ msgid "Date Registered"
+#~ msgstr "Data registrazione"
+
+#~ msgid "Defer Change"
+#~ msgstr "Rinvia modifica"
+
+#~ msgid "Draft"
+#~ msgstr "Bozza"
+
+#~ msgid "Reject Change"
+#~ msgstr "Rifiuta modifica"
+
+#~ msgid "Set Active"
+#~ msgstr "Attiva"
 
 #, fuzzy
 #~ msgid "Author"

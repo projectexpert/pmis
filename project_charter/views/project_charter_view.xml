@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <menuitem id="project_management" 
-			name="Management" 
+			name="Manage"
 			parent="base.menu_main_pm" 
 			sequence="3"/>
 		<menuitem id="menu_tasks_config_title"

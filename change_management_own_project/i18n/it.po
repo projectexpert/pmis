@@ -6,21 +6,43 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 15:50+0000\n"
-"PO-Revision-Date: 2016-05-21 17:53+0200\n"
+"POT-Creation-Date: 2016-10-01 18:28+0200\n"
+"PO-Revision-Date: 2016-10-01 18:29+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: it\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.9\n"
+
+#. module: change_management_own_project
+#: code:addons/change_management_own_project/models/change_management.py:28
+#, python-format
+msgid "A Change Management Project already exists."
+msgstr "Un progetto di gestione cambiamenti esiste di già."
 
 #. module: change_management_own_project
 #: model:ir.model,name:change_management_own_project.model_change_management_change
 msgid "Change"
 msgstr "Modifica"
+
+#. module: change_management_own_project
+#: code:addons/change_management_own_project/models/change_management.py:27
+#, python-format
+msgid "Error!"
+msgstr "Errore!"
+
+#. module: change_management_own_project
+#: view:change.management.change:change_management_own_project.change_form_view
+msgid "Launch a"
+msgstr "Lancia un"
+
+#. module: change_management_own_project
+#: view:change.management.change:change_management_own_project.change_form_view
+msgid "New Project"
+msgstr "nuovo progetto"
 
 #. module: change_management_own_project
 #: field:change.management.change,change_project_id:0

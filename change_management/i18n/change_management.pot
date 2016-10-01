@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-13 07:36+0000\n"
-"PO-Revision-Date: 2015-11-13 07:36+0000\n"
+"POT-Creation-Date: 2016-10-01 16:06+0000\n"
+"PO-Revision-Date: 2016-10-01 16:06+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -93,16 +93,6 @@ msgid "\n"
 msgstr ""
 
 #. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Accept Change"
-msgstr ""
-
-#. module: change_management
-#: selection:change.management.change,state:0
-msgid "Accepted"
-msgstr ""
-
-#. module: change_management
 #: field:project.task,change_id:0
 msgid "Action on Change"
 msgstr ""
@@ -118,11 +108,6 @@ msgstr ""
 #. module: change_management
 #: view:change.management.change:change_management.change_kanban_view
 msgid "Actions:"
-msgstr ""
-
-#. module: change_management
-#: selection:change.management.change,state:0
-msgid "Active"
 msgstr ""
 
 #. module: change_management
@@ -143,6 +128,31 @@ msgstr ""
 #. module: change_management
 #: view:project.task:change_management.change_management_project_task_search_view
 msgid "Active tasks"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+msgid "Appr. Date"
+msgstr ""
+
+#. module: change_management
+#: field:change.management.change,date_approved:0
+msgid "Approval Date"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Approve"
+msgstr ""
+
+#. module: change_management
+#: field:change.management.change,approved_id:0
+msgid "Approved by"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Back to Draft"
 msgstr ""
 
 #. module: change_management
@@ -212,8 +222,6 @@ msgid "Change In Process"
 msgstr ""
 
 #. module: change_management
-#: model:ir.ui.menu,name:change_management.menu_change_management
-#: model:ir.ui.menu,name:change_management.menu_configuration_changes
 #: view:project.project:change_management.change_management_project_charter_tree_view
 msgid "Change Management"
 msgstr ""
@@ -269,9 +277,15 @@ msgid "Change rejected"
 msgstr ""
 
 #. module: change_management
+#: field:change.management.change,change_response_count:0
+msgid "Change response count"
+msgstr ""
+
+#. module: change_management
 #: view:change.management.change:change_management.change_tree_view
 #: model:ir.actions.act_window,name:change_management.action_show_changes
-#: model:ir.ui.menu,name:change_management.menu_changes
+#: model:ir.ui.menu,name:change_management.menu_change_management
+#: model:ir.ui.menu,name:change_management.menu_configuration_changes
 #: view:project.project:change_management.change_management_project_charter_tree_view
 msgid "Changes"
 msgstr ""
@@ -297,6 +311,31 @@ msgid "Color"
 msgstr ""
 
 #. module: change_management
+#: field:change.management.change,company_id:0
+msgid "Company"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+msgid "Conf. Date"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Confirm"
+msgstr ""
+
+#. module: change_management
+#: field:change.management.change,date_confirmed:0
+msgid "Confirmation Date"
+msgstr ""
+
+#. module: change_management
+#: field:change.management.change,confirmed_id:0
+msgid "Confirmed by"
+msgstr ""
+
+#. module: change_management
 #: field:change.management.category,create_uid:0
 #: field:change.management.change,create_uid:0
 #: field:change.management.proximity,create_uid:0
@@ -311,11 +350,6 @@ msgid "Created on"
 msgstr ""
 
 #. module: change_management
-#: field:change.management.change,date_registered:0
-msgid "Date Registered"
-msgstr ""
-
-#. module: change_management
 #: field:change.management.change,date_modified:0
 msgid "Date Revised"
 msgstr ""
@@ -326,8 +360,8 @@ msgid "Date of last revision."
 msgstr ""
 
 #. module: change_management
-#: help:change.management.change,date_registered:0
-msgid "Date of the change registered. Auto populated."
+#: help:change.management.change,date_confirmed:0
+msgid "Date of the change confirmation. Auto populated."
 msgstr ""
 
 #. module: change_management
@@ -337,12 +371,7 @@ msgstr ""
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
-msgid "Defer Change"
-msgstr ""
-
-#. module: change_management
-#: selection:change.management.change,state:0
-msgid "Deferred"
+msgid "Defer"
 msgstr ""
 
 #. module: change_management
@@ -356,8 +385,15 @@ msgid "Description"
 msgstr ""
 
 #. module: change_management
-#: selection:change.management.change,state:0
-msgid "Draft"
+#: field:change.management.category,display_name:0
+#: field:change.management.change,display_name:0
+#: field:change.management.proximity,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Done"
 msgstr ""
 
 #. module: change_management
@@ -369,6 +405,12 @@ msgstr ""
 #. module: change_management
 #: field:change.management.change,description_effect:0
 msgid "Effect"
+msgstr ""
+
+#. module: change_management
+#: code:addons/change_management/model/change_management.py:180
+#, python-format
+msgid "Error!"
 msgstr ""
 
 #. module: change_management
@@ -411,6 +453,13 @@ msgstr ""
 #. module: change_management
 #: field:change.management.change,message_last_post:0
 msgid "Last Message Date"
+msgstr ""
+
+#. module: change_management
+#: field:change.management.category,__last_update:0
+#: field:change.management.change,__last_update:0
+#: field:change.management.proximity,__last_update:0
+msgid "Last Modified on"
 msgstr ""
 
 #. module: change_management
@@ -470,6 +519,7 @@ msgid "Proposer"
 msgstr ""
 
 #. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
 #: field:change.management.change,proximity_id:0
 #: view:change.management.proximity:change_management.proximity_tree_view
 #: field:change.management.proximity,name:0
@@ -495,12 +545,7 @@ msgstr ""
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
-msgid "Reject Change"
-msgstr ""
-
-#. module: change_management
-#: selection:change.management.change,state:0
-msgid "Rejected"
+msgid "Reject"
 msgstr ""
 
 #. module: change_management
@@ -531,16 +576,6 @@ msgstr ""
 #. module: change_management
 #: field:change.management.change,change_response_ids:0
 msgid "Response Ids"
-msgstr ""
-
-#. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Set Active"
-msgstr ""
-
-#. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Set Draft"
 msgstr ""
 
 #. module: change_management
@@ -575,8 +610,19 @@ msgid "Task is an action on a change identified by this label."
 msgstr ""
 
 #. module: change_management
+#: code:addons/change_management/model/change_management.py:181
+#, python-format
+msgid "There is no default company for the current user!"
+msgstr ""
+
+#. module: change_management
 #: field:change.management.change,message_unread:0
 msgid "Unread Messages"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+msgid "Unread messages"
 msgstr ""
 
 #. module: change_management
@@ -597,6 +643,11 @@ msgstr ""
 #. module: change_management
 #: help:change.management.change,website_message_ids:0
 msgid "Website communication history"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Withdraw"
 msgstr ""
 
 #. module: change_management

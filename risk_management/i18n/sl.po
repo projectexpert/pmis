@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-13 08:45+0100\n"
-"PO-Revision-Date: 2015-11-13 08:46+0100\n"
+"POT-Creation-Date: 2016-10-01 18:32+0200\n"
+"PO-Revision-Date: 2016-10-01 18:32+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #. module: risk_management
 #: help:risk.management.risk,state:0
@@ -345,6 +345,14 @@ msgid "Description"
 msgstr "Opis"
 
 #. module: risk_management
+#: field:risk.management.category,display_name:0
+#: field:risk.management.proximity,display_name:0
+#: field:risk.management.response.category,display_name:0
+#: field:risk.management.risk,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: risk_management
 #: selection:risk.management.risk,state:0
 msgid "Draft"
 msgstr "Osnutek"
@@ -435,6 +443,14 @@ msgstr "Je sledilec"
 #: field:risk.management.risk,message_last_post:0
 msgid "Last Message Date"
 msgstr "Datum zadnjega sporočila"
+
+#. module: risk_management
+#: field:risk.management.category,__last_update:0
+#: field:risk.management.proximity,__last_update:0
+#: field:risk.management.response.category,__last_update:0
+#: field:risk.management.risk,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
 
 #. module: risk_management
 #: field:risk.management.category,write_uid:0
@@ -621,12 +637,6 @@ msgid "Risk In Draft"
 msgstr "Osnutki tveganj"
 
 #. module: risk_management
-#: model:ir.ui.menu,name:risk_management.menu_configuration_risks
-#: model:ir.ui.menu,name:risk_management.menu_risk_management
-msgid "Risk Management"
-msgstr "Upravljanje tveganj"
-
-#. module: risk_management
 #: view:risk.management.risk:risk_management.risk_search_form_view
 msgid "Risk Owner"
 msgstr "Lastnik tveganja"
@@ -682,13 +692,19 @@ msgid "Risk log response category table"
 msgstr "Tabela dnevnika kategorij odzivov"
 
 #. module: risk_management
+#: field:risk.management.risk,risk_response_count:0
+msgid "Risk response count"
+msgstr "Števec ukrepov ob tveganjih"
+
+#. module: risk_management
 #: model:mail.message.subtype,description:risk_management.mt_risk_active
 msgid "Risk set active"
 msgstr "Nastavi tveganje kot aktivno"
 
 #. module: risk_management
 #: model:ir.actions.act_window,name:risk_management.action_show_risks
-#: model:ir.ui.menu,name:risk_management.menu_risks
+#: model:ir.ui.menu,name:risk_management.menu_configuration_risks
+#: model:ir.ui.menu,name:risk_management.menu_risk_management
 #: view:risk.management.risk:risk_management.risk_tree_view
 msgid "Risks"
 msgstr "Tveganja"
@@ -778,6 +794,9 @@ msgstr "Kronologija komunikacij spletne strani"
 #: view:project.task:risk_management.view_task_kanban
 msgid "oe_kanban_text_red"
 msgstr "oe_kanban_text_red"
+
+#~ msgid "Risk Management"
+#~ msgstr "Upravljanje tveganj"
 
 #~ msgid "Short description of the Risk."
 #~ msgstr "Kratek opis tveganja."

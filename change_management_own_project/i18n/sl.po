@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 17:52+0200\n"
-"PO-Revision-Date: 2016-05-21 17:52+0200\n"
+"POT-Creation-Date: 2016-10-01 18:27+0200\n"
+"PO-Revision-Date: 2016-10-01 18:28+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -15,12 +15,34 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.9\n"
+
+#. module: change_management_own_project
+#: code:addons/change_management_own_project/models/change_management.py:28
+#, python-format
+msgid "A Change Management Project already exists."
+msgstr "Projekt iz upravljanja sprememb že obstaja."
 
 #. module: change_management_own_project
 #: model:ir.model,name:change_management_own_project.model_change_management_change
 msgid "Change"
 msgstr "Sprememba"
+
+#. module: change_management_own_project
+#: code:addons/change_management_own_project/models/change_management.py:27
+#, python-format
+msgid "Error!"
+msgstr "Napaka!"
+
+#. module: change_management_own_project
+#: view:change.management.change:change_management_own_project.change_form_view
+msgid "Launch a"
+msgstr "Zaženi"
+
+#. module: change_management_own_project
+#: view:change.management.change:change_management_own_project.change_form_view
+msgid "New Project"
+msgstr "nov projekt"
 
 #. module: change_management_own_project
 #: field:change.management.change,change_project_id:0

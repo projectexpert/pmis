@@ -8,11 +8,17 @@
             <field name="inherit_id" ref="change_management.change_form_view"/>
             <field name="arch" type="xml">
                 <field name="author_id" position="after">
-                    <field name="change_project_id"/>
+                    <separator colspan="2"/>
                     <button name="button_create_change_project"
-                            string="Create Change Management Project"
                             type='object'
-                            attrs="{'invisible': [('change_project_id', '!=', False)]}"/>
+                            attrs="{'invisible': [('change_project_id', '!=', False)]}"
+                            colspan="2"
+                            class="oe_stat_button"
+                            icon="fa-level-down">
+                        <div>Launch a<br/>New Project</div>
+                    </button>
+                    <separator colspan="2"/>
+                    <field name="change_project_id"/>
                 </field>
             </field>
         </record>

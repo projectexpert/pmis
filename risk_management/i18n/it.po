@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-13 08:46+0100\n"
-"PO-Revision-Date: 2015-11-13 08:46+0100\n"
+"POT-Creation-Date: 2016-10-01 18:32+0200\n"
+"PO-Revision-Date: 2016-10-01 18:33+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #. module: risk_management
 #: help:risk.management.risk,state:0
@@ -168,13 +168,15 @@ msgstr ""
 #: model:ir.actions.act_window,name:risk_management.action_show_actions
 #: model:ir.ui.menu,name:risk_management.menu_actions_on_risk
 #: view:risk.management.risk:risk_management.risk_tree_view
+#, fuzzy
 msgid "Actions"
-msgstr ""
+msgstr "Azioni"
 
 #. module: risk_management
 #: view:risk.management.risk:risk_management.risk_kanban_view
+#, fuzzy
 msgid "Actions:"
-msgstr ""
+msgstr "Azioni:"
 
 #. module: risk_management
 #: selection:risk.management.risk,state:0
@@ -205,8 +207,9 @@ msgstr "Autore"
 
 #. module: risk_management
 #: view:project.task:risk_management.view_task_kanban
+#, fuzzy
 msgid "Blocked"
-msgstr ""
+msgstr "Bloccato"
 
 #. module: risk_management
 #: view:risk.management.risk:risk_management.risk_search_form_view
@@ -226,13 +229,15 @@ msgstr ""
 
 #. module: risk_management
 #: selection:risk.management.risk,state:0
+#, fuzzy
 msgid "Closed"
-msgstr ""
+msgstr "Chiuso"
 
 #. module: risk_management
 #: field:risk.management.risk,color:0
+#, fuzzy
 msgid "Color"
-msgstr ""
+msgstr "Colore"
 
 #. module: risk_management
 #: field:risk.management.category,create_uid:0
@@ -259,8 +264,9 @@ msgstr ""
 
 #. module: risk_management
 #: field:risk.management.risk,date_registered:0
+#, fuzzy
 msgid "Date Registered"
-msgstr ""
+msgstr "Data registrazione"
 
 #. module: risk_management
 #: help:risk.management.risk,date_modified:0
@@ -280,14 +286,24 @@ msgstr "Data pubblicazione ultimo messaggio sul record."
 
 #. module: risk_management
 #: view:project.task:risk_management.view_task_kanban
+#, fuzzy
 msgid "Delete"
-msgstr ""
+msgstr "Cancella"
 
 #. module: risk_management
 #: view:risk.management.risk:risk_management.risk_form_view
 #, fuzzy
 msgid "Description"
 msgstr "Descrizione"
+
+#. module: risk_management
+#: field:risk.management.category,display_name:0
+#: field:risk.management.proximity,display_name:0
+#: field:risk.management.response.category,display_name:0
+#: field:risk.management.risk,display_name:0
+#, fuzzy
+msgid "Display Name"
+msgstr "Nome visualizzato"
 
 #. module: risk_management
 #: selection:risk.management.risk,state:0
@@ -298,18 +314,21 @@ msgstr "Bozza"
 #. module: risk_management
 #: view:project.task:risk_management.view_task_kanban
 #: view:risk.management.risk:risk_management.risk_kanban_view
+#, fuzzy
 msgid "Edit..."
-msgstr ""
+msgstr "Edita..."
 
 #. module: risk_management
 #: field:risk.management.risk,description_effect:0
+#, fuzzy
 msgid "Effect"
-msgstr ""
+msgstr "Effetto"
 
 #. module: risk_management
 #: field:risk.management.risk,description_event:0
+#, fuzzy
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #. module: risk_management
 #: field:risk.management.risk,expected_value_inherent:0
@@ -393,13 +412,22 @@ msgid "Last Message Date"
 msgstr "Data ultimo messaggio"
 
 #. module: risk_management
+#: field:risk.management.category,__last_update:0
+#: field:risk.management.proximity,__last_update:0
+#: field:risk.management.response.category,__last_update:0
+#: field:risk.management.risk,__last_update:0
+#, fuzzy
+msgid "Last Modified on"
+msgstr "Ultimo cambiamento"
+
+#. module: risk_management
 #: field:risk.management.category,write_uid:0
 #: field:risk.management.proximity,write_uid:0
 #: field:risk.management.response.category,write_uid:0
 #: field:risk.management.risk,write_uid:0
 #, fuzzy
 msgid "Last Updated by"
-msgstr "Ultimo aggiornamento da"
+msgstr "Ultimo ad aggiornare"
 
 #. module: risk_management
 #: field:risk.management.category,write_date:0
@@ -408,7 +436,7 @@ msgstr "Ultimo aggiornamento da"
 #: field:risk.management.risk,write_date:0
 #, fuzzy
 msgid "Last Updated on"
-msgstr "Ultimo aggiornamento il"
+msgstr "Ultimo aggiornamento"
 
 #. module: risk_management
 #: field:risk.management.risk,message_ids:0
@@ -424,18 +452,21 @@ msgstr "Messaggi e cronologia communicazioni"
 
 #. module: risk_management
 #: view:risk.management.risk:risk_management.risk_search_form_view
+#, fuzzy
 msgid "Mod. Date"
-msgstr ""
+msgstr "Data mod."
 
 #. module: risk_management
 #: view:risk.management.risk:risk_management.risk_search_form_view
+#, fuzzy
 msgid "My Projects"
-msgstr ""
+msgstr "I miei progetti"
 
 #. module: risk_management
 #: view:project.task:risk_management.view_task_kanban
+#, fuzzy
 msgid "Normal"
-msgstr ""
+msgstr "Normale"
 
 #. module: risk_management
 #: selection:risk.management.response.category,type:0
@@ -468,23 +499,27 @@ msgstr "ID rischi"
 #: view:risk.management.proximity:risk_management.proximity_tree_view
 #: field:risk.management.proximity,name:0
 #: field:risk.management.risk,proximity_id:0
+#, fuzzy
 msgid "Proximity"
-msgstr ""
+msgstr "Prossimità"
 
 #. module: risk_management
 #: view:project.task:risk_management.view_task_kanban
+#, fuzzy
 msgid "Ready for next stage"
-msgstr ""
+msgstr "Pronto per prossimo stadio"
 
 #. module: risk_management
 #: view:risk.management.risk:risk_management.risk_search_form_view
+#, fuzzy
 msgid "Reg. Date"
-msgstr ""
+msgstr "Data reg."
 
 #. module: risk_management
 #: view:project.task:risk_management.view_task_kanban
+#, fuzzy
 msgid "Remaining Time"
-msgstr ""
+msgstr "Tempo rimanente"
 
 #. module: risk_management
 #: field:risk.management.risk,impact_residual:0
@@ -509,8 +544,9 @@ msgstr ""
 
 #. module: risk_management
 #: view:risk.management.risk:risk_management.risk_form_view
+#, fuzzy
 msgid "Response Actions"
-msgstr ""
+msgstr "Azioni in risposta"
 
 #. module: risk_management
 #: model:ir.ui.menu,name:risk_management.menu_risk_response_categories
@@ -525,8 +561,9 @@ msgstr ""
 
 #. module: risk_management
 #: field:risk.management.risk,risk_response_ids:0
+#, fuzzy
 msgid "Response Ids"
-msgstr ""
+msgstr "ID risposte"
 
 #. module: risk_management
 #: model:ir.model,name:risk_management.model_risk_management_risk
@@ -585,12 +622,6 @@ msgid "Risk In Draft"
 msgstr ""
 
 #. module: risk_management
-#: model:ir.ui.menu,name:risk_management.menu_configuration_risks
-#: model:ir.ui.menu,name:risk_management.menu_risk_management
-msgid "Risk Management"
-msgstr ""
-
-#. module: risk_management
 #: view:risk.management.risk:risk_management.risk_search_form_view
 msgid "Risk Owner"
 msgstr ""
@@ -646,13 +677,20 @@ msgid "Risk log response category table"
 msgstr ""
 
 #. module: risk_management
+#: field:risk.management.risk,risk_response_count:0
+#, fuzzy
+msgid "Risk response count"
+msgstr "Azioni in risposta"
+
+#. module: risk_management
 #: model:mail.message.subtype,description:risk_management.mt_risk_active
 msgid "Risk set active"
 msgstr ""
 
 #. module: risk_management
 #: model:ir.actions.act_window,name:risk_management.action_show_risks
-#: model:ir.ui.menu,name:risk_management.menu_risks
+#: model:ir.ui.menu,name:risk_management.menu_configuration_risks
+#: model:ir.ui.menu,name:risk_management.menu_risk_management
 #: view:risk.management.risk:risk_management.risk_tree_view
 msgid "Risks"
 msgstr ""
@@ -669,13 +707,15 @@ msgstr ""
 
 #. module: risk_management
 #: view:risk.management.risk:risk_management.risk_form_view
+#, fuzzy
 msgid "Set Active"
-msgstr ""
+msgstr "Attiva"
 
 #. module: risk_management
 #: view:risk.management.risk:risk_management.risk_form_view
+#, fuzzy
 msgid "Set Draft"
-msgstr ""
+msgstr "Metti in bozza"
 
 #. module: risk_management
 #: view:project.task:risk_management.risk_management_project_task_search_view
@@ -685,8 +725,9 @@ msgstr ""
 #. module: risk_management
 #: view:risk.management.risk:risk_management.risk_search_form_view
 #: field:risk.management.risk,state:0
+#, fuzzy
 msgid "State"
-msgstr ""
+msgstr "Stadio"
 
 #. module: risk_management
 #: field:risk.management.risk,message_summary:0
@@ -724,27 +765,30 @@ msgstr "Messaggi non letti"
 
 #. module: risk_management
 #: view:project.task:risk_management.view_task_kanban
+#, fuzzy
 msgid "Validate planned time"
-msgstr ""
+msgstr "Convalida tempo pianificato"
 
 #. module: risk_management
 #: view:project.task:risk_management.view_task_kanban
+#, fuzzy
 msgid "Very Important"
-msgstr ""
+msgstr "Molto importante"
 
 #. module: risk_management
 #: field:risk.management.risk,website_message_ids:0
 #, fuzzy
 msgid "Website Messages"
-msgstr "Messaggi"
+msgstr "Messaggi della pagina web"
 
 #. module: risk_management
 #: help:risk.management.risk,website_message_ids:0
 #, fuzzy
 msgid "Website communication history"
-msgstr "Messaggi e cronologia communicazioni"
+msgstr "Cronologia comunicazioni pagina web"
 
 #. module: risk_management
 #: view:project.task:risk_management.view_task_kanban
+#, fuzzy
 msgid "oe_kanban_text_red"
-msgstr ""
+msgstr "oe_kanban_text_red"

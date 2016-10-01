@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-13 07:30+0000\n"
-"PO-Revision-Date: 2016-05-03 13:54+0200\n"
+"POT-Creation-Date: 2016-10-01 18:31+0200\n"
+"PO-Revision-Date: 2016-10-01 18:31+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: it\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #. module: issue_change_request
 #: view:project.issue2cr.wizard:issue_change_request.view_project_issue2cr_wizard
@@ -69,6 +69,12 @@ msgid "Customer"
 msgstr "Cliente"
 
 #. module: issue_change_request
+#: field:issue.partner.binding,display_name:0
+#: field:project.issue2cr.wizard,display_name:0
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: issue_change_request
 #: selection:issue.partner.binding,action:0
 #: selection:project.issue2cr.wizard,action:0
 msgid "Do not link to a customer"
@@ -89,6 +95,12 @@ msgstr "ID"
 #: field:project.issue2cr.wizard,issue_id:0
 msgid "Issue"
 msgstr "Vicenda"
+
+#. module: issue_change_request
+#: field:issue.partner.binding,__last_update:0
+#: field:project.issue2cr.wizard,__last_update:0
+msgid "Last Modified on"
+msgstr "Ultimo cambiamento"
 
 #. module: issue_change_request
 #: field:issue.partner.binding,write_uid:0

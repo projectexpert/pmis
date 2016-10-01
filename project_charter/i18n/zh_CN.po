@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-25 19:25+0200\n"
-"PO-Revision-Date: 2016-09-25 19:25+0200\n"
+"POT-Creation-Date: 2016-10-01 18:26+0200\n"
+"PO-Revision-Date: 2016-10-01 18:27+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -174,8 +174,9 @@ msgstr "编号"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
+#, fuzzy
 msgid "Communications"
-msgstr ""
+msgstr "沟通"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_constraints
@@ -243,8 +244,16 @@ msgstr "上次更新日期"
 
 #. module: project_charter
 #: model:ir.ui.menu,name:project_charter.project_management
-msgid "Management"
-msgstr "管理"
+#, fuzzy
+msgid "Manage"
+msgstr ""
+"客户和用户。\n"
+"客户是批准和管理项目的产品、服务或结果的个人或组织。用户是要使用项目的产品、"
+"服务或结果的个人或组织。客户和用户可能隶属于执行项目的组织的内部或外部，也可"
+"能存在于不同层级。比如，某种医疗产品的客户可能包括开药方的医生、使用它的病人"
+"以及实际付款的保险人。在一些应用领域，客户和用户是同义的，但在另外一些领域，"
+"客户指的是取得项目产品的实体，而用户则是直接使用项目产品的实体。\n"
+"            "
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form

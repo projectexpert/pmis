@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-13 08:53+0100\n"
-"PO-Revision-Date: 2015-11-13 08:55+0100\n"
+"POT-Creation-Date: 2016-10-01 18:12+0200\n"
+"PO-Revision-Date: 2016-10-01 18:20+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #. module: change_management
 #: help:change.management.change,change_category_id:0
@@ -162,16 +162,6 @@ msgstr ""
 "        "
 
 #. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Accept Change"
-msgstr "Sprejmi spremembo"
-
-#. module: change_management
-#: selection:change.management.change,state:0
-msgid "Accepted"
-msgstr "Sprejeto"
-
-#. module: change_management
 #: field:project.task,change_id:0
 msgid "Action on Change"
 msgstr "Ukrepi na spremembi"
@@ -188,11 +178,6 @@ msgstr "Ukrepi"
 #: view:change.management.change:change_management.change_kanban_view
 msgid "Actions:"
 msgstr "Ukrepi:"
-
-#. module: change_management
-#: selection:change.management.change,state:0
-msgid "Active"
-msgstr "Aktivno"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -213,6 +198,31 @@ msgstr "Aktivne spremembe"
 #: view:project.task:change_management.change_management_project_task_search_view
 msgid "Active tasks"
 msgstr "Aktivna opravila"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+msgid "Appr. Date"
+msgstr "Odobreno"
+
+#. module: change_management
+#: field:change.management.change,date_approved:0
+msgid "Approval Date"
+msgstr "Datum odobritve"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Approve"
+msgstr "Odobri"
+
+#. module: change_management
+#: field:change.management.change,approved_id:0
+msgid "Approved by"
+msgstr "Odobril"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Back to Draft"
+msgstr "Povrni v osnutek"
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
@@ -281,8 +291,6 @@ msgid "Change In Process"
 msgstr "Spremembe v teku"
 
 #. module: change_management
-#: model:ir.ui.menu,name:change_management.menu_change_management
-#: model:ir.ui.menu,name:change_management.menu_configuration_changes
 #: view:project.project:change_management.change_management_project_charter_tree_view
 msgid "Change Management"
 msgstr "Upravljanje sprememb"
@@ -338,9 +346,15 @@ msgid "Change rejected"
 msgstr "Sprememba zavrnjena"
 
 #. module: change_management
+#: field:change.management.change,change_response_count:0
+msgid "Change response count"
+msgstr "Števec ukrepov ob spremembah"
+
+#. module: change_management
 #: view:change.management.change:change_management.change_tree_view
 #: model:ir.actions.act_window,name:change_management.action_show_changes
-#: model:ir.ui.menu,name:change_management.menu_changes
+#: model:ir.ui.menu,name:change_management.menu_change_management
+#: model:ir.ui.menu,name:change_management.menu_configuration_changes
 #: view:project.project:change_management.change_management_project_charter_tree_view
 msgid "Changes"
 msgstr "Spremembe"
@@ -366,6 +380,31 @@ msgid "Color"
 msgstr "Barva"
 
 #. module: change_management
+#: field:change.management.change,company_id:0
+msgid "Company"
+msgstr "Družba"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+msgid "Conf. Date"
+msgstr "Potrjeno"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Confirm"
+msgstr "Potrdi"
+
+#. module: change_management
+#: field:change.management.change,date_confirmed:0
+msgid "Confirmation Date"
+msgstr "Datum potrditve"
+
+#. module: change_management
+#: field:change.management.change,confirmed_id:0
+msgid "Confirmed by"
+msgstr "Potrdil"
+
+#. module: change_management
 #: field:change.management.category,create_uid:0
 #: field:change.management.change,create_uid:0
 #: field:change.management.proximity,create_uid:0
@@ -380,11 +419,6 @@ msgid "Created on"
 msgstr "Ustvarjeno"
 
 #. module: change_management
-#: field:change.management.change,date_registered:0
-msgid "Date Registered"
-msgstr "Datum registracije"
-
-#. module: change_management
 #: field:change.management.change,date_modified:0
 msgid "Date Revised"
 msgstr "Datum revizije"
@@ -395,9 +429,9 @@ msgid "Date of last revision."
 msgstr "Datum zadnje revizije"
 
 #. module: change_management
-#: help:change.management.change,date_registered:0
-msgid "Date of the change registered. Auto populated."
-msgstr "Datum registracije spremembe, samodejno izpolnjen."
+#: help:change.management.change,date_confirmed:0
+msgid "Date of the change confirmation. Auto populated."
+msgstr "Datum potrditve spremembe, samodejno izpolnjen."
 
 #. module: change_management
 #: help:change.management.change,message_last_post:0
@@ -406,13 +440,8 @@ msgstr "Datum zadnjega sporočila pri tem zapisu."
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
-msgid "Defer Change"
-msgstr "Odložitev spremembe"
-
-#. module: change_management
-#: selection:change.management.change,state:0
-msgid "Deferred"
-msgstr "Odloženo"
+msgid "Defer"
+msgstr "Odloži"
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
@@ -425,9 +454,16 @@ msgid "Description"
 msgstr "Opis"
 
 #. module: change_management
-#: selection:change.management.change,state:0
-msgid "Draft"
-msgstr "Osnutek"
+#: field:change.management.category,display_name:0
+#: field:change.management.change,display_name:0
+#: field:change.management.proximity,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Done"
+msgstr "Opravljeno"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_kanban_view
@@ -439,6 +475,12 @@ msgstr "Urejanje..."
 #: field:change.management.change,description_effect:0
 msgid "Effect"
 msgstr "Učinek"
+
+#. module: change_management
+#: code:addons/change_management/model/change_management.py:180
+#, python-format
+msgid "Error!"
+msgstr "Napaka!"
 
 #. module: change_management
 #: field:change.management.change,message_follower_ids:0
@@ -484,6 +526,13 @@ msgstr "Je sledilec"
 #: field:change.management.change,message_last_post:0
 msgid "Last Message Date"
 msgstr "Datum zadnjega sporočila"
+
+#. module: change_management
+#: field:change.management.category,__last_update:0
+#: field:change.management.change,__last_update:0
+#: field:change.management.proximity,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
 
 #. module: change_management
 #: field:change.management.category,write_uid:0
@@ -542,6 +591,7 @@ msgid "Proposer"
 msgstr "Predlagatelj"
 
 #. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
 #: field:change.management.change,proximity_id:0
 #: view:change.management.proximity:change_management.proximity_tree_view
 #: field:change.management.proximity,name:0
@@ -567,13 +617,8 @@ msgstr "Datum registracije"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
-msgid "Reject Change"
-msgstr "Zavrnitve spremembe"
-
-#. module: change_management
-#: selection:change.management.change,state:0
-msgid "Rejected"
-msgstr "Zavrnjeno"
+msgid "Reject"
+msgstr "Zavrni"
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
@@ -604,16 +649,6 @@ msgstr "Ukrepi ob odzivu"
 #: field:change.management.change,change_response_ids:0
 msgid "Response Ids"
 msgstr "ID-ji odzivov"
-
-#. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Set Active"
-msgstr "Nastavi kot aktivno"
-
-#. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Set Draft"
-msgstr "Nastavi kot osnutek"
 
 #. module: change_management
 #: view:project.task:change_management.change_management_project_task_search_view
@@ -647,8 +682,19 @@ msgid "Task is an action on a change identified by this label."
 msgstr "Opravilo je ukrep ob spremembi, ki ga določi ta oznaka."
 
 #. module: change_management
+#: code:addons/change_management/model/change_management.py:181
+#, python-format
+msgid "There is no default company for the current user!"
+msgstr "Trenutni uporabnik nima nastavljene privzete družbe!"
+
+#. module: change_management
 #: field:change.management.change,message_unread:0
 msgid "Unread Messages"
+msgstr "Neprebrana sporočila"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+msgid "Unread messages"
 msgstr "Neprebrana sporočila"
 
 #. module: change_management
@@ -672,6 +718,35 @@ msgid "Website communication history"
 msgstr "Kronologija komunikacij spletne strani"
 
 #. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Withdraw"
+msgstr "Umakni"
+
+#. module: change_management
 #: view:project.task:change_management.view_task_kanban
 msgid "oe_kanban_text_red"
 msgstr "oe_kanban_text_red"
+
+#~ msgid "Accept Change"
+#~ msgstr "Sprejmi spremembo"
+
+#~ msgid "Accepted"
+#~ msgstr "Sprejeto"
+
+#~ msgid "Active"
+#~ msgstr "Aktivno"
+
+#~ msgid "Date Registered"
+#~ msgstr "Datum registracije"
+
+#~ msgid "Defer Change"
+#~ msgstr "Odložitev spremembe"
+
+#~ msgid "Draft"
+#~ msgstr "Osnutek"
+
+#~ msgid "Reject Change"
+#~ msgstr "Zavrnitve spremembe"
+
+#~ msgid "Set Active"
+#~ msgstr "Nastavi kot aktivno"

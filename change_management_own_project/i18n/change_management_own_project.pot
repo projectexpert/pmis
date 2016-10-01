@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 15:50+0000\n"
-"PO-Revision-Date: 2016-05-21 15:50+0000\n"
+"POT-Creation-Date: 2016-10-01 16:06+0000\n"
+"PO-Revision-Date: 2016-10-01 16:06+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,30 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: change_management_own_project
+#: code:addons/change_management_own_project/models/change_management.py:28
+#, python-format
+msgid "A Change Management Project already exists."
+msgstr ""
+
+#. module: change_management_own_project
 #: model:ir.model,name:change_management_own_project.model_change_management_change
 msgid "Change"
+msgstr ""
+
+#. module: change_management_own_project
+#: code:addons/change_management_own_project/models/change_management.py:27
+#, python-format
+msgid "Error!"
+msgstr ""
+
+#. module: change_management_own_project
+#: view:change.management.change:change_management_own_project.change_form_view
+msgid "Launch a"
+msgstr ""
+
+#. module: change_management_own_project
+#: view:change.management.change:change_management_own_project.change_form_view
+msgid "New Project"
 msgstr ""
 
 #. module: change_management_own_project

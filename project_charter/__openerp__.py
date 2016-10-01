@@ -22,7 +22,7 @@
 
 {
     'name': 'Project Charter',
-    'version': '8.0.1.1.6',
+    'version': '8.0.1.1.7',
     'author': 'Matmoz d.o.o., '
               'Project Expert Team',
     'contributors': [

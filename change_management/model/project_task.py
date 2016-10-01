@@ -14,8 +14,6 @@ class ProjectTask (models.Model):
         help="Task is an action on a change identified by this label."
     )
 
-ProjectTask()
-
 
 class ProjectProject (models.Model):
     _name = 'project.project'
@@ -26,5 +24,3 @@ class ProjectProject (models.Model):
         'project_id',
         'Project changes'
     )
-
-ProjectProject()

@@ -38,12 +38,19 @@
             <field name="arch" type="xml">
                 <xpath expr="//filter[@string='Unassigned']" position="after">
                     <filter string="Change Action" context="{'change_id_visible': False}"
-                            domain="[('change_id','&lt;&gt;',False)]" help="Show only tasks (actions) on change"
+                            domain="[('change_id','&lt;&gt;',False)]"
+                            help="Show only tasks (actions) on change"
                             icon="terp-emblem-important"/>
-                    <filter string="Active Tasks" domain="[('progress','!=','100')]" help="Active tasks" name="active_tasks" icon="gtk-execute"/>
+                    <filter string="Active Tasks"
+                            domain="[('progress','!=','100')]"
+                            help="Active tasks"
+                            name="active_tasks" icon="gtk-execute"/>
                 </xpath>
                <filter name="project" position="after">
-                    <filter string="Change" name="group_change_id" icon="terp-rating-rated" domain="[]" context="{'group_by' : 'change_id'}"/>
+                    <filter string="Change"
+                            name="group_change_id"
+                            icon="terp-rating-rated" domain="[]"
+                            context="{'group_by' : 'change_id'}"/>
                </filter>
             </field>
         </record>
@@ -66,7 +73,9 @@
                     <field name="description"/>
                     <field name="sequence"/>
                     <field name="kanban_state"/>
-                    <field name="remaining_hours" sum="Remaining Time" groups="project.group_time_work_estimation_tasks"/>
+                    <field name="remaining_hours"
+                           sum="Remaining Time"
+                           groups="project.group_time_work_estimation_tasks"/>
                     <field name="date_deadline"/>
                     <field name="message_summary"/>
                     <field name="categ_ids"/>
