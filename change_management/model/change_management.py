@@ -2,8 +2,7 @@
 # Copyright (C) 2015 Matmoz d.o.o. (<http://www.matmoz.si>).
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields, api
-from datetime import date
+from openerp import models, fields, api, _
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -29,14 +28,30 @@ class CMChange (models.Model):
     _inherit = ['mail.thread', 'ir.needaction_mixin']
     _order = 'id desc'
 
+    # ##### define CR code #####  #
+
+    @api.model
+    def create(self, vals):
+        if vals.get('name', '/'):
+            vals['name'] = self.env['ir.sequence'].get(
+                'change.management.change')
+        return super(CMChange, self).create(vals)
+
+    @api.one
+    def copy(self, default=None):
+        if default is None:
+            default = {}
+        default['name'] = self.env['ir.sequence'].get(
+            'change.management.change')
+        return super(CMChange, self).copy(default)
+
     # ##### FIELDS #####  #
 
     name = fields.Char(
         'Request Id',
-        required=True,
+        default="/",
         readonly=True,
         states={'draft': [('readonly', False)]},
-        select=True,
         help='''
 Change label. Can be changed as long as change is in state 'draft'.
         '''
@@ -282,13 +297,6 @@ level, in case of business continuity to a C-level manager.
         )
         self._subscribe_extra_followers(vals)
         return ret
-
-    @api.model
-    def create(self, vals):
-        if vals.get('name', '/') == '/':
-            vals['name'] = self.env['ir.sequence'].get(
-                'change.management.change')
-        return super(CMChange, self).create(vals)
 
     # ##### create CR from mail #####  #
 
