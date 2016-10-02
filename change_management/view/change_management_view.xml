@@ -43,7 +43,7 @@
                                 states="active" string="Approve" class="oe_highlight"
                                 groups="project.group_project_manager"/>
                         <button name="set_in_progress" type="object"
-                                states="accepted" string="Approve" class="oe_highlight"
+                                states="accepted" string="In progress" class="oe_highlight"
                                 groups="project.group_project_manager"/>
                         <button name="set_state_done" type="object"
                                 states="in_progress" string="Done" class="oe_highlight"
