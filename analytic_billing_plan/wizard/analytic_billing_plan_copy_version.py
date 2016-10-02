@@ -37,8 +37,7 @@ class analytic_billing_plan_copy_version(osv.osv_memory):
         'dest_version_id': fields.many2one('account.analytic.plan.version',
                                            'Destination Planning Version',
                                            required=True),
-        'include_child': fields.boolean('Include child accounts',
-                                        required=True),
+        'include_child': fields.boolean('Include child accounts'),
     }
 
     _defaults = {

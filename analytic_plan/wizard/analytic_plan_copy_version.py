@@ -43,8 +43,7 @@ class AnalyticPlanCopyVersion(osv.osv_memory):
             required=True
         ),
         'include_child': fields.boolean(
-            'Include child accounts',
-            required=True
+            'Include child accounts'
         ),
     }
 

@@ -154,10 +154,10 @@ class res_partner(orm.Model):
             check_category, string='States?', type='boolean',
             readonly=True, method=True, multi=True, default=True
         ),
-	'auto_off': fields.function(
-		dummy, string=_('Auto off'), type='boolean',
-		help="Unlock address fields"
-	)
+        'auto_off': fields.function(
+            dummy, string=_('Auto off'), type='boolean',
+            help="Unlock address fields"
+        )
     }
 
     _defaults = {
