@@ -10,9 +10,6 @@ class ConvertNoteChange(osv.TransientModel):
     _name = 'convert.note.change'
 
     _columns = {
-        # "note_id": fields.many2one(
-        #     "note.note", "Note"
-        # ),
         "change_category_id": fields.many2one(
             "change.management.category", "Change Category", required=True
         ),
@@ -21,21 +18,13 @@ class ConvertNoteChange(osv.TransientModel):
         ),
     }
 
-    # _defaults = {
-    #     "note_id": lambda self, cr, uid, context=None: context.get('active_id')
-    # }
-
     def create_change(self, cr, uid, ids, context=None):
         wizard = self.browse(cr, uid, ids, context=context)
         change_obj = self.pool('change.management.change')
         note_obj = self.pool('note.note')
         note_brw = note_obj.browse(
             cr, uid, [context.get('active_id')], context=context)
-        Attachment = self.pool['ir.attachment']
-
-        # for wizard in wizards:
-        #     # get the note to transform
-        #     note_obj = wizard.note_id
+        attachment_obj = self.pool['ir.attachment']
 
         vals = {
             'description': note_brw[0].name,
@@ -46,26 +35,6 @@ class ConvertNoteChange(osv.TransientModel):
         }
 
         change_id = change_obj.create(cr, uid, vals, context=context)
-
-        # move the mail thread
-
-        # note_obj.message_change_thread(
-        #     cr, uid, note_obj.id, change_id,
-        #     "change.management.change", context=context
-        # )
-        #
-        # # Move attachments
-        #
-        # attachment_ids = Attachment.search(
-        #     cr, uid,
-        #     [('res_model', '=', 'note.note'), ('res_id', '=', note_obj.id)],
-        #     context=context
-        # )
-        # Attachment.write(
-        #     cr, uid, attachment_ids,
-        #     {'res_model': 'change.management.change', 'res_id': change_id},
-        #     context=context
-        # )
 
         # Archive the note
         note_obj.write(cr, uid, [context.get('active_id')], {

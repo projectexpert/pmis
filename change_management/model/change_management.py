@@ -146,13 +146,13 @@ Change Category: The type of change in terms of the project's or business'
 chosen categories (e.g. Schedule, quality, legal etc.)
         '''
     )
-    description_cause = fields.Text(
+    description_cause = fields.Html(
         'Change'
     )
     description_event = fields.Html(
         'Reason'
     )
-    description_effect = fields.Text(
+    description_effect = fields.Html(
         'Effect'
     )
     proximity_id = fields.Many2one(

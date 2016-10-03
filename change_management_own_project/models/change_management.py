@@ -2,7 +2,7 @@
 # © 2015 Eficent Business and IT Consulting Services S.L. <contact@eficent.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields
+from openerp import models, fields, api
 from openerp.tools.translate import _
 
 
@@ -12,13 +12,23 @@ class ChangeManagementChange(models.Model):
     def _create_change_project(self, cr, uid, change, context=None):
         data = {
             'name': '%s - %s' % (change.name, change.description),
-            'parent_id': change.project_id.analytic_account_id.id
+            'parent_id': change.project_id.analytic_account_id.id,
+            'notes': (
+                '<h1>Reason</h1> %s'
+                '<h1>Cause</h1> %s'
+                '<h1>Effect</h1> %s' % (
+                    change.description_event,
+                    change.description_cause,
+                    change.description_effect
+                )
+            )
         }
         return data
 
     change_project_id = fields.Many2one(
         'project.project',
-        'Proposed Project'
+        'Proposed Project',
+        readonly="True"
     )
 
     def button_create_change_project(self, cr, uid, ids, context=None):
