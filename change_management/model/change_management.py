@@ -37,8 +37,9 @@ class CMChange (models.Model):
                 'change.management.change')
         return super(CMChange, self).create(vals)
 
-    @api.one
+    @api.multi
     def copy(self, default=None):
+        self.ensure_one()
         if default is None:
             default = {}
         default['name'] = self.env['ir.sequence'].get(
@@ -187,19 +188,10 @@ level, in case of business continuity to a C-level manager.
         '''
     )
 
-    @api.model
-    def _get_default_company(self):
-        company_id = self.env.user._get_company()
-        if not company_id:
-            raise except_orm(
-                _('Error!'),
-                _('There is no default company for the current user!'))
-        return self.env['res.company'].browse(company_id)
-
     company_id = fields.Many2one(
         'res.company', string='Company',
         required=True, readonly=True, states={'draft': [('readonly', False)]},
-        default=_get_default_company,
+        default=lambda self: self.env.user.company_id.id,
     )
 
     # ##### DEFINITIONS #####  #
@@ -303,6 +295,7 @@ level, in case of business continuity to a C-level manager.
 class Project(models.Model):
     _inherit = "project.project"
 
+    @api.v7
     def _get_alias_models(self, cr, uid, context=None):
         res = super(Project, self)._get_alias_models(cr, uid, context=context)
         res.append(("change.management.change", "Change Requests"))

@@ -75,6 +75,7 @@
                             <group>
                                 <field name="proximity_id"/>
                                 <field name="change_category_id"/>
+                                <field name="company_id" groups="base.group_multi_company"/>
                             </group>
                         </group>
 						<group>
