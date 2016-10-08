@@ -29,7 +29,7 @@
 }
 
 .openerp .oe_kanban_view .oe_wbs_navigation {
-    width: 115px;
+    width: 95px;
     height: 24px;
     padding: 3px 0;
     margin: 2px;
@@ -44,7 +44,7 @@
 }
 
 .openerp .oe_kanban_view .oe_wbs_navigation:hover {
-    width: 115px;
+    width: 95px;
     height: 24px;
     padding: 3px 0;
     margin: 2px;
