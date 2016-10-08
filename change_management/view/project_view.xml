@@ -33,7 +33,7 @@
                     <a t-if="record.change_count.raw_value"
                        name="%(change_management.action_show_changes)d"
                        type="action"
-                       class="fa fa-bug oe_wbs_button">
+                       class="fa fa-code-fork oe_wbs_button">
                         Changes: <field name="change_count"/>
                     </a>
                 </xpath>
