@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-01 18:26+0200\n"
-"PO-Revision-Date: 2016-10-01 18:27+0200\n"
+"POT-Creation-Date: 2016-10-08 14:42+0200\n"
+"PO-Revision-Date: 2016-10-08 14:42+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -164,16 +164,6 @@ msgstr ""
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Class"
-msgstr "类"
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Code"
-msgstr "编号"
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
 #, fuzzy
 msgid "Communications"
 msgstr "沟通"
@@ -207,16 +197,6 @@ msgstr "条件"
 #: field:project.outscope,display_name:0 field:project.success,display_name:0
 msgid "Display Name"
 msgstr ""
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Edit Scope"
-msgstr ""
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "End Date"
-msgstr "终止日期"
 
 #. module: project_charter
 #: field:project.constraints,id:0 field:project.outscope,id:0
@@ -256,11 +236,6 @@ msgstr ""
 "            "
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Name"
-msgstr "名称"
-
-#. module: project_charter
 #: field:project.project,notes:0
 msgid "Notes"
 msgstr "备注"
@@ -274,11 +249,6 @@ msgstr "超出范围"
 #: model:ir.model,name:project_charter.model_project_outscope
 msgid "Out of scope"
 msgstr "超出范围"
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Parent"
-msgstr "上级"
 
 #. module: project_charter
 #: field:project.project,balance_plan:0
@@ -382,11 +352,6 @@ msgid "Stakeholders"
 msgstr "利益方"
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Start Date"
-msgstr "起始日期"
-
-#. module: project_charter
 #: model:ir.model,name:project_charter.model_project_success
 msgid "Success"
 msgstr "成功"
@@ -402,14 +367,30 @@ msgid "Tasks"
 msgstr "任务"
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "WBS elements"
-msgstr "WBS元素"
-
-#. module: project_charter
 #: view:project.project:project_charter.edit_project
 msgid "Work Breakdown Structure"
 msgstr "任务分解结构"
+
+#~ msgid "Class"
+#~ msgstr "类"
+
+#~ msgid "Code"
+#~ msgstr "编号"
+
+#~ msgid "End Date"
+#~ msgstr "终止日期"
+
+#~ msgid "Name"
+#~ msgstr "名称"
+
+#~ msgid "Parent"
+#~ msgstr "上级"
+
+#~ msgid "Start Date"
+#~ msgstr "起始日期"
+
+#~ msgid "WBS elements"
+#~ msgstr "WBS元素"
 
 #~ msgid "Child WBS elements"
 #~ msgstr "下级WBS元素"

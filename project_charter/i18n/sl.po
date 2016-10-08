@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-01 18:08+0200\n"
-"PO-Revision-Date: 2016-10-01 18:11+0200\n"
+"POT-Creation-Date: 2016-10-08 14:41+0200\n"
+"PO-Revision-Date: 2016-10-08 14:41+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -180,16 +180,6 @@ msgstr "Zaporedje kode podrejenih"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Class"
-msgstr "Razred"
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Code"
-msgstr "Koda"
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
 msgid "Communications"
 msgstr "Komunikacije"
 
@@ -224,16 +214,6 @@ msgid "Display Name"
 msgstr "Prikazni naziv"
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Edit Scope"
-msgstr "Uredi obseg"
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "End Date"
-msgstr "Končni datum"
-
-#. module: project_charter
 #: field:project.constraints,id:0 field:project.outscope,id:0
 #: field:project.success,id:0
 msgid "ID"
@@ -263,11 +243,6 @@ msgid "Manage"
 msgstr "Upravljaj"
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Name"
-msgstr "Naziv"
-
-#. module: project_charter
 #: field:project.project,notes:0
 msgid "Notes"
 msgstr "Opombe"
@@ -281,11 +256,6 @@ msgstr "Izven obsega"
 #: model:ir.model,name:project_charter.model_project_outscope
 msgid "Out of scope"
 msgstr "Izven obsega"
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Parent"
-msgstr "Nadrejeni"
 
 #. module: project_charter
 #: field:project.project,balance_plan:0
@@ -389,11 +359,6 @@ msgid "Stakeholders"
 msgstr "Deležniki"
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Start Date"
-msgstr "Začetni datum"
-
-#. module: project_charter
 #: model:ir.model,name:project_charter.model_project_success
 msgid "Success"
 msgstr "Uspeh"
@@ -409,14 +374,33 @@ msgid "Tasks"
 msgstr "Opravila"
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "WBS elements"
-msgstr "Členi"
-
-#. module: project_charter
 #: view:project.project:project_charter.edit_project
 msgid "Work Breakdown Structure"
 msgstr "Členjenje projekta"
+
+#~ msgid "Class"
+#~ msgstr "Razred"
+
+#~ msgid "Code"
+#~ msgstr "Koda"
+
+#~ msgid "Edit Scope"
+#~ msgstr "Uredi obseg"
+
+#~ msgid "End Date"
+#~ msgstr "Končni datum"
+
+#~ msgid "Name"
+#~ msgstr "Naziv"
+
+#~ msgid "Parent"
+#~ msgstr "Nadrejeni"
+
+#~ msgid "Start Date"
+#~ msgstr "Začetni datum"
+
+#~ msgid "WBS elements"
+#~ msgstr "Členi"
 
 #~ msgid "Defines what type of cost does the analytic account carry from an employee perspective."
 #~ msgstr "Določi tip stroškov na analitičnem kontu iz vidika delojemalca."

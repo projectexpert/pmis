@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-01 18:15+0200\n"
-"PO-Revision-Date: 2016-10-01 18:19+0200\n"
+"POT-Creation-Date: 2016-10-08 14:44+0200\n"
+"PO-Revision-Date: 2016-10-08 14:44+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -176,7 +176,6 @@ msgstr "Azione per modifica"
 #: view:change.management.change:change_management.change_tree_view
 #: model:ir.actions.act_window,name:change_management.action_show_actions
 #: model:ir.ui.menu,name:change_management.menu_actions_on_change
-#: view:project.project:change_management.change_management_project_charter_tree_view
 msgid "Actions"
 msgstr "Azioni"
 
@@ -254,14 +253,15 @@ msgid "Change Action"
 msgstr "Azione modifica"
 
 #. module: change_management
-#: view:project.project:change_management.change_management_project_charter_tree_view
-msgid "Change Actions"
-msgstr "Azioni modifiche"
-
-#. module: change_management
+#: model:mail.message.subtype,description:change_management.mt_change_accepted
 #: model:mail.message.subtype,name:change_management.mt_change_accepted
 msgid "Change Approved"
 msgstr "Modifica approvata"
+
+#. module: change_management
+#: model:mail.message.subtype,name:change_management.mt_change_draft
+msgid "Change Back to Draft"
+msgstr "Modifica in bozza"
 
 #. module: change_management
 #: model:ir.actions.act_window,name:change_management.action_show_categories
@@ -277,6 +277,19 @@ msgid "Change Category"
 msgstr "Categoria modifica"
 
 #. module: change_management
+#: model:mail.message.subtype,description:change_management.mt_change_done
+#: model:mail.message.subtype,name:change_management.mt_change_done
+msgid "Change Completed"
+msgstr "Modifica completata"
+
+#. module: change_management
+#: model:mail.message.subtype,description:change_management.mt_change_active
+#: model:mail.message.subtype,name:change_management.mt_change_active
+msgid "Change Confirmed"
+msgstr "Modifica confermata"
+
+#. module: change_management
+#: model:mail.message.subtype,description:change_management.mt_change_deferred
 #: model:mail.message.subtype,name:change_management.mt_change_deferred
 msgid "Change Deferred"
 msgstr "Modifica posticipata"
@@ -292,12 +305,13 @@ msgid "Change Enforcing"
 msgstr "Applicazione modifica"
 
 #. module: change_management
-#: model:mail.message.subtype,name:change_management.mt_change_active
-msgid "Change In Process"
+#: model:mail.message.subtype,description:change_management.mt_change_in_progress
+#: model:mail.message.subtype,name:change_management.mt_change_in_progress
+msgid "Change In Progress"
 msgstr "Modifica in corso"
 
 #. module: change_management
-#: view:project.project:change_management.change_management_project_charter_tree_view
+#: view:project.project:change_management.edit_project
 msgid "Change Management"
 msgstr "Gestione modifiche"
 
@@ -312,29 +326,26 @@ msgid "Change Owner"
 msgstr "Proprietario modifica"
 
 #. module: change_management
+#: model:mail.message.subtype,description:change_management.mt_change_rejected
 #: model:mail.message.subtype,name:change_management.mt_change_rejected
 msgid "Change Rejected"
 msgstr "Modifica rifiutata"
 
 #. module: change_management
-#: model:mail.message.subtype,description:change_management.mt_change_accepted
-msgid "Change approved"
-msgstr "Modifica approvata"
-
-#. module: change_management
-#: model:mail.message.subtype,description:change_management.mt_change_deferred
-msgid "Change deferred"
-msgstr "Modifica posticipata"
+#: model:mail.message.subtype,description:change_management.mt_change_withdrawn
+#: model:mail.message.subtype,name:change_management.mt_change_withdrawn
+msgid "Change Withdrawn"
+msgstr "Bozza ritirata"
 
 #. module: change_management
 #: model:mail.message.subtype,description:change_management.mt_change_draft
-msgid "Change in draft"
-msgstr "Bozza di modifica"
+msgid "Change back in Draft"
+msgstr "Modifica in bozza"
 
 #. module: change_management
-#: model:mail.message.subtype,description:change_management.mt_change_active
-msgid "Change in process"
-msgstr "Modifica in corso"
+#: field:project.project,change_count:0
+msgid "Change count"
+msgstr "Conteggio modifiche"
 
 #. module: change_management
 #: model:ir.model,name:change_management.model_change_management_category
@@ -347,11 +358,6 @@ msgid "Change log proximity table"
 msgstr "Giornale modifiche prossimità"
 
 #. module: change_management
-#: model:mail.message.subtype,description:change_management.mt_change_rejected
-msgid "Change rejected"
-msgstr "Modifica rifiutata"
-
-#. module: change_management
 #: field:change.management.change,change_response_count:0
 msgid "Change response count"
 msgstr "Conteggio azioni di modifica"
@@ -361,14 +367,9 @@ msgstr "Conteggio azioni di modifica"
 #: model:ir.actions.act_window,name:change_management.action_show_changes
 #: model:ir.ui.menu,name:change_management.menu_change_management
 #: model:ir.ui.menu,name:change_management.menu_configuration_changes
-#: view:project.project:change_management.change_management_project_charter_tree_view
+#: view:project.project:change_management.edit_project
 msgid "Changes"
 msgstr "Modifiche"
-
-#. module: change_management
-#: model:mail.message.subtype,name:change_management.mt_change_draft
-msgid "Changes In Draft"
-msgstr "Bozze di modifica"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -379,6 +380,11 @@ msgstr "Modifiche senza azioni"
 #: view:change.management.change:change_management.change_search_form_view
 msgid "Changes without ownership"
 msgstr "Modifiche senza proprietari"
+
+#. module: change_management
+#: view:project.project:change_management.view_project_kanban_inherited
+msgid "Changes:"
+msgstr "Modifiche:"
 
 #. module: change_management
 #: field:change.management.change,color:0
@@ -483,12 +489,6 @@ msgid "Effect"
 msgstr "Effetto"
 
 #. module: change_management
-#: code:addons/change_management/model/change_management.py:180
-#, python-format
-msgid "Error!"
-msgstr "Errore!"
-
-#. module: change_management
 #: field:change.management.change,message_follower_ids:0
 msgid "Followers"
 msgstr "Seguaci"
@@ -523,6 +523,11 @@ msgstr ""
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
 msgid "In Progress"
+msgstr "In Corso"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "In progress"
 msgstr "In Corso"
 
 #. module: change_management
@@ -649,6 +654,11 @@ msgid "Requestor"
 msgstr "Richiedente"
 
 #. module: change_management
+#: view:project.project:change_management.change_management_project_charter_tree_view
+msgid "Requirements"
+msgstr "Requisiti"
+
+#. module: change_management
 #: view:change.management.change:change_management.change_form_view
 msgid "Response Actions"
 msgstr "Azioni in risposta"
@@ -690,12 +700,6 @@ msgid "Task is an action on a change identified by this label."
 msgstr "L'attività è una azione su modifica identificata da questo campo."
 
 #. module: change_management
-#: code:addons/change_management/model/change_management.py:181
-#, python-format
-msgid "There is no default company for the current user!"
-msgstr "L'utente attuale non contiene la società predefinita!"
-
-#. module: change_management
 #: field:change.management.change,message_unread:0
 msgid "Unread Messages"
 msgstr "Messaggi non letti"
@@ -734,6 +738,30 @@ msgstr "Ritira"
 #: view:project.task:change_management.view_task_kanban
 msgid "oe_kanban_text_red"
 msgstr "oe_kanban_text_red"
+
+#~ msgid "Change Actions"
+#~ msgstr "Azioni modifiche"
+
+#~ msgid "Change approved"
+#~ msgstr "Modifica approvata"
+
+#~ msgid "Change deferred"
+#~ msgstr "Modifica posticipata"
+
+#~ msgid "Change in process"
+#~ msgstr "Modifica in corso"
+
+#~ msgid "Change rejected"
+#~ msgstr "Modifica rifiutata"
+
+#~ msgid "Changes In Draft"
+#~ msgstr "Bozze di modifica"
+
+#~ msgid "Error!"
+#~ msgstr "Errore!"
+
+#~ msgid "There is no default company for the current user!"
+#~ msgstr "L'utente attuale non contiene la società predefinita!"
 
 #~ msgid "Accept Change"
 #~ msgstr "Accetta modifica"

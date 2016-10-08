@@ -419,7 +419,7 @@
                                         </a>
                                     </div>
                                     <div class="oe_kanban_project_list" name="wbs_kanban_buttons">
-                                        <a t-if="record.use_tasks.raw_value"
+                                        <a t-if="record.task_count.raw_value"
                                            name="%(project.act_project_project_2_project_task_all)d"
                                            type="action"
                                            class="fa fa-tasks oe_wbs_button">
@@ -467,7 +467,7 @@
                     <field name="issue_ids" invisible="1"/>
                 </field>
                 <xpath expr="//div[contains(@name, 'wbs_kanban_buttons')]" position="inside">
-                    <a t-if="record.use_issues.raw_value"
+                    <a t-if="record.issue_ids.raw_value.length"
                        name="%(project_issue.act_project_project_2_project_issue_all)d"
                        type="action"
                        class="fa fa-bug oe_wbs_button">

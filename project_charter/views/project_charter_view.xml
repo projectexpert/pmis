@@ -77,46 +77,46 @@
                                     <div>Work Packages</div>
                                 </button>-->
                                 <group string="Project Scope">
-                                    <button help="Edit Scope"
-                                        class="oe_inline oe_stat_button"
-                                        name="action_openChildTreeView"
-                                        type="object"
-                                        icon="fa-sitemap"
-                                        groups="project.group_project_manager">
-                                        <div>Edit Scope</div>
-                                    </button>
+                                    <!--<button help="Edit Scope"-->
+                                        <!--class="oe_inline oe_stat_button"-->
+                                        <!--name="action_openChildTreeView"-->
+                                        <!--type="object"-->
+                                        <!--icon="fa-sitemap"-->
+                                        <!--groups="project.group_project_manager">-->
+                                        <!--<div>Edit Scope</div>-->
+                                    <!--</button>-->
                                     <newline/>
-                                    <field name="project_child_complete_ids" nolabel="1" context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}">
-                                        <tree string="WBS elements"
-                                              colors="grey:state in ('cancelled','done','close');blue:account_class == 'work_package';green:account_class == 'phase';magenta:account_class == 'deliverable'; red:message_unread == True"
-                                              fonts="bold:state == 'open'; bold:message_unread == True" default_order="complete_wbs_code" readonly="True">
-                                            <field name="message_unread" invisible="1"/>
-                                            <!--<button string="Parent WBS element"
-                                                    name="action_openParentTreeView"
-                                                    type="object"
-                                                    icon="STOCK_GO_UP" attrs="{'invisible': [('parent_id', '=', False)]}"/>
-                                            <button string="Child WBS elements"
-                                                    name="action_openChildTreeView"
-                                                    type="object"
-                                                    icon="STOCK_GO_DOWN"/>
-                                            <button string="Project Form View"
-                                                    name="action_open_view_project_form"
-                                                    type="object"
-                                                    icon="gtk-edit"/>-->
-                                            <field name="complete_wbs_code" string="Code"/>
-                                            <field name="wbs_indent"/>
-                                            <field name="name" string="Name"/>
-                                            <field name="parent_id" on_change="on_change_parent(parent_id)" string="Parent"/>
-                                            <field name="account_class" string="Class"/>
-                                            <field name="user_id"/>
-                                            <field name="date_start" string="Start Date"/>
-                                            <field name="date" string="End Date"/>
-                                            <field name="stage_id"/>
-                                            <field name="state" invisible="True"/>
-                                            <field name="child_ids" invisible="True"/>
-                                            <field name="progress_rate" readonly="True"/>
-                                        </tree>
-                                    </field>
+                                    <!--<field name="project_child_complete_ids" nolabel="1" context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}">-->
+                                        <!--<tree string="WBS elements"-->
+                                              <!--colors="grey:state in ('cancelled','done','close');blue:account_class == 'work_package';green:account_class == 'phase';magenta:account_class == 'deliverable'; red:message_unread == True"-->
+                                              <!--fonts="bold:state == 'open'; bold:message_unread == True" default_order="complete_wbs_code" readonly="True">-->
+                                            <!--&lt;!&ndash;<field name="message_unread" invisible="1"/>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<button string="Parent WBS element"-->
+                                                    <!--name="action_openParentTreeView"-->
+                                                    <!--type="object"-->
+                                                    <!--icon="STOCK_GO_UP" attrs="{'invisible': [('parent_id', '=', False)]}"/>-->
+                                            <!--<button string="Child WBS elements"-->
+                                                    <!--name="action_openChildTreeView"-->
+                                                    <!--type="object"-->
+                                                    <!--icon="STOCK_GO_DOWN"/>-->
+                                            <!--<button string="Project Form View"-->
+                                                    <!--name="action_open_view_project_form"-->
+                                                    <!--type="object"-->
+                                                    <!--icon="gtk-edit"/>&ndash;&gt;-->
+                                            <!--<field name="complete_wbs_code" string="Code"/>-->
+                                            <!--<field name="wbs_indent"/>-->
+                                            <!--<field name="name" string="Name"/>-->
+                                            <!--<field name="parent_id" on_change="on_change_parent(parent_id)" string="Parent"/>-->
+                                            <!--<field name="account_class" string="Class"/>-->
+                                            <!--<field name="user_id"/>-->
+                                            <!--<field name="date_start" string="Start Date"/>-->
+                                            <!--<field name="date" string="End Date"/>-->
+                                            <!--<field name="stage_id"/>-->
+                                            <!--<field name="state" invisible="True"/>-->
+                                            <field name="child_ids" nolabel="1" context="{'default_project_id': active_id}"/>
+                                            <!--<field name="progress_rate" readonly="True"/>-->
+                                        <!--</tree>-->
+                                    <!--</field>-->
                                 </group>
                                 <group string="Project Exclusions">
                                     <!--<group>

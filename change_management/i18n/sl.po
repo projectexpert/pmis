@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-01 18:12+0200\n"
-"PO-Revision-Date: 2016-10-01 18:20+0200\n"
+"POT-Creation-Date: 2016-10-08 14:43+0200\n"
+"PO-Revision-Date: 2016-10-08 14:44+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -170,7 +170,6 @@ msgstr "Ukrepi na spremembi"
 #: view:change.management.change:change_management.change_tree_view
 #: model:ir.actions.act_window,name:change_management.action_show_actions
 #: model:ir.ui.menu,name:change_management.menu_actions_on_change
-#: view:project.project:change_management.change_management_project_charter_tree_view
 msgid "Actions"
 msgstr "Ukrepi"
 
@@ -248,14 +247,15 @@ msgid "Change Action"
 msgstr "Ukrepi na spremembi"
 
 #. module: change_management
-#: view:project.project:change_management.change_management_project_charter_tree_view
-msgid "Change Actions"
-msgstr "Ukrepi na spremembi"
-
-#. module: change_management
+#: model:mail.message.subtype,description:change_management.mt_change_accepted
 #: model:mail.message.subtype,name:change_management.mt_change_accepted
 msgid "Change Approved"
 msgstr "Sprememba odobrena"
+
+#. module: change_management
+#: model:mail.message.subtype,name:change_management.mt_change_draft
+msgid "Change Back to Draft"
+msgstr "Sprememba vrnjena v osnutek"
 
 #. module: change_management
 #: model:ir.actions.act_window,name:change_management.action_show_categories
@@ -271,6 +271,19 @@ msgid "Change Category"
 msgstr "Kategorija spremembe"
 
 #. module: change_management
+#: model:mail.message.subtype,description:change_management.mt_change_done
+#: model:mail.message.subtype,name:change_management.mt_change_done
+msgid "Change Completed"
+msgstr "Sprememba zaključena"
+
+#. module: change_management
+#: model:mail.message.subtype,description:change_management.mt_change_active
+#: model:mail.message.subtype,name:change_management.mt_change_active
+msgid "Change Confirmed"
+msgstr "Sprememba potrjena"
+
+#. module: change_management
+#: model:mail.message.subtype,description:change_management.mt_change_deferred
 #: model:mail.message.subtype,name:change_management.mt_change_deferred
 msgid "Change Deferred"
 msgstr "Sprememba odložena"
@@ -286,12 +299,13 @@ msgid "Change Enforcing"
 msgstr "Uveljavljanje sprememb"
 
 #. module: change_management
-#: model:mail.message.subtype,name:change_management.mt_change_active
-msgid "Change In Process"
-msgstr "Spremembe v teku"
+#: model:mail.message.subtype,description:change_management.mt_change_in_progress
+#: model:mail.message.subtype,name:change_management.mt_change_in_progress
+msgid "Change In Progress"
+msgstr "Sprememba v teku"
 
 #. module: change_management
-#: view:project.project:change_management.change_management_project_charter_tree_view
+#: view:project.project:change_management.edit_project
 msgid "Change Management"
 msgstr "Upravljanje sprememb"
 
@@ -306,29 +320,26 @@ msgid "Change Owner"
 msgstr "Lastnik spremembe"
 
 #. module: change_management
+#: model:mail.message.subtype,description:change_management.mt_change_rejected
 #: model:mail.message.subtype,name:change_management.mt_change_rejected
 msgid "Change Rejected"
 msgstr "Sprememba zavrnjena"
 
 #. module: change_management
-#: model:mail.message.subtype,description:change_management.mt_change_accepted
-msgid "Change approved"
-msgstr "Sprememba odobrena"
-
-#. module: change_management
-#: model:mail.message.subtype,description:change_management.mt_change_deferred
-msgid "Change deferred"
-msgstr "Sprememba odložena"
+#: model:mail.message.subtype,description:change_management.mt_change_withdrawn
+#: model:mail.message.subtype,name:change_management.mt_change_withdrawn
+msgid "Change Withdrawn"
+msgstr "Sprememba umaknjena"
 
 #. module: change_management
 #: model:mail.message.subtype,description:change_management.mt_change_draft
-msgid "Change in draft"
-msgstr "Osnutek spremembe"
+msgid "Change back in Draft"
+msgstr "Sprememba vrnjena v osnutek"
 
 #. module: change_management
-#: model:mail.message.subtype,description:change_management.mt_change_active
-msgid "Change in process"
-msgstr "Sprememba v teku"
+#: field:project.project,change_count:0
+msgid "Change count"
+msgstr "Števec sprememb"
 
 #. module: change_management
 #: model:ir.model,name:change_management.model_change_management_category
@@ -341,11 +352,6 @@ msgid "Change log proximity table"
 msgstr "Tabela dnevnika bližine spremembe"
 
 #. module: change_management
-#: model:mail.message.subtype,description:change_management.mt_change_rejected
-msgid "Change rejected"
-msgstr "Sprememba zavrnjena"
-
-#. module: change_management
 #: field:change.management.change,change_response_count:0
 msgid "Change response count"
 msgstr "Števec ukrepov ob spremembah"
@@ -355,14 +361,9 @@ msgstr "Števec ukrepov ob spremembah"
 #: model:ir.actions.act_window,name:change_management.action_show_changes
 #: model:ir.ui.menu,name:change_management.menu_change_management
 #: model:ir.ui.menu,name:change_management.menu_configuration_changes
-#: view:project.project:change_management.change_management_project_charter_tree_view
+#: view:project.project:change_management.edit_project
 msgid "Changes"
 msgstr "Spremembe"
-
-#. module: change_management
-#: model:mail.message.subtype,name:change_management.mt_change_draft
-msgid "Changes In Draft"
-msgstr "Osnutki sprememb"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -373,6 +374,11 @@ msgstr "Spremembe brez ukrepov"
 #: view:change.management.change:change_management.change_search_form_view
 msgid "Changes without ownership"
 msgstr "Spremembe brez lastništva"
+
+#. module: change_management
+#: view:project.project:change_management.view_project_kanban_inherited
+msgid "Changes:"
+msgstr "Spremembe:"
 
 #. module: change_management
 #: field:change.management.change,color:0
@@ -477,12 +483,6 @@ msgid "Effect"
 msgstr "Učinek"
 
 #. module: change_management
-#: code:addons/change_management/model/change_management.py:180
-#, python-format
-msgid "Error!"
-msgstr "Napaka!"
-
-#. module: change_management
 #: field:change.management.change,message_follower_ids:0
 msgid "Followers"
 msgstr "Sledilci"
@@ -515,6 +515,11 @@ msgstr "Če označeno, zahtevajo nova sporočila vašo pozornost."
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
 msgid "In Progress"
+msgstr "V teku"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "In progress"
 msgstr "V teku"
 
 #. module: change_management
@@ -641,6 +646,11 @@ msgid "Requestor"
 msgstr "Prosilec"
 
 #. module: change_management
+#: view:project.project:change_management.change_management_project_charter_tree_view
+msgid "Requirements"
+msgstr "Zahteve"
+
+#. module: change_management
 #: view:change.management.change:change_management.change_form_view
 msgid "Response Actions"
 msgstr "Ukrepi ob odzivu"
@@ -682,12 +692,6 @@ msgid "Task is an action on a change identified by this label."
 msgstr "Opravilo je ukrep ob spremembi, ki ga določi ta oznaka."
 
 #. module: change_management
-#: code:addons/change_management/model/change_management.py:181
-#, python-format
-msgid "There is no default company for the current user!"
-msgstr "Trenutni uporabnik nima nastavljene privzete družbe!"
-
-#. module: change_management
 #: field:change.management.change,message_unread:0
 msgid "Unread Messages"
 msgstr "Neprebrana sporočila"
@@ -726,6 +730,30 @@ msgstr "Umakni"
 #: view:project.task:change_management.view_task_kanban
 msgid "oe_kanban_text_red"
 msgstr "oe_kanban_text_red"
+
+#~ msgid "Change Actions"
+#~ msgstr "Ukrepi na spremembi"
+
+#~ msgid "Change approved"
+#~ msgstr "Sprememba odobrena"
+
+#~ msgid "Change deferred"
+#~ msgstr "Sprememba odložena"
+
+#~ msgid "Change in process"
+#~ msgstr "Sprememba v teku"
+
+#~ msgid "Change rejected"
+#~ msgstr "Sprememba zavrnjena"
+
+#~ msgid "Changes In Draft"
+#~ msgstr "Osnutki sprememb"
+
+#~ msgid "Error!"
+#~ msgstr "Napaka!"
+
+#~ msgid "There is no default company for the current user!"
+#~ msgstr "Trenutni uporabnik nima nastavljene privzete družbe!"
 
 #~ msgid "Accept Change"
 #~ msgstr "Sprejmi spremembo"

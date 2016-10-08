@@ -2,7 +2,7 @@
 # Copyright (C) 2015 Matmoz d.o.o. (<http://www.matmoz.si>).
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields
+from openerp import api, models, fields
 
 
 class ProjectTask (models.Model):
@@ -24,3 +24,12 @@ class ProjectProject (models.Model):
         'project_id',
         'Project changes'
     )
+
+    change_count = fields.Integer(
+        compute='_change_count', type='integer'
+    )
+
+    @api.depends('change_ids')
+    def _change_count(self):
+        for record in self:
+            record.change_count = len(record.change_ids)

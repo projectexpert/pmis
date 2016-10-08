@@ -40,34 +40,52 @@
 
 <!-- change-related subtypes for messaging / Chatter / STATUS -->
         <record id="mt_change_draft" model="mail.message.subtype">
-            <field name="name">Changes In Draft</field>
+            <field name="name">Change Back to Draft</field>
             <field name="res_model">change.management.change</field>
             <field name="default" eval="False"/>
-            <field name="description">Change in draft</field>
+            <field name="description">Change back in Draft</field>
         </record>
         <record id="mt_change_active" model="mail.message.subtype">
-            <field name="name">Change In Process</field>
+            <field name="name">Change Confirmed</field>
             <field name="res_model">change.management.change</field>
             <field name="default" eval="False"/>
-            <field name="description">Change in process</field>
-        </record>
-        <record id="mt_change_rejected" model="mail.message.subtype">
-            <field name="name">Change Rejected</field>
-            <field name="res_model">change.management.change</field>
-            <field name="default" eval="False"/>
-            <field name="description">Change rejected</field>
+            <field name="description">Change Confirmed</field>
         </record>
         <record id="mt_change_accepted" model="mail.message.subtype">
             <field name="name">Change Approved</field>
             <field name="res_model">change.management.change</field>
             <field name="default" eval="False"/>
-            <field name="description">Change approved</field>
+            <field name="description">Change Approved</field>
+        </record>
+        <record id="mt_change_in_progress" model="mail.message.subtype">
+            <field name="name">Change In Progress</field>
+            <field name="res_model">change.management.change</field>
+            <field name="default" eval="False"/>
+            <field name="description">Change In Progress</field>
+        </record>
+        <record id="mt_change_done" model="mail.message.subtype">
+            <field name="name">Change Completed</field>
+            <field name="res_model">change.management.change</field>
+            <field name="default" eval="False"/>
+            <field name="description">Change Completed</field>
+        </record>
+        <record id="mt_change_rejected" model="mail.message.subtype">
+            <field name="name">Change Rejected</field>
+            <field name="res_model">change.management.change</field>
+            <field name="default" eval="False"/>
+            <field name="description">Change Rejected</field>
+        </record>
+        <record id="mt_change_withdrawn" model="mail.message.subtype">
+            <field name="name">Change Withdrawn</field>
+            <field name="res_model">change.management.change</field>
+            <field name="default" eval="False"/>
+            <field name="description">Change Withdrawn</field>
         </record>
         <record id="mt_change_deferred" model="mail.message.subtype">
             <field name="name">Change Deferred</field>
             <field name="res_model">change.management.change</field>
             <field name="default" eval="False"/>
-            <field name="description">Change deferred</field>
-        </record>        
+            <field name="description">Change Deferred</field>
+        </record>
     </data>
 </openerp>

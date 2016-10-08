@@ -4,7 +4,7 @@
 
 {
     'name': 'Change Management',
-    'version': '8.0.3.0.2',
+    'version': '8.0.3.0.3',
     'author': 'Matmoz d.o.o., '
               'Project Expert Team',
     'contributors': [
@@ -14,12 +14,13 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'summary': 'Change Management integrated with Stakeholders Requirements',
-    'depends': ['project', 'project_charter'],
+    'depends': ['project', 'project_charter', 'project_wbs'],
     'data': [
         'data/change_management_data.xml',
         'data/change_management_sequence.xml',
         'security/ir.model.access.csv',
         'view/project_task_view.xml',
+        'view/project_view.xml',
         'view/change_management_view.xml',
         'view/change_management_category_view.xml',
         'view/change_management_proximity_view.xml',

@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-01 18:23+0200\n"
-"PO-Revision-Date: 2016-10-01 18:25+0200\n"
+"POT-Creation-Date: 2016-10-08 14:45+0200\n"
+"PO-Revision-Date: 2016-10-08 14:45+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.8.9\n"
-"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
-"Language: zh_CN\n"
 
 #. module: change_management
 #: help:change.management.change,change_category_id:0
@@ -114,14 +114,15 @@ msgstr ""
 #: view:change.management.change:change_management.change_tree_view
 #: model:ir.actions.act_window,name:change_management.action_show_actions
 #: model:ir.ui.menu,name:change_management.menu_actions_on_change
-#: view:project.project:change_management.change_management_project_charter_tree_view
+#, fuzzy
 msgid "Actions"
-msgstr ""
+msgstr "行为"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_kanban_view
+#, fuzzy
 msgid "Actions:"
-msgstr ""
+msgstr "行为："
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -155,8 +156,17 @@ msgstr ""
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
+#, fuzzy
 msgid "Approve"
 msgstr ""
+"客户和用户。\n"
+"客户是批准和管理项目的产品、服务或结果的个人或组织。用户是要使用项目的产"
+"品、服务或结果的个人或组织。客户和用户可能隶属于执行项目的组织的内部或外"
+"部，也可能存在于不同层级。比如，某种医疗产品的客户可能包括开药方的医生、使"
+"用它的病人以及实际付款的保险人。在一些应用领域，客户和用户是同义的，但在另"
+"外一些领域，客户指的是取得项目产品的实体，而用户则是直接使用项目产品的实"
+"体。\n"
+"            "
 
 #. module: change_management
 #: field:change.management.change,approved_id:0
@@ -170,21 +180,24 @@ msgstr ""
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
+#, fuzzy
 msgid "Blocked"
-msgstr ""
+msgstr "已屏蔽"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
+#, fuzzy
 msgid "Category"
-msgstr ""
+msgstr "类别"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
 #: field:change.management.change,description_cause:0
 #: model:ir.model,name:change_management.model_change_management_change
 #: view:project.task:change_management.change_management_project_task_search_view
+#, fuzzy
 msgid "Change"
-msgstr ""
+msgstr "转化为变更申请"
 
 #. module: change_management
 #: view:project.task:change_management.change_management_project_task_search_view
@@ -192,13 +205,14 @@ msgid "Change Action"
 msgstr ""
 
 #. module: change_management
-#: view:project.project:change_management.change_management_project_charter_tree_view
-msgid "Change Actions"
+#: model:mail.message.subtype,description:change_management.mt_change_accepted
+#: model:mail.message.subtype,name:change_management.mt_change_accepted
+msgid "Change Approved"
 msgstr ""
 
 #. module: change_management
-#: model:mail.message.subtype,name:change_management.mt_change_accepted
-msgid "Change Approved"
+#: model:mail.message.subtype,name:change_management.mt_change_draft
+msgid "Change Back to Draft"
 msgstr ""
 
 #. module: change_management
@@ -211,10 +225,24 @@ msgstr ""
 #: view:change.management.category:change_management.category_tree_view
 #: field:change.management.category,name:0
 #: field:change.management.change,change_category_id:0
+#, fuzzy
 msgid "Change Category"
+msgstr "变更类别"
+
+#. module: change_management
+#: model:mail.message.subtype,description:change_management.mt_change_done
+#: model:mail.message.subtype,name:change_management.mt_change_done
+msgid "Change Completed"
 msgstr ""
 
 #. module: change_management
+#: model:mail.message.subtype,description:change_management.mt_change_active
+#: model:mail.message.subtype,name:change_management.mt_change_active
+msgid "Change Confirmed"
+msgstr ""
+
+#. module: change_management
+#: model:mail.message.subtype,description:change_management.mt_change_deferred
 #: model:mail.message.subtype,name:change_management.mt_change_deferred
 msgid "Change Deferred"
 msgstr ""
@@ -230,12 +258,13 @@ msgid "Change Enforcing"
 msgstr ""
 
 #. module: change_management
-#: model:mail.message.subtype,name:change_management.mt_change_active
-msgid "Change In Process"
+#: model:mail.message.subtype,description:change_management.mt_change_in_progress
+#: model:mail.message.subtype,name:change_management.mt_change_in_progress
+msgid "Change In Progress"
 msgstr ""
 
 #. module: change_management
-#: view:project.project:change_management.change_management_project_charter_tree_view
+#: view:project.project:change_management.edit_project
 msgid "Change Management"
 msgstr ""
 
@@ -250,29 +279,27 @@ msgid "Change Owner"
 msgstr ""
 
 #. module: change_management
+#: model:mail.message.subtype,description:change_management.mt_change_rejected
 #: model:mail.message.subtype,name:change_management.mt_change_rejected
 msgid "Change Rejected"
 msgstr ""
 
 #. module: change_management
-#: model:mail.message.subtype,description:change_management.mt_change_accepted
-msgid "Change approved"
-msgstr ""
-
-#. module: change_management
-#: model:mail.message.subtype,description:change_management.mt_change_deferred
-msgid "Change deferred"
+#: model:mail.message.subtype,description:change_management.mt_change_withdrawn
+#: model:mail.message.subtype,name:change_management.mt_change_withdrawn
+msgid "Change Withdrawn"
 msgstr ""
 
 #. module: change_management
 #: model:mail.message.subtype,description:change_management.mt_change_draft
-msgid "Change in draft"
+msgid "Change back in Draft"
 msgstr ""
 
 #. module: change_management
-#: model:mail.message.subtype,description:change_management.mt_change_active
-msgid "Change in process"
-msgstr ""
+#: field:project.project,change_count:0
+#, fuzzy
+msgid "Change count"
+msgstr "转化为变更申请"
 
 #. module: change_management
 #: model:ir.model,name:change_management.model_change_management_category
@@ -285,11 +312,6 @@ msgid "Change log proximity table"
 msgstr ""
 
 #. module: change_management
-#: model:mail.message.subtype,description:change_management.mt_change_rejected
-msgid "Change rejected"
-msgstr ""
-
-#. module: change_management
 #: field:change.management.change,change_response_count:0
 msgid "Change response count"
 msgstr ""
@@ -299,13 +321,8 @@ msgstr ""
 #: model:ir.actions.act_window,name:change_management.action_show_changes
 #: model:ir.ui.menu,name:change_management.menu_change_management
 #: model:ir.ui.menu,name:change_management.menu_configuration_changes
-#: view:project.project:change_management.change_management_project_charter_tree_view
+#: view:project.project:change_management.edit_project
 msgid "Changes"
-msgstr ""
-
-#. module: change_management
-#: model:mail.message.subtype,name:change_management.mt_change_draft
-msgid "Changes In Draft"
 msgstr ""
 
 #. module: change_management
@@ -319,9 +336,16 @@ msgid "Changes without ownership"
 msgstr ""
 
 #. module: change_management
+#: view:project.project:change_management.view_project_kanban_inherited
+#, fuzzy
+msgid "Changes:"
+msgstr "转化为变更申请"
+
+#. module: change_management
 #: field:change.management.change,color:0
+#, fuzzy
 msgid "Color"
-msgstr ""
+msgstr "颜色"
 
 #. module: change_management
 #: field:change.management.change,company_id:0
@@ -352,15 +376,17 @@ msgstr ""
 #: field:change.management.category,create_uid:0
 #: field:change.management.change,create_uid:0
 #: field:change.management.proximity,create_uid:0
+#, fuzzy
 msgid "Created by"
-msgstr ""
+msgstr "创建人"
 
 #. module: change_management
 #: field:change.management.category,create_date:0
 #: field:change.management.change,create_date:0
 #: field:change.management.proximity,create_date:0
+#, fuzzy
 msgid "Created on"
-msgstr ""
+msgstr "创建时间"
 
 #. module: change_management
 #: field:change.management.change,date_modified:0
@@ -379,8 +405,9 @@ msgstr ""
 
 #. module: change_management
 #: help:change.management.change,message_last_post:0
+#, fuzzy
 msgid "Date of the last message posted on the record."
-msgstr ""
+msgstr "记录最后添加信息的日期"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
@@ -389,13 +416,15 @@ msgstr ""
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
+#, fuzzy
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
+#, fuzzy
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #. module: change_management
 #: field:change.management.category,display_name:0
@@ -406,68 +435,82 @@ msgstr ""
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
+#, fuzzy
 msgid "Done"
 msgstr ""
+"时间箱是GTD方法的一个术语。时间箱用于根据一定的时间区间来对任务进行分类："
+"今天的事，本周的事，这个月的事，长期的事"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_kanban_view
 #: view:project.task:change_management.view_task_kanban
+#, fuzzy
 msgid "Edit..."
-msgstr ""
+msgstr "编辑..."
 
 #. module: change_management
 #: field:change.management.change,description_effect:0
+#, fuzzy
 msgid "Effect"
-msgstr ""
-
-#. module: change_management
-#: code:addons/change_management/model/change_management.py:180
-#, python-format
-msgid "Error!"
-msgstr ""
+msgstr "效果"
 
 #. module: change_management
 #: field:change.management.change,message_follower_ids:0
+#, fuzzy
 msgid "Followers"
-msgstr ""
+msgstr "关注人"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
+#, fuzzy
 msgid "Group By..."
-msgstr ""
+msgstr "分组项..."
 
 #. module: change_management
 #: help:change.management.change,message_summary:0
+#, fuzzy
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
 msgstr ""
+"保存交谈概要（信息数量，...）。此概要为html格式，以便于插入看板视图中。"
 
 #. module: change_management
 #: field:change.management.category,id:0 field:change.management.change,id:0
 #: field:change.management.proximity,id:0
+#, fuzzy
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: change_management
 #: help:change.management.change,message_unread:0
+#, fuzzy
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "如果勾选，新信息将需要你进行关注。"
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
+#, fuzzy
 msgid "In Progress"
-msgstr ""
+msgstr "进行中"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+#, fuzzy
+msgid "In progress"
+msgstr "进行中"
 
 #. module: change_management
 #: field:change.management.change,message_is_follower:0
+#, fuzzy
 msgid "Is a Follower"
-msgstr ""
+msgstr "是关注人"
 
 #. module: change_management
 #: field:change.management.change,message_last_post:0
+#, fuzzy
 msgid "Last Message Date"
-msgstr ""
+msgstr "最后信息的日期"
 
 #. module: change_management
 #: field:change.management.category,__last_update:0
@@ -480,47 +523,55 @@ msgstr ""
 #: field:change.management.category,write_uid:0
 #: field:change.management.change,write_uid:0
 #: field:change.management.proximity,write_uid:0
+#, fuzzy
 msgid "Last Updated by"
-msgstr ""
+msgstr "最后更新者"
 
 #. module: change_management
 #: field:change.management.category,write_date:0
 #: field:change.management.change,write_date:0
 #: field:change.management.proximity,write_date:0
+#, fuzzy
 msgid "Last Updated on"
-msgstr ""
+msgstr "上次更新日期"
 
 #. module: change_management
 #: field:change.management.change,message_ids:0
+#, fuzzy
 msgid "Messages"
-msgstr ""
+msgstr "信息"
 
 #. module: change_management
 #: help:change.management.change,message_ids:0
+#, fuzzy
 msgid "Messages and communication history"
-msgstr ""
+msgstr "信息和交流历史"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
+#, fuzzy
 msgid "Mod. Date"
-msgstr ""
+msgstr "修改日期"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
+#, fuzzy
 msgid "My Projects"
-msgstr ""
+msgstr "我的项目"
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
+#, fuzzy
 msgid "Normal"
-msgstr ""
+msgstr "正常"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
 #: field:change.management.change,project_id:0
 #: model:ir.model,name:change_management.model_project_project
+#, fuzzy
 msgid "Project"
-msgstr ""
+msgstr "项目"
 
 #. module: change_management
 #: field:project.project,change_ids:0
@@ -539,13 +590,15 @@ msgstr ""
 #: field:change.management.proximity,name:0
 #: model:ir.actions.act_window,name:change_management.action_show_proximity
 #: model:ir.ui.menu,name:change_management.menu_change_proximity
+#, fuzzy
 msgid "Proximity"
-msgstr ""
+msgstr "接近度"
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
+#, fuzzy
 msgid "Ready for next stage"
-msgstr ""
+msgstr "准备进入下一阶段"
 
 #. module: change_management
 #: field:change.management.change,description_event:0
@@ -554,8 +607,9 @@ msgstr ""
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
+#, fuzzy
 msgid "Reg. Date"
-msgstr ""
+msgstr "登记日期"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
@@ -564,8 +618,9 @@ msgstr ""
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
+#, fuzzy
 msgid "Remaining Time"
-msgstr ""
+msgstr "剩余时间"
 
 #. module: change_management
 #: field:change.management.change,description:0
@@ -583,14 +638,21 @@ msgid "Requestor"
 msgstr ""
 
 #. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Response Actions"
+#: view:project.project:change_management.change_management_project_charter_tree_view
+msgid "Requirements"
 msgstr ""
 
 #. module: change_management
+#: view:change.management.change:change_management.change_form_view
+#, fuzzy
+msgid "Response Actions"
+msgstr "反应行为"
+
+#. module: change_management
 #: field:change.management.change,change_response_ids:0
+#, fuzzy
 msgid "Response Ids"
-msgstr ""
+msgstr "反应ID"
 
 #. module: change_management
 #: view:project.task:change_management.change_management_project_task_search_view
@@ -605,18 +667,21 @@ msgstr ""
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
 #: field:change.management.change,state:0
+#, fuzzy
 msgid "State"
-msgstr ""
+msgstr "状态"
 
 #. module: change_management
 #: field:change.management.change,message_summary:0
+#, fuzzy
 msgid "Summary"
-msgstr ""
+msgstr "概要"
 
 #. module: change_management
 #: model:ir.model,name:change_management.model_project_task
+#, fuzzy
 msgid "Task"
-msgstr ""
+msgstr "任务"
 
 #. module: change_management
 #: help:project.task,change_id:0
@@ -624,40 +689,40 @@ msgid "Task is an action on a change identified by this label."
 msgstr ""
 
 #. module: change_management
-#: code:addons/change_management/model/change_management.py:181
-#, python-format
-msgid "There is no default company for the current user!"
-msgstr ""
-
-#. module: change_management
 #: field:change.management.change,message_unread:0
+#, fuzzy
 msgid "Unread Messages"
-msgstr ""
+msgstr "未读信息"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
+#, fuzzy
 msgid "Unread messages"
-msgstr ""
+msgstr "未读信息"
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
+#, fuzzy
 msgid "Validate planned time"
-msgstr ""
+msgstr "确认计划的时间"
 
 #. module: change_management
 #: view:project.task:change_management.view_task_kanban
+#, fuzzy
 msgid "Very Important"
-msgstr ""
+msgstr "非常重要"
 
 #. module: change_management
 #: field:change.management.change,website_message_ids:0
+#, fuzzy
 msgid "Website Messages"
-msgstr ""
+msgstr "网站信息"
 
 #. module: change_management
 #: help:change.management.change,website_message_ids:0
+#, fuzzy
 msgid "Website communication history"
-msgstr ""
+msgstr "网站沟通历史"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view

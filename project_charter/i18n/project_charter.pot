@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-01 16:07+0000\n"
-"PO-Revision-Date: 2016-10-01 16:07+0000\n"
+"POT-Creation-Date: 2016-10-08 12:41+0000\n"
+"PO-Revision-Date: 2016-10-08 12:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -120,16 +120,6 @@ msgstr ""
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Class"
-msgstr ""
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Code"
-msgstr ""
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
 msgid "Communications"
 msgstr ""
 
@@ -167,16 +157,6 @@ msgid "Display Name"
 msgstr ""
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Edit Scope"
-msgstr ""
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "End Date"
-msgstr ""
-
-#. module: project_charter
 #: field:project.constraints,id:0
 #: field:project.outscope,id:0
 #: field:project.success,id:0
@@ -210,11 +190,6 @@ msgid "Manage"
 msgstr ""
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Name"
-msgstr ""
-
-#. module: project_charter
 #: field:project.project,notes:0
 msgid "Notes"
 msgstr ""
@@ -227,11 +202,6 @@ msgstr ""
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_outscope
 msgid "Out of scope"
-msgstr ""
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Parent"
 msgstr ""
 
 #. module: project_charter
@@ -337,11 +307,6 @@ msgid "Stakeholders"
 msgstr ""
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Start Date"
-msgstr ""
-
-#. module: project_charter
 #: model:ir.model,name:project_charter.model_project_success
 msgid "Success"
 msgstr ""
@@ -354,11 +319,6 @@ msgstr ""
 #. module: project_charter
 #: model:ir.ui.menu,name:project_charter.menu_tasks_config_title
 msgid "Tasks"
-msgstr ""
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "WBS elements"
 msgstr ""
 
 #. module: project_charter

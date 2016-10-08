@@ -28,6 +28,44 @@ class CMChange (models.Model):
     _inherit = ['mail.thread', 'ir.needaction_mixin']
     _order = 'id desc'
 
+    # ##### Track state changes #####  #
+    _track = {
+        'state': {
+            'change_management.mt_change_draft': (
+                lambda self, cr, uid, obj,
+                ctx=None: obj['state'] in ['draft']
+            ),
+            'change_management.mt_change_active': (
+                lambda self, cr, uid, obj,
+                ctx=None: obj['state'] in ['active']
+            ),
+            'change_management.mt_change_accepted': (
+                lambda self, cr, uid, obj,
+                ctx=None: obj['state'] in ['accepted']
+            ),
+            'change_management.mt_change_in_progress': (
+                lambda self, cr, uid, obj,
+                ctx=None: obj['state'] in ['in_progress']
+            ),
+            'change_management.mt_change_done': (
+                lambda self, cr, uid, obj,
+                ctx=None: obj['state'] in ['done']
+            ),
+            'change_management.mt_change_rejected': (
+                lambda self, cr, uid, obj,
+                ctx=None: obj['state'] in ['rejected']
+            ),
+            'change_management.mt_change_withdrawn': (
+                lambda self, cr, uid, obj,
+                ctx=None: obj['state'] in ['withdrawn']
+            ),
+            'change_management.mt_change_deferred': (
+                lambda self, cr, uid, obj,
+                ctx=None: obj['state'] in ['deferred']
+            )
+        }
+    }
+
     # ##### define CR code #####  #
 
     @api.model
@@ -110,6 +148,7 @@ and obtain sign-off from all key stakeholders.
     )
     author_id = fields.Many2one(
         'res.users', 'Requestor', required=True,
+        default=lambda self: self.env.user.id
     )
     stakeholder_id = fields.Many2one(
         'res.partner', string='Proposer'
@@ -177,7 +216,7 @@ accordance with the project's chosen scales or business continuity time scales.
         readonly=True,
         string='State',
         states={'draft': [('readonly', False)]},
-        track_visibility='on_change'
+        # track_visibility='on_change'
     )
     change_owner_id = fields.Many2one(
         'res.users', 'Change Manager',

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-01 18:26+0200\n"
-"PO-Revision-Date: 2016-10-01 18:26+0200\n"
+"POT-Creation-Date: 2016-10-08 14:42+0200\n"
+"PO-Revision-Date: 2016-10-08 14:42+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -125,16 +125,6 @@ msgstr "Sequenza codice subordinato"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Class"
-msgstr "Classe"
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Code"
-msgstr "Codice"
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
 msgid "Communications"
 msgstr "Communicazioni"
 
@@ -169,16 +159,6 @@ msgid "Display Name"
 msgstr "Nome visualizzato"
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Edit Scope"
-msgstr "Edita portata"
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "End Date"
-msgstr "Data finale"
-
-#. module: project_charter
 #: field:project.constraints,id:0 field:project.outscope,id:0
 #: field:project.success,id:0
 msgid "ID"
@@ -208,11 +188,6 @@ msgid "Manage"
 msgstr "Gestisci"
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Name"
-msgstr "Nome"
-
-#. module: project_charter
 #: field:project.project,notes:0
 msgid "Notes"
 msgstr "Note"
@@ -226,11 +201,6 @@ msgstr "Fuori portata"
 #: model:ir.model,name:project_charter.model_project_outscope
 msgid "Out of scope"
 msgstr "Fuori portata"
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Parent"
-msgstr "Superiore"
 
 #. module: project_charter
 #: field:project.project,balance_plan:0
@@ -334,11 +304,6 @@ msgid "Stakeholders"
 msgstr "Parti interessate"
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Start Date"
-msgstr "Data d'inizio"
-
-#. module: project_charter
 #: model:ir.model,name:project_charter.model_project_success
 msgid "Success"
 msgstr "Successo"
@@ -354,14 +319,33 @@ msgid "Tasks"
 msgstr "Attività"
 
 #. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "WBS elements"
-msgstr "Elementi WBS"
-
-#. module: project_charter
 #: view:project.project:project_charter.edit_project
 msgid "Work Breakdown Structure"
 msgstr "Articolazione progetti (WBS)"
+
+#~ msgid "Class"
+#~ msgstr "Classe"
+
+#~ msgid "Code"
+#~ msgstr "Codice"
+
+#~ msgid "Edit Scope"
+#~ msgstr "Edita portata"
+
+#~ msgid "End Date"
+#~ msgstr "Data finale"
+
+#~ msgid "Name"
+#~ msgstr "Nome"
+
+#~ msgid "Parent"
+#~ msgstr "Superiore"
+
+#~ msgid "Start Date"
+#~ msgstr "Data d'inizio"
+
+#~ msgid "WBS elements"
+#~ msgstr "Elementi WBS"
 
 #~ msgid "Defines what type of cost does the analytic account carry from an employee perspective."
 #~ msgstr "Definisce il tipo di costo, che il conto analitico registra, dalla prospettiva del dipendente."
