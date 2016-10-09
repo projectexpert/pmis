@@ -1,66 +1,51 @@
 # -*- coding: utf-8 -*-
-##############################################################################
+# © 2015 Eficent Business and IT Consulting Services S.L.
+# (Jordi Ballester Alomar)
 #
-#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              <contact@eficent.com>
+# © 2015 Serpent Consulting Services Pvt. Ltd.
+# (Sudhir Arya)
 #
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
+# © 2016 Matmoz d.o.o.
+# (Matjaž Mozetič)
 #
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+
 from openerp.tools.translate import _
-from openerp.osv import fields, orm
+from openerp import api, fields, models
+from openerp.exceptions import Warning as UserError
 
 
-class AccountAnalyticPlanVersion(orm.Model):
+class AccountAnalyticPlanVersion(models.Model):
     _inherit = 'account.analytic.plan.version'
 
-    _columns = {
-        'default_resource_plan': fields.boolean(
-            'Default for resource plan'),
-    }
+    default_resource_plan = fields.Boolean(
+        'Default for resource plan',
+        default=False
+    )
 
-    def _check_default_resource(self, cr, uid, vals, context=None):
-
+    # TODO Solve TypeError: can only concatenate list (not "NoneType") to list
+    @api.model
+    def _check_default_resource(self, vals):
         if 'default_resource_plan' in vals:
             if vals['default_resource_plan'] is True:
                 other_default_resource = self.search(
-                    cr, uid, [('default_resource_plan', '=', True)],
-                    context=context)
+                    [('default_resource_plan', '=', True)]
+                )
                 if other_default_resource:
-                    raise orm.except_orm(_('Error!'),
-                                         _('Only one default for resource '
-                                           'plan version can exist.'))
+                    raise UserError(
+                        _(
+                            'Only one default for resource '
+                            'plan version can exist.'
+                        )
+                    )
 
-    _defaults = {
-        'default_resource_plan': False,
-    }
-
-    def create(self, cr, uid, vals, *args, **kwargs):
-
-        context = kwargs.get('context', {})
-        self._check_default_resource(cr, uid, vals, context)
-
-        res = super(AccountAnalyticPlanVersion, self).create(
-            cr, uid, vals, *args, **kwargs)
-
+    @api.model
+    def create(self, vals):
+        self._check_default_resource(vals)
+        res = super(AccountAnalyticPlanVersion, self).create(vals)
         return res
 
-    def write(self, cr, uid, ids, vals, context=None):
-        if context is None:
-            context = {}
-
-        self._check_default_resource(cr, uid, vals, context)
-
-        return super(AccountAnalyticPlanVersion, self).write(
-            cr, uid, ids, vals, context=context)
+    @api.multi
+    def write(self, vals):
+        self._check_default_resource(vals)
+        return super(AccountAnalyticPlanVersion, self).write(vals)

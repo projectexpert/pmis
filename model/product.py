@@ -1,39 +1,23 @@
 # -*- coding: utf-8 -*-
-##############################################################################
+# © 2015 Eficent Business and IT Consulting Services S.L.
+# (Jordi Ballester Alomar)
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+# © 2015 Serpent Consulting Services Pvt. Ltd.
+# (Sudhir Arya)
 #
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
+# © 2016 Matmoz d.o.o.
+# (Matjaž Mozetič)
 #
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp.osv import fields, orm
-
-# ----------------------------------------------------------
-#  Products
-# ----------------------------------------------------------
+from openerp import fields, models
 
 
-class ProductTemplate(orm.Model):
+class ProductTemplate(models.Model):
     _inherit = "product.template"
-    _columns = {
-        'expense_analytic_plan_journal_id': fields.many2one(
-            'account.analytic.plan.journal',
-            'Cost Planning Analytic Journal',
-            ondelete='restrict'
-        ),
-    }
 
-ProductTemplate()
+    expense_analytic_plan_journal_id = fields.Many2one(
+        'account.analytic.plan.journal',
+        'Cost Planning Analytic Journal',
+        ondelete='restrict'
+    )

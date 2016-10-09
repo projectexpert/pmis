@@ -21,7 +21,7 @@
 
 {
     'name': 'Analytic Resource Planning',
-    'version': '8.0.1.2.3',
+    'version': '8.0.1.2.4',
     'author':   'Eficent, '
                 'Project Expert Team',
     'contributors': [
@@ -33,7 +33,7 @@
     'license': 'AGPL-3',
     'depends': ['account', 'purchase', 'analytic_plan'],
     'data': [
-        "view/account_analytic_plan_version_view.xml",
+        'view/account_analytic_plan_version_view.xml',
         'view/analytic_resource_plan_view.xml',
         'view/analytic_account_view.xml',
         'view/product_view.xml',
