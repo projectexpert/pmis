@@ -188,7 +188,7 @@ class account_analytic_account(orm.Model):
             cr, uid, id, default, context=context
         )
 
-    def action_openPlanCostTreeView(self, cr, uid, ids, context=None):
+    def open_plan_cost_tree_view(self, cr, uid, ids, context=None):
         """
         :return dict: dictionary value for created view
         """

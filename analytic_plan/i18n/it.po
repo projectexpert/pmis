@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-24 13:08+0200\n"
-"PO-Revision-Date: 2015-09-24 13:08+0200\n"
+"POT-Creation-Date: 2016-10-09 14:11+0200\n"
+"PO-Revision-Date: 2016-10-09 14:12+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -15,7 +15,47 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.9\n"
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/account_analytic_plan_version.py:71
+#, python-format
+msgid ""
+"\n"
+"                            Only one default commitments\n"
+"                            version can exist.\n"
+"                            "
+msgstr ""
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/account_analytic_plan_version.py:89
+#, python-format
+msgid ""
+"\n"
+"                            Only one default plan version\n"
+"                            can exist.\n"
+"                            "
+msgstr ""
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/account_analytic_line_plan.py:243
+#, python-format
+msgid ""
+"\n"
+"                        There is no expense account defined\n"
+"                        for this product: \"%s\" (id:%d)\n"
+"                        "
+msgstr ""
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/account_analytic_line_plan.py:257
+#, python-format
+msgid ""
+"\n"
+"                        There is no income account defined\n"
+"                        for this product: \"%s\" (id:%d)\n"
+"                        "
+msgstr ""
 
 #. module: analytic_plan
 #: help:account.analytic.line.plan,amount:0
@@ -243,6 +283,12 @@ msgid "Analytic Plan copy versions"
 msgstr "Coppia versioni piano analitico"
 
 #. module: analytic_plan
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:101
+#, python-format
+msgid "Analytic Planning Lines"
+msgstr ""
+
+#. module: analytic_plan
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_form
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_search
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_tree
@@ -274,6 +320,12 @@ msgstr "Cancella"
 #: selection:account.analytic.plan.journal,type:0
 msgid "Cash"
 msgstr "Contanti"
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:73
+#, python-format
+msgid "Choose different source and destination planning versions."
+msgstr ""
 
 #. module: analytic_plan
 #: field:account.analytic.line.plan,code:0
@@ -349,6 +401,34 @@ msgid "Destination Planning Version"
 msgstr "Versione piano destinata"
 
 #. module: analytic_plan
+#: field:account.analytic.line.plan,display_name:0
+#: field:account.analytic.plan.journal,display_name:0
+#: field:account.analytic.plan.version,display_name:0
+#: field:analytic.plan.copy.version,display_name:0
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/account_analytic_line_plan.py:352
+#, python-format
+msgid "Entries: "
+msgstr "Inserimenti:"
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/account_analytic_line_plan.py:242
+#: code:addons/analytic_plan/models/account_analytic_line_plan.py:256
+#, python-format
+msgid "Error !"
+msgstr "Errore!"
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/account_analytic_plan_version.py:70
+#: code:addons/analytic_plan/models/account_analytic_plan_version.py:88
+#, python-format
+msgid "Error!"
+msgstr "Errore!"
+
+#. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Fin. Account"
 msgstr "Conto finanziario"
@@ -389,9 +469,23 @@ msgid "Include child accounts"
 msgstr "Include child accounts"
 
 #. module: analytic_plan
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:66
+#, python-format
+msgid "It is prohibited to copy to the default planning version."
+msgstr ""
+
+#. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Journal"
 msgstr "Giornale"
+
+#. module: analytic_plan
+#: field:account.analytic.line.plan,__last_update:0
+#: field:account.analytic.plan.journal,__last_update:0
+#: field:account.analytic.plan.version,__last_update:0
+#: field:analytic.plan.copy.version,__last_update:0
+msgid "Last Modified on"
+msgstr "Ultimo aggiornamento"
 
 #. module: analytic_plan
 #: field:account.analytic.line.plan,write_uid:0
@@ -486,6 +580,11 @@ msgstr "Credito pianificato"
 #: field:account.analytic.account,debit_plan:0
 msgid "Planned Debit"
 msgstr "Debito pianificato"
+
+#. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
+msgid "Planned cost lines"
+msgstr "Voci costi pianificati"
 
 #. module: analytic_plan
 #: view:account.analytic.account:analytic_plan.view_account_analytic_account_form_analytic_plan

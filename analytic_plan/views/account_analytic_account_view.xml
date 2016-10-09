@@ -42,7 +42,7 @@
                     <field name="credit_plan"/>                    
                     <field name="balance_plan"/>
 					<button string="Planned cost lines"
-                        name="action_openPlanCostTreeView"
+                        name="open_plan_cost_tree_view"
                         type="object"
                         icon="gtk-open"/>
             	</field>

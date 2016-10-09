@@ -1,25 +1,16 @@
 # -*- coding: utf-8 -*-
-##############################################################################
+# © 2015 Eficent Business and IT Consulting Services S.L.
+# (Jordi Ballester Alomar)
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+# © 2015 Serpent Consulting Services Pvt. Ltd.
+# (Sudhir Arya)
 #
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
+# © 2016 Matmoz d.o.o.
+# (Matjaž Mozetič)
 #
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-from . import product
-from . import account_analytic_plan_version
-from . import analytic_resource_plan
-from . import account_analytic_line_plan
-from . import account_analytic_account
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+
+import product
+import account_analytic_plan_version
+import analytic_resource_plan
+import account_analytic_line_plan

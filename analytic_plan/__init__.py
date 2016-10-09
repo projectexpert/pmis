@@ -1,25 +1,14 @@
 # -*- coding: utf-8 -*-
-##############################################################################
+# © 2015 Eficent Business and IT Consulting Services S.L.
+# (Jordi Ballester Alomar)
 #
-#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              <contact@eficent.com>
+# © 2015 Serpent Consulting Services Pvt. Ltd.
+# (Sudhir Arya)
 #
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
+# © 2016 Matmoz d.o.o.
+# (Matjaž Mozetič)
 #
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-import account_analytic_plan_version
-import account_analytic_plan_journal
-import account_analytic_line_plan
-import account_analytic_account
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+
+import models
 import wizard

@@ -10,22 +10,22 @@
     width: 115px;
     height: 24px;
     padding: 3px 0;
-    margin: 2px;
+    /*margin: 2px;*/
     text-align: center;
-    background-color: rgba(0,0,0,0.03);
-    border: 1px solid rgba(0,0,0,0.20);
-    border-radius: 3px;
+    /*background-color: rgba(0,0,0,0.03);*/
+    /*border: 1px solid rgba(0,0,0,0.20);*/
+    /*border-radius: 3px;*/
 }
 
 .openerp .oe_kanban_view .oe_wbs_button:hover {
     width: 115px;
     height: 24px;
     padding: 3px 0;
-    margin: 2px;
+    /*margin: 2px;*/
     text-align: center;
     background-color: rgba(155,89,136,0.20);
-    border: 1px solid rgba(0,0,0,0.20);
-    border-radius: 3px;
+    /*border: 1px solid rgba(0,0,0,0.20);*/
+    /*border-radius: 3px;*/
 }
 
 .openerp .oe_kanban_view .oe_wbs_navigation {
@@ -56,4 +56,13 @@
     0 -1px 1px #666, /*top external shadow*/
     inset 0 -1px 1px rgba(0,0,0,0.5), /*bottom internal shadow*/
     inset 0 1px 1px rgba(255,255,255,0.8); /*top internal highlight*/
+}
+
+.oe_nav_buttons{
+    border-bottom: 1px solid darkgray;
+    padding-bottom: 2px;
+}
+
+.oe_kanban_project_list{
+    padding-top:  2px;
 }

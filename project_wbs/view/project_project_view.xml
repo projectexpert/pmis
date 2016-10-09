@@ -404,7 +404,7 @@
                                             <span t-if="record.child_unclassified_count.raw_value lt 2"><field name="child_unclassified_count"/> Unclassified</span>
                                         </a>
                                     </div>-->
-                                    <div class="oe_kanban_project_list" name="wbs_navigation_buttons">
+                                    <div class="oe_nav_buttons" name="wbs_navigation_buttons">
                                         <a name="action_openParentTreeView"
                                            type="object"
                                            class="fa fa-level-up oe_wbs_navigation"
