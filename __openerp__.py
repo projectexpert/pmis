@@ -21,7 +21,7 @@
 
 {
     'name': 'Analytic Plan',
-    'version': '8.0.1.1.2',
+    'version': '8.0.1.1.3',
     'author':   'Eficent, '
                 'Project Expert Team',
     'contributors': [
@@ -33,15 +33,15 @@
     'license': 'AGPL-3',
     'depends': ['account', 'analytic', 'project', 'project_wbs'],
     'data': [
-        'account_analytic_plan_version_view.xml',
-        'account_analytic_plan_version_data.xml',
-        'account_analytic_plan_journal_view.xml',
-        'account_analytic_line_plan_view.xml',
-        'account_analytic_account_view.xml',
-        'security/ir.model.access.csv',
-        'account_analytic_plan_journal_data.xml',
-        'project_view.xml',
+        'data/account_analytic_plan_version_data.xml',
+        'views/account_analytic_plan_version_view.xml',
+        'views/account_analytic_plan_journal_view.xml',
+        'views/account_analytic_line_plan_view.xml',
+        'views/account_analytic_account_view.xml',
+        'views/account_analytic_plan_journal_data.xml',
+        'views/project_view.xml',
         'wizard/analytic_plan_copy_version.xml',
+        'security/ir.model.access.csv',
     ],
     'test': [
     ],

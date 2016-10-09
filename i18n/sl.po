@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-24 13:07+0200\n"
-"PO-Revision-Date: 2015-09-24 13:07+0200\n"
+"POT-Creation-Date: 2016-10-09 14:07+0200\n"
+"PO-Revision-Date: 2016-10-09 14:11+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -16,7 +16,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.9\n"
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/account_analytic_plan_version.py:71
+#, python-format
+msgid ""
+"\n"
+"                            Only one default commitments\n"
+"                            version can exist.\n"
+"                            "
+msgstr ""
+"\n"
+"                            Obstaja lahko le ena\n"
+"                            zavezujoča verzija.\n"
+"                            "
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/account_analytic_plan_version.py:89
+#, python-format
+msgid ""
+"\n"
+"                            Only one default plan version\n"
+"                            can exist.\n"
+"                            "
+msgstr ""
+"\n"
+"                            Obstaja lahko le ena privzeta\n"
+"                            verzija plana.\n"
+"                            "
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/account_analytic_line_plan.py:243
+#, python-format
+msgid ""
+"\n"
+"                        There is no expense account defined\n"
+"                        for this product: \"%s\" (id:%d)\n"
+"                        "
+msgstr ""
+"\n"
+"                        Ta izdelek nima določenega\n"
+"                        stroškovnega konta: \"%s\" (id:%d)\n"
+"                        "
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/account_analytic_line_plan.py:257
+#, python-format
+msgid ""
+"\n"
+"                        There is no income account defined\n"
+"                        for this product: \"%s\" (id:%d)\n"
+"                        "
+msgstr ""
+"\n"
+"                        Ta izdelek nima določenega\n"
+"                        prihodkovnega konta: \"%s\" (id:%d)\n"
+"                        "
 
 #. module: analytic_plan
 #: help:account.analytic.line.plan,amount:0
@@ -245,6 +301,12 @@ msgid "Analytic Plan copy versions"
 msgstr "Kopiranje verzij analit. plana"
 
 #. module: analytic_plan
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:101
+#, python-format
+msgid "Analytic Planning Lines"
+msgstr "Postavke analitičnega plana"
+
+#. module: analytic_plan
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_form
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_search
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_tree
@@ -276,6 +338,12 @@ msgstr "Preklic"
 #: selection:account.analytic.plan.journal,type:0
 msgid "Cash"
 msgstr "Gotovina"
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:73
+#, python-format
+msgid "Choose different source and destination planning versions."
+msgstr "Izberite različno izvorno in ciljno verzijo plana."
 
 #. module: analytic_plan
 #: field:account.analytic.line.plan,code:0
@@ -351,6 +419,34 @@ msgid "Destination Planning Version"
 msgstr "Ciljna verzija plana"
 
 #. module: analytic_plan
+#: field:account.analytic.line.plan,display_name:0
+#: field:account.analytic.plan.journal,display_name:0
+#: field:account.analytic.plan.version,display_name:0
+#: field:analytic.plan.copy.version,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/account_analytic_line_plan.py:352
+#, python-format
+msgid "Entries: "
+msgstr "Vnosi: "
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/account_analytic_line_plan.py:242
+#: code:addons/analytic_plan/models/account_analytic_line_plan.py:256
+#, python-format
+msgid "Error !"
+msgstr "Napaka!"
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/account_analytic_plan_version.py:70
+#: code:addons/analytic_plan/models/account_analytic_plan_version.py:88
+#, python-format
+msgid "Error!"
+msgstr "Napaka!"
+
+#. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Fin. Account"
 msgstr "Fin. konto"
@@ -391,9 +487,23 @@ msgid "Include child accounts"
 msgstr "Vključno podrejeni konte"
 
 #. module: analytic_plan
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:66
+#, python-format
+msgid "It is prohibited to copy to the default planning version."
+msgstr "Prepovedano je kopiranje privzete verzije plana."
+
+#. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Journal"
 msgstr "Dnevnik"
+
+#. module: analytic_plan
+#: field:account.analytic.line.plan,__last_update:0
+#: field:account.analytic.plan.journal,__last_update:0
+#: field:account.analytic.plan.version,__last_update:0
+#: field:analytic.plan.copy.version,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
 
 #. module: analytic_plan
 #: field:account.analytic.line.plan,write_uid:0
@@ -488,6 +598,11 @@ msgstr "Planirani v dobro"
 #: field:account.analytic.account,debit_plan:0
 msgid "Planned Debit"
 msgstr "Planirano v breme"
+
+#. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
+msgid "Planned cost lines"
+msgstr "Postavke planiranih stroškov"
 
 #. module: analytic_plan
 #: view:account.analytic.account:analytic_plan.view_account_analytic_account_form_analytic_plan
