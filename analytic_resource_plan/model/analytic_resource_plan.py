@@ -24,7 +24,12 @@ class AnalyticResourcePlanLine(models.Model):
     @api.multi
     @api.depends('child_ids')
     def _has_child(self):
-        self.has_child = bool(self.child_ids)
+        res = {}
+        for line in self:
+            res[line.id] = False
+            if line.child_ids:
+                res[line.id] = True
+        return res
 
     account_id = fields.Many2one(
         'account.analytic.account',
@@ -114,6 +119,16 @@ class AnalyticResourcePlanLine(models.Model):
         'Planned costs',
         readonly=True
     )
+    price_unit = fields.Float(
+        string='Cost Price',
+        groups='project.group_project_manager',
+    )
+    price_total = fields.Float(
+        store=False,
+        compute='_compute_get_price_total',
+        string='Total Cost',
+        groups='project.group_project_manager',
+    )
 
     @api.one
     def copy(self, default=None):
@@ -134,11 +149,9 @@ class AnalyticResourcePlanLine(models.Model):
             and self.product_id.expense_analytic_plan_journal_id.id
             or False
         )
-        property_account_expense = paex
-        general_account_id = self.product_id.product_tmpl_id.paex.id
-        property_account_expense_categ = paexc
+        general_account_id = self.product_id.product_tmpl_id.property_account_expense.id
         if not general_account_id:
-            general_account_id = self.product_id.categ_id.paexc.id
+            general_account_id = self.product_id.categ_id.property_account_expense_categ.id
         if not general_account_id:
             raise UserError(
                 _(
@@ -178,6 +191,7 @@ class AnalyticResourcePlanLine(models.Model):
 
     @api.model
     def create_analytic_lines(self):
+        res = []
         line_plan_obj = self.env['account.analytic.line.plan']
         lines_vals = self._prepare_analytic_lines()
         for line_vals in lines_vals:
@@ -227,6 +241,7 @@ class AnalyticResourcePlanLine(models.Model):
                 and self.product_id.uom_id.id
                 or False
             )
+            self.price_unit = self.product_id.standard_price
 
     @api.onchange('account_id')
     def on_change_account_id(self):
@@ -254,3 +269,21 @@ class AnalyticResourcePlanLine(models.Model):
                     )
                 )
         return super(AnalyticResourcePlanLine, self).unlink()
+
+    # PRICE DEFINITIONS
+    @api.multi
+    @api.depends('price_unit', 'unit_amount')
+    def _compute_get_price_total(self):
+        for resource in self:
+            resource.price_total = resource.price_unit * resource.unit_amount
+
+    @api.multi
+    def _get_pricelist(self):
+        self.ensure_one()
+        partner_id = self._get_partner()
+        if partner_id:
+            if partner_id.property_product_pricelist:
+                return partner_id.property_product_pricelist
+        else:
+            return False
+
