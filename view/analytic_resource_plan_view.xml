@@ -33,7 +33,7 @@
                             <field name="product_id"/>
                             <field name="unit_amount"/>
                             <field name="product_uom_id"/>
-                            <!--<field name="price_unit" required="True"/>-->
+                            <field name="price_unit"/>
                         </group>
                     </group>
                     <notebook>
@@ -71,7 +71,7 @@
                     <field name="name"/>
 					<field name="unit_amount"/>
                     <field name="product_uom_id"/>
-                    <!--<field name="price_unit" required="True"/>-->
+                    <field name="price_unit"/>
                     <button name="action_button_draft" states="confirm"
                             string="Draft" type="object"
                             icon="gtk-ok"/>
