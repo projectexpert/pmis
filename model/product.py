@@ -18,6 +18,6 @@ class ProductTemplate(models.Model):
 
     expense_analytic_plan_journal_id = fields.Many2one(
         'account.analytic.plan.journal',
-        'Cost Planning Analytic Journal',
+        'Expense Plan Journal',
         ondelete='restrict'
     )
