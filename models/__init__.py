@@ -2,9 +2,6 @@
 # © 2015 Eficent Business and IT Consulting Services S.L.
 # (Jordi Ballester Alomar)
 #
-# © 2015 Serpent Consulting Services Pvt. Ltd.
-# (Sudhir Arya)
-#
 # © 2016 Matmoz d.o.o.
 # (Matjaž Mozetič)
 #
@@ -12,5 +9,4 @@
 
 from . import account_analytic_plan_version
 from . import account_analytic_plan_journal
-from . import account_analytic_line_plan
 from . import account_analytic_account

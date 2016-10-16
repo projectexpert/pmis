@@ -1,77 +1,63 @@
 # -*- coding: utf-8 -*-
-##############################################################################
+# © 2015 Eficent Business and IT Consulting Services S.L.
+# (Jordi Ballester Alomar)
 #
-#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              <contact@eficent.com>
+# © 2016 Matmoz d.o.o.
+# (Matjaž Mozetič)
 #
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-from openerp.osv import fields, orm
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+
+from openerp import api, fields, models
 
 
-class account_analytic_plan_journal(orm.Model):
+class AccountAnalyticPlanJournal(models.Model):
 
     _name = 'account.analytic.plan.journal'
     _description = 'Analytic Journal Plan'
-    _columns = {
-        'name': fields.char(
-            'Plan Journal Name', size=64, required=True
-        ),
-        'code': fields.char(
-            'Plan Journal Code', size=8
-        ),
-        'active': fields.boolean(
-            'Active',
-            help='''
-            If the active field is set to False,
-            it will allow you to hide the analytic
-            journal without removing it.
-            '''
-        ),
-        'type': fields.selection(
-            [
-                ('sale', 'Sale'),
-                ('purchase', 'Purchase'),
-                ('cash', 'Cash'),
-                ('general', 'General'),
-                ('situation', 'Situation')
-            ],
-            'Type', size=32, required=True,
-            help='''
-            Gives the type of the analytic
-            journal. When it needs for a document
-            (eg: an invoice) to create analytic
-            entries, OpenERP will look  for a
-            matching journal of the same type.
-            '''
-        ),
-        'line_ids': fields.one2many(
-            'account.analytic.line.plan', 'journal_id', 'Lines'
-        ),
-        'company_id': fields.many2one(
-            'res.company', 'Company', required=True
-        ),
-        'analytic_journal': fields.many2one(
-            'account.analytic.journal', 'Actual Analytic journal',
-            required=False
-        ),
-    }
 
-    _defaults = {
-        'active': True,
-        'type': 'general',
-        'company_id': lambda self, cr, uid, c:
-        self.pool.get('res.users').browse(cr, uid, uid, c).company_id.id,
-    }
+    name = fields.Char(
+        'Planning Journal Name', required=True
+    )
+    code = fields.Char(
+        'Planning Journal Code'
+    )
+    active = fields.Boolean(
+        'Active',
+        help="If the active field is set to False, "
+             "it will allow you to hide the analytic "
+             "journal without removing it.",
+        default=True
+    )
+    type = fields.Selection(
+        [
+            ('sale', 'Sale'),
+            ('purchase', 'Purchase'),
+            ('cash', 'Cash'),
+            ('general', 'General'),
+            ('situation', 'Situation')
+        ],
+        'Type',
+        required=True,
+        help="Gives the type of the analytic "
+             "journal. When it needs for a document "
+             "(eg: an invoice) to create analytic "
+             "entries, OpenERP will look  for a "
+             "matching journal of the same type.",
+        default='general'
+    )
+    line_ids = fields.One2many(
+        'account.analytic.line.plan',
+        'journal_id',
+        'Lines'
+    )
+    company_id = fields.Many2one(
+        'res.company',
+        'Company',
+        required=True,
+        default=lambda self:
+            self.env['res.users'].browse(self._uid).company_id.id)
+    analytic_journal = fields.Many2one(
+        'account.analytic.journal',
+        'Actual Analytic journal',
+        required=False
+    )
