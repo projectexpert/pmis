@@ -1,4 +1,4 @@
-﻿# Translation of Odoo Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* analytic_resource_plan
 #
@@ -6,37 +6,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-13 11:20+0800\n"
-"PO-Revision-Date: 2015-11-13 11:27+0800\n"
+"POT-Creation-Date: 2016-10-16 12:19+0200\n"
+"PO-Revision-Date: 2016-10-16 12:21+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.6\n"
-"Last-Translator: Jason Cui <jason@qdodoo.com>\n"
-"Language: zh_CN\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #. module: analytic_resource_plan
 #: help:analytic.resource.plan.line,state:0
-msgid " * The 'Draft' status is used when a user is encoding a new and unconfirmed resource plan line. \n"
-"* The 'Confirmed' status is used for to confirm the execution of the resource plan lines."
-msgstr "* 当用户'编写新的未经确认的资源计划项时，则处于'草稿'状态。\n"
-"* 确认执行项目计划项时，则处于'已确认'状态。"
+msgid ""
+" * The 'Draft' status is used when a user is encoding a new and unconfirmed "
+"resource plan line. \n"
+"* The 'Confirmed' status is used for to confirm the execution of the "
+"resource plan lines."
+msgstr ""
 
 #. module: analytic_resource_plan
 #: help:resource.plan.line.change.state,state:0
-msgid " * The 'Draft' status is used when a user is encoding a new and unconfirmed resource plan line. \n"
-"* The 'Confirmed' status is used for to confirm the resource plan line by the user."
-msgstr "* 当用户'编写新的未经确认的资源计划项时，则处于'草稿'状态。\n"
-"* 确认执行项目计划项时，则处于'已确认'状态。"
+msgid ""
+" * The 'Draft' status is used when a user is encoding a new and unconfirmed "
+"resource plan line. \n"
+"* The 'Confirmed' status is used for to confirm the resource plan line by "
+"the user."
+msgstr ""
 
 #. module: analytic_resource_plan
 #: field:analytic.resource.plan.line,name:0
 msgid "Activity description"
 msgstr "活动描述"
-msgid "Confirm"
-msgstr "确认"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:220
+#, python-format
+msgid "All the child resource plan lines must  be in Draft state."
+msgstr ""
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
@@ -46,63 +54,65 @@ msgid "Analytic Account"
 msgstr "分析账户"
 
 #. module: analytic_resource_plan
-#: view:product.template:analytic_resource_plan.product_template_form_view
-msgid "Analytic Planning Journal for expenses"
-msgstr "费用分析用规划分类账"
-
-#. module: analytic_resource_plan
 #: model:ir.model,name:analytic_resource_plan.model_analytic_resource_plan_copy_version
 msgid "Analytic Resource Plan copy versions"
-msgstr "分析用资源计划副本版本"
+msgstr ""
 
 #. module: analytic_resource_plan
 #: model:ir.model,name:analytic_resource_plan.model_analytic_resource_plan_line
 msgid "Analytic Resource Planning lines"
-msgstr "分析用资源规划项"
+msgstr ""
 
 #. module: analytic_resource_plan
 #: model:ir.model,name:analytic_resource_plan.model_account_analytic_line_plan
 msgid "Analytic planning line"
-msgstr "分析用规划项"
+msgstr "分析规划项"
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_tree
 msgid "Analytic resource plan line"
-msgstr "分析用资源计划项"
+msgstr ""
 
 #. module: analytic_resource_plan
 #: model:ir.model,name:analytic_resource_plan.model_resource_plan_line_change_state
 msgid "Change state of resource plan line"
-msgstr "改变资源计划项的状态"
+msgstr ""
 
 #. module: analytic_resource_plan
 #: field:analytic.resource.plan.line,child_ids:0
 #: field:analytic.resource.plan.line,has_child:0
 msgid "Child lines"
-msgstr "子行"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:75
+#, python-format
+msgid "Choose different source and destination planning versions."
+msgstr ""
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_tree
 msgid "Confirm"
-msgstr "确认"
+msgstr ""
 
 #. module: analytic_resource_plan
 #: selection:analytic.resource.plan.line,state:0
 #: selection:resource.plan.line.change.state,state:0
 msgid "Confirmed"
-msgstr "已确认"
+msgstr ""
 
 #. module: analytic_resource_plan
-#: field:product.template,expense_analytic_plan_journal_id:0
-msgid "Cost Planning Analytic Journal"
-msgstr "成本规划分析分类账"
+#: field:analytic.resource.plan.line,price_unit:0
+msgid "Cost Price"
+msgstr ""
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+#, fuzzy
 msgid "Costs"
-msgstr "成本"
+msgstr "计划成本和收入"
 
 #. module: analytic_resource_plan
 #: field:analytic.resource.plan.copy.version,create_uid:0
@@ -124,9 +134,26 @@ msgid "Date"
 msgstr "日期"
 
 #. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr "记录最后添加信息的日期"
+
+#. module: analytic_resource_plan
+#: field:account.analytic.plan.version,default_resource_plan:0
+msgid "Default for resource plan"
+msgstr ""
+
+#. module: analytic_resource_plan
 #: field:analytic.resource.plan.copy.version,dest_version_id:0
 msgid "Destination Planning Version"
-msgstr "目标规划版本"
+msgstr "目的规划版本"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.copy.version,display_name:0
+#: field:analytic.resource.plan.line,display_name:0
+#: field:resource.plan.line.change.state,display_name:0
+msgid "Display Name"
+msgstr ""
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
@@ -137,19 +164,38 @@ msgid "Draft"
 msgstr "草稿"
 
 #. module: analytic_resource_plan
+#: field:product.template,expense_analytic_plan_journal_id:0
+msgid "Expense Plan Journal"
+msgstr ""
+
+#. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
 msgid "Filters"
-msgstr "过滤器"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_follower_ids:0
+msgid "Followers"
+msgstr "关注人"
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
 msgid "Group By..."
-msgstr "分组项"
+msgstr "分组项..."
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+#, fuzzy
 msgid "Hierarchy"
-msgstr "层级结构"
+msgstr "在WBS层级结构中的完整路径"
+
+#. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+"保存交谈概要（信息数量，...）。此概要为html格式，以便于插入看板视图中。"
 
 #. module: analytic_resource_plan
 #: field:analytic.resource.plan.copy.version,id:0
@@ -159,9 +205,37 @@ msgid "ID"
 msgstr "ID"
 
 #. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "如果勾选，新信息将需要你进行关注。"
+
+#. module: analytic_resource_plan
 #: field:analytic.resource.plan.copy.version,include_child:0
 msgid "Include child accounts"
-msgstr "包含下级账户"
+msgstr "包含子账户"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_is_follower:0
+msgid "Is a Follower"
+msgstr "是关注人"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:71
+#, python-format
+msgid "It is prohibited to copy to the default planning version."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_last_post:0
+msgid "Last Message Date"
+msgstr "最后信息的日期"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.copy.version,__last_update:0
+#: field:analytic.resource.plan.line,__last_update:0
+#: field:resource.plan.line.change.state,__last_update:0
+msgid "Last Modified on"
+msgstr ""
 
 #. module: analytic_resource_plan
 #: field:analytic.resource.plan.copy.version,write_uid:0
@@ -178,10 +252,32 @@ msgid "Last Updated on"
 msgstr "上次更新日期"
 
 #. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_ids:0
+msgid "Messages"
+msgstr "信息"
+
+#. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,message_ids:0
+msgid "Messages and communication history"
+msgstr "信息和交流历史"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:175
+#, python-format
+msgid "No active planning version for resource plan exists."
+msgstr ""
+
+#. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
 #: field:analytic.resource.plan.line,notes:0
 msgid "Notes"
 msgstr "备注"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/account_analytic_plan_version.py:36
+#, python-format
+msgid "Only one default for resource plan version can exist."
+msgstr ""
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
@@ -190,15 +286,20 @@ msgid "Parent"
 msgstr "上级"
 
 #. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_account_analytic_plan_version
+msgid "Plan Version"
+msgstr "计划版本"
+
+#. module: analytic_resource_plan
 #: model:ir.actions.act_window,name:analytic_resource_plan.action_analytic_resource_plan_line_open_form
 #: model:ir.ui.menu,name:analytic_resource_plan.analytic_resource_plan_line_entries
 msgid "Plan resources"
-msgstr "计划资源"
+msgstr ""
 
 #. module: analytic_resource_plan
 #: field:analytic.resource.plan.line,unit_amount:0
 msgid "Planned Quantity"
-msgstr "计划数量"
+msgstr ""
 
 #. module: analytic_resource_plan
 #: field:analytic.resource.plan.line,analytic_line_plan_ids:0
@@ -212,29 +313,43 @@ msgid "Product"
 msgstr "产品"
 
 #. module: analytic_resource_plan
-#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
-msgid "Product Information"
-msgstr "产品信息"
-
-#. module: analytic_resource_plan
 #: model:ir.model,name:analytic_resource_plan.model_product_template
 msgid "Product Template"
-msgstr "产品模板"
+msgstr ""
 
 #. module: analytic_resource_plan
-#: field:analytic.resource.plan.line,pricelist_id:0
-msgid "Purchasing Pricelist"
-msgstr "采购价格表"
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Product Unit of Measure"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_project_project
+msgid "Project"
+msgstr "项目"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:233
+#, python-format
+msgid "Quantity should be greater than 0."
+msgstr ""
 
 #. module: analytic_resource_plan
 #: field:account.analytic.line.plan,resource_plan_id:0
 msgid "Resource Plan Line"
-msgstr "资源计划项"
+msgstr ""
 
 #. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:100
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+#, python-format
 msgid "Resource Plan Lines"
-msgstr "资源计划明细"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/resource_plan_line_change_state.py:46
+#, fuzzy, python-format
+msgid "Resource Planning Lines"
+msgstr "资源规划项"
 
 #. module: analytic_resource_plan
 #: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
@@ -247,7 +362,7 @@ msgstr "资源计划"
 #: model:ir.actions.act_window,name:analytic_resource_plan.act_account_analytic_2_analytic_resource_plan_line
 #: model:ir.actions.act_window,name:analytic_resource_plan.resource_plan_line_action_project
 msgid "Resource plan lines"
-msgstr "资源计划项"
+msgstr ""
 
 #. module: analytic_resource_plan
 #: view:project.project:analytic_resource_plan.edit_project
@@ -257,7 +372,7 @@ msgstr "资源规划项"
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
 msgid "Search resource plan lines"
-msgstr "搜索资源计划项"
+msgstr ""
 
 #. module: analytic_resource_plan
 #: field:analytic.resource.plan.copy.version,source_version_id:0
@@ -267,24 +382,41 @@ msgstr "源规划版本"
 #. module: analytic_resource_plan
 #: help:analytic.resource.plan.line,unit_amount:0
 msgid "Specifies the quantity that has been planned."
-msgstr "指定已计划的数量。"
+msgstr ""
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
 #: field:analytic.resource.plan.line,state:0
 #: field:resource.plan.line.change.state,state:0
 msgid "Status"
-msgstr "状态"
+msgstr ""
 
 #. module: analytic_resource_plan
-#: field:analytic.resource.plan.line,supplier_id:0
-msgid "Supplier"
-msgstr "供应商"
+#: field:analytic.resource.plan.line,message_summary:0
+msgid "Summary"
+msgstr "概要"
 
 #. module: analytic_resource_plan
-#: field:analytic.resource.plan.line,price_unit:0
-msgid "Unit Price"
-msgstr "单价"
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:163
+#, python-format
+msgid "There is no expense account defined for this product: \"%s\" (id:%d)"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,price_total:0
+msgid "Total Cost"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+#, fuzzy
+msgid "Total:"
+msgstr "总计"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_unread:0
+msgid "Unread Messages"
+msgstr "未读信息"
 
 #. module: analytic_resource_plan
 #: field:analytic.resource.plan.line,product_uom_id:0
@@ -292,6 +424,23 @@ msgid "UoM"
 msgstr "单位"
 
 #. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,website_message_ids:0
+msgid "Website Messages"
+msgstr "网站信息"
+
+#. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,website_message_ids:0
+msgid "Website communication history"
+msgstr "网站沟通历史"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:272
+#, python-format
+msgid "You cannot delete a record that refers to analytic plan lines!"
+msgstr ""
+
+#. module: analytic_resource_plan
 #: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
+#, fuzzy
 msgid "lines"
-msgstr "项"
+msgstr "行数"

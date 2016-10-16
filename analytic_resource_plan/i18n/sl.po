@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-13 08:58+0100\n"
-"PO-Revision-Date: 2015-11-13 09:00+0100\n"
+"POT-Creation-Date: 2016-10-16 12:17+0200\n"
+"PO-Revision-Date: 2016-10-16 12:18+0200\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.9\n"
 
 #. module: analytic_resource_plan
 #: help:analytic.resource.plan.line,state:0
@@ -46,16 +46,17 @@ msgid "Activity description"
 msgstr "Opis aktivnosti"
 
 #. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:220
+#, python-format
+msgid "All the child resource plan lines must  be in Draft state."
+msgstr "Vse podrejene postavke plana virov morajo biti v stanju 'osnutek'."
+
+#. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
 #: field:analytic.resource.plan.line,account_id:0
 #: model:ir.model,name:analytic_resource_plan.model_account_analytic_account
 msgid "Analytic Account"
 msgstr "Analitični konto"
-
-#. module: analytic_resource_plan
-#: view:product.template:analytic_resource_plan.product_template_form_view
-msgid "Analytic Planning Journal for expenses"
-msgstr "Dnevnik analitičnega planiranja za izdatke"
 
 #. module: analytic_resource_plan
 #: model:ir.model,name:analytic_resource_plan.model_analytic_resource_plan_copy_version
@@ -90,6 +91,12 @@ msgid "Child lines"
 msgstr "Podrejene postavke"
 
 #. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:75
+#, python-format
+msgid "Choose different source and destination planning versions."
+msgstr "Izberite različno izvorno in ciljno verzijo plana."
+
+#. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_tree
 msgid "Confirm"
@@ -102,9 +109,9 @@ msgid "Confirmed"
 msgstr "Potrjeno"
 
 #. module: analytic_resource_plan
-#: field:product.template,expense_analytic_plan_journal_id:0
-msgid "Cost Planning Analytic Journal"
-msgstr "Dnevnik analitičnega planiranja stroškov"
+#: field:analytic.resource.plan.line,price_unit:0
+msgid "Cost Price"
+msgstr "Lastna cena"
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
@@ -131,9 +138,26 @@ msgid "Date"
 msgstr "Datum"
 
 #. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr "Datum zadnjega sporočila pri tem zapisu."
+
+#. module: analytic_resource_plan
+#: field:account.analytic.plan.version,default_resource_plan:0
+msgid "Default for resource plan"
+msgstr "Privzeto za plan virov"
+
+#. module: analytic_resource_plan
 #: field:analytic.resource.plan.copy.version,dest_version_id:0
 msgid "Destination Planning Version"
 msgstr "Ciljna verzija plana"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.copy.version,display_name:0
+#: field:analytic.resource.plan.line,display_name:0
+#: field:resource.plan.line.change.state,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
@@ -144,9 +168,19 @@ msgid "Draft"
 msgstr "Osnutek"
 
 #. module: analytic_resource_plan
+#: field:product.template,expense_analytic_plan_journal_id:0
+msgid "Expense Plan Journal"
+msgstr "Dnevnik plana stroškov"
+
+#. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
 msgid "Filters"
 msgstr "Filtri"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_follower_ids:0
+msgid "Followers"
+msgstr "Sledilci"
 
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
@@ -159,6 +193,15 @@ msgid "Hierarchy"
 msgstr "Hierarhija"
 
 #. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+"Povzetek pogovorov (število sporočil,..). Povzetek je neposredno v html "
+"formatu, da se lahko neposredno vstavi v poglede tipa kanban."
+
+#. module: analytic_resource_plan
 #: field:analytic.resource.plan.copy.version,id:0
 #: field:analytic.resource.plan.line,id:0
 #: field:resource.plan.line.change.state,id:0
@@ -166,9 +209,37 @@ msgid "ID"
 msgstr "ID"
 
 #. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "Če označeno, zahtevajo nova sporočila vašo pozornost."
+
+#. module: analytic_resource_plan
 #: field:analytic.resource.plan.copy.version,include_child:0
 msgid "Include child accounts"
 msgstr "Vključno podrejeni konti"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_is_follower:0
+msgid "Is a Follower"
+msgstr "Je sledilec"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:71
+#, python-format
+msgid "It is prohibited to copy to the default planning version."
+msgstr "Kopiranje privzete verzije plana je prepovedano."
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_last_post:0
+msgid "Last Message Date"
+msgstr "Datum zadnjega sporočila"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.copy.version,__last_update:0
+#: field:analytic.resource.plan.line,__last_update:0
+#: field:resource.plan.line.change.state,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
 
 #. module: analytic_resource_plan
 #: field:analytic.resource.plan.copy.version,write_uid:0
@@ -185,16 +256,43 @@ msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
 
 #. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_ids:0
+msgid "Messages"
+msgstr "Sporočila"
+
+#. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,message_ids:0
+msgid "Messages and communication history"
+msgstr "Komunikacije in kronologija komunikacij"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:175
+#, python-format
+msgid "No active planning version for resource plan exists."
+msgstr "Za plan virov ni določene aktivne verzije planiranja."
+
+#. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
 #: field:analytic.resource.plan.line,notes:0
 msgid "Notes"
 msgstr "Opombe"
 
 #. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/account_analytic_plan_version.py:36
+#, python-format
+msgid "Only one default for resource plan version can exist."
+msgstr "Obstaja lahko le ena privzeta verzija plana virov."
+
+#. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
 #: field:analytic.resource.plan.line,parent_id:0
 msgid "Parent"
 msgstr "Nadrejeni"
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_account_analytic_plan_version
+msgid "Plan Version"
+msgstr "Verzija plana"
 
 #. module: analytic_resource_plan
 #: model:ir.actions.act_window,name:analytic_resource_plan.action_analytic_resource_plan_line_open_form
@@ -219,19 +317,25 @@ msgid "Product"
 msgstr "Proizvod"
 
 #. module: analytic_resource_plan
-#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
-msgid "Product Information"
-msgstr "Podatki o proizvodu"
-
-#. module: analytic_resource_plan
 #: model:ir.model,name:analytic_resource_plan.model_product_template
 msgid "Product Template"
 msgstr "Predloga proizvoda"
 
 #. module: analytic_resource_plan
-#: field:analytic.resource.plan.line,pricelist_id:0
-msgid "Purchasing Pricelist"
-msgstr "Nabavni cenik"
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Product Unit of Measure"
+msgstr "Enota mere proizvoda"
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_project_project
+msgid "Project"
+msgstr "Projekt"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:233
+#, python-format
+msgid "Quantity should be greater than 0."
+msgstr "Količina mora biti večja od 0."
 
 #. module: analytic_resource_plan
 #: field:account.analytic.line.plan,resource_plan_id:0
@@ -239,8 +343,16 @@ msgid "Resource Plan Line"
 msgstr "Postavka plana virov"
 
 #. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:100
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+#, python-format
 msgid "Resource Plan Lines"
+msgstr "Postavke plana virov"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/resource_plan_line_change_state.py:46
+#, python-format
+msgid "Resource Planning Lines"
 msgstr "Postavke plana virov"
 
 #. module: analytic_resource_plan
@@ -284,14 +396,30 @@ msgid "Status"
 msgstr "Status"
 
 #. module: analytic_resource_plan
-#: field:analytic.resource.plan.line,supplier_id:0
-msgid "Supplier"
-msgstr "Dobavitelj"
+#: field:analytic.resource.plan.line,message_summary:0
+msgid "Summary"
+msgstr "Povzetek"
 
 #. module: analytic_resource_plan
-#: field:analytic.resource.plan.line,price_unit:0
-msgid "Unit Price"
-msgstr "Cena enote"
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:163
+#, python-format
+msgid "There is no expense account defined for this product: \"%s\" (id:%d)"
+msgstr "Konto stroškov za izdelek: \"%s\" (id:%d) ni določen."
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,price_total:0
+msgid "Total Cost"
+msgstr "Skupaj stroški"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Total:"
+msgstr "Skupaj:"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_unread:0
+msgid "Unread Messages"
+msgstr "Neprebrana sporočila"
 
 #. module: analytic_resource_plan
 #: field:analytic.resource.plan.line,product_uom_id:0
@@ -299,24 +427,52 @@ msgid "UoM"
 msgstr "EM"
 
 #. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,website_message_ids:0
+msgid "Website Messages"
+msgstr "Sporočila iz spletne strani"
+
+#. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,website_message_ids:0
+msgid "Website communication history"
+msgstr "Kronologija komunikacij spletne strani"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:272
+#, python-format
+msgid "You cannot delete a record that refers to analytic plan lines!"
+msgstr "Zapisa, ki se sklicuje na postavke plana virov, ne morete brisati!"
+
+#. module: analytic_resource_plan
 #: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
 msgid "lines"
 msgstr "postavke"
 
+#~ msgid "Error !"
+#~ msgstr "Napaka!"
+
+#~ msgid "Partner"
+#~ msgstr "Partner"
+
+#~ msgid "Product Information"
+#~ msgstr "Podatki o proizvodu"
+
+#~ msgid "Analytic Planning Journal for expenses"
+#~ msgstr "Dnevnik analitičnega planiranja za izdatke"
+
+#~ msgid "Cost Planning Analytic Journal"
+#~ msgstr "Dnevnik analitičnega planiranja stroškov"
+
+#~ msgid "Purchasing Pricelist"
+#~ msgstr "Nabavni cenik"
+
+#~ msgid "Supplier"
+#~ msgstr "Dobavitelj"
+
 #~ msgid "Analytic Information"
 #~ msgstr "Analitični podatki"
-
-#~ msgid "Planning Journal"
-#~ msgstr "Dnevnik planiranja"
 
 #~ msgid "Planning analytic lines"
 #~ msgstr "Planske analitične postavke"
 
-#~ msgid "Project"
-#~ msgstr "Projekt"
-
 #~ msgid "Purchase Order Information"
 #~ msgstr "Podatki o nabavnem nalogu"
-
-#~ msgid "Version"
-#~ msgstr "Verzija"

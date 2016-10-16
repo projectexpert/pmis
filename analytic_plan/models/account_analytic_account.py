@@ -1,214 +1,282 @@
 # -*- coding: utf-8 -*-
-##############################################################################
+# © 2015 Eficent Business and IT Consulting Services S.L.
+# (Jordi Ballester Alomar)
 #
-#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              <contact@eficent.com>
+# © 2016 Matmoz d.o.o.
+# (Matjaž Mozetič)
 #
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-import openerp.addons.decimal_precision as dp
-from openerp.osv import fields, orm
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+
+from openerp import api, fields, models
 
 
-class account_analytic_account(orm.Model):
+class AccountAnalyticAccount(models.Model):
 
     _inherit = 'account.analytic.account'
 
-    def _get_active_analytic_planning_version(
-        self, cr, uid, ids, context=None
-    ):
+    @api.model
+    def default_version(self):
+        plan_versions = self.env[
+            'account.analytic.plan.version'
+        ].search(
+            [('default_plan', '=', True)]
+        )
+        return plan_versions
 
-        plan_versions = self.pool.get('account.analytic.plan.version').search(
-            cr, uid, [('default_plan', '=', True)], context=None
-        ),
-        for plan_version in plan_versions:
-            if plan_version:
-                return plan_version[0]
-        return False
+    @api.multi
+    def _compute_debit_credit_bal_qtty_plan(self):
+        analytic_line_obj = self.env['account.analytic.line.plan']
+        domain = [('account_id', 'in', self.mapped('id'))]
+        if self._context.get('from_date', False):
+            domain.append(('date', '>=', self._context['from_date']))
+        if self._context.get('to_date', False):
+            domain.append(('date', '<=', self._context['to_date']))
 
-    def _compute_level_tree_plan(
-        self, cr, uid, ids, child_ids, res, field_names, context=None
-    ):
-        currency_obj = self.pool.get('res.currency')
-        recres = {}
+        account_amounts = analytic_line_obj.search_read(
+            domain, ['account_id', 'amount']
+        )
+        account_ids = set(
+            [line['account_id'][0] for line in account_amounts]
+        )
+        data_debit_plan = {account_id: 0.0 for account_id in account_ids}
+        data_credit_plan = {account_id: 0.0 for account_id in account_ids}
+        for account_amount in account_amounts:
+            if account_amount['amount'] < 0.0:
+                data_debit_plan[
+                    account_amount['account_id'][0]
+                ] += account_amount['amount']
+            else:
+                data_credit_plan[
+                    account_amount['account_id'][0]
+                ] += account_amount['amount']
 
-        def recursive_computation(account):
-            result2 = res[account.id].copy()
-            for son in account.child_ids:
-                result = recursive_computation(son)
-                for field in field_names:
-                    if (
-                        account.currency_id.id != son.currency_id.id
-                    ) and (
-                        field != 'quantity_plan'
-                    ):
-                        result[field] = currency_obj.compute(
-                            cr,
-                            uid,
-                            son.currency_id.id,
-                            account.currency_id.id,
-                            result[field],
-                            context=context
-                        )
-                    result2[field] += result[field]
-            return result2
-        for account in self.browse(cr, uid, ids, context=context):
-            if account.id not in child_ids:
-                continue
-            recres[account.id] = recursive_computation(account)
-        return recres
+        for account in self:
+            account.debit_plan = abs(data_debit_plan.get(account.id, 0.0))
+            account.credit_plan = data_credit_plan.get(account.id, 0.0)
+            account.balance_plan = account.credit_plan - account.debit_plan
 
-    def _debit_credit_bal_qtty_plan(
-        self, cr, uid, ids, fields, arg, context=None
-    ):
-        res = {}
-        if context is None:
-            context = {}
-        child_ids = tuple(
-            self.search(
-                cr, uid, [('parent_id', 'child_of', ids)]
+    plan_line_ids = fields.One2many(
+        'account.analytic.line.plan', 'account_id', string="Analytic Entries")
+
+    company_id = fields.Many2one(
+        'res.company', string='Company', required=True,
+        default=lambda self: self.env.user.company_id
+    )
+
+    balance_plan = fields.Float(
+        compute='_compute_debit_credit_bal_qtty_plan',
+        string='Planned Balance'
+    )
+    debit_plan = fields.Float(
+        compute='_compute_debit_credit_bal_qtty_plan',
+        string='Planned Debit'
+    )
+    credit_plan = fields.Float(
+        compute='_compute_debit_credit_bal_qtty_plan',
+        string='Planned Credit'
+    )
+
+    currency_id = fields.Many2one(
+        related="company_id.currency_id",
+        string="Currency", readonly=True
+    )
+
+    active_analytic_planning_version = fields.Many2one(
+        'account.analytic.plan.version',
+        'Active planning Version',
+        required=True,
+        default=default_version
+    )
+
+
+class AccountAnalyticLine(models.Model):
+    _name = 'account.analytic.line.plan'
+    _description = 'Analytic Line'
+    _order = 'date desc, id desc'
+
+    @api.model
+    def _default_user(self):
+        return self.env.context.get('user_id', self.env.user.id)
+
+    name = fields.Char(
+        'Description', required=True
+    )
+    date = fields.Date(
+        'Date', required=True, index=True,
+        default=fields.Date.context_today
+    )
+    amount = fields.Float(
+        'Amount', required=True, default=0.0
+    )
+    unit_amount = fields.Float(
+        'Quantity', default=0.0
+    )
+    amount_currency = fields.Float(
+        'Amount Currency',
+        help="The amount expressed in an "
+             "optional other currency."
+    )
+    account_id = fields.Many2one(
+        'account.analytic.account',
+        'Analytic Account', required=True,
+        ondelete='restrict', index=True
+    )
+    # partner_id = fields.Many2one(
+    #     'res.partner', string='Partner'
+    # )
+    user_id = fields.Many2one(
+        'res.users', string='User',
+        default=_default_user
+    )
+    company_id = fields.Many2one(
+        related='account_id.company_id',
+        string='Company', store=True,
+        readonly=True
+    )
+    currency_id = fields.Many2one(
+        related="company_id.currency_id",
+        string="Currency", readonly=True
+    )
+
+    product_uom_id = fields.Many2one(
+        'product.uom', 'UoM'
+    )
+    product_id = fields.Many2one(
+        'product.product', 'Product'
+    )
+    general_account_id = fields.Many2one(
+        'account.account',
+        'General Account',
+        required=True,
+        ondelete='restrict'
+    )
+    journal_id = fields.Many2one(
+        'account.analytic.plan.journal',
+        'Planning Analytic Journal',
+        required=True,
+        ondelete='restrict',
+        select=True,
+        default=lambda self:
+        self._context['journal_id'] if
+        self._context and 'journal_id' in
+        self._context else None
+    )
+    code = fields.Char(
+        'Code'
+    )
+    ref = fields.Char(
+        'Ref.'
+    )
+    notes = fields.Text(
+        'Notes'
+    )
+    version_id = fields.Many2one(
+        'account.analytic.plan.version',
+        'Planning Version',
+        required=True,
+        ondelete='cascade',
+        default=lambda s:
+        s.env[
+            'account.analytic.plan.version'
+        ].search(
+            [('default_plan', '=', True)]
+        )
+    )
+
+    @api.onchange('amount_currency', 'currency_id')
+    def on_change_amount_currency(self):
+        company = self.company_id
+        company_currency = company.currency_id
+        currency = self.currency_id
+        if self.amount_currency:
+            amount_company_currency = currency.compute(
+                self.amount_currency,
+                company_currency
             )
+        else:
+            amount_company_currency = 0.0
+        self.amount = amount_company_currency
+        return {}
+
+    @api.onchange('unit_amount', 'product_uom_id')
+    def on_change_unit_amount(self):
+        analytic_journal_obj = self.env['account.analytic.plan.journal']
+        product_price_type_obj = self.env['product.price.type']
+
+        prod = False
+        if self.product_id:
+            prod = self.product_id
+        if not self.journal_id:
+            j = analytic_journal_obj.search(
+                [('type', '=', 'purchase')]
+            )
+            journal = j[0] if j and j[0] else False
+        if not self.journal_id or not self.product_id:
+            return {}
+        journal = self.journal_id if self.journal_id else journal
+        if journal.type != 'sale' and prod:
+            a = prod.product_tmpl_id.property_account_expense.id
+            if not a:
+                a = prod.categ_id.property_account_expense_categ.id
+            if not a:
+                raise UserError(
+                    _(
+                        'There is no expense account defined '
+                        'for this product: "%s" (id:%d)'
+                    ) % (prod.name, prod.id,)
+                )
+        else:
+            a = prod.product_tmpl_id.property_account_income.id
+            if not a:
+                a = prod.categ_id.property_account_income_categ.id
+            if not a:
+                raise UserError(
+                    _(
+                        'There is no income account defined '
+                        'for this product: "%s" (id:%d)'
+                    ) % (prod.name, self.product_id,)
+                )
+        flag = False
+        # Compute based on pricetype
+        product_price_type = product_price_type_obj.search(
+            [('field', '=', 'standard_price')]
         )
-        for i in child_ids:
-            res[i] = {}
-            for n in fields:
-                res[i][n] = 0.0
+        pricetype = product_price_type[0]
+        if self.journal_id:
+            if journal.type == 'sale':
+                product_price_type = product_price_type_obj.search(
+                    [('field', '=', 'list_price')]
+                )
+                if product_price_type:
+                    pricetype = product_price_type[0]
+        # Take the company currency as the reference one
+        if pricetype.field == 'list_price':
+            flag = True
+        cr, uid, context = self.env.args
+        ctx = dict(context.copy())
+        if self.product_uom_id:
+            # price_get() will respect a 'uom' in its context, in order
+            # to return a default price for those units
+            ctx['uom'] = self.product_uom_id.id
+        amount_unit = prod.with_context(ctx).price_get(
+            pricetype.field)[prod.id]
+        self.env.args = cr, uid, misc.frozendict(context)
+        prec = self.env['decimal.precision'].precision_get('Account')
+        amount = amount_unit * self.unit_amount or 1.0
+        result = round(amount, prec)
+        if not flag:
+            if journal.type != 'sale':
+                result *= -1
+        self.amount_currency = result
+        self.general_account_id = a
+        self.on_change_amount_currency()
+        return {}
 
-        if not child_ids:
-            return res
-
-        for ac_id in child_ids:
-            res[ac_id] = {
-                'debit_plan': 0,
-                'credit_plan': 0,
-                'balance_plan': 0,
-                'quantity_plan': 0
-            }
-
-        where_date = ''
-        where_clause_args = [tuple(child_ids)]
-        if context.get('from_date', False):
-            where_date += " AND l.date >= %s"
-            where_clause_args += [context['from_date']]
-        if context.get('to_date', False):
-            where_date += " AND l.date <= %s"
-            where_clause_args += [context['to_date']]
-        cr.execute(
-            """
-              SELECT a.id,
-                    sum(
-                        CASE WHEN l.amount > 0
-                        THEN l.amount
-                        ELSE 0.0
-                        END
-                    ) as debit_plan,
-                    sum(
-                        CASE WHEN l.amount < 0
-                        THEN -l.amount
-                        ELSE 0.0
-                        END
-                    ) as credit_plan,
-                    COALESCE(SUM(l.amount),0) AS balance_plan,
-                    COALESCE(SUM(l.unit_amount),0) AS quantity_plan
-              FROM account_analytic_account a
-                  LEFT JOIN account_analytic_line_plan l ON
-                  (a.id = l.account_id)
-              WHERE a.id IN %s
-              AND a.active_analytic_planning_version = l.version_id
-            """ + where_date + """
-              GROUP BY a.id
-            """,
-            where_clause_args
-        )
-
-        for row in cr.dictfetchall():
-            res[row['id']] = {}
-            for field in fields:
-                res[row['id']][field] = row[field]
-        return self._compute_level_tree_plan(
-            cr, uid, ids, child_ids, res, fields, context
-        )
-
-    _columns = {
-
-        'balance_plan': fields.function(
-            _debit_credit_bal_qtty_plan, method=True, type='float',
-            string='Planned Balance', multi='debit_credit_bal_qtty_plan',
-            digits_compute=dp.get_precision('Account')
-        ),
-        'debit_plan': fields.function(
-            _debit_credit_bal_qtty_plan, method=True, type='float',
-            string='Planned Debit', multi='debit_credit_bal_qtty_plan',
-            digits_compute=dp.get_precision('Account')
-        ),
-        'credit_plan': fields.function(
-            _debit_credit_bal_qtty_plan, method=True, type='float',
-            string='Planned Credit', multi='debit_credit_bal_qtty_plan',
-            digits_compute=dp.get_precision('Account')
-        ),
-        'quantity_plan': fields.function(
-            _debit_credit_bal_qtty_plan, method=True, type='float',
-            string='Quantity Debit', multi='debit_credit_bal_qtty_plan',
-            digits_compute=dp.get_precision('Account')
-        ),
-        'plan_line_ids': fields.one2many(
-            'account.analytic.line.plan',
-            'account_id',
-            'Analytic Entries'
-        ),
-
-        'active_analytic_planning_version': fields.many2one(
-            'account.analytic.plan.version', 'Active plan version',
-            required=True
-        ),
-    }
-
-    _defaults = {
-        'active_analytic_planning_version':
-            _get_active_analytic_planning_version
-    }
-
-    def copy(self, cr, uid, id, default=None, context=None):
-        if default is None:
-            default = {}
-        default['plan_line_ids'] = []
-        return super(account_analytic_account, self).copy(
-            cr, uid, id, default, context=context
-        )
-
-    def open_plan_cost_tree_view(self, cr, uid, ids, context=None):
-        """
-        :return dict: dictionary value for created view
-        """
-        if context is None:
-            context = {}
-        account = self.browse(cr, uid, ids[0], context)
-        res = self.pool.get('ir.actions.act_window').for_xml_id(
-            cr, uid, 'analytic_plan',
-            'action_account_analytic_plan_journal_open_form', context)
-        plan_obj = self.pool['account.analytic.line.plan']
-
-        acc_ids = self.get_child_accounts(cr, uid, [account.id],
-                                          context=context)
-        line_ids = plan_obj.search(
-            cr, uid, [('account_id', 'in', acc_ids.keys()),
-                      ('version_id', '=',
-                       account.active_analytic_planning_version.id)],
-            context=context)
-
-        res['domain'] = "[('id', 'in', ["+','.join(
-            map(str, line_ids))+"])]"
-        res['nodestroy'] = False
-        return res
+    @api.onchange('product_id')
+    def on_change_product_id(self):
+        self.on_change_unit_amount()
+        prod = self.product_id
+        self.name = prod.name
+        if prod.uom_id:
+            self.product_uom_id = prod.uom_id.id
+        return {}

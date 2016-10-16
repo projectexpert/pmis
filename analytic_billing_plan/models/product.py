@@ -2,9 +2,6 @@
 # © 2015 Eficent Business and IT Consulting Services S.L.
 # (Jordi Ballester Alomar)
 #
-# © 2015 Serpent Consulting Services Pvt. Ltd.
-# (Sudhir Arya)
-#
 # © 2016 Matmoz d.o.o.
 # (Matjaž Mozetič)
 #
@@ -16,8 +13,8 @@ from openerp import fields, models
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    expense_analytic_plan_journal_id = fields.Many2one(
-        'account.analytic.plan.journal',
-        'Expense Plan Journal',
+    revenue_analytic_plan_journal_id = fields.Many2one(
+        comodel_name='account.analytic.plan.journal',
+        string='Revenue Plan Journal',
         ondelete='restrict'
     )

@@ -4,7 +4,7 @@
 
 {
     'name': 'Change Management',
-    'version': '8.0.3.0.3',
+    'version': '8.0.3.0.4',
     'author': 'Matmoz d.o.o., '
               'Project Expert Team',
     'contributors': [
@@ -20,7 +20,6 @@
         'data/change_management_sequence.xml',
         'security/ir.model.access.csv',
         'view/project_task_view.xml',
-        'view/project_view.xml',
         'view/change_management_view.xml',
         'view/change_management_category_view.xml',
         'view/change_management_proximity_view.xml',

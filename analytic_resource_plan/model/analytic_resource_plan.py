@@ -20,6 +20,7 @@ class AnalyticResourcePlanLine(models.Model):
 
     _name = 'analytic.resource.plan.line'
     _description = "Analytic Resource Planning lines"
+    _inherit = ['mail.thread', 'ir.needaction_mixin']
 
     @api.multi
     @api.depends('child_ids')

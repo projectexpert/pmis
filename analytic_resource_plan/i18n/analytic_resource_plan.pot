@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-13 07:34+0000\n"
-"PO-Revision-Date: 2015-11-13 07:34+0000\n"
+"POT-Creation-Date: 2016-10-16 10:15+0000\n"
+"PO-Revision-Date: 2016-10-16 10:15+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,15 +33,16 @@ msgid "Activity description"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:220
+#, python-format
+msgid "All the child resource plan lines must  be in Draft state."
+msgstr ""
+
+#. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
 #: field:analytic.resource.plan.line,account_id:0
 #: model:ir.model,name:analytic_resource_plan.model_account_analytic_account
 msgid "Analytic Account"
-msgstr ""
-
-#. module: analytic_resource_plan
-#: view:product.template:analytic_resource_plan.product_template_form_view
-msgid "Analytic Planning Journal for expenses"
 msgstr ""
 
 #. module: analytic_resource_plan
@@ -77,6 +78,12 @@ msgid "Child lines"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:75
+#, python-format
+msgid "Choose different source and destination planning versions."
+msgstr ""
+
+#. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_tree
 msgid "Confirm"
@@ -89,8 +96,8 @@ msgid "Confirmed"
 msgstr ""
 
 #. module: analytic_resource_plan
-#: field:product.template,expense_analytic_plan_journal_id:0
-msgid "Cost Planning Analytic Journal"
+#: field:analytic.resource.plan.line,price_unit:0
+msgid "Cost Price"
 msgstr ""
 
 #. module: analytic_resource_plan
@@ -118,8 +125,25 @@ msgid "Date"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:account.analytic.plan.version,default_resource_plan:0
+msgid "Default for resource plan"
+msgstr ""
+
+#. module: analytic_resource_plan
 #: field:analytic.resource.plan.copy.version,dest_version_id:0
 msgid "Destination Planning Version"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.copy.version,display_name:0
+#: field:analytic.resource.plan.line,display_name:0
+#: field:resource.plan.line.change.state,display_name:0
+msgid "Display Name"
 msgstr ""
 
 #. module: analytic_resource_plan
@@ -131,8 +155,18 @@ msgid "Draft"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: field:product.template,expense_analytic_plan_journal_id:0
+msgid "Expense Plan Journal"
+msgstr ""
+
+#. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
 msgid "Filters"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_follower_ids:0
+msgid "Followers"
 msgstr ""
 
 #. module: analytic_resource_plan
@@ -146,6 +180,11 @@ msgid "Hierarchy"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,message_summary:0
+msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+msgstr ""
+
+#. module: analytic_resource_plan
 #: field:analytic.resource.plan.copy.version,id:0
 #: field:analytic.resource.plan.line,id:0
 #: field:resource.plan.line.change.state,id:0
@@ -153,8 +192,36 @@ msgid "ID"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr ""
+
+#. module: analytic_resource_plan
 #: field:analytic.resource.plan.copy.version,include_child:0
 msgid "Include child accounts"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_is_follower:0
+msgid "Is a Follower"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:71
+#, python-format
+msgid "It is prohibited to copy to the default planning version."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_last_post:0
+msgid "Last Message Date"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.copy.version,__last_update:0
+#: field:analytic.resource.plan.line,__last_update:0
+#: field:resource.plan.line.change.state,__last_update:0
+msgid "Last Modified on"
 msgstr ""
 
 #. module: analytic_resource_plan
@@ -172,15 +239,42 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_ids:0
+msgid "Messages"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,message_ids:0
+msgid "Messages and communication history"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:175
+#, python-format
+msgid "No active planning version for resource plan exists."
+msgstr ""
+
+#. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
 #: field:analytic.resource.plan.line,notes:0
 msgid "Notes"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/account_analytic_plan_version.py:36
+#, python-format
+msgid "Only one default for resource plan version can exist."
+msgstr ""
+
+#. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
 #: field:analytic.resource.plan.line,parent_id:0
 msgid "Parent"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_account_analytic_plan_version
+msgid "Plan Version"
 msgstr ""
 
 #. module: analytic_resource_plan
@@ -206,18 +300,24 @@ msgid "Product"
 msgstr ""
 
 #. module: analytic_resource_plan
-#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
-msgid "Product Information"
-msgstr ""
-
-#. module: analytic_resource_plan
 #: model:ir.model,name:analytic_resource_plan.model_product_template
 msgid "Product Template"
 msgstr ""
 
 #. module: analytic_resource_plan
-#: field:analytic.resource.plan.line,pricelist_id:0
-msgid "Purchasing Pricelist"
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Product Unit of Measure"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_project_project
+msgid "Project"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:233
+#, python-format
+msgid "Quantity should be greater than 0."
 msgstr ""
 
 #. module: analytic_resource_plan
@@ -226,8 +326,16 @@ msgid "Resource Plan Line"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:100
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+#, python-format
 msgid "Resource Plan Lines"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/resource_plan_line_change_state.py:46
+#, python-format
+msgid "Resource Planning Lines"
 msgstr ""
 
 #. module: analytic_resource_plan
@@ -271,18 +379,50 @@ msgid "Status"
 msgstr ""
 
 #. module: analytic_resource_plan
-#: field:analytic.resource.plan.line,supplier_id:0
-msgid "Supplier"
+#: field:analytic.resource.plan.line,message_summary:0
+msgid "Summary"
 msgstr ""
 
 #. module: analytic_resource_plan
-#: field:analytic.resource.plan.line,price_unit:0
-msgid "Unit Price"
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:163
+#, python-format
+msgid "There is no expense account defined for this product: \"%s\" (id:%d)"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,price_total:0
+msgid "Total Cost"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Total:"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_unread:0
+msgid "Unread Messages"
 msgstr ""
 
 #. module: analytic_resource_plan
 #: field:analytic.resource.plan.line,product_uom_id:0
 msgid "UoM"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,website_message_ids:0
+msgid "Website Messages"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,website_message_ids:0
+msgid "Website communication history"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:272
+#, python-format
+msgid "You cannot delete a record that refers to analytic plan lines!"
 msgstr ""
 
 #. module: analytic_resource_plan
