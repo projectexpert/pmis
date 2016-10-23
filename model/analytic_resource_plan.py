@@ -14,6 +14,7 @@ import time
 from openerp import api, fields, models
 from openerp.tools.translate import _
 from openerp.exceptions import Warning as UserError
+from openerp.exceptions import ValidationError
 
 
 class AnalyticResourcePlanLine(models.Model):
@@ -129,6 +130,17 @@ class AnalyticResourcePlanLine(models.Model):
         compute='_compute_get_price_total',
         string='Total Cost',
         groups='project.group_project_manager',
+    )
+    resource_type = fields.Selection(
+        selection=[('task', 'Task'), ('procurement', 'Procurement')],
+        string='Type',
+        required=True,
+        default='task'
+    )
+    user_id = fields.Many2one(
+        comodel_name='res.users',
+        string='Assign To',
+        ondelete='set null'
     )
 
     @api.multi
@@ -293,3 +305,19 @@ class AnalyticResourcePlanLine(models.Model):
         else:
             return False
 
+    # RESOURCE TYPE
+    @api.onchange('resource_type')
+    def resource_type_change(self):
+        if self.resource_type == 'procurement':
+            self.user_id = False
+
+    @api.multi
+    @api.constrains('resource_type', 'product_uom_id')
+    def _check_description(self):
+        for resource in self:
+            if self.resource_type == 'task' and (
+                        self.product_uom_id.category_id != (
+                            self.env.ref('product.uom_categ_wtime'))):
+                raise ValidationError(_(
+                    "When resource type is task, "
+                    "the uom category should be time"))
