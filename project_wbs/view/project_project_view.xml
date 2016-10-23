@@ -142,6 +142,17 @@
             </field>
         </record>
 
+        <record id="open_wbs_grouped" model="ir.actions.act_window">
+            <field name="name">WBS elements</field>
+            <field name="res_model">project.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">kanban,tree,form,gantt</field>
+            <field name="view_id" ref="project.view_project"/>
+            <field name="search_view_id" ref="project.view_project_project_filter"/>
+            <field name="context">{'search_default_Current': 1, 'group_by':'project_analytic_account_id', 'order_by':'complete_wbs_code asc'}</field>
+        </record>
+
         <record id="open_view_project_form" model="ir.actions.act_window">
             <field name="name">Edit project</field>
             <field name="res_model">project.project</field>
@@ -153,7 +164,7 @@
             <field name="context">{'search_default_Current': 1, 'search_default_account_class':False, 'default_account_class':False}</field>
         </record>
 
-        <menuitem action="open_view_project_projects" id="project.menu_projects" name="Projects" parent="project.menu_project_management" sequence="1" string="Projects"/>
+        <menuitem action="open_wbs_grouped" id="project.menu_projects" name="Projects" parent="project.menu_project_management" sequence="1" string="Projects"/>
             <menuitem action="open_view_project_projects" id="menu_project_wbs_projects" name="Projects" parent="project.menu_projects" sequence="2"/>
             <menuitem action="open_view_phases_or_deliverables" id="menu_wbs_phases_or_deliverables" name="Phases and Deliverables" parent="project.menu_projects" sequence="3"/>
             <!--<menuitem action="open_view_project_phases" id="menu_project_wbs_phases" name="Phases" parent="project.menu_projects" sequence="4"/>-->

@@ -24,6 +24,8 @@
                         <div class="oe_right oe_button_box" name="buttons"/>
                         <group colspan="2" col="4" name="Product Information">
                             <field name="product_id"/>
+                            <field name="resource_type"/>
+                            <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
                             <!--<field name="unit_amount"/>-->
                             <!--<field name="product_uom_id"/>-->
                             <!--<field name="price_unit"/>-->
@@ -98,6 +100,8 @@
                     <field name="account_id"/>
                     <field name="date"/>
                     <field name="name" invisible="True"/>
+                    <field name="resource_type"/>
+                    <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
 	                <field name="product_id"/>
                     <field name="name"/>
 					<field name="unit_amount"/>

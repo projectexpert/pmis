@@ -1,0 +1,231 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* project_wbs_gtd
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-22 10:24+0200\n"
+"PO-Revision-Date: 2016-10-22 10:29+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: \n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.8.9\n"
+
+#. module: project_wbs_gtd
+#: model:ir.model,name:project_wbs_gtd.model_wbs_gtd_context
+#: view:project.project:project_wbs_gtd.view_wbs_gtd_search
+#: field:project.project,wbscontext_id:0
+#: view:wbs.gtd.context:project_wbs_gtd.view_gtd_context_form
+#: view:wbs.gtd.context:project_wbs_gtd.view_gtd_context_tree
+#: field:wbs.gtd.context,name:0
+msgid "Context"
+msgstr "Kontekst"
+
+#. module: project_wbs_gtd
+#: model:ir.actions.act_window,name:project_wbs_gtd.open_context_all_wbs
+#: model:ir.ui.menu,name:project_wbs_gtd.menu_open_wbs_context_tree
+msgid "Context Projects"
+msgstr "Kontekst projektov"
+
+#. module: project_wbs_gtd
+#: model:ir.actions.act_window,name:project_wbs_gtd.open_gtd_context_tree
+msgid "Contexts"
+msgstr "Konteksti"
+
+#. module: project_wbs_gtd
+#: model:ir.actions.act_window,help:project_wbs_gtd.open_gtd_context_tree
+msgid ""
+"Contexts are defined in the \"Getting Things Done\" methodology. It allows "
+"you to categorize your wbs elements according to the context in which they "
+"have to be done: at the office, at home, when I take my car, etc."
+msgstr ""
+"Konteksti so določeni v GTD metodologiji. Omogočajo kategorizacijo "
+"projektnih členov glede na kontekst opravljanja: interni, za stranko..."
+
+#. module: project_wbs_gtd
+#: field:wbs.gtd.context,create_uid:0 field:wbs.gtd.timebox,create_uid:0
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: project_wbs_gtd
+#: field:wbs.gtd.context,create_date:0 field:wbs.gtd.timebox,create_date:0
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: project_wbs_gtd
+#: model:wbs.gtd.context,name:project_wbs_gtd.context_cusproj
+msgid "Customer Project"
+msgstr "Projekt stranke"
+
+#. module: project_wbs_gtd
+#: view:project.project:project_wbs_gtd.view_gtd_kanban_wbs
+msgid "Delete"
+msgstr "Izbris"
+
+#. module: project_wbs_gtd
+#: field:wbs.gtd.context,display_name:0 field:wbs.gtd.timebox,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: project_wbs_gtd
+#: view:project.project:project_wbs_gtd.view_gtd_kanban_wbs
+msgid "Docs:"
+msgstr "Priloge:"
+
+#. module: project_wbs_gtd
+#: model:ir.ui.menu,name:project_wbs_gtd.menu_gtd
+#: model:ir.ui.menu,name:project_wbs_gtd.menu_gtd_config
+msgid "GTD"
+msgstr "GTD"
+
+#. module: project_wbs_gtd
+#: help:wbs.gtd.context,sequence:0
+msgid "Gives the sequence order when displaying a list of contexts."
+msgstr "Poda zaporedje pri prikazu seznama kontekstov."
+
+#. module: project_wbs_gtd
+#: help:wbs.gtd.timebox,sequence:0
+msgid "Gives the sequence order when displaying a list of timebox."
+msgstr "Poda zaporedje ob prikazu seznama časovnega okvira."
+
+#. module: project_wbs_gtd
+#: view:project.project:project_wbs_gtd.view_wbs_gtd_search
+msgid "Group By"
+msgstr "Združi po"
+
+#. module: project_wbs_gtd
+#: field:wbs.gtd.context,id:0 field:wbs.gtd.timebox,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: project_wbs_gtd
+#: model:wbs.gtd.context,name:project_wbs_gtd.context_int
+msgid "Internal"
+msgstr "Interni"
+
+#. module: project_wbs_gtd
+#: field:wbs.gtd.context,__last_update:0 field:wbs.gtd.timebox,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
+
+#. module: project_wbs_gtd
+#: field:wbs.gtd.context,write_uid:0 field:wbs.gtd.timebox,write_uid:0
+msgid "Last Updated by"
+msgstr "Zadnji posodobil"
+
+#. module: project_wbs_gtd
+#: field:wbs.gtd.context,write_date:0 field:wbs.gtd.timebox,write_date:0
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: project_wbs_gtd
+#: model:wbs.gtd.timebox,name:project_wbs_gtd.wbs_lt
+msgid "Long Term"
+msgstr "Dolgoročno"
+
+#. module: project_wbs_gtd
+#: model:ir.actions.act_window,name:project_wbs_gtd.open_gtd_wbs
+#: model:ir.ui.menu,name:project_wbs_gtd.menu_open_gtd_timebox_tree
+msgid "My Work Packages (GTD)"
+msgstr "Moji delovni seznami (GTD)"
+
+#. module: project_wbs_gtd
+#: model:ir.model,name:project_wbs_gtd.model_project_project
+msgid "Project"
+msgstr "Projekt"
+
+#. module: project_wbs_gtd
+#: view:project.project:project_wbs_gtd.view_gtd_kanban_wbs
+msgid "Project Settings"
+msgstr "Projektne nastavitve"
+
+#. module: project_wbs_gtd
+#: field:wbs.gtd.context,sequence:0 field:wbs.gtd.timebox,sequence:0
+msgid "Sequence"
+msgstr "Zaporedje"
+
+#. module: project_wbs_gtd
+#: model:ir.model,name:project_wbs_gtd.model_project_task
+msgid "Task"
+msgstr "Opravilo"
+
+#. module: project_wbs_gtd
+#: view:project.project:project_wbs_gtd.view_gtd_kanban_wbs
+msgid "Tasks:"
+msgstr "Opravila:"
+
+#. module: project_wbs_gtd
+#: help:project.project,wbscontext_id:0
+msgid "The context place where user has to treat the workpackage"
+msgstr "Kontekst obravnave delovnega seznama"
+
+#. module: project_wbs_gtd
+#: model:wbs.gtd.timebox,name:project_wbs_gtd.wbs_weekly
+msgid "This Week"
+msgstr "Ta teden"
+
+#. module: project_wbs_gtd
+#: help:project.project,wbstimebox_id:0
+msgid "Time-laps during which the workpackage has to be treated"
+msgstr "Časovno obdobje v katerem mora biti delovni seznam obravnavan"
+
+#. module: project_wbs_gtd
+#: view:project.project:project_wbs_gtd.view_wbs_gtd_search
+#: field:project.project,wbstimebox_id:0
+#: view:wbs.gtd.timebox:project_wbs_gtd.view_gtd_timebox_tree
+#: field:wbs.gtd.timebox,name:0
+msgid "Timebox"
+msgstr "Časovni okvir"
+
+#. module: project_wbs_gtd
+#: view:wbs.gtd.timebox:project_wbs_gtd.view_gtd_timebox_form
+msgid "Timebox Definition"
+msgstr "Definicija časovnega okvira"
+
+#. module: project_wbs_gtd
+#: model:ir.actions.act_window,name:project_wbs_gtd.open_gtd_timebox_tree
+#: view:wbs.gtd.timebox:project_wbs_gtd.view_gtd_timebox_form
+msgid "Timeboxes"
+msgstr "Časovni okviri"
+
+#. module: project_wbs_gtd
+#: model:ir.actions.act_window,help:project_wbs_gtd.open_gtd_timebox_tree
+msgid ""
+"Timeboxes are defined in the \"Getting Things Done\" methodology. A timebox "
+"defines a period of time in order to categorize your wbs elements: today, "
+"this week, this month, long term."
+msgstr ""
+"Časovni okviri so določeni v GTD metodologiji. Časovni okvir določa obdobje "
+"za kategorizacijo delovnih seznamov: interni, projekti stranke, ..."
+
+#. module: project_wbs_gtd
+#: model:wbs.gtd.timebox,name:project_wbs_gtd.wbs_daily
+msgid "Today"
+msgstr "Danes"
+
+#. module: project_wbs_gtd
+#: view:project.project:project_wbs_gtd.view_gtd_kanban_wbs
+msgid "WBS"
+msgstr "Členitev"
+
+#. module: project_wbs_gtd
+#: model:ir.ui.menu,name:project_wbs_gtd.menu_open_gtd_wbs_time_contexts
+msgid "WBS Contexts"
+msgstr "Konteksti členov"
+
+#. module: project_wbs_gtd
+#: model:ir.ui.menu,name:project_wbs_gtd.menu_open_gtd_wbs_time_timeboxes
+msgid "WBS Timeboxes"
+msgstr "Časovni okviri členov"
+
+#. module: project_wbs_gtd
+#: model:ir.actions.act_window,name:project_wbs_gtd.open_gtd_all_wbs
+#: model:ir.ui.menu,name:project_wbs_gtd.menu_open_wbs_timebox_all_tree
+msgid "Work Packages (GTD)"
+msgstr "Delovni seznami (GTD)"

@@ -195,7 +195,7 @@
             <field name="name">change.management.change.kanban.view</field>
             <field name="model">change.management.change</field>
             <field name="arch"  type="xml">
-                <kanban version="8.0" class="oe_background_grey" default_group_by="proximity_id">
+                <kanban class="oe_background_grey" default_group_by="proximity_id">
 					<field name="name"/>
 					<field name="description"/>
 					<field name="state"/>
@@ -261,7 +261,7 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">project.task</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_mode">kanban,tree,form</field>
             <field name="view_id" ref="change_management_project_task_tree_view"/>
             <field name="search_view_id" ref="change_management_project_task_search_view"/>
             <field name="domain">[('change_id','!=',False)]</field>
