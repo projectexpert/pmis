@@ -2,6 +2,101 @@
 <openerp>
     <data>
 
+        <!--KANBAN VIEW-->
+        <record model="ir.ui.view" id="view_project_kanban_wbs">
+            <field name="name">project.project.kanban.wbs</field>
+            <field name="model">project.project</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="stage_id">
+	            	<field name="complete_wbs_code"/>
+	            	<field name="complete_wbs_name"/>
+                    <field name="effective_hours"/>
+                    <field name="planned_hours"/>
+                    <field name="name"/>
+                    <field name="account_class"/>
+                    <field name="members"/>
+                    <field name="use_tasks"/>
+                    <field name="user_id"/>
+                    <field name="date"/>
+                    <field name="color"/>
+                    <field name="task_count"/>
+                    <field name="alias_id"/>
+                    <field name="alias_domain"/>
+                    <field name="doc_count"/>
+                    <templates>
+                        <t t-name="kanban-box">
+							<div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click, oe_kanban_wbs">
+                                <div class="oe_dropdown_toggle oe_dropdown_kanban" groups="base.group_user">
+                                    <span class="oe_e">í</span>
+                                    <ul class="oe_dropdown_menu">
+                                        <t t-if="widget.view.is_action_enabled('edit')"><li><a type="edit">Project Settings</a></li></t>
+                                        <t t-if="widget.view.is_action_enabled('delete')"><li><a type="delete">Delete</a></li></t>
+                                        <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+                                    </ul>
+                                </div>
+                                <div class="oe_kanban_content">
+
+                                    <a type="object" name="action_open_view_project_form">
+                                        <h3><field name="name"/></h3>
+                                        <h5><field name="complete_wbs_name"/></h5>
+                                    </a>
+                                    <h6>
+                                    <field name="complete_wbs_code"/>
+                                    <field name="account_class"/>
+                                    </h6>
+                                    <div class="oe_nav_buttons" name="wbs_navigation_buttons">
+                                        <a name="action_openParentTreeView"
+                                           type="object"
+                                           class="fa fa-level-up oe_wbs_navigation"
+                                            attrs="{'invisible': [('account_class', '=', 'project')]}">
+                                            GO UP
+                                        </a>
+                                        <a name="action_openChildTreeView"
+                                           type="object"
+                                           style="margin-right: 10px"
+                                           class="fa fa-level-down oe_wbs_navigation">
+                                            GO DOWN
+                                        </a>
+                                    </div>
+                                    <div class="oe_kanban_project_list" name="wbs_kanban_buttons">
+                                        <a t-if="record.task_count.raw_value"
+                                           name="%(project.act_project_project_2_project_task_all)d"
+                                           type="action"
+                                           class="fa fa-tasks oe_wbs_button">
+                                            Tasks: <field name="task_count"/>
+                                        </a>
+                                        <a t-if="record.doc_count.raw_value"
+                                           name="attachment_tree_view"
+                                           type="object"
+                                           class="fa fa-files-o oe_wbs_button">
+                                             Docs: <field name="doc_count"/>
+                                        </a>
+                                    </div>
+                                    <div class="oe_kanban_footer_left">
+                                        <span groups="project.group_time_work_estimation_tasks">
+                                            <span class="oe_e">R</span>
+                                            <t t-esc="Math.round(record.effective_hours.raw_value)"/>/<t t-esc="Math.round(record.planned_hours.raw_value)"/> <field name="company_uom_id"/>
+                                        </span>
+                                        <span t-if="record.date.raw_value">
+                                            <span class="oe_e">N</span>
+                                            <field name="date"/>
+                                        </span>
+                                    </div>
+                                    <div class="oe_kanban_project_avatars">
+                                        <t t-foreach="record.members.raw_value.slice(0,11)" t-as="member">
+                                            <img t-att-src="kanban_image('res.users', 'image_small', member)" t-att-data-member_id="member"/>
+                                        </t>
+                                    </div>
+                                </div>
+                                <div class="oe_clear"/>
+                            </div>
+                        </t>
+                    </templates>
+				</kanban>
+			</field>
+		</record>
+
+
 #---------------------------------------------------------------------------------------------------------
 #  Extend the menus of the project
 #---------------------------------------------------------------------------------------------------------
@@ -28,7 +123,7 @@
             <field name="res_model">project.project</field>
             <field name="view_type">form</field>
             <field name="view_mode">kanban,tree,form,gantt</field>
-            <field name="view_id" ref="project.view_project_kanban"/>
+            <field name="view_id" ref="view_project_kanban_wbs"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
             <!--<field name="context">{'search_default_Current': 1, 'search_default_account_class':'work_package', 'default_account_class':'work_package'}</field>-->
             <field name="context">{'search_default_Current': 1}</field>
@@ -45,7 +140,7 @@
             <field name="res_model">project.project</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form,kanban,gantt</field>
-            <field name="view_id" ref="project.view_project"/>
+            <field name="view_id" ref="view_project_kanban_wbs"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
             <!--<field name="context">{'search_default_Current': 1, 'search_default_account_class':'phase', 'default_account_class':'phase'}</field>-->
             <field name="context">{'search_default_Current': 1}</field>
@@ -62,7 +157,7 @@
             <field name="res_model">project.project</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form,kanban,gantt</field>
-            <field name="view_id" ref="project.view_project"/>
+            <field name="view_id" ref="view_project_kanban_wbs"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
             <!--<field name="context">{'search_default_Current': 1, 'search_default_account_class':'deliverable', 'default_account_class':'deliverable'}</field>-->
             <field name="context">{'search_default_Current': 1}</field>
@@ -79,7 +174,7 @@
             <field name="res_model">project.project</field>
             <field name="view_type">form</field>
             <field name="view_mode">kanban,tree,form,gantt</field>
-            <field name="view_id" ref="project.view_project_kanban"/>
+            <field name="view_id" ref="view_project_kanban_wbs"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
             <!--<field name="context">{'search_default_Current': 1, 'search_default_account_class':'work_package', 'default_account_class':'work_package'}</field>-->
             <field name="context">{'search_default_Current': 1}</field>
@@ -97,7 +192,7 @@
             <field name="view_type">form</field>
             <field name="domain">[('account_class', '=', False)]</field>
             <field name="view_mode">kanban,tree,form,gantt</field>
-            <field name="view_id" ref="project.view_project"/>
+            <field name="view_id" ref="view_project_kanban_wbs"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
             <field name="context">{'search_default_Current': 1, 'search_default_account_class':False, 'default_account_class':False}</field>
             <field name="help" type="html">
@@ -344,130 +439,7 @@
             <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
             <field name="search_view_id" ref="view_project_project_filter"/>
         </record>
-        <!--KANBAN VIEW-->
-        <record model="ir.ui.view" id="view_project_kanban_wbs">
-            <field name="name">project.project.kanban.wbs</field>
-            <field name="model">project.project</field>
-            <field name="inherit_id" ref="project.view_project_kanban"/>
-            <field name="arch" type="xml">
-		        <kanban position="replace">
-		        	<kanban default_group_by="stage_id">
-	            	<field name="complete_wbs_code"/>
-	            	<field name="complete_wbs_name"/>
-                    <field name="effective_hours"/>
-                    <field name="planned_hours"/>
-                    <field name="name"/>
-                    <field name="account_class"/>
-                    <field name="members"/>
-                    <field name="use_tasks"/>
-                    <field name="user_id"/>
-                    <field name="date"/>
-                    <field name="color"/>
-                    <field name="task_count"/>
-                    <!--<field name="child_project_count"/>-->
-                    <!--<field name="child_phase_count"/>-->
-                    <!--<field name="child_deliverable_count"/>-->
-                    <!--<field name="child_work_package_count"/>-->
-                    <!--<field name="child_unclassified_count"/>-->
-                    <field name="alias_id"/>
-                    <field name="alias_domain"/>
-                    <field name="doc_count"/>
-                    <templates>
-                        <t t-name="kanban-box">
-							<div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click, oe_kanban_wbs">
-                                <div class="oe_dropdown_toggle oe_dropdown_kanban" groups="base.group_user">
-                                    <span class="oe_e">í</span>
-                                    <ul class="oe_dropdown_menu">
-                                        <t t-if="widget.view.is_action_enabled('edit')"><li><a type="edit">Project Settings</a></li></t>
-                                        <t t-if="widget.view.is_action_enabled('delete')"><li><a type="delete">Delete</a></li></t>
-                                        <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
-                                    </ul>
-                                </div>
-                                <div class="oe_kanban_content">
 
-                                    <a type="object" name="action_open_view_project_form">
-                                        <h3><field name="name"/></h3>
-                                        <h5><field name="complete_wbs_name"/></h5>
-                                    </a>
-                                    <h6>
-                                    <field name="complete_wbs_code"/>
-                                    <field name="account_class"/>
-                                    </h6>
-                                    <!--<div class="oe_kanban_project_list">
-                                        <a name="action_openProjectsView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'project','default_account_class': 'project'}">
-                                            <span t-if="record.child_project_count.raw_value gt 1"><field name="child_project_count"/> Projects</span>
-                                            <span t-if="record.child_project_count.raw_value lt 2"><field name="child_project_count"/> Project</span>
-                                        </a>
-                                        <a name="action_openPhasesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'phase','default_account_class': 'phase'}">
-                                            <span t-if="record.child_phase_count.raw_value gt 1"><field name="child_phase_count"/> Phases</span>
-                                            <span t-if="record.child_phase_count.raw_value lt 2"><field name="child_phase_count"/> Phase</span>
-                                        </a>
-                                        <a name="action_openDeliverablesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'deliverable','default_account_class': 'deliverable'}">
-                                            <span t-if="record.child_deliverable_count.raw_value gt 1"><field name="child_deliverable_count"/> Deliverables</span>
-                                            <span t-if="record.child_deliverable_count.raw_value lt 2"><field name="child_deliverable_count"/> Deliverable</span>
-                                        </a>
-                                        <a name="action_openWorkPackagesView" type="object" style="margin-right: 10px" context="{'search_default_account_class': 'work_package','default_account_class': 'work_package'}">
-                                            <span t-if="record.child_work_package_count.raw_value gt 1"><field name="child_work_package_count"/> W.P.</span>
-                                            <span t-if="record.child_work_package_count.raw_value lt 2"><field name="child_work_package_count"/> W.P.</span>
-                                        </a>
-                                        <a name="action_openUnclassifiedView" type="object" style="margin-right: 10px" context="{'search_default_account_class': False,'default_account_class': False, 'account_class': False}">
-                                            <span t-if="record.child_unclassified_count.raw_value gt 1"><field name="child_unclassified_count"/> Unclassified</span>
-                                            <span t-if="record.child_unclassified_count.raw_value lt 2"><field name="child_unclassified_count"/> Unclassified</span>
-                                        </a>
-                                    </div>-->
-                                    <div class="oe_nav_buttons" name="wbs_navigation_buttons">
-                                        <a name="action_openParentTreeView"
-                                           type="object"
-                                           class="fa fa-level-up oe_wbs_navigation"
-                                            attrs="{'invisible': [('account_class', '=', 'project')]}">
-                                            GO UP
-                                        </a>
-                                        <a name="action_openChildTreeView"
-                                           type="object"
-                                           style="margin-right: 10px"
-                                           class="fa fa-level-down oe_wbs_navigation">
-                                            GO DOWN
-                                        </a>
-                                    </div>
-                                    <div class="oe_kanban_project_list" name="wbs_kanban_buttons">
-                                        <a t-if="record.task_count.raw_value"
-                                           name="%(project.act_project_project_2_project_task_all)d"
-                                           type="action"
-                                           class="fa fa-tasks oe_wbs_button">
-                                            Tasks: <field name="task_count"/>
-                                        </a>
-                                        <a t-if="record.doc_count.raw_value"
-                                           name="attachment_tree_view"
-                                           type="object"
-                                           class="fa fa-files-o oe_wbs_button">
-                                             Docs: <field name="doc_count"/>
-                                        </a>
-                                    </div>
-                                    <div class="oe_kanban_footer_left">
-                                        <span groups="project.group_time_work_estimation_tasks">
-                                            <span class="oe_e">R</span>
-                                            <t t-esc="Math.round(record.effective_hours.raw_value)"/>/<t t-esc="Math.round(record.planned_hours.raw_value)"/> <field name="company_uom_id"/>
-                                        </span>
-                                        <span t-if="record.date.raw_value">
-                                            <span class="oe_e">N</span>
-                                            <field name="date"/>
-                                        </span>
-                                    </div>                                    
-                                    <div class="oe_kanban_project_avatars">
-                                        <t t-foreach="record.members.raw_value.slice(0,11)" t-as="member">
-                                            <img t-att-src="kanban_image('res.users', 'image_small', member)" t-att-data-member_id="member"/>
-                                        </t>
-                                    </div>
-                                </div>
-                                <div class="oe_clear"/>
-                            </div>
-                        </t>
-                    </templates>	            	
-	            	</kanban>            	
-				</kanban>
-			</field>
-		</record>
-        
         <record id="view_project_kanban_inherited" model="ir.ui.view">
             <field name="name">project.project.kanban.wbs</field>
             <field name="model">project.project</field>

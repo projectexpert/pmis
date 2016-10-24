@@ -2,7 +2,7 @@
 
 {
     'name': 'Project Level Todo',
-    'version': '8.0.2.0.0',
+    'version': '8.0.2.0.1',
     'author': 'OpenERP SA, '
               'Matmoz d.o.o., '
               'Project Expert Team',

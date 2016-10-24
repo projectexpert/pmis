@@ -334,8 +334,14 @@ level, in case of business continuity to a C-level manager.
 class Project(models.Model):
     _inherit = "project.project"
 
-    @api.v7
-    def _get_alias_models(self, cr, uid, context=None):
-        res = super(Project, self)._get_alias_models(cr, uid, context=context)
+    # @api.v7
+    # def _get_alias_models(self, cr, uid, context=None):
+    #     res = super(Project, self)._get_alias_models(cr, uid, context=context)
+    #     res.append(("change.management.change", "Change Requests"))
+    #     return res
+
+    @api.model
+    def _get_alias_models(self):
+        res = super(Project, self)._get_alias_models()
         res.append(("change.management.change", "Change Requests"))
         return res
