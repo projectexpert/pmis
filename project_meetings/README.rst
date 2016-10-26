@@ -5,15 +5,8 @@
 Project Meetings Management
 ===========================
 
-Adds the Meeting Tab under the Communications Tab in the Project Charter Form and a Meetings
-button on the top right section of the form.
+DUMMY PACKAGE DUE TO NAME CHANGE
 
-Enables the planning and management of the project related meetings.
-
-Installation
-============
-
-* The module automatically takes care of its dependencies and is ready for use after the installation
 
 Credits
 =======

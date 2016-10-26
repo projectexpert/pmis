@@ -5,8 +5,15 @@
 Creatable issues list on task view form.
 ========================================
 
-DUMMY PACKAGE DUE TO NAME CHANGE
+Issue is not always the initiator of a task, an issue could arise
+also while completing a task and to ease the workflow, this module
+gives a tab in the task form view, where the task related issues
+can be reviewed or created.
 
+Installation
+============
+
+* The module automatically takes care of its dependencies and is ready for use after the installation
 
 Credits
 =======

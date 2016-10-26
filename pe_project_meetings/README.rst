@@ -1,12 +1,19 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
 
-========================================
-Creatable issues list on task view form.
-========================================
+===========================
+Project Meetings Management
+===========================
 
-DUMMY PACKAGE DUE TO NAME CHANGE
+Adds the Meeting Tab under the Communications Tab in the Project Charter Form and a Meetings
+button on the top right section of the form.
 
+Enables the planning and management of the project related meetings.
+
+Installation
+============
+
+* The module automatically takes care of its dependencies and is ready for use after the installation
 
 Credits
 =======

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Project Meetings',
-    'version': '8.0.2.0.0',
-    'summary': 'DUMMY - Meetings in project communications tab',
+    'version': '8.0.1.0.0',
+    'summary': 'Meetings in project communications tab',
     'author':   'Matmoz d.o.o., '
                 'Project Expert Team',
     'contributors': [
@@ -11,8 +11,11 @@
     'website': 'http://project.expert',
     'category': 'Project Management',
     'license': 'AGPL-3',
-    'depends': ['pe_project_meetings'],
-    'data': [],
+    'depends': ['calendar', 'project_charter'],
+    'data': [
+        'views/project_view.xml',
+        'views/meeting_view.xml',
+    ],
     'demo': [],
     'installable': True,
 }

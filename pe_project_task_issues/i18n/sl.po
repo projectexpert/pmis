@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* project_task_issues
+# 	* pe_project_task_issues
 #
 msgid ""
 msgstr ""
@@ -17,23 +17,23 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 1.8.4\n"
 
-#. module: project_task_issues
+#. module: pe_project_task_issues
 #: view:project.task:project_task_issues.view_project_task_issues
 msgid "Extra Info"
 msgstr "Dodatne informacije"
 
-#. module: project_task_issues
+#. module: pe_project_task_issues
 #: view:project.task:project_task_issues.view_project_task_issues
 #: field:project.task,issue_ids:0
 msgid "Issues"
 msgstr "Zadeve"
 
-#. module: project_task_issues
+#. module: pe_project_task_issues
 #: field:project.task,issue_id:0
 msgid "Main Issue"
 msgstr "Glavna zadeva"
 
-#. module: project_task_issues
+#. module: pe_project_task_issues
 #: model:ir.model,name:project_task_issues.model_project_task
 msgid "Task"
 msgstr "Opravilo"
