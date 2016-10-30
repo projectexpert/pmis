@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-08 14:45+0200\n"
-"PO-Revision-Date: 2016-10-08 14:45+0200\n"
+"POT-Creation-Date: 2016-10-30 09:27+0100\n"
+"PO-Revision-Date: 2016-10-30 09:27+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -179,10 +179,10 @@ msgid "Back to Draft"
 msgstr ""
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
+#: model:change.management.proximity,name:change_management.change_management_proximity_longterm
 #, fuzzy
-msgid "Blocked"
-msgstr "已屏蔽"
+msgid "Beyond project"
+msgstr "我的项目"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -349,8 +349,9 @@ msgstr "颜色"
 
 #. module: change_management
 #: field:change.management.change,company_id:0
+#, fuzzy
 msgid "Company"
-msgstr ""
+msgstr "公司"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -371,6 +372,16 @@ msgstr ""
 #: field:change.management.change,confirmed_id:0
 msgid "Confirmed by"
 msgstr ""
+
+#. module: change_management
+#: model:change.management.category,name:change_management.change_management_category_extra
+#, fuzzy
+msgid "Cost"
+msgstr ""
+"\n"
+"            将数量和产品的成本价相乘计算得来。\n"
+"            总是以公司的本位币来表述。\n"
+"            "
 
 #. module: change_management
 #: field:change.management.category,create_uid:0
@@ -415,10 +426,10 @@ msgid "Defer"
 msgstr ""
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
+#: model:change.management.category,name:change_management.change_management_deliverables
 #, fuzzy
-msgid "Delete"
-msgstr "删除"
+msgid "Deliverables"
+msgstr "交付物"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
@@ -443,7 +454,6 @@ msgstr ""
 
 #. module: change_management
 #: view:change.management.change:change_management.change_kanban_view
-#: view:project.task:change_management.view_task_kanban
 #, fuzzy
 msgid "Edit..."
 msgstr "编辑..."
@@ -489,10 +499,9 @@ msgid "If checked new messages require your attention."
 msgstr "如果勾选，新信息将需要你进行关注。"
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-#, fuzzy
-msgid "In Progress"
-msgstr "进行中"
+#: model:change.management.proximity,name:change_management.change_management_proximity_imminent
+msgid "Imminent"
+msgstr ""
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
@@ -525,7 +534,7 @@ msgstr ""
 #: field:change.management.proximity,write_uid:0
 #, fuzzy
 msgid "Last Updated by"
-msgstr "最后更新者"
+msgstr "最后更新人"
 
 #. module: change_management
 #: field:change.management.category,write_date:0
@@ -560,12 +569,6 @@ msgid "My Projects"
 msgstr "我的项目"
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-#, fuzzy
-msgid "Normal"
-msgstr "正常"
-
-#. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
 #: field:change.management.change,project_id:0
 #: model:ir.model,name:change_management.model_project_project
@@ -595,12 +598,6 @@ msgid "Proximity"
 msgstr "接近度"
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-#, fuzzy
-msgid "Ready for next stage"
-msgstr "准备进入下一阶段"
-
-#. module: change_management
 #: field:change.management.change,description_event:0
 msgid "Reason"
 msgstr ""
@@ -612,15 +609,14 @@ msgid "Reg. Date"
 msgstr "登记日期"
 
 #. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Reject"
+#: model:change.management.category,name:change_management.change_management_regulatory
+msgid "Regulatory Requirement"
 msgstr ""
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-#, fuzzy
-msgid "Remaining Time"
-msgstr "剩余时间"
+#: view:change.management.change:change_management.change_form_view
+msgid "Reject"
+msgstr ""
 
 #. module: change_management
 #: field:change.management.change,description:0
@@ -643,6 +639,19 @@ msgid "Requirements"
 msgstr ""
 
 #. module: change_management
+#: model:change.management.category,name:change_management.change_management_resources
+#, fuzzy
+msgid "Resources"
+msgstr ""
+"组织群。\n"
+"组织群是受项目组活动影响的内部利益相关方。例如，可能会受项目影响的组织群组"
+"包括市场和销售、人力资源、法务、财务、运营、生产和客户服务。这些部门支撑实"
+"施项目的业务环境，因此也就受到项目行为的影响。作为结果，为了实现项目目标，"
+"各个业务部门跟项目组之间会有大量的互动和协作。为了平顺过度到投产阶段，这些"
+"群组可能会提出需求和接受交付物。\n"
+"            "
+
+#. module: change_management
 #: view:change.management.change:change_management.change_form_view
 #, fuzzy
 msgid "Response Actions"
@@ -653,6 +662,17 @@ msgstr "反应行为"
 #, fuzzy
 msgid "Response Ids"
 msgstr "反应ID"
+
+#. module: change_management
+#: model:change.management.category,name:change_management.change_management_category_feature
+msgid "Schedule"
+msgstr ""
+
+#. module: change_management
+#: model:change.management.category,name:change_management.change_management_category_plan
+#, fuzzy
+msgid "Scope"
+msgstr "范围"
 
 #. module: change_management
 #: view:project.task:change_management.change_management_project_task_search_view
@@ -689,6 +709,11 @@ msgid "Task is an action on a change identified by this label."
 msgstr ""
 
 #. module: change_management
+#: model:change.management.category,name:change_management.change_management_quality
+msgid "Testing/Quality"
+msgstr ""
+
+#. module: change_management
 #: field:change.management.change,message_unread:0
 #, fuzzy
 msgid "Unread Messages"
@@ -699,18 +724,6 @@ msgstr "未读信息"
 #, fuzzy
 msgid "Unread messages"
 msgstr "未读信息"
-
-#. module: change_management
-#: view:project.task:change_management.view_task_kanban
-#, fuzzy
-msgid "Validate planned time"
-msgstr "确认计划的时间"
-
-#. module: change_management
-#: view:project.task:change_management.view_task_kanban
-#, fuzzy
-msgid "Very Important"
-msgstr "非常重要"
 
 #. module: change_management
 #: field:change.management.change,website_message_ids:0
@@ -730,6 +743,43 @@ msgid "Withdraw"
 msgstr ""
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "oe_kanban_text_red"
+#: model:change.management.proximity,name:change_management.change_management_proximity_within_project
+msgid "Within project"
 msgstr ""
+
+#. module: change_management
+#: model:change.management.proximity,name:change_management.change_management_proximity_within_stage
+msgid "Within stage"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Blocked"
+#~ msgstr "已屏蔽"
+
+#, fuzzy
+#~ msgid "Delete"
+#~ msgstr "删除"
+
+#, fuzzy
+#~ msgid "In Progress"
+#~ msgstr "进行中"
+
+#, fuzzy
+#~ msgid "Normal"
+#~ msgstr "正常"
+
+#, fuzzy
+#~ msgid "Ready for next stage"
+#~ msgstr "准备进入下一阶段"
+
+#, fuzzy
+#~ msgid "Remaining Time"
+#~ msgstr "剩余时间"
+
+#, fuzzy
+#~ msgid "Validate planned time"
+#~ msgstr "确认计划的时间"
+
+#, fuzzy
+#~ msgid "Very Important"
+#~ msgstr "非常重要"

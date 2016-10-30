@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-08 14:44+0200\n"
-"PO-Revision-Date: 2016-10-08 14:44+0200\n"
+"POT-Creation-Date: 2016-10-30 09:24+0100\n"
+"PO-Revision-Date: 2016-10-30 09:26+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -230,9 +230,9 @@ msgid "Back to Draft"
 msgstr "Metti in bozza"
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "Blocked"
-msgstr "Bloccato"
+#: model:change.management.proximity,name:change_management.change_management_proximity_longterm
+msgid "Beyond project"
+msgstr "Oltre il progetto"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -417,6 +417,11 @@ msgid "Confirmed by"
 msgstr "Confermato da"
 
 #. module: change_management
+#: model:change.management.category,name:change_management.change_management_category_extra
+msgid "Cost"
+msgstr "Costo"
+
+#. module: change_management
 #: field:change.management.category,create_uid:0
 #: field:change.management.change,create_uid:0
 #: field:change.management.proximity,create_uid:0
@@ -456,9 +461,9 @@ msgid "Defer"
 msgstr "Rinvia"
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "Delete"
-msgstr "Cancella"
+#: model:change.management.category,name:change_management.change_management_deliverables
+msgid "Deliverables"
+msgstr "Consegnabili"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
@@ -479,7 +484,6 @@ msgstr "Fatto"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_kanban_view
-#: view:project.task:change_management.view_task_kanban
 msgid "Edit..."
 msgstr "Edita..."
 
@@ -521,9 +525,9 @@ msgstr ""
 "vostra attenzione."
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "In Progress"
-msgstr "In Corso"
+#: model:change.management.proximity,name:change_management.change_management_proximity_imminent
+msgid "Imminent"
+msgstr "Imminente"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
@@ -582,11 +586,6 @@ msgid "My Projects"
 msgstr "I miei progetti"
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "Normal"
-msgstr "Normale"
-
-#. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
 #: field:change.management.change,project_id:0
 #: model:ir.model,name:change_management.model_project_project
@@ -614,11 +613,6 @@ msgid "Proximity"
 msgstr "Prossimità"
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "Ready for next stage"
-msgstr "Pronto per prossimo stadio"
-
-#. module: change_management
 #: field:change.management.change,description_event:0
 msgid "Reason"
 msgstr "Motivo"
@@ -629,14 +623,14 @@ msgid "Reg. Date"
 msgstr "Data reg."
 
 #. module: change_management
+#: model:change.management.category,name:change_management.change_management_regulatory
+msgid "Regulatory Requirement"
+msgstr "Regolamento"
+
+#. module: change_management
 #: view:change.management.change:change_management.change_form_view
 msgid "Reject"
 msgstr "Rifiuta"
-
-#. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "Remaining Time"
-msgstr "Tempo rimanente"
 
 #. module: change_management
 #: field:change.management.change,description:0
@@ -659,6 +653,11 @@ msgid "Requirements"
 msgstr "Requisiti"
 
 #. module: change_management
+#: model:change.management.category,name:change_management.change_management_resources
+msgid "Resources"
+msgstr "Risorse"
+
+#. module: change_management
 #: view:change.management.change:change_management.change_form_view
 msgid "Response Actions"
 msgstr "Azioni in risposta"
@@ -667,6 +666,16 @@ msgstr "Azioni in risposta"
 #: field:change.management.change,change_response_ids:0
 msgid "Response Ids"
 msgstr "ID risposte"
+
+#. module: change_management
+#: model:change.management.category,name:change_management.change_management_category_feature
+msgid "Schedule"
+msgstr "Scadenze"
+
+#. module: change_management
+#: model:change.management.category,name:change_management.change_management_category_plan
+msgid "Scope"
+msgstr "Portata"
 
 #. module: change_management
 #: view:project.task:change_management.change_management_project_task_search_view
@@ -700,6 +709,11 @@ msgid "Task is an action on a change identified by this label."
 msgstr "L'attività è una azione su modifica identificata da questo campo."
 
 #. module: change_management
+#: model:change.management.category,name:change_management.change_management_quality
+msgid "Testing/Quality"
+msgstr "Controllo qualità"
+
+#. module: change_management
 #: field:change.management.change,message_unread:0
 msgid "Unread Messages"
 msgstr "Messaggi non letti"
@@ -708,16 +722,6 @@ msgstr "Messaggi non letti"
 #: view:change.management.change:change_management.change_search_form_view
 msgid "Unread messages"
 msgstr "Messaggi non letti"
-
-#. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "Validate planned time"
-msgstr "Convalida tempo pianificato"
-
-#. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "Very Important"
-msgstr "Molto importante"
 
 #. module: change_management
 #: field:change.management.change,website_message_ids:0
@@ -735,9 +739,41 @@ msgid "Withdraw"
 msgstr "Ritira"
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "oe_kanban_text_red"
-msgstr "oe_kanban_text_red"
+#: model:change.management.proximity,name:change_management.change_management_proximity_within_project
+msgid "Within project"
+msgstr "Entro progetto"
+
+#. module: change_management
+#: model:change.management.proximity,name:change_management.change_management_proximity_within_stage
+msgid "Within stage"
+msgstr "Entro stadio"
+
+#~ msgid "Blocked"
+#~ msgstr "Bloccato"
+
+#~ msgid "Delete"
+#~ msgstr "Cancella"
+
+#~ msgid "In Progress"
+#~ msgstr "In Corso"
+
+#~ msgid "Normal"
+#~ msgstr "Normale"
+
+#~ msgid "Ready for next stage"
+#~ msgstr "Pronto per prossimo stadio"
+
+#~ msgid "Remaining Time"
+#~ msgstr "Tempo rimanente"
+
+#~ msgid "Validate planned time"
+#~ msgstr "Convalida tempo pianificato"
+
+#~ msgid "Very Important"
+#~ msgstr "Molto importante"
+
+#~ msgid "oe_kanban_text_red"
+#~ msgstr "oe_kanban_text_red"
 
 #~ msgid "Change Actions"
 #~ msgstr "Azioni modifiche"

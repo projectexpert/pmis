@@ -14,8 +14,8 @@
             <field name="arch" type="xml">            	
                <search string="Task Edition">
                     <group col="20" colspan="4">
-                        <field name="id" select="1"/>					
-                        <field name="name" select="1"/>                      
+                        <field name="id" select="1"/>
+                        <field name="name" select="1"/>
                         <field name="project_complete_wbs_code" string="WBS Path code"/>
                         <field name="project_complete_wbs_name" string="WBS Path name"/>
                         <field name="project_id"/>
@@ -23,10 +23,10 @@
                         <field name="stage_id"/>
                         <field name="user_id" select="1"/>
                     </group>
-                </search>            			          			         				            		
+                </search>
             </field>
         </record>
-        
+
         <record id="view_activity_scheduling_tree" model="ir.ui.view">
             <field name="name">project.task.activity.scheduling.tree</field>
             <field name="model">project.task</field>
@@ -35,36 +35,39 @@
             <field name="arch" type="xml">
                 <tree string="Scheduling" editable="top">
 					<field name="id" readonly ="1"/>
-					<button groups="base.group_erp_manager" 
-						name="%(project_time_sequence.action_project_task_link_predecessors_str)d" 
-						string="Link" 
-						type="action" icon="gtk-sort-descending" 
-						help="For linking to a predecessor task"/>					
-					<button groups="base.group_erp_manager" 
-						name="%(project_time_schedule.action_project_task_calculate_network)d" 
-						string="Schedule network" 
-						type="action" icon="gtk-execute" 
-						help="Schedule network"/>				
-                    <field name="name"/>				
-                    <field name="project_id"/> 
-                    <field name="duration"/>    
+					<button groups="base.group_erp_manager"
+						name="%(project_time_sequence.action_project_task_link_predecessors_str)d"
+						string="Link"
+						type="action" icon="gtk-sort-descending"
+						help="For linking to a predecessor task"/>
+					<button groups="base.group_erp_manager"
+						name="%(project_time_schedule.action_project_task_calculate_network)d"
+						string="Schedule network"
+						type="action" icon="gtk-execute"
+						help="Schedule network"/>
+                    <field name="name"/>
+                    <field name="project_id"/>
+                    <field name="duration"/>
+                    <field name="planned_hours" widget="float_time"/>
+
                     <!--<field name="state" invisible="True"/>                -->
                     <!--<field name="stage_id" on_change="onchange_stage_id(stage_id)"/>   -->
 					<field name="stage_id"/>
-                    <field name="predecessor_ids_str" readonly ="1" string="Predecessor IDs"/>    
+                    <field name="predecessor_ids_str" readonly ="1" string="Predecessor IDs"/>
                     <field name="predecessor_names_str" readonly ="1" string="Predecessors"/>
             		<field name="user_id" invisible="context.get('user_invisible', False)"/>
             		<field name="date_earliest_start"/>
-            		<field name="date_latest_finish"/>             		
+            		<field name="date_latest_finish"/>
             		<field name="date_start"/>
-            		<field name="date_end"/>            		                            		            		
+            		<field name="date_end"/>
             		<field name="free_float" readonly ="1"/>
                     <field name="total_float" readonly ="1"/>
-                    <field name="is_critical_path" readonly ="1"/>    					                                     
-                </tree>            	        	            	            	            	                    		
+                    <field name="is_critical_path" readonly ="1"/>
+
+                </tree>
             </field>
         </record>
-                
+
 
         <record id="action_activity_scheduling_view" model="ir.actions.act_window">
             <field name="name">Activity Scheduling</field>
@@ -72,27 +75,27 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form,calendar,gantt</field>
             <field name="view_id" ref="view_activity_scheduling_tree"/>
-            <field eval="False" name="filter"/>                  
+            <field eval="False" name="filter"/>
             <field name="context">{'search_default_user_id': uid, 'search_default_Current': 1}</field>
             <field name="search_view_id" ref="view_activity_scheduling_search"/>
-            
-            <field name="help">Schedule project activities, including tasks and milestones</field>            
+
+            <field name="help">Schedule project activities, including tasks and milestones</field>
         </record>
 
-        
+
 
 		<record id="view_activity_search" model="ir.ui.view">
             <field name="name">project.task.activity.search</field>
             <field name="model">project.task</field>
-            <field name="type">search</field>            
-            <field name="arch" type="xml">            	
+            <field name="type">search</field>
+            <field name="arch" type="xml">
                <search string="Task Edition">
                     <group col="20" colspan="4">
                         <field name="id"/>
                         <field name="name"/>
-                        <field name="project_id"/>                        
+                        <field name="project_id"/>
                         <field name="user_id"/>
-                    </group>                    
+                    </group>
                 </search>            			          			         				            		
             </field>
         </record>

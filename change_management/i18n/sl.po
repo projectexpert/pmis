@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-16 12:21+0200\n"
-"PO-Revision-Date: 2016-10-16 12:21+0200\n"
+"POT-Creation-Date: 2016-10-30 09:22+0100\n"
+"PO-Revision-Date: 2016-10-30 09:58+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -224,9 +224,9 @@ msgid "Back to Draft"
 msgstr "Povrni v osnutek"
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "Blocked"
-msgstr "Blokirano"
+#: model:change.management.proximity,name:change_management.change_management_proximity_longterm
+msgid "Beyond project"
+msgstr "Preko projekta"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -244,7 +244,7 @@ msgstr "Sprememba"
 #. module: change_management
 #: view:project.task:change_management.change_management_project_task_search_view
 msgid "Change Action"
-msgstr "Ukrepi na spremembi"
+msgstr "Ukrep za spremembo"
 
 #. module: change_management
 #: model:mail.message.subtype,description:change_management.mt_change_accepted
@@ -411,6 +411,11 @@ msgid "Confirmed by"
 msgstr "Potrdil"
 
 #. module: change_management
+#: model:change.management.category,name:change_management.change_management_category_extra
+msgid "Cost"
+msgstr "Strošek"
+
+#. module: change_management
 #: field:change.management.category,create_uid:0
 #: field:change.management.change,create_uid:0
 #: field:change.management.proximity,create_uid:0
@@ -450,9 +455,9 @@ msgid "Defer"
 msgstr "Odloži"
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "Delete"
-msgstr "Izbris"
+#: model:change.management.category,name:change_management.change_management_deliverables
+msgid "Deliverables"
+msgstr "Dobave"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
@@ -473,7 +478,6 @@ msgstr "Opravljeno"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_kanban_view
-#: view:project.task:change_management.view_task_kanban
 msgid "Edit..."
 msgstr "Urejanje..."
 
@@ -513,9 +517,9 @@ msgid "If checked new messages require your attention."
 msgstr "Če označeno, zahtevajo nova sporočila vašo pozornost."
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "In Progress"
-msgstr "V teku"
+#: model:change.management.proximity,name:change_management.change_management_proximity_imminent
+msgid "Imminent"
+msgstr "Skorajšnje"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
@@ -574,11 +578,6 @@ msgid "My Projects"
 msgstr "Moji projekti"
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "Normal"
-msgstr "Običajno"
-
-#. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
 #: field:change.management.change,project_id:0
 #: model:ir.model,name:change_management.model_project_project
@@ -606,11 +605,6 @@ msgid "Proximity"
 msgstr "Bližina"
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "Ready for next stage"
-msgstr "Pripravljeno za naslednjo stopnjo"
-
-#. module: change_management
 #: field:change.management.change,description_event:0
 msgid "Reason"
 msgstr "Razlog"
@@ -621,14 +615,14 @@ msgid "Reg. Date"
 msgstr "Datum registracije"
 
 #. module: change_management
+#: model:change.management.category,name:change_management.change_management_regulatory
+msgid "Regulatory Requirement"
+msgstr "Pravilnik"
+
+#. module: change_management
 #: view:change.management.change:change_management.change_form_view
 msgid "Reject"
 msgstr "Zavrni"
-
-#. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "Remaining Time"
-msgstr "Preostali čas"
 
 #. module: change_management
 #: field:change.management.change,description:0
@@ -651,6 +645,11 @@ msgid "Requirements"
 msgstr "Zahteve"
 
 #. module: change_management
+#: model:change.management.category,name:change_management.change_management_resources
+msgid "Resources"
+msgstr "Viri"
+
+#. module: change_management
 #: view:change.management.change:change_management.change_form_view
 msgid "Response Actions"
 msgstr "Ukrepi ob odzivu"
@@ -659,6 +658,16 @@ msgstr "Ukrepi ob odzivu"
 #: field:change.management.change,change_response_ids:0
 msgid "Response Ids"
 msgstr "ID-ji odzivov"
+
+#. module: change_management
+#: model:change.management.category,name:change_management.change_management_category_feature
+msgid "Schedule"
+msgstr "Roki"
+
+#. module: change_management
+#: model:change.management.category,name:change_management.change_management_category_plan
+msgid "Scope"
+msgstr "Obseg"
 
 #. module: change_management
 #: view:project.task:change_management.change_management_project_task_search_view
@@ -692,6 +701,11 @@ msgid "Task is an action on a change identified by this label."
 msgstr "Opravilo je ukrep ob spremembi, ki ga določi ta oznaka."
 
 #. module: change_management
+#: model:change.management.category,name:change_management.change_management_quality
+msgid "Testing/Quality"
+msgstr "Kontrola kvalitete"
+
+#. module: change_management
 #: field:change.management.change,message_unread:0
 msgid "Unread Messages"
 msgstr "Neprebrana sporočila"
@@ -700,16 +714,6 @@ msgstr "Neprebrana sporočila"
 #: view:change.management.change:change_management.change_search_form_view
 msgid "Unread messages"
 msgstr "Neprebrana sporočila"
-
-#. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "Validate planned time"
-msgstr "Overitev planiranega časa"
-
-#. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "Very Important"
-msgstr "Zelo pomembno"
 
 #. module: change_management
 #: field:change.management.change,website_message_ids:0
@@ -727,9 +731,41 @@ msgid "Withdraw"
 msgstr "Umakni"
 
 #. module: change_management
-#: view:project.task:change_management.view_task_kanban
-msgid "oe_kanban_text_red"
-msgstr "oe_kanban_text_red"
+#: model:change.management.proximity,name:change_management.change_management_proximity_within_project
+msgid "Within project"
+msgstr "V sklopu projekta"
+
+#. module: change_management
+#: model:change.management.proximity,name:change_management.change_management_proximity_within_stage
+msgid "Within stage"
+msgstr "V sklopu stopnje"
+
+#~ msgid "Blocked"
+#~ msgstr "Blokirano"
+
+#~ msgid "Delete"
+#~ msgstr "Izbris"
+
+#~ msgid "In Progress"
+#~ msgstr "V teku"
+
+#~ msgid "Normal"
+#~ msgstr "Običajno"
+
+#~ msgid "Ready for next stage"
+#~ msgstr "Pripravljeno za naslednjo stopnjo"
+
+#~ msgid "Remaining Time"
+#~ msgstr "Preostali čas"
+
+#~ msgid "Validate planned time"
+#~ msgstr "Overitev planiranega časa"
+
+#~ msgid "Very Important"
+#~ msgstr "Zelo pomembno"
+
+#~ msgid "oe_kanban_text_red"
+#~ msgstr "oe_kanban_text_red"
 
 #~ msgid "Change Actions"
 #~ msgstr "Ukrepi na spremembi"

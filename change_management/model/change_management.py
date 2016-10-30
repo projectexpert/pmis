@@ -12,14 +12,14 @@ class CMChangeCategory (models.Model):
     _name = 'change.management.category'
     _description = 'Change log category table'
 
-    name = fields.Char(string='Change Category', required=True)
+    name = fields.Char(string='Change Category', required=True, translate=True)
 
 
 class CMProximity (models.Model):
     _name = 'change.management.proximity'
     _description = 'Change log proximity table'
 
-    name = fields.Char(string='Proximity', required=True)
+    name = fields.Char(string='Proximity', required=True, translate=True)
 
 
 class CMChange (models.Model):

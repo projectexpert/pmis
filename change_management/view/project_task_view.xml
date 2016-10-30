@@ -8,8 +8,13 @@
             <field name="priority">15</field>
             <field name="inherit_id" ref="project.view_task_form2"/>
             <field name="arch" type="xml">
-                <field name="progress" position="after">
-                    <field name="change_id" invisible="context.get('change_id_visible',True)"/>
+                <field name="project_id" position="after">
+                    <separator/>
+                    <separator/>
+                    <label for="change_id"/>
+                        <h4>
+                            <field name="change_id"/>
+                        </h4>
                 </field>
             </field>
         </record>
@@ -22,7 +27,7 @@
             <field name="arch" type="xml">
                 <data>
                     <field name="name" position="after">
-                        <field name="change_id" invisible="context.get('change_id_visible',True)"/>
+                        <field name="change_id"/>
                     </field>
                     <field name="user_id" position="replace">
                         <field name="user_id"/>
