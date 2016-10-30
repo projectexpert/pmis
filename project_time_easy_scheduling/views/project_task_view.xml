@@ -22,6 +22,13 @@
                         <!--<field name="state"/>-->
                         <field name="stage_id"/>
                         <field name="user_id" select="1"/>
+                        <!--<field name="progress"/>-->
+                    </group>
+                    <group name="filters" expand="0" string="Filters">
+                        <filter string="Active Tasks"
+                                domain="[('progress','!=','100')]"
+                                help="Active tasks"
+                                name="active_tasks" icon="gtk-execute"/>
                     </group>
                 </search>
             </field>
@@ -63,7 +70,8 @@
             		<field name="free_float" readonly ="1"/>
                     <field name="total_float" readonly ="1"/>
                     <field name="is_critical_path" readonly ="1"/>
-
+                    <!--<field name="progress" widget="progressbar"-->
+                                <!--groups="project.group_time_work_estimation_tasks"/>-->
                 </tree>
             </field>
         </record>
@@ -76,9 +84,8 @@
             <field name="view_mode">tree,form,calendar,gantt</field>
             <field name="view_id" ref="view_activity_scheduling_tree"/>
             <field eval="False" name="filter"/>
-            <field name="context">{'search_default_user_id': uid, 'search_default_Current': 1}</field>
+            <field name="context">{'search_default_user_id': uid, 'search_default_Current': 1, 'search_default_active_tasks': 1}</field>
             <field name="search_view_id" ref="view_activity_scheduling_search"/>
-
             <field name="help">Schedule project activities, including tasks and milestones</field>
         </record>
 
@@ -90,11 +97,18 @@
             <field name="type">search</field>
             <field name="arch" type="xml">
                <search string="Task Edition">
-                    <group col="20" colspan="4">
-                        <field name="id"/>
-                        <field name="name"/>
-                        <field name="project_id"/>
-                        <field name="user_id"/>
+                   <group col="20" colspan="4">
+                       <field name="id"/>
+                       <field name="name"/>
+                       <field name="project_id"/>
+                       <field name="user_id"/>
+                       <!--<field name="progress"/>-->
+                   </group>
+                   <group name="filters" expand="0" string="Filters">
+                        <filter string="Active Tasks"
+                                domain="[('progress','!=','100')]"
+                                help="Active tasks"
+                                name="active_tasks" icon="gtk-execute"/>
                     </group>
                 </search>            			          			         				            		
             </field>
@@ -115,8 +129,13 @@
                   	<field name="date_latest_finish"/>   
                   	<field name="predecessor_ids_str" readonly ="1" string="Predecessor IDs"/>    
                     <field name="predecessor_names_str" readonly ="1" string="Predecessors"/>                    
-                    <button groups="base.group_erp_manager" name="%(project_time_sequence.action_project_task_link_predecessors_str)d" string="Link" type="action" icon="gtk-sort-descending" help="For linking to a predecessor task"/>                                        
-                    <field name="milestone"/>                                       
+                    <button groups="base.group_erp_manager"
+                            name="%(project_time_sequence.action_project_task_link_predecessors_str)d"
+                            string="Link"
+                            type="action"
+                            icon="gtk-sort-descending"
+                            help="For linking to a predecessor task"/>
+                    <field name="milestone"/>
                 </tree>            	        	            	            	            	                    		
             </field>
         </record>
@@ -128,7 +147,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form,calendar,gantt,graph</field>
             <field eval="False" name="filter"/>                         
-            <field name="context">{'search_default_user_id': uid, 'search_default_Current': 1}</field>
+            <field name="context">{'search_default_user_id': uid, 'search_default_Current': 1, 'search_default_active_tasks': 1}</field>
             <field name="search_view_id" ref="view_activity_search"/>
             <field name="help">Manage Project activities, including tasks and milestones</field>
         </record>
@@ -149,7 +168,10 @@
 	        <field name="act_window_id" ref="action_activity_scheduling_view"/>	      
 	   </record>
     
-        <menuitem action="action_activity_scheduling_view" id="menu_action_view_activity_scheduling" parent="project.menu_action_view_task" sequence="2"/>
+        <menuitem action="action_activity_scheduling_view"
+                  id="menu_action_view_activity_scheduling"
+                  parent="project.menu_action_view_task"
+                  sequence="2"/>
         
 		<act_window			            
             domain="[('project_id', '=', active_id)]"
