@@ -204,6 +204,7 @@ class AccountAnalyticLine(models.Model):
         product_price_type_obj = self.env['product.price.type']
 
         prod = False
+        journal = self.journal_id if self.journal_id else journal
         if self.product_id:
             prod = self.product_id
         if not self.journal_id:
@@ -213,7 +214,6 @@ class AccountAnalyticLine(models.Model):
             journal = j[0] if j and j[0] else False
         if not self.journal_id or not self.product_id:
             return {}
-        journal = self.journal_id if self.journal_id else journal
         if journal.type != 'sale' and prod:
             a = prod.product_tmpl_id.property_account_expense.id
             if not a:
