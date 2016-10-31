@@ -19,11 +19,11 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 from openerp import tools
 
 
-class Task(osv.osv):
+class Task(orm.Model):
     _inherit = 'project.task'
 
     def get_related_tasks(self, cr, uid, ids, context=None):
@@ -134,5 +134,3 @@ class Task(osv.osv):
         })
 
         return True
-
-Task()

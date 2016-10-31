@@ -23,7 +23,7 @@ from openerp.osv import fields, osv, orm
 from openerp.tools.translate import _
 
 
-class analytic_billing_plan_line_make_sale(orm.TransientModel):
+class AnalyticBillingPlanLineMakeSale(orm.TransientModel):
     _name = "analytic.billing.plan.line.make.sale"
     _description = "Analytic billing plan line make sale"
 
@@ -258,4 +258,4 @@ class analytic_billing_plan_line_make_sale(orm.TransientModel):
             'type': 'ir.actions.act_window'
         }
 
-analytic_billing_plan_line_make_sale()
+AnalyticBillingPlanLineMakeSale()

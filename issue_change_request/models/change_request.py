@@ -165,7 +165,9 @@ class Issue2ChangeWizard(osv.TransientModel):
                 context=context
             )
             # Archive the lead
-            issue_obj.write(cr, uid, [issue.id], {'active': False}, context=context)
+            issue_obj.write(
+                cr, uid, [issue.id], {'active': False}, context=context
+            )
             # delete the lead
             # issue_obj.unlink(cr, uid, [issue.id], context=None)
         # return the action to go to the form view of the new Issue

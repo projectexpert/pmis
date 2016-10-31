@@ -24,7 +24,7 @@ from openerp.tools.translate import _
 from openerp.osv import fields, osv, orm
 
 
-class project_task_link_predecessors_str(osv.osv_memory):
+class ProjectTaskLinkPredecessorsStr(osv.osv_memory):
     _name = 'project.task.link.predecessors.str'
     _description = 'Link predecessor tasks'
 
@@ -102,10 +102,7 @@ class project_task_link_predecessors_str(osv.osv_memory):
         return {'type': 'ir.actions.act_window_close'}
 
 
-project_task_link_predecessors_str()
-
-
-class project_task_link_predecessors(osv.osv_memory):
+class ProjectTaskLinkPredecessors(osv.osv_memory):
     _name = 'project.task.link.predecessors'
     _description = 'Link predecessor tasks'
 
@@ -148,6 +145,3 @@ class project_task_link_predecessors(osv.osv_memory):
         )
 
         return {'type': 'ir.actions.act_window_close'}
-
-
-project_task_link_predecessors()

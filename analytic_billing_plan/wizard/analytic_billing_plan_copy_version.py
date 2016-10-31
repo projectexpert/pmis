@@ -23,7 +23,7 @@ from openerp.osv import fields, osv
 from openerp.tools.translate import _
 
 
-class analytic_billing_plan_copy_version(osv.osv_memory):
+class AnalyticBillingPlanCopyVersion(osv.osv_memory):
     """
     For copying all the planned billings to a separate planning version
     """

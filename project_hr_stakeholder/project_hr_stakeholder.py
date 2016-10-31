@@ -21,11 +21,11 @@
 
 
 from openerp import tools
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 from openerp.tools.translate import _
 
 
-class project_hr_stakeholder(osv.osv):
+class ProjectHrStakeholder(orm.Model):
 
     _name = "project.hr.stakeholder"
     _description = 'Project Stakeholder'
@@ -53,7 +53,8 @@ class project_hr_stakeholder(osv.osv):
 
         return dict(res)
 
-    def _responsibilities_name_calc(self, cr, uid, ids, name, args, context=None):
+    def _responsibilities_name_calc(
+            self, cr, uid, ids, name, args, context=None):
 
         if not ids:
             return []
@@ -100,11 +101,11 @@ class project_hr_stakeholder(osv.osv):
             'stakeholder_id',
             'role_id',
             'Roles',
-            help='''
-            The assignment of the roles and responsibilities determines what actions the project manager,
-            project team member,or individual contributor will have in the project. Roles and responsibilities
-             generally support the project scope since this is the required work for the project.
-            '''
+            help="The assignment of the roles and responsibilities determines "
+                 "what actions the project manager, project team member, or "
+                 "individual contributor will have in the project. Roles and "
+                 "responsibilities generally support the project scope since "
+                 "this is the required work for the project."
         ),
         'responsibility_ids': fields.many2many(
             'project.hr.responsibility',
@@ -112,11 +113,11 @@ class project_hr_stakeholder(osv.osv):
             'stakeholder_id',
             'responsibility_id',
             'Responsibilities',
-            help='''
-            The assignment of the roles and responsibilities determines what actions the project manager,
-            project team member,or individual contributor will have in the project. Roles and responsibilities
-             generally support the project scope since this is the required work for the project.
-            '''
+            help="The assignment of the roles and responsibilities determines "
+                 "what actions the project manager, project team member, or "
+                 "individual contributor will have in the project. Roles and "
+                 "responsibilities generally support the project scope since "
+                 "this is the required work for the project."
         ),
         'roles_name_str': fields.function(
             _roles_name_calc,
@@ -150,6 +151,3 @@ class project_hr_stakeholder(osv.osv):
                 stakeholder_name = stakeholder.partner_id.name
             res.append((stakeholder.id, stakeholder_name))
         return res
-
-
-project_hr_stakeholder()

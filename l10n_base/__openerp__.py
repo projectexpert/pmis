@@ -29,8 +29,8 @@
     'license': "AGPL-3",
     'contributors': [
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
-	'Andrei Levin <andrei.levin@didotech.com'
-    ],
+        'Andrei Levin <andrei.levin@didotech.com'
+        ],
     "depends": [
         'base'
     ],

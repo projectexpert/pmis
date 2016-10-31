@@ -20,32 +20,26 @@
 ##############################################################################
 
 from openerp import tools
-from openerp.osv import fields, osv
-from openerp.tools.translate import _
+from openerp import fields, models, _
 
 
-class project_hr_responsibility(osv.osv):
+class ProjectHrResponsibility(models.Model):
 
     _name = "project.hr.responsibility"
     _description = 'Project Responsibility'
 
-    _columns = {
-        'code': fields.char(
-            'Code',
-            size=4,
-            required=True
-        ),
-        'name': fields.char(
-            'Name',
-            size=128,
-            required=True,
-            translate=True
-        ),
-        'description': fields.text(
-            'Description',
-            translate=True
-        ),
-    }
-
-
-project_hr_responsibility()
+    code = fields.Char(
+        'Code',
+        size=4,
+        required=True
+    )
+    name = fields.Char(
+        'Name',
+        size=128,
+        required=True,
+        translate=True
+    )
+    description = fields.Text(
+        'Description',
+        translate=True
+    )

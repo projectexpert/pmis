@@ -22,7 +22,7 @@
 from openerp.osv import fields, orm
 
 
-class account_analytic_account(orm.Model):
+class AccountAnalyticAccount(orm.Model):
     _inherit = 'account.analytic.account'
 
     _columns = {

@@ -25,7 +25,7 @@
 from openerp import models, fields
 
 
-class project(models.Model):
+class Project(models.Model):
     _inherit = 'project.project'
 
     page_ids = fields.Many2many(
@@ -36,10 +36,8 @@ class project(models.Model):
         'Document pages'
     )
 
-project()
 
-
-class project(models.Model):
+class Project(models.Model):
     _inherit = 'project.task'
 
     page_ids = fields.Many2many(
@@ -49,5 +47,3 @@ class project(models.Model):
         'page_id',
         'Document pages'
     )
-
-project()
