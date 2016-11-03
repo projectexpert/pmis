@@ -29,33 +29,21 @@
 }
 
 .openerp .oe_kanban_view .oe_wbs_navigation {
-    width: 95px;
+    width: 85px;
     height: 24px;
     padding: 3px 0;
     margin: 2px;
     text-align: center;
     background-color: rgba(155,89,136,0.05);
-    border: 1px solid rgba(0,0,0,0.20);
-    border-radius: 3px;
-    box-shadow:  0 1px 2px #fff, /*bottom external highlight*/
-    0 -1px 1px #666, /*top external shadow*/
-    inset 0 -1px 1px rgba(0,0,0,0.5), /*bottom internal shadow*/
-    inset 0 1px 1px rgba(255,255,255,0.8); /*top internal highlight*/
 }
 
 .openerp .oe_kanban_view .oe_wbs_navigation:hover {
-    width: 95px;
+    width: 85px;
     height: 24px;
     padding: 3px 0;
     margin: 2px;
     text-align: center;
     background-color: rgba(155,89,136,0.40);
-    border: 1px solid rgba(0,0,0,0.20);
-    border-radius: 3px;
-    box-shadow:  0 1px 2px #fff, /*bottom external highlight*/
-    0 -1px 1px #666, /*top external shadow*/
-    inset 0 -1px 1px rgba(0,0,0,0.5), /*bottom internal shadow*/
-    inset 0 1px 1px rgba(255,255,255,0.8); /*top internal highlight*/
 }
 
 .oe_nav_buttons{

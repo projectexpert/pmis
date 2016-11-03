@@ -329,18 +329,26 @@
             </field>
         </record>
 
-        <record id="view_project_kanban_inherited" model="ir.ui.view">
+        <record id="view_project_kanban" model="ir.ui.view">
             <field name="name">project.project.kanban.wbs</field>
             <field name="model">project.project</field>
-            <field name="inherit_id" ref="project_wbs.view_project_kanban_wbs"/>
+            <field name="inherit_id" ref="project.view_project_kanban"/>
             <field name="arch" type="xml">
-                <xpath expr="//div[contains(@name, 'wbs_kanban_buttons')]" position="inside">
-                    <a t-if="record.change_count.raw_value"
-                       name="%(change_management.action_show_changes)d"
-                       type="action"
-                       class="fa fa-code-fork oe_wbs_button">
-                        Changes: <field name="change_count"/>
-                    </a>
+                <xpath expr="//div[contains(@class, 'oe_kanban_alias')]" position="after">
+                    <div class="oe_kanban_project_list">
+                        <!--<a t-if="record.change_count.raw_value"-->
+                           <!--name="%(change_management.action_show_changes)d"-->
+                           <!--type="action"-->
+                           <!--style="margin-right: 10px">-->
+                            <!--<field name="change_count"/> Changes-->
+                        <!--</a>-->
+                        <a t-if="record.change_count.raw_value"
+                           name="%(change_management.action_show_changes)d"
+                           type="action"
+                           class="fa fa-code-fork oe_wbs_button">
+                            Changes: <field name="change_count"/>
+                        </a>
+                    </div>
                 </xpath>
             </field>
         </record>

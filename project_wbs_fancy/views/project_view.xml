@@ -39,10 +39,10 @@
                 <attribute name="bg_color">#7c7bad:account_class == 'project'; #a3a2c5:account_class == 'deliverable'; #e0e0e5:state in ('cancelled','done','close');</attribute>
                 <attribute name="fg_color">white:account_class == 'project'; white:account_class == 'deliverable'; #c4c4ce:state in ('cancelled','done','close','pending');</attribute>
             </xpath>
-            <xpath expr='//field[@name="stage_id"]' position="attributes">
-                <attribute name="bg_color">#7c7bad:account_class == 'project'; #a3a2c5:account_class == 'deliverable'; #e0e0e5:state in ('cancelled','done','close');</attribute>
-                <attribute name="fg_color">white:account_class == 'project'; white:account_class == 'deliverable'; #c4c4ce:state in ('cancelled','done','close','pending');</attribute>
-            </xpath>
+            <!--<xpath expr='//field[@name="stage_id"]' position="attributes">-->
+                <!--<attribute name="bg_color">#7c7bad:account_class == 'project'; #a3a2c5:account_class == 'deliverable'; #e0e0e5:state in ('cancelled','done','close');</attribute>-->
+                <!--<attribute name="fg_color">white:account_class == 'project'; white:account_class == 'deliverable'; #c4c4ce:state in ('cancelled','done','close','pending');</attribute>-->
+            <!--</xpath>-->
             <xpath expr='//field[@name="progress_rate"]' position="attributes">
                 <attribute name="bg_color">#7c7bad:account_class == 'project'; #a3a2c5:account_class == 'deliverable'; #e0e0e5:state in ('cancelled','done','close');</attribute>
                 <attribute name="fg_color">white:account_class == 'project'; white:account_class == 'deliverable'; #c4c4ce:state in ('cancelled','done','close','pending');</attribute>

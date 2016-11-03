@@ -98,97 +98,6 @@ class AccountAnalyticAccount(orm.Model):
             res.append((account.id, data))
         return dict(res)
 
-    def _child_count(
-            self, cr, uid, ids, account_class, arg, context=None
-    ):
-        if context is None:
-            context = {}
-        res = dict.fromkeys(ids, 0)
-        ctx = context.copy()
-        ctx['active_test'] = False
-        for analytic_account in self.browse(
-                cr, uid, ids, context=context
-        ):
-            deliverable_ids = self.pool.get(
-                'account.analytic.account').search(
-                cr, uid, [
-                    ('parent_id', '=', analytic_account.id),
-                    ('account_class', '=', account_class)
-                ], context=ctx
-            )
-            if deliverable_ids:
-                res[analytic_account.id] = len(deliverable_ids)
-            else:
-                res[analytic_account.id] = 0
-
-        return res
-
-    def _child_project_count(
-            self, cr, uid, ids, field_name, arg, context=None
-    ):
-        if context is None:
-            context = {}
-        return self._child_count(
-            cr, uid, ids, 'project', arg, context=context
-        )
-
-    def _child_phase_count(
-            self, cr, uid, ids, field_name, arg, context=None
-    ):
-        if context is None:
-            context = {}
-        return self._child_count(
-            cr, uid, ids, 'phase', arg, context=context
-        )
-
-    def _child_deliverable_count(
-            self, cr, uid, ids, field_name, arg, context=None):
-        if context is None:
-            context = {}
-        return self._child_count(
-            cr, uid, ids, 'deliverable', arg, context=context)
-
-    def _child_work_package_count(
-            self, cr, uid, ids, field_name, arg, context=None):
-        if context is None:
-            context = {}
-        return self._child_count(
-            cr, uid, ids, 'work_package', arg, context=context)
-
-    # correct the unclassified counter
-    #
-    def _unclassified_count(
-            self, cr, uid, ids, complete_wbs_code, arg, context=None
-    ):
-        if context is None:
-            context = {}
-
-        res = dict.fromkeys(ids, 0)
-        ctx = context.copy()
-        ctx['active_test'] = False
-        for analytic_account in self.browse(
-            cr, uid, ids, context=context
-        ):
-            unclassified_ids = self.pool.get(
-                'account.analytic.account').search(
-                cr, uid, [
-                    ('parent_id', '=', analytic_account.id),
-                    ('account_class', '=', False)
-                ], context=ctx
-            )
-            if unclassified_ids:
-                res[analytic_account.id] = len(unclassified_ids)
-            else:
-                res[analytic_account.id] = 0
-
-        return res
-
-    def _child_unclassified_count(
-            self, cr, uid, ids, field_name, arg, context=None):
-        if context is None:
-            context = {}
-        return self._unclassified_count(cr, uid, ids, '', arg, context=context)
-
     def _resolve_analytic_account_id_from_context(self, cr, uid, context=None):
         """
         Returns ID of parent analytic account based on the value of
@@ -224,45 +133,6 @@ class AccountAnalyticAccount(orm.Model):
                     break
                 acc = acc.parent_id
         return res
-
-    # child stages
-    def _read_group_stage_ids(
-            self, cr, uid, ids, domain, read_group_order=None,
-            access_rights_uid=None, context=None
-    ):
-        stage_obj = self.pool.get('analytic.account.stage')
-        order = stage_obj._order
-        access_rights_uid = access_rights_uid or uid
-        if read_group_order == 'stage_id desc':
-            order = '%s desc' % order
-        search_domain = []
-        analytic_account_id = self._resolve_analytic_account_id_from_context(
-            cr, uid, context=context)
-        if analytic_account_id:
-            search_domain += [
-                '|', ('analytic_account_ids', '=', analytic_account_id)
-            ]
-        search_domain += [('id', 'in', ids)]
-        stage_ids = stage_obj._search(
-            cr, uid, search_domain, order=order,
-            access_rights_uid=access_rights_uid,
-            context=context
-        )
-        result = stage_obj.name_get(
-            cr, access_rights_uid, stage_ids,
-            context=context
-        )
-        # restore order of the search
-        result.sort(lambda x, y: cmp(
-            stage_ids.index(x[0]), stage_ids.index(y[0])
-        ))
-
-        fold = {}
-        for stage in stage_obj.browse(
-                cr, access_rights_uid, stage_ids, context=context
-        ):
-            fold[stage.id] = stage.fold or False
-        return result, fold
 
     _columns = {
         'wbs_indent': fields.function(
@@ -320,50 +190,6 @@ class AccountAnalyticAccount(orm.Model):
             'Class',
             help='The classification allows you to create a proper project '
                  'Work Breakdown Structure'),
-        'stage_id': fields.many2one(
-            'analytic.account.stage', 'Stage',
-            domain="['&', ('fold', '=', False), "
-                   "('analytic_account_ids', '=', parent_id)]"
-        ),
-        'child_stage_ids': fields.many2many(
-            'analytic.account.stage', 'analytic_account_stage_rel',
-            'analytic_account_id', 'stage_id', 'Child Stages',
-            states={
-                'close': [('readonly', True)],
-                'cancelled': [('readonly', True)]
-            }
-        ),
-        'child_project_count': fields.function(
-            _child_project_count, type='integer', string="Projects"
-        ),
-        'child_phase_count': fields.function(
-            _child_phase_count, type='integer', string="Phases"
-        ),
-        'child_deliverable_count': fields.function(
-            _child_deliverable_count, type='integer', string="Deliverables"
-        ),
-        'child_work_package_count': fields.function(
-            _child_work_package_count, type='integer', string="Work Packages"
-        ),
-
-        'child_unclassified_count': fields.function(
-            _child_unclassified_count, type='integer',
-            string="Unclassified"
-        ),
-    }
-
-    def _get_type_common(self, cr, uid, context):
-        ids = self.pool.get('analytic.account.stage').search(
-            cr, uid, [('case_default', '=', 1)], context=context
-        )
-        return ids
-
-    _group_by_full = {
-        'stage_id': _read_group_stage_ids,
-    }
-
-    _defaults = {
-        'child_stage_ids': _get_type_common,
     }
 
     _order = 'complete_wbs_code'
@@ -445,37 +271,3 @@ class AccountAnalyticAccount(orm.Model):
 
             res.append((account.id, data))
         return res
-
-    # def write(self, cr, uid, ids, values, context=None):
-    #     res = super(AccountAnalyticAccount, self).write(
-    #         cr, uid, ids, values, context=context
-    #     )
-    #     if values.get('stage_id'):
-    #         project_obj = self.pool.get('project.project')
-    #         stage_obj = self.pool.get('analytic.account.stage')
-    #         for acc_id in ids:
-    #             # Search if there's an associated project
-    #             project_ids = project_obj.search(
-    #                 cr, uid, [('analytic_account_id', '=', acc_id)],
-    #                 context=context
-    #             )
-    #             stage = stage_obj.browse(
-    #                 cr, uid, values.get('stage_id'),
-    #                 context=context
-    #             )
-    #             if stage.project_state == 'close':
-    #                 project_obj.set_done(
-    #                     cr, uid, project_ids, context=context
-    #                 )
-    #             elif stage.project_state == 'cancelled':
-    #                 project_obj.set_cancel(
-    #                     cr, uid, project_ids, context=context
-    #                 )
-    #             elif stage.project_state == 'pending':
-    #                 project_obj.set_pending(
-    #                     cr, uid, project_ids, context=context
-    #                 )
-    #             elif stage.project_state == 'open':
-    #                 project_obj.set_open(
-    #                     cr, uid, project_ids, context=context)
-    #     return res

@@ -164,50 +164,6 @@ class Project(osv.osv):
                 return analytic_account_ids[0][0]
         return None
 
-    def _read_group_stage_ids(
-            self, cr, uid, ids, domain,
-            read_group_order=None, access_rights_uid=None,
-            context=None
-    ):
-        stage_obj = self.pool.get('analytic.account.stage')
-        order = stage_obj._order
-        access_rights_uid = access_rights_uid or uid
-        if read_group_order == 'stage_id desc':
-            order = '%s desc' % order
-        search_domain = []
-        analytic_account_id = self._resolve_analytic_account_id_from_context(
-            cr, uid, context=context
-        )
-        if analytic_account_id:
-            search_domain += [
-                '|', ('analytic_account_ids', '=', analytic_account_id)
-            ]
-        search_domain += [('id', 'in', ids)]
-        stage_ids = stage_obj._search(
-            cr, uid, [], order=order,
-            access_rights_uid=access_rights_uid,
-            context=context
-        )
-        result = stage_obj.name_get(
-            cr, access_rights_uid, stage_ids,
-            context=context
-        )
-        # restore order of the search
-        result.sort(
-            lambda x, y: cmp(
-                stage_ids.index(x[0]),
-                stage_ids.index(y[0])
-            )
-        )
-
-        fold = {}
-        for stage in stage_obj.browse(
-            cr, access_rights_uid, stage_ids,
-            context=context
-        ):
-            fold[stage.id] = stage.fold or False
-        return result, fold
-
     def _get_parent_members(self, cr, uid, context=None):
         if context is None:
             context = {}
@@ -272,10 +228,6 @@ class Project(osv.osv):
 
     _defaults = {
         'members': _get_parent_members,
-    }
-
-    _group_by_full = {
-        'stage_id': _read_group_stage_ids,
     }
 
     _order = "c_wbs_code"

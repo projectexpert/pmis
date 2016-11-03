@@ -26,7 +26,7 @@
                     <field name="project_analytic_account_id"
                            attrs="{'invisible':[('type','not in',['contract','template'])]}"
                            domain="[('account_class', '=', 'project')]"/>
-                    <field name="stage_id" attrs="{'invisible': [('account_class','!=','work_package')]}"/>
+                    <!--<field name="stage_id" attrs="{'invisible': [('account_class','!=','work_package')]}"/>-->
             	</field>
             </field>
         </record>
@@ -43,7 +43,7 @@
 					<field name="account_class" string="Class"/>
                     <field name="project_analytic_account_id"
                            domain="[('account_class', '=', 'project')]"/>
-                    <field name="stage_id" domain="[]" attrs="{'invisible': [('account_class','!=','work_package')]}"/>
+                    <!--<field name="stage_id" domain="[]" attrs="{'invisible': [('account_class','!=','work_package')]}"/>-->
             	</field>
             </field>
         </record>
@@ -63,7 +63,7 @@
             	<field name="code" position="after">
             		<field name="complete_wbs_code" string="WBS code"/>
 					<field name="account_class" string="Class"/>
-                    <field name="stage_id" attrs="{'invisible': [('account_class','!=','work_package')]}"/>
+                    <!--<field name="stage_id" attrs="{'invisible': [('account_class','!=','work_package')]}"/>-->
             	</field>
             </field>
         </record>
@@ -79,14 +79,14 @@
                     <field name="project_analytic_account_id"
                            domain="[('account_class', '=', 'project')]"/>
                     <field name="state" invisible="True"/>
-                    <field name="stage_id" attrs="{'invisible': [('account_class','!=','work_package')]}"/>
+                    <!--<field name="stage_id" attrs="{'invisible': [('account_class','!=','work_package')]}"/>-->
             		<field name="complete_wbs_code" string="WBS code" readonly="1"/>
             	</field>
-                <notebook position="inside">
-                    <page string="Child Stages" name="child_stages">
-                        <field name="child_stage_ids"/>
-                    </page>
-                </notebook>
+                <!--<notebook position="inside">-->
+                    <!--<page string="Child Stages" name="child_stages">-->
+                        <!--<field name="child_stage_ids"/>-->
+                    <!--</page>-->
+                <!--</notebook>-->
             </field>
         </record>
 

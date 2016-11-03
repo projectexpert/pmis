@@ -7,7 +7,7 @@
 {
     'name': 'Analytic account code sequence',
     'summary': 'Analytic account code sequence',
-    'version': '8.0.1.0.1',
+    'version': '8.0.1.0.2',
     'author':   'Eficent, '
                 'SerpentCS ,'
                 'Project Expert Team',
