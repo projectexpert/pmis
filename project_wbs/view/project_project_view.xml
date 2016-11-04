@@ -8,11 +8,15 @@
             <field name="inherit_id" ref="project.view_project_kanban"/>
             <field name="arch" type="xml">
                 <xpath expr="//div[contains(@class, 'oe_kanban_alias')]" position="before">
-                    <h5 class="text-center"><field name="complete_wbs_name"/></h5>
-                    <h6 class="text-center">
-                        <field name="complete_wbs_code"/>
-                        <field name="account_class"/>
-                    </h6>
+                    <a type="object" name="action_open_view_project_form">
+                        <div class="subheading text-center">
+                            <field name="complete_wbs_name"/>
+                            <h6 class="text-center">
+                                <field name="complete_wbs_code"/>
+                                <field name="account_class"/>
+                            </h6>
+                        </div>
+                    </a>
                     <div class="oe_nav_buttons" name="wbs_navigation_buttons">
                         <a name="action_openParentTreeView"
                            type="object"
