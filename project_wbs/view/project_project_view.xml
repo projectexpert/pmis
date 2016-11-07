@@ -117,7 +117,7 @@
             <field name="inherit_id" ref="project.view_project_project_filter"/>
             <field name="arch" type="xml">
                 <group string="Group By" position="inside">
-                    <filter string="Master Project" name="Master Project"
+                    <filter string="Master Project" name="master_project"
                             context="{'group_by':'project_analytic_account_id', 'order_by':'complete_wbs_code asc'}"/>
                 </group>
             </field>
@@ -295,7 +295,7 @@
             <field name="view_mode">kanban,tree,form,gantt</field>
             <field name="view_id" ref="project.view_project"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
-            <field name="context">{'search_default_Current': 1, 'group_by':'project_analytic_account_id', 'default_order_by':'complete_wbs_code asc'}</field>
+            <field name="context">{'search_default_Current': 1, 'search_default_master_project': 1}</field>
         </record>
 
         <record id="open_view_project_form" model="ir.actions.act_window">
@@ -331,7 +331,7 @@
             <field name="name">Deliverables</field>
             <field name="res_model">project.project</field>
             <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
-            <field name="search_view_id" ref="view_project_project_filter"/>
+            <field name="search_view_id" ref="project.view_project_project_filter"/>
         </record>
 
         <!-- add css -->

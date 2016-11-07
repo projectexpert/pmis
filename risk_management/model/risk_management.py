@@ -30,16 +30,14 @@ _logger = logging.getLogger(__name__)
 _RISK_STATE = [('draft', 'Draft'), ('active', 'Active'), ('closed', 'Closed')]
 
 
-class risk_management_risk_category (models.Model):
+class RiskManagementRiskCategory (models.Model):
     _name = 'risk.management.category'
     _description = 'Risk log category table'
 
     name = fields.Char(string='Risk Category', size=64, required=True)
 
-risk_management_risk_category()
 
-
-class risk_management_risk_response_category (models.Model):
+class RiskManagementRiskResponseCategory (models.Model):
     _name = 'risk.management.response.category'
     _description = 'Risk log response category table'
 
@@ -48,19 +46,15 @@ class risk_management_risk_response_category (models.Model):
     )
     name = fields.Char(string='Response Category', size=64, required=True)
 
-risk_management_risk_response_category()
 
-
-class risk_management_proximity (models.Model):
+class RiskManagementProximity (models.Model):
     _name = 'risk.management.proximity'
     _description = 'Risk log proximity table'
 
     name = fields.Char(string='Proximity', size=64, required=True)
 
-risk_management_proximity()
 
-
-class risk_management_risk (models.Model):
+class RiskManagementRisk (models.Model):
     _name = 'risk.management.risk'
     _description = 'Risk'
     _inherit = ['mail.thread', 'ir.needaction_mixin']

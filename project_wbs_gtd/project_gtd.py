@@ -71,7 +71,10 @@ class WbsWorkpackage(osv.Model):
             cr, access_rights_uid, wbstimebox_ids, context=context)
         # Restore order of the search
         result.sort(
-            lambda x, y: cmp(wbstimebox_ids.index(x[0]), wbstimebox_ids.index(y[0])))
+            lambda x, y: cmp(
+                wbstimebox_ids.index(x[0]), wbstimebox_ids.index(y[0])
+            )
+        )
         fold = dict.fromkeys(wbstimebox_ids, False)
         return result, fold
 

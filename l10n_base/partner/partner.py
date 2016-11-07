@@ -295,11 +295,17 @@ class res_partner(orm.Model):
         return vals
 
     def create(self, cr, uid, vals, context=None):
-        if 'auto_off' in vals and not vals['auto_off'] or 'auto_off' not in vals:
+        if (
+            'auto_off' in vals and not vals['auto_off'] or
+                'auto_off' not in vals
+        ):
             vals = self._set_vals_city_data(cr, uid, vals)
         return super(res_partner, self).create(cr, uid, vals, context)
 
     def write(self, cr, uid, ids, vals, context=None):
-        if 'auto_off' in vals and not vals['auto_off'] or 'auto_off' not in vals:
+        if (
+            'auto_off' in vals and not vals['auto_off'] or
+                'auto_off' not in vals
+        ):
             vals = self._set_vals_city_data(cr, uid, vals)
         return super(res_partner, self).write(cr, uid, ids, vals, context)
