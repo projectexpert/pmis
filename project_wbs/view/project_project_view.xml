@@ -21,7 +21,7 @@
                         <a name="action_openParentTreeView"
                            type="object"
                            class="fa fa-level-up oe_wbs_navigation"
-                           attrs="{'invisible': [('account_class', '=', 'project')]}">
+                           attrs="{'invisible': [('account_class', '=', 'portfolio')]}">
                             GO UP
                         </a>
                         <a name="action_openChildTreeView"
@@ -45,16 +45,16 @@
             <field name="arch" type="xml">
                 <xpath expr='//tree' position="attributes">
                     <attribute name="editable">top</attribute>
-                    <attribute name="fonts">bold:account_class == 'project';bold:account_class == 'phase';italic:state in 'cancelled'</attribute>
-                    <attribute name="colors">#555487:account_class == 'phase'</attribute>
+                    <attribute name="fonts">bold:account_class in 'portfolio';bold:account_class in 'program';bold:account_class in 'project';bold:account_class in 'phase'; italic:state in 'cancelled'</attribute>
+                    <attribute name="colors">#555487:account_class == 'phase';#31305C:account_class == 'program'</attribute>
                     <attribute name="default_order">complete_wbs_code</attribute>
-                    <attribute name="default_sort">complete_wbs_code asc</attribute>
+                    <!--<attribute name="default_sort">complete_wbs_code asc</attribute>-->
                 </xpath>
-                <xpath expr='//field[@name="sequence"]' position="after">
+                <xpath expr='//field[@name="sequence"]' position="replace">
                     <button string="Parent WBS element"
                             name="action_openParentTreeView"
                             type="object"
-                            icon="STOCK_GO_UP" attrs="{'invisible': [('account_class', '=', 'project')]}"/>
+                            icon="STOCK_GO_UP" attrs="{'invisible': [('account_class', '=', 'portfolio')]}"/>
                         <button string="Child WBS elements"
                             name="action_openChildTreeView"
                             type="object"
@@ -118,7 +118,11 @@
             <field name="arch" type="xml">
                 <group string="Group By" position="inside">
                     <filter string="Master Project" name="master_project"
-                            context="{'group_by':'project_analytic_account_id', 'order_by':'complete_wbs_code asc'}"/>
+                            context="{'group_by':'project_analytic_account_id'}"/>
+                    <filter string="Master Program" name="master_program"
+                            context="{'group_by':'program_analytic_account_id'}"/>
+                    <filter string="Master Portfolio" name="master_portfolio"
+                            context="{'group_by':'portfolio_analytic_account_id'}"/>
                 </group>
             </field>
         </record>
@@ -133,24 +137,51 @@
                 <xpath expr='//label[@string="Project Name"]' position="attributes">
                     <attribute name="string">WBS element name</attribute>
                 </xpath>
+                <xpath expr='//field[@name="analytic_account_id"]' position="after">
+                    <div name="references">
+                        <label for="account_class" class="oe_edit_only"/>
+                        <label for="complete_wbs_code" class="oe_edit_only"/>
+                        <h4>
+                        <field name="account_class" string="Class" class="oe_inline"/>
+                        <span class="oe_grey">:    </span>
+                        <field name="complete_wbs_code" string="WBS code" readonly="1" class="oe_inline"/>
+                        </h4>
+                    </div>
+                </xpath>
                 <xpath expr='//field[@name="parent_id"]' position="attributes">
                     <attribute name="on_change">on_change_parent(parent_id)</attribute>
                 </xpath>
                 <xpath expr='//field[@name="state"]' position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
+                <xpath expr='//group[@name="group_alias"]' position="after">
+                    <group name="root_accounts">
+                        <!--<field name="account_class" string="Class"/>-->
+                        <field name="portfolio_analytic_account_id"
+                               domain="[('account_class', '=', 'portfolio')]"/>
+                        <field name="program_analytic_account_id"
+                               domain="[('account_class', '=', 'program')]"
+                               attrs="{'invisible': [('account_class','=', 'portfolio')]}"/>
+                        <field name="project_analytic_account_id"
+                               domain="[('account_class', '=', 'project')]"
+                               attrs="{'invisible': [('account_class','in', ('portfolio', 'program'))]}"/>
+                        <!--<field name="code" string="Code"/>-->
+                        <!--<field name="complete_wbs_code" string="WBS code" readonly="1" />-->
+                        <field name="complete_wbs_name" readonly="1" />
+                    </group>
+                </xpath>
             	<notebook position="inside">
 					<page string="Project configuration">
                         <group string="Project configuration">
-                            <group>
-                                <field name="account_class" string="Class"/>
-                                <field name="project_analytic_account_id"
-                                       domain="[('account_class', '=', 'project')]"/>
-                            </group>
-                            <group>
-                                <field name="code" string="Code"/>
-                                <field name="complete_wbs_code" string="WBS code" readonly="1" />
-                            </group>
+                            <!--<group>-->
+                                <!--<field name="account_class" string="Class"/>-->
+                                <!--<field name="project_analytic_account_id"-->
+                                       <!--domain="[('account_class', '=', 'project')]"/>-->
+                            <!--</group>-->
+                            <!--<group>-->
+                                <!--<field name="code" string="Code"/>-->
+                                <!--<field name="complete_wbs_code" string="WBS code" readonly="1" />-->
+                            <!--</group>-->
                         </group>
                         <notebook>
                             <page string="Work Breakdown Structure">
@@ -225,9 +256,9 @@
             <field name="res_model">project.project</field>
             <field name="view_type">form</field>
             <field name="view_mode">kanban,tree,form,gantt</field>
-            <field name="view_id" ref="project.view_project_kanban"/>
+            <field name="view_id" ref="project.view_project"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
-            <field name="context">{'search_default_Current': 1}</field>
+            <field name="context">{'search_default_Current': 1, 'default_account_class':'deliverable'}</field>
             <field name="domain">[('account_class','in',['phase', 'deliverable'])]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
@@ -241,7 +272,7 @@
             <field name="res_model">project.project</field>
             <field name="view_type">form</field>
             <field name="view_mode">kanban,tree,form,gantt</field>
-            <field name="view_id" ref="project.view_project_kanban"/>
+            <field name="view_id" ref="project.view_project"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
             <field name="context">{'search_default_Current': 1, 'default_account_class':'work_package'}</field>
             <field name="domain">[('account_class','=','work_package')]</field>
@@ -287,15 +318,37 @@
             </field>
         </record>
 
+        <record id="group_portfolio" model="ir.actions.act_window">
+            <field name="name">WBS elements</field>
+            <field name="res_model">project.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('account_class','in',['portfolio'])]</field>
+            <field name="view_mode">kanban,tree,form,gantt</field>
+            <field name="view_id" ref="project.view_project_kanban"/>
+            <field name="search_view_id" ref="project.view_project_project_filter"/>
+            <field name="context">{'search_default_Current': 1, 'default_account_class':'portfolio'}}</field>
+        </record>
+
+        <record id="group_program" model="ir.actions.act_window">
+            <field name="name">WBS elements</field>
+            <field name="res_model">project.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('account_class','in',['program'])]</field>
+            <field name="view_mode">kanban,tree,form,gantt</field>
+            <field name="view_id" ref="project.view_project_kanban"/>
+            <field name="search_view_id" ref="project.view_project_project_filter"/>
+            <field name="context">{'search_default_Current': 1, 'default_account_class':'program'}}</field>
+        </record>
+
         <record id="open_wbs_grouped" model="ir.actions.act_window">
             <field name="name">WBS elements</field>
             <field name="res_model">project.project</field>
             <field name="view_type">form</field>
-            <field name="domain">[]</field>
+            <field name="domain">[('account_class','in',['project'])]</field>
             <field name="view_mode">kanban,tree,form,gantt</field>
             <field name="view_id" ref="project.view_project"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
-            <field name="context">{'search_default_Current': 1, 'search_default_master_project': 1}</field>
+            <field name="context">{'search_default_Current': 1, 'default_account_class':'project'}}</field>
         </record>
 
         <record id="open_view_project_form" model="ir.actions.act_window">
@@ -309,13 +362,15 @@
             <field name="context">{'search_default_Current': 1, 'search_default_account_class':False, 'default_account_class':False}</field>
         </record>
 
-        <menuitem action="open_wbs_grouped" id="project.menu_projects" name="Projects" parent="project.menu_project_management" sequence="1" string="Projects"/>
-            <menuitem action="open_view_project_projects" id="menu_project_wbs_projects" name="Projects" parent="project.menu_projects" sequence="2"/>
+        <menuitem action="group_portfolio" id="project.menu_projects" name="Portfolio" parent="project.menu_project_management" sequence="1" string="Full WBS"/>
+            <menuitem action="group_portfolio" id="menu_project_wbs_portfolio" name="Portfolios" parent="project.menu_projects" sequence="1"/>
+            <menuitem action="group_program" id="menu_project_wbs_program" name="Programs" parent="project.menu_projects" sequence="2"/>
+            <menuitem action="open_wbs_grouped" id="menu_project_wbs_projects" name="Projects" parent="project.menu_projects" sequence="3"/>
             <menuitem action="open_view_phases_or_deliverables" id="menu_wbs_phases_or_deliverables" name="Phases and Deliverables" parent="project.menu_projects" sequence="3"/>
             <!--<menuitem action="open_view_project_phases" id="menu_project_wbs_phases" name="Phases" parent="project.menu_projects" sequence="4"/>-->
             <!--<menuitem action="open_view_project_deliverables" id="menu_project_wbs_deliverables" name="Deliverables" parent="project.menu_projects" sequence="5"/>-->
             <menuitem action="open_view_project_work_packages" id="menu_project_work_packages" name="Work Packages" parent="project.menu_projects" sequence="6"/>
-            <menuitem action="open_view_project_wbs" id="menu_fullwbs" name="Full WBS" parent="project.menu_projects" sequence="7" string="Full WBS"/>
+            <!--<menuitem action="open_view_project_wbs" id="menu_fullwbs" name="Full WBS" parent="project.menu_projects" sequence="7" string="Full WBS"/>-->
         <menuitem action="project.action_view_task" id="project.menu_action_view_task" parent="project.menu_project_management" sequence="2" name="Tasks"/>
 
         <record id="create_wbs_element" model="ir.actions.act_window">

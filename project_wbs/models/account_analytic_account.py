@@ -118,6 +118,38 @@ class AccountAnalyticAccount(orm.Model):
                 return analytic_account_ids[0][0]
         return None
 
+    def _get_portfolio_account_id(
+            self, cr, uid, ids, prop, unknow_none,
+            unknow_dict
+    ):
+        if not ids:
+            return []
+        res = dict.fromkeys(ids, False)
+        for account in self.browse(cr, uid, ids, context=None):
+            acc = account
+            while acc:
+                if acc.account_class == 'portfolio':
+                    res[account.id] = acc.id
+                    break
+                acc = acc.parent_id
+        return res
+
+    def _get_program_account_id(
+            self, cr, uid, ids, prop, unknow_none,
+            unknow_dict
+    ):
+        if not ids:
+            return []
+        res = dict.fromkeys(ids, False)
+        for account in self.browse(cr, uid, ids, context=None):
+            acc = account
+            while acc:
+                if acc.account_class == 'program':
+                    res[account.id] = acc.id
+                    break
+                acc = acc.parent_id
+        return res
+
     def _get_project_account_id(
             self, cr, uid, ids, prop, unknow_none,
             unknow_dict
@@ -180,8 +212,34 @@ class AccountAnalyticAccount(orm.Model):
                 )
             }
         ),
+        'program_analytic_account_id': fields.function(
+            _get_program_account_id, method=True, type='many2one',
+            relation='account.analytic.account',
+            string='Program',
+            help='Root Program in the WBS hierarchy',
+            store={
+                'account.analytic.account': (
+                    get_child_accounts,
+                    ['account_class', 'parent_id'], 20
+                )
+            }
+        ),
+        'portfolio_analytic_account_id': fields.function(
+            _get_portfolio_account_id, method=True, type='many2one',
+            relation='account.analytic.account',
+            string='Portfolio',
+            help='Root Portfolio in the WBS hierarchy',
+            store={
+                'account.analytic.account': (
+                    get_child_accounts,
+                    ['account_class', 'parent_id'], 20
+                )
+            }
+        ),
         'account_class': fields.selection(
             [
+                ('portfolio', 'Portfolio'),
+                ('program', 'Program'),
                 ('project', 'Project'),
                 ('phase', 'Phase'),
                 ('deliverable', 'Deliverable'),
@@ -189,7 +247,8 @@ class AccountAnalyticAccount(orm.Model):
             ],
             'Class',
             help='The classification allows you to create a proper project '
-                 'Work Breakdown Structure'),
+                 'Work Breakdown Structure'
+        ),
     }
 
     _order = 'complete_wbs_code'
