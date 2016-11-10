@@ -111,11 +111,11 @@ class AccountAnalyticLine(models.Model):
     unit_amount = fields.Float(
         'Quantity', default=0.0
     )
-    amount_currency = fields.Float(
-        'Amount Currency',
-        help="The amount expressed in an "
-             "optional other currency."
-    )
+    # amount_currency = fields.Float(
+    #     'Amount Currency',
+    #     help="The amount expressed in an "
+    #          "optional other currency."
+    # )
     account_id = fields.Many2one(
         'account.analytic.account',
         'Analytic Account', required=True,
@@ -183,20 +183,20 @@ class AccountAnalyticLine(models.Model):
         )
     )
 
-    @api.onchange('amount_currency', 'currency_id')
-    def on_change_amount_currency(self):
-        company = self.company_id
-        company_currency = company.currency_id
-        currency = self.currency_id
-        if self.amount_currency:
-            amount_company_currency = currency.compute(
-                self.amount_currency,
-                company_currency
-            )
-        else:
-            amount_company_currency = 0.0
-        self.amount = amount_company_currency
-        return {}
+    # @api.onchange('amount_currency', 'currency_id')
+    # def on_change_amount_currency(self):
+    #     company = self.company_id
+    #     company_currency = company.currency_id
+    #     currency = self.currency_id
+    #     if self.amount_currency:
+    #         amount_company_currency = currency.compute(
+    #             self.amount_currency,
+    #             company_currency
+    #         )
+    #     else:
+    #         amount_company_currency = 0.0
+    #     self.amount = amount_company_currency
+    #     return {}
 
     @api.onchange('unit_amount', 'product_uom_id')
     def on_change_unit_amount(self):
@@ -267,9 +267,9 @@ class AccountAnalyticLine(models.Model):
         if not flag:
             if journal.type != 'sale':
                 result *= -1
-        self.amount_currency = result
+        # self.amount_currency = result
         self.general_account_id = a
-        self.on_change_amount_currency()
+        # self.on_change_amount_currency()
         return {}
 
     @api.onchange('product_id')

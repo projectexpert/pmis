@@ -15,7 +15,7 @@
                             <!--<field name="unit_amount" required="True"/>-->
                             <!--<field name="product_uom_id" required="True"/>-->
                             <!--<field name="price_unit" required="True"/>-->
-                            <field name="amount_currency" required="True" readonly="True"/>
+                            <!--<field name="amount_currency" required="True" readonly="True"/>-->
                             <field name="currency_id" required="True"/>
                         </group>
                         <group colspan="2" col="4">
@@ -89,9 +89,9 @@
                     <field name="product_uom_id" required="True"/>
                     <field name="version_id"/>
 					<field name="price_unit" required="True"/>
-                    <field name="amount_currency" required="True" readonly="True"/>
+                    <!--<field name="amount_currency" required="True" readonly="True"/>-->
                     <field name="currency_id" required="True"/>
-                    <field name="amount" invisible="True"/>
+                    <field name="amount"/>
                     <field name="company_id" invisible="True"/>
                     <field name="journal_id" invisible="True"/>
                     <field name="ref" invisible="True"/>

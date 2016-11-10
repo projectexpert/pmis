@@ -154,8 +154,9 @@ class project_task(osv.osv):
             amount = price_unit * planned_hours or 1.0
             result = round(amount, prec)
             plan_output['price_unit'] = price_unit
-            plan_output['amount_currency'] = -1 * result
-            plan_output['amount'] = plan_output['amount_currency']
+            # plan_output['amount_currency'] = -1 * result
+            # plan_output['amount'] = plan_output['amount_currency']
+            plan_output['amount'] = -1 * result
 
         return plan_output
 

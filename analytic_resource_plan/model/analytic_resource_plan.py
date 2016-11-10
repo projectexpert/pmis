@@ -204,7 +204,9 @@ class AnalyticResourcePlanLine(models.Model):
             'notes': self.notes,
             'version_id': default_plan.id,
             'currency_id': self.account_id.company_id.currency_id.id,
-            'amount_currency': self.product_id.standard_price,
+            # 'amount_currency': (
+            #     -1 * self.product_id.standard_price * self.unit_amount
+            # ),
         }]
 
     @api.model

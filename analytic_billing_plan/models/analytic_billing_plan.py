@@ -59,8 +59,9 @@ class BillingPlanLine(models.Model):
 
     @api.onchange('unit_amount')
     def on_change_unit_amount(self):
+        amount = self.price_unit * self.unit_amount
         if self.unit_amount:
-            self.amount_currency = self.price_unit * self.unit_amount
+            # self.amount_currency = self.price_unit * self.unit_amount
             self.amount = self.price_unit * self.unit_amount
 
     @api.onchange('product_id')
@@ -81,7 +82,7 @@ class BillingPlanLine(models.Model):
             self.general_account_id = (
                 self.product_id.product_tmpl_id.property_account_income.id
             )
-            self.amount_currency = self.price_unit * self.unit_amount
+            # self.amount_currency = self.price_unit * self.unit_amount
             self.amount = self.price_unit * self.unit_amount
             if not self.general_account_id:
                 self.general_account_id = (
@@ -104,6 +105,8 @@ class BillingPlanLine(models.Model):
                 self.partner_id = self.account_id.partner_id.id
             if self.account_id.company_id.currency_id:
                 self.currency_id = self.account_id.company_id.currency_id.id
+                # self.amount_currency = self.price_unit * self.unit_amount
+                self.amount = self.price_unit * self.unit_amount
 
     @api.multi
     def copy(self, default=None):

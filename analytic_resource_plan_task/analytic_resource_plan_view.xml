@@ -32,7 +32,7 @@
             <field name="type">search</field>
             <field name="arch" type="xml">
                 <field name="account_id" position="after">
-                    <field name="task_id" on_change="on_change_task_id_resource(account_id, task_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, amount_currency, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
+                    <field name="task_id" on_change="on_change_task_id_resource(account_id, task_id, name, date, supplier_id, pricelist_id, product_id, unit_amount, product_uom_id, price_unit, currency_id, version_id, journal_id, ref, company_id, amount, general_account_id)"/>
                 </field>
             </field>
         </record>
