@@ -9,7 +9,7 @@
 
 {
     'name': 'Analytic Resource Planning',
-    'version': '8.0.2.0.2',
+    'version': '8.0.2.0.3',
     'author':   'Eficent, '
                 'Matmoz, '
                 'Project Expert Team',
