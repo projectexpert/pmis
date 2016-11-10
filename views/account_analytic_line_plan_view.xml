@@ -26,7 +26,7 @@
                             <field name="company_id" groups="base.group_multi_company"/>
                         </group>
                         <group string="Amount">
-                            <field name="amount_currency"/>
+                            <!--<field name="amount_currency"/>-->
                             <field name="currency_id"/>
                             <field name="amount"/>
                         </group>
@@ -64,7 +64,7 @@
                     <field name="product_id"/>
                     <field name="unit_amount" sum="Total Quantity" invisible="False"/>
                     <field name="product_uom_id" invisible="False"/>
-                    <field name="amount_currency"/>
+                    <!--<field name="amount_currency"/>-->
                     <field name="currency_id"/>
                     <field name="amount" sum="Total"/>
                     <field name="company_id" invisible="True"/>
