@@ -370,7 +370,7 @@
             <!--<menuitem action="open_view_project_phases" id="menu_project_wbs_phases" name="Phases" parent="project.menu_projects" sequence="4"/>-->
             <!--<menuitem action="open_view_project_deliverables" id="menu_project_wbs_deliverables" name="Deliverables" parent="project.menu_projects" sequence="5"/>-->
             <menuitem action="open_view_project_work_packages" id="menu_project_work_packages" name="Work Packages" parent="project.menu_projects" sequence="6"/>
-            <!--<menuitem action="open_view_project_wbs" id="menu_fullwbs" name="Full WBS" parent="project.menu_projects" sequence="7" string="Full WBS"/>-->
+            <menuitem action="open_view_project_wbs" id="menu_fullwbs" name="Full WBS" parent="project.menu_projects" sequence="7" string="Full WBS"/>
         <menuitem action="project.action_view_task" id="project.menu_action_view_task" parent="project.menu_project_management" sequence="2" name="Tasks"/>
 
         <record id="create_wbs_element" model="ir.actions.act_window">
