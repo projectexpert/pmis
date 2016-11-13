@@ -39,7 +39,7 @@ class ProjectTaskLinkPredecessorsStr(osv.osv_memory):
         """
         This function gets default values
         """
-        res = super(project_task_link_predecessors_str, self).default_get(
+        res = super(ProjectTaskLinkPredecessorsStr, self).default_get(
             cr, uid, fields, context=context
         )
         if context is None:
@@ -120,7 +120,7 @@ class ProjectTaskLinkPredecessors(osv.osv_memory):
         """
         This function gets default values
         """
-        res = super(project_task_link_predecessors, self).default_get(
+        res = super(ProjectTaskLinkPredecessors, self).default_get(
             cr, uid, fields, context=context
         )
         if context is None:
