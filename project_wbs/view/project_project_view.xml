@@ -127,6 +127,16 @@
             </field>
         </record>
 
+        <!--FORM VIEW ACTION-->
+        <record id="create_wbs_element" model="ir.actions.act_window">
+            <field name="name">WBS elements</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">project.project</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">current</field>
+        </record>
+
         <!--FORM VIEW-->
         <record id="edit_project" model="ir.ui.view">
             <field name="name">project.project.form</field>
@@ -372,15 +382,6 @@
             <menuitem action="open_view_project_work_packages" id="menu_project_work_packages" name="Work Packages" parent="project.menu_projects" sequence="6"/>
             <menuitem action="open_view_project_wbs" id="menu_fullwbs" name="Full WBS" parent="project.menu_projects" sequence="7" string="Full WBS"/>
         <menuitem action="project.action_view_task" id="project.menu_action_view_task" parent="project.menu_project_management" sequence="2" name="Tasks"/>
-
-        <record id="create_wbs_element" model="ir.actions.act_window">
-            <field name="name">WBS elements</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">project.project</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">form</field>
-            <field name="target">current</field>
-        </record>
 
         <record id="act_project_project_2_deliverable_all" model="ir.actions.act_window">
             <field name="name">Deliverables</field>
