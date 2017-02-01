@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Project Issue to Change Request',
-    'version': '8.0.1.0.2',
+    'version': '8.0.1.0.3',
     'summary': 'Create Change Requests from Project Issues',
     'sequence': '19',
     'complexity': 'easy',

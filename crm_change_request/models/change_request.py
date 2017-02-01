@@ -13,7 +13,7 @@ class LeadToChangeRequestWizard(osv.TransientModel):
         "lead_id": fields.many2one(
             "crm.lead", "Lead", domain=[("type", "=", "lead")]
         ),
-        "project_id": fields.many2one("project.project", "Project"),
+        # "project_id": fields.many2one("project.project", "Project"),
         "change_category_id": fields.many2one(
             "change.management.category", "Change Category"
         ),
@@ -46,7 +46,7 @@ class LeadToChangeRequestWizard(osv.TransientModel):
                 "description": lead.name,
                 "description_event": lead.description,
                 "email_from": lead.email_from,
-                "project_id": wizard.project_id.id,
+                "project_id": lead.project_id.id,
                 "stakeholder_id": partner,
                 "author_id": uid,
                 "change_category_id": wizard.change_category_id.id,
