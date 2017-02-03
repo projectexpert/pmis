@@ -78,60 +78,16 @@ class WbsWorkpackage(osv.Model):
         fold = dict.fromkeys(wbstimebox_ids, False)
         return result, fold
 
-    def _read_group_stage_ids(
-            self, cr, uid, ids, domain,
-            read_group_order=None, access_rights_uid=None,
-            context=None
-    ):
-        stage_obj = self.pool.get('analytic.account.stage')
-        order = stage_obj._order
-        access_rights_uid = access_rights_uid or uid
-        if read_group_order == 'stage_id desc':
-            order = '%s desc' % order
-        search_domain = []
-        analytic_account_id = self._resolve_analytic_account_id_from_context(
-            cr, uid, context=context
-        )
-        if analytic_account_id:
-            search_domain += [
-                '|', ('analytic_account_ids', '=', analytic_account_id)
-            ]
-        search_domain += [('id', 'in', ids)]
-        stage_ids = stage_obj._search(
-            cr, uid, [], order=order,
-            access_rights_uid=access_rights_uid,
-            context=context
-        )
-        result = stage_obj.name_get(
-            cr, access_rights_uid, stage_ids,
-            context=context
-        )
-        # restore order of the search
-        result.sort(
-            lambda x, y: cmp(
-                stage_ids.index(x[0]),
-                stage_ids.index(y[0])
-            )
-        )
-
-        fold = {}
-        for stage in stage_obj.browse(
-            cr, access_rights_uid, stage_ids,
-            context=context
-        ):
-            fold[stage.id] = stage.fold or False
-        return result, fold
-
     _defaults = {
         'wbscontext_id': _get_wbscontext
     }
 
     _group_by_full = {
         'wbstimebox_id': _read_group_wbstimebox_ids,
-        'stage_id': _read_group_stage_ids,
     }
 
 # CORRECT THE ORIGINAL PROJECT_GTD (TASK LEVEL) BEHAVIOUR ON FOLDED KANBAN
+
 
 class ProjectTask(osv.Model):
     _inherit = "project.task"
