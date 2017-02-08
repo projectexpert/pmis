@@ -45,8 +45,8 @@
             <field name="arch" type="xml">
                 <xpath expr='//tree' position="attributes">
                     <attribute name="editable">top</attribute>
-                    <attribute name="fonts">bold:account_class in 'portfolio';bold:account_class in 'program';bold:account_class in 'project';bold:account_class in 'phase'; italic:state in 'cancelled'</attribute>
-                    <attribute name="colors">#555487:account_class == 'phase';#31305C:account_class == 'program'</attribute>
+                    <attribute name="fonts">bold:account_class in 'portfolio';bold:account_class in 'program';bold:account_class in 'project';bold:account_class in 'phase';bold:account_class in 'deliverable';italic:state in 'cancelled'</attribute>
+                    <attribute name="colors">#555487:account_class == 'phase';#31305C:account_class == 'program';#807FA2:account_class == 'deliverable';</attribute>
                     <attribute name="default_order">complete_wbs_code</attribute>
                     <!--<attribute name="default_sort">complete_wbs_code asc</attribute>-->
                 </xpath>
@@ -111,6 +111,7 @@
             </field>
         </record>
 
+        <!--FILTER group by-->
         <record id="view_project_project_filter" model="ir.ui.view">
             <field name="name">project.project.select</field>
             <field name="model">project.project</field>
@@ -239,71 +240,19 @@
         </record>
 
         <!--ACTIONS-->
-        <!--OPEN PROJECTS-->
-         <record id="open_view_project_projects" model="ir.actions.act_window">
-            <field name="name">Projects</field>
-            <field name="res_model">project.project</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">kanban,tree,form,gantt</field>
-            <field name="view_id" ref="project.view_project_kanban"/>
-            <field name="search_view_id" ref="project.view_project_project_filter"/>
-            <field name="context">
-                {'search_default_Current': 1,
-                 'search_default_account_class':'project',
-                 'default_account_class':'project'}
-            </field>
-            <!--<field name="context">{'search_default_Current': 1}</field>-->
-            <!--<field name="domain">[('account_class','=','project')]</field>-->
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">
-                  Click to start a new project.
-                </p>
-            </field>
-        </record>
-        <!--OPEN PHASES AND DELIVERABLES-->
-        <record id="open_view_phases_or_deliverables" model="ir.actions.act_window">
-            <field name="name">Phases or Deliverables</field>
-            <field name="res_model">project.project</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">kanban,tree,form,gantt</field>
-            <field name="view_id" ref="project.view_project"/>
-            <field name="search_view_id" ref="project.view_project_project_filter"/>
-            <field name="context">{'search_default_Current': 1, 'default_account_class':'deliverable'}</field>
-            <field name="domain">[('account_class','in',['phase', 'deliverable'])]</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">
-                  Click to start a new work package.
-                </p>
-            </field>
-        </record>
-        <!--OPEN WORK PACKAGES-->
-        <record id="open_view_project_work_packages" model="ir.actions.act_window">
-            <field name="name">Work Packages</field>
-            <field name="res_model">project.project</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">kanban,tree,form,gantt</field>
-            <field name="view_id" ref="project.view_project"/>
-            <field name="search_view_id" ref="project.view_project_project_filter"/>
-            <field name="context">{'search_default_Current': 1, 'default_account_class':'work_package'}</field>
-            <field name="domain">[('account_class','=','work_package')]</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">
-                  Click to start a new work package.
-                </p>
-            </field>
-        </record>
-
+        <!--OPEN wbs overview-->
         <record id="open_view_wbs_tree" model="ir.actions.act_window">
-            <field name="name">WBS elements</field>
+            <field name="name">WBS overview</field>
             <field name="res_model">project.project</field>
             <field name="view_type">form</field>
-            <field name="domain">[]</field>
             <field name="view_mode">kanban,tree,form,gantt</field>
             <field name="view_id" ref="project.view_project"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
-            <field name="context">{'search_default_account_class':False, 'default_account_class':False}</field>
+            <field name="context">{'search_default_Current': 1, 'default_account_class':'work_package', 'group_by': ['portfolio_analytic_account_id', 'program_analytic_account_id', 'project_analytic_account_id']}</field>
+            <field name="domain">[['account_class', '!=', 'portfolio'], ['account_class', '!=', 'program'], ['account_class', '!=', 'project']]</field>
         </record>
 
+        <!--MENU ACTION OPEN FULL WBS-->
         <record id="open_view_project_wbs" model="ir.actions.act_window">
             <field name="name">WBS elements</field>
             <field name="res_model">project.project</field>
@@ -328,39 +277,6 @@
             </field>
         </record>
 
-        <record id="group_portfolio" model="ir.actions.act_window">
-            <field name="name">WBS elements</field>
-            <field name="res_model">project.project</field>
-            <field name="view_type">form</field>
-            <field name="domain">[('account_class','in',['portfolio'])]</field>
-            <field name="view_mode">kanban,tree,form,gantt</field>
-            <field name="view_id" ref="project.view_project_kanban"/>
-            <field name="search_view_id" ref="project.view_project_project_filter"/>
-            <field name="context">{'search_default_Current': 1, 'default_account_class':'portfolio'}}</field>
-        </record>
-
-        <record id="group_program" model="ir.actions.act_window">
-            <field name="name">WBS elements</field>
-            <field name="res_model">project.project</field>
-            <field name="view_type">form</field>
-            <field name="domain">[('account_class','in',['program'])]</field>
-            <field name="view_mode">kanban,tree,form,gantt</field>
-            <field name="view_id" ref="project.view_project_kanban"/>
-            <field name="search_view_id" ref="project.view_project_project_filter"/>
-            <field name="context">{'search_default_Current': 1, 'default_account_class':'program'}}</field>
-        </record>
-
-        <record id="open_wbs_grouped" model="ir.actions.act_window">
-            <field name="name">WBS elements</field>
-            <field name="res_model">project.project</field>
-            <field name="view_type">form</field>
-            <field name="domain">[('account_class','in',['project'])]</field>
-            <field name="view_mode">kanban,tree,form,gantt</field>
-            <field name="view_id" ref="project.view_project"/>
-            <field name="search_view_id" ref="project.view_project_project_filter"/>
-            <field name="context">{'search_default_Current': 1, 'default_account_class':'project'}}</field>
-        </record>
-
         <record id="open_view_project_form" model="ir.actions.act_window">
             <field name="name">Edit project</field>
             <field name="res_model">project.project</field>
@@ -372,15 +288,8 @@
             <field name="context">{'search_default_Current': 1, 'search_default_account_class':False, 'default_account_class':False}</field>
         </record>
 
-        <menuitem action="group_portfolio" id="project.menu_projects" name="Portfolio" parent="project.menu_project_management" sequence="1" string="Full WBS"/>
-            <menuitem action="group_portfolio" id="menu_project_wbs_portfolio" name="Portfolios" parent="project.menu_projects" sequence="1"/>
-            <menuitem action="group_program" id="menu_project_wbs_program" name="Programs" parent="project.menu_projects" sequence="2"/>
-            <menuitem action="open_wbs_grouped" id="menu_project_wbs_projects" name="Projects" parent="project.menu_projects" sequence="3"/>
-            <menuitem action="open_view_phases_or_deliverables" id="menu_wbs_phases_or_deliverables" name="Phases and Deliverables" parent="project.menu_projects" sequence="3"/>
-            <!--<menuitem action="open_view_project_phases" id="menu_project_wbs_phases" name="Phases" parent="project.menu_projects" sequence="4"/>-->
-            <!--<menuitem action="open_view_project_deliverables" id="menu_project_wbs_deliverables" name="Deliverables" parent="project.menu_projects" sequence="5"/>-->
-            <menuitem action="open_view_project_work_packages" id="menu_project_work_packages" name="Work Packages" parent="project.menu_projects" sequence="6"/>
-            <menuitem action="open_view_project_wbs" id="menu_fullwbs" name="Full WBS" parent="project.menu_projects" sequence="7" string="Full WBS"/>
+        <menuitem action="open_view_wbs_tree" id="project.menu_projects" name="WBS" parent="project.menu_project_management" sequence="1" string="WBS overview"/>
+        <menuitem action="open_view_project_wbs" id="menu_fullwbs" name="WBS Edit" parent="project.menu_projects" sequence="7" string="WBS edit"/>
         <menuitem action="project.action_view_task" id="project.menu_action_view_task" parent="project.menu_project_management" sequence="2" name="Tasks"/>
 
         <record id="act_project_project_2_deliverable_all" model="ir.actions.act_window">

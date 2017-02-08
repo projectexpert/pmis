@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-10 10:31+0100\n"
-"PO-Revision-Date: 2016-11-10 10:33+0100\n"
+"POT-Creation-Date: 2017-02-08 13:20+0100\n"
+"PO-Revision-Date: 2017-02-08 13:20+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -24,27 +24,18 @@ msgstr "Vsota vsega, kar bi lahko bilo obračunano po tej pogodbi."
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project
-msgid "#555487:account_class == 'phase';#31305C:account_class == 'program'"
-msgstr "#555487:account_class == 'phase';#31305C:account_class == 'program'"
+msgid ""
+"#555487:account_class == 'phase';#31305C:account_class == 'program';#807FA2:"
+"account_class == 'deliverable';"
+msgstr ""
+"#555487:account_class == 'phase';#31305C:account_class == 'program';#807FA2:"
+"account_class == 'deliverable';"
 
 #. module: project_wbs
 #: code:addons/project_wbs/models/project_project.py:290
 #, python-format
 msgid "%s"
 msgstr "%s"
-
-#. module: project_wbs
-#: model:ir.actions.act_window,help:project_wbs.open_view_project_projects
-msgid ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"                  Click to start a new project.\n"
-"                </p>\n"
-"            "
-msgstr ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"                  Nov projekt.\n"
-"                </p>\n"
-"            "
 
 #. module: project_wbs
 #: model:ir.actions.act_window,help:project_wbs.open_view_project_wbs
@@ -73,20 +64,6 @@ msgstr ""
 "                  Omogočili boste sodelovanje med notranjimi uporabniki\n"
 "                  na projektih ali povabljenimi strankami s katerimi delite "
 "dejavnosti.\n"
-"                </p>\n"
-"            "
-
-#. module: project_wbs
-#: model:ir.actions.act_window,help:project_wbs.open_view_phases_or_deliverables
-#: model:ir.actions.act_window,help:project_wbs.open_view_project_work_packages
-msgid ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"                  Click to start a new work package.\n"
-"                </p>\n"
-"            "
-msgstr ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"                  Kliknite za zagon novega delovnega seznama.\n"
 "                </p>\n"
 "            "
 
@@ -216,11 +193,6 @@ msgid "Date of the latest work done on this account."
 msgstr "Datum zadnjega dela opravljenega na tem kontu."
 
 #. module: project_wbs
-#: field:project.project,location_id:0
-msgid "Default Stock Location"
-msgstr "Privzeta lokacija zaloge"
-
-#. module: project_wbs
 #: selection:account.analytic.account,account_class:0
 msgid "Deliverable"
 msgstr "Dobava"
@@ -229,16 +201,6 @@ msgstr "Dobava"
 #: model:ir.actions.act_window,name:project_wbs.act_project_project_2_deliverable_all
 msgid "Deliverables"
 msgstr "Dobave"
-
-#. module: project_wbs
-#: field:project.project,dest_address_id:0
-msgid "Delivery Address"
-msgstr "Dostavni naslov"
-
-#. module: project_wbs
-#: help:project.project,dest_address_id:0
-msgid "Delivery address for the current contract /project."
-msgstr "Dostavni naslov za trenutno pogodbo/projekt."
 
 #. module: project_wbs
 #: code:addons/project_wbs/models/form_button.py:20
@@ -409,11 +371,6 @@ msgid "Month"
 msgstr "Mesec"
 
 #. module: project_wbs
-#: field:project.project,move_ids:0
-msgid "Moves for this analytic account"
-msgstr "Premiki za ta analitičen konto"
-
-#. module: project_wbs
 #: help:project.project,hours_qtt_non_invoiced:0
 msgid ""
 "Number of time (hours/days) (from journal of type 'general') that can be "
@@ -470,26 +427,11 @@ msgid "Phase"
 msgstr "Faza"
 
 #. module: project_wbs
-#: model:ir.ui.menu,name:project_wbs.menu_wbs_phases_or_deliverables
-msgid "Phases and Deliverables"
-msgstr "Faze in dobave"
-
-#. module: project_wbs
-#: model:ir.actions.act_window,name:project_wbs.open_view_phases_or_deliverables
-msgid "Phases or Deliverables"
-msgstr "Faze ali dobave"
-
-#. module: project_wbs
 #: selection:account.analytic.account,account_class:0
 #: field:account.analytic.account,portfolio_analytic_account_id:0
 #: field:project.project,portfolio_analytic_account_id:0
 msgid "Portfolio"
 msgstr "Portfelj"
-
-#. module: project_wbs
-#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_portfolio
-msgid "Portfolios"
-msgstr "Portfelji"
 
 #. module: project_wbs
 #: field:project.project,pricelist_id:0
@@ -502,11 +444,6 @@ msgstr "Cenik"
 #: field:project.project,program_analytic_account_id:0
 msgid "Program"
 msgstr "Program"
-
-#. module: project_wbs
-#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_program
-msgid "Programs"
-msgstr "Programi"
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
@@ -541,8 +478,6 @@ msgstr "Konfiguracija projekta"
 
 #. module: project_wbs
 #: code:addons/project_wbs/models/project_project.py:335
-#: model:ir.actions.act_window,name:project_wbs.open_view_project_projects
-#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_projects
 #, python-format
 msgid "Projects"
 msgstr "Projekti"
@@ -619,12 +554,6 @@ msgstr "Korenski projekt v razčlenitveni hierarhiji"
 #: view:project.project:project_wbs.view_project
 msgid "Start Date"
 msgstr "Začetni datum"
-
-#. module: project_wbs
-#: help:project.project,use_reserved_stock:0
-msgid ""
-"Stock with reference to this analytic account is considered to be reserved."
-msgstr "Zaloga s sklicem na ta analitični konto je rezervirana."
 
 #. module: project_wbs
 #: help:project.project,fix_price_to_invoice:0
@@ -750,11 +679,6 @@ msgid "Uninvoiced Time"
 msgstr "Ne zaračunani čas"
 
 #. module: project_wbs
-#: field:project.project,use_reserved_stock:0
-msgid "Use reserved stock"
-msgstr "Uporabi rezervirano zalogo"
-
-#. module: project_wbs
 #: field:project.project,user_ids:0
 msgid "User"
 msgstr "Uporabnik"
@@ -763,6 +687,11 @@ msgstr "Uporabnik"
 #: field:project.project,c_wbs_code:0
 msgid "WBS Code"
 msgstr "Koda členitve"
+
+#. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_fullwbs
+msgid "WBS Edit"
+msgstr "Urejanje členitve"
 
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
@@ -779,18 +708,14 @@ msgstr "Naziv elementa členitve"
 
 #. module: project_wbs
 #: model:ir.actions.act_window,name:project_wbs.create_wbs_element
-#: model:ir.actions.act_window,name:project_wbs.group_portfolio
-#: model:ir.actions.act_window,name:project_wbs.group_program
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_wbs
-#: model:ir.actions.act_window,name:project_wbs.open_view_wbs_tree
-#: model:ir.actions.act_window,name:project_wbs.open_wbs_grouped
 msgid "WBS elements"
 msgstr "Elementi členitve"
 
 #. module: project_wbs
-#: field:project.project,warehouse_id:0
-msgid "Warehouse"
-msgstr "Skladišče"
+#: model:ir.actions.act_window,name:project_wbs.open_view_wbs_tree
+msgid "WBS overview"
+msgstr "Pregled členitve"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
@@ -801,12 +726,6 @@ msgstr "Členjenje projekta"
 #: selection:account.analytic.account,account_class:0
 msgid "Work Package"
 msgstr "Delovni seznam"
-
-#. module: project_wbs
-#: model:ir.actions.act_window,name:project_wbs.open_view_project_work_packages
-#: model:ir.ui.menu,name:project_wbs.menu_project_work_packages
-msgid "Work Packages"
-msgstr "Delovni seznami"
 
 #. module: project_wbs
 #: help:project.project,to_invoice:0
@@ -825,12 +744,12 @@ msgstr ""
 #: view:project.project:project_wbs.view_project
 msgid ""
 "bold:account_class in 'portfolio';bold:account_class in 'program';bold:"
-"account_class in 'project';bold:account_class in 'phase'; italic:state in "
-"'cancelled'"
+"account_class in 'project';bold:account_class in 'phase';bold:account_class "
+"in 'deliverable';italic:state in 'cancelled'"
 msgstr ""
 "bold:account_class in 'portfolio';bold:account_class in 'program';bold:"
-"account_class in 'project';bold:account_class in 'phase'; italic:state in "
-"'cancelled'"
+"account_class in 'project';bold:account_class in 'phase';bold:account_class "
+"in 'deliverable';italic:state in 'cancelled'"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project
@@ -858,6 +777,69 @@ msgstr "on_change_parent(parent_id)"
 #: view:project.project:project_wbs.view_project
 msgid "top"
 msgstr "top"
+
+#~ msgid "Full WBS"
+#~ msgstr "Celotna členitev"
+
+#~ msgid "Portfolios"
+#~ msgstr "Portfelji"
+
+#~ msgid ""
+#~ "<p class=\"oe_view_nocontent_create\">\n"
+#~ "                  Click to start a new project.\n"
+#~ "                </p>\n"
+#~ "            "
+#~ msgstr ""
+#~ "<p class=\"oe_view_nocontent_create\">\n"
+#~ "                  Nov projekt.\n"
+#~ "                </p>\n"
+#~ "            "
+
+#~ msgid ""
+#~ "<p class=\"oe_view_nocontent_create\">\n"
+#~ "                  Click to start a new work package.\n"
+#~ "                </p>\n"
+#~ "            "
+#~ msgstr ""
+#~ "<p class=\"oe_view_nocontent_create\">\n"
+#~ "                  Kliknite za zagon novega delovnega seznama.\n"
+#~ "                </p>\n"
+#~ "            "
+
+#~ msgid "Default Stock Location"
+#~ msgstr "Privzeta lokacija zaloge"
+
+#~ msgid "Delivery Address"
+#~ msgstr "Dostavni naslov"
+
+#~ msgid "Delivery address for the current contract /project."
+#~ msgstr "Dostavni naslov za trenutno pogodbo/projekt."
+
+#~ msgid "Moves for this analytic account"
+#~ msgstr "Premiki za ta analitičen konto"
+
+#~ msgid "Phases and Deliverables"
+#~ msgstr "Faze in dobave"
+
+#~ msgid "Phases or Deliverables"
+#~ msgstr "Faze ali dobave"
+
+#~ msgid "Programs"
+#~ msgstr "Programi"
+
+#~ msgid ""
+#~ "Stock with reference to this analytic account is considered to be "
+#~ "reserved."
+#~ msgstr "Zaloga s sklicem na ta analitični konto je rezervirana."
+
+#~ msgid "Use reserved stock"
+#~ msgstr "Uporabi rezervirano zalogo"
+
+#~ msgid "Warehouse"
+#~ msgstr "Skladišče"
+
+#~ msgid "Work Packages"
+#~ msgstr "Delovni seznami"
 
 #~ msgid ""
 #~ "<p class=\"oe_view_nocontent_create\">\n"
@@ -966,9 +948,6 @@ msgstr "top"
 
 #~ msgid "Folded by Default"
 #~ msgstr "Privzeto prepognjeno"
-
-#~ msgid "Full WBS"
-#~ msgstr "Celotna členitev"
 
 #~ msgid "ID"
 #~ msgstr "ID"

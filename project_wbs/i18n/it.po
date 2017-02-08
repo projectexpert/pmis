@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-10 10:33+0100\n"
-"PO-Revision-Date: 2016-11-10 10:34+0100\n"
+"POT-Creation-Date: 2017-02-08 13:21+0100\n"
+"PO-Revision-Date: 2017-02-08 13:21+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -24,7 +24,9 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project
-msgid "#555487:account_class == 'phase';#31305C:account_class == 'program'"
+msgid ""
+"#555487:account_class == 'phase';#31305C:account_class == 'program';#807FA2:"
+"account_class == 'deliverable';"
 msgstr ""
 
 #. module: project_wbs
@@ -32,19 +34,6 @@ msgstr ""
 #, python-format
 msgid "%s"
 msgstr "%s"
-
-#. module: project_wbs
-#: model:ir.actions.act_window,help:project_wbs.open_view_project_projects
-msgid ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"                  Click to start a new project.\n"
-"                </p>\n"
-"            "
-msgstr ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"                  Avvia nuovo progetto.\n"
-"                </p>\n"
-"            "
 
 #. module: project_wbs
 #: model:ir.actions.act_window,help:project_wbs.open_view_project_wbs
@@ -76,20 +65,6 @@ msgstr ""
 "                  Potrete collaborare sui progetti con gli utenti interni\n"
 "                  o invitare i clienti alla condivisione delle vostre "
 "attività.\n"
-"                </p>\n"
-"            "
-
-#. module: project_wbs
-#: model:ir.actions.act_window,help:project_wbs.open_view_phases_or_deliverables
-#: model:ir.actions.act_window,help:project_wbs.open_view_project_work_packages
-msgid ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"                  Click to start a new work package.\n"
-"                </p>\n"
-"            "
-msgstr ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"                  Avvia nuovo pacco lavori.\n"
 "                </p>\n"
 "            "
 
@@ -218,11 +193,6 @@ msgid "Date of the latest work done on this account."
 msgstr ""
 
 #. module: project_wbs
-#: field:project.project,location_id:0
-msgid "Default Stock Location"
-msgstr "Località di stoccaggio predefinita"
-
-#. module: project_wbs
 #: selection:account.analytic.account,account_class:0
 msgid "Deliverable"
 msgstr "Consegnabile"
@@ -231,16 +201,6 @@ msgstr "Consegnabile"
 #: model:ir.actions.act_window,name:project_wbs.act_project_project_2_deliverable_all
 msgid "Deliverables"
 msgstr "Consegnabili"
-
-#. module: project_wbs
-#: field:project.project,dest_address_id:0
-msgid "Delivery Address"
-msgstr "Indirizzo di consegna"
-
-#. module: project_wbs
-#: help:project.project,dest_address_id:0
-msgid "Delivery address for the current contract /project."
-msgstr "L'indirizzo di consegna del contratto/progetto corrente."
 
 #. module: project_wbs
 #: code:addons/project_wbs/models/form_button.py:20
@@ -405,11 +365,6 @@ msgid "Month"
 msgstr ""
 
 #. module: project_wbs
-#: field:project.project,move_ids:0
-msgid "Moves for this analytic account"
-msgstr ""
-
-#. module: project_wbs
 #: help:project.project,hours_qtt_non_invoiced:0
 msgid ""
 "Number of time (hours/days) (from journal of type 'general') that can be "
@@ -462,26 +417,11 @@ msgid "Phase"
 msgstr "Fase"
 
 #. module: project_wbs
-#: model:ir.ui.menu,name:project_wbs.menu_wbs_phases_or_deliverables
-msgid "Phases and Deliverables"
-msgstr "Fasi e consegnabili"
-
-#. module: project_wbs
-#: model:ir.actions.act_window,name:project_wbs.open_view_phases_or_deliverables
-msgid "Phases or Deliverables"
-msgstr "Fasi o consegnabili"
-
-#. module: project_wbs
 #: selection:account.analytic.account,account_class:0
 #: field:account.analytic.account,portfolio_analytic_account_id:0
 #: field:project.project,portfolio_analytic_account_id:0
 msgid "Portfolio"
-msgstr ""
-
-#. module: project_wbs
-#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_portfolio
-msgid "Portfolios"
-msgstr ""
+msgstr "Portfolio"
 
 #. module: project_wbs
 #: field:project.project,pricelist_id:0
@@ -493,12 +433,7 @@ msgstr ""
 #: field:account.analytic.account,program_analytic_account_id:0
 #: field:project.project,program_analytic_account_id:0
 msgid "Program"
-msgstr ""
-
-#. module: project_wbs
-#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_program
-msgid "Programs"
-msgstr "Programmi"
+msgstr "Programma"
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
@@ -533,8 +468,6 @@ msgstr "Configurazione progetto"
 
 #. module: project_wbs
 #: code:addons/project_wbs/models/project_project.py:335
-#: model:ir.actions.act_window,name:project_wbs.open_view_project_projects
-#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_projects
 #, python-format
 msgid "Projects"
 msgstr "Progetti"
@@ -611,12 +544,6 @@ msgstr "Progetto radice nella gerarchia WBS"
 #: view:project.project:project_wbs.view_project
 msgid "Start Date"
 msgstr "Data d'inizio"
-
-#. module: project_wbs
-#: help:project.project,use_reserved_stock:0
-msgid ""
-"Stock with reference to this analytic account is considered to be reserved."
-msgstr ""
 
 #. module: project_wbs
 #: help:project.project,fix_price_to_invoice:0
@@ -738,11 +665,6 @@ msgid "Uninvoiced Time"
 msgstr ""
 
 #. module: project_wbs
-#: field:project.project,use_reserved_stock:0
-msgid "Use reserved stock"
-msgstr ""
-
-#. module: project_wbs
 #: field:project.project,user_ids:0
 msgid "User"
 msgstr "Utente"
@@ -751,6 +673,11 @@ msgstr "Utente"
 #: field:project.project,c_wbs_code:0
 msgid "WBS Code"
 msgstr "Codice WBS"
+
+#. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_fullwbs
+msgid "WBS Edit"
+msgstr ""
 
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
@@ -767,18 +694,14 @@ msgstr "Nome elemento WBS"
 
 #. module: project_wbs
 #: model:ir.actions.act_window,name:project_wbs.create_wbs_element
-#: model:ir.actions.act_window,name:project_wbs.group_portfolio
-#: model:ir.actions.act_window,name:project_wbs.group_program
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_wbs
-#: model:ir.actions.act_window,name:project_wbs.open_view_wbs_tree
-#: model:ir.actions.act_window,name:project_wbs.open_wbs_grouped
 msgid "WBS elements"
 msgstr "Elementi WBS"
 
 #. module: project_wbs
-#: field:project.project,warehouse_id:0
-msgid "Warehouse"
-msgstr "Magazzino"
+#: model:ir.actions.act_window,name:project_wbs.open_view_wbs_tree
+msgid "WBS overview"
+msgstr "Struttura progetti"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
@@ -789,12 +712,6 @@ msgstr "Articolazione progetti (WBS)"
 #: selection:account.analytic.account,account_class:0
 msgid "Work Package"
 msgstr "Pacco lavori"
-
-#. module: project_wbs
-#: model:ir.actions.act_window,name:project_wbs.open_view_project_work_packages
-#: model:ir.ui.menu,name:project_wbs.menu_project_work_packages
-msgid "Work Packages"
-msgstr "Pacchi lavori"
 
 #. module: project_wbs
 #: help:project.project,to_invoice:0
@@ -809,8 +726,8 @@ msgstr ""
 #: view:project.project:project_wbs.view_project
 msgid ""
 "bold:account_class in 'portfolio';bold:account_class in 'program';bold:"
-"account_class in 'project';bold:account_class in 'phase'; italic:state in "
-"'cancelled'"
+"account_class in 'project';bold:account_class in 'phase';bold:account_class "
+"in 'deliverable';italic:state in 'cancelled'"
 msgstr ""
 
 #. module: project_wbs
@@ -839,6 +756,55 @@ msgstr "on_change_parent(parent_id)"
 #: view:project.project:project_wbs.view_project
 msgid "top"
 msgstr ""
+
+#~ msgid "Full WBS"
+#~ msgstr "WBS completa"
+
+#~ msgid ""
+#~ "<p class=\"oe_view_nocontent_create\">\n"
+#~ "                  Click to start a new project.\n"
+#~ "                </p>\n"
+#~ "            "
+#~ msgstr ""
+#~ "<p class=\"oe_view_nocontent_create\">\n"
+#~ "                  Avvia nuovo progetto.\n"
+#~ "                </p>\n"
+#~ "            "
+
+#~ msgid ""
+#~ "<p class=\"oe_view_nocontent_create\">\n"
+#~ "                  Click to start a new work package.\n"
+#~ "                </p>\n"
+#~ "            "
+#~ msgstr ""
+#~ "<p class=\"oe_view_nocontent_create\">\n"
+#~ "                  Avvia nuovo pacco lavori.\n"
+#~ "                </p>\n"
+#~ "            "
+
+#~ msgid "Default Stock Location"
+#~ msgstr "Località di stoccaggio predefinita"
+
+#~ msgid "Delivery Address"
+#~ msgstr "Indirizzo di consegna"
+
+#~ msgid "Delivery address for the current contract /project."
+#~ msgstr "L'indirizzo di consegna del contratto/progetto corrente."
+
+#~ msgid "Phases and Deliverables"
+#~ msgstr "Fasi e consegnabili"
+
+#~ msgid "Phases or Deliverables"
+#~ msgstr "Fasi o consegnabili"
+
+#~ msgid "Programs"
+#~ msgstr "Programmi"
+
+#~ msgid "Warehouse"
+#~ msgstr "Magazzino"
+
+#~ msgid "Work Packages"
+#~ msgstr "Pacchi lavori"
 
 #~ msgid ""
 #~ "<p class=\"oe_view_nocontent_create\">\n"
@@ -945,9 +911,6 @@ msgstr ""
 
 #~ msgid "Folded by Default"
 #~ msgstr "Predefinito come piegato"
-
-#~ msgid "Full WBS"
-#~ msgstr "WBS completa"
 
 #~ msgid "ID"
 #~ msgstr "ID"

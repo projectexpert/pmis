@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-10 09:23+0000\n"
-"PO-Revision-Date: 2016-11-10 09:23+0000\n"
+"POT-Creation-Date: 2017-02-08 12:20+0000\n"
+"PO-Revision-Date: 2017-02-08 12:20+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -22,21 +22,13 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project
-msgid "#555487:account_class == 'phase';#31305C:account_class == 'program'"
+msgid "#555487:account_class == 'phase';#31305C:account_class == 'program';#807FA2:account_class == 'deliverable';"
 msgstr ""
 
 #. module: project_wbs
 #: code:addons/project_wbs/models/project_project.py:290
 #, python-format
 msgid "%s"
-msgstr ""
-
-#. module: project_wbs
-#: model:ir.actions.act_window,help:project_wbs.open_view_project_projects
-msgid "<p class=\"oe_view_nocontent_create\">\n"
-"                  Click to start a new project.\n"
-"                </p>\n"
-"            "
 msgstr ""
 
 #. module: project_wbs
@@ -51,15 +43,6 @@ msgid "<p class=\"oe_view_nocontent_create\">\n"
 "                </p><p>\n"
 "                  You will be able collaborate with internal users on\n"
 "                  projects or invite customers to share your activities.\n"
-"                </p>\n"
-"            "
-msgstr ""
-
-#. module: project_wbs
-#: model:ir.actions.act_window,help:project_wbs.open_view_phases_or_deliverables
-#: model:ir.actions.act_window,help:project_wbs.open_view_project_work_packages
-msgid "<p class=\"oe_view_nocontent_create\">\n"
-"                  Click to start a new work package.\n"
 "                </p>\n"
 "            "
 msgstr ""
@@ -182,11 +165,6 @@ msgid "Date of the latest work done on this account."
 msgstr ""
 
 #. module: project_wbs
-#: field:project.project,location_id:0
-msgid "Default Stock Location"
-msgstr ""
-
-#. module: project_wbs
 #: selection:account.analytic.account,account_class:0
 msgid "Deliverable"
 msgstr ""
@@ -194,16 +172,6 @@ msgstr ""
 #. module: project_wbs
 #: model:ir.actions.act_window,name:project_wbs.act_project_project_2_deliverable_all
 msgid "Deliverables"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,dest_address_id:0
-msgid "Delivery Address"
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,dest_address_id:0
-msgid "Delivery address for the current contract /project."
 msgstr ""
 
 #. module: project_wbs
@@ -363,11 +331,6 @@ msgid "Month"
 msgstr ""
 
 #. module: project_wbs
-#: field:project.project,move_ids:0
-msgid "Moves for this analytic account"
-msgstr ""
-
-#. module: project_wbs
 #: help:project.project,hours_qtt_non_invoiced:0
 msgid "Number of time (hours/days) (from journal of type 'general') that can be invoiced if you invoice based on analytic account."
 msgstr ""
@@ -414,25 +377,10 @@ msgid "Phase"
 msgstr ""
 
 #. module: project_wbs
-#: model:ir.ui.menu,name:project_wbs.menu_wbs_phases_or_deliverables
-msgid "Phases and Deliverables"
-msgstr ""
-
-#. module: project_wbs
-#: model:ir.actions.act_window,name:project_wbs.open_view_phases_or_deliverables
-msgid "Phases or Deliverables"
-msgstr ""
-
-#. module: project_wbs
 #: selection:account.analytic.account,account_class:0
 #: field:account.analytic.account,portfolio_analytic_account_id:0
 #: field:project.project,portfolio_analytic_account_id:0
 msgid "Portfolio"
-msgstr ""
-
-#. module: project_wbs
-#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_portfolio
-msgid "Portfolios"
 msgstr ""
 
 #. module: project_wbs
@@ -445,11 +393,6 @@ msgstr ""
 #: field:account.analytic.account,program_analytic_account_id:0
 #: field:project.project,program_analytic_account_id:0
 msgid "Program"
-msgstr ""
-
-#. module: project_wbs
-#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_program
-msgid "Programs"
 msgstr ""
 
 #. module: project_wbs
@@ -485,8 +428,6 @@ msgstr ""
 
 #. module: project_wbs
 #: code:addons/project_wbs/models/project_project.py:335
-#: model:ir.actions.act_window,name:project_wbs.open_view_project_projects
-#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_projects
 #, python-format
 msgid "Projects"
 msgstr ""
@@ -562,11 +503,6 @@ msgstr ""
 #: view:project.project:project_wbs.edit_project
 #: view:project.project:project_wbs.view_project
 msgid "Start Date"
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,use_reserved_stock:0
-msgid "Stock with reference to this analytic account is considered to be reserved."
 msgstr ""
 
 #. module: project_wbs
@@ -677,11 +613,6 @@ msgid "Uninvoiced Time"
 msgstr ""
 
 #. module: project_wbs
-#: field:project.project,use_reserved_stock:0
-msgid "Use reserved stock"
-msgstr ""
-
-#. module: project_wbs
 #: field:project.project,user_ids:0
 msgid "User"
 msgstr ""
@@ -689,6 +620,11 @@ msgstr ""
 #. module: project_wbs
 #: field:project.project,c_wbs_code:0
 msgid "WBS Code"
+msgstr ""
+
+#. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_fullwbs
+msgid "WBS Edit"
 msgstr ""
 
 #. module: project_wbs
@@ -706,17 +642,13 @@ msgstr ""
 
 #. module: project_wbs
 #: model:ir.actions.act_window,name:project_wbs.create_wbs_element
-#: model:ir.actions.act_window,name:project_wbs.group_portfolio
-#: model:ir.actions.act_window,name:project_wbs.group_program
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_wbs
-#: model:ir.actions.act_window,name:project_wbs.open_view_wbs_tree
-#: model:ir.actions.act_window,name:project_wbs.open_wbs_grouped
 msgid "WBS elements"
 msgstr ""
 
 #. module: project_wbs
-#: field:project.project,warehouse_id:0
-msgid "Warehouse"
+#: model:ir.actions.act_window,name:project_wbs.open_view_wbs_tree
+msgid "WBS overview"
 msgstr ""
 
 #. module: project_wbs
@@ -730,19 +662,13 @@ msgid "Work Package"
 msgstr ""
 
 #. module: project_wbs
-#: model:ir.actions.act_window,name:project_wbs.open_view_project_work_packages
-#: model:ir.ui.menu,name:project_wbs.menu_project_work_packages
-msgid "Work Packages"
-msgstr ""
-
-#. module: project_wbs
 #: help:project.project,to_invoice:0
 msgid "You usually invoice 100% of the timesheets. But if you mix fixed price and timesheet invoicing, you may use another ratio. For instance, if you do a 20% advance invoice (fixed price, based on a sales order), you should invoice the rest on timesheet with a 80% ratio."
 msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project
-msgid "bold:account_class in 'portfolio';bold:account_class in 'program';bold:account_class in 'project';bold:account_class in 'phase'; italic:state in 'cancelled'"
+msgid "bold:account_class in 'portfolio';bold:account_class in 'program';bold:account_class in 'project';bold:account_class in 'phase';bold:account_class in 'deliverable';italic:state in 'cancelled'"
 msgstr ""
 
 #. module: project_wbs
