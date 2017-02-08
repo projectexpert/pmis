@@ -104,7 +104,7 @@ class Issue2ChangeWizard(osv.TransientModel):
         "issue_id": fields.many2one(
             "project.issue", "Issue"
         ),
-        "project_id": fields.many2one("project.project", "Project"),
+        # "project_id": fields.many2one("project.project", "Project"),
         "change_category_id": fields.many2one(
             "change.management.category", "Change Category"
         ),
@@ -138,7 +138,7 @@ class Issue2ChangeWizard(osv.TransientModel):
                 "description": issue.name,
                 "description_event": issue.description,
                 "email_from": issue.email_from,
-                "project_id": wizard.project_id.id,
+                "project_id": issue.project_id.id,
                 "stakeholder_id": partner,
                 "author_id": uid,
                 "change_category_id": wizard.change_category_id.id
