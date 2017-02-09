@@ -289,8 +289,8 @@
         </record>
 
         <menuitem action="open_view_wbs_tree" id="project.menu_projects" name="WBS" parent="project.menu_project_management" sequence="1" string="WBS overview"/>
-        <menuitem action="open_view_project_wbs" id="menu_fullwbs" name="WBS Edit" parent="project.menu_projects" sequence="7" string="WBS edit"/>
-        <menuitem action="project.action_view_task" id="project.menu_action_view_task" parent="project.menu_project_management" sequence="2" name="Tasks"/>
+        <menuitem action="open_view_project_wbs" id="menu_fullwbs" name="WBS Edit" parent="project.menu_project_management" sequence="2" string="WBS edit"/>
+        <menuitem action="project.action_view_task" id="project.menu_action_view_task" parent="project.menu_project_management" sequence="5" name="Tasks"/>
 
         <record id="act_project_project_2_deliverable_all" model="ir.actions.act_window">
             <field name="name">Deliverables</field>
