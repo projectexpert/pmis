@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Work Breakdown Structure',
-    'version': '8.0.2.3.0',
+    'version': '8.0.2.3.1',
     'author': 'Eficent, '
               'Matmoz d.o.o., '
               'Project Expert Team',
@@ -16,7 +16,8 @@
         'project',
         'analytic',
         'project_issue',
-        'account_analytic_analysis'
+        'account_analytic_analysis',
+        'web_one2many_kanban'
     ],
     'summary': 'Project Work Breakdown Structure',
     'data': [
@@ -26,7 +27,6 @@
         # 'security/ir.model.access.csv',
     ],
     'demo': [
-
     ],
     'test': [
     ],

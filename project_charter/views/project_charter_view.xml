@@ -42,7 +42,7 @@
                             <page string="Scope">
                                 <group string="Project Scope">
                                     <newline/>
-                                    <field name="child_ids" nolabel="1" context="{'default_project_id': active_id}"/>
+                                    <field name="project_child_complete_ids" nolabel="1" context="{'default_project_id': active_id}"/>
                                 </group>
                                 <group string="Project Exclusions">
                                     <group>
