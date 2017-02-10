@@ -2,13 +2,13 @@
 /*© 2015 MATMOZ d.o.o. - Matjaž Mozetič*/
 /*License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).*/
 .openerp .oe_kanban_view .oe_kanban_wbs {
-    width: 255px;
+    width: 340px;
     min-height: 260px;
 }
 
 .openerp .oe_kanban_view .oe_wbs_button {
-    width: 115px;
-    height: 24px;
+    width: 170px;
+    /*height: 24px;*/
     padding: 3px 0;
     /*margin: 2px;*/
     text-align: center;
@@ -18,8 +18,8 @@
 }
 
 .openerp .oe_kanban_view .oe_wbs_button:hover {
-    width: 115px;
-    height: 24px;
+    width: 170px;
+    /*height: 24px;*/
     padding: 3px 0;
     /*margin: 2px;*/
     text-align: center;
@@ -29,19 +29,19 @@
 }
 
 .openerp .oe_kanban_view .oe_wbs_navigation {
-    width: 85px;
-    height: 24px;
-    padding: 3px 0;
-    margin: 2px;
+    width: 170px;
+    /*height: 24px;*/
+    /*padding: 3px 0;*/
+    /*margin: 2px;*/
     text-align: center;
     background-color: rgba(155,89,136,0.05);
 }
 
 .openerp .oe_kanban_view .oe_wbs_navigation:hover {
-    width: 85px;
-    height: 24px;
-    padding: 3px 0;
-    margin: 2px;
+    width: 170px;
+    /*height: 24px;*/
+    /*padding: 3px 0;*/
+    /*margin: 2px;*/
     text-align: center;
     background-color: rgba(155,89,136,0.40);
 }
@@ -57,4 +57,8 @@
 
 .subheading{
     font-size: 0.5em;
+}
+
+.parentheading{
+    font-size: 0.8em;
 }

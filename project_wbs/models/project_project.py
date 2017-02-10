@@ -458,7 +458,7 @@ class Project(osv.osv):
             context = {}
         project = self.browse(cr, uid, ids[0], context)
         res = self.pool.get('ir.actions.act_window').for_xml_id(
-            cr, uid, 'project_wbs', 'open_view_wbs_tree', context
+            cr, uid, 'project_wbs', 'open_view_project_wbs', context
         )
         if project.parent_id:
             for parent_project_id in self.pool.get('project.project').search(
