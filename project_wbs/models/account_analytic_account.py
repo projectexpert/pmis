@@ -295,7 +295,7 @@ class AccountAnalyticAccount(orm.Model):
                     data.insert(0, '')
 
                 acc = acc.parent_id
-            data = ' / '.join(data)
+            data = '/'.join(data)
             res.append((account.id, data))
         return res
 
@@ -323,7 +323,7 @@ class AccountAnalyticAccount(orm.Model):
                     data.insert(0, '')
                 acc = acc.parent_id
 
-            data = ' / '.join(data)
+            data = '/'.join(data)
             res2 = self.code_get(cr, uid, [account.id], context=None)
             if res2:
                 data = '[' + res2[0][1] + '] ' + data
