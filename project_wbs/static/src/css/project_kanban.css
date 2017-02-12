@@ -1,13 +1,18 @@
 @charset "utf-8";
 /*© 2015 MATMOZ d.o.o. - Matjaž Mozetič*/
 /*License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).*/
+.openerp .oe_kanban_project {
+    width: 300px;
+    min-height: 400px;
+}
+
 .openerp .oe_kanban_view .oe_kanban_wbs {
-    width: 340px;
-    min-height: 260px;
+    width: 300px;
+    min-height: 400px;
 }
 
 .openerp .oe_kanban_view .oe_wbs_button {
-    width: 170px;
+    width: 290px;
     /*height: 24px;*/
     padding: 3px 0;
     /*margin: 2px;*/
@@ -18,7 +23,7 @@
 }
 
 .openerp .oe_kanban_view .oe_wbs_button:hover {
-    width: 170px;
+    width: 290px;
     /*height: 24px;*/
     padding: 3px 0;
     /*margin: 2px;*/
@@ -29,7 +34,7 @@
 }
 
 .openerp .oe_kanban_view .oe_wbs_navigation {
-    width: 170px;
+    width: 290px;
     /*height: 24px;*/
     /*padding: 3px 0;*/
     /*margin: 2px;*/
@@ -38,7 +43,7 @@
 }
 
 .openerp .oe_kanban_view .oe_wbs_navigation:hover {
-    width: 170px;
+    width: 290px;
     /*height: 24px;*/
     /*padding: 3px 0;*/
     /*margin: 2px;*/
@@ -60,5 +65,14 @@
 }
 
 .parentheading{
-    font-size: 0.8em;
+    font-size: 9px;
+}
+
+.openerp .oe_tag {
+  border: 0px solid #afafb6;
+  font-size: 9px;
+  padding: 2px 4px;
+  margin: 0 2px 2px 0;
+  background: #7c7bad;
+  color: #ffffff;
 }

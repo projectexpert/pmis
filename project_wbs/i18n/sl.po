@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-08 13:20+0100\n"
-"PO-Revision-Date: 2017-02-08 13:20+0100\n"
+"POT-Creation-Date: 2017-02-12 10:38+0100\n"
+"PO-Revision-Date: 2017-02-12 10:38+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -109,6 +109,7 @@ msgstr "Podrejeni elementi členitve"
 #: field:account.analytic.account,account_class:0
 #: view:project.project:project_wbs.edit_project
 #: view:project.project:project_wbs.view_project
+#: view:project.project:project_wbs.view_project_project_filter
 #: field:project.project,account_class:0
 msgid "Class"
 msgstr "Razred"
@@ -261,16 +262,6 @@ msgid "Full path in the WBS hierarchy"
 msgstr "Polna pot v WBS hierarhiji"
 
 #. module: project_wbs
-#: view:project.project:project_wbs.view_project_kanban
-msgid "GO DOWN"
-msgstr "Podrejeni"
-
-#. module: project_wbs
-#: view:project.project:project_wbs.view_project_kanban
-msgid "GO UP"
-msgstr "Nadrejeni"
-
-#. module: project_wbs
 #: field:project.project,recurring_invoices:0
 msgid "Generate recurring invoices automatically"
 msgstr "Samodejno ustvari ponavljajoče se račune"
@@ -340,11 +331,13 @@ msgid "Level"
 msgstr "Nivo"
 
 #. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:project.project:project_wbs.view_project_project_filter
 msgid "Master Portfolio"
 msgstr "Nosilni portfelj"
 
 #. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:project.project:project_wbs.view_project_project_filter
 msgid "Master Program"
 msgstr "Nosilni program"
@@ -412,7 +405,6 @@ msgstr "Zapadla količina"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
-#: view:project.project:project_wbs.view_project
 msgid "Parent"
 msgstr "Nadrejeni"
 
@@ -434,6 +426,13 @@ msgid "Portfolio"
 msgstr "Portfelj"
 
 #. module: project_wbs
+#: model:ir.actions.act_window,name:project_wbs.group_portfolio
+#: model:ir.actions.act_window,name:project_wbs.group_program
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_portfolio
+msgid "Portfolios"
+msgstr "Portfelji"
+
+#. module: project_wbs
 #: field:project.project,pricelist_id:0
 msgid "Pricelist"
 msgstr "Cenik"
@@ -444,6 +443,11 @@ msgstr "Cenik"
 #: field:project.project,program_analytic_account_id:0
 msgid "Program"
 msgstr "Program"
+
+#. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_program
+msgid "Programs"
+msgstr "Programi"
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
@@ -478,6 +482,9 @@ msgstr "Konfiguracija projekta"
 
 #. module: project_wbs
 #: code:addons/project_wbs/models/project_project.py:335
+#: model:ir.actions.act_window,name:project_wbs.group_project
+#: model:ir.actions.act_window,name:project_wbs.group_subproject
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_project
 #, python-format
 msgid "Projects"
 msgstr "Projekti"
@@ -554,6 +561,11 @@ msgstr "Korenski projekt v razčlenitveni hierarhiji"
 #: view:project.project:project_wbs.view_project
 msgid "Start Date"
 msgstr "Začetni datum"
+
+#. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_subproject
+msgid "Sub-projects"
+msgstr "Pod-projekti\t"
 
 #. module: project_wbs
 #: help:project.project,fix_price_to_invoice:0
@@ -689,11 +701,6 @@ msgid "WBS Code"
 msgstr "Koda členitve"
 
 #. module: project_wbs
-#: model:ir.ui.menu,name:project_wbs.menu_fullwbs
-msgid "WBS Edit"
-msgstr "Urejanje členitve"
-
-#. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_list
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_tree
@@ -714,6 +721,7 @@ msgstr "Elementi členitve"
 
 #. module: project_wbs
 #: model:ir.actions.act_window,name:project_wbs.open_view_wbs_tree
+#: model:ir.ui.menu,name:project_wbs.menu_fullwbs
 msgid "WBS overview"
 msgstr "Pregled členitve"
 
@@ -778,11 +786,17 @@ msgstr "on_change_parent(parent_id)"
 msgid "top"
 msgstr "top"
 
+#~ msgid "GO DOWN"
+#~ msgstr "Podrejeni"
+
+#~ msgid "GO UP"
+#~ msgstr "Nadrejeni"
+
+#~ msgid "WBS Edit"
+#~ msgstr "Urejanje členitve"
+
 #~ msgid "Full WBS"
 #~ msgstr "Celotna členitev"
-
-#~ msgid "Portfolios"
-#~ msgstr "Portfelji"
 
 #~ msgid ""
 #~ "<p class=\"oe_view_nocontent_create\">\n"
@@ -823,9 +837,6 @@ msgstr "top"
 
 #~ msgid "Phases or Deliverables"
 #~ msgstr "Faze ali dobave"
-
-#~ msgid "Programs"
-#~ msgstr "Programi"
 
 #~ msgid ""
 #~ "Stock with reference to this analytic account is considered to be "

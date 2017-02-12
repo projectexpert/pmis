@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-08 13:21+0100\n"
-"PO-Revision-Date: 2017-02-08 13:21+0100\n"
+"POT-Creation-Date: 2017-02-12 10:38+0100\n"
+"PO-Revision-Date: 2017-02-12 10:50+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -21,6 +21,7 @@ msgstr ""
 #: help:project.project,toinvoice_total:0
 msgid " Sum of everything that could be invoiced for this contract."
 msgstr ""
+"Somma di tutto quello, che potrebbe essere fatturato per questo contratto."
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project
@@ -28,6 +29,8 @@ msgid ""
 "#555487:account_class == 'phase';#31305C:account_class == 'program';#807FA2:"
 "account_class == 'deliverable';"
 msgstr ""
+"#555487:account_class == 'phase';#31305C:account_class == 'program';#807FA2:"
+"account_class == 'deliverable';"
 
 #. module: project_wbs
 #: code:addons/project_wbs/models/project_project.py:290
@@ -92,11 +95,13 @@ msgid ""
 "if all these costs have been invoiced at the normal sale price provided by "
 "the pricelist."
 msgstr ""
+"Basato sui costi avuti sul progetto, cosa sarebbero i ricavati, se tutti "
+"questi costi sarebbero fatturati con il prezzo da listino"
 
 #. module: project_wbs
 #: help:project.project,use_timesheets:0
 msgid "Check this field if this project manages timesheets"
-msgstr ""
+msgstr "Segna questo campo, se questo progetto gestisce orari e presenze"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project
@@ -110,6 +115,7 @@ msgstr "Elementi WBS subordinati"
 #: field:account.analytic.account,account_class:0
 #: view:project.project:project_wbs.edit_project
 #: view:project.project:project_wbs.view_project
+#: view:project.project:project_wbs.view_project_project_filter
 #: field:project.project,account_class:0
 msgid "Class"
 msgstr "Classe"
@@ -136,6 +142,7 @@ msgid ""
 "Computed using the formula: Expected on timesheets - Total invoiced on "
 "timesheets"
 msgstr ""
+"Calcolato usando la formula: previsto su orari - totale fatturato dagli orari"
 
 #. module: project_wbs
 #: help:project.project,real_margin:0
@@ -175,22 +182,22 @@ msgstr "Crea elemento WBS subordinato"
 #. module: project_wbs
 #: field:project.project,last_worked_date:0
 msgid "Date of Last Cost/Work"
-msgstr ""
+msgstr "Data ultimo costo/lavorazione"
 
 #. module: project_wbs
 #: field:project.project,last_worked_invoiced_date:0
 msgid "Date of Last Invoiced Cost"
-msgstr ""
+msgstr "Data ultimo costo fatturato"
 
 #. module: project_wbs
 #: field:project.project,recurring_next_date:0
 msgid "Date of Next Invoice"
-msgstr ""
+msgstr "Data prossima fattura"
 
 #. module: project_wbs
 #: help:project.project,last_worked_date:0
 msgid "Date of the latest work done on this account."
-msgstr ""
+msgstr "Data ultima lavorazione su questo conto"
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
@@ -206,7 +213,7 @@ msgstr "Consegnabili"
 #: code:addons/project_wbs/models/form_button.py:20
 #, python-format
 msgid "Details"
-msgstr ""
+msgstr "Dettagli"
 
 #. module: project_wbs
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_form
@@ -222,7 +229,7 @@ msgstr "Data finale"
 #. module: project_wbs
 #: field:project.project,hours_qtt_est:0
 msgid "Estimation of Hours to Invoice"
-msgstr ""
+msgstr "Stima ore da fatturare"
 
 #. module: project_wbs
 #: help:project.project,remaining_total:0
@@ -235,7 +242,7 @@ msgstr ""
 #. module: project_wbs
 #: field:project.project,fix_price_invoices:0
 msgid "Fixed Price"
-msgstr ""
+msgstr "Prezzo fisso"
 
 #. module: project_wbs
 #: field:account.analytic.account,complete_wbs_code:0
@@ -256,16 +263,6 @@ msgstr "Via WBS completa"
 #: help:project.project,complete_wbs_name:0
 msgid "Full path in the WBS hierarchy"
 msgstr "Via completa nella gerarchia WBS"
-
-#. module: project_wbs
-#: view:project.project:project_wbs.view_project_kanban
-msgid "GO DOWN"
-msgstr ""
-
-#. module: project_wbs
-#: view:project.project:project_wbs.view_project_kanban
-msgid "GO UP"
-msgstr ""
 
 #. module: project_wbs
 #: field:project.project,recurring_invoices:0
@@ -300,7 +297,7 @@ msgstr ""
 #. module: project_wbs
 #: field:project.project,recurring_invoice_line_ids:0
 msgid "Invoice Lines"
-msgstr ""
+msgstr "Righe fattura"
 
 #. module: project_wbs
 #: help:project.project,recurring_rule_type:0
@@ -310,12 +307,12 @@ msgstr ""
 #. module: project_wbs
 #: field:project.project,amount_invoiced:0 field:project.project,ca_invoiced:0
 msgid "Invoiced Amount"
-msgstr ""
+msgstr "Ammontare fatturato"
 
 #. module: project_wbs
 #: field:project.project,hours_qtt_invoiced:0
 msgid "Invoiced Time"
-msgstr ""
+msgstr "Tempo fatturato"
 
 #. module: project_wbs
 #: help:project.project,amount_max:0
@@ -325,7 +322,7 @@ msgstr ""
 #. module: project_wbs
 #: field:project.project,last_invoice_date:0
 msgid "Last Invoice Date"
-msgstr ""
+msgstr "Data ultima fattura"
 
 #. module: project_wbs
 #: field:account.analytic.account,wbs_indent:0
@@ -334,11 +331,13 @@ msgid "Level"
 msgstr "Livello"
 
 #. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:project.project:project_wbs.view_project_project_filter
 msgid "Master Portfolio"
 msgstr "Portfolio principale"
 
 #. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:project.project:project_wbs.view_project_project_filter
 msgid "Master Program"
 msgstr "Programma principale"
@@ -352,7 +351,7 @@ msgstr "Progetto principale"
 #. module: project_wbs
 #: field:project.project,amount_max:0
 msgid "Max. Invoice Price"
-msgstr ""
+msgstr "Prezzo massimo fatturabile"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
@@ -362,7 +361,7 @@ msgstr "Miscellaneo"
 #. module: project_wbs
 #: field:project.project,month_ids:0
 msgid "Month"
-msgstr ""
+msgstr "Mese"
 
 #. module: project_wbs
 #: help:project.project,hours_qtt_non_invoiced:0
@@ -370,6 +369,8 @@ msgid ""
 "Number of time (hours/days) (from journal of type 'general') that can be "
 "invoiced if you invoice based on analytic account."
 msgstr ""
+"Quantità di tempo (ore/giorni) (dal giornale di tipo 'generico') che si può "
+"fatturare, se se fattura in base al conto analitico"
 
 #. module: project_wbs
 #: help:project.project,hours_qtt_invoiced:0
@@ -377,6 +378,7 @@ msgid ""
 "Number of time (hours/days) that can be invoiced plus those that already "
 "have been invoiced."
 msgstr ""
+"Quantita di tempo (ore/giorni) che si può fatturare più quello già fatturato."
 
 #. module: project_wbs
 #: help:project.project,hours_quantity:0
@@ -402,7 +404,6 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
-#: view:project.project:project_wbs.view_project
 msgid "Parent"
 msgstr "Genitore"
 
@@ -421,12 +422,19 @@ msgstr "Fase"
 #: field:account.analytic.account,portfolio_analytic_account_id:0
 #: field:project.project,portfolio_analytic_account_id:0
 msgid "Portfolio"
-msgstr "Portfolio"
+msgstr "Portafoglio"
+
+#. module: project_wbs
+#: model:ir.actions.act_window,name:project_wbs.group_portfolio
+#: model:ir.actions.act_window,name:project_wbs.group_program
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_portfolio
+msgid "Portfolios"
+msgstr "Portafogli\t"
 
 #. module: project_wbs
 #: field:project.project,pricelist_id:0
 msgid "Pricelist"
-msgstr ""
+msgstr "Listino prezzi"
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
@@ -434,6 +442,11 @@ msgstr ""
 #: field:project.project,program_analytic_account_id:0
 msgid "Program"
 msgstr "Programma"
+
+#. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_program
+msgid "Programs"
+msgstr "Programmi"
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
@@ -468,6 +481,9 @@ msgstr "Configurazione progetto"
 
 #. module: project_wbs
 #: code:addons/project_wbs/models/project_project.py:335
+#: model:ir.actions.act_window,name:project_wbs.group_project
+#: model:ir.actions.act_window,name:project_wbs.group_subproject
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_project
 #, python-format
 msgid "Projects"
 msgstr "Progetti"
@@ -546,6 +562,11 @@ msgid "Start Date"
 msgstr "Data d'inizio"
 
 #. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_subproject
+msgid "Sub-projects"
+msgstr "Sotto-progetto\t"
+
+#. module: project_wbs
 #: help:project.project,fix_price_to_invoice:0
 msgid "Sum of quotations for this contract."
 msgstr ""
@@ -585,7 +606,7 @@ msgstr ""
 #. module: project_wbs
 #: field:project.project,theorical_margin:0
 msgid "Theoretical Margin"
-msgstr ""
+msgstr "Margine teorico"
 
 #. module: project_wbs
 #: field:project.project,ca_theorical:0
@@ -615,17 +636,17 @@ msgstr "Totale stima"
 #. module: project_wbs
 #: field:project.project,invoiced_total:0
 msgid "Total Invoiced"
-msgstr ""
+msgstr "Totale fatturato"
 
 #. module: project_wbs
 #: field:project.project,remaining_total:0
 msgid "Total Remaining"
-msgstr ""
+msgstr "Rimanente totale"
 
 #. module: project_wbs
 #: field:project.project,hours_quantity:0
 msgid "Total Worked Time"
-msgstr ""
+msgstr "Totale tempo lavorato"
 
 #. module: project_wbs
 #: help:project.project,ca_invoiced:0
@@ -635,7 +656,7 @@ msgstr ""
 #. module: project_wbs
 #: help:project.project,amount_invoiced:0
 msgid "Total invoiced"
-msgstr ""
+msgstr "Totale fatturato"
 
 #. module: project_wbs
 #: help:project.project,total_cost:0
@@ -647,7 +668,7 @@ msgstr ""
 #. module: project_wbs
 #: field:project.project,toinvoice_total:0
 msgid "Total to Invoice"
-msgstr ""
+msgstr "Totale da fatturare"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
@@ -657,12 +678,12 @@ msgstr "Vero"
 #. module: project_wbs
 #: field:project.project,ca_to_invoice:0
 msgid "Uninvoiced Amount"
-msgstr ""
+msgstr "Ammontare non fatturato"
 
 #. module: project_wbs
 #: field:project.project,hours_qtt_non_invoiced:0
 msgid "Uninvoiced Time"
-msgstr ""
+msgstr "Tempo non fatturato"
 
 #. module: project_wbs
 #: field:project.project,user_ids:0
@@ -673,11 +694,6 @@ msgstr "Utente"
 #: field:project.project,c_wbs_code:0
 msgid "WBS Code"
 msgstr "Codice WBS"
-
-#. module: project_wbs
-#: model:ir.ui.menu,name:project_wbs.menu_fullwbs
-msgid "WBS Edit"
-msgstr ""
 
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
@@ -700,6 +716,7 @@ msgstr "Elementi WBS"
 
 #. module: project_wbs
 #: model:ir.actions.act_window,name:project_wbs.open_view_wbs_tree
+#: model:ir.ui.menu,name:project_wbs.menu_fullwbs
 msgid "WBS overview"
 msgstr "Struttura progetti"
 
@@ -729,6 +746,9 @@ msgid ""
 "account_class in 'project';bold:account_class in 'phase';bold:account_class "
 "in 'deliverable';italic:state in 'cancelled'"
 msgstr ""
+"bold:account_class in 'portfolio';bold:account_class in 'program';bold:"
+"account_class in 'project';bold:account_class in 'phase';bold:account_class "
+"in 'deliverable';italic:state in 'cancelled'"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project
@@ -796,9 +816,6 @@ msgstr ""
 
 #~ msgid "Phases or Deliverables"
 #~ msgstr "Fasi o consegnabili"
-
-#~ msgid "Programs"
-#~ msgstr "Programmi"
 
 #~ msgid "Warehouse"
 #~ msgstr "Magazzino"

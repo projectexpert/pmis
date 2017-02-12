@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-08 12:20+0000\n"
-"PO-Revision-Date: 2017-02-08 12:20+0000\n"
+"POT-Creation-Date: 2017-02-12 09:37+0000\n"
+"PO-Revision-Date: 2017-02-12 09:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -84,6 +84,7 @@ msgstr ""
 #: field:account.analytic.account,account_class:0
 #: view:project.project:project_wbs.edit_project
 #: view:project.project:project_wbs.view_project
+#: view:project.project:project_wbs.view_project_project_filter
 #: field:project.project,account_class:0
 msgid "Class"
 msgstr ""
@@ -227,16 +228,6 @@ msgid "Full path in the WBS hierarchy"
 msgstr ""
 
 #. module: project_wbs
-#: view:project.project:project_wbs.view_project_kanban
-msgid "GO DOWN"
-msgstr ""
-
-#. module: project_wbs
-#: view:project.project:project_wbs.view_project_kanban
-msgid "GO UP"
-msgstr ""
-
-#. module: project_wbs
 #: field:project.project,recurring_invoices:0
 msgid "Generate recurring invoices automatically"
 msgstr ""
@@ -300,11 +291,13 @@ msgid "Level"
 msgstr ""
 
 #. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:project.project:project_wbs.view_project_project_filter
 msgid "Master Portfolio"
 msgstr ""
 
 #. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:project.project:project_wbs.view_project_project_filter
 msgid "Master Program"
 msgstr ""
@@ -362,7 +355,6 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
-#: view:project.project:project_wbs.view_project
 msgid "Parent"
 msgstr ""
 
@@ -384,6 +376,13 @@ msgid "Portfolio"
 msgstr ""
 
 #. module: project_wbs
+#: model:ir.actions.act_window,name:project_wbs.group_portfolio
+#: model:ir.actions.act_window,name:project_wbs.group_program
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_portfolio
+msgid "Portfolios"
+msgstr ""
+
+#. module: project_wbs
 #: field:project.project,pricelist_id:0
 msgid "Pricelist"
 msgstr ""
@@ -393,6 +392,11 @@ msgstr ""
 #: field:account.analytic.account,program_analytic_account_id:0
 #: field:project.project,program_analytic_account_id:0
 msgid "Program"
+msgstr ""
+
+#. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_program
+msgid "Programs"
 msgstr ""
 
 #. module: project_wbs
@@ -428,6 +432,9 @@ msgstr ""
 
 #. module: project_wbs
 #: code:addons/project_wbs/models/project_project.py:335
+#: model:ir.actions.act_window,name:project_wbs.group_project
+#: model:ir.actions.act_window,name:project_wbs.group_subproject
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_project
 #, python-format
 msgid "Projects"
 msgstr ""
@@ -503,6 +510,11 @@ msgstr ""
 #: view:project.project:project_wbs.edit_project
 #: view:project.project:project_wbs.view_project
 msgid "Start Date"
+msgstr ""
+
+#. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_subproject
+msgid "Sub-projects"
 msgstr ""
 
 #. module: project_wbs
@@ -623,11 +635,6 @@ msgid "WBS Code"
 msgstr ""
 
 #. module: project_wbs
-#: model:ir.ui.menu,name:project_wbs.menu_fullwbs
-msgid "WBS Edit"
-msgstr ""
-
-#. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_list
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_tree
@@ -648,6 +655,7 @@ msgstr ""
 
 #. module: project_wbs
 #: model:ir.actions.act_window,name:project_wbs.open_view_wbs_tree
+#: model:ir.ui.menu,name:project_wbs.menu_fullwbs
 msgid "WBS overview"
 msgstr ""
 

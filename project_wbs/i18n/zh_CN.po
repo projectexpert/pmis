@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-08 13:21+0100\n"
-"PO-Revision-Date: 2017-02-08 13:22+0100\n"
+"POT-Creation-Date: 2017-02-12 10:50+0100\n"
+"PO-Revision-Date: 2017-02-12 10:50+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -101,6 +101,7 @@ msgstr "下级WBS元素"
 #: field:account.analytic.account,account_class:0
 #: view:project.project:project_wbs.edit_project
 #: view:project.project:project_wbs.view_project
+#: view:project.project:project_wbs.view_project_project_filter
 #: field:project.project,account_class:0
 msgid "Class"
 msgstr "类"
@@ -249,16 +250,6 @@ msgid "Full path in the WBS hierarchy"
 msgstr "在WBS层级结构中的完整路径"
 
 #. module: project_wbs
-#: view:project.project:project_wbs.view_project_kanban
-msgid "GO DOWN"
-msgstr ""
-
-#. module: project_wbs
-#: view:project.project:project_wbs.view_project_kanban
-msgid "GO UP"
-msgstr ""
-
-#. module: project_wbs
 #: field:project.project,recurring_invoices:0
 msgid "Generate recurring invoices automatically"
 msgstr ""
@@ -326,11 +317,13 @@ msgid "Level"
 msgstr "层级"
 
 #. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:project.project:project_wbs.view_project_project_filter
 msgid "Master Portfolio"
 msgstr ""
 
 #. module: project_wbs
+#: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:project.project:project_wbs.view_project_project_filter
 msgid "Master Program"
 msgstr ""
@@ -394,7 +387,6 @@ msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
-#: view:project.project:project_wbs.view_project
 msgid "Parent"
 msgstr "上级"
 
@@ -416,6 +408,13 @@ msgid "Portfolio"
 msgstr ""
 
 #. module: project_wbs
+#: model:ir.actions.act_window,name:project_wbs.group_portfolio
+#: model:ir.actions.act_window,name:project_wbs.group_program
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_portfolio
+msgid "Portfolios"
+msgstr ""
+
+#. module: project_wbs
 #: field:project.project,pricelist_id:0
 msgid "Pricelist"
 msgstr ""
@@ -426,6 +425,12 @@ msgstr ""
 #: field:project.project,program_analytic_account_id:0
 msgid "Program"
 msgstr ""
+
+#. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_program
+#, fuzzy
+msgid "Programs"
+msgstr "进行中"
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
@@ -460,6 +465,9 @@ msgstr "项目配置"
 
 #. module: project_wbs
 #: code:addons/project_wbs/models/project_project.py:335
+#: model:ir.actions.act_window,name:project_wbs.group_project
+#: model:ir.actions.act_window,name:project_wbs.group_subproject
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_project
 #, python-format
 msgid "Projects"
 msgstr "项目"
@@ -539,6 +547,12 @@ msgstr ""
 #: view:project.project:project_wbs.view_project
 msgid "Start Date"
 msgstr "起始日期"
+
+#. module: project_wbs
+#: model:ir.ui.menu,name:project_wbs.menu_project_wbs_subproject
+#, fuzzy
+msgid "Sub-projects"
+msgstr "项目"
 
 #. module: project_wbs
 #: help:project.project,fix_price_to_invoice:0
@@ -667,11 +681,6 @@ msgid "WBS Code"
 msgstr "WBS编号"
 
 #. module: project_wbs
-#: model:ir.ui.menu,name:project_wbs.menu_fullwbs
-msgid "WBS Edit"
-msgstr "\t"
-
-#. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_list
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_tree
@@ -692,6 +701,7 @@ msgstr "WBS元素"
 
 #. module: project_wbs
 #: model:ir.actions.act_window,name:project_wbs.open_view_wbs_tree
+#: model:ir.ui.menu,name:project_wbs.menu_fullwbs
 #, fuzzy
 msgid "WBS overview"
 msgstr "WBS编号"
@@ -747,6 +757,9 @@ msgstr "on_change_parent(parent_id)"
 msgid "top"
 msgstr ""
 
+#~ msgid "WBS Edit"
+#~ msgstr "\t"
+
 #, fuzzy
 #~ msgid "Full WBS"
 #~ msgstr "完整的WBS编号"
@@ -772,10 +785,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Delivery Address"
 #~ msgstr "交付物"
-
-#, fuzzy
-#~ msgid "Programs"
-#~ msgstr "进行中"
 
 #~ msgid "Work Packages"
 #~ msgstr "任务包"

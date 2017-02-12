@@ -57,38 +57,38 @@ class Project(osv.osv):
             result.extend(ppid.keys())
         return result
 
-    def name_get(self, cr, uid, ids, context=None):
-
-        if not ids:
-            return []
-        if type(ids) is int:
-            ids = [ids]
-        res = []
-
-        new_list = []
-        for i in ids:
-            if i not in new_list:
-                new_list.append(i)
-        ids = new_list
-
-        for project_item in self.browse(cr, uid, ids, context=context):
-            data = []
-            proj = project_item
-
-            while proj:
-                if proj and proj.name:
-                    data.insert(0, proj.name)
-                else:
-                    data.insert(0, '')
-
-                proj = proj.parent_id
-            data = '/'.join(data)
-            res2 = self.code_get(cr, uid, [project_item.id], context=None)
-            if res2:
-                data = '[' + res2[0][1] + '] ' + data
-
-            res.append((project_item.id, data))
-        return res
+    # def name_get(self, cr, uid, ids, context=None):
+    #
+    #     if not ids:
+    #         return []
+    #     if type(ids) is int:
+    #         ids = [ids]
+    #     res = []
+    #
+    #     new_list = []
+    #     for i in ids:
+    #         if i not in new_list:
+    #             new_list.append(i)
+    #     ids = new_list
+    #
+    #     for project_item in self.browse(cr, uid, ids, context=context):
+    #         data = []
+    #         proj = project_item
+    #
+    #         while proj:
+    #             if proj and proj.name:
+    #                 data.insert(0, proj.name)
+    #             else:
+    #                 data.insert(0, '')
+    #
+    #             proj = proj.parent_id
+    #         data = '/'.join(data)
+    #         res2 = self.code_get(cr, uid, [project_item.id], context=None)
+    #         if res2:
+    #             data = '[' + res2[0][1] + '] ' + data
+    #
+    #         res.append((project_item.id, data))
+    #     return res
 
     def code_get(self, cr, uid, ids, context=None):
         if not ids:
@@ -189,8 +189,9 @@ class Project(osv.osv):
         for project in self.browse(
                 cr, uid, ids, context=context
         ):
-            result[project.id] = \
+            result[project.id] = (
                 project.analytic_account_id.complete_wbs_code_calc
+            )
 
         return result
 
@@ -256,11 +257,10 @@ class Project(osv.osv):
         )
         project = projectbycode + projectbyname
 
-        return self.name_get(cr, uid, project, context=context)
+        return self
 
     # Override the standard behaviour of duplicate_template not introducing
-    # the (copy) string
-    # to the copied projects.
+    # the (copy) string to the copied projects.
     def duplicate_template(self, cr, uid, ids, context=None):
         if context is None:
             context = {}
