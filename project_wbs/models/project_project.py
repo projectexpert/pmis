@@ -257,7 +257,7 @@ class Project(osv.osv):
         )
         project = projectbycode + projectbyname
 
-        return self
+        return self.name_get(cr, uid, project, context=context)
 
     # Override the standard behaviour of duplicate_template not introducing
     # the (copy) string to the copied projects.
