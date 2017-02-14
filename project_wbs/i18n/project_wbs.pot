@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-12 09:37+0000\n"
-"PO-Revision-Date: 2017-02-12 09:37+0000\n"
+"POT-Creation-Date: 2017-02-14 06:37+0000\n"
+"PO-Revision-Date: 2017-02-14 06:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -483,6 +483,11 @@ msgid "Revenue per Time (real)"
 msgstr ""
 
 #. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Root Analytic Accounts"
+msgstr ""
+
+#. module: project_wbs
 #: help:account.analytic.account,portfolio_analytic_account_id:0
 #: help:project.project,portfolio_analytic_account_id:0
 msgid "Root Portfolio in the WBS hierarchy"
@@ -651,6 +656,11 @@ msgstr ""
 #: model:ir.actions.act_window,name:project_wbs.create_wbs_element
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_wbs
 msgid "WBS elements"
+msgstr ""
+
+#. module: project_wbs
+#: model:ir.actions.act_window,name:project_wbs.open_view_wbs_kanban
+msgid "WBS kanban"
 msgstr ""
 
 #. module: project_wbs

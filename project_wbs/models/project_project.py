@@ -444,7 +444,17 @@ class Project(osv.osv):
 
         return self.action_openChildView(
             cr, uid, ids, 'project_wbs',
-            'open_view_wbs_tree',
+            'open_view_project_wbs',
+            context=context
+        )
+
+    def action_openChildKanbanView(
+            self, cr, uid, ids, context=None
+    ):
+
+        return self.action_openChildView(
+            cr, uid, ids, 'project_wbs',
+            'open_view_wbs_kanban',
             context=context
         )
 
@@ -476,3 +486,25 @@ class Project(osv.osv):
         return self.pool.get('account.analytic.account').on_change_parent(
             cr, uid, ids, parent_id
         )
+
+    def action_openParentKanbanView(
+            self, cr, uid, ids, context=None
+    ):
+        """
+        :return dict: dictionary value for created view
+        """
+        if context is None:
+            context = {}
+        project = self.browse(cr, uid, ids[0], context)
+        res = self.pool.get('ir.actions.act_window').for_xml_id(
+            cr, uid, 'project_wbs', 'open_view_wbs_kanban', context
+        )
+        if project.parent_id:
+            for parent_project_id in self.pool.get('project.project').search(
+                    cr, uid,
+                    [('analytic_account_id', '=', project.parent_id.id)]
+            ):
+                res['domain'] = "[('id','='," + str(parent_project_id) + ")]"
+
+        res['nodestroy'] = False
+        return res

@@ -22,7 +22,7 @@
                     </div>
                     </a>
                     <div class="oe_nav_buttons text-center" name="wbs_navigation_up">
-                        <a name="action_openParentTreeView"
+                        <a name="action_openParentKanbanView"
                            type="object"
                            attrs="{'invisible': [('account_class', '=', 'portfolio')]}">
                             <div class="fa fa-level-up text-center oe_wbs_button oe_wbs_navigation">
@@ -31,7 +31,7 @@
                         </a>
                     </div>
                     <div class="oe_nav_buttons text-center" name="wbs_navigation_down">
-                        <a name="action_openChildTreeView"
+                        <a name="action_openChildKanbanView"
                            type="object">
                             <!--GO DOWN-->
                             <h6 class="fa fa-level-down oe_wbs_navigation text-center parentheading oe_kanban_action_a">
@@ -182,9 +182,11 @@
                 <xpath expr='//field[@name="state"]' position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
-                <xpath expr='//group[@name="group_alias"]' position="after">
-                    <group name="root_accounts">
+                <!--<xpath expr='//group[@name="group_alias"]' position="after">-->
+                <xpath expr='//sheet/group/p' position="replace">
+                    <group name="root_accounts" string="Root Analytic Accounts" class="smallertext border">
                         <!--<field name="account_class" string="Class"/>-->
+                        <field name="analytic_account_id" readonly="1" required="0"/>
                         <field name="portfolio_analytic_account_id"
                                domain="[('account_class', '=', 'portfolio')]"/>
                         <field name="program_analytic_account_id"
@@ -195,7 +197,7 @@
                                attrs="{'invisible': [('account_class','in', ('portfolio', 'program'))]}"/>
                         <!--<field name="code" string="Code"/>-->
                         <!--<field name="complete_wbs_code" string="WBS code" readonly="1" />-->
-                        <field name="complete_wbs_name" readonly="1" />
+                        <!--<field name="complete_wbs_name" readonly="1" />-->
                     </group>
                 </xpath>
             	<notebook position="inside">
@@ -265,8 +267,19 @@
             <field name="view_mode">kanban,tree,form,gantt</field>
             <field name="view_id" ref="project.view_project"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
-            <field name="context">{'search_default_Current': 1, 'default_account_class':'work_package', 'group_by': ['portfolio_analytic_account_id', 'program_analytic_account_id']}</field>
+            <field name="context">{'search_default_Current': 1, 'default_account_class': False, 'group_by': ['portfolio_analytic_account_id', 'program_analytic_account_id', 'project_analytic_account_id']}</field>
             <field name="domain">[['account_class', '!=', 'portfolio'], ['account_class', '!=', 'program']]</field>
+        </record>
+        <!--OPEN KANBAN ACTION BUTTON-->
+        <record id="open_view_wbs_kanban" model="ir.actions.act_window">
+            <field name="name">WBS kanban</field>
+            <field name="res_model">project.project</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form,gantt</field>
+            <field name="view_id" ref="project.view_project_kanban"/>
+            <field name="search_view_id" ref="project.view_project_project_filter"/>
+            <field name="context">{'search_default_Current': 1}</field>
+            <field name="domain">[]</field>
         </record>
 
         <!--MENU ACTION OPEN FULL WBS-->

@@ -98,3 +98,15 @@
     background-color: rgba(155, 89, 136, 0.40);
     padding-bottom: 10px;
 }
+
+.smallertext {
+    font-size: smaller;
+    text-align: center;
+}
+
+.border {
+    /*border: 1px solid lightgrey;*/
+    border-radius: 5px;
+    background-color: rgba(155,89,136,0.05);
+
+}

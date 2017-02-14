@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-12 10:38+0100\n"
-"PO-Revision-Date: 2017-02-12 10:50+0100\n"
+"POT-Creation-Date: 2017-02-14 07:39+0100\n"
+"PO-Revision-Date: 2017-02-14 07:40+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -389,8 +389,9 @@ msgstr ""
 
 #. module: project_wbs
 #: field:project.project,invoice_on_timesheets:0
+#, fuzzy
 msgid "On Timesheets"
-msgstr ""
+msgstr "Segna questo campo, se questo progetto gestisce orari e presenze"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
@@ -532,6 +533,11 @@ msgid "Revenue per Time (real)"
 msgstr ""
 
 #. module: project_wbs
+#: view:project.project:project_wbs.edit_project
+msgid "Root Analytic Accounts"
+msgstr "Radici analitiche"
+
+#. module: project_wbs
 #: help:account.analytic.account,portfolio_analytic_account_id:0
 #: help:project.project,portfolio_analytic_account_id:0
 msgid "Root Portfolio in the WBS hierarchy"
@@ -620,8 +626,9 @@ msgstr ""
 
 #. module: project_wbs
 #: field:project.project,use_timesheets:0
+#, fuzzy
 msgid "Timesheets"
-msgstr ""
+msgstr "Segna questo campo, se questo progetto gestisce orari e presenze"
 
 #. module: project_wbs
 #: field:project.project,total_cost:0
@@ -713,6 +720,11 @@ msgstr "Nome elemento WBS"
 #: model:ir.actions.act_window,name:project_wbs.open_view_project_wbs
 msgid "WBS elements"
 msgstr "Elementi WBS"
+
+#. module: project_wbs
+#: model:ir.actions.act_window,name:project_wbs.open_view_wbs_kanban
+msgid "WBS kanban"
+msgstr "WBS kanban"
 
 #. module: project_wbs
 #: model:ir.actions.act_window,name:project_wbs.open_view_wbs_tree
@@ -1015,9 +1027,6 @@ msgstr ""
 
 #~ msgid "Task"
 #~ msgstr "Attività"
-
-#~ msgid "WBS name"
-#~ msgstr "Nome WBS"
 
 #~ msgid "Current stage:"
 #~ msgstr "Stadio corrente"
