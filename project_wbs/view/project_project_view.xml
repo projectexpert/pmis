@@ -184,21 +184,23 @@
                 </xpath>
                 <!--<xpath expr='//group[@name="group_alias"]' position="after">-->
                 <xpath expr='//sheet/group/p' position="replace">
-                    <group name="root_accounts" string="Root Analytic Accounts" class="smallertext border">
-                        <!--<field name="account_class" string="Class"/>-->
-                        <field name="analytic_account_id" readonly="1" required="0"/>
-                        <field name="portfolio_analytic_account_id"
-                               domain="[('account_class', '=', 'portfolio')]"/>
-                        <field name="program_analytic_account_id"
-                               domain="[('account_class', '=', 'program')]"
-                               attrs="{'invisible': [('account_class','=', 'portfolio')]}"/>
-                        <field name="project_analytic_account_id"
-                               domain="[('account_class', '=', 'project')]"
-                               attrs="{'invisible': [('account_class','in', ('portfolio', 'program'))]}"/>
-                        <!--<field name="code" string="Code"/>-->
-                        <!--<field name="complete_wbs_code" string="WBS code" readonly="1" />-->
-                        <!--<field name="complete_wbs_name" readonly="1" />-->
-                    </group>
+                    <p>
+                        <group name="root_accounts" string="Root Analytic Accounts" class="smallertext border">
+                            <!--<field name="account_class" string="Class"/>-->
+                            <field name="analytic_account_id" readonly="1" required="0"/>
+                            <field name="portfolio_analytic_account_id"
+                                   domain="[('account_class', '=', 'portfolio')]"/>
+                            <field name="program_analytic_account_id"
+                                   domain="[('account_class', '=', 'program')]"
+                                   attrs="{'invisible': [('account_class','=', 'portfolio')]}"/>
+                            <field name="project_analytic_account_id"
+                                   domain="[('account_class', '=', 'project')]"
+                                   attrs="{'invisible': [('account_class','in', ('portfolio', 'program'))]}"/>
+                            <!--<field name="code" string="Code"/>-->
+                            <!--<field name="complete_wbs_code" string="WBS code" readonly="1" />-->
+                            <!--<field name="complete_wbs_name" readonly="1" />-->
+                        </group>
+                    </p>
                 </xpath>
             	<notebook position="inside">
 					<page string="Project configuration">
