@@ -10,9 +10,9 @@
                 <xpath expr="//div[contains(@class, 'oe_kanban_alias')]" position="before">
                     <a type="object" name="action_open_view_project_form">
                     <div class="oe_wbs_subtitle oe_nav_buttons">
-                        <h6>
+                        <div class="parentheading">
                             <field name="account_class"/>
-                        </h6>
+                        </div>
                         <div class="parentheading">
                             <field name="complete_wbs_name"/>
                         </div>
@@ -21,15 +21,31 @@
                         </div>
                     </div>
                     </a>
-                    <div class="oe_nav_buttons text-center" name="wbs_navigation_up">
+                    <div class="oe_nav_buttons text-center oe_tag_up"
+                         name="wbs_navigation_up"
+                         attrs="{'invisible': [('account_class', '=', 'portfolio')]}">
                         <a name="action_openParentKanbanView"
                            type="object"
-                           attrs="{'invisible': [('account_class', '=', 'portfolio')]}">
-                            <div class="fa fa-level-up text-center oe_wbs_button oe_wbs_navigation">
+                        >
+                            <!--<br></br>-->
+                            <div class="oe_tag_up text-center oe_wbs_navigation">
                                 <field name="parent_id"/>
+                                <br></br>
+                                <div class="fa fa-level-up"/>
                             </div>
                         </a>
                     </div>
+                    <!--<div class="oe_nav_buttons text-center" name="wbs_navigation_up">-->
+                        <!--<a name="action_openParentKanbanView"-->
+                           <!--type="object"-->
+                           <!--attrs="{'invisible': [('account_class', '=', 'portfolio')]}"-->
+                           <!--&gt;-->
+                            <!--<div class="oe_tag_up text-center oe_wbs_navigation">-->
+                                <!--<field name="parent_id"/>-->
+                                <!--<div class="fa fa-level-up"></div>-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--</div>-->
                     <div class="oe_nav_buttons text-center" name="wbs_navigation_down">
                         <a name="action_openChildKanbanView"
                            type="object">

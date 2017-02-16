@@ -56,8 +56,9 @@
     padding-bottom: 2px;
 }
 
-.oe_kanban_project_list{
+.openerp .oe_kanban_project_list{
     padding-top:  2px;
+    background-color: rgba(245,245,245, 0.35);
 }
 
 .subheading{
@@ -77,6 +78,15 @@
   color: #ffffff;
 }
 
+.oe_tag_up {
+  font-size: 10px;
+  /*padding: 2px 4px;*/
+  /*margin: 0 2px 2px 0;*/
+  color: #ffffff;
+  /*background-color: #7c7bad;*/
+  background-color: rgba(124, 123, 173, 0.60)
+}
+
 .oe_wbs_subtitle {
     width: 290px;
     /*height: 24px;*/
@@ -84,7 +94,7 @@
     /*margin: 2px;*/
     text-align: center;
     /*border: 1px solid #7c7bad;*/
-    background-color: rgba(155,89,136,0.08);
+    background-color: rgba(128, 119, 155, 0.10);
     padding-bottom: 10px;
 }
 
@@ -95,7 +105,7 @@
     /*margin: 2px;*/
     text-align: center;
     /*border: 1px solid #7c7bad;*/
-    background-color: rgba(155, 89, 136, 0.40);
+    background-color: rgba(128, 119, 155, 0.40);
     padding-bottom: 10px;
 }
 
