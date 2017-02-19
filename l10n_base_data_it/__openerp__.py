@@ -20,7 +20,6 @@
         'data_it/res.region.csv',
         'data_it/res.province.csv',
         'data_it/res.city.csv',
-        'data_it/res.partner.title.csv',
         'data_it/res.country.csv',
     ],
     'qweb': [],
