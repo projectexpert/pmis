@@ -180,7 +180,7 @@ and obtain sign-off from all key stakeholders.
         'Date Revised', help="Date of last revision."
     )
     change_category_id = fields.Many2one(
-        'change.management.category', 'Change Category', required=True,
+        'change.management.category', 'Change Category',
         help='''
 Change Category: The type of change in terms of the project's or business'
 chosen categories (e.g. Schedule, quality, legal etc.)
