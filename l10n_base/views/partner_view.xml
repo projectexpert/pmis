@@ -29,7 +29,7 @@
 		</field>
 	 </record>
 -->
-	<record model="ir.ui.view" id="view_partner_form_inherit_zip">
+	<record id="view_partner_form_inherit_zip" model="ir.ui.view">
 		<field name="name">partner.form.zip</field>
 		<field name="model">res.partner</field>
 		<field name="inherit_id" ref="base.view_partner_form"/>
@@ -40,10 +40,10 @@
 		</field>
 	 </record>
 
-	<record model="ir.ui.view" id="view_partner_form_inherit_city">
+	<record id="view_partner_form_inherit_city" model="ir.ui.view">
 		<field name="name">partner.form.city</field>
 		<field name="model">res.partner</field>
-			<field name="priority">160</field>
+        <field name="priority">160</field>
 		<field name="inherit_id" ref="base.view_partner_form"/>
 		<field name="type">form</field>
 
@@ -54,21 +54,45 @@
 				<field name="enable_region" invisible="1"/>
                 <field name="enable_state" invisible="1" />
             </field>
-		    <field name="city" position="replace" >
-                <field name="zip" placeholder="ZIP" on_change="on_change_zip(zip)"/>
-				<field name="city" placeholder="City" on_change="on_change_city(city,zip)"/>
+		    <!--<field name="city" position="replace" >-->
+                <!--<field name="zip" placeholder="ZIP" />-->
+				<!--<field name="city" placeholder="City" />-->
+            <!--</field>-->
+            <field name="city" position="before" >
+                <field name="zip" placeholder="ZIP" />
             </field>
 		    <field name="country_id" position="replace">
-                <field name="province" placeholder="Province" on_change="on_change_province(province)" attrs="{'readonly':[('find_city','!=',False)],'invisible':[('enable_province','!=',False)]}"/>
-				<field name="region" placeholder="Region" on_change="on_change_region(region)" attrs="{'readonly':[('province','!=',False)],'invisible':[('enable_region','!=',False)]}"/>
+                <field name="province" placeholder="Province" attrs="{'readonly':[('find_city','!=',False)],'invisible':[('enable_province','=',False)]}"/>
+				<field name="region" placeholder="Region" attrs="{'readonly':[('province','!=',False)],'invisible':[('enable_region','=',False)]}"/>
 				<field name="country_id" completion="1" attrs="{'readonly':[('region', '!=', False), ('auto_off', '=', False)]}"/>
                 <field name="auto_off" readonly="False" />
 			</field>
 			<field name="state_id" position="replace">
-				<field name="state_id" attrs="{'invisible':[('enable_state', '!=', False), ('auto_off', '=', False)]}"/>
+				<field name="state_id" attrs="{'invisible':[('enable_state', '=', False), ('auto_off', '=', False)]}"/>
 			</field>
-		</field>
-	 </record>
+
+            <xpath expr="/form/sheet/notebook/page[@string='Contacts']/field/form[@string='Contact']/sheet/group/div[@name='div_address']/field[@name='street']" position="after">
+                <field name="find_city" invisible="1" />
+                <field name="enable_province" invisible="1"/>
+				<field name="enable_region" invisible="1"/>
+                <field name="enable_state" invisible="1" />
+            </xpath>
+            <xpath expr="/form/sheet/notebook/page[@string='Contacts']/field/form[@string='Contact']/sheet/group/div[@name='div_address']/field[@name='country_id']" position="before">
+                <field name="province" placeholder="Province" attrs="{'readonly':[('find_city','!=',False)],'invisible':[('enable_province','=',False)]}"/>
+				<field name="region" placeholder="Region" attrs="{'readonly':[('province','!=',False)],'invisible':[('enable_region','=',False)]}"/>
+            </xpath>
+            <xpath expr="/form/sheet/notebook/page[@string='Contacts']/field/form[@string='Contact']/sheet/group/div[@name='div_address']/field[@name='country_id']" position="after">
+                <field name="auto_off" readonly="False" />
+            </xpath>
+            <xpath expr="/form/sheet/notebook/page[@string='Contacts']/field/form[@string='Contact']/sheet/group/div[@name='div_address']/field[@name='country_id']" position="attributes">
+                <attribute name="attrs">{'readonly':[('region', '!=', False), ('auto_off', '=', False)]}</attribute>
+            </xpath>
+            <xpath expr="/form/sheet/notebook/page[@string='Contacts']/field/form[@string='Contact']/sheet/group/div[@name='div_address']/div[@class='address_format']/field[@name='state_id']" position="attributes">
+                <attribute name="attrs">{'invisible':[('enable_state', '=', False), ('auto_off', '=', False)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
 <!--
 	<record id="view_res_partner_address_province_search" model="ir.ui.view">
         <field name="name">res.partner.address.province.search</field>
