@@ -2,7 +2,7 @@
 # Copyright (C) 2015 Matmoz d.o.o. (<http://www.matmoz.si>).
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields, api, _
+from openerp import tools, models, fields, api, _
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -403,8 +403,7 @@ level, in case of business continuity to a C-level manager.
             'description': msg.get('subject') or _("No Subject"),
             'email_from': msg.get('from'),
             'email_cc': msg.get('cc'),
-            'stakeholder_id': msg.get('author_id', False),
-            'change_category_id': 'change_management_new'
+            'stakeholder_id': msg.get('author_id', False)
         }
         if custom_values:
             defaults.update(custom_values)
