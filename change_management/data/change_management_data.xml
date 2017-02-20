@@ -23,6 +23,9 @@
         <record id="change_management_regulatory" model="change.management.category">
             <field name="name">Regulatory Requirement</field>
         </record>
+        <record id="change_management_new" model="change.management.category">
+            <field name="name">Uncategorized</field>
+        </record>
 
 <!--PROXIMITY-->
         <record id="change_management_proximity_imminent" model="change.management.proximity">

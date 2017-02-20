@@ -181,6 +181,7 @@ and obtain sign-off from all key stakeholders.
     )
     change_category_id = fields.Many2one(
         'change.management.category', 'Change Category',
+        default=lambda s: s._get_default_category(),
         help='''
 Change Category: The type of change in terms of the project's or business'
 chosen categories (e.g. Schedule, quality, legal etc.)
@@ -329,7 +330,150 @@ level, in case of business continuity to a C-level manager.
         self._subscribe_extra_followers(vals)
         return ret
 
+    @api.model
+    def _get_default_category(self):
+        return self.env.ref(
+            'change_management.change_management_new',
+            False) and self.env.ref(
+            'change_management.change_management_new') or self.env[
+                   'change.management.category']
+
     # ##### create CR from mail #####  #
+
+    @api.model
+    def message_get_reply_to(self, res_ids, default=None):
+        """ Override to get the reply_to of the parent project. """
+        changes = self.browse(res_ids)
+        project_ids = set(changes.mapped('project_id').ids)
+        aliases = self.env['project.project'].message_get_reply_to(
+            list(project_ids), default=default
+        )
+        return dict(
+            (
+                change.id, aliases.get(
+                    change.project_id and change.project_id.id or 0, False
+                )
+            ) for change in changes
+        )
+
+    @api.multi
+    def message_get_suggested_recipients(self):
+        recipients = super(
+            CMChange, self
+        ).message_get_suggested_recipients()
+        try:
+            for change in self:
+                if change.stakeholder_id:
+                    change._message_add_suggested_recipient(
+                        recipients, partner=change.stakeholder_id,
+                        reason=_('Customer')
+                    )
+                elif change.email_from:
+                    change._message_add_suggested_recipient(
+                        recipients, email=change.email_from,
+                        reason=_('Customer Email')
+                    )
+        except AccessError:
+            # no read access rights -> just ignore suggested recipients
+            # because this imply modifying followers
+            pass
+        return recipients
+
+    @api.multi
+    def email_split(self, msg):
+        email_list = tools.email_split(
+            (msg.get('to') or '') + ',' + (msg.get('cc') or ''))
+        # check left-part is not already an alias
+        return filter(lambda x: x.split('@')[0] not in self.mapped(
+            'project_id.alias_name'), email_list)
+
+    @api.model
+    def message_new(self, msg, custom_values=None):
+        """ Overrides mail_thread message_new that is called by the mailgateway
+            through message_process.
+            This override updates the document according to the email.
+        """
+        # remove default author when going through the mail gateway. Indeed we
+        # do not want to explicitly set user_id to False; however we do not
+        # want the gateway user to be responsible if no other responsible is
+        # found.
+        create_context = dict(self.env.context or {})
+        create_context['default_user_id'] = False
+        defaults = {
+            'description': msg.get('subject') or _("No Subject"),
+            'email_from': msg.get('from'),
+            'email_cc': msg.get('cc'),
+            'stakeholder_id': msg.get('author_id', False),
+            'change_category_id': 'change_management_new'
+        }
+        if custom_values:
+            defaults.update(custom_values)
+
+        res_id = super(
+            CMChange,
+            self.with_context(create_context)
+        ).message_new(msg, custom_values=defaults)
+        change = self.browse(res_id)
+        email_list = change.email_split(msg)
+        stakeholder_ids = filter(
+            None, change._find_partner_from_emails(email_list)
+        )
+        change.message_subscribe(stakeholder_ids)
+        return res_id
+
+    @api.multi
+    def message_update(self, msg, update_vals=None):
+        """ Override to update the change according to the email. """
+        email_list = self.email_split(msg)
+        stakeholder_ids = filter(
+            None, self._find_partner_from_emails(email_list)
+        )
+        self.message_subscribe(stakeholder_ids)
+        return super(CMChange, self).message_update(
+            msg, update_vals=update_vals
+        )
+
+    # Some v10 related entries
+
+    # @api.multi
+    # @api.returns('mail.message', lambda value: value.id)
+    # def message_post(self, subtype=None, **kwargs):
+    #     """ Overrides mail_thread message_post so that we can set
+    #      the date of last action field when a new message is posted on
+    #      the change.
+    #     """
+    #     self.ensure_one()
+    #     mail_message = super(CMChange, self).message_post(
+    #         subtype=subtype, **kwargs
+    #     )
+    #     if subtype:
+    #         self.sudo().write({'date_modified': fields.Datetime.now()})
+    #     return mail_message
+
+    # @api.multi
+    # def message_get_email_values(self, notif_mail=None):
+    #     self.ensure_one()
+    #     res = super(CMChange, self).message_get_email_values(
+    #         notif_mail=notif_mail)
+    #     headers = {}
+    #     if res.get('headers'):
+    #         try:
+    #             headers.update(safe_eval(res['headers']))
+    #         except Exception:
+    #             pass
+    #     if self.project_id:
+    #         current_objects = filter(
+    #             None, headers.get('X-Odoo-Objects', '').split(',')
+    #         )
+    #         current_objects.insert(
+    #             0, 'project.project-%s, ' % self.project_id.id
+    #         )
+    #         headers['X-Odoo-Objects'] = ','.join(current_objects)
+    #     if self.tag_ids:
+    #         headers['X-Odoo-Tags'] = ','.join(self.tag_ids.mapped('name'))
+    #     res['headers'] = repr(headers)
+    #     return res
+
 
 class Project(models.Model):
     _inherit = "project.project"
