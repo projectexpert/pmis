@@ -6,8 +6,9 @@
                 <div class="page">
                     <div class="row">
                         <div class="col-xs-5 col-xs-offset-7">
-                            <address t-field="o.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
-                            <span t-field="o.partner_id.vat"/>
+                            <address t-field="o.partner_id"
+                                t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}' />
+                            <span t-if="o.partner_id.vat">TIN: <span t-field="o.partner_id.vat"/></span>
                         </div>
                     </div>
 

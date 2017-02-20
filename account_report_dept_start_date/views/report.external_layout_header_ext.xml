@@ -17,11 +17,15 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-3">
+                        <div class="col-xs-5">
                             <br/>
                             <br/>
-                            <div t-field="company.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}" style="border-bottom: 1px solid black;"/>
-                            <strong>VAT No.: <span t-field="o.company_id.vat"/></strong>
+                            <div t-field="company.partner_id"
+                                 t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
+                                 style="border-bottom: 1px solid black;"
+                                 class="pull-left"
+                            />
+                            <strong>TIN: <span t-field="o.company_id.vat"/></strong>
                         </div>
                     </div>
                 </div>
