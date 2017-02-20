@@ -356,28 +356,28 @@ level, in case of business continuity to a C-level manager.
             ) for change in changes
         )
 
-    @api.multi
-    def message_get_suggested_recipients(self):
-        recipients = super(
-            CMChange, self
-        ).message_get_suggested_recipients()
-        try:
-            for change in self:
-                if change.stakeholder_id:
-                    change._message_add_suggested_recipient(
-                        recipients, partner=change.stakeholder_id,
-                        reason=_('Customer')
-                    )
-                elif change.email_from:
-                    change._message_add_suggested_recipient(
-                        recipients, email=change.email_from,
-                        reason=_('Customer Email')
-                    )
-        except AccessError:
-            # no read access rights -> just ignore suggested recipients
-            # because this imply modifying followers
-            pass
-        return recipients
+    # @api.multi
+    # def message_get_suggested_recipients(self):
+    #     recipients = super(
+    #         CMChange, self
+    #     ).message_get_suggested_recipients()
+    #     try:
+    #         for change in self:
+    #             if change.stakeholder_id:
+    #                 change._message_add_suggested_recipient(
+    #                     recipients, partner=change.stakeholder_id,
+    #                     reason=_('Customer')
+    #                 )
+    #             elif change.email_from:
+    #                 change._message_add_suggested_recipient(
+    #                     recipients, email=change.email_from,
+    #                     reason=_('Customer Email')
+    #                 )
+    #     except AccessError:
+    #         # no read access rights -> just ignore suggested recipients
+    #         # because this imply modifying followers
+    #         pass
+    #     return recipients
 
     @api.multi
     def email_split(self, msg):

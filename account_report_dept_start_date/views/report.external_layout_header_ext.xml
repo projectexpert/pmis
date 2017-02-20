@@ -2,41 +2,20 @@
 <openerp>
     <data>
         <template id="report.external_layout_header_ext" inherit_id="report.external_layout_header">
-            <xpath expr="//div[@class='header']" position="replace">
-                <div class="header">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 45px;"/>
-                        </div>
-                        <div class="col-xs-9 text-right" style="margin-top:20px;" t-field="company.rml_header1"/>
-                    </div>
-                    <div class="row zero_min_height">
-                        <div class="col-xs-12">
-                            <br/>
-                            <!--<div style="border-bottom: 1px solid black;"/>-->
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-5">
-                            <br/>
-                            <br/>
-                            <div t-field="company.partner_id"
-                                 t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
-                                 style="border-bottom: 1px solid black;"
-                                 class="pull-left"
-                            />
-                            <strong>TIN: <span t-field="o.company_id.vat"/></strong>
-                        </div>
-                    </div>
-                </div>
+            <xpath expr="//div[@t-field='company.partner_id']" position="attributes">
+                <attribute name="class"/>
             </xpath>
-        </template>
-        <template id="account_report_dept_start_date.external_layout_header_ext">
-            <t t-call="report.html_container">
-                <t t-foreach="doc_ids" t-as="doc_id">
-                    <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'account_report_dept_start_date.external_layout_header_ext')"/>
-                </t>
-            </t>
+            <xpath expr="//div[@t-field='company.partner_id']" position="after">
+                <strong>TIN: <span t-field="o.company_id.vat"/></strong>
+            </xpath>
+            <xpath expr="//div[@style='border-bottom: 1px solid black;']" position="replace"/>
+            <xpath expr="//div[contains(@class, 'col-xs-3')]" position="attributes">
+                <attribute name="class">text-center</attribute>
+            </xpath>
+            <xpath expr="//div[contains(@t-field, 'company.rml_header1')]" position="attributes">
+                <attribute name="class">text-right</attribute>
+                <attribute name="style">margin-top:5px</attribute>
+            </xpath>
         </template>
     </data>
 </openerp>
