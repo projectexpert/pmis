@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 {
     'name': 'Dept start date on sale reports and invoices',
-    'version': '8.0.2.0.0',
+    'version': '8.0.2.0.1',
     'category': 'Accounting',
     'summary': 'VAT n., due date, debt date and place of issue on invoice',
     'author':   'Matmoz d.o.o., '

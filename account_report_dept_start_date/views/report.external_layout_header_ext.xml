@@ -17,5 +17,12 @@
                 <attribute name="style">margin-top:5px</attribute>
             </xpath>
         </template>
+        <template id="account_report_dept_start_date.external_layout_header_ext">
+            <t t-call="report.html_container">
+                <t t-foreach="doc_ids" t-as="doc_id">
+                    <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'report.external_layout_header')"/>
+                </t>
+            </t>
+        </template>
     </data>
 </openerp>

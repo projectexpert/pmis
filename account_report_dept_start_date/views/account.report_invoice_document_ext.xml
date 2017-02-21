@@ -41,5 +41,12 @@
                 <div style="border-bottom: 1px solid lightgrey;"/>
             </xpath>
         </template>
+        <template id="account_report_dept_start_date.report_invoice_document_ext">
+            <t t-call="report.html_container">
+                <t t-foreach="doc_ids" t-as="doc_id">
+                    <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'account.report_invoice_document)"/>
+                </t>
+            </t>
+        </template>
     </data>
 </openerp>

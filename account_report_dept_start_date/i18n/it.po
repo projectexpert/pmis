@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-20 06:32+0200\n"
-"PO-Revision-Date: 2016-05-20 06:35+0200\n"
+"POT-Creation-Date: 2017-02-21 06:37+0100\n"
+"PO-Revision-Date: 2017-02-21 06:38+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -15,104 +15,135 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.7.1\n"
-
-#. module: report
-#: view:website:report.external_layout_header
-msgid "VAT No.:"
-msgstr "Partita IVA:"
+"X-Generator: Poedit 1.8.11\n"
 
 #. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Place of Issue:"
-msgstr "Luogo di emissione:\t"
+#: help:account.invoice,date_invoice:0
+msgid ""
+"\n"
+"        Date when debt relationship between customer and supplier started.\n"
+"        "
+msgstr ""
+"\n"
+"        Datai inizio della relazione di debito tra il cliente ed il fornitore.\n"
+"        "
 
 #. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Debt Start Date:"
-msgstr "Data inizio debito:"
-
-#. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Source:"
-msgstr "Sorgente:"
-
-#. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Invoice Date:"
-msgstr "Data fattura:"
-
-#. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Due Date:"
-msgstr "Scadenza:"
-
-#. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Description:"
-msgstr "Descrizione:"
-
-#. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Customer Code:"
-msgstr "Codice cliente:"
-
-#. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Description"
-msgstr "Descrizione"
-
-#. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Quantity"
-msgstr "Quantità"
-
-#. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Unit Price"
-msgstr "Prezzo unitario"
-
-#. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Discount (%)"
-msgstr "Sconto (%)"
-
-#. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Taxes"
-msgstr "Tasse"
-
-#. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Amount"
-msgstr "Ammontare"
-
-#. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Total Without Taxes"
-msgstr "Totale tasse escluse"
-
-#. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Total"
-msgstr "Totale"
-
-#. module: account
-#: view:website:account.report_invoice_document_ext
+#: field:account.invoice.tax,base:0
+#: view:website:account.report_invoice_document
 msgid "Base"
 msgstr "Base"
 
 #. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Comment:"
-msgstr "Commento:"
+#: field:account.invoice,date_invoice:0
+msgid "Debt Start Date"
+msgstr "Data inizio debito"
 
 #. module: account
-#: view:website:account.report_invoice_document_ext
+#: view:website:account.report_invoice_document
+msgid "Debt Start Date:"
+msgstr "Data inizio debito:"
+
+#. module: account
+#: view:website:account.report_invoice_document
+msgid "Due Date:"
+msgstr "Scadenza:"
+
+#. module: account
+#: field:report.invoice.created,date_invoice:0
+msgid "Invoice Date"
+msgstr "Data fattura"
+
+#. module: account
+#: view:website:account.report_invoice_document
+msgid "Invoice Date:"
+msgstr "Data fattura:"
+
+#. module: account
+#: field:account.invoice.report,payment_term:0
+#: view:account.payment.term:account.view_payment_term_form
+#: view:account.payment.term:account.view_payment_term_search
+#: field:account.payment.term,name:0
+#: view:account.payment.term.line:account.view_payment_term_line_form
+#: view:account.payment.term.line:account.view_payment_term_line_tree
+#: field:account.payment.term.line,payment_id:0
+#: model:ir.model,name:account.model_account_payment_term
+msgid "Payment Term"
+msgstr "Termine di pagamento:"
+
+#. module: account
+#: model:ir.model,name:account.model_account_payment_term_line
+msgid "Payment Term Line"
+msgstr "Voce termine pagamento:"
+
+#. module: account
+#: view:website:account.report_invoice_document
 msgid "Payment Term:"
 msgstr "Termine di pagamento:"
 
 #. module: account
-#: view:website:account.report_invoice_document_ext
-msgid "Fiscal Position:"
-msgstr "Posizione fiscale:"
+#: view:website:account.report_invoice_document
+msgid "Place of Issue:"
+msgstr "Luogo di emissione:\t"
+
+#. module: account
+#: field:account.invoice.line,quantity:0 field:account.model.line,quantity:0
+#: field:account.move.line,quantity:0 field:report.account.sales,quantity:0
+#: field:report.account_type.sales,quantity:0
+#: view:website:account.report_analyticbalance
+#: view:website:account.report_analyticcostledgerquantity
+#: view:website:account.report_invertedanalyticbalance
+#: view:website:account.report_invoice_document
+msgid "Quantity"
+msgstr "Quantità"
+
+#. module: account
+#. module: account
+#: view:website:account.report_invoice_document
+msgid "Reference:"
+msgstr "Riferimento:"
+
+#. modules: report, account
+#: view:website:account.report_invoice_document
+#: view:website:report.external_layout_header
+msgid "TIN:"
+msgstr "Partita IVA:"
+
+#~ msgid "VAT No.:"
+#~ msgstr "Partita IVA:"
+
+#~ msgid "Source:"
+#~ msgstr "Sorgente:"
+
+#~ msgid "Description:"
+#~ msgstr "Descrizione:"
+
+#~ msgid "Customer Code:"
+#~ msgstr "Codice cliente:"
+
+#~ msgid "Description"
+#~ msgstr "Descrizione"
+
+#~ msgid "Unit Price"
+#~ msgstr "Prezzo unitario"
+
+#~ msgid "Discount (%)"
+#~ msgstr "Sconto (%)"
+
+#~ msgid "Taxes"
+#~ msgstr "Tasse"
+
+#~ msgid "Amount"
+#~ msgstr "Ammontare"
+
+#~ msgid "Total Without Taxes"
+#~ msgstr "Totale tasse escluse"
+
+#~ msgid "Total"
+#~ msgstr "Totale"
+
+#~ msgid "Comment:"
+#~ msgstr "Commento:"
+
+#~ msgid "Fiscal Position:"
+#~ msgstr "Posizione fiscale:"
