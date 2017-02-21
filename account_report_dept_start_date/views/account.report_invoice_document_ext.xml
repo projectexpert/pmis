@@ -23,7 +23,7 @@
                 <div style="border-bottom: 1px solid lightgrey;"/>
             </xpath>
             <xpath expr="//div[@t-if='o.origin']" position="before">
-                <div class="col-xs-2" t-if="o.date_invoice_creation">
+                <div class="col-xs-4" t-if="o.date_invoice_creation">
                     <strong>Invoice Date:</strong>
                     <p t-field="o.date_invoice_creation"/>
                     <div style="border-bottom: 1px solid lightgrey;"/>
