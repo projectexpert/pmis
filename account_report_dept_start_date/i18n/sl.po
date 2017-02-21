@@ -1,19 +1,21 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* report
+# 	* account
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-21 06:36+0100\n"
-"PO-Revision-Date: 2017-02-21 06:37+0100\n"
+"POT-Creation-Date: 2017-02-21 07:24+0100\n"
+"PO-Revision-Date: 2017-02-21 07:24+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
-"Language: sl_SI\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
 "X-Generator: Poedit 1.8.11\n"
 
 #. module: account
@@ -97,6 +99,10 @@ msgid "Quantity"
 msgstr "Količina"
 
 #. module: account
+#: view:website:account.report_invoice_document
+msgid "Source:"
+msgstr "Izvor:"
+
 #. module: account
 #: view:website:account.report_invoice_document
 msgid "Reference:"
@@ -106,43 +112,4 @@ msgstr "Sklic:"
 #: view:website:account.report_invoice_document
 #: view:website:report.external_layout_header
 msgid "TIN:"
-msgstr "ID za DDV"
-
-#~ msgid "VAT No.:"
-#~ msgstr "ID za DDV:"
-
-#~ msgid "Source:"
-#~ msgstr "Izvor:"
-
-#~ msgid "Description:"
-#~ msgstr "Opis:"
-
-#~ msgid "Customer Code:"
-#~ msgstr "Koda kupca:"
-
-#~ msgid "Description"
-#~ msgstr "Opis"
-
-#~ msgid "Unit Price"
-#~ msgstr "Cena enote"
-
-#~ msgid "Discount (%)"
-#~ msgstr "Popust %"
-
-#~ msgid "Taxes"
-#~ msgstr "Davki"
-
-#~ msgid "Amount"
-#~ msgstr "Znesek"
-
-#~ msgid "Total Without Taxes"
-#~ msgstr "Skupaj brez davkov"
-
-#~ msgid "Total"
-#~ msgstr "Skupaj"
-
-#~ msgid "Comment:"
-#~ msgstr "Opomba:"
-
-#~ msgid "Fiscal Position:"
-#~ msgstr "Fiskalno območje:"
+msgstr "ID za DDV:"

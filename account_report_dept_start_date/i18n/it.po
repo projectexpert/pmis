@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-21 06:37+0100\n"
-"PO-Revision-Date: 2017-02-21 06:38+0100\n"
+"POT-Creation-Date: 2017-02-21 07:25+0100\n"
+"PO-Revision-Date: 2017-02-21 07:25+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -21,11 +21,13 @@ msgstr ""
 #: help:account.invoice,date_invoice:0
 msgid ""
 "\n"
-"        Date when debt relationship between customer and supplier started.\n"
+"        Date when debt relationship between customer and supplier "
+"started.\n"
 "        "
 msgstr ""
 "\n"
-"        Datai inizio della relazione di debito tra il cliente ed il fornitore.\n"
+"        Datai inizio della relazione di debito tra il cliente ed il "
+"fornitore.\n"
 "        "
 
 #. module: account
@@ -98,6 +100,10 @@ msgid "Quantity"
 msgstr "Quantità"
 
 #. module: account
+#: view:website:account.report_invoice_document
+msgid "Source:"
+msgstr "Sorgente:"
+
 #. module: account
 #: view:website:account.report_invoice_document
 msgid "Reference:"
@@ -111,9 +117,6 @@ msgstr "Partita IVA:"
 
 #~ msgid "VAT No.:"
 #~ msgstr "Partita IVA:"
-
-#~ msgid "Source:"
-#~ msgstr "Sorgente:"
 
 #~ msgid "Description:"
 #~ msgstr "Descrizione:"

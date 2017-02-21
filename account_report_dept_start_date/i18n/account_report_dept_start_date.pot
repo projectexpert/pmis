@@ -97,6 +97,7 @@ msgstr ""
 #. module: account
 #: view:website:account.report_invoice_document
 msgid "Source:"
+msgstr ""
 
 #. module: account
 #: view:website:account.report_invoice_document
