@@ -420,19 +420,19 @@ level, in case of business continuity to a C-level manager.
         change.message_subscribe(stakeholder_ids)
         return res_id
 
-    @api.multi
-    def message_update(self, msg, update_vals=None):
-        """ Override to update the change according to the email. """
-        email_list = self.email_split(msg)
-        stakeholder_ids = filter(
-            None, self._find_partner_from_emails(email_list)
-        )
-        self.message_subscribe(stakeholder_ids)
-        return super(CMChange, self).message_update(
-            msg, update_vals=update_vals
-        )
-
     # Some v10 related entries
+
+    # @api.multi
+    # def message_update(self, msg, update_vals=None):
+    #     """ Override to update the change according to the email. """
+    #     email_list = self.email_split(msg)
+    #     stakeholder_ids = filter(
+    #         None, self._find_partner_from_emails(email_list)
+    #     )
+    #     self.message_subscribe(stakeholder_ids)
+    #     return super(CMChange, self).message_update(
+    #         msg, update_vals=update_vals
+    #     )
 
     # @api.multi
     # @api.returns('mail.message', lambda value: value.id)
@@ -476,12 +476,6 @@ level, in case of business continuity to a C-level manager.
 
 class Project(models.Model):
     _inherit = "project.project"
-
-    # @api.v7
-    # def _get_alias_models(self, cr, uid, context=None):
-    #     res = super(Project, self)._get_alias_models(cr, uid, context=context)
-    #     res.append(("change.management.change", "Change Requests"))
-    #     return res
 
     @api.model
     def _get_alias_models(self):
