@@ -7,7 +7,7 @@
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
                 <xpath expr='//div[@name="buttons"]' position='inside'>
-                    <button help="Billing plan lines"
+                    <button help="Project budget"
                         class="oe_inline oe_stat_button"
                         name="%(action_analytic_billing_plan_line_open_form)d"
                         type="action"
