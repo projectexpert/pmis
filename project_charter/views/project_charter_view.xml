@@ -94,7 +94,7 @@
                             <!--add milestone list-->
                             <!--add resource plan rough cut-->
                             <page string="Planned Balance">
-                                <button help="Resource planning lines"
+                                <!--<button help="Resource planning lines"
                                     class="oe_inline oe_stat_button"
                                     name="%(analytic_resource_plan.action_analytic_resource_plan_line_open_form)d"
                                     type="action"
@@ -111,7 +111,7 @@
                                     context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
                                     groups="project.group_project_manager">
                                     <div>Budget plan</div>
-                                </button>
+                                </button>-->
                                 <group string="Planned balance">
                                     <field name="plan_line_ids" nolabel="1" readonly="1"/>
                                 </group>

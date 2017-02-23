@@ -91,9 +91,8 @@ class CMChange (models.Model):
         default="/",
         readonly=True,
         states={'draft': [('readonly', False)]},
-        help='''
-Change label. Can be changed as long as change is in state 'draft'.
-        '''
+        help="Change label. "
+             "Can be changed as long as change is in state 'draft'."
     )
 
     description = fields.Char(
@@ -145,13 +144,16 @@ and obtain sign-off from all key stakeholders.
         readonly=True,
         states={'draft': [('readonly', False)]},
         required=True,
+        help="The project where the change request was initiated."
     )
     author_id = fields.Many2one(
         'res.users', 'Requestor', required=True,
-        default=lambda self: self.env.user.id
+        default=lambda self: self.env.user.id,
+        help="The author of the initial request."
     )
     stakeholder_id = fields.Many2one(
-        'res.partner', string='Proposer'
+        'res.partner', string='Proposer',
+        help="The stakeholder that proposes the  processing of the request."
     )
     color = fields.Integer(
         'Color'
@@ -165,7 +167,8 @@ and obtain sign-off from all key stakeholders.
     confirmed_id = fields.Many2one(
         'res.users',
         string='Confirmed by',
-        readonly=True
+        readonly=True,
+        help="The person that confirmed the change. Auto populated."
     )
     date_approved = fields.Datetime(
         string='Approval Date',
@@ -174,7 +177,8 @@ and obtain sign-off from all key stakeholders.
     approved_id = fields.Many2one(
         'res.users',
         string='Approved by',
-        readonly=True
+        readonly=True,
+        help="The person that approved the change. Auto populated."
     )
     date_modified = fields.Date(
         'Date Revised', help="Date of last revision."
@@ -182,10 +186,9 @@ and obtain sign-off from all key stakeholders.
     change_category_id = fields.Many2one(
         'change.management.category', 'Change Category',
         default=lambda s: s._get_default_category(),
-        help='''
-Change Category: The type of change in terms of the project's or business'
-chosen categories (e.g. Schedule, quality, legal etc.)
-        '''
+        help="Change Category: "
+        "The type of change in terms of the project's or business"
+        "chosen categories (e.g. Schedule, quality, legal etc.)"
     )
     description_cause = fields.Html(
         'Change'
@@ -198,12 +201,12 @@ chosen categories (e.g. Schedule, quality, legal etc.)
     )
     proximity_id = fields.Many2one(
         'change.management.proximity', 'Proximity',
-        help='''
-Proximity: This would typically state how close to the present time the change
-event is anticipated to happen (e.g. for project changes Imminent, within
-stage, within project, beyond project). Proximity should be recorded in
-accordance with the project's chosen scales or business continuity time scales.
-        '''
+        help="Proximity: /n"
+        "This would typically state how close to the present time the change "
+        "event is anticipated to happen (e.g. for project changes Imminent, "
+        "within stage, within project, beyond project). Proximity should be "
+        "recorded in accordance with the project's chosen scales or business "
+        "continuity time scales."
     )
     change_response_ids = fields.One2many(
         'project.task', 'change_id', 'Response Ids'
@@ -221,11 +224,11 @@ accordance with the project's chosen scales or business continuity time scales.
     )
     change_owner_id = fields.Many2one(
         'res.users', 'Change Manager',
-        help='''
-Change Manager: The person responsible for managing the change (there can be
-only one change owner per change), change ownership is assigned to a managerial
-level, in case of business continuity to a C-level manager.
-        '''
+        help="Change Manager: "
+        "The person responsible for managing the change (there can be"
+        "only one change owner per change), change ownership is assigned"
+        "to a managerial level, in case of business continuity to a "
+        "C-level manager."
     )
 
     company_id = fields.Many2one(

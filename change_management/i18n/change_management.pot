@@ -6,48 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-30 08:21+0000\n"
-"PO-Revision-Date: 2016-10-30 08:21+0000\n"
+"POT-Creation-Date: 2017-02-23 07:16+0000\n"
+"PO-Revision-Date: 2017-02-23 07:16+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-
-#. module: change_management
-#: help:change.management.change,change_category_id:0
-msgid "\n"
-"Change Category: The type of change in terms of the project's or business'\n"
-"chosen categories (e.g. Schedule, quality, legal etc.)\n"
-"        "
-msgstr ""
-
-#. module: change_management
-#: help:change.management.change,change_owner_id:0
-msgid "\n"
-"Change Manager: The person responsible for managing the change (there can be\n"
-"only one change owner per change), change ownership is assigned to a managerial\n"
-"level, in case of business continuity to a C-level manager.\n"
-"        "
-msgstr ""
-
-#. module: change_management
-#: help:change.management.change,name:0
-msgid "\n"
-"Change label. Can be changed as long as change is in state 'draft'.\n"
-"        "
-msgstr ""
-
-#. module: change_management
-#: help:change.management.change,proximity_id:0
-msgid "\n"
-"Proximity: This would typically state how close to the present time the change\n"
-"event is anticipated to happen (e.g. for project changes Imminent, within\n"
-"stage, within project, beyond project). Proximity should be recorded in\n"
-"accordance with the project's chosen scales or business continuity time scales.\n"
-"        "
-msgstr ""
 
 #. module: change_management
 #: help:change.management.change,description:0
@@ -202,6 +168,11 @@ msgid "Change Category"
 msgstr ""
 
 #. module: change_management
+#: help:change.management.change,change_category_id:0
+msgid "Change Category: The type of change in terms of the project's or businesschosen categories (e.g. Schedule, quality, legal etc.)"
+msgstr ""
+
+#. module: change_management
 #: model:mail.message.subtype,description:change_management.mt_change_done
 #: model:mail.message.subtype,name:change_management.mt_change_done
 msgid "Change Completed"
@@ -246,6 +217,11 @@ msgid "Change Manager"
 msgstr ""
 
 #. module: change_management
+#: help:change.management.change,change_owner_id:0
+msgid "Change Manager: The person responsible for managing the change (there can beonly one change owner per change), change ownership is assignedto a managerial level, in case of business continuity to a C-level manager."
+msgstr ""
+
+#. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
 msgid "Change Owner"
 msgstr ""
@@ -270,6 +246,11 @@ msgstr ""
 #. module: change_management
 #: field:project.project,change_count:0
 msgid "Change count"
+msgstr ""
+
+#. module: change_management
+#: help:change.management.change,name:0
+msgid "Change label. Can be changed as long as change is in state 'draft'."
 msgstr ""
 
 #. module: change_management
@@ -307,7 +288,7 @@ msgid "Changes without ownership"
 msgstr ""
 
 #. module: change_management
-#: view:project.project:change_management.view_project_kanban_inherited
+#: view:project.project:change_management.view_project_kanban
 msgid "Changes:"
 msgstr ""
 
@@ -506,6 +487,12 @@ msgid "My Projects"
 msgstr ""
 
 #. module: change_management
+#: code:addons/change_management/model/change_management.py:406
+#, python-format
+msgid "No Subject"
+msgstr ""
+
+#. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
 #: field:change.management.change,project_id:0
 #: model:ir.model,name:change_management.model_project_project
@@ -530,6 +517,11 @@ msgstr ""
 #: model:ir.actions.act_window,name:change_management.action_show_proximity
 #: model:ir.ui.menu,name:change_management.menu_change_proximity
 msgid "Proximity"
+msgstr ""
+
+#. module: change_management
+#: help:change.management.change,proximity_id:0
+msgid "Proximity: This would typically state how close to the present time the change event is anticipated to happen (e.g. for project changes Imminent, within stage, within project, beyond project). Proximity should be recorded in accordance with the project's chosen scales or business continuity time scales."
 msgstr ""
 
 #. module: change_management
@@ -634,6 +626,36 @@ msgid "Testing/Quality"
 msgstr ""
 
 #. module: change_management
+#: help:change.management.change,author_id:0
+msgid "The author of the initial request."
+msgstr ""
+
+#. module: change_management
+#: help:change.management.change,approved_id:0
+msgid "The person that approved the change. Auto populated."
+msgstr ""
+
+#. module: change_management
+#: help:change.management.change,confirmed_id:0
+msgid "The person that confirmed the change. Auto populated."
+msgstr ""
+
+#. module: change_management
+#: help:change.management.change,project_id:0
+msgid "The project where the change request was initiated."
+msgstr ""
+
+#. module: change_management
+#: help:change.management.change,stakeholder_id:0
+msgid "The stakeholder that proposes the processing of the request."
+msgstr ""
+
+#. module: change_management
+#: model:change.management.category,name:change_management.change_management_new
+msgid "Uncategorized"
+msgstr ""
+
+#. module: change_management
 #: field:change.management.change,message_unread:0
 msgid "Unread Messages"
 msgstr ""
@@ -641,16 +663,6 @@ msgstr ""
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
 msgid "Unread messages"
-msgstr ""
-
-#. module: change_management
-#: field:change.management.change,website_message_ids:0
-msgid "Website Messages"
-msgstr ""
-
-#. module: change_management
-#: help:change.management.change,website_message_ids:0
-msgid "Website communication history"
 msgstr ""
 
 #. module: change_management

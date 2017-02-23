@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-08 12:41+0000\n"
-"PO-Revision-Date: 2016-10-08 12:41+0000\n"
+"POT-Creation-Date: 2017-02-23 07:36+0000\n"
+"PO-Revision-Date: 2017-02-23 07:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -85,7 +85,7 @@ msgstr ""
 
 #. module: project_charter
 #: field:project.project,active_analytic_planning_version:0
-msgid "Active plan version"
+msgid "Active planning Version"
 msgstr ""
 
 #. module: project_charter
@@ -100,22 +100,17 @@ msgstr ""
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Billing plan"
+msgid "Budget lines"
 msgstr ""
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Billing plan lines"
+msgid "Budget plan"
 msgstr ""
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Charter/Plan"
-msgstr ""
-
-#. module: project_charter
-#: field:project.project,sequence_ids:0
-msgid "Child code sequence"
 msgstr ""
 
 #. module: project_charter
@@ -205,6 +200,7 @@ msgid "Out of scope"
 msgstr ""
 
 #. module: project_charter
+#: view:project.project:project_charter.view_project_form
 #: field:project.project,balance_plan:0
 msgid "Planned Balance"
 msgstr ""
@@ -217,6 +213,11 @@ msgstr ""
 #. module: project_charter
 #: field:project.project,debit_plan:0
 msgid "Planned Debit"
+msgstr ""
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Planned balance"
 msgstr ""
 
 #. module: project_charter
@@ -267,23 +268,8 @@ msgid "Projects"
 msgstr ""
 
 #. module: project_charter
-#: field:project.project,quantity_plan:0
-msgid "Quantity Debit"
-msgstr ""
-
-#. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Requirements and Success"
-msgstr ""
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Resource and Billing Plan"
-msgstr ""
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Resource and Billing plan"
 msgstr ""
 
 #. module: project_charter

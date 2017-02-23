@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-08 14:41+0200\n"
-"PO-Revision-Date: 2016-10-08 14:41+0200\n"
+"POT-Creation-Date: 2017-02-23 08:37+0100\n"
+"PO-Revision-Date: 2017-02-23 08:37+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 1.8.11\n"
 
 #. module: project_charter
 #: help:project.outscope,out_scope:0
@@ -145,7 +145,7 @@ msgstr ""
 
 #. module: project_charter
 #: field:project.project,active_analytic_planning_version:0
-msgid "Active plan version"
+msgid "Active planning Version"
 msgstr "Aktivna verzija plana"
 
 #. module: project_charter
@@ -160,23 +160,18 @@ msgstr "Predpostavke, omejitve"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Billing plan"
-msgstr "Obračun. plan"
+msgid "Budget lines"
+msgstr "Postavke proračuna"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
-msgid "Billing plan lines"
-msgstr "Obračun. plan"
+msgid "Budget plan"
+msgstr "Proračunski plan"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Charter/Plan"
 msgstr "Statut/Plan"
-
-#. module: project_charter
-#: field:project.project,sequence_ids:0
-msgid "Child code sequence"
-msgstr "Zaporedje kode podrejenih"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -258,6 +253,7 @@ msgid "Out of scope"
 msgstr "Izven obsega"
 
 #. module: project_charter
+#: view:project.project:project_charter.view_project_form
 #: field:project.project,balance_plan:0
 msgid "Planned Balance"
 msgstr "Planirana bilanca"
@@ -271,6 +267,11 @@ msgstr "Planirane terjatve"
 #: field:project.project,debit_plan:0
 msgid "Planned Debit"
 msgstr "Planirane obveznosti"
+
+#. module: project_charter
+#: view:project.project:project_charter.view_project_form
+msgid "Planned balance"
+msgstr "Planirana bilanca"
 
 #. module: project_charter
 #: model:ir.model,name:project_charter.model_project_project
@@ -319,24 +320,9 @@ msgid "Projects"
 msgstr "Projekti"
 
 #. module: project_charter
-#: field:project.project,quantity_plan:0
-msgid "Quantity Debit"
-msgstr "Dolgovana količina"
-
-#. module: project_charter
 #: view:project.project:project_charter.view_project_form
 msgid "Requirements and Success"
 msgstr "Zahteve in uspeh"
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Resource and Billing Plan"
-msgstr "Plan virov in obračunski plan"
-
-#. module: project_charter
-#: view:project.project:project_charter.view_project_form
-msgid "Resource and Billing plan"
-msgstr "Plan virov in obračunski plan"
 
 #. module: project_charter
 #: view:project.project:project_charter.view_project_form
@@ -377,6 +363,21 @@ msgstr "Opravila"
 #: view:project.project:project_charter.edit_project
 msgid "Work Breakdown Structure"
 msgstr "Členjenje projekta"
+
+#~ msgid "Billing plan lines"
+#~ msgstr "Obračun. plan"
+
+#~ msgid "Resource and Billing Plan"
+#~ msgstr "Plan virov in obračunski plan"
+
+#~ msgid "Resource and Billing plan"
+#~ msgstr "Plan virov in obračunski plan"
+
+#~ msgid "Child code sequence"
+#~ msgstr "Zaporedje kode podrejenih"
+
+#~ msgid "Quantity Debit"
+#~ msgstr "Dolgovana količina"
 
 #~ msgid "Class"
 #~ msgstr "Razred"
