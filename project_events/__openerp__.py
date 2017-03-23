@@ -22,6 +22,6 @@
         "views/project_view.xml",
         "wizard/create_meeting_from_task_view.xml",
     ],
-    "installable": True,
+    'installable': False,
     "auto_install": False,
 }

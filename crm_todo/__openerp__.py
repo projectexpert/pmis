@@ -22,6 +22,6 @@
         'views/crm_todo_project_task_tree.xml'
     ],
     'demo': ['crm_todo_demo.xml'],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
 }

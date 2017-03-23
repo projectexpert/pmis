@@ -20,6 +20,6 @@
     'data': [
         'wizards/analytic_account_open_view.xml',
     ],
-    'installable': True,
+    'installable': False,
     'active': False,
 }

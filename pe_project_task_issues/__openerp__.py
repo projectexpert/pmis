@@ -40,5 +40,5 @@
     'license': 'AGPL-3',
     "depends": ['project', 'project_issue'],
     "data": ['project_view.xml'],
-    "installable": True
+    'installable': False
 }

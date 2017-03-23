@@ -49,7 +49,7 @@
     ],
     'demo': ['demo/risk_management_demo.xml'],
     'test': ['test/test_risk_management.yml'],
-    'installable': True,
+    'installable': False,
     'application': True,
     'active': False,
 }

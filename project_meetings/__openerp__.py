@@ -14,5 +14,5 @@
     'depends': ['pe_project_meetings'],
     'data': [],
     'demo': [],
-    'installable': True,
+    'installable': False,
 }

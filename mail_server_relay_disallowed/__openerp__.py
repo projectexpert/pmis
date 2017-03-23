@@ -31,5 +31,5 @@
     'category': 'Social Network',
     'depends': ['base'],
     'data': [],
-    'installable': True
+    'installable': False
 }

@@ -14,5 +14,5 @@
     'license': 'AGPL-3',
     "depends": ['pe_project_task_issues'],
     "data": [],
-    "installable": True
+    'installable': False
 }

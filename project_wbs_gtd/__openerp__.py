@@ -20,6 +20,6 @@
         'security/ir.model.access.csv',
     ],
     'demo': ['project_gtd_demo.xml'],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
 }

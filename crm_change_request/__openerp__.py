@@ -18,5 +18,5 @@
         'views/change_request_view.xml'
     ],
     'depends': ['crm_project', 'change_management'],
-    'installable': True,
+    'installable': False,
 }

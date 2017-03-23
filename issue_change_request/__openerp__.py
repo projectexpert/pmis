@@ -17,5 +17,5 @@
         'views/change_request_view.xml'
     ],
     'depends': ['project_issue', 'change_management'],
-    'installable': True,
+    'installable': False,
 }

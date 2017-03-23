@@ -22,7 +22,7 @@
         'views/account.report_invoice_document_ext.xml',
     ],
     'demo': [],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }

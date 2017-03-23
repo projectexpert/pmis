@@ -49,7 +49,7 @@
         'test/stock_report.yml',
         'test/setlast_tracking.yml',
     ],
-    'installable': True,
+    'installable': False,
     'active': False,
     'certificate': '',
 }

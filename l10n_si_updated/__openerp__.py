@@ -51,5 +51,5 @@
         "l10n_si_wizard.xml"
     ],
     'auto_install': False,
-    "installable": True,
+    'installable': False,
 }
