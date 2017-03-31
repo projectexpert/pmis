@@ -10,7 +10,8 @@ Adds the cost category to analytic accounts.
 Installation
 ============
 
-* The module automatically takes care of its dependencies and is ready for use after the installation
+* The module automatically takes care of its dependencies and is ready for
+use after the installation
 
 Credits
 =======
@@ -30,7 +31,8 @@ Maintainer
 
 This module is maintained by Project Expert Team.
 
-Project Expert is a joint effort between EFICENT (Barcelona, Spain) and MATMOZ (Ljubljana, Slovenia),
+Project Expert is a joint effort between EFICENT (Barcelona, Spain) and
+MATMOZ (Ljubljana, Slovenia),
 both active members of Odoo Community Association (OCA).
 
 .. image:: http://odoo-community.org/logo.png
