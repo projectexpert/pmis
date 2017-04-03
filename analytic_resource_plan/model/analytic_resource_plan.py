@@ -1,14 +1,4 @@
 # -*- coding: utf-8 -*-
-# © 2015 Eficent Business and IT Consulting Services S.L.
-# (Jordi Ballester Alomar)
-#
-# © 2015 Serpent Consulting Services Pvt. Ltd.
-# (Sudhir Arya)
-#
-# © 2016 Matmoz d.o.o.
-# (Matjaž Mozetič)
-#
-# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 import time
 from openerp import api, fields, models
@@ -153,8 +143,6 @@ class AnalyticResourcePlanLine(models.Model):
         res = super(AnalyticResourcePlanLine, self).copy(default)
         return res
 
-    # TODO: Solve TypeError: can only concatenate list (not "NoneType") to list
-    # on raise error
     @api.model
     def _prepare_analytic_lines(self):
         plan_version_obj = self.env['account.analytic.plan.version']

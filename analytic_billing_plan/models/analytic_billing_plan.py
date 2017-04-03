@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-# © 2015 Eficent Business and IT Consulting Services S.L.
-# (Jordi Ballester Alomar)
-#
-# © 2016 Matmoz d.o.o.
-# (Matjaž Mozetič)
-#
-# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 import time
 import openerp.addons.decimal_precision as dp
@@ -115,7 +108,7 @@ class BillingPlanLine(models.Model):
             default = {}
         default['parent_id'] = False
         default['analytic_line_plan_ids'] = []
-        res = super(AnalyticBillingPlanLine, self).copy(default)
+        res = super(BillingPlanLine, self).copy(default)
         return res
 
     @api.multi

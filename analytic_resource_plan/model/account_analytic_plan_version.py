@@ -1,14 +1,4 @@
 # -*- coding: utf-8 -*-
-# © 2015 Eficent Business and IT Consulting Services S.L.
-# (Jordi Ballester Alomar)
-#
-# © 2015 Serpent Consulting Services Pvt. Ltd.
-# (Sudhir Arya)
-#
-# © 2016 Matmoz d.o.o.
-# (Matjaž Mozetič)
-#
-# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from openerp.tools.translate import _
 from openerp import api, fields, models
@@ -23,7 +13,6 @@ class AccountAnalyticPlanVersion(models.Model):
         default=False
     )
 
-    # TODO Solve TypeError: can only concatenate list (not "NoneType") to list
     @api.model
     def _check_default_resource(self, vals):
         if 'default_resource_plan' in vals:

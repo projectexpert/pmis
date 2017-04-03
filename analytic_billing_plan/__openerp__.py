@@ -1,17 +1,11 @@
 # -*- coding: utf-8 -*-
-# © 2015 Eficent Business and IT Consulting Services S.L.
-# (Jordi Ballester Alomar)
-#
-# © 2016 Matmoz d.o.o.
-# (Matjaž Mozetič)
-#
-# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
     'name': 'Analytic billing plan',
     'version': '8.0.2.0.2',
     'author':   'Eficent, '
-                'Matmoz '
+                'Matmoz, '
+                'Luxim, '
                 'Project Expert Team',
     'contributors': [
         'Jordi Ballester <jordi.ballester@eficent.com>',
