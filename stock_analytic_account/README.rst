@@ -9,7 +9,7 @@ Project Procurement
 -------------------
 Features of this module:
 
-* Adds the analytic account to the stock move
+* Adds the analytic account to the stock move and quants
 * Makes it possible to search stock moves by analytic account or its
   project manager
 * Makes it possible to search picking lists by analytic account or its
