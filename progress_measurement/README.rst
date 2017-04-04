@@ -45,11 +45,9 @@ Installation
 Credits
 =======
 
-Contributors
-------------
-
-* Eficent <http://www.eficent.com>
-* Matmoz d.o.o. <http://www.matmoz.si>
+* Jordi Ballester Alomar <jordi.ballester@eficent.com>
+* Matjaž Mozetič <m.mozetic@matmoz.si>
+* Aaron Henriquez <ahenriquez@eficent.com>
 
 Maintainer
 ----------

@@ -1,1 +1,5 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_progress_measurement_type_project_user","progress.measurement.type project user","model_progress_measurement_type","project.group_project_user",1,0,0,0
+"access_progress_measurement_type_project_manager","progress.measurement.type project manager","model_progress_measurement_type","project.group_project_manager",1,1,1,1
+"access_progress_measurement_project_user","progress.measurement project user","model_progress_measurement","project.group_project_user",1,1,1,1
+"access_progress_measurement_project_manager","progress.measurement project manager","model_progress_measurement","project.group_project_manager",1,1,1,1
