@@ -17,11 +17,11 @@
     'website': 'http://project.expert',
     'category': 'Project Management',
     'license': 'AGPL-3',
-    'depends': ['analytic', 'stock', 'stock_analytic_account'],
+    'depends': ['stock_analytic_account'],
     'data': [
         'view/analytic_account_view.xml',
     ],
-    'installable': False,
+    'installable': True,
     'active': False,
     'application': True,
 }
