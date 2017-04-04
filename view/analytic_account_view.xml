@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
 
 #---------------------------------------------------------------------------------------------------------
@@ -12,7 +12,7 @@
             <field name="inherit_id"
                    ref="stock_analytic_account.view_account_analytic_account_form_stock_move"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='use_reserved_stock']"
+                <xpath expr="//field[@name='move_ids']"
                        position="after">
                     <field name="warehouse_id"/>
                     <field name="location_id"/>
@@ -22,4 +22,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>
