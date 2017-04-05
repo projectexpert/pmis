@@ -30,9 +30,11 @@ Maintainer
 
 This module is maintained by Project Expert Team.
 
-Project Expert is a joint effort between EFICENT (Barcelona, Spain) and MATMOZ (Ljubljana, Slovenia),
-both active members of Odoo Community Association (OCA). Since 2017 the development team was joined by
-LUXIM (Nova Gorica, Slovenia) after MATMOZ and LUXIM began the company merging process.
+Project Expert is a joint effort between EFICENT (Barcelona, Spain) and
+MATMOZ (Ljubljana, Slovenia),
+both active members of Odoo Community Association (OCA).
+Since 2017 the development team was joined by LUXIM (Nova Gorica, Slovenia)
+after MATMOZ and LUXIM began the company merging process.
 
 .. image:: http://odoo-community.org/logo.png
    :alt: Odoo Community Association
