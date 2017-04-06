@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# © 2015 Eficent - Jordi Ballester Alomar
-# © 2015 Serpent Consulting Services Pvt. Ltd. - Sudhir Arya
+# © 2017 Eficent - Jordi Ballester Alomar
+# © 2017 Serpent Consulting Services Pvt. Ltd. - Sudhir Arya
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'Project WBS Open',
-    'version': '8.0.1.0.0',
+    'name': 'git ',
+    'version': '9.0.1.0.0',
     'summary': 'Opens a single project/analytic account, or the whole WBS',
     'author':   'Eficent, '
                 'Project Expert Team',
@@ -20,6 +20,6 @@
     'data': [
         'wizards/analytic_account_open_view.xml',
     ],
-    'installable': False,
+    'installable': True,
     'active': False,
 }
