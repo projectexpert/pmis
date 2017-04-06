@@ -21,10 +21,10 @@
 				parent="analytic_plan_analytic_account_menu"
 				groups="analytic.group_analytic_accounting"/>
 
-			<menuitem id="account_analytic_plan_journal_entries_2"
-				action="action_account_analytic_plan_journal_open_form"
-				parent="analytic_plan_analytic_account_menu"
-				groups="analytic.group_analytic_accounting"/>
+			<!--<menuitem id="account_analytic_plan_journal_entries_2"-->
+				<!--action="action_account_analytic_plan_journal_open_form"-->
+				<!--parent="analytic_plan_analytic_account_menu"-->
+				<!--groups="analytic.group_analytic_accounting"/>-->
 
 #---------------------------------------------------------------------------------------------------------
 #   Extend the analytic account
