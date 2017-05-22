@@ -40,6 +40,11 @@
             <field name="arch" type="xml">
                 <tree string="Scheduling" editable="top">
 					<field name="id" readonly ="1"/>
+                    <!--OPEN FORM BUTTON-->
+                    <button string="Project Form View"
+                        name="action_open_task_form"
+                        type="object"
+                        icon="gtk-edit"/>
 					<button groups="base.group_erp_manager"
 						name="%(project_time_sequence.action_project_task_link_predecessors_str)d"
 						string="Link"
