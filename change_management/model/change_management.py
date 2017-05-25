@@ -2,27 +2,27 @@
 # Copyright (C) 2015 Matmoz d.o.o. (<http://www.matmoz.si>).
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import tools, models, fields, api, _
+from openerp import api, fields, models, tools, _
 import logging
 
 _logger = logging.getLogger(__name__)
 
 
-class CMChangeCategory (models.Model):
+class CMChangeCategory(models.Model):
     _name = 'change.management.category'
     _description = 'Change log category table'
 
     name = fields.Char(string='Change Category', required=True, translate=True)
 
 
-class CMProximity (models.Model):
+class CMProximity(models.Model):
     _name = 'change.management.proximity'
     _description = 'Change log proximity table'
 
     name = fields.Char(string='Proximity', required=True, translate=True)
 
 
-class CMChange (models.Model):
+class CMChange(models.Model):
     _name = 'change.management.change'
     _description = 'Change'
     _inherit = ['mail.thread', 'ir.needaction_mixin']
@@ -396,7 +396,7 @@ and obtain sign-off from all key stakeholders.
             through message_process.
             This override updates the document according to the email.
         """
-        # remove default author when going through the mail gateway. Indeed we
+        # removes default author when going through the mail gateway. Indeed we
         # do not want to explicitly set user_id to False; however we do not
         # want the gateway user to be responsible if no other responsible is
         # found.
@@ -425,17 +425,17 @@ and obtain sign-off from all key stakeholders.
 
     # Some v10 related entries
 
-    # @api.multi
-    # def message_update(self, msg, update_vals=None):
-    #     """ Override to update the change according to the email. """
-    #     email_list = self.email_split(msg)
-    #     stakeholder_ids = filter(
-    #         None, self._find_partner_from_emails(email_list)
-    #     )
-    #     self.message_subscribe(stakeholder_ids)
-    #     return super(CMChange, self).message_update(
-    #         msg, update_vals=update_vals
-    #     )
+    @api.multi
+    def message_update(self, msg, update_vals=None):
+        """ Override to update the change according to the email. """
+        email_list = self.email_split(msg)
+        stakeholder_ids = filter(
+            None, self._find_partner_from_emails(email_list)
+        )
+        self.message_subscribe(stakeholder_ids)
+        return super(CMChange, self).message_update(
+            msg, update_vals=update_vals
+        )
 
     # @api.multi
     # @api.returns('mail.message', lambda value: value.id)

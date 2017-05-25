@@ -14,7 +14,7 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'summary': 'Change Management integrated with Stakeholders Requirements',
-    'depends': ['project', 'project_charter', 'project_wbs'],
+    'depends': ['project', 'project_wbs'],
     'data': [
         'data/change_management_data.xml',
         'data/change_management_sequence.xml',
@@ -27,7 +27,7 @@
     ],
     'demo': ['demo/change_management_demo.xml'],
     'test': ['test/test_change_management.yml'],
-    'installable': False,
+    'installable': True,
     'application': True,
     'active': False,
 }

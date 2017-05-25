@@ -3,7 +3,7 @@
 	<data>
 	<menuitem name="Changes"
 			  id="menu_change_management"
-			  parent="project_charter.project_management"
+			  parent="base.menu_main_pm"
 			  action="action_show_changes"
 			  sequence="1"
 			  groups="project.group_project_manager,project.group_project_user"/>
@@ -20,7 +20,7 @@
 
 	<menuitem name="Changes"
 			  id="menu_configuration_changes"
-			  parent="base.menu_definitions"
+			  parent="project.menu_project_config"
 			  groups="project.group_project_manager"/>
 
 		<menuitem name="Change Categories"

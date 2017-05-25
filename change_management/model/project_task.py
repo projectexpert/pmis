@@ -5,7 +5,7 @@
 from openerp import api, models, fields
 
 
-class ProjectTask (models.Model):
+class ProjectTask(models.Model):
     _name = 'project.task'
     _inherit = 'project.task'
 
@@ -15,7 +15,7 @@ class ProjectTask (models.Model):
     )
 
 
-class ProjectProject (models.Model):
+class ProjectProject(models.Model):
     _name = 'project.project'
     _inherit = 'project.project'
 

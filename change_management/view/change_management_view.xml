@@ -205,7 +205,6 @@
 					<field name="change_response_count"/>
 					<field name="change_owner_id"/>
 					<field name="color"/>
-					<field name="message_summary"/>
 					<templates>
 					  <t t-name="kanban-box">
 						<div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click">
@@ -268,52 +267,12 @@
 			<field name="context">{'search_default_active_tasks': 1}</field>
         </record>
 
-		<record id="change_management_project_charter_tree_view" model="ir.ui.view">
-            <field name="name">change.management.inherit.charter.tree1</field>
-            <field name="model">project.project</field>
-            <field eval="2" name="priority"/>
-            <field name="inherit_id" ref="project_charter.view_project_form"/>
-            <field name="arch" type="xml">
-                <data>
-                    <xpath expr='//form/sheet/notebook/page/notebook/page[@string="Requirements and Success"]/group[@string="Success and Acceptance Criteria"]' position="before">
-                        <!--<button help="Change Management"-->
-                                <!--class="oe_inline oe_stat_button"-->
-                                <!--name="%(change_management.action_show_changes)d"-->
-                                <!--type="action"-->
-                                <!--icon="fa-code-fork"-->
-                                <!--context="{'default_project_id': active_id,'search_default_project_id': active_id}"-->
-                                <!--groups="project.group_project_manager">-->
-                            <!--<div>Changes</div>-->
-                        <!--</button>-->
-                        <!--<button help="Change Actions"-->
-                                <!--class="oe_inline oe_stat_button"-->
-                                <!--name="%(change_management.action_show_actions)d"-->
-                                <!--type="action"-->
-                                <!--icon="fa-sort-numeric-asc"-->
-                                <!--context="{'default_project_id': active_id,'search_default_project_id': active_id}"-->
-                                <!--groups="project.group_project_manager">-->
-                            <!--<div>Actions</div>-->
-                        <!--</button>-->
-                        <tree string='Stakeholder Requests'
-                              colors="green:state in 'accepted';grey:state in 'rejected';blue:state in 'deferred'"
-                              fonts="bold:state in 'active'">
-                            <group string="Requirements">
-                            <field name="change_ids" nolabel="1"
-                                   context="{'default_project_id': active_id}">
-                            </field>
-                            </group>
-                        </tree>
-                    </xpath>
-                </data>
-            </field>
-        </record>
-
         <record model="ir.ui.view" id="edit_project">
             <field name="name">project.project.form</field>
             <field name="model">project.project</field>
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
-                <xpath expr="//div[@name='buttons']"
+                <xpath expr="//form/sheet/div[@name='button_box']"
                        position="inside">
                     <button help="Change Management"
                                 class="oe_inline oe_stat_button"
@@ -334,7 +293,7 @@
             <field name="model">project.project</field>
             <field name="inherit_id" ref="project.view_project_kanban"/>
             <field name="arch" type="xml">
-                <xpath expr="//div[contains(@class, 'oe_kanban_alias')]" position="after">
+                <xpath expr="//div[contains(@class, 'o_kanban_primary_left')]" position="inside">
                     <div class="oe_kanban_project_list">
                         <!--<a t-if="record.change_count.raw_value"-->
                            <!--name="%(change_management.action_show_changes)d"-->
