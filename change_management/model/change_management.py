@@ -3,6 +3,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from openerp import api, fields, models, tools, _
+from openerp.tools.safe_eval import safe_eval
+from openerp.exceptions import AccessError
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -359,28 +361,28 @@ and obtain sign-off from all key stakeholders.
             ) for change in changes
         )
 
-    # @api.multi
-    # def message_get_suggested_recipients(self):
-    #     recipients = super(
-    #         CMChange, self
-    #     ).message_get_suggested_recipients()
-    #     try:
-    #         for change in self:
-    #             if change.stakeholder_id:
-    #                 change._message_add_suggested_recipient(
-    #                     recipients, partner=change.stakeholder_id,
-    #                     reason=_('Customer')
-    #                 )
-    #             elif change.email_from:
-    #                 change._message_add_suggested_recipient(
-    #                     recipients, email=change.email_from,
-    #                     reason=_('Customer Email')
-    #                 )
-    #     except AccessError:
-    #         # no read access rights -> just ignore suggested recipients
-    #         # because this imply modifying followers
-    #         pass
-    #     return recipients
+    @api.multi
+    def message_get_suggested_recipients(self):
+        recipients = super(
+            CMChange, self
+        ).message_get_suggested_recipients()
+        try:
+            for change in self:
+                if change.stakeholder_id:
+                    change._message_add_suggested_recipient(
+                        recipients, partner=change.stakeholder_id,
+                        reason=_('Customer')
+                    )
+                elif change.email_from:
+                    change._message_add_suggested_recipient(
+                        recipients, email=change.email_from,
+                        reason=_('Customer Email')
+                    )
+        except AccessError:
+            # no read access rights -> just ignore suggested recipients
+            # because this imply modifying followers
+            pass
+        return recipients
 
     @api.multi
     def email_split(self, msg):
@@ -437,44 +439,44 @@ and obtain sign-off from all key stakeholders.
             msg, update_vals=update_vals
         )
 
-    # @api.multi
-    # @api.returns('mail.message', lambda value: value.id)
-    # def message_post(self, subtype=None, **kwargs):
-    #     """ Overrides mail_thread message_post so that we can set
-    #      the date of last action field when a new message is posted on
-    #      the change.
-    #     """
-    #     self.ensure_one()
-    #     mail_message = super(CMChange, self).message_post(
-    #         subtype=subtype, **kwargs
-    #     )
-    #     if subtype:
-    #         self.sudo().write({'date_modified': fields.Datetime.now()})
-    #     return mail_message
+    @api.multi
+    @api.returns('mail.message', lambda value: value.id)
+    def message_post(self, subtype=None, **kwargs):
+        """ Overrides mail_thread message_post so that we can set
+         the date of last action field when a new message is posted on
+         the change.
+        """
+        self.ensure_one()
+        mail_message = super(CMChange, self).message_post(
+            subtype=subtype, **kwargs
+        )
+        if subtype:
+            self.sudo().write({'date_modified': fields.Datetime.now()})
+        return mail_message
 
-    # @api.multi
-    # def message_get_email_values(self, notif_mail=None):
-    #     self.ensure_one()
-    #     res = super(CMChange, self).message_get_email_values(
-    #         notif_mail=notif_mail)
-    #     headers = {}
-    #     if res.get('headers'):
-    #         try:
-    #             headers.update(safe_eval(res['headers']))
-    #         except Exception:
-    #             pass
-    #     if self.project_id:
-    #         current_objects = filter(
-    #             None, headers.get('X-Odoo-Objects', '').split(',')
-    #         )
-    #         current_objects.insert(
-    #             0, 'project.project-%s, ' % self.project_id.id
-    #         )
-    #         headers['X-Odoo-Objects'] = ','.join(current_objects)
-    #     if self.tag_ids:
-    #         headers['X-Odoo-Tags'] = ','.join(self.tag_ids.mapped('name'))
-    #     res['headers'] = repr(headers)
-    #     return res
+    @api.multi
+    def message_get_email_values(self, notif_mail=None):
+        self.ensure_one()
+        res = super(CMChange, self).message_get_email_values(
+            notif_mail=notif_mail)
+        headers = {}
+        if res.get('headers'):
+            try:
+                headers.update(safe_eval(res['headers']))
+            except Exception:
+                pass
+        if self.project_id:
+            current_objects = filter(
+                None, headers.get('X-Odoo-Objects', '').split(',')
+            )
+            current_objects.insert(
+                0, 'project.project-%s, ' % self.project_id.id
+            )
+            headers['X-Odoo-Objects'] = ','.join(current_objects)
+        if self.tag_ids:
+            headers['X-Odoo-Tags'] = ','.join(self.tag_ids.mapped('name'))
+        res['headers'] = repr(headers)
+        return res
 
 
 class Project(models.Model):

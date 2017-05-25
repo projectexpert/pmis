@@ -4,7 +4,7 @@
 
 {
     'name': 'Change Management',
-    'version': '8.0.3.0.7',
+    'version': '9.0.1.0.0',
     'author': 'Matmoz d.o.o., '
               'Project Expert Team',
     'contributors': [
@@ -29,5 +29,4 @@
     'test': ['test/test_change_management.yml'],
     'installable': True,
     'application': True,
-    'active': False,
 }
