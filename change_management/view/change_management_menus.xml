@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-	<data>
-	<menuitem name="Changes"
-			  id="menu_change_management"
-			  parent="base.menu_main_pm"
-			  action="action_show_changes"
-			  sequence="1"
-			  groups="project.group_project_manager,project.group_project_user"/>
+    <data>
 
-		<!--<menuitem name="Changes"-->
-				  <!--id="menu_changes"-->
-				  <!--parent="menu_change_management"-->
-				  <!--action="action_show_changes"/>-->
+    <menuitem name="Changes"
+              id="menu_changes"
+              parent="project.menu_projects"
+              action="action_show_changes"
+              groups="project.group_project_manager,project.group_project_user"/>
 
-		<menuitem name="Actions"
-				  id="menu_actions_on_change"
-				  parent="menu_change_management"
-				  action="action_show_actions"/>
+   <menuitem name="Actions"
+             id="menu_actions_on_change"
+             parent="project.menu_projects"
+             action="action_show_actions"
+             groups="project.group_project_manager,project.group_project_user"/>
 
-	<menuitem name="Changes"
-			  id="menu_configuration_changes"
-			  parent="project.menu_project_config"
-			  groups="project.group_project_manager"/>
+    <menuitem name="Changes"
+              id="menu_configuration_changes"
+              parent="project.menu_project_config"
+              groups="project.group_project_manager"/>
 
-		<menuitem name="Change Categories"
-				  action="action_show_categories"
-				  id="menu_change_categories"
-				  parent="menu_configuration_changes"/>
+    <menuitem name="Change Categories"
+              action="action_show_categories"
+              id="menu_change_categories"
+              parent="menu_configuration_changes"/>
 
-		<menuitem name="Proximity"
-				  action="action_show_proximity"
-				  id="menu_change_proximity"
-				  parent="menu_configuration_changes"/>
-	</data>
+    <menuitem name="Proximity"
+              action="action_show_proximity"
+              id="menu_change_proximity"
+              parent="menu_configuration_changes"/>
+
+    </data>
 </openerp>

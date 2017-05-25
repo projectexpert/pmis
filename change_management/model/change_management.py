@@ -373,11 +373,6 @@ and obtain sign-off from all key stakeholders.
                         recipients, partner=change.stakeholder_id,
                         reason=_('Customer')
                     )
-                elif change.email_from:
-                    change._message_add_suggested_recipient(
-                        recipients, email=change.email_from,
-                        reason=_('Customer Email')
-                    )
         except AccessError:
             # no read access rights -> just ignore suggested recipients
             # because this imply modifying followers
