@@ -1,26 +1,10 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    OpenERP, Open Source Enterprise Management Solution
-#    risk_management Module
-#    Copyright (C) 2011-2015 ValueDecision Ltd <http://www.valuedecision.com>.
-#    Copyright (C) 2015 Neova Health <http://www.neovahealth.co.uk>.
-#    Copyright (C) 2015 Matmoz d.o.o. <http://www.matmoz.si>.
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright (C) 2011-2015 ValueDecision Ltd <http://www.valuedecision.com>.
+# Copyright (C) 2015 Neova Health <http://www.neovahealth.co.uk>.
+# Copyright (C) 2015 Matmoz d.o.o. <http://www.matmoz.si>.
+# Copyright (C) 2017 Luxim d.o.o. <http://www.luxim.si>.
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+
 from openerp import models, fields, api
 from datetime import date
 import logging
@@ -104,8 +88,27 @@ class RiskManagementRisk (models.Model):
     def set_state_closed(self):
         return self.write({'state': 'closed'})
 
+    # ##### define Risk code #####  #
+
+    @api.model
+    def create(self, vals):
+        if vals.get('name', '/'):
+            vals['name'] = self.env['ir.sequence'].get(
+                'change.management.change')
+        return super(RiskManagementRisk, self).create(vals)
+
+    @api.multi
+    def copy(self, default=None):
+        self.ensure_one()
+        if default is None:
+            default = {}
+        default['name'] = self.env['ir.sequence'].get(
+            'risk.management.risk')
+        return super(RiskManagementRisk, self).copy(default)
+
     name = fields.Char(
         'Risk Id', size=64, required=True, readonly=True,
+        default="/",
         states={'draft': [('readonly', False)]}, select=True,
         help='''
 Risk label. Can be changed as long as risk is in state 'draft'.
@@ -133,13 +136,15 @@ finalising the Project Plan.
         'project.project', 'Project', required=True
     )
     author_id = fields.Many2one(
-        'res.users', 'Author', required=True
+        'res.users', 'Author', required=True,
+        default=lambda self: self.env.user.id,
     )
     color = fields.Integer(
-        'Color'
+        'Color', default=0,
     )
     date_registered = fields.Date(
         'Date Registered', required=True,
+        default=lambda *a: date.today().strftime('%Y-%m-%d'),
         help="Date of the Risk registered. Auto populated."
     )
     date_modified = fields.Date(
@@ -163,6 +168,7 @@ categories (e.g. Schedule, quality, legal etc.)
     )
     impact_inherent = fields.Integer(
         'Inherent Impact', required=True,
+        default=0,
         help='''
 Impact: The result of a particular threat or opportunity actually occurring,
 or the anticipation of such a result. This is the pre-response value, common
@@ -171,6 +177,7 @@ used scales are 1 to 10 or 1 to 100.
     )
     impact_residual = fields.Integer(
         'Residual Impact', required=True,
+        default=0,
         help='''
 Impact: The result of a particular threat or opportunity actually occurring,
 or the anticipation of such a result. This is the post-response value, common
@@ -179,6 +186,7 @@ used scales are 1 to 10 or 1 to 100.
     )
     probability_inherent = fields.Integer(
         'Inherent Probability', required=True,
+        default=0,
         help='''
 Probability: The evaluated likelihood of a particular threat or opportunity
 actually happening, including a consideration of the frequency with which this
@@ -188,6 +196,7 @@ or 1 to 100.
     )
     probability_residual = fields.Integer(
         'Residual Probability', required=True,
+        default=0,
         help='''
 Probability: The evaluated likelihood of a particular threat or opportunity
 actually happening, including a consideration of the frequency with which this
@@ -235,6 +244,7 @@ the project's (or business continuity planning) chosen categories.
     )
     state = fields.Selection(
         _RISK_STATE, 'State', readonly=True,
+        default='draft',
         help='''
 A risk can have one of these three states: draft, active, closed.
 '''
@@ -248,51 +258,55 @@ in case of business continuity to a C-level manager.
 '''
     )
 
-    _defaults = {
-        'author_id': lambda s, cr, uid, c: uid,
-        'date_registered': lambda *a: date.today().strftime('%Y-%m-%d'),
-        'state': 'draft',
-        'impact_inherent': 0,
-        'impact_residual': 0,
-        'probability_inherent': 0,
-        'probability_residual': 0,
-        'name': lambda s, cr, uid, c: s.pool.get('ir.sequence').get(
-            cr, uid, 'risk.management.risk'
-        ),
-        'color': '0'
-    }
+    company_id = fields.Many2one(
+        'res.company', string='Company',
+        required=True, readonly=True, states={'draft': [('readonly', False)]},
+        default=lambda self: self.env.user.company_id.id,
+    )
 
-    def _subscribe_extra_followers(self, cr, uid, ids, vals, context=None):
+    @api.model
+    def _get_states(self):
+        states = [
+            ('draft', 'Draft'),
+            ('active', 'Confirmed'),
+            ('closed', 'Closed')
+        ]
+        return states
+
+    @api.multi
+    def _subscribe_extra_followers(self, vals):
         user_ids = [vals[x] for x in [
             'author_id', 'risk_owner_id'
-        ] if x in vals and vals[x] != False
+        ] if x in vals if not vals[x] is False
         ]
         if len(user_ids) > 0:
             self.message_subscribe_users(
-                cr, uid, ids, user_ids=user_ids, context=context
+                user_ids=user_ids
             )
 
         risks = self.read(
-            cr, uid, ids, ['message_follower_ids', 'risk_response_ids']
+            ['message_follower_ids', 'risk_response_ids']
         )
         for risk in risks:
             if 'risk_response_ids' in risk and risk['risk_response_ids']:
-                task_ob = self.pool.get('project.task')
+                task_ob = self.env('project.task')
                 task_ob.message_subscribe(
-                    cr, uid, risk['risk_response_ids'],
-                    risk['message_follower_ids'], context=context
+                    risk['risk_response_ids'],
+                    risk['message_follower_ids']
                 )
 
-    def write(self, cr, uid, ids, vals, context=None):
-        ret = super(risk_management_risk, self).write(
-            cr, uid, ids, vals, context
+    @api.multi
+    def write(self, vals):
+        ret = super(RiskManagementRisk, self).write(
+            vals
         )
-        self._subscribe_extra_followers(cr, uid, ids, vals, context)
+        self._subscribe_extra_followers(vals)
         return ret
 
-    def create(self, cr, uid, vals, context=None):
-        risk_id = super(risk_management_risk, self).create(
-            cr, uid, vals, context
+    @api.multi
+    def create(self, vals):
+        risk_id = super(RiskManagementRisk, self).create(
+            vals
         )
-        self._subscribe_extra_followers(cr, uid, [risk_id], vals, context)
+        self._subscribe_extra_followers([risk_id], vals)
         return risk_id

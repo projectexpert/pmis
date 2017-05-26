@@ -41,6 +41,7 @@ Contributors
 * Tactix4 Ltd (http://www.tactix4.com)
 * Neova Health (http://www.neovahealth.co.uk)
 * Matmoz d.o.o. (http://www.matmoz.si)
+* Luxim d.o.o. (https://www.luxim.si)
 
 Maintainer
 ----------
