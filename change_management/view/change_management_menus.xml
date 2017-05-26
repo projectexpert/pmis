@@ -2,15 +2,22 @@
 <openerp>
     <data>
 
+    <menuitem name="Change Management"
+              id="menu_change_management"
+              parent="base.menu_main_pm"
+              action="action_show_changes"
+              sequence="2"
+              groups="project.group_project_manager,project.group_project_user"/>
+
     <menuitem name="Changes"
               id="menu_changes"
-              parent="project.menu_projects"
+              parent="menu_change_management"
               action="action_show_changes"
               groups="project.group_project_manager,project.group_project_user"/>
 
    <menuitem name="Actions"
              id="menu_actions_on_change"
-             parent="project.menu_projects"
+             parent="menu_change_management"
              action="action_show_actions"
              groups="project.group_project_manager,project.group_project_user"/>
 
