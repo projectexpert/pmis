@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# © 2015 Eficent Business and IT Consulting Services S.L. <contact@eficent.com>
+# Copyright 2017 Eficent Business and IT Consulting Services S.L.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
     'name': 'Change Management Project Proposal',
-    'version': '8.0.1.0.2',
+    'version': '9.0.1.0.0',
     'author': 'Eficent Business and IT Consulting Services S.L., '
               'Project Expert Team',
     'contributors': [
@@ -20,7 +20,6 @@
     'data': [
         'views/change_management_view.xml',
     ],
-    'installable': False,
+    'installable': True,
     'application': True,
-    'active': False,
 }
