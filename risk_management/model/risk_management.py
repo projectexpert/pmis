@@ -5,13 +5,11 @@
 # Copyright (C) 2017 Luxim d.o.o. <http://www.luxim.si>.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields, api
+from openerp import tools, models, fields, api, _
 from datetime import date
 import logging
 
 _logger = logging.getLogger(__name__)
-
-_RISK_STATE = [('draft', 'Draft'), ('active', 'Active'), ('closed', 'Closed')]
 
 
 class RiskManagementRiskCategory (models.Model):
@@ -94,7 +92,7 @@ class RiskManagementRisk (models.Model):
     def create(self, vals):
         if vals.get('name', '/'):
             vals['name'] = self.env['ir.sequence'].get(
-                'change.management.change')
+                'risk.management.risk')
         return super(RiskManagementRisk, self).create(vals)
 
     @api.multi
@@ -243,7 +241,9 @@ the project's (or business continuity planning) chosen categories.
         compute='_risk_response_count', type='integer'
     )
     state = fields.Selection(
-        _RISK_STATE, 'State', readonly=True,
+        selection="_get_states",
+        string='State',
+        readonly=True,
         default='draft',
         help='''
 A risk can have one of these three states: draft, active, closed.
@@ -275,9 +275,13 @@ in case of business continuity to a C-level manager.
 
     @api.multi
     def _subscribe_extra_followers(self, vals):
-        user_ids = [vals[x] for x in [
-            'author_id', 'risk_owner_id'
-        ] if x in vals if not vals[x] is False
+        user_ids = [
+            vals[x] for
+            x in
+            ['author_id', 'risk_owner_id'] if
+            x in
+            vals if not
+            vals[x] is False
         ]
         if len(user_ids) > 0:
             self.message_subscribe_users(
@@ -288,7 +292,9 @@ in case of business continuity to a C-level manager.
             ['message_follower_ids', 'risk_response_ids']
         )
         for risk in risks:
-            if 'risk_response_ids' in risk and risk['risk_response_ids']:
+            if 'risk_response_ids' in risk and risk[
+                'risk_response_ids'
+            ]:
                 task_ob = self.env('project.task')
                 task_ob.message_subscribe(
                     risk['risk_response_ids'],
@@ -302,11 +308,3 @@ in case of business continuity to a C-level manager.
         )
         self._subscribe_extra_followers(vals)
         return ret
-
-    @api.multi
-    def create(self, vals):
-        risk_id = super(RiskManagementRisk, self).create(
-            vals
-        )
-        self._subscribe_extra_followers([risk_id], vals)
-        return risk_id

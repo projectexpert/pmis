@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-01 18:32+0200\n"
-"PO-Revision-Date: 2016-10-01 18:33+0200\n"
-"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"POT-Creation-Date: 2017-05-28 10:17+0200\n"
+"PO-Revision-Date: 2017-05-28 10:17+0200\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 2.0.1\n"
 
 #. module: risk_management
 #: help:risk.management.risk,state:0
@@ -179,12 +179,6 @@ msgid "Actions:"
 msgstr "Azioni:"
 
 #. module: risk_management
-#: selection:risk.management.risk,state:0
-#, fuzzy
-msgid "Active"
-msgstr "Attivo"
-
-#. module: risk_management
 #: view:risk.management.risk:risk_management.risk_search_form_view
 msgid "Active Risks"
 msgstr ""
@@ -228,16 +222,15 @@ msgid "Close Risk"
 msgstr ""
 
 #. module: risk_management
-#: selection:risk.management.risk,state:0
-#, fuzzy
-msgid "Closed"
-msgstr "Chiuso"
-
-#. module: risk_management
 #: field:risk.management.risk,color:0
 #, fuzzy
 msgid "Color"
 msgstr "Colore"
+
+#. module: risk_management
+#: field:risk.management.risk,company_id:0
+msgid "Company"
+msgstr ""
 
 #. module: risk_management
 #: field:risk.management.category,create_uid:0
@@ -304,12 +297,6 @@ msgstr "Descrizione"
 #, fuzzy
 msgid "Display Name"
 msgstr "Nome visualizzato"
-
-#. module: risk_management
-#: selection:risk.management.risk,state:0
-#, fuzzy
-msgid "Draft"
-msgstr "Bozza"
 
 #. module: risk_management
 #: view:project.task:risk_management.view_task_kanban
@@ -657,6 +644,11 @@ msgid "Risk closed"
 msgstr ""
 
 #. module: risk_management
+#: field:project.project,risk_count:0
+msgid "Risk count"
+msgstr ""
+
+#. module: risk_management
 #: model:mail.message.subtype,description:risk_management.mt_risk_draft
 msgid "Risk in draft"
 msgstr ""
@@ -792,3 +784,15 @@ msgstr "Cronologia comunicazioni pagina web"
 #, fuzzy
 msgid "oe_kanban_text_red"
 msgstr "oe_kanban_text_red"
+
+#, fuzzy
+#~ msgid "Active"
+#~ msgstr "Attivo"
+
+#, fuzzy
+#~ msgid "Closed"
+#~ msgstr "Chiuso"
+
+#, fuzzy
+#~ msgid "Draft"
+#~ msgstr "Bozza"

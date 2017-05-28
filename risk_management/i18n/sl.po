@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-01 18:32+0200\n"
-"PO-Revision-Date: 2016-10-01 18:32+0200\n"
-"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"POT-Creation-Date: 2017-05-28 10:16+0200\n"
+"PO-Revision-Date: 2017-05-28 10:16+0200\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 2.0.1\n"
 
 #. module: risk_management
 #: help:risk.management.risk,state:0
@@ -239,11 +239,6 @@ msgid "Actions:"
 msgstr "Ukrepi:"
 
 #. module: risk_management
-#: selection:risk.management.risk,state:0
-msgid "Active"
-msgstr "Aktivno"
-
-#. module: risk_management
 #: view:risk.management.risk:risk_management.risk_search_form_view
 msgid "Active Risks"
 msgstr "Aktivna tveganja"
@@ -284,14 +279,14 @@ msgid "Close Risk"
 msgstr "Zaključi tveganje"
 
 #. module: risk_management
-#: selection:risk.management.risk,state:0
-msgid "Closed"
-msgstr "Zaključeno"
-
-#. module: risk_management
 #: field:risk.management.risk,color:0
 msgid "Color"
 msgstr "Barva"
+
+#. module: risk_management
+#: field:risk.management.risk,company_id:0
+msgid "Company"
+msgstr "Družba"
 
 #. module: risk_management
 #: field:risk.management.category,create_uid:0
@@ -351,11 +346,6 @@ msgstr "Opis"
 #: field:risk.management.risk,display_name:0
 msgid "Display Name"
 msgstr "Prikazni naziv"
-
-#. module: risk_management
-#: selection:risk.management.risk,state:0
-msgid "Draft"
-msgstr "Osnutek"
 
 #. module: risk_management
 #: view:project.task:risk_management.view_task_kanban
@@ -672,6 +662,11 @@ msgid "Risk closed"
 msgstr "Tveganje zaključeno"
 
 #. module: risk_management
+#: field:project.project,risk_count:0
+msgid "Risk count"
+msgstr "Števec tveganj"
+
+#. module: risk_management
 #: model:mail.message.subtype,description:risk_management.mt_risk_draft
 msgid "Risk in draft"
 msgstr "Osnutek tveganja"
@@ -794,6 +789,15 @@ msgstr "Kronologija komunikacij spletne strani"
 #: view:project.task:risk_management.view_task_kanban
 msgid "oe_kanban_text_red"
 msgstr "oe_kanban_text_red"
+
+#~ msgid "Active"
+#~ msgstr "Aktivno"
+
+#~ msgid "Closed"
+#~ msgstr "Zaključeno"
+
+#~ msgid "Draft"
+#~ msgstr "Osnutek"
 
 #~ msgid "Risk Management"
 #~ msgstr "Upravljanje tveganj"

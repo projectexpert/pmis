@@ -37,7 +37,7 @@ class Project(models.Model):
     )
 
 
-class Project(models.Model):
+class Task(models.Model):
     _inherit = 'project.task'
 
     page_ids = fields.Many2many(

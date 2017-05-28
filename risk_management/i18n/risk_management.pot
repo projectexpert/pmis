@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-01 16:05+0000\n"
-"PO-Revision-Date: 2016-10-01 16:05+0000\n"
+"POT-Creation-Date: 2017-05-28 08:15+0000\n"
+"PO-Revision-Date: 2017-05-28 08:15+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -166,11 +166,6 @@ msgid "Actions:"
 msgstr ""
 
 #. module: risk_management
-#: selection:risk.management.risk,state:0
-msgid "Active"
-msgstr ""
-
-#. module: risk_management
 #: view:risk.management.risk:risk_management.risk_search_form_view
 msgid "Active Risks"
 msgstr ""
@@ -211,13 +206,13 @@ msgid "Close Risk"
 msgstr ""
 
 #. module: risk_management
-#: selection:risk.management.risk,state:0
-msgid "Closed"
+#: field:risk.management.risk,color:0
+msgid "Color"
 msgstr ""
 
 #. module: risk_management
-#: field:risk.management.risk,color:0
-msgid "Color"
+#: field:risk.management.risk,company_id:0
+msgid "Company"
 msgstr ""
 
 #. module: risk_management
@@ -277,11 +272,6 @@ msgstr ""
 #: field:risk.management.response.category,display_name:0
 #: field:risk.management.risk,display_name:0
 msgid "Display Name"
-msgstr ""
-
-#. module: risk_management
-#: selection:risk.management.risk,state:0
-msgid "Draft"
 msgstr ""
 
 #. module: risk_management
@@ -594,6 +584,11 @@ msgstr ""
 #. module: risk_management
 #: model:mail.message.subtype,description:risk_management.mt_risk_closed
 msgid "Risk closed"
+msgstr ""
+
+#. module: risk_management
+#: field:project.project,risk_count:0
+msgid "Risk count"
 msgstr ""
 
 #. module: risk_management

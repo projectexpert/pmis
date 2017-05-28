@@ -7,7 +7,7 @@
 
 {
     'name': 'Risk Management',
-    'version': '8.0.2.1.5',
+    'version': '8.0.2.1.6',
     'author':   'Neova Health ,'
                 'Matmoz d.o.o., '
                 'Project Expert Team',
