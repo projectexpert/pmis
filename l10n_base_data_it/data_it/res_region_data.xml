@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+
+<record id="l10n_base.it_pie" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Piemonte</field>
+</record>
+
+<record id="l10n_base.it_vda" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Valle d'Aosta</field>
+</record>
+
+<record id="l10n_base.it_lom" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Lombardia</field>
+</record>
+
+<record id="l10n_base.it_taa" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Trentino-Alto Adige</field>
+</record>
+
+<record id="l10n_base.it_ven" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Veneto</field>
+</record>
+
+<record id="l10n_base.it_fvg" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Friuli-Venezia Giulia</field>
+</record>
+
+<record id="l10n_base.it_lig" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Liguria</field>
+</record>
+
+<record id="l10n_base.it_emr" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Emilia-Romagna</field>
+</record>
+
+<record id="l10n_base.it_tos" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Toscana</field>
+</record>
+
+<record id="l10n_base.it_umb" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Umbria</field>
+</record>
+
+<record id="l10n_base.it_mar" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Marche</field>
+</record>
+
+<record id="l10n_base.it_laz" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Lazio</field>
+</record>
+
+<record id="l10n_base.it_abr" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Abruzzo</field>
+</record>
+
+<record id="l10n_base.it_mol" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Molise</field>
+</record>
+
+<record id="l10n_base.it_cam" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Campania</field>
+</record>
+
+<record id="l10n_base.it_pug" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Puglia</field>
+</record>
+
+<record id="l10n_base.it_bas" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Basilicata</field>
+</record>
+
+<record id="l10n_base.it_cal" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Calabria</field>
+</record>
+
+<record id="l10n_base.it_sic" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Sicilia</field>
+</record>
+
+<record id="l10n_base.it_sar" model="res.region">
+    <field name="country_id" ref="base.it"/>
+    <field name="name">Sardegna</field>
+</record>
+
+
+    </data>
+</openerp>

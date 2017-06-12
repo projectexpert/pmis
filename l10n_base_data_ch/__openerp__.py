@@ -16,7 +16,7 @@
     'depends': ['l10n_base'],
     'data': [
         'data/l10n_base_data_ch.xml',
-        'data/res.country.csv'
+        'data/res_country_data.xml'
     ],
     'qweb': [],
     'demo': [],

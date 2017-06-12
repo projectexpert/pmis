@@ -1,0 +1,4310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+
+<record id="l10n_base.si_1" model="res.city">
+    <field name="name">Adlešiči</field>
+    <field name="province_id" ref="l10n_base.si_c_001"/>
+    <field name="zip" eval="8341"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_2" model="res.city">
+    <field name="name">Ajdovščina</field>
+    <field name="province_id" ref="l10n_base.si_c_002"/>
+    <field name="zip" eval="5270"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_3" model="res.city">
+    <field name="name">Ankaran/Ancarano</field>
+    <field name="province_id" ref="l10n_base.si_c_003"/>
+    <field name="zip" eval="6280"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_4" model="res.city">
+    <field name="name">Apače</field>
+    <field name="province_id" ref="l10n_base.si_c_004"/>
+    <field name="zip" eval="9253"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_5" model="res.city">
+    <field name="name">Artiče</field>
+    <field name="province_id" ref="l10n_base.si_c_005"/>
+    <field name="zip" eval="8253"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_6" model="res.city">
+    <field name="name">Begunje na Gorenjskem</field>
+    <field name="province_id" ref="l10n_base.si_c_006"/>
+    <field name="zip" eval="4275"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_7" model="res.city">
+    <field name="name">Begunje pri Cerknici</field>
+    <field name="province_id" ref="l10n_base.si_c_007"/>
+    <field name="zip" eval="1382"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_8" model="res.city">
+    <field name="name">Beltinci</field>
+    <field name="province_id" ref="l10n_base.si_c_008"/>
+    <field name="zip" eval="9231"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_9" model="res.city">
+    <field name="name">Benedikt</field>
+    <field name="province_id" ref="l10n_base.si_c_009"/>
+    <field name="zip" eval="2234"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_10" model="res.city">
+    <field name="name">Bistrica ob Dravi</field>
+    <field name="province_id" ref="l10n_base.si_c_010"/>
+    <field name="zip" eval="2345"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_11" model="res.city">
+    <field name="name">Bistrica ob Sotli</field>
+    <field name="province_id" ref="l10n_base.si_c_011"/>
+    <field name="zip" eval="3256"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_12" model="res.city">
+    <field name="name">Bizeljsko</field>
+    <field name="province_id" ref="l10n_base.si_c_005"/>
+    <field name="zip" eval="8259"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_13" model="res.city">
+    <field name="name">Blagovica</field>
+    <field name="province_id" ref="l10n_base.si_c_013"/>
+    <field name="zip" eval="1223"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_14" model="res.city">
+    <field name="name">Blanca</field>
+    <field name="province_id" ref="l10n_base.si_c_014"/>
+    <field name="zip" eval="8283"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_15" model="res.city">
+    <field name="name">Bled</field>
+    <field name="province_id" ref="l10n_base.si_c_015"/>
+    <field name="zip" eval="4260"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_16" model="res.city">
+    <field name="name">Blejska Dobrava</field>
+    <field name="province_id" ref="l10n_base.si_c_016"/>
+    <field name="zip" eval="4273"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_17" model="res.city">
+    <field name="name">Bodonci</field>
+    <field name="province_id" ref="l10n_base.si_c_017"/>
+    <field name="zip" eval="9265"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_18" model="res.city">
+    <field name="name">Bogojina</field>
+    <field name="province_id" ref="l10n_base.si_c_018"/>
+    <field name="zip" eval="9222"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_19" model="res.city">
+    <field name="name">Bohinjska Bela</field>
+    <field name="province_id" ref="l10n_base.si_c_015"/>
+    <field name="zip" eval="4263"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_20" model="res.city">
+    <field name="name">Bohinjska Bistrica</field>
+    <field name="province_id" ref="l10n_base.si_c_020"/>
+    <field name="zip" eval="4264"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_21" model="res.city">
+    <field name="name">Bohinjsko jezero</field>
+    <field name="province_id" ref="l10n_base.si_c_020"/>
+    <field name="zip" eval="4265"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_22" model="res.city">
+    <field name="name">Borovnica</field>
+    <field name="province_id" ref="l10n_base.si_c_022"/>
+    <field name="zip" eval="1353"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_23" model="res.city">
+    <field name="name">Boštanj</field>
+    <field name="province_id" ref="l10n_base.si_c_014"/>
+    <field name="zip" eval="8294"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_24" model="res.city">
+    <field name="name">Bovec</field>
+    <field name="province_id" ref="l10n_base.si_c_024"/>
+    <field name="zip" eval="5230"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_25" model="res.city">
+    <field name="name">Branik</field>
+    <field name="province_id" ref="l10n_base.si_c_025"/>
+    <field name="zip" eval="5295"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_26" model="res.city">
+    <field name="name">Braslovče</field>
+    <field name="province_id" ref="l10n_base.si_c_026"/>
+    <field name="zip" eval="3314"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_27" model="res.city">
+    <field name="name">Breginj</field>
+    <field name="province_id" ref="l10n_base.si_c_027"/>
+    <field name="zip" eval="5223"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_28" model="res.city">
+    <field name="name">Brestanica</field>
+    <field name="province_id" ref="l10n_base.si_c_028"/>
+    <field name="zip" eval="8280"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_29" model="res.city">
+    <field name="name">Bresternica</field>
+    <field name="province_id" ref="l10n_base.si_c_029"/>
+    <field name="zip" eval="2354"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_30" model="res.city">
+    <field name="name">Brezje</field>
+    <field name="province_id" ref="l10n_base.si_c_006"/>
+    <field name="zip" eval="4243"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_31" model="res.city">
+    <field name="name">Brezovica pri Ljubljani</field>
+    <field name="province_id" ref="l10n_base.si_c_031"/>
+    <field name="zip" eval="1351"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_32" model="res.city">
+    <field name="name">Brežice</field>
+    <field name="province_id" ref="l10n_base.si_c_005"/>
+    <field name="zip" eval="8250"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_33" model="res.city">
+    <field name="name">Brnik - Aerodrom</field>
+    <field name="province_id" ref="l10n_base.si_c_033"/>
+    <field name="zip" eval="4210"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_34" model="res.city">
+    <field name="name">Brusnice</field>
+    <field name="province_id" ref="l10n_base.si_c_034"/>
+    <field name="zip" eval="8321"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_35" model="res.city">
+    <field name="name">Buče</field>
+    <field name="province_id" ref="l10n_base.si_c_035"/>
+    <field name="zip" eval="3255"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_36" model="res.city">
+    <field name="name">Bučka</field>
+    <field name="province_id" ref="l10n_base.si_c_036"/>
+    <field name="zip" eval="8276"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_37" model="res.city">
+    <field name="name">Cankova</field>
+    <field name="province_id" ref="l10n_base.si_c_037"/>
+    <field name="zip" eval="9261"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_38" model="res.city">
+    <field name="name">Celje</field>
+    <field name="province_id" ref="l10n_base.si_c_038"/>
+    <field name="zip" eval="3000"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_39" model="res.city">
+    <field name="name">Celje - poštni predali</field>
+    <field name="province_id" ref="l10n_base.si_c_038"/>
+    <field name="zip" eval="3001"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_40" model="res.city">
+    <field name="name">Cerklje na Gorenjskem</field>
+    <field name="province_id" ref="l10n_base.si_c_033"/>
+    <field name="zip" eval="4207"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_41" model="res.city">
+    <field name="name">Cerklje ob Krki</field>
+    <field name="province_id" ref="l10n_base.si_c_005"/>
+    <field name="zip" eval="8263"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_42" model="res.city">
+    <field name="name">Cerknica</field>
+    <field name="province_id" ref="l10n_base.si_c_007"/>
+    <field name="zip" eval="1380"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_43" model="res.city">
+    <field name="name">Cerkno</field>
+    <field name="province_id" ref="l10n_base.si_c_043"/>
+    <field name="zip" eval="5282"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_44" model="res.city">
+    <field name="name">Cerkvenjak</field>
+    <field name="province_id" ref="l10n_base.si_c_044"/>
+    <field name="zip" eval="2236"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_45" model="res.city">
+    <field name="name">Ceršak</field>
+    <field name="province_id" ref="l10n_base.si_c_045"/>
+    <field name="zip" eval="2215"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_46" model="res.city">
+    <field name="name">Cirkovce</field>
+    <field name="province_id" ref="l10n_base.si_c_046"/>
+    <field name="zip" eval="2326"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_47" model="res.city">
+    <field name="name">Cirkulane</field>
+    <field name="province_id" ref="l10n_base.si_c_047"/>
+    <field name="zip" eval="2282"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_48" model="res.city">
+    <field name="name">Col</field>
+    <field name="province_id" ref="l10n_base.si_c_002"/>
+    <field name="zip" eval="5273"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_49" model="res.city">
+    <field name="name">Čatež ob Savi</field>
+    <field name="province_id" ref="l10n_base.si_c_005"/>
+    <field name="zip" eval="8251"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_50" model="res.city">
+    <field name="name">Čemšenik</field>
+    <field name="province_id" ref="l10n_base.si_c_050"/>
+    <field name="zip" eval="1413"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_51" model="res.city">
+    <field name="name">Čepovan</field>
+    <field name="province_id" ref="l10n_base.si_c_025"/>
+    <field name="zip" eval="5253"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_52" model="res.city">
+    <field name="name">Črenšovci</field>
+    <field name="province_id" ref="l10n_base.si_c_052"/>
+    <field name="zip" eval="9232"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_53" model="res.city">
+    <field name="name">Črna na Koroškem</field>
+    <field name="province_id" ref="l10n_base.si_c_053"/>
+    <field name="zip" eval="2393"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_54" model="res.city">
+    <field name="name">Črni Kal</field>
+    <field name="province_id" ref="l10n_base.si_c_054"/>
+    <field name="zip" eval="6275"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_55" model="res.city">
+    <field name="name">Črni Vrh nad Idrijo</field>
+    <field name="province_id" ref="l10n_base.si_c_055"/>
+    <field name="zip" eval="5274"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_56" model="res.city">
+    <field name="name">Črniče</field>
+    <field name="province_id" ref="l10n_base.si_c_002"/>
+    <field name="zip" eval="5262"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_57" model="res.city">
+    <field name="name">Črnomelj</field>
+    <field name="province_id" ref="l10n_base.si_c_001"/>
+    <field name="zip" eval="8340"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_58" model="res.city">
+    <field name="name">Dekani</field>
+    <field name="province_id" ref="l10n_base.si_c_054"/>
+    <field name="zip" eval="6271"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_59" model="res.city">
+    <field name="name">Deskle</field>
+    <field name="province_id" ref="l10n_base.si_c_059"/>
+    <field name="zip" eval="5210"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_60" model="res.city">
+    <field name="name">Destrnik</field>
+    <field name="province_id" ref="l10n_base.si_c_060"/>
+    <field name="zip" eval="2253"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_61" model="res.city">
+    <field name="name">Divača</field>
+    <field name="province_id" ref="l10n_base.si_c_061"/>
+    <field name="zip" eval="6215"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_62" model="res.city">
+    <field name="name">Dob</field>
+    <field name="province_id" ref="l10n_base.si_c_062"/>
+    <field name="zip" eval="1233"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_63" model="res.city">
+    <field name="name">Dobje pri Planini</field>
+    <field name="province_id" ref="l10n_base.si_c_063"/>
+    <field name="zip" eval="3224"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_64" model="res.city">
+    <field name="name">Dobova</field>
+    <field name="province_id" ref="l10n_base.si_c_005"/>
+    <field name="zip" eval="8257"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_65" model="res.city">
+    <field name="name">Dobovec</field>
+    <field name="province_id" ref="l10n_base.si_c_065"/>
+    <field name="zip" eval="1423"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_66" model="res.city">
+    <field name="name">Dobravlje</field>
+    <field name="province_id" ref="l10n_base.si_c_002"/>
+    <field name="zip" eval="5263"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_67" model="res.city">
+    <field name="name">Dobrna</field>
+    <field name="province_id" ref="l10n_base.si_c_067"/>
+    <field name="zip" eval="3204"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_68" model="res.city">
+    <field name="name">Dobrnič</field>
+    <field name="province_id" ref="l10n_base.si_c_068"/>
+    <field name="zip" eval="8211"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_69" model="res.city">
+    <field name="name">Dobrova</field>
+    <field name="province_id" ref="l10n_base.si_c_069"/>
+    <field name="zip" eval="1356"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_70" model="res.city">
+    <field name="name">Dobrovnik/Dobronak</field>
+    <field name="province_id" ref="l10n_base.si_c_070"/>
+    <field name="zip" eval="9223"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_71" model="res.city">
+    <field name="name">Dobrovo v Brdih</field>
+    <field name="province_id" ref="l10n_base.si_c_071"/>
+    <field name="zip" eval="5212"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_72" model="res.city">
+    <field name="name">Dol pri Hrastniku</field>
+    <field name="province_id" ref="l10n_base.si_c_072"/>
+    <field name="zip" eval="1431"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_73" model="res.city">
+    <field name="name">Dol pri Ljubljani</field>
+    <field name="province_id" ref="l10n_base.si_c_073"/>
+    <field name="zip" eval="1262"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_74" model="res.city">
+    <field name="name">Dole pri Litiji</field>
+    <field name="province_id" ref="l10n_base.si_c_074"/>
+    <field name="zip" eval="1273"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_75" model="res.city">
+    <field name="name">Dolenja vas</field>
+    <field name="province_id" ref="l10n_base.si_c_075"/>
+    <field name="zip" eval="1331"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_76" model="res.city">
+    <field name="name">Dolenjske Toplice</field>
+    <field name="province_id" ref="l10n_base.si_c_076"/>
+    <field name="zip" eval="8350"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_77" model="res.city">
+    <field name="name">Domžale</field>
+    <field name="province_id" ref="l10n_base.si_c_062"/>
+    <field name="zip" eval="1230"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_78" model="res.city">
+    <field name="name">Dornava</field>
+    <field name="province_id" ref="l10n_base.si_c_078"/>
+    <field name="zip" eval="2252"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_79" model="res.city">
+    <field name="name">Dornberk</field>
+    <field name="province_id" ref="l10n_base.si_c_025"/>
+    <field name="zip" eval="5294"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_80" model="res.city">
+    <field name="name">Draga</field>
+    <field name="province_id" ref="l10n_base.si_c_080"/>
+    <field name="zip" eval="1319"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_81" model="res.city">
+    <field name="name">Dragatuš</field>
+    <field name="province_id" ref="l10n_base.si_c_001"/>
+    <field name="zip" eval="8343"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_82" model="res.city">
+    <field name="name">Dramlje</field>
+    <field name="province_id" ref="l10n_base.si_c_082"/>
+    <field name="zip" eval="3222"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_83" model="res.city">
+    <field name="name">Dravograd</field>
+    <field name="province_id" ref="l10n_base.si_c_083"/>
+    <field name="zip" eval="2370"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_84" model="res.city">
+    <field name="name">Duplje</field>
+    <field name="province_id" ref="l10n_base.si_c_084"/>
+    <field name="zip" eval="4203"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_85" model="res.city">
+    <field name="name">Dutovlje</field>
+    <field name="province_id" ref="l10n_base.si_c_085"/>
+    <field name="zip" eval="6221"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_86" model="res.city">
+    <field name="name">Dvor</field>
+    <field name="province_id" ref="l10n_base.si_c_086"/>
+    <field name="zip" eval="8361"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_87" model="res.city">
+    <field name="name">Fala</field>
+    <field name="province_id" ref="l10n_base.si_c_010"/>
+    <field name="zip" eval="2343"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_88" model="res.city">
+    <field name="name">Fokovci</field>
+    <field name="province_id" ref="l10n_base.si_c_018"/>
+    <field name="zip" eval="9208"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_89" model="res.city">
+    <field name="name">Fram</field>
+    <field name="province_id" ref="l10n_base.si_c_089"/>
+    <field name="zip" eval="2313"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_90" model="res.city">
+    <field name="name">Frankolovo</field>
+    <field name="province_id" ref="l10n_base.si_c_090"/>
+    <field name="zip" eval="3213"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_91" model="res.city">
+    <field name="name">Gabrovka</field>
+    <field name="province_id" ref="l10n_base.si_c_074"/>
+    <field name="zip" eval="1274"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_92" model="res.city">
+    <field name="name">Globoko</field>
+    <field name="province_id" ref="l10n_base.si_c_005"/>
+    <field name="zip" eval="8254"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_93" model="res.city">
+    <field name="name">Godovič</field>
+    <field name="province_id" ref="l10n_base.si_c_055"/>
+    <field name="zip" eval="5275"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_94" model="res.city">
+    <field name="name">Golnik</field>
+    <field name="province_id" ref="l10n_base.si_c_094"/>
+    <field name="zip" eval="4204"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_95" model="res.city">
+    <field name="name">Gomilsko</field>
+    <field name="province_id" ref="l10n_base.si_c_026"/>
+    <field name="zip" eval="3303"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_96" model="res.city">
+    <field name="name">Gorenja vas</field>
+    <field name="province_id" ref="l10n_base.si_c_096"/>
+    <field name="zip" eval="4224"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_97" model="res.city">
+    <field name="name">Gorica pri Slivnici</field>
+    <field name="province_id" ref="l10n_base.si_c_082"/>
+    <field name="zip" eval="3263"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_98" model="res.city">
+    <field name="name">Gorišnica</field>
+    <field name="province_id" ref="l10n_base.si_c_098"/>
+    <field name="zip" eval="2272"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_99" model="res.city">
+    <field name="name">Gornja Radgona</field>
+    <field name="province_id" ref="l10n_base.si_c_099"/>
+    <field name="zip" eval="9250"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_100" model="res.city">
+    <field name="name">Gornji Grad</field>
+    <field name="province_id" ref="l10n_base.si_c_100"/>
+    <field name="zip" eval="3342"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_101" model="res.city">
+    <field name="name">Gozd Martuljek</field>
+    <field name="province_id" ref="l10n_base.si_c_101"/>
+    <field name="zip" eval="4282"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_102" model="res.city">
+    <field name="name">Gračišče</field>
+    <field name="province_id" ref="l10n_base.si_c_054"/>
+    <field name="zip" eval="6272"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_103" model="res.city">
+    <field name="name">Grad</field>
+    <field name="province_id" ref="l10n_base.si_c_103"/>
+    <field name="zip" eval="9264"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_104" model="res.city">
+    <field name="name">Gradac</field>
+    <field name="province_id" ref="l10n_base.si_c_104"/>
+    <field name="zip" eval="8332"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_105" model="res.city">
+    <field name="name">Grahovo</field>
+    <field name="province_id" ref="l10n_base.si_c_007"/>
+    <field name="zip" eval="1384"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_106" model="res.city">
+    <field name="name">Grahovo ob Bači</field>
+    <field name="province_id" ref="l10n_base.si_c_106"/>
+    <field name="zip" eval="5242"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_107" model="res.city">
+    <field name="name">Grgar</field>
+    <field name="province_id" ref="l10n_base.si_c_025"/>
+    <field name="zip" eval="5251"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_108" model="res.city">
+    <field name="name">Griže</field>
+    <field name="province_id" ref="l10n_base.si_c_108"/>
+    <field name="zip" eval="3302"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_109" model="res.city">
+    <field name="name">Grobelno</field>
+    <field name="province_id" ref="l10n_base.si_c_082"/>
+    <field name="zip" eval="3231"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_110" model="res.city">
+    <field name="name">Grosuplje</field>
+    <field name="province_id" ref="l10n_base.si_c_110"/>
+    <field name="zip" eval="1290"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_111" model="res.city">
+    <field name="name">Hajdina</field>
+    <field name="province_id" ref="l10n_base.si_c_111"/>
+    <field name="zip" eval="2288"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_112" model="res.city">
+    <field name="name">Hinje</field>
+    <field name="province_id" ref="l10n_base.si_c_086"/>
+    <field name="zip" eval="8362"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_113" model="res.city">
+    <field name="name">Hoče</field>
+    <field name="province_id" ref="l10n_base.si_c_113"/>
+    <field name="zip" eval="2311"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_114" model="res.city">
+    <field name="name">Hodoš/Hodos</field>
+    <field name="province_id" ref="l10n_base.si_c_114"/>
+    <field name="zip" eval="9205"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_115" model="res.city">
+    <field name="name">Horjul</field>
+    <field name="province_id" ref="l10n_base.si_c_115"/>
+    <field name="zip" eval="1354"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_116" model="res.city">
+    <field name="name">Hotedršica</field>
+    <field name="province_id" ref="l10n_base.si_c_116"/>
+    <field name="zip" eval="1372"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_117" model="res.city">
+    <field name="name">Hrastnik</field>
+    <field name="province_id" ref="l10n_base.si_c_072"/>
+    <field name="zip" eval="1430"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_118" model="res.city">
+    <field name="name">Hruševje</field>
+    <field name="province_id" ref="l10n_base.si_c_118"/>
+    <field name="zip" eval="6225"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_119" model="res.city">
+    <field name="name">Hrušica</field>
+    <field name="province_id" ref="l10n_base.si_c_016"/>
+    <field name="zip" eval="4276"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_120" model="res.city">
+    <field name="name">Idrija</field>
+    <field name="province_id" ref="l10n_base.si_c_055"/>
+    <field name="zip" eval="5280"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_121" model="res.city">
+    <field name="name">Ig</field>
+    <field name="province_id" ref="l10n_base.si_c_121"/>
+    <field name="zip" eval="1292"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_122" model="res.city">
+    <field name="name">Ilirska Bistrica</field>
+    <field name="province_id" ref="l10n_base.si_c_122"/>
+    <field name="zip" eval="6250"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_123" model="res.city">
+    <field name="name">Ilirska Bistrica-Trnovo</field>
+    <field name="province_id" ref="l10n_base.si_c_122"/>
+    <field name="zip" eval="6251"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_124" model="res.city">
+    <field name="name">Ivančna Gorica</field>
+    <field name="province_id" ref="l10n_base.si_c_124"/>
+    <field name="zip" eval="1295"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_125" model="res.city">
+    <field name="name">Ivanjkovci</field>
+    <field name="province_id" ref="l10n_base.si_c_125"/>
+    <field name="zip" eval="2259"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_126" model="res.city">
+    <field name="name">Izlake</field>
+    <field name="province_id" ref="l10n_base.si_c_050"/>
+    <field name="zip" eval="1411"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_127" model="res.city">
+    <field name="name">Izola/Isola</field>
+    <field name="province_id" ref="l10n_base.si_c_127"/>
+    <field name="zip" eval="6310"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_128" model="res.city">
+    <field name="name">Jakobski Dol</field>
+    <field name="province_id" ref="l10n_base.si_c_128"/>
+    <field name="zip" eval="2222"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_129" model="res.city">
+    <field name="name">Jarenina</field>
+    <field name="province_id" ref="l10n_base.si_c_128"/>
+    <field name="zip" eval="2221"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_130" model="res.city">
+    <field name="name">Jelšane</field>
+    <field name="province_id" ref="l10n_base.si_c_122"/>
+    <field name="zip" eval="6254"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_131" model="res.city">
+    <field name="name">Jesenice</field>
+    <field name="province_id" ref="l10n_base.si_c_016"/>
+    <field name="zip" eval="4270"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_132" model="res.city">
+    <field name="name">Jesenice na Dolenjskem</field>
+    <field name="province_id" ref="l10n_base.si_c_005"/>
+    <field name="zip" eval="8261"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_133" model="res.city">
+    <field name="name">Jurklošter</field>
+    <field name="province_id" ref="l10n_base.si_c_133"/>
+    <field name="zip" eval="3273"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_134" model="res.city">
+    <field name="name">Jurovski Dol</field>
+    <field name="province_id" ref="l10n_base.si_c_134"/>
+    <field name="zip" eval="2223"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_135" model="res.city">
+    <field name="name">Juršinci</field>
+    <field name="province_id" ref="l10n_base.si_c_135"/>
+    <field name="zip" eval="2256"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_136" model="res.city">
+    <field name="name">Kal nad Kanalom</field>
+    <field name="province_id" ref="l10n_base.si_c_059"/>
+    <field name="zip" eval="5214"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_137" model="res.city">
+    <field name="name">Kalobje</field>
+    <field name="province_id" ref="l10n_base.si_c_082"/>
+    <field name="zip" eval="3233"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_138" model="res.city">
+    <field name="name">Kamna Gorica</field>
+    <field name="province_id" ref="l10n_base.si_c_006"/>
+    <field name="zip" eval="4246"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_139" model="res.city">
+    <field name="name">Kamnica</field>
+    <field name="province_id" ref="l10n_base.si_c_029"/>
+    <field name="zip" eval="2351"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_140" model="res.city">
+    <field name="name">Kamnik</field>
+    <field name="province_id" ref="l10n_base.si_c_140"/>
+    <field name="zip" eval="1241"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_141" model="res.city">
+    <field name="name">Kanal</field>
+    <field name="province_id" ref="l10n_base.si_c_059"/>
+    <field name="zip" eval="5213"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_142" model="res.city">
+    <field name="name">Kapele</field>
+    <field name="province_id" ref="l10n_base.si_c_005"/>
+    <field name="zip" eval="8258"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_143" model="res.city">
+    <field name="name">Kapla</field>
+    <field name="province_id" ref="l10n_base.si_c_143"/>
+    <field name="zip" eval="2362"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_144" model="res.city">
+    <field name="name">Kidričevo</field>
+    <field name="province_id" ref="l10n_base.si_c_046"/>
+    <field name="zip" eval="2325"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_145" model="res.city">
+    <field name="name">Kisovec</field>
+    <field name="province_id" ref="l10n_base.si_c_050"/>
+    <field name="zip" eval="1412"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_146" model="res.city">
+    <field name="name">Knežak</field>
+    <field name="province_id" ref="l10n_base.si_c_122"/>
+    <field name="zip" eval="6253"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_147" model="res.city">
+    <field name="name">Kobarid</field>
+    <field name="province_id" ref="l10n_base.si_c_027"/>
+    <field name="zip" eval="5222"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_148" model="res.city">
+    <field name="name">Kobilje</field>
+    <field name="province_id" ref="l10n_base.si_c_148"/>
+    <field name="zip" eval="9227"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_149" model="res.city">
+    <field name="name">Kočevje</field>
+    <field name="province_id" ref="l10n_base.si_c_149"/>
+    <field name="zip" eval="1330"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_150" model="res.city">
+    <field name="name">Kočevska Reka</field>
+    <field name="province_id" ref="l10n_base.si_c_149"/>
+    <field name="zip" eval="1338"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_151" model="res.city">
+    <field name="name">Kog</field>
+    <field name="province_id" ref="l10n_base.si_c_125"/>
+    <field name="zip" eval="2276"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_152" model="res.city">
+    <field name="name">Kojsko</field>
+    <field name="province_id" ref="l10n_base.si_c_071"/>
+    <field name="zip" eval="5211"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_153" model="res.city">
+    <field name="name">Komen</field>
+    <field name="province_id" ref="l10n_base.si_c_153"/>
+    <field name="zip" eval="6223"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_154" model="res.city">
+    <field name="name">Komenda</field>
+    <field name="province_id" ref="l10n_base.si_c_154"/>
+    <field name="zip" eval="1218"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_155" model="res.city">
+    <field name="name">Koper/Capodistria</field>
+    <field name="province_id" ref="l10n_base.si_c_054"/>
+    <field name="zip" eval="6000"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_156" model="res.city">
+    <field name="name">Koper/Capodistria - poštni predali</field>
+    <field name="province_id" ref="l10n_base.si_c_054"/>
+    <field name="zip" eval="6001"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_157" model="res.city">
+    <field name="name">Koprivnica</field>
+    <field name="province_id" ref="l10n_base.si_c_028"/>
+    <field name="zip" eval="8282"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_158" model="res.city">
+    <field name="name">Kostanjevica na Krasu</field>
+    <field name="province_id" ref="l10n_base.si_c_158"/>
+    <field name="zip" eval="5296"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_159" model="res.city">
+    <field name="name">Kostanjevica na Krki</field>
+    <field name="province_id" ref="l10n_base.si_c_159"/>
+    <field name="zip" eval="8311"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_160" model="res.city">
+    <field name="name">Kostel</field>
+    <field name="province_id" ref="l10n_base.si_c_160"/>
+    <field name="zip" eval="1336"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_161" model="res.city">
+    <field name="name">Košana</field>
+    <field name="province_id" ref="l10n_base.si_c_161"/>
+    <field name="zip" eval="6256"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_162" model="res.city">
+    <field name="name">Kotlje</field>
+    <field name="province_id" ref="l10n_base.si_c_162"/>
+    <field name="zip" eval="2394"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_163" model="res.city">
+    <field name="name">Kozina</field>
+    <field name="province_id" ref="l10n_base.si_c_163"/>
+    <field name="zip" eval="6240"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_164" model="res.city">
+    <field name="name">Kozje</field>
+    <field name="province_id" ref="l10n_base.si_c_035"/>
+    <field name="zip" eval="3260"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_165" model="res.city">
+    <field name="name">Kranj</field>
+    <field name="province_id" ref="l10n_base.si_c_094"/>
+    <field name="zip" eval="4000"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_166" model="res.city">
+    <field name="name">Kranj - poštni predali</field>
+    <field name="province_id" ref="l10n_base.si_c_094"/>
+    <field name="zip" eval="4001"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_167" model="res.city">
+    <field name="name">Kranjska Gora</field>
+    <field name="province_id" ref="l10n_base.si_c_101"/>
+    <field name="zip" eval="4280"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_168" model="res.city">
+    <field name="name">Kresnice</field>
+    <field name="province_id" ref="l10n_base.si_c_074"/>
+    <field name="zip" eval="1281"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_169" model="res.city">
+    <field name="name">Križe</field>
+    <field name="province_id" ref="l10n_base.si_c_169"/>
+    <field name="zip" eval="4294"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_170" model="res.city">
+    <field name="name">Križevci</field>
+    <field name="province_id" ref="l10n_base.si_c_170"/>
+    <field name="zip" eval="9206"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_171" model="res.city">
+    <field name="name">Križevci pri Ljutomeru</field>
+    <field name="province_id" ref="l10n_base.si_c_171"/>
+    <field name="zip" eval="9242"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_172" model="res.city">
+    <field name="name">Krka</field>
+    <field name="province_id" ref="l10n_base.si_c_124"/>
+    <field name="zip" eval="1301"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_173" model="res.city">
+    <field name="name">Krmelj</field>
+    <field name="province_id" ref="l10n_base.si_c_014"/>
+    <field name="zip" eval="8296"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_174" model="res.city">
+    <field name="name">Kropa</field>
+    <field name="province_id" ref="l10n_base.si_c_006"/>
+    <field name="zip" eval="4245"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_175" model="res.city">
+    <field name="name">Krška vas</field>
+    <field name="province_id" ref="l10n_base.si_c_005"/>
+    <field name="zip" eval="8262"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_176" model="res.city">
+    <field name="name">Krško</field>
+    <field name="province_id" ref="l10n_base.si_c_028"/>
+    <field name="zip" eval="8270"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_177" model="res.city">
+    <field name="name">Kuzma</field>
+    <field name="province_id" ref="l10n_base.si_c_177"/>
+    <field name="zip" eval="9263"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_178" model="res.city">
+    <field name="name">Laporje</field>
+    <field name="province_id" ref="l10n_base.si_c_178"/>
+    <field name="zip" eval="2318"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_179" model="res.city">
+    <field name="name">Laško</field>
+    <field name="province_id" ref="l10n_base.si_c_133"/>
+    <field name="zip" eval="3270"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_180" model="res.city">
+    <field name="name">Laze v Tuhinju</field>
+    <field name="province_id" ref="l10n_base.si_c_140"/>
+    <field name="zip" eval="1219"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_181" model="res.city">
+    <field name="name">Lenart v Slovenskih goricah</field>
+    <field name="province_id" ref="l10n_base.si_c_181"/>
+    <field name="zip" eval="2230"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_182" model="res.city">
+    <field name="name">Lendava/Lendva</field>
+    <field name="province_id" ref="l10n_base.si_c_182"/>
+    <field name="zip" eval="9220"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_183" model="res.city">
+    <field name="name">Lesce</field>
+    <field name="province_id" ref="l10n_base.si_c_006"/>
+    <field name="zip" eval="4248"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_184" model="res.city">
+    <field name="name">Lesično</field>
+    <field name="province_id" ref="l10n_base.si_c_035"/>
+    <field name="zip" eval="3261"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_185" model="res.city">
+    <field name="name">Leskovec pri Krškem</field>
+    <field name="province_id" ref="l10n_base.si_c_028"/>
+    <field name="zip" eval="8273"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_186" model="res.city">
+    <field name="name">Libeliče</field>
+    <field name="province_id" ref="l10n_base.si_c_083"/>
+    <field name="zip" eval="2372"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_187" model="res.city">
+    <field name="name">Limbuš</field>
+    <field name="province_id" ref="l10n_base.si_c_029"/>
+    <field name="zip" eval="2341"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_188" model="res.city">
+    <field name="name">Litija</field>
+    <field name="province_id" ref="l10n_base.si_c_074"/>
+    <field name="zip" eval="1270"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_189" model="res.city">
+    <field name="name">Ljubečna</field>
+    <field name="province_id" ref="l10n_base.si_c_038"/>
+    <field name="zip" eval="3202"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_190" model="res.city">
+    <field name="name">Ljubljana</field>
+    <field name="province_id" ref="l10n_base.si_c_190"/>
+    <field name="zip" eval="1000"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_191" model="res.city">
+    <field name="name">Ljubljana - poštni predali</field>
+    <field name="province_id" ref="l10n_base.si_c_190"/>
+    <field name="zip" eval="1001"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_192" model="res.city">
+    <field name="name">Ljubljana - Črnuče</field>
+    <field name="province_id" ref="l10n_base.si_c_190"/>
+    <field name="zip" eval="1231"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_193" model="res.city">
+    <field name="name">Ljubljana - Dobrunje</field>
+    <field name="province_id" ref="l10n_base.si_c_190"/>
+    <field name="zip" eval="1261"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_194" model="res.city">
+    <field name="name">Ljubljana - Polje</field>
+    <field name="province_id" ref="l10n_base.si_c_190"/>
+    <field name="zip" eval="1260"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_195" model="res.city">
+    <field name="name">Ljubljana - Šentvid</field>
+    <field name="province_id" ref="l10n_base.si_c_190"/>
+    <field name="zip" eval="1210"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_196" model="res.city">
+    <field name="name">Ljubljana - Šmartno</field>
+    <field name="province_id" ref="l10n_base.si_c_190"/>
+    <field name="zip" eval="1211"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_197" model="res.city">
+    <field name="name">Ljubno ob Savinji</field>
+    <field name="province_id" ref="l10n_base.si_c_197"/>
+    <field name="zip" eval="3333"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_198" model="res.city">
+    <field name="name">Ljutomer</field>
+    <field name="province_id" ref="l10n_base.si_c_198"/>
+    <field name="zip" eval="9240"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_199" model="res.city">
+    <field name="name">Loče</field>
+    <field name="province_id" ref="l10n_base.si_c_199"/>
+    <field name="zip" eval="3215"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_200" model="res.city">
+    <field name="name">Log pod Mangartom</field>
+    <field name="province_id" ref="l10n_base.si_c_024"/>
+    <field name="zip" eval="5231"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_201" model="res.city">
+    <field name="name">Log pri Brezovici</field>
+    <field name="province_id" ref="l10n_base.si_c_201"/>
+    <field name="zip" eval="1358"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_202" model="res.city">
+    <field name="name">Logatec</field>
+    <field name="province_id" ref="l10n_base.si_c_116"/>
+    <field name="zip" eval="1370"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_203" model="res.city">
+    <field name="name">Logatec</field>
+    <field name="province_id" ref="l10n_base.si_c_116"/>
+    <field name="zip" eval="1371"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_204" model="res.city">
+    <field name="name">Loka pri Zidanem Mostu</field>
+    <field name="province_id" ref="l10n_base.si_c_014"/>
+    <field name="zip" eval="1434"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_205" model="res.city">
+    <field name="name">Loka pri Žusmu</field>
+    <field name="province_id" ref="l10n_base.si_c_082"/>
+    <field name="zip" eval="3223"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_206" model="res.city">
+    <field name="name">Lokev</field>
+    <field name="province_id" ref="l10n_base.si_c_085"/>
+    <field name="zip" eval="6219"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_207" model="res.city">
+    <field name="name">Loški Potok</field>
+    <field name="province_id" ref="l10n_base.si_c_080"/>
+    <field name="zip" eval="1318"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_208" model="res.city">
+    <field name="name">Lovrenc na Dravskem polju</field>
+    <field name="province_id" ref="l10n_base.si_c_046"/>
+    <field name="zip" eval="2324"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_209" model="res.city">
+    <field name="name">Lovrenc na Pohorju</field>
+    <field name="province_id" ref="l10n_base.si_c_209"/>
+    <field name="zip" eval="2344"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_210" model="res.city">
+    <field name="name">Luče</field>
+    <field name="province_id" ref="l10n_base.si_c_210"/>
+    <field name="zip" eval="3334"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_211" model="res.city">
+    <field name="name">Lukovica</field>
+    <field name="province_id" ref="l10n_base.si_c_013"/>
+    <field name="zip" eval="1225"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_212" model="res.city">
+    <field name="name">Mačkovci</field>
+    <field name="province_id" ref="l10n_base.si_c_017"/>
+    <field name="zip" eval="9202"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_213" model="res.city">
+    <field name="name">Majšperk</field>
+    <field name="province_id" ref="l10n_base.si_c_213"/>
+    <field name="zip" eval="2322"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_214" model="res.city">
+    <field name="name">Makole</field>
+    <field name="province_id" ref="l10n_base.si_c_214"/>
+    <field name="zip" eval="2321"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_215" model="res.city">
+    <field name="name">Mala Nedelja</field>
+    <field name="province_id" ref="l10n_base.si_c_198"/>
+    <field name="zip" eval="9243"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_216" model="res.city">
+    <field name="name">Malečnik</field>
+    <field name="province_id" ref="l10n_base.si_c_029"/>
+    <field name="zip" eval="2229"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_217" model="res.city">
+    <field name="name">Marezige</field>
+    <field name="province_id" ref="l10n_base.si_c_054"/>
+    <field name="zip" eval="6273"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_218" model="res.city">
+    <field name="name">Maribor</field>
+    <field name="province_id" ref="l10n_base.si_c_029"/>
+    <field name="zip" eval="2000"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_219" model="res.city">
+    <field name="name">Maribor - poštni predali</field>
+    <field name="province_id" ref="l10n_base.si_c_029"/>
+    <field name="zip" eval="2001"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_220" model="res.city">
+    <field name="name">Marjeta na Dravskem polju</field>
+    <field name="province_id" ref="l10n_base.si_c_220"/>
+    <field name="zip" eval="2206"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_221" model="res.city">
+    <field name="name">Markovci</field>
+    <field name="province_id" ref="l10n_base.si_c_221"/>
+    <field name="zip" eval="2281"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_222" model="res.city">
+    <field name="name">Martjanci</field>
+    <field name="province_id" ref="l10n_base.si_c_018"/>
+    <field name="zip" eval="9221"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_223" model="res.city">
+    <field name="name">Materija</field>
+    <field name="province_id" ref="l10n_base.si_c_163"/>
+    <field name="zip" eval="6242"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_224" model="res.city">
+    <field name="name">Mavčiče</field>
+    <field name="province_id" ref="l10n_base.si_c_094"/>
+    <field name="zip" eval="4211"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_225" model="res.city">
+    <field name="name">Medvode</field>
+    <field name="province_id" ref="l10n_base.si_c_225"/>
+    <field name="zip" eval="1215"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_226" model="res.city">
+    <field name="name">Mengeš</field>
+    <field name="province_id" ref="l10n_base.si_c_226"/>
+    <field name="zip" eval="1234"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_227" model="res.city">
+    <field name="name">Metlika</field>
+    <field name="province_id" ref="l10n_base.si_c_104"/>
+    <field name="zip" eval="8330"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_228" model="res.city">
+    <field name="name">Mežica</field>
+    <field name="province_id" ref="l10n_base.si_c_228"/>
+    <field name="zip" eval="2392"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_229" model="res.city">
+    <field name="name">Miklavž na Dravskem polju</field>
+    <field name="province_id" ref="l10n_base.si_c_229"/>
+    <field name="zip" eval="2204"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_230" model="res.city">
+    <field name="name">Miklavž pri Ormožu</field>
+    <field name="province_id" ref="l10n_base.si_c_125"/>
+    <field name="zip" eval="2275"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_231" model="res.city">
+    <field name="name">Miren</field>
+    <field name="province_id" ref="l10n_base.si_c_158"/>
+    <field name="zip" eval="5291"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_232" model="res.city">
+    <field name="name">Mirna</field>
+    <field name="province_id" ref="l10n_base.si_c_232"/>
+    <field name="zip" eval="8233"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_233" model="res.city">
+    <field name="name">Mirna Peč</field>
+    <field name="province_id" ref="l10n_base.si_c_233"/>
+    <field name="zip" eval="8216"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_234" model="res.city">
+    <field name="name">Mislinja</field>
+    <field name="province_id" ref="l10n_base.si_c_234"/>
+    <field name="zip" eval="2382"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_235" model="res.city">
+    <field name="name">Mojstrana</field>
+    <field name="province_id" ref="l10n_base.si_c_101"/>
+    <field name="zip" eval="4281"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_236" model="res.city">
+    <field name="name">Mokronog</field>
+    <field name="province_id" ref="l10n_base.si_c_236"/>
+    <field name="zip" eval="8230"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_237" model="res.city">
+    <field name="name">Moravče</field>
+    <field name="province_id" ref="l10n_base.si_c_237"/>
+    <field name="zip" eval="1251"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_238" model="res.city">
+    <field name="name">Moravske Toplice</field>
+    <field name="province_id" ref="l10n_base.si_c_018"/>
+    <field name="zip" eval="9226"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_239" model="res.city">
+    <field name="name">Most na Soči</field>
+    <field name="province_id" ref="l10n_base.si_c_106"/>
+    <field name="zip" eval="5216"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_240" model="res.city">
+    <field name="name">Motnik</field>
+    <field name="province_id" ref="l10n_base.si_c_140"/>
+    <field name="zip" eval="1221"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_241" model="res.city">
+    <field name="name">Mozirje</field>
+    <field name="province_id" ref="l10n_base.si_c_241"/>
+    <field name="zip" eval="3330"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_242" model="res.city">
+    <field name="name">Murska Sobota</field>
+    <field name="province_id" ref="l10n_base.si_c_242"/>
+    <field name="zip" eval="9000"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_243" model="res.city">
+    <field name="name">Murska Sobota - poštni predali</field>
+    <field name="province_id" ref="l10n_base.si_c_242"/>
+    <field name="zip" eval="9001"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_244" model="res.city">
+    <field name="name">Muta</field>
+    <field name="province_id" ref="l10n_base.si_c_244"/>
+    <field name="zip" eval="2366"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_245" model="res.city">
+    <field name="name">Naklo</field>
+    <field name="province_id" ref="l10n_base.si_c_245"/>
+    <field name="zip" eval="4202"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_246" model="res.city">
+    <field name="name">Nazarje</field>
+    <field name="province_id" ref="l10n_base.si_c_246"/>
+    <field name="zip" eval="3331"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_247" model="res.city">
+    <field name="name">Notranje Gorice</field>
+    <field name="province_id" ref="l10n_base.si_c_031"/>
+    <field name="zip" eval="1357"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_248" model="res.city">
+    <field name="name">Nova Cerkev</field>
+    <field name="province_id" ref="l10n_base.si_c_090"/>
+    <field name="zip" eval="3203"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_249" model="res.city">
+    <field name="name">Nova Gorica</field>
+    <field name="province_id" ref="l10n_base.si_c_025"/>
+    <field name="zip" eval="5000"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_250" model="res.city">
+    <field name="name">Nova Gorica - poštni predali</field>
+    <field name="province_id" ref="l10n_base.si_c_025"/>
+    <field name="zip" eval="5001"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_251" model="res.city">
+    <field name="name">Nova vas</field>
+    <field name="province_id" ref="l10n_base.si_c_251"/>
+    <field name="zip" eval="1385"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_252" model="res.city">
+    <field name="name">Novo mesto</field>
+    <field name="province_id" ref="l10n_base.si_c_034"/>
+    <field name="zip" eval="8000"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_253" model="res.city">
+    <field name="name">Novo mesto - poštni predali</field>
+    <field name="province_id" ref="l10n_base.si_c_034"/>
+    <field name="zip" eval="8001"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_254" model="res.city">
+    <field name="name">Obrov</field>
+    <field name="province_id" ref="l10n_base.si_c_163"/>
+    <field name="zip" eval="6243"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_255" model="res.city">
+    <field name="name">Odranci</field>
+    <field name="province_id" ref="l10n_base.si_c_255"/>
+    <field name="zip" eval="9233"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_256" model="res.city">
+    <field name="name">Oplotnica</field>
+    <field name="province_id" ref="l10n_base.si_c_256"/>
+    <field name="zip" eval="2317"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_257" model="res.city">
+    <field name="name">Orehova vas</field>
+    <field name="province_id" ref="l10n_base.si_c_113"/>
+    <field name="zip" eval="2312"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_258" model="res.city">
+    <field name="name">Ormož</field>
+    <field name="province_id" ref="l10n_base.si_c_125"/>
+    <field name="zip" eval="2270"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_259" model="res.city">
+    <field name="name">Ortnek</field>
+    <field name="province_id" ref="l10n_base.si_c_075"/>
+    <field name="zip" eval="1316"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_260" model="res.city">
+    <field name="name">Osilnica</field>
+    <field name="province_id" ref="l10n_base.si_c_260"/>
+    <field name="zip" eval="1337"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_261" model="res.city">
+    <field name="name">Otočec</field>
+    <field name="province_id" ref="l10n_base.si_c_034"/>
+    <field name="zip" eval="8222"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_262" model="res.city">
+    <field name="name">Ožbalt</field>
+    <field name="province_id" ref="l10n_base.si_c_262"/>
+    <field name="zip" eval="2361"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_263" model="res.city">
+    <field name="name">Pernica</field>
+    <field name="province_id" ref="l10n_base.si_c_128"/>
+    <field name="zip" eval="2231"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_264" model="res.city">
+    <field name="name">Pesnica pri Mariboru</field>
+    <field name="province_id" ref="l10n_base.si_c_128"/>
+    <field name="zip" eval="2211"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_265" model="res.city">
+    <field name="name">Petrovci</field>
+    <field name="province_id" ref="l10n_base.si_c_170"/>
+    <field name="zip" eval="9203"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_266" model="res.city">
+    <field name="name">Petrovče</field>
+    <field name="province_id" ref="l10n_base.si_c_108"/>
+    <field name="zip" eval="3301"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_267" model="res.city">
+    <field name="name">Piran/Pirano</field>
+    <field name="province_id" ref="l10n_base.si_c_267"/>
+    <field name="zip" eval="6330"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_268" model="res.city">
+    <field name="name">Pišece</field>
+    <field name="province_id" ref="l10n_base.si_c_005"/>
+    <field name="zip" eval="8255"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_269" model="res.city">
+    <field name="name">Pivka</field>
+    <field name="province_id" ref="l10n_base.si_c_161"/>
+    <field name="zip" eval="6257"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_270" model="res.city">
+    <field name="name">Planina</field>
+    <field name="province_id" ref="l10n_base.si_c_118"/>
+    <field name="zip" eval="6232"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_271" model="res.city">
+    <field name="name">Planina pri Sevnici</field>
+    <field name="province_id" ref="l10n_base.si_c_082"/>
+    <field name="zip" eval="3225"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_272" model="res.city">
+    <field name="name">Pobegi</field>
+    <field name="province_id" ref="l10n_base.si_c_054"/>
+    <field name="zip" eval="6276"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_273" model="res.city">
+    <field name="name">Podbočje</field>
+    <field name="province_id" ref="l10n_base.si_c_028"/>
+    <field name="zip" eval="8312"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_274" model="res.city">
+    <field name="name">Podbrdo</field>
+    <field name="province_id" ref="l10n_base.si_c_106"/>
+    <field name="zip" eval="5243"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_275" model="res.city">
+    <field name="name">Podčetrtek</field>
+    <field name="province_id" ref="l10n_base.si_c_275"/>
+    <field name="zip" eval="3254"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_276" model="res.city">
+    <field name="name">Podgorci</field>
+    <field name="province_id" ref="l10n_base.si_c_125"/>
+    <field name="zip" eval="2273"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_277" model="res.city">
+    <field name="name">Podgorje</field>
+    <field name="province_id" ref="l10n_base.si_c_054"/>
+    <field name="zip" eval="6216"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_278" model="res.city">
+    <field name="name">Podgorje pri Slovenj Gradcu</field>
+    <field name="province_id" ref="l10n_base.si_c_278"/>
+    <field name="zip" eval="2381"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_279" model="res.city">
+    <field name="name">Podgrad</field>
+    <field name="province_id" ref="l10n_base.si_c_122"/>
+    <field name="zip" eval="6244"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_280" model="res.city">
+    <field name="name">Podkum</field>
+    <field name="province_id" ref="l10n_base.si_c_050"/>
+    <field name="zip" eval="1414"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_281" model="res.city">
+    <field name="name">Podlehnik</field>
+    <field name="province_id" ref="l10n_base.si_c_281"/>
+    <field name="zip" eval="2286"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_282" model="res.city">
+    <field name="name">Podnanos</field>
+    <field name="province_id" ref="l10n_base.si_c_084"/>
+    <field name="zip" eval="5272"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_283" model="res.city">
+    <field name="name">Podnart</field>
+    <field name="province_id" ref="l10n_base.si_c_006"/>
+    <field name="zip" eval="4244"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_284" model="res.city">
+    <field name="name">Podplat</field>
+    <field name="province_id" ref="l10n_base.si_c_284"/>
+    <field name="zip" eval="3241"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_285" model="res.city">
+    <field name="name">Podsreda</field>
+    <field name="province_id" ref="l10n_base.si_c_035"/>
+    <field name="zip" eval="3257"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_286" model="res.city">
+    <field name="name">Podvelka</field>
+    <field name="province_id" ref="l10n_base.si_c_262"/>
+    <field name="zip" eval="2363"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_287" model="res.city">
+    <field name="name">Pohorje</field>
+    <field name="province_id" ref="l10n_base.si_c_047"/>
+    <field name="zip" eval="2208"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_288" model="res.city">
+    <field name="name">Polenšak</field>
+    <field name="province_id" ref="l10n_base.si_c_078"/>
+    <field name="zip" eval="2257"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_289" model="res.city">
+    <field name="name">Polhov Gradec</field>
+    <field name="province_id" ref="l10n_base.si_c_069"/>
+    <field name="zip" eval="1355"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_290" model="res.city">
+    <field name="name">Poljane nad Škofjo Loko</field>
+    <field name="province_id" ref="l10n_base.si_c_096"/>
+    <field name="zip" eval="4223"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_291" model="res.city">
+    <field name="name">Poljčane</field>
+    <field name="province_id" ref="l10n_base.si_c_291"/>
+    <field name="zip" eval="2319"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_292" model="res.city">
+    <field name="name">Polšnik</field>
+    <field name="province_id" ref="l10n_base.si_c_074"/>
+    <field name="zip" eval="1272"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_293" model="res.city">
+    <field name="name">Polzela</field>
+    <field name="province_id" ref="l10n_base.si_c_293"/>
+    <field name="zip" eval="3313"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_294" model="res.city">
+    <field name="name">Ponikva</field>
+    <field name="province_id" ref="l10n_base.si_c_082"/>
+    <field name="zip" eval="3232"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_295" model="res.city">
+    <field name="name">Portorož/Portorose</field>
+    <field name="province_id" ref="l10n_base.si_c_267"/>
+    <field name="zip" eval="6320"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_296" model="res.city">
+    <field name="name">Postojna</field>
+    <field name="province_id" ref="l10n_base.si_c_118"/>
+    <field name="zip" eval="6230"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_297" model="res.city">
+    <field name="name">Pragersko</field>
+    <field name="province_id" ref="l10n_base.si_c_178"/>
+    <field name="zip" eval="2331"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_298" model="res.city">
+    <field name="name">Prebold</field>
+    <field name="province_id" ref="l10n_base.si_c_298"/>
+    <field name="zip" eval="3312"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_299" model="res.city">
+    <field name="name">Preddvor</field>
+    <field name="province_id" ref="l10n_base.si_c_299"/>
+    <field name="zip" eval="4205"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_300" model="res.city">
+    <field name="name">Prem</field>
+    <field name="province_id" ref="l10n_base.si_c_122"/>
+    <field name="zip" eval="6255"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_301" model="res.city">
+    <field name="name">Preserje</field>
+    <field name="province_id" ref="l10n_base.si_c_031"/>
+    <field name="zip" eval="1352"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_302" model="res.city">
+    <field name="name">Prestranek</field>
+    <field name="province_id" ref="l10n_base.si_c_118"/>
+    <field name="zip" eval="6258"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_303" model="res.city">
+    <field name="name">Prevalje</field>
+    <field name="province_id" ref="l10n_base.si_c_303"/>
+    <field name="zip" eval="2391"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_304" model="res.city">
+    <field name="name">Prevorje</field>
+    <field name="province_id" ref="l10n_base.si_c_082"/>
+    <field name="zip" eval="3262"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_305" model="res.city">
+    <field name="name">Primskovo</field>
+    <field name="province_id" ref="l10n_base.si_c_305"/>
+    <field name="zip" eval="1276"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_306" model="res.city">
+    <field name="name">Pristava pri Mestinju</field>
+    <field name="province_id" ref="l10n_base.si_c_275"/>
+    <field name="zip" eval="3253"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_307" model="res.city">
+    <field name="name">Prosenjakovci/Partosfalva</field>
+    <field name="province_id" ref="l10n_base.si_c_018"/>
+    <field name="zip" eval="9207"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_308" model="res.city">
+    <field name="name">Prvačina</field>
+    <field name="province_id" ref="l10n_base.si_c_025"/>
+    <field name="zip" eval="5297"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_309" model="res.city">
+    <field name="name">Ptuj</field>
+    <field name="province_id" ref="l10n_base.si_c_309"/>
+    <field name="zip" eval="2250"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_310" model="res.city">
+    <field name="name">Ptujska Gora</field>
+    <field name="province_id" ref="l10n_base.si_c_213"/>
+    <field name="zip" eval="2323"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_311" model="res.city">
+    <field name="name">Puconci</field>
+    <field name="province_id" ref="l10n_base.si_c_017"/>
+    <field name="zip" eval="9201"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_312" model="res.city">
+    <field name="name">Rače</field>
+    <field name="province_id" ref="l10n_base.si_c_089"/>
+    <field name="zip" eval="2327"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_313" model="res.city">
+    <field name="name">Radeče</field>
+    <field name="province_id" ref="l10n_base.si_c_313"/>
+    <field name="zip" eval="1433"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_314" model="res.city">
+    <field name="name">Radenci</field>
+    <field name="province_id" ref="l10n_base.si_c_314"/>
+    <field name="zip" eval="9252"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_315" model="res.city">
+    <field name="name">Radlje ob Dravi</field>
+    <field name="province_id" ref="l10n_base.si_c_315"/>
+    <field name="zip" eval="2360"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_316" model="res.city">
+    <field name="name">Radomlje</field>
+    <field name="province_id" ref="l10n_base.si_c_062"/>
+    <field name="zip" eval="1235"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_317" model="res.city">
+    <field name="name">Radovljica</field>
+    <field name="province_id" ref="l10n_base.si_c_006"/>
+    <field name="zip" eval="4240"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_318" model="res.city">
+    <field name="name">Raka</field>
+    <field name="province_id" ref="l10n_base.si_c_028"/>
+    <field name="zip" eval="8274"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_319" model="res.city">
+    <field name="name">Rakek</field>
+    <field name="province_id" ref="l10n_base.si_c_007"/>
+    <field name="zip" eval="1381"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_320" model="res.city">
+    <field name="name">Rateče - Planica</field>
+    <field name="province_id" ref="l10n_base.si_c_101"/>
+    <field name="zip" eval="4283"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_321" model="res.city">
+    <field name="name">Ravne na Koroškem</field>
+    <field name="province_id" ref="l10n_base.si_c_162"/>
+    <field name="zip" eval="2390"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_322" model="res.city">
+    <field name="name">Razkrižje</field>
+    <field name="province_id" ref="l10n_base.si_c_322"/>
+    <field name="zip" eval="9246"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_323" model="res.city">
+    <field name="name">Rečica ob Savinji</field>
+    <field name="province_id" ref="l10n_base.si_c_323"/>
+    <field name="zip" eval="3332"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_324" model="res.city">
+    <field name="name">Renče</field>
+    <field name="province_id" ref="l10n_base.si_c_324"/>
+    <field name="zip" eval="5292"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_325" model="res.city">
+    <field name="name">Ribnica</field>
+    <field name="province_id" ref="l10n_base.si_c_075"/>
+    <field name="zip" eval="1310"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_326" model="res.city">
+    <field name="name">Ribnica na Pohorju</field>
+    <field name="province_id" ref="l10n_base.si_c_326"/>
+    <field name="zip" eval="2364"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_327" model="res.city">
+    <field name="name">Rimske Toplice</field>
+    <field name="province_id" ref="l10n_base.si_c_133"/>
+    <field name="zip" eval="3272"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_328" model="res.city">
+    <field name="name">Rob</field>
+    <field name="province_id" ref="l10n_base.si_c_328"/>
+    <field name="zip" eval="1314"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_329" model="res.city">
+    <field name="name">Ročinj</field>
+    <field name="province_id" ref="l10n_base.si_c_059"/>
+    <field name="zip" eval="5215"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_330" model="res.city">
+    <field name="name">Rogaška Slatina</field>
+    <field name="province_id" ref="l10n_base.si_c_284"/>
+    <field name="zip" eval="3250"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_331" model="res.city">
+    <field name="name">Rogašovci</field>
+    <field name="province_id" ref="l10n_base.si_c_331"/>
+    <field name="zip" eval="9262"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_332" model="res.city">
+    <field name="name">Rogatec</field>
+    <field name="province_id" ref="l10n_base.si_c_332"/>
+    <field name="zip" eval="3252"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_333" model="res.city">
+    <field name="name">Rovte</field>
+    <field name="province_id" ref="l10n_base.si_c_116"/>
+    <field name="zip" eval="1373"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_334" model="res.city">
+    <field name="name">Ruše</field>
+    <field name="province_id" ref="l10n_base.si_c_010"/>
+    <field name="zip" eval="2342"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_335" model="res.city">
+    <field name="name">Sava</field>
+    <field name="province_id" ref="l10n_base.si_c_074"/>
+    <field name="zip" eval="1282"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_336" model="res.city">
+    <field name="name">Sečovlje/Sicciole</field>
+    <field name="province_id" ref="l10n_base.si_c_267"/>
+    <field name="zip" eval="6333"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_337" model="res.city">
+    <field name="name">Selca</field>
+    <field name="province_id" ref="l10n_base.si_c_337"/>
+    <field name="zip" eval="4227"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_338" model="res.city">
+    <field name="name">Selnica ob Dravi</field>
+    <field name="province_id" ref="l10n_base.si_c_338"/>
+    <field name="zip" eval="2352"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_339" model="res.city">
+    <field name="name">Semič</field>
+    <field name="province_id" ref="l10n_base.si_c_339"/>
+    <field name="zip" eval="8333"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_340" model="res.city">
+    <field name="name">Senovo</field>
+    <field name="province_id" ref="l10n_base.si_c_028"/>
+    <field name="zip" eval="8281"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_341" model="res.city">
+    <field name="name">Senožeče</field>
+    <field name="province_id" ref="l10n_base.si_c_061"/>
+    <field name="zip" eval="6224"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_342" model="res.city">
+    <field name="name">Sevnica</field>
+    <field name="province_id" ref="l10n_base.si_c_014"/>
+    <field name="zip" eval="8290"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_343" model="res.city">
+    <field name="name">Sežana</field>
+    <field name="province_id" ref="l10n_base.si_c_085"/>
+    <field name="zip" eval="6210"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_344" model="res.city">
+    <field name="name">Sladki Vrh</field>
+    <field name="province_id" ref="l10n_base.si_c_045"/>
+    <field name="zip" eval="2214"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_345" model="res.city">
+    <field name="name">Slap ob Idrijci</field>
+    <field name="province_id" ref="l10n_base.si_c_106"/>
+    <field name="zip" eval="5283"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_346" model="res.city">
+    <field name="name">Slovenj Gradec</field>
+    <field name="province_id" ref="l10n_base.si_c_278"/>
+    <field name="zip" eval="2380"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_347" model="res.city">
+    <field name="name">Slovenska Bistrica</field>
+    <field name="province_id" ref="l10n_base.si_c_178"/>
+    <field name="zip" eval="2310"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_348" model="res.city">
+    <field name="name">Slovenske Konjice</field>
+    <field name="province_id" ref="l10n_base.si_c_199"/>
+    <field name="zip" eval="3210"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_349" model="res.city">
+    <field name="name">Smlednik</field>
+    <field name="province_id" ref="l10n_base.si_c_225"/>
+    <field name="zip" eval="1216"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_350" model="res.city">
+    <field name="name">Soča</field>
+    <field name="province_id" ref="l10n_base.si_c_024"/>
+    <field name="zip" eval="5232"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_351" model="res.city">
+    <field name="name">Sodražica</field>
+    <field name="province_id" ref="l10n_base.si_c_351"/>
+    <field name="zip" eval="1317"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_352" model="res.city">
+    <field name="name">Solčava</field>
+    <field name="province_id" ref="l10n_base.si_c_352"/>
+    <field name="zip" eval="3335"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_353" model="res.city">
+    <field name="name">Solkan</field>
+    <field name="province_id" ref="l10n_base.si_c_025"/>
+    <field name="zip" eval="5250"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_354" model="res.city">
+    <field name="name">Sorica</field>
+    <field name="province_id" ref="l10n_base.si_c_337"/>
+    <field name="zip" eval="4229"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_355" model="res.city">
+    <field name="name">Sovodenj</field>
+    <field name="province_id" ref="l10n_base.si_c_096"/>
+    <field name="zip" eval="4225"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_356" model="res.city">
+    <field name="name">Spodnja Idrija</field>
+    <field name="province_id" ref="l10n_base.si_c_055"/>
+    <field name="zip" eval="5281"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_357" model="res.city">
+    <field name="name">Spodnji Duplek</field>
+    <field name="province_id" ref="l10n_base.si_c_357"/>
+    <field name="zip" eval="2241"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_358" model="res.city">
+    <field name="name">Spodnji Ivanjci</field>
+    <field name="province_id" ref="l10n_base.si_c_099"/>
+    <field name="zip" eval="9245"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_359" model="res.city">
+    <field name="name">Središče ob Dravi</field>
+    <field name="province_id" ref="l10n_base.si_c_359"/>
+    <field name="zip" eval="2277"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_360" model="res.city">
+    <field name="name">Srednja vas v Bohinju</field>
+    <field name="province_id" ref="l10n_base.si_c_020"/>
+    <field name="zip" eval="4267"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_361" model="res.city">
+    <field name="name">Sromlje</field>
+    <field name="province_id" ref="l10n_base.si_c_005"/>
+    <field name="zip" eval="8256"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_362" model="res.city">
+    <field name="name">Srpenica</field>
+    <field name="province_id" ref="l10n_base.si_c_024"/>
+    <field name="zip" eval="5224"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_363" model="res.city">
+    <field name="name">Stahovica</field>
+    <field name="province_id" ref="l10n_base.si_c_140"/>
+    <field name="zip" eval="1242"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_364" model="res.city">
+    <field name="name">Stara Cerkev</field>
+    <field name="province_id" ref="l10n_base.si_c_149"/>
+    <field name="zip" eval="1332"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_365" model="res.city">
+    <field name="name">Stari trg ob Kolpi</field>
+    <field name="province_id" ref="l10n_base.si_c_001"/>
+    <field name="zip" eval="8342"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_366" model="res.city">
+    <field name="name">Stari trg pri Ložu</field>
+    <field name="province_id" ref="l10n_base.si_c_366"/>
+    <field name="zip" eval="1386"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_367" model="res.city">
+    <field name="name">Starše</field>
+    <field name="province_id" ref="l10n_base.si_c_220"/>
+    <field name="zip" eval="2205"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_368" model="res.city">
+    <field name="name">Stoperce</field>
+    <field name="province_id" ref="l10n_base.si_c_213"/>
+    <field name="zip" eval="2289"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_369" model="res.city">
+    <field name="name">Stopiče</field>
+    <field name="province_id" ref="l10n_base.si_c_034"/>
+    <field name="zip" eval="8322"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_370" model="res.city">
+    <field name="name">Stranice</field>
+    <field name="province_id" ref="l10n_base.si_c_370"/>
+    <field name="zip" eval="3206"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_371" model="res.city">
+    <field name="name">Straža</field>
+    <field name="province_id" ref="l10n_base.si_c_371"/>
+    <field name="zip" eval="8351"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_372" model="res.city">
+    <field name="name">Struge</field>
+    <field name="province_id" ref="l10n_base.si_c_372"/>
+    <field name="zip" eval="1313"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_373" model="res.city">
+    <field name="name">Studenec</field>
+    <field name="province_id" ref="l10n_base.si_c_014"/>
+    <field name="zip" eval="8293"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_374" model="res.city">
+    <field name="name">Suhor</field>
+    <field name="province_id" ref="l10n_base.si_c_104"/>
+    <field name="zip" eval="8331"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_375" model="res.city">
+    <field name="name">Sv. Ana v Slovenskih goricah</field>
+    <field name="province_id" ref="l10n_base.si_c_375"/>
+    <field name="zip" eval="2233"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_376" model="res.city">
+    <field name="name">Sv. Trojica v Slovenskih goricah</field>
+    <field name="province_id" ref="l10n_base.si_c_376"/>
+    <field name="zip" eval="2235"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_377" model="res.city">
+    <field name="name">Sveti Duh na Ostrem Vrhu</field>
+    <field name="province_id" ref="l10n_base.si_c_338"/>
+    <field name="zip" eval="2353"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_378" model="res.city">
+    <field name="name">Sveti Jurij ob Ščavnici</field>
+    <field name="province_id" ref="l10n_base.si_c_134"/>
+    <field name="zip" eval="9244"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_379" model="res.city">
+    <field name="name">Sveti Štefan</field>
+    <field name="province_id" ref="l10n_base.si_c_379"/>
+    <field name="zip" eval="3264"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_380" model="res.city">
+    <field name="name">Sveti Tomaž</field>
+    <field name="province_id" ref="l10n_base.si_c_380"/>
+    <field name="zip" eval="2258"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_381" model="res.city">
+    <field name="name">Šalovci</field>
+    <field name="province_id" ref="l10n_base.si_c_381"/>
+    <field name="zip" eval="9204"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_382" model="res.city">
+    <field name="name">Šempas</field>
+    <field name="province_id" ref="l10n_base.si_c_025"/>
+    <field name="zip" eval="5261"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_383" model="res.city">
+    <field name="name">Šempeter pri Gorici</field>
+    <field name="province_id" ref="l10n_base.si_c_383"/>
+    <field name="zip" eval="5290"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_384" model="res.city">
+    <field name="name">Šempeter v Savinjski dolini</field>
+    <field name="province_id" ref="l10n_base.si_c_108"/>
+    <field name="zip" eval="3311"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_385" model="res.city">
+    <field name="name">Šenčur</field>
+    <field name="province_id" ref="l10n_base.si_c_385"/>
+    <field name="zip" eval="4208"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_386" model="res.city">
+    <field name="name">Šentilj v Slovenskih goricah</field>
+    <field name="province_id" ref="l10n_base.si_c_045"/>
+    <field name="zip" eval="2212"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_387" model="res.city">
+    <field name="name">Šentjanž</field>
+    <field name="province_id" ref="l10n_base.si_c_014"/>
+    <field name="zip" eval="8297"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_388" model="res.city">
+    <field name="name">Šentjanž pri Dravogradu</field>
+    <field name="province_id" ref="l10n_base.si_c_083"/>
+    <field name="zip" eval="2373"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_389" model="res.city">
+    <field name="name">Šentjernej</field>
+    <field name="province_id" ref="l10n_base.si_c_389"/>
+    <field name="zip" eval="8310"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_390" model="res.city">
+    <field name="name">Šentjur</field>
+    <field name="province_id" ref="l10n_base.si_c_082"/>
+    <field name="zip" eval="3230"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_391" model="res.city">
+    <field name="name">Šentrupert</field>
+    <field name="province_id" ref="l10n_base.si_c_133"/>
+    <field name="zip" eval="3271"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_392" model="res.city">
+    <field name="name">Šentrupert</field>
+    <field name="province_id" ref="l10n_base.si_c_392"/>
+    <field name="zip" eval="8232"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_393" model="res.city">
+    <field name="name">Šentvid pri Stični</field>
+    <field name="province_id" ref="l10n_base.si_c_124"/>
+    <field name="zip" eval="1296"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_394" model="res.city">
+    <field name="name">Škocjan</field>
+    <field name="province_id" ref="l10n_base.si_c_036"/>
+    <field name="zip" eval="8275"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_395" model="res.city">
+    <field name="name">Škofije</field>
+    <field name="province_id" ref="l10n_base.si_c_054"/>
+    <field name="zip" eval="6281"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_396" model="res.city">
+    <field name="name">Škofja Loka</field>
+    <field name="province_id" ref="l10n_base.si_c_396"/>
+    <field name="zip" eval="4220"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_397" model="res.city">
+    <field name="name">Škofja vas</field>
+    <field name="province_id" ref="l10n_base.si_c_038"/>
+    <field name="zip" eval="3211"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_398" model="res.city">
+    <field name="name">Škofljica</field>
+    <field name="province_id" ref="l10n_base.si_c_398"/>
+    <field name="zip" eval="1291"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_399" model="res.city">
+    <field name="name">Šmarje</field>
+    <field name="province_id" ref="l10n_base.si_c_054"/>
+    <field name="zip" eval="6274"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_400" model="res.city">
+    <field name="name">Šmarje - Sap</field>
+    <field name="province_id" ref="l10n_base.si_c_110"/>
+    <field name="zip" eval="1293"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_401" model="res.city">
+    <field name="name">Šmarje pri Jelšah</field>
+    <field name="province_id" ref="l10n_base.si_c_379"/>
+    <field name="zip" eval="3240"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_402" model="res.city">
+    <field name="name">Šmarješke Toplice</field>
+    <field name="province_id" ref="l10n_base.si_c_402"/>
+    <field name="zip" eval="8220"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_403" model="res.city">
+    <field name="name">Šmartno na Pohorju</field>
+    <field name="province_id" ref="l10n_base.si_c_178"/>
+    <field name="zip" eval="2315"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_404" model="res.city">
+    <field name="name">Šmartno ob Dreti</field>
+    <field name="province_id" ref="l10n_base.si_c_246"/>
+    <field name="zip" eval="3341"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_405" model="res.city">
+    <field name="name">Šmartno ob Paki</field>
+    <field name="province_id" ref="l10n_base.si_c_405"/>
+    <field name="zip" eval="3327"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_406" model="res.city">
+    <field name="name">Šmartno pri Litiji</field>
+    <field name="province_id" ref="l10n_base.si_c_305"/>
+    <field name="zip" eval="1275"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_407" model="res.city">
+    <field name="name">Šmartno pri Slovenj Gradcu</field>
+    <field name="province_id" ref="l10n_base.si_c_278"/>
+    <field name="zip" eval="2383"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_408" model="res.city">
+    <field name="name">Šmartno v Rožni dolini</field>
+    <field name="province_id" ref="l10n_base.si_c_038"/>
+    <field name="zip" eval="3201"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_409" model="res.city">
+    <field name="name">Šoštanj</field>
+    <field name="province_id" ref="l10n_base.si_c_409"/>
+    <field name="zip" eval="3325"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_410" model="res.city">
+    <field name="name">Štanjel</field>
+    <field name="province_id" ref="l10n_base.si_c_153"/>
+    <field name="zip" eval="6222"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_411" model="res.city">
+    <field name="name">Štore</field>
+    <field name="province_id" ref="l10n_base.si_c_411"/>
+    <field name="zip" eval="3220"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_412" model="res.city">
+    <field name="name">Tabor</field>
+    <field name="province_id" ref="l10n_base.si_c_143"/>
+    <field name="zip" eval="3304"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_413" model="res.city">
+    <field name="name">Teharje</field>
+    <field name="province_id" ref="l10n_base.si_c_038"/>
+    <field name="zip" eval="3221"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_414" model="res.city">
+    <field name="name">Tišina</field>
+    <field name="province_id" ref="l10n_base.si_c_414"/>
+    <field name="zip" eval="9251"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_415" model="res.city">
+    <field name="name">Tolmin</field>
+    <field name="province_id" ref="l10n_base.si_c_106"/>
+    <field name="zip" eval="5220"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_416" model="res.city">
+    <field name="name">Topolšica</field>
+    <field name="province_id" ref="l10n_base.si_c_409"/>
+    <field name="zip" eval="3326"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_417" model="res.city">
+    <field name="name">Trbonje</field>
+    <field name="province_id" ref="l10n_base.si_c_083"/>
+    <field name="zip" eval="2371"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_418" model="res.city">
+    <field name="name">Trbovlje</field>
+    <field name="province_id" ref="l10n_base.si_c_065"/>
+    <field name="zip" eval="1420"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_419" model="res.city">
+    <field name="name">Trebelno</field>
+    <field name="province_id" ref="l10n_base.si_c_236"/>
+    <field name="zip" eval="8231"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_420" model="res.city">
+    <field name="name">Trebnje</field>
+    <field name="province_id" ref="l10n_base.si_c_068"/>
+    <field name="zip" eval="8210"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_421" model="res.city">
+    <field name="name">Trnovo pri Gorici</field>
+    <field name="province_id" ref="l10n_base.si_c_025"/>
+    <field name="zip" eval="5252"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_422" model="res.city">
+    <field name="name">Trnovska vas</field>
+    <field name="province_id" ref="l10n_base.si_c_422"/>
+    <field name="zip" eval="2254"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_423" model="res.city">
+    <field name="name">Trojane</field>
+    <field name="province_id" ref="l10n_base.si_c_013"/>
+    <field name="zip" eval="1222"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_424" model="res.city">
+    <field name="name">Trzin</field>
+    <field name="province_id" ref="l10n_base.si_c_424"/>
+    <field name="zip" eval="1236"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_425" model="res.city">
+    <field name="name">Tržič</field>
+    <field name="province_id" ref="l10n_base.si_c_169"/>
+    <field name="zip" eval="4290"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_426" model="res.city">
+    <field name="name">Tržišče</field>
+    <field name="province_id" ref="l10n_base.si_c_014"/>
+    <field name="zip" eval="8295"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_427" model="res.city">
+    <field name="name">Turjak</field>
+    <field name="province_id" ref="l10n_base.si_c_328"/>
+    <field name="zip" eval="1311"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_428" model="res.city">
+    <field name="name">Turnišče</field>
+    <field name="province_id" ref="l10n_base.si_c_428"/>
+    <field name="zip" eval="9224"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_429" model="res.city">
+    <field name="name">Uršna sela</field>
+    <field name="province_id" ref="l10n_base.si_c_034"/>
+    <field name="zip" eval="8323"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_430" model="res.city">
+    <field name="name">Vače</field>
+    <field name="province_id" ref="l10n_base.si_c_074"/>
+    <field name="zip" eval="1252"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_431" model="res.city">
+    <field name="name">Velenje</field>
+    <field name="province_id" ref="l10n_base.si_c_431"/>
+    <field name="zip" eval="3320"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_432" model="res.city">
+    <field name="name">Velenje - poštni predali</field>
+    <field name="province_id" ref="l10n_base.si_c_431"/>
+    <field name="zip" eval="3322"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_433" model="res.city">
+    <field name="name">Velika Loka</field>
+    <field name="province_id" ref="l10n_base.si_c_068"/>
+    <field name="zip" eval="8212"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_434" model="res.city">
+    <field name="name">Velika Nedelja</field>
+    <field name="province_id" ref="l10n_base.si_c_125"/>
+    <field name="zip" eval="2274"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_435" model="res.city">
+    <field name="name">Velika Polana</field>
+    <field name="province_id" ref="l10n_base.si_c_435"/>
+    <field name="zip" eval="9225"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_436" model="res.city">
+    <field name="name">Velike Lašče</field>
+    <field name="province_id" ref="l10n_base.si_c_328"/>
+    <field name="zip" eval="1315"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_437" model="res.city">
+    <field name="name">Veliki Gaber</field>
+    <field name="province_id" ref="l10n_base.si_c_068"/>
+    <field name="zip" eval="8213"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_438" model="res.city">
+    <field name="name">Veržej</field>
+    <field name="province_id" ref="l10n_base.si_c_438"/>
+    <field name="zip" eval="9241"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_439" model="res.city">
+    <field name="name">Videm - Dobrepolje</field>
+    <field name="province_id" ref="l10n_base.si_c_372"/>
+    <field name="zip" eval="1312"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_440" model="res.city">
+    <field name="name">Videm pri Ptuju</field>
+    <field name="province_id" ref="l10n_base.si_c_440"/>
+    <field name="zip" eval="2284"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_441" model="res.city">
+    <field name="name">Vinica</field>
+    <field name="province_id" ref="l10n_base.si_c_001"/>
+    <field name="zip" eval="8344"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_442" model="res.city">
+    <field name="name">Vipava</field>
+    <field name="province_id" ref="l10n_base.si_c_084"/>
+    <field name="zip" eval="5271"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_443" model="res.city">
+    <field name="name">Visoko</field>
+    <field name="province_id" ref="l10n_base.si_c_385"/>
+    <field name="zip" eval="4212"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_444" model="res.city">
+    <field name="name">Višnja Gora</field>
+    <field name="province_id" ref="l10n_base.si_c_124"/>
+    <field name="zip" eval="1294"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_445" model="res.city">
+    <field name="name">Vitanje</field>
+    <field name="province_id" ref="l10n_base.si_c_445"/>
+    <field name="zip" eval="3205"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_446" model="res.city">
+    <field name="name">Vitomarci</field>
+    <field name="province_id" ref="l10n_base.si_c_376"/>
+    <field name="zip" eval="2255"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_447" model="res.city">
+    <field name="name">Vodice</field>
+    <field name="province_id" ref="l10n_base.si_c_447"/>
+    <field name="zip" eval="1217"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_448" model="res.city">
+    <field name="name">Vojnik</field>
+    <field name="province_id" ref="l10n_base.si_c_090"/>
+    <field name="zip" eval="3212"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_449" model="res.city">
+    <field name="name">Volčja Draga</field>
+    <field name="province_id" ref="l10n_base.si_c_324"/>
+    <field name="zip" eval="5293"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_450" model="res.city">
+    <field name="name">Voličina</field>
+    <field name="province_id" ref="l10n_base.si_c_181"/>
+    <field name="zip" eval="2232"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_451" model="res.city">
+    <field name="name">Vransko</field>
+    <field name="province_id" ref="l10n_base.si_c_451"/>
+    <field name="zip" eval="3305"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_452" model="res.city">
+    <field name="name">Vremski Britof</field>
+    <field name="province_id" ref="l10n_base.si_c_061"/>
+    <field name="zip" eval="6217"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_453" model="res.city">
+    <field name="name">Vrhnika</field>
+    <field name="province_id" ref="l10n_base.si_c_453"/>
+    <field name="zip" eval="1360"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_454" model="res.city">
+    <field name="name">Vuhred</field>
+    <field name="province_id" ref="l10n_base.si_c_315"/>
+    <field name="zip" eval="2365"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_455" model="res.city">
+    <field name="name">Vuzenica</field>
+    <field name="province_id" ref="l10n_base.si_c_455"/>
+    <field name="zip" eval="2367"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_456" model="res.city">
+    <field name="name">Zabukovje </field>
+    <field name="province_id" ref="l10n_base.si_c_014"/>
+    <field name="zip" eval="8292"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_457" model="res.city">
+    <field name="name">Zagorje ob Savi</field>
+    <field name="province_id" ref="l10n_base.si_c_050"/>
+    <field name="zip" eval="1410"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_458" model="res.city">
+    <field name="name">Zagradec</field>
+    <field name="province_id" ref="l10n_base.si_c_124"/>
+    <field name="zip" eval="1303"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_459" model="res.city">
+    <field name="name">Zavrč</field>
+    <field name="province_id" ref="l10n_base.si_c_459"/>
+    <field name="zip" eval="2283"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_460" model="res.city">
+    <field name="name">Zdole</field>
+    <field name="province_id" ref="l10n_base.si_c_028"/>
+    <field name="zip" eval="8272"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_461" model="res.city">
+    <field name="name">Zgornja Besnica</field>
+    <field name="province_id" ref="l10n_base.si_c_094"/>
+    <field name="zip" eval="4201"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_462" model="res.city">
+    <field name="name">Zgornja Korena</field>
+    <field name="province_id" ref="l10n_base.si_c_357"/>
+    <field name="zip" eval="2242"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_463" model="res.city">
+    <field name="name">Zgornja Kungota</field>
+    <field name="province_id" ref="l10n_base.si_c_463"/>
+    <field name="zip" eval="2201"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_464" model="res.city">
+    <field name="name">Zgornja Ložnica</field>
+    <field name="province_id" ref="l10n_base.si_c_178"/>
+    <field name="zip" eval="2316"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_465" model="res.city">
+    <field name="name">Zgornja Polskava</field>
+    <field name="province_id" ref="l10n_base.si_c_178"/>
+    <field name="zip" eval="2314"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_466" model="res.city">
+    <field name="name">Zgornja Velka</field>
+    <field name="province_id" ref="l10n_base.si_c_045"/>
+    <field name="zip" eval="2213"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_467" model="res.city">
+    <field name="name">Zgornje Gorje</field>
+    <field name="province_id" ref="l10n_base.si_c_463"/>
+    <field name="zip" eval="4247"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_468" model="res.city">
+    <field name="name">Zgornje Jezersko</field>
+    <field name="province_id" ref="l10n_base.si_c_468"/>
+    <field name="zip" eval="4206"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_469" model="res.city">
+    <field name="name">Zgornji Leskovec</field>
+    <field name="province_id" ref="l10n_base.si_c_440"/>
+    <field name="zip" eval="2285"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_470" model="res.city">
+    <field name="name">Zidani Most</field>
+    <field name="province_id" ref="l10n_base.si_c_133"/>
+    <field name="zip" eval="1432"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_471" model="res.city">
+    <field name="name">Zreče</field>
+    <field name="province_id" ref="l10n_base.si_c_370"/>
+    <field name="zip" eval="3214"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_472" model="res.city">
+    <field name="name">Žabnica</field>
+    <field name="province_id" ref="l10n_base.si_c_094"/>
+    <field name="zip" eval="4209"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_473" model="res.city">
+    <field name="name">Žalec</field>
+    <field name="province_id" ref="l10n_base.si_c_108"/>
+    <field name="zip" eval="3310"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_474" model="res.city">
+    <field name="name">Železniki</field>
+    <field name="province_id" ref="l10n_base.si_c_337"/>
+    <field name="zip" eval="4228"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_475" model="res.city">
+    <field name="name">Žetale</field>
+    <field name="province_id" ref="l10n_base.si_c_475"/>
+    <field name="zip" eval="2287"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_476" model="res.city">
+    <field name="name">Žiri</field>
+    <field name="province_id" ref="l10n_base.si_c_476"/>
+    <field name="zip" eval="4226"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_477" model="res.city">
+    <field name="name">Žirovnica</field>
+    <field name="province_id" ref="l10n_base.si_c_477"/>
+    <field name="zip" eval="4274"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+<record id="l10n_base.si_478" model="res.city">
+    <field name="name">Žužemberk</field>
+    <field name="province_id" ref="l10n_base.si_c_086"/>
+    <field name="zip" eval="8360"/>
+    <field name="phone_prefix" eval="386"/>
+    <field name="istat_code" eval="251"/>
+    <field name="cadaster_code" eval="245"/>
+</record>
+
+
+    </data>
+</openerp>

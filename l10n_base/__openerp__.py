@@ -2,10 +2,10 @@
 
 {
     'name': 'Base Localization',
-    'version': '8.0.4.1.2',
+    'version': '8.0.4.1.3',
     'summary': 'Base Localization Module for sub-regions',
     'author':   'Didotech, '
-                'Matmoz d.o.o.',
+                'Luxim & Matmoz',
     'website': 'http://www.didotech.com',
     'license': "AGPL-3",
     'contributors': [
@@ -28,8 +28,9 @@
     'data': [
         'views/partner_view.xml',
         'views/crm_view.xml',
+        'views/company_view.xml',
         'security/ir.model.access.csv',
-        'data/res.country.csv',
+        'data/res_country_data.xml',
     ],
     'qweb': [],
     'demo': [],

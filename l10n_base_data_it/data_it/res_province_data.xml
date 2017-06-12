@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+
+<record id="l10n_base.it_AG" model="res.province">
+    <field name="name">Agrigento</field>
+    <field name="code">AG</field>
+    <field name="region" ref="l10n_base.it_sic"/>
+</record>
+
+<record id="l10n_base.it_AL" model="res.province">
+    <field name="name">Alessandria</field>
+    <field name="code">AL</field>
+    <field name="region" ref="l10n_base.it_pie"/>
+</record>
+
+<record id="l10n_base.it_AN" model="res.province">
+    <field name="name">Ancona</field>
+    <field name="code">AN</field>
+    <field name="region" ref="l10n_base.it_mar"/>
+</record>
+
+<record id="l10n_base.it_AO" model="res.province">
+    <field name="name">Valle D'Aosta</field>
+    <field name="code">AO</field>
+    <field name="region" ref="l10n_base.it_vda"/>
+</record>
+
+<record id="l10n_base.it_AP" model="res.province">
+    <field name="name">Ascoli Piceno</field>
+    <field name="code">AP</field>
+    <field name="region" ref="l10n_base.it_mar"/>
+</record>
+
+<record id="l10n_base.it_AQ" model="res.province">
+    <field name="name">L'Aquila</field>
+    <field name="code">AQ</field>
+    <field name="region" ref="l10n_base.it_abr"/>
+</record>
+
+<record id="l10n_base.it_AR" model="res.province">
+    <field name="name">Arezzo</field>
+    <field name="code">AR</field>
+    <field name="region" ref="l10n_base.it_tos"/>
+</record>
+
+<record id="l10n_base.it_AT" model="res.province">
+    <field name="name">Asti</field>
+    <field name="code">AT</field>
+    <field name="region" ref="l10n_base.it_pie"/>
+</record>
+
+<record id="l10n_base.it_AV" model="res.province">
+    <field name="name">Avellino</field>
+    <field name="code">AV</field>
+    <field name="region" ref="l10n_base.it_cam"/>
+</record>
+
+<record id="l10n_base.it_BA" model="res.province">
+    <field name="name">Bari</field>
+    <field name="code">BA</field>
+    <field name="region" ref="l10n_base.it_pug"/>
+</record>
+
+<record id="l10n_base.it_BG" model="res.province">
+    <field name="name">Bergamo</field>
+    <field name="code">BG</field>
+    <field name="region" ref="l10n_base.it_lom"/>
+</record>
+
+<record id="l10n_base.it_BI" model="res.province">
+    <field name="name">Biella</field>
+    <field name="code">BI</field>
+    <field name="region" ref="l10n_base.it_pie"/>
+</record>
+
+<record id="l10n_base.it_BL" model="res.province">
+    <field name="name">Belluno</field>
+    <field name="code">BL</field>
+    <field name="region" ref="l10n_base.it_ven"/>
+</record>
+
+<record id="l10n_base.it_BN" model="res.province">
+    <field name="name">Benevento</field>
+    <field name="code">BN</field>
+    <field name="region" ref="l10n_base.it_cam"/>
+</record>
+
+<record id="l10n_base.it_BO" model="res.province">
+    <field name="name">Bologna</field>
+    <field name="code">BO</field>
+    <field name="region" ref="l10n_base.it_emr"/>
+</record>
+
+<record id="l10n_base.it_BR" model="res.province">
+    <field name="name">Brindisi</field>
+    <field name="code">BR</field>
+    <field name="region" ref="l10n_base.it_pug"/>
+</record>
+
+<record id="l10n_base.it_BS" model="res.province">
+    <field name="name">Brescia</field>
+    <field name="code">BS</field>
+    <field name="region" ref="l10n_base.it_lom"/>
+</record>
+
+<record id="l10n_base.it_BT" model="res.province">
+    <field name="name">Barletta-Andria-Trani</field>
+    <field name="code">BT</field>
+    <field name="region" ref="l10n_base.it_pug"/>
+</record>
+
+<record id="l10n_base.it_BZ" model="res.province">
+    <field name="name">Bolzano/Bozen</field>
+    <field name="code">BZ</field>
+    <field name="region" ref="l10n_base.it_taa"/>
+</record>
+
+<record id="l10n_base.it_CA" model="res.province">
+    <field name="name">Cagliari</field>
+    <field name="code">CA</field>
+    <field name="region" ref="l10n_base.it_sar"/>
+</record>
+
+<record id="l10n_base.it_CB" model="res.province">
+    <field name="name">Campobasso</field>
+    <field name="code">CB</field>
+    <field name="region" ref="l10n_base.it_mol"/>
+</record>
+
+<record id="l10n_base.it_CE" model="res.province">
+    <field name="name">Caserta</field>
+    <field name="code">CE</field>
+    <field name="region" ref="l10n_base.it_cam"/>
+</record>
+
+<record id="l10n_base.it_CH" model="res.province">
+    <field name="name">Chieti</field>
+    <field name="code">CH</field>
+    <field name="region" ref="l10n_base.it_abr"/>
+</record>
+
+<record id="l10n_base.it_CI" model="res.province">
+    <field name="name">Carbonia-Iglesias</field>
+    <field name="code">CI</field>
+    <field name="region" ref="l10n_base.it_sar"/>
+</record>
+
+<record id="l10n_base.it_CL" model="res.province">
+    <field name="name">Caltanissetta</field>
+    <field name="code">CL</field>
+    <field name="region" ref="l10n_base.it_sic"/>
+</record>
+
+<record id="l10n_base.it_CN" model="res.province">
+    <field name="name">Cuneo</field>
+    <field name="code">CN</field>
+    <field name="region" ref="l10n_base.it_pie"/>
+</record>
+
+<record id="l10n_base.it_CO" model="res.province">
+    <field name="name">Como</field>
+    <field name="code">CO</field>
+    <field name="region" ref="l10n_base.it_lom"/>
+</record>
+
+<record id="l10n_base.it_CR" model="res.province">
+    <field name="name">Cremona</field>
+    <field name="code">CR</field>
+    <field name="region" ref="l10n_base.it_lom"/>
+</record>
+
+<record id="l10n_base.it_CS" model="res.province">
+    <field name="name">Cosenza</field>
+    <field name="code">CS</field>
+    <field name="region" ref="l10n_base.it_cal"/>
+</record>
+
+<record id="l10n_base.it_CT" model="res.province">
+    <field name="name">Catania</field>
+    <field name="code">CT</field>
+    <field name="region" ref="l10n_base.it_sic"/>
+</record>
+
+<record id="l10n_base.it_CZ" model="res.province">
+    <field name="name">Catanzaro</field>
+    <field name="code">CZ</field>
+    <field name="region" ref="l10n_base.it_cal"/>
+</record>
+
+<record id="l10n_base.it_EN" model="res.province">
+    <field name="name">Enna</field>
+    <field name="code">EN</field>
+    <field name="region" ref="l10n_base.it_sic"/>
+</record>
+
+<record id="l10n_base.it_FC" model="res.province">
+    <field name="name">Forlì-Cesena</field>
+    <field name="code">FC</field>
+    <field name="region" ref="l10n_base.it_emr"/>
+</record>
+
+<record id="l10n_base.it_FE" model="res.province">
+    <field name="name">Ferrara</field>
+    <field name="code">FE</field>
+    <field name="region" ref="l10n_base.it_emr"/>
+</record>
+
+<record id="l10n_base.it_FG" model="res.province">
+    <field name="name">Foggia</field>
+    <field name="code">FG</field>
+    <field name="region" ref="l10n_base.it_pug"/>
+</record>
+
+<record id="l10n_base.it_FI" model="res.province">
+    <field name="name">Firenze</field>
+    <field name="code">FI</field>
+    <field name="region" ref="l10n_base.it_tos"/>
+</record>
+
+<record id="l10n_base.it_FM" model="res.province">
+    <field name="name">Fermo</field>
+    <field name="code">FM</field>
+    <field name="region" ref="l10n_base.it_mar"/>
+</record>
+
+<record id="l10n_base.it_FR" model="res.province">
+    <field name="name">Frosinone</field>
+    <field name="code">FR</field>
+    <field name="region" ref="l10n_base.it_laz"/>
+</record>
+
+<record id="l10n_base.it_GE" model="res.province">
+    <field name="name">Genova</field>
+    <field name="code">GE</field>
+    <field name="region" ref="l10n_base.it_lig"/>
+</record>
+
+<record id="l10n_base.it_GO" model="res.province">
+    <field name="name">Gorizia</field>
+    <field name="code">GO</field>
+    <field name="region" ref="l10n_base.it_fvg"/>
+</record>
+
+<record id="l10n_base.it_GR" model="res.province">
+    <field name="name">Grosseto</field>
+    <field name="code">GR</field>
+    <field name="region" ref="l10n_base.it_tos"/>
+</record>
+
+<record id="l10n_base.it_IM" model="res.province">
+    <field name="name">Imperia</field>
+    <field name="code">IM</field>
+    <field name="region" ref="l10n_base.it_lig"/>
+</record>
+
+<record id="l10n_base.it_IS" model="res.province">
+    <field name="name">Isernia</field>
+    <field name="code">IS</field>
+    <field name="region" ref="l10n_base.it_mol"/>
+</record>
+
+<record id="l10n_base.it_KR" model="res.province">
+    <field name="name">Crotone</field>
+    <field name="code">KR</field>
+    <field name="region" ref="l10n_base.it_cal"/>
+</record>
+
+<record id="l10n_base.it_LC" model="res.province">
+    <field name="name">Lecco</field>
+    <field name="code">LC</field>
+    <field name="region" ref="l10n_base.it_lom"/>
+</record>
+
+<record id="l10n_base.it_LE" model="res.province">
+    <field name="name">Lecce</field>
+    <field name="code">LE</field>
+    <field name="region" ref="l10n_base.it_pug"/>
+</record>
+
+<record id="l10n_base.it_LI" model="res.province">
+    <field name="name">Livorno</field>
+    <field name="code">LI</field>
+    <field name="region" ref="l10n_base.it_tos"/>
+</record>
+
+<record id="l10n_base.it_LO" model="res.province">
+    <field name="name">Lodi</field>
+    <field name="code">LO</field>
+    <field name="region" ref="l10n_base.it_lom"/>
+</record>
+
+<record id="l10n_base.it_LT" model="res.province">
+    <field name="name">Latina</field>
+    <field name="code">LT</field>
+    <field name="region" ref="l10n_base.it_laz"/>
+</record>
+
+<record id="l10n_base.it_LU" model="res.province">
+    <field name="name">Lucca</field>
+    <field name="code">LU</field>
+    <field name="region" ref="l10n_base.it_tos"/>
+</record>
+
+<record id="l10n_base.it_MB" model="res.province">
+    <field name="name">Monza e della Brianza</field>
+    <field name="code">MB</field>
+    <field name="region" ref="l10n_base.it_lom"/>
+</record>
+
+<record id="l10n_base.it_MC" model="res.province">
+    <field name="name">Macerata</field>
+    <field name="code">MC</field>
+    <field name="region" ref="l10n_base.it_mar"/>
+</record>
+
+<record id="l10n_base.it_ME" model="res.province">
+    <field name="name">Messina</field>
+    <field name="code">ME</field>
+    <field name="region" ref="l10n_base.it_sic"/>
+</record>
+
+<record id="l10n_base.it_MI" model="res.province">
+    <field name="name">Milano</field>
+    <field name="code">MI</field>
+    <field name="region" ref="l10n_base.it_lom"/>
+</record>
+
+<record id="l10n_base.it_MN" model="res.province">
+    <field name="name">Mantova</field>
+    <field name="code">MN</field>
+    <field name="region" ref="l10n_base.it_lom"/>
+</record>
+
+<record id="l10n_base.it_MO" model="res.province">
+    <field name="name">Modena</field>
+    <field name="code">MO</field>
+    <field name="region" ref="l10n_base.it_emr"/>
+</record>
+
+<record id="l10n_base.it_MS" model="res.province">
+    <field name="name">Massa-Carrara</field>
+    <field name="code">MS</field>
+    <field name="region" ref="l10n_base.it_tos"/>
+</record>
+
+<record id="l10n_base.it_MT" model="res.province">
+    <field name="name">Matera</field>
+    <field name="code">MT</field>
+    <field name="region" ref="l10n_base.it_bas"/>
+</record>
+
+<record id="l10n_base.it_NA" model="res.province">
+    <field name="name">Napoli</field>
+    <field name="code">NA</field>
+    <field name="region" ref="l10n_base.it_cam"/>
+</record>
+
+<record id="l10n_base.it_NO" model="res.province">
+    <field name="name">Novara</field>
+    <field name="code">NO</field>
+    <field name="region" ref="l10n_base.it_pie"/>
+</record>
+
+<record id="l10n_base.it_NU" model="res.province">
+    <field name="name">Nuoro</field>
+    <field name="code">NU</field>
+    <field name="region" ref="l10n_base.it_sar"/>
+</record>
+
+<record id="l10n_base.it_OG" model="res.province">
+    <field name="name">Ogliastra</field>
+    <field name="code">OG</field>
+    <field name="region" ref="l10n_base.it_sar"/>
+</record>
+
+<record id="l10n_base.it_OR" model="res.province">
+    <field name="name">Oristano</field>
+    <field name="code">OR</field>
+    <field name="region" ref="l10n_base.it_sar"/>
+</record>
+
+<record id="l10n_base.it_OT" model="res.province">
+    <field name="name">Olbia-Tempio</field>
+    <field name="code">OT</field>
+    <field name="region" ref="l10n_base.it_sar"/>
+</record>
+
+<record id="l10n_base.it_PA" model="res.province">
+    <field name="name">Palermo</field>
+    <field name="code">PA</field>
+    <field name="region" ref="l10n_base.it_sic"/>
+</record>
+
+<record id="l10n_base.it_PC" model="res.province">
+    <field name="name">Piacenza</field>
+    <field name="code">PC</field>
+    <field name="region" ref="l10n_base.it_emr"/>
+</record>
+
+<record id="l10n_base.it_PD" model="res.province">
+    <field name="name">Padova</field>
+    <field name="code">PD</field>
+    <field name="region" ref="l10n_base.it_ven"/>
+</record>
+
+<record id="l10n_base.it_PE" model="res.province">
+    <field name="name">Pescara</field>
+    <field name="code">PE</field>
+    <field name="region" ref="l10n_base.it_abr"/>
+</record>
+
+<record id="l10n_base.it_PG" model="res.province">
+    <field name="name">Perugia</field>
+    <field name="code">PG</field>
+    <field name="region" ref="l10n_base.it_umb"/>
+</record>
+
+<record id="l10n_base.it_PI" model="res.province">
+    <field name="name">Pisa</field>
+    <field name="code">PI</field>
+    <field name="region" ref="l10n_base.it_tos"/>
+</record>
+
+<record id="l10n_base.it_PN" model="res.province">
+    <field name="name">Pordenone</field>
+    <field name="code">PN</field>
+    <field name="region" ref="l10n_base.it_fvg"/>
+</record>
+
+<record id="l10n_base.it_PO" model="res.province">
+    <field name="name">Prato</field>
+    <field name="code">PO</field>
+    <field name="region" ref="l10n_base.it_tos"/>
+</record>
+
+<record id="l10n_base.it_PR" model="res.province">
+    <field name="name">Parma</field>
+    <field name="code">PR</field>
+    <field name="region" ref="l10n_base.it_emr"/>
+</record>
+
+<record id="l10n_base.it_PT" model="res.province">
+    <field name="name">Pistoia</field>
+    <field name="code">PT</field>
+    <field name="region" ref="l10n_base.it_tos"/>
+</record>
+
+<record id="l10n_base.it_PU" model="res.province">
+    <field name="name">Pesaro e Urbino</field>
+    <field name="code">PU</field>
+    <field name="region" ref="l10n_base.it_mar"/>
+</record>
+
+<record id="l10n_base.it_PV" model="res.province">
+    <field name="name">Pavia</field>
+    <field name="code">PV</field>
+    <field name="region" ref="l10n_base.it_lom"/>
+</record>
+
+<record id="l10n_base.it_PZ" model="res.province">
+    <field name="name">Potenza</field>
+    <field name="code">PZ</field>
+    <field name="region" ref="l10n_base.it_bas"/>
+</record>
+
+<record id="l10n_base.it_RA" model="res.province">
+    <field name="name">Ravenna</field>
+    <field name="code">RA</field>
+    <field name="region" ref="l10n_base.it_emr"/>
+</record>
+
+<record id="l10n_base.it_RC" model="res.province">
+    <field name="name">Reggio di Calabria</field>
+    <field name="code">RC</field>
+    <field name="region" ref="l10n_base.it_cal"/>
+</record>
+
+<record id="l10n_base.it_RE" model="res.province">
+    <field name="name">Reggio nell'Emilia</field>
+    <field name="code">RE</field>
+    <field name="region" ref="l10n_base.it_emr"/>
+</record>
+
+<record id="l10n_base.it_RG" model="res.province">
+    <field name="name">Ragusa</field>
+    <field name="code">RG</field>
+    <field name="region" ref="l10n_base.it_sic"/>
+</record>
+
+<record id="l10n_base.it_RI" model="res.province">
+    <field name="name">Rieti</field>
+    <field name="code">RI</field>
+    <field name="region" ref="l10n_base.it_laz"/>
+</record>
+
+<record id="l10n_base.it_RM" model="res.province">
+    <field name="name">Roma</field>
+    <field name="code">RM</field>
+    <field name="region" ref="l10n_base.it_laz"/>
+</record>
+
+<record id="l10n_base.it_RN" model="res.province">
+    <field name="name">Rimini</field>
+    <field name="code">RN</field>
+    <field name="region" ref="l10n_base.it_emr"/>
+</record>
+
+<record id="l10n_base.it_RO" model="res.province">
+    <field name="name">Rovigo</field>
+    <field name="code">RO</field>
+    <field name="region" ref="l10n_base.it_ven"/>
+</record>
+
+<record id="l10n_base.it_SA" model="res.province">
+    <field name="name">Salerno</field>
+    <field name="code">SA</field>
+    <field name="region" ref="l10n_base.it_cam"/>
+</record>
+
+<record id="l10n_base.it_SI" model="res.province">
+    <field name="name">Siena</field>
+    <field name="code">SI</field>
+    <field name="region" ref="l10n_base.it_tos"/>
+</record>
+
+<record id="l10n_base.it_SO" model="res.province">
+    <field name="name">Sondrio</field>
+    <field name="code">SO</field>
+    <field name="region" ref="l10n_base.it_lom"/>
+</record>
+
+<record id="l10n_base.it_SP" model="res.province">
+    <field name="name">La Spezia</field>
+    <field name="code">SP</field>
+    <field name="region" ref="l10n_base.it_lig"/>
+</record>
+
+<record id="l10n_base.it_SR" model="res.province">
+    <field name="name">Siracusa</field>
+    <field name="code">SR</field>
+    <field name="region" ref="l10n_base.it_sic"/>
+</record>
+
+<record id="l10n_base.it_SS" model="res.province">
+    <field name="name">Sassari</field>
+    <field name="code">SS</field>
+    <field name="region" ref="l10n_base.it_sar"/>
+</record>
+
+<record id="l10n_base.it_SV" model="res.province">
+    <field name="name">Savona</field>
+    <field name="code">SV</field>
+    <field name="region" ref="l10n_base.it_lig"/>
+</record>
+
+<record id="l10n_base.it_TA" model="res.province">
+    <field name="name">Taranto</field>
+    <field name="code">TA</field>
+    <field name="region" ref="l10n_base.it_pug"/>
+</record>
+
+<record id="l10n_base.it_TE" model="res.province">
+    <field name="name">Teramo</field>
+    <field name="code">TE</field>
+    <field name="region" ref="l10n_base.it_abr"/>
+</record>
+
+<record id="l10n_base.it_TN" model="res.province">
+    <field name="name">Trento</field>
+    <field name="code">TN</field>
+    <field name="region" ref="l10n_base.it_taa"/>
+</record>
+
+<record id="l10n_base.it_TO" model="res.province">
+    <field name="name">Torino</field>
+    <field name="code">TO</field>
+    <field name="region" ref="l10n_base.it_pie"/>
+</record>
+
+<record id="l10n_base.it_TP" model="res.province">
+    <field name="name">Trapani</field>
+    <field name="code">TP</field>
+    <field name="region" ref="l10n_base.it_sic"/>
+</record>
+
+<record id="l10n_base.it_TR" model="res.province">
+    <field name="name">Terni</field>
+    <field name="code">TR</field>
+    <field name="region" ref="l10n_base.it_umb"/>
+</record>
+
+<record id="l10n_base.it_TS" model="res.province">
+    <field name="name">Trieste</field>
+    <field name="code">TS</field>
+    <field name="region" ref="l10n_base.it_fvg"/>
+</record>
+
+<record id="l10n_base.it_TV" model="res.province">
+    <field name="name">Treviso</field>
+    <field name="code">TV</field>
+    <field name="region" ref="l10n_base.it_ven"/>
+</record>
+
+<record id="l10n_base.it_UD" model="res.province">
+    <field name="name">Udine</field>
+    <field name="code">UD</field>
+    <field name="region" ref="l10n_base.it_fvg"/>
+</record>
+
+<record id="l10n_base.it_VA" model="res.province">
+    <field name="name">Varese</field>
+    <field name="code">VA</field>
+    <field name="region" ref="l10n_base.it_lom"/>
+</record>
+
+<record id="l10n_base.it_VB" model="res.province">
+    <field name="name">Verbano-Cusio-Ossola</field>
+    <field name="code">VB</field>
+    <field name="region" ref="l10n_base.it_pie"/>
+</record>
+
+<record id="l10n_base.it_VC" model="res.province">
+    <field name="name">Vercelli</field>
+    <field name="code">VC</field>
+    <field name="region" ref="l10n_base.it_pie"/>
+</record>
+
+<record id="l10n_base.it_VE" model="res.province">
+    <field name="name">Venezia</field>
+    <field name="code">VE</field>
+    <field name="region" ref="l10n_base.it_ven"/>
+</record>
+
+<record id="l10n_base.it_VI" model="res.province">
+    <field name="name">Vicenza</field>
+    <field name="code">VI</field>
+    <field name="region" ref="l10n_base.it_ven"/>
+</record>
+
+<record id="l10n_base.it_VR" model="res.province">
+    <field name="name">Verona</field>
+    <field name="code">VR</field>
+    <field name="region" ref="l10n_base.it_ven"/>
+</record>
+
+<record id="l10n_base.it_VS" model="res.province">
+    <field name="name">Medio Campidano</field>
+    <field name="code">VS</field>
+    <field name="region" ref="l10n_base.it_sar"/>
+</record>
+
+<record id="l10n_base.it_VT" model="res.province">
+    <field name="name">Viterbo</field>
+    <field name="code">VT</field>
+    <field name="region" ref="l10n_base.it_laz"/>
+</record>
+
+<record id="l10n_base.it_VV" model="res.province">
+    <field name="name">Vibo Valentia</field>
+    <field name="code">VV</field>
+    <field name="region" ref="l10n_base.it_cal"/>
+</record>
+
+
+    </data>
+</openerp>

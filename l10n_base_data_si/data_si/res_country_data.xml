@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        <record id="base.si" model="res.country">
+            <field name="code">SI</field>
+            <field name="name">Slovenia</field>
+            <field name="enable_province">TRUE</field>
+            <field name="enable_region">TRUE</field>
+            <field name="enable_state">FALSE</field>
+        </record>
+    </data>
+</openerp>

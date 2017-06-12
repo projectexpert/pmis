@@ -1,0 +1,1262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+
+<record id="l10n_base.si_c_001" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">AJ</field>
+    <field name="name">Črnomelj</field>
+</record>
+
+<record id="l10n_base.si_c_002" model="res.province">
+    <field name="region" ref="l10n_base.si_r_002"/>
+    <field name="code">AN</field>
+    <field name="name">Ajdovščina</field>
+</record>
+
+<record id="l10n_base.si_c_003" model="res.province">
+    <field name="region" ref="l10n_base.si_r_006"/>
+    <field name="code">AP</field>
+    <field name="name">Ankaran</field>
+</record>
+
+<record id="l10n_base.si_c_004" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">B1</field>
+    <field name="name">Apače</field>
+</record>
+
+<record id="l10n_base.si_c_005" model="res.province">
+    <field name="region" ref="l10n_base.si_r_011"/>
+    <field name="code">B2</field>
+    <field name="name">Brežice</field>
+</record>
+
+<record id="l10n_base.si_c_006" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">B3</field>
+    <field name="name">Radovljica</field>
+</record>
+
+<record id="l10n_base.si_c_007" model="res.province">
+    <field name="region" ref="l10n_base.si_r_005"/>
+    <field name="code">BL</field>
+    <field name="name">Cerknica</field>
+</record>
+
+<record id="l10n_base.si_c_008" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">B4</field>
+    <field name="name">Beltinci</field>
+</record>
+
+<record id="l10n_base.si_c_009" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">B5</field>
+    <field name="name">Benedikt</field>
+</record>
+
+<record id="l10n_base.si_c_010" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">B6</field>
+    <field name="name">Ruše</field>
+</record>
+
+<record id="l10n_base.si_c_011" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">B7</field>
+    <field name="name">Bistrica ob Sotli</field>
+</record>
+
+<record id="l10n_base.si_c_013" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">B8</field>
+    <field name="name">Lukovica</field>
+</record>
+
+<record id="l10n_base.si_c_014" model="res.province">
+    <field name="region" ref="l10n_base.si_r_011"/>
+    <field name="code">B9</field>
+    <field name="name">Sevnica</field>
+</record>
+
+<record id="l10n_base.si_c_015" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">BR</field>
+    <field name="name">Bled</field>
+</record>
+
+<record id="l10n_base.si_c_016" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">BZ</field>
+    <field name="name">Jesenice</field>
+</record>
+
+<record id="l10n_base.si_c_017" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">C1</field>
+    <field name="name">Puconci</field>
+</record>
+
+<record id="l10n_base.si_c_018" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">CE</field>
+    <field name="name">Moravske Toplice</field>
+</record>
+
+<record id="l10n_base.si_c_020" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">C2</field>
+    <field name="name">Bohinj</field>
+</record>
+
+<record id="l10n_base.si_c_022" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">C3</field>
+    <field name="name">Borovnica</field>
+</record>
+
+<record id="l10n_base.si_c_024" model="res.province">
+    <field name="region" ref="l10n_base.si_r_002"/>
+    <field name="code">C4</field>
+    <field name="name">Bovec</field>
+</record>
+
+<record id="l10n_base.si_c_025" model="res.province">
+    <field name="region" ref="l10n_base.si_r_002"/>
+    <field name="code">C5</field>
+    <field name="name">Nova Gorica</field>
+</record>
+
+<record id="l10n_base.si_c_026" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">C6</field>
+    <field name="name">Braslovče</field>
+</record>
+
+<record id="l10n_base.si_c_027" model="res.province">
+    <field name="region" ref="l10n_base.si_r_002"/>
+    <field name="code">C7</field>
+    <field name="name">Kobarid</field>
+</record>
+
+<record id="l10n_base.si_c_028" model="res.province">
+    <field name="region" ref="l10n_base.si_r_011"/>
+    <field name="code">C8</field>
+    <field name="name">Krško</field>
+</record>
+
+<record id="l10n_base.si_c_029" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">C9</field>
+    <field name="name">Maribor</field>
+</record>
+
+<record id="l10n_base.si_c_031" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">D1</field>
+    <field name="name">Brezovica</field>
+</record>
+
+<record id="l10n_base.si_c_033" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">D2</field>
+    <field name="name">Cerklje na Gorenjskem</field>
+</record>
+
+<record id="l10n_base.si_c_034" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">D3</field>
+    <field name="name">Novo mesto</field>
+</record>
+
+<record id="l10n_base.si_c_035" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">D4</field>
+    <field name="name">Kozje</field>
+</record>
+
+<record id="l10n_base.si_c_036" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">D5</field>
+    <field name="name">Škocjan</field>
+</record>
+
+<record id="l10n_base.si_c_037" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">D6</field>
+    <field name="name">Cankova</field>
+</record>
+
+<record id="l10n_base.si_c_038" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">D7</field>
+    <field name="name">Celje</field>
+</record>
+
+<record id="l10n_base.si_c_043" model="res.province">
+    <field name="region" ref="l10n_base.si_r_002"/>
+    <field name="code">D8</field>
+    <field name="name">Cerkno</field>
+</record>
+
+<record id="l10n_base.si_c_044" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">D9</field>
+    <field name="name">Cerkvenjak</field>
+</record>
+
+<record id="l10n_base.si_c_045" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">DO</field>
+    <field name="name">Šentilj</field>
+</record>
+
+<record id="l10n_base.si_c_046" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">DN</field>
+    <field name="name">Kidričevo</field>
+</record>
+
+<record id="l10n_base.si_c_047" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">DR</field>
+    <field name="name">Cirkulane</field>
+</record>
+
+<record id="l10n_base.si_c_050" model="res.province">
+    <field name="region" ref="l10n_base.si_r_012"/>
+    <field name="code">DU</field>
+    <field name="name">Zagorje ob Savi</field>
+</record>
+
+<record id="l10n_base.si_c_052" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">G1</field>
+    <field name="name">Črenšovci</field>
+</record>
+
+<record id="l10n_base.si_c_053" model="res.province">
+    <field name="region" ref="l10n_base.si_r_004"/>
+    <field name="code">G2</field>
+    <field name="name">Črna na Koroškem</field>
+</record>
+
+<record id="l10n_base.si_c_054" model="res.province">
+    <field name="region" ref="l10n_base.si_r_006"/>
+    <field name="code">G3</field>
+    <field name="name">Koper</field>
+</record>
+
+<record id="l10n_base.si_c_055" model="res.province">
+    <field name="region" ref="l10n_base.si_r_002"/>
+    <field name="code">G4</field>
+    <field name="name">Idrija</field>
+</record>
+
+<record id="l10n_base.si_c_059" model="res.province">
+    <field name="region" ref="l10n_base.si_r_002"/>
+    <field name="code">GP</field>
+    <field name="name">Kanal</field>
+</record>
+
+<record id="l10n_base.si_c_060" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">G5</field>
+    <field name="name">Destrnik</field>
+</record>
+
+<record id="l10n_base.si_c_061" model="res.province">
+    <field name="region" ref="l10n_base.si_r_006"/>
+    <field name="code">G6</field>
+    <field name="name">Divača</field>
+</record>
+
+<record id="l10n_base.si_c_062" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">HA</field>
+    <field name="name">Domžale</field>
+</record>
+
+<record id="l10n_base.si_c_063" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">HO</field>
+    <field name="name">Dobje</field>
+</record>
+
+<record id="l10n_base.si_c_065" model="res.province">
+    <field name="region" ref="l10n_base.si_r_012"/>
+    <field name="code">HD</field>
+    <field name="name">Trbovlje</field>
+</record>
+
+<record id="l10n_base.si_c_067" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">HR</field>
+    <field name="name">Dobrna</field>
+</record>
+
+<record id="l10n_base.si_c_068" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">HS</field>
+    <field name="name">Trebnje</field>
+</record>
+
+<record id="l10n_base.si_c_069" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">HP</field>
+    <field name="name">Dobrova - Polhov Gradec</field>
+</record>
+
+<record id="l10n_base.si_c_070" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">ID</field>
+    <field name="name">Dobrovnik</field>
+</record>
+
+<record id="l10n_base.si_c_071" model="res.province">
+    <field name="region" ref="l10n_base.si_r_002"/>
+    <field name="code">IG</field>
+    <field name="name">Brda</field>
+</record>
+
+<record id="l10n_base.si_c_072" model="res.province">
+    <field name="region" ref="l10n_base.si_r_012"/>
+    <field name="code">IL</field>
+    <field name="name">Hrastnik</field>
+</record>
+
+<record id="l10n_base.si_c_073" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">IV</field>
+    <field name="name">Dol pri Ljubljani</field>
+</record>
+
+<record id="l10n_base.si_c_074" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">IZ</field>
+    <field name="name">Litija</field>
+</record>
+
+<record id="l10n_base.si_c_075" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">JE</field>
+    <field name="name">Ribnica</field>
+</record>
+
+<record id="l10n_base.si_c_076" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">JZ</field>
+    <field name="name">Dolenjske Toplice</field>
+</record>
+
+<record id="l10n_base.si_c_078" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">JU</field>
+    <field name="name">Dornava</field>
+</record>
+
+<record id="l10n_base.si_c_080" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">KA</field>
+    <field name="name">Loški Potok</field>
+</record>
+
+<record id="l10n_base.si_c_082" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">K1</field>
+    <field name="name">Šentjur</field>
+</record>
+
+<record id="l10n_base.si_c_083" model="res.province">
+    <field name="region" ref="l10n_base.si_r_004"/>
+    <field name="code">K2</field>
+    <field name="name">Dravograd</field>
+</record>
+
+<record id="l10n_base.si_c_084" model="res.province">
+    <field name="region" ref="l10n_base.si_r_002"/>
+    <field name="code">KB</field>
+    <field name="name">Vipava</field>
+</record>
+
+<record id="l10n_base.si_c_085" model="res.province">
+    <field name="region" ref="l10n_base.si_r_006"/>
+    <field name="code">K3</field>
+    <field name="name">Sežana</field>
+</record>
+
+<record id="l10n_base.si_c_086" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">K4</field>
+    <field name="name">Žužemberk</field>
+</record>
+
+<record id="l10n_base.si_c_089" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">KM</field>
+    <field name="name">Rače - Fram</field>
+</record>
+
+<record id="l10n_base.si_c_090" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">K5</field>
+    <field name="name">Vojnik</field>
+</record>
+
+<record id="l10n_base.si_c_094" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">KP</field>
+    <field name="name">Kranj</field>
+</record>
+
+<record id="l10n_base.si_c_096" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">K6</field>
+    <field name="name">Gorenja vas - Poljane</field>
+</record>
+
+<record id="l10n_base.si_c_098" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">K7</field>
+    <field name="name">Gorišnica</field>
+</record>
+
+<record id="l10n_base.si_c_099" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">K8</field>
+    <field name="name">Gornja Radgona</field>
+</record>
+
+<record id="l10n_base.si_c_100" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">KR</field>
+    <field name="name">Gornji Grad</field>
+</record>
+
+<record id="l10n_base.si_c_101" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">KG</field>
+    <field name="name">Kranjska Gora</field>
+</record>
+
+<record id="l10n_base.si_c_103" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">K9</field>
+    <field name="name">Grad</field>
+</record>
+
+<record id="l10n_base.si_c_104" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">KK</field>
+    <field name="name">Metlika</field>
+</record>
+
+<record id="l10n_base.si_c_106" model="res.province">
+    <field name="region" ref="l10n_base.si_r_002"/>
+    <field name="code">KU</field>
+    <field name="name">Tolmin</field>
+</record>
+
+<record id="l10n_base.si_c_108" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">KZ</field>
+    <field name="name">Žalec</field>
+</record>
+
+<record id="l10n_base.si_c_110" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">LA</field>
+    <field name="name">Grosuplje</field>
+</record>
+
+<record id="l10n_base.si_c_111" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">LE</field>
+    <field name="name">Hajdina</field>
+</record>
+
+<record id="l10n_base.si_c_113" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">LN</field>
+    <field name="name">Hoče - Slivnica</field>
+</record>
+
+<record id="l10n_base.si_c_114" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">LI</field>
+    <field name="name">Hodoš</field>
+</record>
+
+<record id="l10n_base.si_c_115" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">LJ</field>
+    <field name="name">Horjul</field>
+</record>
+
+<record id="l10n_base.si_c_116" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">L1</field>
+    <field name="name">Logatec</field>
+</record>
+
+<record id="l10n_base.si_c_118" model="res.province">
+    <field name="region" ref="l10n_base.si_r_005"/>
+    <field name="code">LT</field>
+    <field name="name">Postojna</field>
+</record>
+
+<record id="l10n_base.si_c_121" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">L2</field>
+    <field name="name">Ig</field>
+</record>
+
+<record id="l10n_base.si_c_122" model="res.province">
+    <field name="region" ref="l10n_base.si_r_005"/>
+    <field name="code">LO</field>
+    <field name="name">Ilirska Bistrica</field>
+</record>
+
+<record id="l10n_base.si_c_124" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">LD</field>
+    <field name="name">Ivančna Gorica</field>
+</record>
+
+<record id="l10n_base.si_c_125" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">LP</field>
+    <field name="name">Ormož</field>
+</record>
+
+<record id="l10n_base.si_c_127" model="res.province">
+    <field name="region" ref="l10n_base.si_r_006"/>
+    <field name="code">L3</field>
+    <field name="name">Izola</field>
+</record>
+
+<record id="l10n_base.si_c_128" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">L4</field>
+    <field name="name">Pesnica</field>
+</record>
+
+<record id="l10n_base.si_c_133" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">L5</field>
+    <field name="name">Laško</field>
+</record>
+
+<record id="l10n_base.si_c_134" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">M1</field>
+    <field name="name">Sveti Jurij ob Ščavnici</field>
+</record>
+
+<record id="l10n_base.si_c_135" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">M2</field>
+    <field name="name">Juršinci</field>
+</record>
+
+<record id="l10n_base.si_c_140" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">MB</field>
+    <field name="name">Kamnik</field>
+</record>
+
+<record id="l10n_base.si_c_143" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">M3</field>
+    <field name="name">Tabor</field>
+</record>
+
+<record id="l10n_base.si_c_148" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">ME</field>
+    <field name="name">Kobilje</field>
+</record>
+
+<record id="l10n_base.si_c_149" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">M4</field>
+    <field name="name">Kočevje</field>
+</record>
+
+<record id="l10n_base.si_c_153" model="res.province">
+    <field name="region" ref="l10n_base.si_r_006"/>
+    <field name="code">M5</field>
+    <field name="name">Komen</field>
+</record>
+
+<record id="l10n_base.si_c_154" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">MZ</field>
+    <field name="name">Komenda</field>
+</record>
+
+<record id="l10n_base.si_c_158" model="res.province">
+    <field name="region" ref="l10n_base.si_r_002"/>
+    <field name="code">M6</field>
+    <field name="name">Miren - Kostanjevica</field>
+</record>
+
+<record id="l10n_base.si_c_159" model="res.province">
+    <field name="region" ref="l10n_base.si_r_011"/>
+    <field name="code">MK</field>
+    <field name="name">Kostanjevica na Krki</field>
+</record>
+
+<record id="l10n_base.si_c_160" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">MI</field>
+    <field name="name">Kostel</field>
+</record>
+
+<record id="l10n_base.si_c_161" model="res.province">
+    <field name="region" ref="l10n_base.si_r_005"/>
+    <field name="code">MP</field>
+    <field name="name">Pivka</field>
+</record>
+
+<record id="l10n_base.si_c_162" model="res.province">
+    <field name="region" ref="l10n_base.si_r_004"/>
+    <field name="code">ML</field>
+    <field name="name">Ravne na Koroškem</field>
+</record>
+
+<record id="l10n_base.si_c_163" model="res.province">
+    <field name="region" ref="l10n_base.si_r_006"/>
+    <field name="code">M7</field>
+    <field name="name">Hrpelje - Kozina</field>
+</record>
+
+<record id="l10n_base.si_c_169" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">MV</field>
+    <field name="name">Tržič</field>
+</record>
+
+<record id="l10n_base.si_c_170" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">MT</field>
+    <field name="name">Gornji Petrovci</field>
+</record>
+
+<record id="l10n_base.si_c_171" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">M8</field>
+    <field name="name">Križevci</field>
+</record>
+
+<record id="l10n_base.si_c_177" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">MS</field>
+    <field name="name">Kuzma</field>
+</record>
+
+<record id="l10n_base.si_c_178" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">MU</field>
+    <field name="name">Slovenska Bistrica</field>
+</record>
+
+<record id="l10n_base.si_c_181" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">NA</field>
+    <field name="name">Lenart</field>
+</record>
+
+<record id="l10n_base.si_c_182" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">NZ</field>
+    <field name="name">Lendava</field>
+</record>
+
+<record id="l10n_base.si_c_190" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">NG</field>
+    <field name="name">Ljubljana</field>
+</record>
+
+<record id="l10n_base.si_c_197" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">NM</field>
+    <field name="name">Ljubno</field>
+</record>
+
+<record id="l10n_base.si_c_198" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">OD</field>
+    <field name="name">Ljutomer</field>
+</record>
+
+<record id="l10n_base.si_c_199" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">OP</field>
+    <field name="name">Slovenske Konjice</field>
+</record>
+
+<record id="l10n_base.si_c_201" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">OR</field>
+    <field name="name">Log - Dragomer</field>
+</record>
+
+<record id="l10n_base.si_c_209" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">OS</field>
+    <field name="name">Lovrenc na Pohorju</field>
+</record>
+
+<record id="l10n_base.si_c_210" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">PE</field>
+    <field name="name">Luče</field>
+</record>
+
+<record id="l10n_base.si_c_213" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">PI</field>
+    <field name="name">Majšperk</field>
+</record>
+
+<record id="l10n_base.si_c_214" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">PV</field>
+    <field name="name">Makole</field>
+</record>
+
+<record id="l10n_base.si_c_220" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">PC</field>
+    <field name="name">Starše</field>
+</record>
+
+<record id="l10n_base.si_c_221" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">P1</field>
+    <field name="name">Markovci</field>
+</record>
+
+<record id="l10n_base.si_c_225" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">P2</field>
+    <field name="name">Medvode</field>
+</record>
+
+<record id="l10n_base.si_c_226" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">P3</field>
+    <field name="name">Mengeš</field>
+</record>
+
+<record id="l10n_base.si_c_228" model="res.province">
+    <field name="region" ref="l10n_base.si_r_004"/>
+    <field name="code">PL</field>
+    <field name="name">Mežica</field>
+</record>
+
+<record id="l10n_base.si_c_229" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">PO</field>
+    <field name="name">Miklavž na Dravskem polju</field>
+</record>
+
+<record id="l10n_base.si_c_232" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">PR</field>
+    <field name="name">Mirna</field>
+</record>
+
+<record id="l10n_base.si_c_233" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">P4</field>
+    <field name="name">Mirna Peč</field>
+</record>
+
+<record id="l10n_base.si_c_234" model="res.province">
+    <field name="region" ref="l10n_base.si_r_004"/>
+    <field name="code">P5</field>
+    <field name="name">Mislinja</field>
+</record>
+
+<record id="l10n_base.si_c_236" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">PT</field>
+    <field name="name">Mokronog - Trebelno</field>
+</record>
+
+<record id="l10n_base.si_c_237" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">PU</field>
+    <field name="name">Moravče</field>
+</record>
+
+<record id="l10n_base.si_c_241" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">R1</field>
+    <field name="name">Mozirje</field>
+</record>
+
+<record id="l10n_base.si_c_242" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">R2</field>
+    <field name="name">Murska Sobota</field>
+</record>
+
+<record id="l10n_base.si_c_244" model="res.province">
+    <field name="region" ref="l10n_base.si_r_004"/>
+    <field name="code">R3</field>
+    <field name="name">Muta</field>
+</record>
+
+<record id="l10n_base.si_c_245" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">R4</field>
+    <field name="name">Naklo</field>
+</record>
+
+<record id="l10n_base.si_c_246" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">RA</field>
+    <field name="name">Nazarje</field>
+</record>
+
+<record id="l10n_base.si_c_251" model="res.province">
+    <field name="region" ref="l10n_base.si_r_005"/>
+    <field name="code">R5</field>
+    <field name="name">Bloke</field>
+</record>
+
+<record id="l10n_base.si_c_255" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">R6</field>
+    <field name="name">Odranci</field>
+</record>
+
+<record id="l10n_base.si_c_256" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">R7</field>
+    <field name="name">Oplotnica</field>
+</record>
+
+<record id="l10n_base.si_c_260" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">RV</field>
+    <field name="name">Osilnica</field>
+</record>
+
+<record id="l10n_base.si_c_262" model="res.province">
+    <field name="region" ref="l10n_base.si_r_004"/>
+    <field name="code">RI</field>
+    <field name="name">Podvelka</field>
+</record>
+
+<record id="l10n_base.si_c_267" model="res.province">
+    <field name="region" ref="l10n_base.si_r_006"/>
+    <field name="code">R8</field>
+    <field name="name">Piran</field>
+</record>
+
+<record id="l10n_base.si_c_275" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">RS</field>
+    <field name="name">Podčetrtek</field>
+</record>
+
+<record id="l10n_base.si_c_278" model="res.province">
+    <field name="region" ref="l10n_base.si_r_004"/>
+    <field name="code">RG</field>
+    <field name="name">Slovenj Gradec</field>
+</record>
+
+<record id="l10n_base.si_c_281" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">RO</field>
+    <field name="name">Podlehnik</field>
+</record>
+
+<record id="l10n_base.si_c_284" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">RU</field>
+    <field name="name">Rogaška Slatina</field>
+</record>
+
+<record id="l10n_base.si_c_291" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">SD</field>
+    <field name="name">Poljčane</field>
+</record>
+
+<record id="l10n_base.si_c_293" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">SA</field>
+    <field name="name">Polzela</field>
+</record>
+
+<record id="l10n_base.si_c_298" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">SB</field>
+    <field name="name">Prebold</field>
+</record>
+
+<record id="l10n_base.si_c_299" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">SC</field>
+    <field name="name">Preddvor </field>
+</record>
+
+<record id="l10n_base.si_c_303" model="res.province">
+    <field name="region" ref="l10n_base.si_r_004"/>
+    <field name="code">SD</field>
+    <field name="name">Prevalje</field>
+</record>
+
+<record id="l10n_base.si_c_305" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">SE</field>
+    <field name="name">Šmartno pri Litiji</field>
+</record>
+
+<record id="l10n_base.si_c_309" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">SF</field>
+    <field name="name">Ptuj</field>
+</record>
+
+<record id="l10n_base.si_c_313" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">SG</field>
+    <field name="name">Radeče</field>
+</record>
+
+<record id="l10n_base.si_c_314" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">SH</field>
+    <field name="name">Radenci</field>
+</record>
+
+<record id="l10n_base.si_c_315" model="res.province">
+    <field name="region" ref="l10n_base.si_r_004"/>
+    <field name="code">SJ</field>
+    <field name="name">Radlje ob Dravi</field>
+</record>
+
+<record id="l10n_base.si_c_322" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">SL</field>
+    <field name="name">Razkrižje</field>
+</record>
+
+<record id="l10n_base.si_c_323" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">SM</field>
+    <field name="name">Rečica ob Savinji</field>
+</record>
+
+<record id="l10n_base.si_c_324" model="res.province">
+    <field name="region" ref="l10n_base.si_r_002"/>
+    <field name="code">SN</field>
+    <field name="name">Renče - Vogrsko</field>
+</record>
+
+<record id="l10n_base.si_c_326" model="res.province">
+    <field name="region" ref="l10n_base.si_r_004"/>
+    <field name="code">SO</field>
+    <field name="name">Ribnica na Pohorju</field>
+</record>
+
+<record id="l10n_base.si_c_328" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">SP</field>
+    <field name="name">Velike Lašče</field>
+</record>
+
+<record id="l10n_base.si_c_331" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">SR</field>
+    <field name="name">Rogašovci</field>
+</record>
+
+<record id="l10n_base.si_c_332" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">SS</field>
+    <field name="name">Rogatec</field>
+</record>
+
+<record id="l10n_base.si_c_337" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">ST</field>
+    <field name="name">Železniki</field>
+</record>
+
+<record id="l10n_base.si_c_338" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">SU</field>
+    <field name="name">Selnica ob Dravi</field>
+</record>
+
+<record id="l10n_base.si_c_339" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">SV</field>
+    <field name="name">Semič</field>
+</record>
+
+<record id="l10n_base.si_c_351" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">SW</field>
+    <field name="name">Sodražica</field>
+</record>
+
+<record id="l10n_base.si_c_352" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">SZ</field>
+    <field name="name">Solčava</field>
+</record>
+
+<record id="l10n_base.si_c_357" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">SX</field>
+    <field name="name">Duplek</field>
+</record>
+
+<record id="l10n_base.si_c_359" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">SY</field>
+    <field name="name">Središče ob Dravi</field>
+</record>
+
+<record id="l10n_base.si_c_366" model="res.province">
+    <field name="region" ref="l10n_base.si_r_005"/>
+    <field name="code">SQ</field>
+    <field name="name">Loška dolina</field>
+</record>
+
+<record id="l10n_base.si_c_370" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">S1</field>
+    <field name="name">Zreče</field>
+</record>
+
+<record id="l10n_base.si_c_371" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">S2</field>
+    <field name="name">Straža</field>
+</record>
+
+<record id="l10n_base.si_c_372" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">S3</field>
+    <field name="name">Dobrepolje</field>
+</record>
+
+<record id="l10n_base.si_c_375" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">S4</field>
+    <field name="name">Sveta Ana</field>
+</record>
+
+<record id="l10n_base.si_c_376" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">S5</field>
+    <field name="name">Sveta Trojica v Slovenskih goricah</field>
+</record>
+
+<record id="l10n_base.si_c_379" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">S6</field>
+    <field name="name">Šmarje pri Jelšah</field>
+</record>
+
+<record id="l10n_base.si_c_380" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">S7</field>
+    <field name="name">Sveti Tomaž</field>
+</record>
+
+<record id="l10n_base.si_c_381" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">T1</field>
+    <field name="name">Šalovci</field>
+</record>
+
+<record id="l10n_base.si_c_383" model="res.province">
+    <field name="region" ref="l10n_base.si_r_002"/>
+    <field name="code">T2</field>
+    <field name="name">Šempeter - Vrtojba</field>
+</record>
+
+<record id="l10n_base.si_c_385" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">T3</field>
+    <field name="name">Šenčur</field>
+</record>
+
+<record id="l10n_base.si_c_389" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">T4</field>
+    <field name="name">Šentjernej</field>
+</record>
+
+<record id="l10n_base.si_c_392" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">T5</field>
+    <field name="name">Šentrupert</field>
+</record>
+
+<record id="l10n_base.si_c_396" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">T6</field>
+    <field name="name">Škofja Loka</field>
+</record>
+
+<record id="l10n_base.si_c_398" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">T7</field>
+    <field name="name">Škofljica</field>
+</record>
+
+<record id="l10n_base.si_c_402" model="res.province">
+    <field name="region" ref="l10n_base.si_r_003"/>
+    <field name="code">T8</field>
+    <field name="name">Šmarješke Toplice</field>
+</record>
+
+<record id="l10n_base.si_c_405" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">T9</field>
+    <field name="name">Šmartno ob Paki</field>
+</record>
+
+<record id="l10n_base.si_c_409" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">VE</field>
+    <field name="name">Šoštanj</field>
+</record>
+
+<record id="l10n_base.si_c_411" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">VP</field>
+    <field name="name">Štore</field>
+</record>
+
+<record id="l10n_base.si_c_414" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">VL</field>
+    <field name="name">Tišina</field>
+</record>
+
+<record id="l10n_base.si_c_422" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">VZ</field>
+    <field name="name">Trnovska vas</field>
+</record>
+
+<record id="l10n_base.si_c_424" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">VD</field>
+    <field name="name">Trzin</field>
+</record>
+
+<record id="l10n_base.si_c_428" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">VI</field>
+    <field name="name">Turnišče</field>
+</record>
+
+<record id="l10n_base.si_c_431" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">VT</field>
+    <field name="name">Velenje</field>
+</record>
+
+<record id="l10n_base.si_c_435" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">VC</field>
+    <field name="name">Velika Polana</field>
+</record>
+
+<record id="l10n_base.si_c_438" model="res.province">
+    <field name="region" ref="l10n_base.si_r_009"/>
+    <field name="code">VJ</field>
+    <field name="name">Veržej</field>
+</record>
+
+<record id="l10n_base.si_c_440" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">VS</field>
+    <field name="name">Videm</field>
+</record>
+
+<record id="l10n_base.si_c_445" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">VR</field>
+    <field name="name">Vitanje</field>
+</record>
+
+<record id="l10n_base.si_c_447" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">VU</field>
+    <field name="name">Vodice</field>
+</record>
+
+<record id="l10n_base.si_c_451" model="res.province">
+    <field name="region" ref="l10n_base.si_r_010"/>
+    <field name="code">ZG</field>
+    <field name="name">Vransko</field>
+</record>
+
+<record id="l10n_base.si_c_453" model="res.province">
+    <field name="region" ref="l10n_base.si_r_007"/>
+    <field name="code">ZV</field>
+    <field name="name">Vrhnika</field>
+</record>
+
+<record id="l10n_base.si_c_455" model="res.province">
+    <field name="region" ref="l10n_base.si_r_004"/>
+    <field name="code">ZR</field>
+    <field name="name">Vuzenica</field>
+</record>
+
+<record id="l10n_base.si_c_459" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">ZA</field>
+    <field name="name">Zavrč</field>
+</record>
+
+<record id="l10n_base.si_c_463" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">ZE</field>
+    <field name="name">Kungota</field>
+</record>
+
+<record id="l10n_base.si_c_468" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">ZT</field>
+    <field name="name">Jezersko</field>
+</record>
+
+<record id="l10n_base.si_c_475" model="res.province">
+    <field name="region" ref="l10n_base.si_r_008"/>
+    <field name="code">ZI</field>
+    <field name="name">Žetale</field>
+</record>
+
+<record id="l10n_base.si_c_476" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">ZC</field>
+    <field name="name">Žiri</field>
+</record>
+
+<record id="l10n_base.si_c_477" model="res.province">
+    <field name="region" ref="l10n_base.si_r_001"/>
+    <field name="code">ZZ</field>
+    <field name="name">Žirovnica</field>
+</record>
+
+
+    </data>
+</openerp>

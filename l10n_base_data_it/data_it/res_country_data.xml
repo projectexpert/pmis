@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+
+<record id="base.it" model="res.country">
+    <field name="code">IT</field>
+    <field name="name">Italia</field>
+    <field name="enable_province" eval="True"/>
+    <field name="enable_region" eval="True"/>
+    <field name="enable_state" eval="False"/>
+</record>
+
+
+    </data>
+</openerp>

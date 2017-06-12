@@ -1,12 +1,11 @@
 # -*- encoding: utf-8 -*-
 
 {
-    'name': 'Slovene ZIP completion list',
-    'version': '8.2.0.0.1',
+    'name': 'Slovene subregions and ZIP completion',
+    'version': '8.2.0.0.2',
     'summary': 'Data import for Slovenian subregions',
-    'author':   'Matmoz d.o.o., '
-                'Didotech',
-    'website': 'http://www.matmoz.si',
+    'author':   'Luxim & Matmoz',
+    'website': 'https://www.luxim.si',
     'license': 'AGPL-3',
     'contributors': [
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
@@ -15,11 +14,10 @@
         'l10n_base'
     ],
     'data': [
-        'data_si/res.region.csv',
-        'data_si/res.province.csv',
-        'data_si/res.city.csv',
-        'data_si/res.partner.title.csv',
-        'data_si/res.country.csv',
+        'data_si/res_region_data.xml',
+        'data_si/res_province_data.xml',
+        'data_si/res_city_data.xml',
+        'data_si/res_country_data.xml',
     ],
     'qweb': [],
     'demo': [],

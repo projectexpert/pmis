@@ -1,12 +1,10 @@
 <?xml version="1.0" ?>
 <openerp>
 	<data>
-
-        <record id="view_lead_extended_address_form_inherit" model="ir.ui.view">
-            <field name="name">lead.extended.address.form</field>
-            <field name="model">crm.lead</field>
-            <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
-            <field name="type">form</field>
+        <record id="view_company_form_location" model="ir.ui.view">
+            <field name="name">res.company.form.city</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form" />
             <field name="arch" type="xml">
                 <field name="street" position="after">
                     <field name="find_city" invisible="1" />
@@ -14,21 +12,20 @@
                     <field name="enable_region" invisible="1"/>
                     <field name="enable_state" invisible="1" />
                 </field>
+                <field name="city" position="replace"/>
+                <field name="zip" position="replace">
+                    <field name="zip" placeholder="ZIP" style="width: 34%%"/>
+                    <field name="city" placeholder="City" style="width: 60%%"/>
+                </field>
+                <field name="state_id" position="replace"/>
                 <field name="country_id" position="replace">
                     <field name="province" placeholder="Province" attrs="{'invisible':[('enable_province','=',False)]}"/>
                     <field name="region" placeholder="Region" attrs="{'invisible':[('enable_region','=',False)]}"/>
-                    <field name="country_id" placeholder="Country" completion="1"/>
-                    <field name="auto_off" readonly="False" />
-                </field>
-                <field name="state_id" position="replace">
                     <field name="state_id" placeholder="State" attrs="{'invisible':[('enable_state', '=', False), ('auto_off', '=', False)]}"/>
-                </field>
-                <field name="zip" position="replace"/>
-                <field name="city" position="before">
-                    <field name="zip" placeholder="ZIP" style="width: 34%%"/>
+                    <field name="auto_off" readonly="False"/>
+                    <field name="country_id" placeholder="Country" completion="1"/>
                 </field>
             </field>
         </record>
-
     </data>
 </openerp>

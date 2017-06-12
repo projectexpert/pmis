@@ -1,0 +1,2606 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+
+<record id="l10n_base.no_2002" model="res.province">
+    <field name="name">VARDØ</field>
+    <field name="code">no_2002</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2003" model="res.province">
+    <field name="name">VADSØ</field>
+    <field name="code">no_2003</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2004" model="res.province">
+    <field name="name">HAMMERFEST</field>
+    <field name="code">no_2004</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2011" model="res.province">
+    <field name="name">GUOVDAGEAIDNU KAUTOKEINO</field>
+    <field name="code">no_2011</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2012" model="res.province">
+    <field name="name">ALTA</field>
+    <field name="code">no_2012</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2014" model="res.province">
+    <field name="name">LOPPA</field>
+    <field name="code">no_2014</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2015" model="res.province">
+    <field name="name">HASVIK</field>
+    <field name="code">no_2015</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2017" model="res.province">
+    <field name="name">KVALSUND</field>
+    <field name="code">no_2017</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2018" model="res.province">
+    <field name="name">MÅSØY</field>
+    <field name="code">no_2018</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2019" model="res.province">
+    <field name="name">NORDKAPP</field>
+    <field name="code">no_2019</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2020" model="res.province">
+    <field name="name">PORSANGER PORSÁNGU PORSANKI</field>
+    <field name="code">no_2020</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2021" model="res.province">
+    <field name="name">KARASJOHKA KARASJOK</field>
+    <field name="code">no_2021</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2022" model="res.province">
+    <field name="name">LEBESBY</field>
+    <field name="code">no_2022</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2023" model="res.province">
+    <field name="name">GAMVIK</field>
+    <field name="code">no_2023</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2024" model="res.province">
+    <field name="name">BERLEVÅG</field>
+    <field name="code">no_2024</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2025" model="res.province">
+    <field name="name">DEATNU TANA</field>
+    <field name="code">no_2025</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2027" model="res.province">
+    <field name="name">UNJARGGA NESSEBY</field>
+    <field name="code">no_2027</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2028" model="res.province">
+    <field name="name">BÅTSFJORD</field>
+    <field name="code">no_2028</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2030" model="res.province">
+    <field name="name">SØR-VARANGER</field>
+    <field name="code">no_2030</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0101" model="res.province">
+    <field name="name">HALDEN</field>
+    <field name="code">no_0101</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0104" model="res.province">
+    <field name="name">MOSS</field>
+    <field name="code">no_0104</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0105" model="res.province">
+    <field name="name">SARPSBORG</field>
+    <field name="code">no_0105</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0106" model="res.province">
+    <field name="name">FREDRIKSTAD</field>
+    <field name="code">no_0106</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0111" model="res.province">
+    <field name="name">HVALER</field>
+    <field name="code">no_0111</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0118" model="res.province">
+    <field name="name">AREMARK</field>
+    <field name="code">no_0118</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0119" model="res.province">
+    <field name="name">MARKER</field>
+    <field name="code">no_0119</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0121" model="res.province">
+    <field name="name">RØMSKOG</field>
+    <field name="code">no_0121</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0122" model="res.province">
+    <field name="name">TRØGSTAD</field>
+    <field name="code">no_0122</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0123" model="res.province">
+    <field name="name">SPYDEBERG</field>
+    <field name="code">no_0123</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0124" model="res.province">
+    <field name="name">ASKIM</field>
+    <field name="code">no_0124</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0125" model="res.province">
+    <field name="name">EIDSBERG</field>
+    <field name="code">no_0125</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0127" model="res.province">
+    <field name="name">SKIPTVET</field>
+    <field name="code">no_0127</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0128" model="res.province">
+    <field name="name">RAKKESTAD</field>
+    <field name="code">no_0128</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0135" model="res.province">
+    <field name="name">RÅDE</field>
+    <field name="code">no_0135</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0136" model="res.province">
+    <field name="name">RYGGE</field>
+    <field name="code">no_0136</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0137" model="res.province">
+    <field name="name">VÅLER</field>
+    <field name="code">no_0137</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0138" model="res.province">
+    <field name="name">HOBØL</field>
+    <field name="code">no_0138</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0211" model="res.province">
+    <field name="name">VESTBY</field>
+    <field name="code">no_0211</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0213" model="res.province">
+    <field name="name">SKI</field>
+    <field name="code">no_0213</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0214" model="res.province">
+    <field name="name">ÅS</field>
+    <field name="code">no_0214</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0215" model="res.province">
+    <field name="name">FROGN</field>
+    <field name="code">no_0215</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0216" model="res.province">
+    <field name="name">NESODDEN</field>
+    <field name="code">no_0216</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0217" model="res.province">
+    <field name="name">OPPEGÅRD</field>
+    <field name="code">no_0217</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0219" model="res.province">
+    <field name="name">BÆRUM</field>
+    <field name="code">no_0219</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0220" model="res.province">
+    <field name="name">ASKER</field>
+    <field name="code">no_0220</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0221" model="res.province">
+    <field name="name">AURSKOG-HØLAND</field>
+    <field name="code">no_0221</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0226" model="res.province">
+    <field name="name">SØRUM</field>
+    <field name="code">no_0226</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0227" model="res.province">
+    <field name="name">FET</field>
+    <field name="code">no_0227</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0228" model="res.province">
+    <field name="name">RÆLINGEN</field>
+    <field name="code">no_0228</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0229" model="res.province">
+    <field name="name">ENEBAKK</field>
+    <field name="code">no_0229</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0230" model="res.province">
+    <field name="name">LØRENSKOG</field>
+    <field name="code">no_0230</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0231" model="res.province">
+    <field name="name">SKEDSMO</field>
+    <field name="code">no_0231</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0233" model="res.province">
+    <field name="name">NITTEDAL</field>
+    <field name="code">no_0233</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0234" model="res.province">
+    <field name="name">GJERDRUM</field>
+    <field name="code">no_0234</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0235" model="res.province">
+    <field name="name">ULLENSAKER</field>
+    <field name="code">no_0235</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0236" model="res.province">
+    <field name="name">NES</field>
+    <field name="code">no_0236</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0237" model="res.province">
+    <field name="name">EIDSVOLL</field>
+    <field name="code">no_0237</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0238" model="res.province">
+    <field name="name">NANNESTAD</field>
+    <field name="code">no_0238</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0239" model="res.province">
+    <field name="name">HURDAL</field>
+    <field name="code">no_0239</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0301" model="res.province">
+    <field name="name">OSLO</field>
+    <field name="code">no_0301</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0402" model="res.province">
+    <field name="name">KONGSVINGER</field>
+    <field name="code">no_0402</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0403" model="res.province">
+    <field name="name">HAMAR</field>
+    <field name="code">no_0403</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0412" model="res.province">
+    <field name="name">RINGSAKER</field>
+    <field name="code">no_0412</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0415" model="res.province">
+    <field name="name">LØTEN</field>
+    <field name="code">no_0415</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0417" model="res.province">
+    <field name="name">STANGE</field>
+    <field name="code">no_0417</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0418" model="res.province">
+    <field name="name">NORD-ODAL</field>
+    <field name="code">no_0418</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0419" model="res.province">
+    <field name="name">SØR-ODAL</field>
+    <field name="code">no_0419</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0420" model="res.province">
+    <field name="name">EIDSKOG</field>
+    <field name="code">no_0420</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0423" model="res.province">
+    <field name="name">GRUE</field>
+    <field name="code">no_0423</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0425" model="res.province">
+    <field name="name">ÅSNES</field>
+    <field name="code">no_0425</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0426" model="res.province">
+    <field name="name">VÅLER</field>
+    <field name="code">no_0426</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0427" model="res.province">
+    <field name="name">ELVERUM</field>
+    <field name="code">no_0427</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0428" model="res.province">
+    <field name="name">TRYSIL</field>
+    <field name="code">no_0428</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0429" model="res.province">
+    <field name="name">ÅMOT</field>
+    <field name="code">no_0429</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0430" model="res.province">
+    <field name="name">STOR-ELVDAL</field>
+    <field name="code">no_0430</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0432" model="res.province">
+    <field name="name">RENDALEN</field>
+    <field name="code">no_0432</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0434" model="res.province">
+    <field name="name">ENGERDAL</field>
+    <field name="code">no_0434</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0436" model="res.province">
+    <field name="name">TOLGA</field>
+    <field name="code">no_0436</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0437" model="res.province">
+    <field name="name">TYNSET</field>
+    <field name="code">no_0437</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0438" model="res.province">
+    <field name="name">ALVDAL</field>
+    <field name="code">no_0438</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0439" model="res.province">
+    <field name="name">FOLLDAL</field>
+    <field name="code">no_0439</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0441" model="res.province">
+    <field name="name">OS (HEDMARK)</field>
+    <field name="code">no_0441</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0501" model="res.province">
+    <field name="name">LILLEHAMMER</field>
+    <field name="code">no_0501</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0502" model="res.province">
+    <field name="name">GJØVIK</field>
+    <field name="code">no_0502</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0511" model="res.province">
+    <field name="name">DOVRE</field>
+    <field name="code">no_0511</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0512" model="res.province">
+    <field name="name">LESJA</field>
+    <field name="code">no_0512</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0513" model="res.province">
+    <field name="name">SKJÅK</field>
+    <field name="code">no_0513</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0514" model="res.province">
+    <field name="name">LOM</field>
+    <field name="code">no_0514</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0515" model="res.province">
+    <field name="name">VÅGÅ</field>
+    <field name="code">no_0515</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0516" model="res.province">
+    <field name="name">NORD-FRON</field>
+    <field name="code">no_0516</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0517" model="res.province">
+    <field name="name">SEL</field>
+    <field name="code">no_0517</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0519" model="res.province">
+    <field name="name">SØR-FRON</field>
+    <field name="code">no_0519</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0520" model="res.province">
+    <field name="name">RINGEBU</field>
+    <field name="code">no_0520</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0521" model="res.province">
+    <field name="name">ØYER</field>
+    <field name="code">no_0521</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0522" model="res.province">
+    <field name="name">GAUSDAL</field>
+    <field name="code">no_0522</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0528" model="res.province">
+    <field name="name">ØSTRE TOTEN</field>
+    <field name="code">no_0528</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0529" model="res.province">
+    <field name="name">VESTRE TOTEN</field>
+    <field name="code">no_0529</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0532" model="res.province">
+    <field name="name">JEVNAKER</field>
+    <field name="code">no_0532</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0533" model="res.province">
+    <field name="name">LUNNER</field>
+    <field name="code">no_0533</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0534" model="res.province">
+    <field name="name">GRAN</field>
+    <field name="code">no_0534</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0536" model="res.province">
+    <field name="name">SØNDRE LAND</field>
+    <field name="code">no_0536</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0538" model="res.province">
+    <field name="name">NORDRE LAND</field>
+    <field name="code">no_0538</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0540" model="res.province">
+    <field name="name">SØR-AURDAL</field>
+    <field name="code">no_0540</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0541" model="res.province">
+    <field name="name">ETNEDAL</field>
+    <field name="code">no_0541</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0542" model="res.province">
+    <field name="name">NORD-AURDAL</field>
+    <field name="code">no_0542</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0543" model="res.province">
+    <field name="name">VESTRE SLIDRE</field>
+    <field name="code">no_0543</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0544" model="res.province">
+    <field name="name">ØYSTRE SLIDRE</field>
+    <field name="code">no_0544</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0545" model="res.province">
+    <field name="name">VANG</field>
+    <field name="code">no_0545</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0602" model="res.province">
+    <field name="name">DRAMMEN</field>
+    <field name="code">no_0602</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0604" model="res.province">
+    <field name="name">KONGSBERG</field>
+    <field name="code">no_0604</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0605" model="res.province">
+    <field name="name">RINGERIKE</field>
+    <field name="code">no_0605</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0612" model="res.province">
+    <field name="name">HOLE</field>
+    <field name="code">no_0612</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0615" model="res.province">
+    <field name="name">FLÅ</field>
+    <field name="code">no_0615</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0616" model="res.province">
+    <field name="name">NES</field>
+    <field name="code">no_0616</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0617" model="res.province">
+    <field name="name">GOL</field>
+    <field name="code">no_0617</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0618" model="res.province">
+    <field name="name">HEMSEDAL</field>
+    <field name="code">no_0618</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0619" model="res.province">
+    <field name="name">ÅL</field>
+    <field name="code">no_0619</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0620" model="res.province">
+    <field name="name">HOL</field>
+    <field name="code">no_0620</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0621" model="res.province">
+    <field name="name">SIGDAL</field>
+    <field name="code">no_0621</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0622" model="res.province">
+    <field name="name">KRØDSHERAD</field>
+    <field name="code">no_0622</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0623" model="res.province">
+    <field name="name">MODUM</field>
+    <field name="code">no_0623</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0624" model="res.province">
+    <field name="name">ØVRE EIKER</field>
+    <field name="code">no_0624</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0625" model="res.province">
+    <field name="name">NEDRE EIKER</field>
+    <field name="code">no_0625</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0626" model="res.province">
+    <field name="name">LIER</field>
+    <field name="code">no_0626</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0627" model="res.province">
+    <field name="name">RØYKEN</field>
+    <field name="code">no_0627</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0628" model="res.province">
+    <field name="name">HURUM</field>
+    <field name="code">no_0628</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0631" model="res.province">
+    <field name="name">FLESBERG</field>
+    <field name="code">no_0631</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0632" model="res.province">
+    <field name="name">ROLLAG</field>
+    <field name="code">no_0632</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0633" model="res.province">
+    <field name="name">NORE OG UVDAL</field>
+    <field name="code">no_0633</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0701" model="res.province">
+    <field name="name">HORTEN</field>
+    <field name="code">no_0701</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0702" model="res.province">
+    <field name="name">HOLMESTRAND</field>
+    <field name="code">no_0702</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0704" model="res.province">
+    <field name="name">TØNSBERG</field>
+    <field name="code">no_0704</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0706" model="res.province">
+    <field name="name">SANDEFJORD</field>
+    <field name="code">no_0706</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0709" model="res.province">
+    <field name="name">LARVIK</field>
+    <field name="code">no_0709</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0711" model="res.province">
+    <field name="name">SVELVIK</field>
+    <field name="code">no_0711</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0713" model="res.province">
+    <field name="name">SANDE (V.)</field>
+    <field name="code">no_0713</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0714" model="res.province">
+    <field name="name">HOF</field>
+    <field name="code">no_0714</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0716" model="res.province">
+    <field name="name">RE</field>
+    <field name="code">no_0716</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0719" model="res.province">
+    <field name="name">ANDEBU</field>
+    <field name="code">no_0719</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0720" model="res.province">
+    <field name="name">STOKKE</field>
+    <field name="code">no_0720</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0722" model="res.province">
+    <field name="name">NØTTERØY</field>
+    <field name="code">no_0722</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0723" model="res.province">
+    <field name="name">TJØME</field>
+    <field name="code">no_0723</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0728" model="res.province">
+    <field name="name">LARDAL</field>
+    <field name="code">no_0728</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0805" model="res.province">
+    <field name="name">PORSGRUNN</field>
+    <field name="code">no_0805</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0806" model="res.province">
+    <field name="name">SKIEN</field>
+    <field name="code">no_0806</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0807" model="res.province">
+    <field name="name">NOTODDEN</field>
+    <field name="code">no_0807</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0811" model="res.province">
+    <field name="name">SILJAN</field>
+    <field name="code">no_0811</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0814" model="res.province">
+    <field name="name">BAMBLE</field>
+    <field name="code">no_0814</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0815" model="res.province">
+    <field name="name">KRAGERØ</field>
+    <field name="code">no_0815</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0817" model="res.province">
+    <field name="name">DRANGEDAL</field>
+    <field name="code">no_0817</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0819" model="res.province">
+    <field name="name">NOME</field>
+    <field name="code">no_0819</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0821" model="res.province">
+    <field name="name">BØ (TEL.)</field>
+    <field name="code">no_0821</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0822" model="res.province">
+    <field name="name">SAUHERAD</field>
+    <field name="code">no_0822</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0826" model="res.province">
+    <field name="name">TINN</field>
+    <field name="code">no_0826</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0827" model="res.province">
+    <field name="name">HJARTDAL</field>
+    <field name="code">no_0827</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0828" model="res.province">
+    <field name="name">SELJORD</field>
+    <field name="code">no_0828</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0829" model="res.province">
+    <field name="name">KVITESEID</field>
+    <field name="code">no_0829</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0830" model="res.province">
+    <field name="name">NISSEDAL</field>
+    <field name="code">no_0830</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0831" model="res.province">
+    <field name="name">FYRESDAL</field>
+    <field name="code">no_0831</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0833" model="res.province">
+    <field name="name">TOKKE</field>
+    <field name="code">no_0833</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0834" model="res.province">
+    <field name="name">VINJE</field>
+    <field name="code">no_0834</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0901" model="res.province">
+    <field name="name">RISØR</field>
+    <field name="code">no_0901</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0904" model="res.province">
+    <field name="name">GRIMSTAD</field>
+    <field name="code">no_0904</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0906" model="res.province">
+    <field name="name">ARENDAL</field>
+    <field name="code">no_0906</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0911" model="res.province">
+    <field name="name">GJERSTAD</field>
+    <field name="code">no_0911</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0912" model="res.province">
+    <field name="name">VEGÅRSHEI</field>
+    <field name="code">no_0912</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0914" model="res.province">
+    <field name="name">TVEDESTRAND</field>
+    <field name="code">no_0914</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0919" model="res.province">
+    <field name="name">FROLAND</field>
+    <field name="code">no_0919</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0926" model="res.province">
+    <field name="name">LILLESAND</field>
+    <field name="code">no_0926</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0928" model="res.province">
+    <field name="name">BIRKENES</field>
+    <field name="code">no_0928</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0929" model="res.province">
+    <field name="name">ÅMLI</field>
+    <field name="code">no_0929</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0935" model="res.province">
+    <field name="name">IVELAND</field>
+    <field name="code">no_0935</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0937" model="res.province">
+    <field name="name">EVJE OG HORNNES</field>
+    <field name="code">no_0937</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0938" model="res.province">
+    <field name="name">BYGLAND</field>
+    <field name="code">no_0938</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0940" model="res.province">
+    <field name="name">VALLE</field>
+    <field name="code">no_0940</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_0941" model="res.province">
+    <field name="name">BYKLE</field>
+    <field name="code">no_0941</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1001" model="res.province">
+    <field name="name">KRISTIANSAND</field>
+    <field name="code">no_1001</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1002" model="res.province">
+    <field name="name">MANDAL</field>
+    <field name="code">no_1002</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1003" model="res.province">
+    <field name="name">FARSUND</field>
+    <field name="code">no_1003</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1004" model="res.province">
+    <field name="name">FLEKKEFJORD</field>
+    <field name="code">no_1004</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1014" model="res.province">
+    <field name="name">VENNESLA</field>
+    <field name="code">no_1014</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1017" model="res.province">
+    <field name="name">SONGDALEN</field>
+    <field name="code">no_1017</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1018" model="res.province">
+    <field name="name">SØGNE</field>
+    <field name="code">no_1018</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1021" model="res.province">
+    <field name="name">MARNARDAL</field>
+    <field name="code">no_1021</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1026" model="res.province">
+    <field name="name">ÅSERAL</field>
+    <field name="code">no_1026</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1027" model="res.province">
+    <field name="name">AUDNEDAL</field>
+    <field name="code">no_1027</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1029" model="res.province">
+    <field name="name">LINDESNES</field>
+    <field name="code">no_1029</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1032" model="res.province">
+    <field name="name">LYNGDAL</field>
+    <field name="code">no_1032</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1034" model="res.province">
+    <field name="name">HÆGEBOSTAD</field>
+    <field name="code">no_1034</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1037" model="res.province">
+    <field name="name">KVINESDAL</field>
+    <field name="code">no_1037</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1046" model="res.province">
+    <field name="name">SIRDAL</field>
+    <field name="code">no_1046</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1101" model="res.province">
+    <field name="name">EIGERSUND</field>
+    <field name="code">no_1101</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1102" model="res.province">
+    <field name="name">SANDNES</field>
+    <field name="code">no_1102</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1103" model="res.province">
+    <field name="name">STAVANGER</field>
+    <field name="code">no_1103</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1106" model="res.province">
+    <field name="name">HAUGESUND</field>
+    <field name="code">no_1106</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1111" model="res.province">
+    <field name="name">SOKNDAL</field>
+    <field name="code">no_1111</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1112" model="res.province">
+    <field name="name">LUND</field>
+    <field name="code">no_1112</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1114" model="res.province">
+    <field name="name">BJERKREIM</field>
+    <field name="code">no_1114</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1119" model="res.province">
+    <field name="name">HÅ</field>
+    <field name="code">no_1119</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1120" model="res.province">
+    <field name="name">KLEPP</field>
+    <field name="code">no_1120</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1121" model="res.province">
+    <field name="name">TIME</field>
+    <field name="code">no_1121</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1122" model="res.province">
+    <field name="name">GJESDAL</field>
+    <field name="code">no_1122</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1124" model="res.province">
+    <field name="name">SOLA</field>
+    <field name="code">no_1124</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1127" model="res.province">
+    <field name="name">RANDABERG</field>
+    <field name="code">no_1127</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1129" model="res.province">
+    <field name="name">FORSAND</field>
+    <field name="code">no_1129</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1130" model="res.province">
+    <field name="name">STRAND</field>
+    <field name="code">no_1130</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1133" model="res.province">
+    <field name="name">HJELMELAND</field>
+    <field name="code">no_1133</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1134" model="res.province">
+    <field name="name">SULDAL</field>
+    <field name="code">no_1134</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1135" model="res.province">
+    <field name="name">SAUDA</field>
+    <field name="code">no_1135</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1141" model="res.province">
+    <field name="name">FINNØY</field>
+    <field name="code">no_1141</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1142" model="res.province">
+    <field name="name">RENNESØY</field>
+    <field name="code">no_1142</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1144" model="res.province">
+    <field name="name">KVITSØY</field>
+    <field name="code">no_1144</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1145" model="res.province">
+    <field name="name">BOKN</field>
+    <field name="code">no_1145</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1146" model="res.province">
+    <field name="name">TYSVÆR</field>
+    <field name="code">no_1146</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1149" model="res.province">
+    <field name="name">KARMØY</field>
+    <field name="code">no_1149</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1151" model="res.province">
+    <field name="name">UTSIRA</field>
+    <field name="code">no_1151</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1160" model="res.province">
+    <field name="name">VINDAFJORD</field>
+    <field name="code">no_1160</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1201" model="res.province">
+    <field name="name">BERGEN</field>
+    <field name="code">no_1201</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1211" model="res.province">
+    <field name="name">ETNE</field>
+    <field name="code">no_1211</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1216" model="res.province">
+    <field name="name">SVEIO</field>
+    <field name="code">no_1216</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1219" model="res.province">
+    <field name="name">BØMLO</field>
+    <field name="code">no_1219</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1221" model="res.province">
+    <field name="name">STORD</field>
+    <field name="code">no_1221</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1222" model="res.province">
+    <field name="name">FITJAR</field>
+    <field name="code">no_1222</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1223" model="res.province">
+    <field name="name">TYSNES</field>
+    <field name="code">no_1223</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1224" model="res.province">
+    <field name="name">KVINNHERAD</field>
+    <field name="code">no_1224</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1227" model="res.province">
+    <field name="name">JONDAL</field>
+    <field name="code">no_1227</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1228" model="res.province">
+    <field name="name">ODDA</field>
+    <field name="code">no_1228</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1231" model="res.province">
+    <field name="name">ULLENSVANG</field>
+    <field name="code">no_1231</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1232" model="res.province">
+    <field name="name">EIDFJORD</field>
+    <field name="code">no_1232</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1233" model="res.province">
+    <field name="name">ULVIK</field>
+    <field name="code">no_1233</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1234" model="res.province">
+    <field name="name">GRANVIN</field>
+    <field name="code">no_1234</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1235" model="res.province">
+    <field name="name">VOSS</field>
+    <field name="code">no_1235</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1238" model="res.province">
+    <field name="name">KVAM</field>
+    <field name="code">no_1238</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1241" model="res.province">
+    <field name="name">FUSA</field>
+    <field name="code">no_1241</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1242" model="res.province">
+    <field name="name">SAMNANGER</field>
+    <field name="code">no_1242</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1243" model="res.province">
+    <field name="name">OS (HORDALAND)</field>
+    <field name="code">no_1243</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1244" model="res.province">
+    <field name="name">AUSTEVOLL</field>
+    <field name="code">no_1244</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1245" model="res.province">
+    <field name="name">SUND</field>
+    <field name="code">no_1245</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1246" model="res.province">
+    <field name="name">FJELL</field>
+    <field name="code">no_1246</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1247" model="res.province">
+    <field name="name">ASKØY</field>
+    <field name="code">no_1247</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1251" model="res.province">
+    <field name="name">VAKSDAL</field>
+    <field name="code">no_1251</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1252" model="res.province">
+    <field name="name">MODALEN</field>
+    <field name="code">no_1252</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1253" model="res.province">
+    <field name="name">OSTERØY</field>
+    <field name="code">no_1253</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1256" model="res.province">
+    <field name="name">MELAND</field>
+    <field name="code">no_1256</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1259" model="res.province">
+    <field name="name">ØYGARDEN</field>
+    <field name="code">no_1259</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1260" model="res.province">
+    <field name="name">RADØY</field>
+    <field name="code">no_1260</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1263" model="res.province">
+    <field name="name">LINDÅS</field>
+    <field name="code">no_1263</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1264" model="res.province">
+    <field name="name">AUSTRHEIM</field>
+    <field name="code">no_1264</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1265" model="res.province">
+    <field name="name">FEDJE</field>
+    <field name="code">no_1265</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1266" model="res.province">
+    <field name="name">MASFJORDEN</field>
+    <field name="code">no_1266</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1401" model="res.province">
+    <field name="name">FLORA</field>
+    <field name="code">no_1401</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1411" model="res.province">
+    <field name="name">GULEN</field>
+    <field name="code">no_1411</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1412" model="res.province">
+    <field name="name">SOLUND</field>
+    <field name="code">no_1412</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1413" model="res.province">
+    <field name="name">HYLLESTAD</field>
+    <field name="code">no_1413</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1416" model="res.province">
+    <field name="name">HØYANGER</field>
+    <field name="code">no_1416</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1417" model="res.province">
+    <field name="name">VIK</field>
+    <field name="code">no_1417</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1418" model="res.province">
+    <field name="name">BALESTRAND</field>
+    <field name="code">no_1418</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1419" model="res.province">
+    <field name="name">LEIKANGER</field>
+    <field name="code">no_1419</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1420" model="res.province">
+    <field name="name">SOGNDAL</field>
+    <field name="code">no_1420</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1421" model="res.province">
+    <field name="name">AURLAND</field>
+    <field name="code">no_1421</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1422" model="res.province">
+    <field name="name">LÆRDAL</field>
+    <field name="code">no_1422</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1424" model="res.province">
+    <field name="name">ÅRDAL</field>
+    <field name="code">no_1424</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1426" model="res.province">
+    <field name="name">LUSTER</field>
+    <field name="code">no_1426</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1428" model="res.province">
+    <field name="name">ASKVOLL</field>
+    <field name="code">no_1428</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1429" model="res.province">
+    <field name="name">FJALER</field>
+    <field name="code">no_1429</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1430" model="res.province">
+    <field name="name">GAULAR</field>
+    <field name="code">no_1430</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1431" model="res.province">
+    <field name="name">JØLSTER</field>
+    <field name="code">no_1431</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1432" model="res.province">
+    <field name="name">FØRDE</field>
+    <field name="code">no_1432</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1433" model="res.province">
+    <field name="name">NAUSTDAL</field>
+    <field name="code">no_1433</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1438" model="res.province">
+    <field name="name">BREMANGER</field>
+    <field name="code">no_1438</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1439" model="res.province">
+    <field name="name">VÅGSØY</field>
+    <field name="code">no_1439</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1441" model="res.province">
+    <field name="name">SELJE</field>
+    <field name="code">no_1441</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1443" model="res.province">
+    <field name="name">EID</field>
+    <field name="code">no_1443</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1444" model="res.province">
+    <field name="name">HORNINDAL</field>
+    <field name="code">no_1444</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1445" model="res.province">
+    <field name="name">GLOPPEN</field>
+    <field name="code">no_1445</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1449" model="res.province">
+    <field name="name">STRYN</field>
+    <field name="code">no_1449</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1502" model="res.province">
+    <field name="name">MOLDE</field>
+    <field name="code">no_1502</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1504" model="res.province">
+    <field name="name">ÅLESUND</field>
+    <field name="code">no_1504</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1505" model="res.province">
+    <field name="name">KRISTIANSUND</field>
+    <field name="code">no_1505</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1511" model="res.province">
+    <field name="name">VANYLVEN</field>
+    <field name="code">no_1511</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1514" model="res.province">
+    <field name="name">SANDE (M.R.)</field>
+    <field name="code">no_1514</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1515" model="res.province">
+    <field name="name">HERØY (M.R.)</field>
+    <field name="code">no_1515</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1516" model="res.province">
+    <field name="name">ULSTEIN</field>
+    <field name="code">no_1516</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1517" model="res.province">
+    <field name="name">HAREID</field>
+    <field name="code">no_1517</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1519" model="res.province">
+    <field name="name">VOLDA</field>
+    <field name="code">no_1519</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1520" model="res.province">
+    <field name="name">ØRSTA</field>
+    <field name="code">no_1520</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1523" model="res.province">
+    <field name="name">ØRSKOG</field>
+    <field name="code">no_1523</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1524" model="res.province">
+    <field name="name">NORDDAL</field>
+    <field name="code">no_1524</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1525" model="res.province">
+    <field name="name">STRANDA</field>
+    <field name="code">no_1525</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1526" model="res.province">
+    <field name="name">STORDAL</field>
+    <field name="code">no_1526</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1528" model="res.province">
+    <field name="name">SYKKYLVEN</field>
+    <field name="code">no_1528</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1529" model="res.province">
+    <field name="name">SKODJE</field>
+    <field name="code">no_1529</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1531" model="res.province">
+    <field name="name">SULA</field>
+    <field name="code">no_1531</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1532" model="res.province">
+    <field name="name">GISKE</field>
+    <field name="code">no_1532</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1534" model="res.province">
+    <field name="name">HARAM</field>
+    <field name="code">no_1534</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1535" model="res.province">
+    <field name="name">VESTNES</field>
+    <field name="code">no_1535</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1539" model="res.province">
+    <field name="name">RAUMA</field>
+    <field name="code">no_1539</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1543" model="res.province">
+    <field name="name">NESSET</field>
+    <field name="code">no_1543</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1545" model="res.province">
+    <field name="name">MIDSUND</field>
+    <field name="code">no_1545</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1546" model="res.province">
+    <field name="name">SANDØY</field>
+    <field name="code">no_1546</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1547" model="res.province">
+    <field name="name">AUKRA</field>
+    <field name="code">no_1547</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1548" model="res.province">
+    <field name="name">FRÆNA</field>
+    <field name="code">no_1548</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1551" model="res.province">
+    <field name="name">EIDE</field>
+    <field name="code">no_1551</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1554" model="res.province">
+    <field name="name">AVERØY</field>
+    <field name="code">no_1554</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1557" model="res.province">
+    <field name="name">GJEMNES</field>
+    <field name="code">no_1557</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1560" model="res.province">
+    <field name="name">TINGVOLL</field>
+    <field name="code">no_1560</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1563" model="res.province">
+    <field name="name">SUNNDAL</field>
+    <field name="code">no_1563</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1566" model="res.province">
+    <field name="name">SURNADAL</field>
+    <field name="code">no_1566</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1567" model="res.province">
+    <field name="name">RINDAL</field>
+    <field name="code">no_1567</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1571" model="res.province">
+    <field name="name">HALSA</field>
+    <field name="code">no_1571</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1573" model="res.province">
+    <field name="name">SMØLA</field>
+    <field name="code">no_1573</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1576" model="res.province">
+    <field name="name">AURE</field>
+    <field name="code">no_1576</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1601" model="res.province">
+    <field name="name">TRONDHEIM</field>
+    <field name="code">no_1601</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1612" model="res.province">
+    <field name="name">HEMNE</field>
+    <field name="code">no_1612</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1613" model="res.province">
+    <field name="name">SNILLFJORD</field>
+    <field name="code">no_1613</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1617" model="res.province">
+    <field name="name">HITRA</field>
+    <field name="code">no_1617</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1620" model="res.province">
+    <field name="name">FRØYA</field>
+    <field name="code">no_1620</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1621" model="res.province">
+    <field name="name">ØRLAND</field>
+    <field name="code">no_1621</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1622" model="res.province">
+    <field name="name">AGDENES</field>
+    <field name="code">no_1622</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1624" model="res.province">
+    <field name="name">RISSA</field>
+    <field name="code">no_1624</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1627" model="res.province">
+    <field name="name">BJUGN</field>
+    <field name="code">no_1627</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1630" model="res.province">
+    <field name="name">ÅFJORD</field>
+    <field name="code">no_1630</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1632" model="res.province">
+    <field name="name">ROAN</field>
+    <field name="code">no_1632</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1633" model="res.province">
+    <field name="name">OSEN</field>
+    <field name="code">no_1633</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1634" model="res.province">
+    <field name="name">OPPDAL</field>
+    <field name="code">no_1634</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1635" model="res.province">
+    <field name="name">RENNEBU</field>
+    <field name="code">no_1635</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1636" model="res.province">
+    <field name="name">MELDAL</field>
+    <field name="code">no_1636</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1638" model="res.province">
+    <field name="name">ORKDAL</field>
+    <field name="code">no_1638</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1640" model="res.province">
+    <field name="name">RØROS</field>
+    <field name="code">no_1640</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1644" model="res.province">
+    <field name="name">HOLTÅLEN</field>
+    <field name="code">no_1644</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1648" model="res.province">
+    <field name="name">MIDTRE GAULDAL</field>
+    <field name="code">no_1648</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1653" model="res.province">
+    <field name="name">MELHUS</field>
+    <field name="code">no_1653</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1657" model="res.province">
+    <field name="name">SKAUN</field>
+    <field name="code">no_1657</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1662" model="res.province">
+    <field name="name">KLÆBU</field>
+    <field name="code">no_1662</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1663" model="res.province">
+    <field name="name">MALVIK</field>
+    <field name="code">no_1663</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1664" model="res.province">
+    <field name="name">SELBU</field>
+    <field name="code">no_1664</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1665" model="res.province">
+    <field name="name">TYDAL</field>
+    <field name="code">no_1665</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1702" model="res.province">
+    <field name="name">STEINKJER</field>
+    <field name="code">no_1702</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1703" model="res.province">
+    <field name="name">NAMSOS</field>
+    <field name="code">no_1703</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1711" model="res.province">
+    <field name="name">MERÅKER</field>
+    <field name="code">no_1711</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1714" model="res.province">
+    <field name="name">STJØRDAL</field>
+    <field name="code">no_1714</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1717" model="res.province">
+    <field name="name">FROSTA</field>
+    <field name="code">no_1717</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1718" model="res.province">
+    <field name="name">LEKSVIK</field>
+    <field name="code">no_1718</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1719" model="res.province">
+    <field name="name">LEVANGER</field>
+    <field name="code">no_1719</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1721" model="res.province">
+    <field name="name">VERDAL</field>
+    <field name="code">no_1721</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1724" model="res.province">
+    <field name="name">VERRAN</field>
+    <field name="code">no_1724</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1725" model="res.province">
+    <field name="name">NAMDALSEID</field>
+    <field name="code">no_1725</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1736" model="res.province">
+    <field name="name">SNÅSA</field>
+    <field name="code">no_1736</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1738" model="res.province">
+    <field name="name">LIERNE</field>
+    <field name="code">no_1738</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1739" model="res.province">
+    <field name="name">RØYRVIK</field>
+    <field name="code">no_1739</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1740" model="res.province">
+    <field name="name">NAMSSKOGAN</field>
+    <field name="code">no_1740</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1742" model="res.province">
+    <field name="name">GRONG</field>
+    <field name="code">no_1742</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1743" model="res.province">
+    <field name="name">HØYLANDET</field>
+    <field name="code">no_1743</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1744" model="res.province">
+    <field name="name">OVERHALLA</field>
+    <field name="code">no_1744</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1748" model="res.province">
+    <field name="name">FOSNES</field>
+    <field name="code">no_1748</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1749" model="res.province">
+    <field name="name">FLATANGER</field>
+    <field name="code">no_1749</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1750" model="res.province">
+    <field name="name">VIKNA</field>
+    <field name="code">no_1750</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1751" model="res.province">
+    <field name="name">NÆRØY</field>
+    <field name="code">no_1751</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1755" model="res.province">
+    <field name="name">LEKA</field>
+    <field name="code">no_1755</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1756" model="res.province">
+    <field name="name">INDERØY</field>
+    <field name="code">no_1756</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1804" model="res.province">
+    <field name="name">BODØ</field>
+    <field name="code">no_1804</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1805" model="res.province">
+    <field name="name">NARVIK</field>
+    <field name="code">no_1805</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1811" model="res.province">
+    <field name="name">BINDAL</field>
+    <field name="code">no_1811</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1812" model="res.province">
+    <field name="name">SØMNA</field>
+    <field name="code">no_1812</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1813" model="res.province">
+    <field name="name">BRØNNØY</field>
+    <field name="code">no_1813</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1815" model="res.province">
+    <field name="name">VEGA</field>
+    <field name="code">no_1815</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1816" model="res.province">
+    <field name="name">VEVELSTAD</field>
+    <field name="code">no_1816</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1818" model="res.province">
+    <field name="name">HERØY (N.)</field>
+    <field name="code">no_1818</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1820" model="res.province">
+    <field name="name">ALSTAHAUG</field>
+    <field name="code">no_1820</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1822" model="res.province">
+    <field name="name">LEIRFJORD</field>
+    <field name="code">no_1822</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1824" model="res.province">
+    <field name="name">VEFSN</field>
+    <field name="code">no_1824</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1825" model="res.province">
+    <field name="name">GRANE</field>
+    <field name="code">no_1825</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1826" model="res.province">
+    <field name="name">HATTFJELLDAL</field>
+    <field name="code">no_1826</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1827" model="res.province">
+    <field name="name">DØNNA</field>
+    <field name="code">no_1827</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1828" model="res.province">
+    <field name="name">NESNA</field>
+    <field name="code">no_1828</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1832" model="res.province">
+    <field name="name">HEMNES</field>
+    <field name="code">no_1832</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1833" model="res.province">
+    <field name="name">RANA</field>
+    <field name="code">no_1833</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1834" model="res.province">
+    <field name="name">LURØY</field>
+    <field name="code">no_1834</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1835" model="res.province">
+    <field name="name">TRÆNA</field>
+    <field name="code">no_1835</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1836" model="res.province">
+    <field name="name">RØDØY</field>
+    <field name="code">no_1836</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1837" model="res.province">
+    <field name="name">MELØY</field>
+    <field name="code">no_1837</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1838" model="res.province">
+    <field name="name">GILDESKÅL</field>
+    <field name="code">no_1838</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1839" model="res.province">
+    <field name="name">BEIARN</field>
+    <field name="code">no_1839</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1840" model="res.province">
+    <field name="name">SALTDAL</field>
+    <field name="code">no_1840</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1841" model="res.province">
+    <field name="name">FAUSKE</field>
+    <field name="code">no_1841</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1845" model="res.province">
+    <field name="name">SØRFOLD</field>
+    <field name="code">no_1845</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1848" model="res.province">
+    <field name="name">STEIGEN</field>
+    <field name="code">no_1848</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1849" model="res.province">
+    <field name="name">HAMARØY</field>
+    <field name="code">no_1849</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1850" model="res.province">
+    <field name="name">TYSFJORD</field>
+    <field name="code">no_1850</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1851" model="res.province">
+    <field name="name">LØDINGEN</field>
+    <field name="code">no_1851</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1852" model="res.province">
+    <field name="name">TJELDSUND</field>
+    <field name="code">no_1852</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1853" model="res.province">
+    <field name="name">EVENES</field>
+    <field name="code">no_1853</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1854" model="res.province">
+    <field name="name">BALLANGEN</field>
+    <field name="code">no_1854</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1856" model="res.province">
+    <field name="name">RØST</field>
+    <field name="code">no_1856</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1857" model="res.province">
+    <field name="name">VÆRØY</field>
+    <field name="code">no_1857</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1859" model="res.province">
+    <field name="name">FLAKSTAD</field>
+    <field name="code">no_1859</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1860" model="res.province">
+    <field name="name">VESTVÅGØY</field>
+    <field name="code">no_1860</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1865" model="res.province">
+    <field name="name">VÅGAN</field>
+    <field name="code">no_1865</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1866" model="res.province">
+    <field name="name">HADSEL</field>
+    <field name="code">no_1866</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1867" model="res.province">
+    <field name="name">BØ (N.)</field>
+    <field name="code">no_1867</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1868" model="res.province">
+    <field name="name">ØKSNES</field>
+    <field name="code">no_1868</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1870" model="res.province">
+    <field name="name">SORTLAND</field>
+    <field name="code">no_1870</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1871" model="res.province">
+    <field name="name">ANDØY</field>
+    <field name="code">no_1871</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1874" model="res.province">
+    <field name="name">MOSKENES</field>
+    <field name="code">no_1874</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1902" model="res.province">
+    <field name="name">TROMSØ</field>
+    <field name="code">no_1902</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1903" model="res.province">
+    <field name="name">HARSTAD</field>
+    <field name="code">no_1903</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1911" model="res.province">
+    <field name="name">KVÆFJORD</field>
+    <field name="code">no_1911</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1913" model="res.province">
+    <field name="name">SKÅNLAND</field>
+    <field name="code">no_1913</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1917" model="res.province">
+    <field name="name">IBESTAD</field>
+    <field name="code">no_1917</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1919" model="res.province">
+    <field name="name">GRATANGEN</field>
+    <field name="code">no_1919</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1920" model="res.province">
+    <field name="name">LAVANGEN</field>
+    <field name="code">no_1920</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1922" model="res.province">
+    <field name="name">BARDU</field>
+    <field name="code">no_1922</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1923" model="res.province">
+    <field name="name">SALANGEN</field>
+    <field name="code">no_1923</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1924" model="res.province">
+    <field name="name">MÅLSELV</field>
+    <field name="code">no_1924</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1925" model="res.province">
+    <field name="name">SØRREISA</field>
+    <field name="code">no_1925</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1926" model="res.province">
+    <field name="name">DYRØY</field>
+    <field name="code">no_1926</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1927" model="res.province">
+    <field name="name">TRANØY</field>
+    <field name="code">no_1927</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1928" model="res.province">
+    <field name="name">TORSKEN</field>
+    <field name="code">no_1928</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1929" model="res.province">
+    <field name="name">BERG</field>
+    <field name="code">no_1929</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1931" model="res.province">
+    <field name="name">LENVIK</field>
+    <field name="code">no_1931</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1933" model="res.province">
+    <field name="name">BALSFJORD</field>
+    <field name="code">no_1933</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1936" model="res.province">
+    <field name="name">KARLSØY</field>
+    <field name="code">no_1936</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1938" model="res.province">
+    <field name="name">LYNGEN</field>
+    <field name="code">no_1938</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1939" model="res.province">
+    <field name="name">STORFJORD</field>
+    <field name="code">no_1939</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1940" model="res.province">
+    <field name="name">GÁIVUOTNA KÅFJORD</field>
+    <field name="code">no_1940</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1941" model="res.province">
+    <field name="name">SKJERVØY</field>
+    <field name="code">no_1941</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1942" model="res.province">
+    <field name="name">NORDREISA</field>
+    <field name="code">no_1942</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_1943" model="res.province">
+    <field name="name">KVÆNANGEN</field>
+    <field name="code">no_1943</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2012" model="res.province">
+    <field name="name">ALTA</field>
+    <field name="code">no_2012</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2111" model="res.province">
+    <field name="name">SPITSBERGEN</field>
+    <field name="code">no_2111</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2121" model="res.province">
+    <field name="name">BJØRNØYA</field>
+    <field name="code">no_2121</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2131" model="res.province">
+    <field name="name">HOPEN</field>
+    <field name="code">no_2131</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+<record id="l10n_base.no_2211" model="res.province">
+    <field name="name">JAN MAYEN</field>
+    <field name="code">no_2211</field>
+    <field name="region" ref="l10n_base.no_nor"/>
+</record>
+
+
+    </data>
+</openerp>

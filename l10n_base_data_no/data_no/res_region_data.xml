@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+
+<record id="l10n_base.no_nor" model="res.region">
+    <field name="name">-</field>
+    <field name="country_id" ref="base.no"/>
+</record>
+
+
+    </data>
+</openerp>

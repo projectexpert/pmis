@@ -2,10 +2,10 @@
 
 {
     'name': 'Norwegian ZIP completion list',
-    'version': '8.2.0.0.1',
+    'version': '8.2.0.0.2',
     'summary': 'Data import for Norwegian subregions',
-    'author': 'Matmoz d.o.o.',
-    'website': 'http://www.matmoz.si',
+    'author': 'Luxim & Matmoz',
+    'website': 'https://www.luxim.si',
     'license': 'AGPL-3',
     'contributors': [
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
@@ -14,10 +14,10 @@
         'l10n_base'
     ],
     'data': [
-        'data_no/res.region.csv',
-        'data_no/res.province.csv',
-        'data_no/res.city.csv',
-        'data_no/res.country.csv',
+        'data_no/res_region_data.xml',
+        'data_no/res_province_data.xml',
+        'data_no/res_city_data.xml',
+        'data_no/res_country_data.xml',
     ],
     'qweb': [],
     'demo': [],

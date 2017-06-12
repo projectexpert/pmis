@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="l10n_base.si_r_001" model="res.region">
+            <field name="name">GORENJSKA</field>
+            <field name="country_id" ref="base.si"/>
+        </record>
+
+        <record id="l10n_base.si_r_002" model="res.region">
+            <field name="name">GORIŠKA</field>
+            <field name="country_id" ref="base.si"/>
+        </record>
+
+        <record id="l10n_base.si_r_003" model="res.region">
+            <field name="name">JUGOVZHODNA SLOVENIJA</field>
+            <field name="country_id" ref="base.si"/>
+        </record>
+
+        <record id="l10n_base.si_r_004" model="res.region">
+            <field name="name">KOROŠKA</field>
+            <field name="country_id" ref="base.si"/>
+        </record>
+
+        <record id="l10n_base.si_r_005" model="res.region">
+            <field name="name">NOTRANJSKO - KRAŠKA</field>
+            <field name="country_id" ref="base.si"/>
+        </record>
+
+        <record id="l10n_base.si_r_006" model="res.region">
+            <field name="name">OBALNO - KRAŠKA</field>
+            <field name="country_id" ref="base.si"/>
+        </record>
+
+        <record id="l10n_base.si_r_007" model="res.region">
+            <field name="name">OSREDNJESLOVENSKA</field>
+            <field name="country_id" ref="base.si"/>
+        </record>
+
+        <record id="l10n_base.si_r_008" model="res.region">
+            <field name="name">PODRAVSKA</field>
+            <field name="country_id" ref="base.si"/>
+        </record>
+
+        <record id="l10n_base.si_r_009" model="res.region">
+            <field name="name">POMURSKA</field>
+            <field name="country_id" ref="base.si"/>
+        </record>
+
+        <record id="l10n_base.si_r_010" model="res.region">
+            <field name="name">SAVINJSKA</field>
+            <field name="country_id" ref="base.si"/>
+        </record>
+
+        <record id="l10n_base.si_r_011" model="res.region">
+            <field name="name">SPODNJEPOSAVSKA</field>
+            <field name="country_id" ref="base.si"/>
+        </record>
+
+        <record id="l10n_base.si_r_012" model="res.region">
+            <field name="name">ZASAVSKA</field>
+            <field name="country_id" ref="base.si"/>
+        </record>
+    </data>
+</openerp>

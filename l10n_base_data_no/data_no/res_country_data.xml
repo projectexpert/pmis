@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <record id="base.no" model="res.country">
+            <field name="code">NO</field>
+            <field name="name">Norway</field>
+            <field name="enable_province" eval="True"/>
+            <field name="enable_region" eval="False"/>
+            <field name="enable_state" eval="False"/>
+        </record>
+
+    </data>
+</openerp>
