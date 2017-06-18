@@ -11,8 +11,15 @@
                     <page string="Cases">
                         <field name="lead_ids" nolabel="1" colspan="4" domain="[]" context="{'default_project_id': active_id}"/>
                     </page>
-                    <page string="Issues">
-                        <field name="issue_ids" nolabel="1" colspan="4" domain="[]" context="{'default_project_id': active_id}"/>
+                    <page string="Open Issues">
+                        <field name="issue_ids"
+                               nolabel="1" colspan="4" domain="[]"
+                               context="{'default_project_id': active_id}"/>
+                    </page>
+                    <page string="All Issues">
+                        <field name="all_issue_ids"
+                               nolabel="1" colspan="4"
+                               context="{'default_project_id': active_id}"/>
                     </page>
                  </xpath>
             </field>

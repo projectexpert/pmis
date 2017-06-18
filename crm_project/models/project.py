@@ -26,3 +26,8 @@ class ProjectLead(models.Model):
     project_lead_count = fields.Integer(
         compute="_project_lead_count", string="Leads"
     )
+
+    all_issue_ids = fields.One2many(
+        'project.issue', 'project_id',
+        domain=[]
+    )

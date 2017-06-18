@@ -6,34 +6,37 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-24 12:54+0200\n"
-"PO-Revision-Date: 2015-09-24 12:54+0200\n"
-"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"POT-Creation-Date: 2017-06-18 06:52+0200\n"
+"PO-Revision-Date: 2017-06-18 06:53+0200\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 2.0.1\n"
 
 #. module: pe_project_task_issues
-#: view:project.task:project_task_issues.view_project_task_issues
+#: view:project.task:pe_project_task_issues.view_project_task_issues
 msgid "Extra Info"
 msgstr "Dodatne informacije"
 
 #. module: pe_project_task_issues
-#: view:project.task:project_task_issues.view_project_task_issues
+#: view:project.task:pe_project_task_issues.view_project_task_issues
 #: field:project.task,issue_ids:0
 msgid "Issues"
 msgstr "Zadeve"
 
 #. module: pe_project_task_issues
 #: field:project.task,issue_id:0
-msgid "Main Issue"
-msgstr "Glavna zadeva"
+msgid "Source Issue"
+msgstr "Vir"
 
 #. module: pe_project_task_issues
-#: model:ir.model,name:project_task_issues.model_project_task
+#: model:ir.model,name:pe_project_task_issues.model_project_task
 msgid "Task"
 msgstr "Opravilo"
+
+#~ msgid "Main Issue"
+#~ msgstr "Glavna zadeva"

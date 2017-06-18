@@ -7,16 +7,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 17:10+0200\n"
-"PO-Revision-Date: 2016-05-21 17:12+0200\n"
-"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"POT-Creation-Date: 2017-06-18 08:29+0200\n"
+"PO-Revision-Date: 2017-06-18 08:30+0200\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.1\n"
+
+#. module: crm_project
+#: view:project.project:crm_project.view_project_leads
+msgid "All Issues"
+msgstr "Tutte vicende"
+
+#. module: crm_project
+#: field:project.project,all_issue_ids:0
+msgid "All issue ids"
+msgstr "ID tutte vicende"
 
 #. module: crm_project
 #: view:project.project:crm_project.view_project_leads
@@ -24,25 +34,10 @@ msgid "Cases"
 msgstr "Casi"
 
 #. module: crm_project
-#: field:crm.lead,display_name:0
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: crm_project
 #: view:crm.lead:crm_project.view_crm_case_leads_filter
 #: view:crm.lead:crm_project.view_crm_case_opportunities_filter
 msgid "Group By"
 msgstr "Raggruppa per"
-
-#. module: crm_project
-#: view:project.project:crm_project.view_project_leads
-msgid "Issues"
-msgstr "Vicende"
-
-#. module: crm_project
-#: field:crm.lead,__last_update:0
-msgid "Last Modified on"
-msgstr "Ultimo aggiornamento"
 
 #. module: crm_project
 #: field:project.project,lead_ids:0
@@ -55,6 +50,16 @@ msgid "Lead/Opportunity"
 msgstr "Indizio/Opportunita"
 
 #. module: crm_project
+#: field:project.project,project_lead_count:0
+msgid "Leads"
+msgstr "Indizi"
+
+#. module: crm_project
+#: view:project.project:crm_project.view_project_leads
+msgid "Open Issues"
+msgstr "Vicende aperte"
+
+#. module: crm_project
 #: view:crm.lead:crm_project.lead_project_connect
 #: view:crm.lead:crm_project.oppor_project_connect
 #: view:crm.lead:crm_project.view_crm_case_leads_filter
@@ -63,6 +68,20 @@ msgstr "Indizio/Opportunita"
 #: model:ir.model,name:crm_project.model_project_project
 msgid "Project"
 msgstr "Progetto"
+
+#. module: crm_project
+#: model:ir.model,name:crm_project.model_project_issue
+msgid "Project Issue"
+msgstr "Vicenda progettuale"
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "Issues"
+#~ msgstr "Vicende"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultimo aggiornamento"
 
 #~ msgid "Cases and Issues"
 #~ msgstr "Casi e vicende"

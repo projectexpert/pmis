@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-21 15:05+0000\n"
-"PO-Revision-Date: 2016-05-21 15:05+0000\n"
+"POT-Creation-Date: 2017-06-18 06:27+0000\n"
+"PO-Revision-Date: 2017-06-18 06:27+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,28 +17,23 @@ msgstr ""
 
 #. module: crm_project
 #: view:project.project:crm_project.view_project_leads
-msgid "Cases"
+msgid "All Issues"
 msgstr ""
 
 #. module: crm_project
-#: field:crm.lead,display_name:0
-msgid "Display Name"
+#: field:project.project,all_issue_ids:0
+msgid "All issue ids"
+msgstr ""
+
+#. module: crm_project
+#: view:project.project:crm_project.view_project_leads
+msgid "Cases"
 msgstr ""
 
 #. module: crm_project
 #: view:crm.lead:crm_project.view_crm_case_leads_filter
 #: view:crm.lead:crm_project.view_crm_case_opportunities_filter
 msgid "Group By"
-msgstr ""
-
-#. module: crm_project
-#: view:project.project:crm_project.view_project_leads
-msgid "Issues"
-msgstr ""
-
-#. module: crm_project
-#: field:crm.lead,__last_update:0
-msgid "Last Modified on"
 msgstr ""
 
 #. module: crm_project
@@ -52,6 +47,16 @@ msgid "Lead/Opportunity"
 msgstr ""
 
 #. module: crm_project
+#: field:project.project,project_lead_count:0
+msgid "Leads"
+msgstr ""
+
+#. module: crm_project
+#: view:project.project:crm_project.view_project_leads
+msgid "Open Issues"
+msgstr ""
+
+#. module: crm_project
 #: view:crm.lead:crm_project.lead_project_connect
 #: view:crm.lead:crm_project.oppor_project_connect
 #: view:crm.lead:crm_project.view_crm_case_leads_filter
@@ -59,5 +64,10 @@ msgstr ""
 #: field:crm.lead,project_id:0
 #: model:ir.model,name:crm_project.model_project_project
 msgid "Project"
+msgstr ""
+
+#. module: crm_project
+#: model:ir.model,name:crm_project.model_project_issue
+msgid "Project Issue"
 msgstr ""
 
