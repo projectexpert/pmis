@@ -2,7 +2,7 @@
 
 {
     'name': 'Project Task Issues',
-    'version': '8.0.1.4.1',
+    'version': '8.0.1.4.2',
     'category': 'Projects Management',
     'summary': "Creatable issues list on task view form",
     'author':   'Matmoz d.o.o., '
