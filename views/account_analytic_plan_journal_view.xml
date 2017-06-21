@@ -83,7 +83,8 @@
         </record>
         <menuitem groups="analytic.group_analytic_accounting"
             action="action_account_analytic_plan_journal_tree"
-            id="account_analytic_plan_journal_print" parent="account.next_id_40"/>
+            id="account_analytic_plan_journal_print"
+                  parent="account.menu_analytic_accounting"/>
         	            	        
          	                    
     </data>

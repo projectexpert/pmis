@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
+# © 2015 Eficent Business and IT Consulting Services S.L.
+# (Jordi Ballester Alomar)
+#
+# © 2016 Matmoz d.o.o.
+# (Matjaž Mozetič)
+#
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from openerp import api, fields, models
-from openerp.tools.translate import _
-from openerp.exceptions import Warning as UserError
-from openerp.tools import misc
 
 
 class AccountAnalyticAccount(models.Model):
@@ -200,7 +204,7 @@ class AccountAnalyticLine(models.Model):
         product_price_type_obj = self.env['product.price.type']
 
         prod = False
-        journal = self.journal_id if self.journal_id else self
+        journal = self.journal_id if self.journal_id else journal
         if self.product_id:
             prod = self.product_id
         if not self.journal_id:

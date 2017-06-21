@@ -2,50 +2,23 @@
 <openerp>
     <data>
 
-#---------------------------------------------------------------------------------------------------------
-#   Extend the menus
-#---------------------------------------------------------------------------------------------------------
-		<menuitem id="project_plan"
-			name="Plan"
-			parent="base.menu_main_pm"
-			sequence="2"
-			groups="analytic.group_analytic_accounting"/>
-
-			<menuitem id="analytic_plan_analytic_account_menu"
-				name="Analytic Accounting"
-				parent="project_plan"
-                groups="analytic.group_analytic_accounting"/>
-
-			<menuitem id="account_analytic_def_account"
-                action="account.action_account_analytic_account_form"
-				parent="analytic_plan_analytic_account_menu"
-				groups="analytic.group_analytic_accounting"/>
-
-			<menuitem id="account_analytic_plan_journal_entries_2"
-				action="action_account_analytic_plan_journal_open_form"
-				parent="analytic_plan_analytic_account_menu"
-				groups="analytic.group_analytic_accounting"/>
-
-#---------------------------------------------------------------------------------------------------------
-#   Extend the analytic account
-#---------------------------------------------------------------------------------------------------------
-          
 
 		<record id="view_account_analytic_account_tree_inh" model="ir.ui.view">
             <field name="name">account.analytic.account.tree</field>
             <field name="model">account.analytic.account</field>
             <field name="type">tree</field>
             <field name="field_parent">child_complete_ids</field>
-            <field name="inherit_id" ref="account.view_account_analytic_account_tree"/>
+            <field name="inherit_id"
+                   ref="analytic.view_account_analytic_account_list"/>
             <field name="arch" type="xml">         	   
             	<field name="balance" position="after">    
             	    <field name="debit_plan"/>            	   
                     <field name="credit_plan"/>                    
                     <field name="balance_plan"/>
-					<!--<button string="Planned cost lines"-->
-                        <!--name="open_plan_cost_tree_view"-->
-                        <!--type="object"-->
-                        <!--icon="gtk-open"/>-->
+					<button string="Planned cost lines"
+                        name="open_plan_cost_tree_view"
+                        type="object"
+                        icon="gtk-open"/>
             	</field>
                 <field name="debit" position="before">
                     <field name="active_analytic_planning_version" string="Active Plan Version"/>
@@ -87,9 +60,10 @@
         <record id="view_account_analytic_account_form_analytic_plan" model="ir.ui.view">
             <field name="name">account.analytic.account.form.proj.cost</field>
             <field name="model">account.analytic.account</field>
-            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="inherit_id"
+                   ref="analytic.view_account_analytic_account_form"/>
             <field name="arch" type="xml">
-                <xpath expr='//div[@name="buttons"]' position='inside'>
+                <xpath expr='//div[@name="button_box"]' position='inside'>
                     <button help="Planned costs and revenues"
                         name="%(act_analytic_plan_cost_revenue)d"
                         type="action"

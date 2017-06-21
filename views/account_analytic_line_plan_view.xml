@@ -129,19 +129,19 @@
 #   Open journal entries
 #---------------------------------------------------------------------------------------------------------
 
-        <!--<record id="action_account_analytic_plan_journal_open_form" model="ir.actions.act_window">-->
-            <!--<field name="name">Analytic Journal Plan Items</field>-->
-            <!--<field name="res_model">account.analytic.line.plan</field>-->
-            <!--<field name="view_type">form</field>-->
-            <!--<field name="view_mode">tree,form,graph</field>-->
-            <!--<field name="search_view_id" ref="view_account_analytic_line_plan_filter" />-->
-        <!--</record>-->
-        <!---->
-        <!--<menuitem groups="analytic.group_analytic_accounting"-->
-            <!--action="action_account_analytic_plan_journal_open_form"-->
-            <!--id="account_analytic_plan_journal_entries"-->
-            <!--parent="account.menu_finance_entries" -->
-            <!--sequence="7"/>-->
+        <record id="action_account_analytic_plan_journal_open_form" model="ir.actions.act_window">
+            <field name="name">Analytic Journal Plan Items</field>
+            <field name="res_model">account.analytic.line.plan</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="search_view_id" ref="view_account_analytic_line_plan_filter" />
+        </record>
+        
+        <menuitem groups="analytic.group_analytic_accounting"
+            action="action_account_analytic_plan_journal_open_form"
+            id="account_analytic_plan_journal_entries"
+            parent="account.menu_finance_entries" 
+            sequence="7"/>
 
     </data>
 </openerp>
