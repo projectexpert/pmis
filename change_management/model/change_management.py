@@ -341,7 +341,7 @@ and obtain sign-off from all key stakeholders.
                 )
 
     @api.multi
-    def write(self, vals):
+    def write_user_followers(self, vals):
         ret = super(CMChange, self).write(
             vals
         )
