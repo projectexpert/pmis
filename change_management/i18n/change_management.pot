@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-23 07:16+0000\n"
-"PO-Revision-Date: 2017-02-23 07:16+0000\n"
+"POT-Creation-Date: 2017-06-21 06:55+0000\n"
+"PO-Revision-Date: 2017-06-21 06:55+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -56,11 +56,6 @@ msgid "\n"
 "overlooked. Document the final set of agreed requirements\n"
 "and obtain sign-off from all key stakeholders.\n"
 "        "
-msgstr ""
-
-#. module: change_management
-#: field:project.task,change_id:0
-msgid "Action on Change"
 msgstr ""
 
 #. module: change_management
@@ -487,7 +482,7 @@ msgid "My Projects"
 msgstr ""
 
 #. module: change_management
-#: code:addons/change_management/model/change_management.py:406
+#: code:addons/change_management/model/change_management.py:421
 #, python-format
 msgid "No Subject"
 msgstr ""
@@ -595,6 +590,11 @@ msgid "Show only tasks (actions) on change"
 msgstr ""
 
 #. module: change_management
+#: field:project.task,change_id:0
+msgid "Source CR"
+msgstr ""
+
+#. module: change_management
 #: view:project.project:change_management.change_management_project_charter_tree_view
 msgid "Stakeholder Requests"
 msgstr ""
@@ -647,7 +647,7 @@ msgstr ""
 
 #. module: change_management
 #: help:change.management.change,stakeholder_id:0
-msgid "The stakeholder that proposes the processing of the request."
+msgid "The stakeholder that proposes the  processing of the request."
 msgstr ""
 
 #. module: change_management

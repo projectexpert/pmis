@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-23 08:27+0100\n"
-"PO-Revision-Date: 2017-02-23 08:29+0100\n"
-"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"POT-Creation-Date: 2017-06-21 08:58+0200\n"
+"PO-Revision-Date: 2017-06-21 09:05+0200\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.2\n"
 
 #. module: change_management
 #: help:change.management.change,description:0
@@ -101,11 +101,6 @@ msgstr ""
 "Documentate la serie finale dei requisiti accordati e ottenete una\n"
 "firma da tutte le parti interessate chiave.\n"
 "        "
-
-#. module: change_management
-#: field:project.task,change_id:0
-msgid "Action on Change"
-msgstr "Azione per modifica"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_tree_view
@@ -218,7 +213,7 @@ msgid ""
 "businesschosen categories (e.g. Schedule, quality, legal etc.)"
 msgstr ""
 "Categoria modifica: il tipo di modifica nel senso di progetto o categorie "
-"di' attività commerciali (es. Pianifica, Qualità, Legale etc.)."
+"di' attività commerciali (es. Pianifica, Qualità, Legale etc.)"
 
 #. module: change_management
 #: model:mail.message.subtype,description:change_management.mt_change_done
@@ -404,7 +399,7 @@ msgstr "Data revisione"
 #. module: change_management
 #: help:change.management.change,date_modified:0
 msgid "Date of last revision."
-msgstr "Data ultima revisione"
+msgstr "Data ultima revisione."
 
 #. module: change_management
 #: help:change.management.change,date_confirmed:0
@@ -539,7 +534,7 @@ msgstr "Messaggi e cronologia communicazioni"
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
 msgid "Mod. Date"
-msgstr "Data mod."
+msgstr "Data modifica"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -547,7 +542,7 @@ msgid "My Projects"
 msgstr "I miei progetti"
 
 #. module: change_management
-#: code:addons/change_management/model/change_management.py:406
+#: code:addons/change_management/model/change_management.py:421
 #, python-format
 msgid "No Subject"
 msgstr "Senza soggetto"
@@ -602,7 +597,7 @@ msgstr "Motivo"
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
 msgid "Reg. Date"
-msgstr "Data reg."
+msgstr "Data registrazione"
 
 #. module: change_management
 #: model:change.management.category,name:change_management.change_management_regulatory
@@ -665,6 +660,11 @@ msgid "Show only tasks (actions) on change"
 msgstr "Mostra solo attività (azioni) su modifiche"
 
 #. module: change_management
+#: field:project.task,change_id:0
+msgid "Source CR"
+msgstr "Origine"
+
+#. module: change_management
 #: view:project.project:change_management.change_management_project_charter_tree_view
 msgid "Stakeholder Requests"
 msgstr "Richieste parti interessate"
@@ -717,8 +717,8 @@ msgstr "Il progetto, da dove è stata iniziata la richiesta."
 
 #. module: change_management
 #: help:change.management.change,stakeholder_id:0
-msgid "The stakeholder that proposes the processing of the request."
-msgstr "La parte interessata, che propone la procedura di richiesta."
+msgid "The stakeholder that proposes the  processing of the request."
+msgstr "La parte interessata, che propone la elaborazione della richiesta."
 
 #. module: change_management
 #: model:change.management.category,name:change_management.change_management_new
@@ -749,6 +749,12 @@ msgstr "Entro progetto"
 #: model:change.management.proximity,name:change_management.change_management_proximity_within_stage
 msgid "Within stage"
 msgstr "Entro stadio"
+
+#~ msgid "Action on Change"
+#~ msgstr "Azione per modifica"
+
+#~ msgid "The stakeholder that proposes the processing of the request."
+#~ msgstr "La parte interessata, che propone la procedura di richiesta."
 
 #~ msgid "Website Messages"
 #~ msgstr "Messaggi della pagina web"

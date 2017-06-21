@@ -201,7 +201,7 @@ and obtain sign-off from all key stakeholders.
     )
     proximity_id = fields.Many2one(
         'change.management.proximity', 'Proximity',
-        help="Proximity: /n"
+        help="Proximity: "
         "This would typically state how close to the present time the change "
         "event is anticipated to happen (e.g. for project changes Imminent, "
         "within stage, within project, beyond project). Proximity should be "
@@ -238,6 +238,21 @@ and obtain sign-off from all key stakeholders.
     )
 
     # ##### DEFINITIONS #####  #
+
+    @api.multi
+    def name_get(self):
+        """
+        Display [Reference] Description if reference is defined
+        otherwise display [Name] Description
+        """
+        result = []
+        for cr in self:
+            if cr.description:
+                formatted_name = u'[{}] {}'.format(cr.name, cr.description)
+            else:
+                formatted_name = u'[{}]'.format(cr.name)
+            result.append((cr.id, formatted_name))
+        return result
 
     @api.model
     def _get_states(self):

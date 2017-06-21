@@ -8,14 +8,18 @@
             <field name="priority">15</field>
             <field name="inherit_id" ref="project.view_task_form2"/>
             <field name="arch" type="xml">
-                <field name="project_id" position="after">
-                    <separator/>
-                    <separator/>
-                    <label for="change_id"/>
-                        <h4>
-                            <field name="change_id"/>
-                        </h4>
+                <field name="categ_ids" position="after">
+                    <field name="change_id"/>
                 </field>
+                <!--<field name="project_id" position="after">-->
+                    <!--<separator/>-->
+                    <!--<separator/>-->
+                    <!--<label for="change_id"/>-->
+                        <!--<h4>-->
+                            <!--<field name="change_id"/>-->
+                            <!--&lt;!&ndash;<field name="display_name"/>&ndash;&gt;-->
+                        <!--</h4>-->
+                <!--</field>-->
             </field>
         </record>
 
