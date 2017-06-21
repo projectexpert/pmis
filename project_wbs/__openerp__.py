@@ -1,35 +1,30 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Work Breakdown Structure',
-    'version': '8.0.2.3.6',
-    'author': 'Eficent, '
-              'Matmoz d.o.o., '
-              'Project Expert Team',
-    'contributors': [
-        'Jordi Ballester <jordi.ballester@eficent.com>',
-        'Matjaž Mozetič <m.mozetic@matmoz.si>',
-    ],
-    'website': 'http://project.expert',
+    'version': '9.0.1.0.0',
+    'author': 'Deneroteam. <dhaval@deneroteam.com>',
+    'website': 'http://deneroteam.com/',
     'category': 'Project Management',
     'license': 'AGPL-3',
     'depends': [
         'project',
+        'account',
         'analytic',
+        'account_analytic_parent',
         'project_issue',
-        'account_analytic_analysis',
+        # 'project_timesheet',
         'web_one2many_kanban'
     ],
     'summary': 'Project Work Breakdown Structure',
     'data': [
+        'data/data.xml',
         'view/account_analytic_account_view.xml',
         'view/project_project_view.xml',
-        'view/project_configuration.xml',
-        # 'security/ir.model.access.csv',
+        # 'view/project_configuration.xml',
     ],
-    'demo': [
+    'css': [
+        'static/src/css/project_kanban.css',
     ],
-    'test': [
-    ],
-    'installable': False,
+    'installable': True,
     'application': True,
 }

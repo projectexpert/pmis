@@ -65,8 +65,8 @@ class account_analytic_account(osv.osv):
                 INNER JOIN account_account AC
                 ON L.general_account_id = AC.id
                 INNER JOIN account_account_type AT
-                ON AT.id = AC.user_type
-                WHERE AT.report_type = 'income'
+                ON AT.id = AC.user_type_id
+                WHERE AT.name in ('Income', 'Other Income')
                 AND l.account_id IN %s
                 AND a.active_analytic_planning_version = l.version_id
                 """ + where_date + """
@@ -84,8 +84,8 @@ class account_analytic_account(osv.osv):
                 INNER JOIN account_account AC
                 ON L.general_account_id = AC.id
                 INNER JOIN account_account_type AT
-                ON AT.id = AC.user_type
-                WHERE AT.report_type = 'income'
+                ON AT.id = AC.user_type_id
+                WHERE AT.name in ('Income', 'Other Income')
                 AND L.account_id IN %s
                 """ + where_date + """
                 """, query_params
@@ -101,8 +101,8 @@ class account_analytic_account(osv.osv):
                 INNER JOIN account_account AC
                 ON L.general_account_id = AC.id
                 INNER JOIN account_account_type AT
-                ON AT.id = AC.user_type
-                WHERE AT.report_type = 'expense'
+                ON AT.id = AC.user_type_id
+                WHERE AT.name in ('Expenses', 'Depreciation', 'Cost of Revenue')
                 AND L.account_id IN %s
                 """ + where_date + """
                 """, query_params
@@ -120,8 +120,8 @@ class account_analytic_account(osv.osv):
                 INNER JOIN account_account AC
                 ON L.general_account_id = AC.id
                 INNER JOIN account_account_type AT
-                ON AT.id = AC.user_type
-                WHERE AT.report_type = 'expense'
+                ON AT.id = AC.user_type_id
+                WHERE AT.name in ('Expenses', 'Depreciation', 'Cost of Revenue')
                 AND L.account_id IN %s
                 AND A.active_analytic_planning_version = L.version_id
                 """ + where_date + """

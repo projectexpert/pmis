@@ -7,7 +7,9 @@
             <field name="priority">5</field>
             <field name="inherit_id" ref="account.product_template_form_view"/>
             <field name="arch" type="xml">
-                <xpath expr='//page[@string="Accounting"]/group[@name="properties"]' position='after'>
+                <xpath
+                        expr='//group[@name="properties"]'
+                       position='after'>
                     <group name="plan_journals" colspan="3"/>
                 </xpath>
             </field>

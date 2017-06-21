@@ -90,12 +90,12 @@
 .oe_wbs_subtitle {
     width: 290px;
     /*height: 24px;*/
-    /*padding: 3px 0;*/
+    padding: 10px 0;*/
     /*margin: 2px;*/
-    text-align: center;
+    text-align: left;
     /*border: 1px solid #7c7bad;*/
     background-color: rgba(128, 119, 155, 0.10);
-    padding-bottom: 10px;
+    /*padding-bottom: 10px;
 }
 
 .oe_wbs_subtitle:hover {
