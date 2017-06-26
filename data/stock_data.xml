@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="stock_project_external" model="stock.location">
+            <field name="company_id" ref="base.main_company"/>
+            <field name="usage">view</field>
+            <field name="chained_location_type">none</field>
+            <field name="company_id"></field>
+            <field eval="1" name="active"/>
+            <field name="name">Projects External Location</field>
+            <field name="chained_auto_packing">manual</field>
+            <field name="comment">Contains stock for projects not considered as asset</field>
+        </record>
+
+        <record id="stock_project_internal" model="stock.location">
+            <field name="company_id" ref="base.main_company"/>
+            <field name="usage">view</field>
+            <field name="location_id" ref="stock.stock_location_company"/>
+            <field name="chained_location_type">none</field>
+            <field eval="1" name="active"/>
+            <field name="name">Projects Internal Location</field>
+            <field name="chained_auto_packing">manual</field>
+            <field name="comment">Contains stock for projects considered as asset</field>
+        </record>
+    </data>
+</openerp>
