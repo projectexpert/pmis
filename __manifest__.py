@@ -12,5 +12,5 @@
     'depends': ['stock', 'analytic', 'analytic_location'],
     'data': ['views/stock_view.xml'],
     'demo': ['data/stock_data.xml'],
-    'installable': True,
+    'installable': False,
 }
