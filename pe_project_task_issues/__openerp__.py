@@ -2,11 +2,10 @@
 
 {
     'name': 'Project Task Issues',
-    'version': '8.0.1.4.2',
+    'version': '8.0.1.4.3',
     'category': 'Projects Management',
     'summary': "Creatable issues list on task view form",
     'author':   'Matmoz d.o.o., '
-                'ADHOC SA, '
                 'Project Expert Team',
     'contributors': [
         'Matjaž Mozetič <m.mozetic@matmoz.si>',

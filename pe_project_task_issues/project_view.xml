@@ -12,9 +12,6 @@
                         <field name="issue_ids" context="{'default_project_id': project_id, 'default_task_id': active_id}"/>
                     </page>
                  </page>
-                <field name="categ_ids" position="after">
-                    <field name="issue_id"/>
-                </field>
             </field>
         </record>
         
