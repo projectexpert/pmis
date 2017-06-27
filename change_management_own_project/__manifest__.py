@@ -20,6 +20,6 @@
     'data': [
         'views/change_management_view.xml',
     ],
-    'installable': True,
+    'installable': False,
     'application': True,
 }

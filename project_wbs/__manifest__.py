@@ -25,6 +25,6 @@
     'css': [
         'static/src/css/project_kanban.css',
     ],
-    'installable': True,
+    'installable': False,
     'application': True,
 }

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# © 2017 Eficent - Jordi Ballester Alomar
-# © 2017 Serpent Consulting Services Pvt. Ltd. - Sudhir Arya
+# © 2014-17 Eficent Business and IT Consulting Services S.L.
+# © 2016 Matmoz d.o.o.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'git ',
+    'name': 'Analytic Account Cost Category',
     'version': '9.0.1.0.0',
-    'summary': 'Opens a single project/analytic account, or the whole WBS',
+    'summary': 'Adds the cost category to analytic accounts.',
     'author':   'Eficent, '
                 'Project Expert Team',
     'contributors': [
@@ -18,8 +18,14 @@
     'license': 'AGPL-3',
     'depends': ['account', 'analytic'],
     'data': [
-        'wizards/analytic_account_open_view.xml',
+        'views/account_analytic_account_view.xml',
     ],
-    'installable': True,
+    'demo': [
+
+    ],
+    'test': [
+    ],
+    'installable': False,
     'active': False,
+    'certificate': '',
 }

@@ -43,5 +43,5 @@
         'views/account_analytic_account_view.xml',
         'wizards/analytic_wip_report_view.xml'
     ],
-    'installable': True,
+    'installable': False,
 }

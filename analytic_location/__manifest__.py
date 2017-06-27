@@ -21,7 +21,7 @@
     'data': [
         'view/analytic_account_view.xml',
     ],
-    'installable': True,
+    'installable': False,
     'active': False,
     'application': True,
 }
