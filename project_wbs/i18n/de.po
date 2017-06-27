@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-14 11:52+0100\n"
-"PO-Revision-Date: 2017-03-14 11:54+0100\n"
+"POT-Creation-Date: 2017-06-27 14:07+0200\n"
+"PO-Revision-Date: 2017-06-27 14:07+0200\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -15,12 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.11\n"
-
-#. module: project_wbs
-#: help:project.project,toinvoice_total:0
-msgid " Sum of everything that could be invoiced for this contract."
-msgstr ""
+"X-Generator: Poedit 2.0.2\n"
 
 #. module: project_wbs
 #: view:project.project:project_wbs.view_project
@@ -84,22 +79,9 @@ msgid "Append this project to another one using analytic accounts hierarchy"
 msgstr "Dieses Projekt, mittels Kostenstellenstruktur, an ein anderes anhängen"
 
 #. module: project_wbs
-#: help:project.project,ca_theorical:0
-msgid ""
-"Based on the costs you had on the project, what would have been the revenue "
-"if all these costs have been invoiced at the normal sale price provided by "
-"the pricelist."
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,use_timesheets:0
-msgid "Check this field if this project manages timesheets"
-msgstr ""
-
-#. module: project_wbs
 #: view:project.project:project_wbs.view_project
-msgid "Child WBS elements"
-msgstr "Untergeordnete WBS-Elemente"
+msgid "Children"
+msgstr ""
 
 #. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_form
@@ -130,66 +112,9 @@ msgid "Computed WBS code"
 msgstr ""
 
 #. module: project_wbs
-#: help:project.project,remaining_hours_to_invoice:0
-msgid ""
-"Computed using the formula: Expected on timesheets - Total invoiced on "
-"timesheets"
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,real_margin:0
-msgid "Computed using the formula: Invoiced Amount - Total Costs."
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,revenue_per_hour:0
-msgid "Computed using the formula: Invoiced Amount / Total Time"
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,remaining_ca:0
-msgid "Computed using the formula: Max Invoice Price - Invoiced Amount."
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,remaining_hours:0
-msgid "Computed using the formula: Maximum Time - Total Worked Time"
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,theorical_margin:0
-msgid "Computed using the formula: Theoretical Revenue - Total Costs"
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,real_margin_rate:0
-msgid "Computes using the formula: (Real Margin / Total Costs) * 100."
-msgstr ""
-
-#. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 msgid "Create child WBS element"
 msgstr "Untergeordnetes PSP-Element anlegen"
-
-#. module: project_wbs
-#: field:project.project,last_worked_date:0
-msgid "Date of Last Cost/Work"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,last_worked_invoiced_date:0
-msgid "Date of Last Invoiced Cost"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,recurring_next_date:0
-msgid "Date of Next Invoice"
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,last_worked_date:0
-msgid "Date of the latest work done on this account."
-msgstr ""
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
@@ -219,24 +144,6 @@ msgid "End Date"
 msgstr "Enddatum"
 
 #. module: project_wbs
-#: field:project.project,hours_qtt_est:0
-msgid "Estimation of Hours to Invoice"
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,remaining_total:0
-msgid ""
-"Expectation of remaining income for this contract. Computed as the sum of "
-"remaining subtotals which, in turn, are computed as the maximum between "
-"'(Estimation - Invoiced)' and 'To Invoice' amounts"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,fix_price_invoices:0
-msgid "Fixed Price"
-msgstr ""
-
-#. module: project_wbs
 #: field:account.analytic.account,complete_wbs_code:0
 #: field:account.analytic.account,complete_wbs_code_calc:0
 #: field:project.project,complete_wbs_code:0
@@ -257,63 +164,9 @@ msgid "Full path in the WBS hierarchy"
 msgstr "Voller Pfad in WBS-Hierarchie"
 
 #. module: project_wbs
-#: field:project.project,recurring_invoices:0
-msgid "Generate recurring invoices automatically"
-msgstr ""
-
-#. module: project_wbs
 #: view:account.analytic.account:project_wbs.view_account_analytic_account_search
 #: view:project.project:project_wbs.view_project_project_filter
 msgid "Group By"
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,ca_to_invoice:0
-msgid ""
-"If invoice from analytic account, the remaining amount you can invoice to "
-"the customer based on the total costs."
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,last_invoice_date:0
-msgid "If invoice from the costs, this is the date of the latest invoiced."
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,last_worked_invoiced_date:0
-msgid ""
-"If invoice from the costs, this is the date of the latest work or cost that "
-"have been invoiced."
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,recurring_invoice_line_ids:0
-msgid "Invoice Lines"
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,recurring_rule_type:0
-msgid "Invoice automatically repeat at specified interval"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,amount_invoiced:0 field:project.project,ca_invoiced:0
-msgid "Invoiced Amount"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,hours_qtt_invoiced:0
-msgid "Invoiced Time"
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,amount_max:0
-msgid "Keep empty if this contract is not limited to a total fixed price."
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,last_invoice_date:0
-msgid "Last Invoice Date"
 msgstr ""
 
 #. module: project_wbs
@@ -341,44 +194,13 @@ msgid "Master Project"
 msgstr ""
 
 #. module: project_wbs
-#: field:project.project,amount_max:0
-msgid "Max. Invoice Price"
-msgstr ""
-
-#. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 msgid "Miscellaneous"
 msgstr "Verschiedenes"
 
 #. module: project_wbs
-#: field:project.project,month_ids:0
-msgid "Month"
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,hours_qtt_non_invoiced:0
-msgid ""
-"Number of time (hours/days) (from journal of type 'general') that can be "
-"invoiced if you invoice based on analytic account."
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,hours_qtt_invoiced:0
-msgid ""
-"Number of time (hours/days) that can be invoiced plus those that already "
-"have been invoiced."
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,hours_quantity:0
-msgid ""
-"Number of time you spent on the analytic account (from timesheet). It "
-"computes quantities on all journal of type 'general'."
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,invoice_on_timesheets:0
-msgid "On Timesheets"
+#: view:project.project:project_wbs.view_project
+msgid "Open Form"
 msgstr ""
 
 #. module: project_wbs
@@ -387,19 +209,10 @@ msgid "Other Info"
 msgstr "Sonstiges"
 
 #. module: project_wbs
-#: field:project.project,is_overdue_quantity:0
-msgid "Overdue Quantity"
-msgstr ""
-
-#. module: project_wbs
 #: view:project.project:project_wbs.edit_project
+#: view:project.project:project_wbs.view_project
 msgid "Parent"
 msgstr "Übergeordnet"
-
-#. module: project_wbs
-#: view:project.project:project_wbs.view_project
-msgid "Parent WBS element"
-msgstr "Übergeordnetes PSP-Element"
 
 #. module: project_wbs
 #: selection:account.analytic.account,account_class:0
@@ -421,11 +234,6 @@ msgid "Portfolios"
 msgstr ""
 
 #. module: project_wbs
-#: field:project.project,pricelist_id:0
-msgid "Pricelist"
-msgstr ""
-
-#. module: project_wbs
 #: selection:account.analytic.account,account_class:0
 #: field:account.analytic.account,program_analytic_account_id:0
 #: field:project.project,program_analytic_account_id:0
@@ -442,11 +250,6 @@ msgstr ""
 #: model:ir.model,name:project_wbs.model_project_project
 msgid "Project"
 msgstr "Projekt"
-
-#. module: project_wbs
-#: view:project.project:project_wbs.view_project
-msgid "Project Form View"
-msgstr "Projekt Formularsicht"
 
 #. module: project_wbs
 #: field:project.project,project_child_complete_ids:0
@@ -476,49 +279,6 @@ msgstr "Projektkonfiguration"
 #, python-format
 msgid "Projects"
 msgstr "Projekte"
-
-#. module: project_wbs
-#: field:project.project,real_margin:0
-msgid "Real Margin"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,real_margin_rate:0
-msgid "Real Margin Rate (%)"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,recurring_rule_type:0
-msgid "Recurrency"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,remaining_ca:0
-msgid "Remaining Revenue"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,fix_price_to_invoice:0
-#: field:project.project,remaining_hours:0
-#: field:project.project,remaining_hours_to_invoice:0
-#: field:project.project,timesheet_ca_invoiced:0
-msgid "Remaining Time"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,recurring_interval:0
-msgid "Repeat Every"
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,recurring_interval:0
-msgid "Repeat every (Days/Week/Month/Year)"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,revenue_per_hour:0
-msgid "Revenue per Time (real)"
-msgstr ""
 
 #. module: project_wbs
 #: view:project.project:project_wbs.edit_project
@@ -561,16 +321,6 @@ msgid "Sub-projects"
 msgstr ""
 
 #. module: project_wbs
-#: help:project.project,fix_price_to_invoice:0
-msgid "Sum of quotations for this contract."
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,timesheet_ca_invoiced:0
-msgid "Sum of timesheet lines invoiced for this contract."
-msgstr ""
-
-#. module: project_wbs
 #: help:account.analytic.account,account_class:0
 #: help:project.project,account_class:0
 msgid ""
@@ -590,98 +340,9 @@ msgstr ""
 "der Projektstruktur"
 
 #. module: project_wbs
-#: help:project.project,pricelist_id:0
-msgid ""
-"The product to invoice is defined on the employee form, the price will be "
-"deducted by this pricelist on the product."
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,theorical_margin:0
-msgid "Theoretical Margin"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,ca_theorical:0
-msgid "Theoretical Revenue"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,to_invoice:0
-msgid "Timesheet Invoicing Ratio"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,use_timesheets:0
-msgid "Timesheets"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,total_cost:0
-msgid "Total Costs"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,est_total:0
-msgid "Total Estimation"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,invoiced_total:0
-msgid "Total Invoiced"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,remaining_total:0
-msgid "Total Remaining"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,hours_quantity:0
-msgid "Total Worked Time"
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,ca_invoiced:0
-msgid "Total customer invoiced amount for this account."
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,amount_invoiced:0
-msgid "Total invoiced"
-msgstr ""
-
-#. module: project_wbs
-#: help:project.project,total_cost:0
-msgid ""
-"Total of costs for this account. It includes real costs (from invoices) and "
-"indirect costs, like time spent on timesheets."
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,toinvoice_total:0
-msgid "Total to Invoice"
-msgstr ""
-
-#. module: project_wbs
 #: view:project.project:project_wbs.edit_project
 msgid "True"
 msgstr "Wahr"
-
-#. module: project_wbs
-#: field:project.project,ca_to_invoice:0
-msgid "Uninvoiced Amount"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,hours_qtt_non_invoiced:0
-msgid "Uninvoiced Time"
-msgstr ""
-
-#. module: project_wbs
-#: field:project.project,user_ids:0
-msgid "User"
-msgstr ""
 
 #. module: project_wbs
 #: field:project.project,c_wbs_code:0
@@ -729,15 +390,6 @@ msgid "Work Package"
 msgstr "Arbeitspaket"
 
 #. module: project_wbs
-#: help:project.project,to_invoice:0
-msgid ""
-"You usually invoice 100% of the timesheets. But if you mix fixed price and "
-"timesheet invoicing, you may use another ratio. For instance, if you do a "
-"20% advance invoice (fixed price, based on a sales order), you should "
-"invoice the rest on timesheet with a 80% ratio."
-msgstr ""
-
-#. module: project_wbs
 #: view:project.project:project_wbs.view_project
 msgid ""
 "bold:account_class in 'portfolio';bold:account_class in 'program';bold:"
@@ -768,6 +420,15 @@ msgstr ""
 #: view:project.project:project_wbs.view_project
 msgid "top"
 msgstr ""
+
+#~ msgid "Child WBS elements"
+#~ msgstr "Untergeordnete WBS-Elemente"
+
+#~ msgid "Parent WBS element"
+#~ msgstr "Übergeordnetes PSP-Element"
+
+#~ msgid "Project Form View"
+#~ msgstr "Projekt Formularsicht"
 
 #~ msgid ""
 #~ "\n"

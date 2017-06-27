@@ -78,19 +78,19 @@
                     <!--<attribute name="default_sort">complete_wbs_code asc</attribute>-->
                 </xpath>
                 <xpath expr='//field[@name="sequence"]' position="replace">
-                    <button string="Parent WBS element"
-                            name="action_openParentTreeView"
-                            type="object"
-                            icon="STOCK_GO_UP" attrs="{'invisible': [('account_class', '=', 'portfolio')]}"/>
-                        <button string="Child WBS elements"
-                            name="action_openChildTreeView"
-                            type="object"
-                            icon="STOCK_GO_DOWN"/>
-                        <!--OPEN FORM BUTTON-->
-                        <button string="Project Form View"
-                            name="action_open_view_project_form"
-                            type="object"
-                            icon="gtk-edit"/>
+                    <!--<button string="Parent WBS element"-->
+                        <!--name="action_openParentTreeView"-->
+                        <!--type="object"-->
+                        <!--icon="STOCK_GO_UP" attrs="{'invisible': [('account_class', '=', 'portfolio')]}"/>-->
+                    <!--<button string="Child WBS elements"-->
+                        <!--name="action_openChildTreeView"-->
+                        <!--type="object"-->
+                        <!--icon="STOCK_GO_DOWN"/>-->
+                    <!--&lt;!&ndash;OPEN FORM BUTTON&ndash;&gt;-->
+                    <!--<button string="Project Form View"-->
+                        <!--name="action_open_view_project_form"-->
+                        <!--type="object"-->
+                        <!--icon="gtk-edit"/>-->
                     <field name="complete_wbs_code" string="Code" invisible="1"/>
                     <field name="wbs_indent"/>
                 </xpath>
@@ -118,6 +118,22 @@
                     <field name="date_start" string="Start Date"/>
                     <field name="date" string="End Date"/>
                 </xpath>
+                <field name="state" position="after">
+                    <button string="Parent"
+                        name="action_openParentTreeView"
+                        type="object"
+                        icon="../../../../../project_wbs/static/src/img/icons/parent"
+                        attrs="{'invisible': [('account_class', '=', 'portfolio')]}"/>
+                    <button string="Children"
+                        name="action_openChildTreeView"
+                        type="object"
+                        icon="../../../../../project_wbs/static/src/img/icons/child"/>
+                    <!--OPEN FORM BUTTON-->
+                    <button string="Open Form"
+                        name="action_open_view_project_form"
+                        type="object"
+                        icon="../../../../../project_wbs/static/src/img/icons/edit"/>
+                </field>
             </field>
         </record>
 

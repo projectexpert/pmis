@@ -21,7 +21,7 @@
     'website': 'http://project.expert',
     'category': 'Project Management',
     'license': 'AGPL-3',
-    'depends': ['account', 'analytic', 'project', 'project_wbs'],
+    'depends': ['account', 'analytic', 'project'],
     'data': [
         'data/account_analytic_plan_version_data.xml',
         'views/account_analytic_plan_version_view.xml',

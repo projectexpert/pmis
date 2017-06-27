@@ -14,7 +14,7 @@
                     <button string="Tasks"
                         name="%(action_task_tree_view)d"
                         type="action"
-                        icon="terp-folder-orange"/>
+                        icon="../../../../../project_wbs_task/static/src/img/icons/tasks"/>
                 </xpath>
             </field>
         </record>

@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Work Breakdown Structure',
-    'version': '8.0.2.3.6',
+    'version': '8.0.2.3.7',
     'author': 'Eficent, '
-              'Matmoz d.o.o., '
+              'Matmoz, '
+              'Luxim, '
               'Project Expert Team',
     'contributors': [
         'Jordi Ballester <jordi.ballester@eficent.com>',

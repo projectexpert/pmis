@@ -120,3 +120,7 @@
     background-color: rgba(155,89,136,0.05);
 
 }
+
+.openerp .oe_list_group_name {
+    position: absolute;
+}

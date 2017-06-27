@@ -2,10 +2,11 @@
 
 {
     'name': 'Work Breakdown Structure - Tasks',
-    'version': '8.0.2.0.2',
+    'version': '8.0.2.0.3',
     'author':   'Eficent, '
                 'Serpent CS, '
-                'Matmoz d.o.o., '
+                'Matmoz, '
+                'Luxim, '
                 'Project Expert Team',
     'contributors': [
         'Jordi Ballester <jordi.ballester@eficent.com>',
