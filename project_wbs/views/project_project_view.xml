@@ -159,11 +159,11 @@
                     <filter string="Class" name="account_class"
                             context="{'group_by':'account_class'}"/>
                     <filter string="Master Project" name="master_project"
-                            context="{'group_by':'project_analytic_account_id'}"/>
+                            context="{'group_by':'project_analytic_account_id', 'order_by':'complete_wbs_code asc'}"/>
                     <filter string="Master Program" name="master_program"
-                            context="{'group_by':'program_analytic_account_id'}"/>
+                            context="{'group_by':'program_analytic_account_id', 'order_by':'complete_wbs_code asc'}"/>
                     <filter string="Master Portfolio" name="master_portfolio"
-                            context="{'group_by':'portfolio_analytic_account_id'}"/>
+                            context="{'group_by':'portfolio_analytic_account_id', 'order_by':'complete_wbs_code asc'}"/>
                 </group>
             </field>
         </record>
