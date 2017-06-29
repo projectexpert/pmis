@@ -164,6 +164,9 @@
                             context="{'group_by':'program_analytic_account_id', 'order_by':'complete_wbs_code asc'}"/>
                     <filter string="Master Portfolio" name="master_portfolio"
                             context="{'group_by':'portfolio_analytic_account_id', 'order_by':'complete_wbs_code asc'}"/>
+                    <filter string="Project Tree" name="project_tree"
+                            context="{'group_by': ['portfolio_analytic_account_id', 'program_analytic_account_id', 'project_analytic_account_id'], 'order_by':'complete_wbs_code asc'}"
+                            domain="[['state', '=', 'open'], ['account_class', 'not in', ('portfolio', 'program')]]"/>
                 </group>
             </field>
         </record>
@@ -237,8 +240,8 @@
             <field name="view_mode">kanban,tree,form,gantt</field>
             <field name="view_id" ref="project.view_project"/>
             <field name="search_view_id" ref="project.view_project_project_filter"/>
-            <field name="context">{'search_default_Current': 1, 'default_account_class': False, 'group_by': ['portfolio_analytic_account_id', 'program_analytic_account_id', 'project_analytic_account_id']}</field>
-            <field name="domain">[['account_class', '!=', 'portfolio'], ['account_class', '!=', 'program']]</field>
+            <field name="context">{'search_default_Current': 1, 'default_account_class': False, 'search_default_project_tree': 1}</field>
+            <!--<field name="domain">[['account_class', 'not in', ('portfolio', 'program')]]</field>-->
         </record>
         <!--OPEN KANBAN ACTION BUTTON-->
         <record id="open_view_wbs_kanban" model="ir.actions.act_window">
