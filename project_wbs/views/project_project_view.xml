@@ -78,21 +78,12 @@
                     <!--<attribute name="default_sort">complete_wbs_code asc</attribute>-->
                 </xpath>
                 <xpath expr='//field[@name="sequence"]' position="replace">
-                    <!--<button string="Parent WBS element"-->
-                        <!--name="action_openParentTreeView"-->
-                        <!--type="object"-->
-                        <!--icon="STOCK_GO_UP" attrs="{'invisible': [('account_class', '=', 'portfolio')]}"/>-->
-                    <!--<button string="Child WBS elements"-->
-                        <!--name="action_openChildTreeView"-->
-                        <!--type="object"-->
-                        <!--icon="STOCK_GO_DOWN"/>-->
-                    <!--&lt;!&ndash;OPEN FORM BUTTON&ndash;&gt;-->
-                    <!--<button string="Project Form View"-->
-                        <!--name="action_open_view_project_form"-->
-                        <!--type="object"-->
-                        <!--icon="gtk-edit"/>-->
                     <field name="complete_wbs_code" string="Code" invisible="1"/>
                     <field name="wbs_indent"/>
+                    <!--<button string="Open Form"-->
+                        <!--name="action_open_view_project_form"-->
+                        <!--type="object"-->
+                        <!--icon="../../../../../project_wbs/static/src/img/icons/edit"/>-->
                 </xpath>
                 <xpath expr='//field[@name="date"]' position="replace"/>
                 <xpath expr='//field[@name="parent_id"]' position="attributes">
@@ -234,61 +225,6 @@
                         </group>
                     </p>
                 </xpath>
-            	<notebook position="inside">
-					<page string="Project configuration">
-                        <group string="Project configuration">
-                            <!--<group>-->
-                                <!--<field name="account_class" string="Class"/>-->
-                                <!--<field name="project_analytic_account_id"-->
-                                       <!--domain="[('account_class', '=', 'project')]"/>-->
-                            <!--</group>-->
-                            <!--<group>-->
-                                <!--<field name="code" string="Code"/>-->
-                                <!--<field name="complete_wbs_code" string="WBS code" readonly="1" />-->
-                            <!--</group>-->
-                        </group>
-                        <notebook>
-                            <page string="Work Breakdown Structure">
-                                <group>
-                                    <button name="%(create_wbs_element)d"
-                                      string="Create child WBS element"
-                                      type="action"
-                                      context="{'default_parent_id': analytic_account_id,'default_partner_id': partner_id,'default_user_id': user_id, 'default_state': 'draft'}"/>
-                                </group>
-                                <tree string="Work Breakdown Structure" editable="bottom">
-                                    <field name="project_child_complete_ids" nolabel="1"/>
-                                </tree>
-                            </page>
-
-                            <page string="Other Info">
-                                <group string="Administration">
-                                    <field name="privacy_visibility" widget="radio"/>
-                                    <field name="planned_hours" widget="float_time"
-                                            groups="project.group_time_work_estimation_tasks"/>
-                                    <field name="effective_hours" widget="float_time"
-                                            groups="project.group_time_work_estimation_tasks"/>
-                                    <field name="resource_calendar_id"
-                                            groups="project.group_time_work_estimation_tasks"/>
-                                </group>
-                                <group string="Miscellaneous" name="misc">
-                                    <field name="date_start" string="Start Date"/>
-                                    <field name="date" string="End Date"/>
-                                    <field name="sequence" groups="base.group_no_one"/>
-                                    <field name="active" attrs="{'invisible':[('state','in',['open', 'pending', 'template'])]}"/>
-                                    <field name="currency_id" groups="base.group_multi_currency" required="1"/>
-                                    <field name="parent_id" string="Parent" help="Append this project to another one using analytic accounts hierarchy" domain="[('id','!=',analytic_account_id)]" context="{'current_model': 'project.project'}" />
-                                </group>
-                            </page>
-
-                            <page string="Project Stages" attrs="{'invisible': [('use_tasks', '=', False)]}" name="project_stages">
-                                <group string="Project Task Stages">
-                                    <field name="type_ids" nolabel="1"/>
-                                </group>
-                            </page>
-
-                        </notebook>
-					</page>
-            	</notebook>
             </field>
         </record>
 

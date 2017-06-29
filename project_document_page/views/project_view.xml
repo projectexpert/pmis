@@ -7,7 +7,7 @@
             <field name="model">project.project</field>
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
-                <page string="Project Stages" position="before" >
+                <page string="Team" position="before" >
                     <page string="Knowledge">
                         <field name="page_ids" nolabel="1"/>
                     </page>

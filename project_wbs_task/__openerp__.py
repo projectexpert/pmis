@@ -2,7 +2,7 @@
 
 {
     'name': 'Work Breakdown Structure - Tasks',
-    'version': '8.0.2.0.3',
+    'version': '8.0.2.0.4',
     'author':   'Eficent, '
                 'Serpent CS, '
                 'Matmoz, '
@@ -18,8 +18,8 @@
     'license': 'AGPL-3',
     'depends': ['project_wbs'],
     'data': [
-        'view/project_task_view.xml',
-        'view/project_view.xml',
+        'views/project_task_view.xml',
+        'views/project_view.xml',
     ],
     'demo': [
 

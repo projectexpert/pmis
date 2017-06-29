@@ -40,10 +40,13 @@
                             </page>
                             <!--add project broad scope-->
                             <page string="Scope">
-                                <group string="Project Scope">
-                                    <newline/>
-                                    <field name="project_child_complete_ids" nolabel="1" context="{'default_project_id': active_id}"/>
+                                <group>
+                                    <button name="%(project_wbs.create_wbs_element)d"
+                                      string="Create child WBS element"
+                                      type="action"
+                                      context="{'default_parent_id': analytic_account_id,'default_partner_id': partner_id,'default_user_id': user_id, 'default_state': 'draft'}"/>
                                 </group>
+                                <field name="project_child_complete_ids" nolabel="1"/>
                                 <group string="Project Exclusions">
                                     <group>
                                         <field name="project_outscope_ids" nolabel="1">
