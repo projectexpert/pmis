@@ -2,11 +2,11 @@
 # © 2015 MATMOZ d.o.o. - Matjaž Mozetič
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 from openerp import tools
 
 
-class WbsGtdContext(osv.Model):
+class WbsGtdContext(orm.Model):
 
     _name = "wbs.gtd.context"
     _description = "Context"
@@ -24,7 +24,7 @@ class WbsGtdContext(osv.Model):
     _order = "sequence, name"
 
 
-class WbsGtdTimebox(osv.Model):
+class WbsGtdTimebox(orm.Model):
 
     _name = "wbs.gtd.timebox"
     _order = "sequence"
@@ -38,7 +38,7 @@ class WbsGtdTimebox(osv.Model):
     }
 
 
-class WbsWorkpackage(osv.Model):
+class WbsWorkpackage(orm.Model):
 
     _inherit = "project.project"
     _columns = {
@@ -89,7 +89,7 @@ class WbsWorkpackage(osv.Model):
 # CORRECT THE ORIGINAL PROJECT_GTD (TASK LEVEL) BEHAVIOUR ON FOLDED KANBAN
 
 
-class ProjectTask(osv.Model):
+class ProjectTask(orm.Model):
     _inherit = "project.task"
 
     def _get_context(self, cr, uid, context=None):

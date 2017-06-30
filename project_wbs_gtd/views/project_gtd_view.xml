@@ -168,17 +168,17 @@
         <field name="help">Timeboxes are defined in the "Getting Things Done" methodology. A timebox defines a period of time in order to categorize your wbs elements: today, this week, this month, long term.</field>
     </record>
 
-    <record model="ir.ui.view" id="project_wbs_tree">
+    <!--<record model="ir.ui.view" id="project_wbs_tree">
         <field name="name">project.wbs.tree.timebox</field>
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.view_project" />
         <field name="arch" type="xml">
             <field name="progress_rate" position="after">
-                <!--<field string="Timeframe" name="wbstimebox_id" invisible=" not context.get('gtd', False)"/>-->
+                &lt;!&ndash;<field string="Timeframe" name="wbstimebox_id" invisible=" not context.get('gtd', False)"/>&ndash;&gt;
                 <field name="wbscontext_id" invisible="not context.get('context_show', False)" widget="selection"/>
             </field>
         </field>
-    </record>
+    </record>-->
 
     <record model="ir.ui.view" id="project_wbs">
         <field name="name">project.wbs.form.timebox</field>
