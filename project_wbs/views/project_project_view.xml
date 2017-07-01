@@ -9,43 +9,40 @@
             <field name="arch" type="xml">
                 <xpath expr="//div[contains(@class, 'oe_kanban_alias')]" position="before">
                     <a type="object" name="action_open_view_project_form">
-                    <div class="oe_wbs_subtitle oe_nav_buttons">
+                    <div class="oe_wbs_subtitle">
                         <div class="parentheading">
                             <field name="account_class"/>
-                        </div>
-                        <div class="parentheading">
-                            <field name="complete_wbs_name"/>
-                        </div>
-                        <div class="parentheading">
                             <field name="complete_wbs_code"/>
                         </div>
                     </div>
                     </a>
-                    <div class="oe_nav_buttons text-center oe_tag_up"
+                    <div class="oe_nav_buttons text-center"
                          name="wbs_navigation_up"
                          attrs="{'invisible': [('account_class', '=', 'portfolio')]}">
                         <a name="action_openParentKanbanView"
-                           type="object"
-                        >
-                            <!--<br></br>-->
-                            <div class="oe_tag_up text-center oe_wbs_navigation">
-                                <field name="parent_id"/>
+                           type="object">
+                            <!--GO UP-->
+                            <div class="oe_wbs_navigation">
+                                <h6 class="oe_tag">
+                                    <field name="parent_id"/>
+                                </h6>
                                 <br></br>
-                                <div class="fa fa-level-up"/>
+                                <div class="fa fa-level-up text-center parentheading oe_kanban_action_a"/>
                             </div>
                         </a>
                     </div>
-                    <!--<div class="oe_nav_buttons text-center" name="wbs_navigation_up">-->
-                        <!--<a name="action_openParentKanbanView"-->
-                           <!--type="object"-->
-                           <!--attrs="{'invisible': [('account_class', '=', 'portfolio')]}"-->
-                           <!--&gt;-->
-                            <!--<div class="oe_tag_up text-center oe_wbs_navigation">-->
-                                <!--<field name="parent_id"/>-->
-                                <!--<div class="fa fa-level-up"></div>-->
-                            <!--</div>-->
-                        <!--</a>-->
-                    <!--</div>-->
+                    <div class="oe_nav_buttons text-center"
+                         name="current_project">
+                        <a name="action_open_view_project_form"
+                           type="object">
+                            <!--GO UP-->
+                            <div class="oe_wbs_navigation">
+                                <h6 class="oe_green">
+                                    <field name="name"/>
+                                </h6>
+                            </div>
+                        </a>
+                    </div>
                     <div class="oe_nav_buttons text-center" name="wbs_navigation_down">
                         <a name="action_openChildKanbanView"
                            type="object">
@@ -72,8 +69,8 @@
             <field name="arch" type="xml">
                 <xpath expr='//tree' position="attributes">
                     <attribute name="editable">top</attribute>
-                    <attribute name="fonts">bold:account_class in 'portfolio';bold:account_class in 'program';bold:account_class in 'project';italic:state in 'cancelled'</attribute>
-                    <attribute name="colors">#555487:account_class == 'program';#31305C:account_class == 'portfolio';</attribute>
+                    <attribute name="fonts">bold:account_class in 'portfolio';bold:account_class in 'project';italic:account_class in 'work_package';underline:state in 'pending'</attribute>
+                    <attribute name="colors">#7C7BAD:account_class == 'program';#7C7BAD:account_class == 'portfolio';gray:state in 'cancelled'</attribute>
                     <attribute name="default_order">complete_wbs_code</attribute>
                     <!--<attribute name="default_sort">complete_wbs_code asc</attribute>-->
                 </xpath>

@@ -16,7 +16,7 @@
     /*height: 24px;*/
     padding: 3px 0;
     /*margin: 2px;*/
-    text-align: center;
+    /*text-align: center;*/
     /*background-color: rgba(0,0,0,0.03);*/
     /*border: 1px solid rgba(0,0,0,0.20);*/
     /*border-radius: 3px;*/
@@ -27,7 +27,7 @@
     /*height: 24px;*/
     padding: 3px 0;
     /*margin: 2px;*/
-    text-align: center;
+    /*text-align: center;*/
     background-color: rgba(155,89,136,0.20);
     /*border: 1px solid rgba(0,0,0,0.20);*/
     /*border-radius: 3px;*/
@@ -39,7 +39,7 @@
     /*padding: 3px 0;*/
     /*margin: 2px;*/
     text-align: center;
-    background-color: rgba(155,89,136,0.05);
+    /*background-color: rgba(155,89,136,0.05);*/
 }
 
 .openerp .oe_kanban_view .oe_wbs_navigation:hover {
@@ -52,8 +52,10 @@
 }
 
 .oe_nav_buttons{
-    border-bottom: 1px solid darkgray;
+    border-bottom: 0px solid darkgray;
     padding-bottom: 2px;
+    padding-top: 2px;
+    width: 290px;
 }
 
 .openerp .oe_kanban_project_list{
@@ -78,6 +80,20 @@
   color: #ffffff;
 }
 
+.openerp .oe_green{
+  border: 1px solid #7C7BAD;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 4px;
+  margin: 0 2px 2px 0;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  /*background: #AC71A2;*/
+  color: #7C7BAD;
+  display: inline-block;
+  word-break: break-word;
+}
+
 .oe_tag_up {
   font-size: 10px;
   /*padding: 2px 4px;*/
@@ -94,7 +110,7 @@
     /*margin: 2px;*/
     text-align: center;
     /*border: 1px solid #7c7bad;*/
-    background-color: rgba(128, 119, 155, 0.10);
+    /*background-color: rgba(128, 119, 155, 0.10);*/
     /*padding-bottom: 10px;*/
 }
 
@@ -123,4 +139,8 @@
 
 .openerp .oe_list_group_name {
     position: absolute;
+}
+
+.oe_kanban_content div:first-child {
+    margin-right: 0 !important;
 }
