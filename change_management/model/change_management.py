@@ -148,7 +148,7 @@ and obtain sign-off from all key stakeholders.
     )
     author_id = fields.Many2one(
         'res.users', 'Requestor', required=True,
-        default=lambda self: self.env.user.id,
+        default=lambda self: self.env.user,
         help="The author of the initial request."
     )
     stakeholder_id = fields.Many2one(
@@ -234,7 +234,7 @@ and obtain sign-off from all key stakeholders.
     company_id = fields.Many2one(
         'res.company', string='Company',
         required=True, readonly=True, states={'draft': [('readonly', False)]},
-        default=lambda self: self.env.user.company_id.id,
+        default=lambda self: self.env.user.company_id,
     )
 
     # ##### DEFINITIONS #####  #
