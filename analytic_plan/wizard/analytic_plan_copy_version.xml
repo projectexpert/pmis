@@ -12,8 +12,13 @@
                         <field name="include_child"/>
                     </group>
                     <footer>
-                        <button string="Create" name="analytic_plan_copy_version_open_window" type="object" class="oe_highlight"/>
-                        <button string="Cancel" class="oe_link" special="cancel"/>
+                        <button string="Create"
+                                name="analytic_plan_copy_version_open_window"
+                                type="object"
+                                class="oe_highlight"/>
+                        <button string="Cancel"
+                                class="oe_link"
+                                special="cancel"/>
                     </footer>
                 </form>
             </field>
@@ -29,13 +34,13 @@
         </record>
 
         <act_window name="Copy Analytic Plan Lines"
-            res_model="analytic.plan.copy.version"
-            src_model="account.analytic.account"
-            view_mode="form"
-            target="new"
-            multi="True"
-            key2="client_action_multi"
-            id="action_analytic_plan_copy_version_form"/>
+                    res_model="analytic.plan.copy.version"
+                    src_model="account.analytic.account"
+                    view_mode="form"
+                    target="new"
+                    multi="True"
+                    key2="client_action_multi"
+                    id="action_analytic_plan_copy_version_form"/>
 
     </data>
 </openerp>

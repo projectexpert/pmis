@@ -14,7 +14,7 @@ class BillingPlanLine(models.Model):
     _inherits = {'account.analytic.line.plan': "analytic_line_plan_id"}
 
     @api.multi
-    def _has_active_order(self):
+    def _compute_active_order(self):
         for rec in self:
             for order_line in rec.order_line_ids:
                 if order_line.state and order_line.state != 'cancel':
@@ -23,7 +23,7 @@ class BillingPlanLine(models.Model):
     price_unit = fields.Float(
         string='Sale Price',
         groups='project.group_project_manager',
-        digits_compute=dp.get_precision('Sale Price')
+        digits=dp.get_precision('Sale Price')
     )
     customer_id = fields.Many2one(
         comodel_name='res.partner',
@@ -44,7 +44,7 @@ class BillingPlanLine(models.Model):
         column2='analytic_billing_plan_line_id'
     )
     has_active_order = fields.Boolean(
-        compute='_has_active_order',
+        compute='_compute_active_order',
         string='Billing request',
         help='Indicates that this billing plan line '
              'contains at least one non-cancelled billing request.'

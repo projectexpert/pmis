@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-	
-                 	
-#---------------------------------------------------------------------------------------------------------
-#   Add Plan analytic account lines
-#---------------------------------------------------------------------------------------------------------
+<!--Add Plan analytic account lines-->
        <record id="view_account_analytic_line_plan_form" model="ir.ui.view">
             <field name="name">account.analytic.line.plan.form</field>
             <field name="model">account.analytic.line.plan</field>
@@ -23,10 +19,10 @@
                         <group>
                             <field name="date"/>
                             <field name="ref"/>
-                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="company_id"
+                                   groups="base.group_multi_company"/>
                         </group>
                         <group string="Amount">
-                            <!--<field name="amount_currency"/>-->
                             <field name="currency_id"/>
                             <field name="amount"/>
                         </group>
@@ -34,8 +30,10 @@
                             <field name="product_id"/>
                             <label for="unit_amount"/>
                             <div>
-                                <field name="unit_amount" class="oe_inline"/>
-                                <field name="product_uom_id" class="oe_inline"/>
+                                <field name="unit_amount"
+                                       class="oe_inline"/>
+                                <field name="product_uom_id"
+                                       class="oe_inline"/>
                             </div>
                         </group>
                         <group string="General Accounting">
@@ -62,9 +60,9 @@
                     <field name="journal_id" invisible="False"/>     
                     <field name="version_id"/>               
                     <field name="product_id"/>
-                    <field name="unit_amount" sum="Total Quantity" invisible="False"/>
+                    <field name="unit_amount"
+                           sum="Total Quantity" invisible="False"/>
                     <field name="product_uom_id" invisible="False"/>
-                    <!--<field name="amount_currency"/>-->
                     <field name="currency_id"/>
                     <field name="amount" sum="Total"/>
                     <field name="company_id" invisible="True"/>
@@ -78,25 +76,44 @@
             <field name="type">search</field>
             <field name="arch" type="xml">
 				<search string="Search Planning Analytic Lines">
-                    <field name="name" string="Analytic Line"/>
+                    <field name="name"
+                           string="Analytic Line"/>
                     <field name="date"/>
-                    <filter name="sales" string="Sales" domain="[('journal_id.type','=','sale')]" help="Analytic Journal Items related to a sale journal."/>
-                    <filter name="purchases" string="Purchases" domain="[('journal_id.type','=','purchase')]" help="Analytic Journal Items related to a purchase journal."/>
-                    <filter name="others" string="Others" domain="[('journal_id.type','in',('cash','general','situation'))]"/>
+                    <filter name="sales"
+                            string="Sales"
+                            domain="[('journal_id.type','=','sale')]"
+                            help="Analytic Journal Items related to a sale journal."/>
+                    <filter name="purchases"
+                            string="Purchases"
+                            domain="[('journal_id.type','=','purchase')]"
+                            help="Analytic Journal Items related to a purchase journal."/>
+                    <filter name="others"
+                            string="Others"
+                            domain="[('journal_id.type','in',('cash','general','situation'))]"/>
                     <separator/>
-                    <filter string="My Entries" domain="[('user_id','=',uid)]"/>
+                    <filter string="My Entries"
+                            domain="[('user_id','=',uid)]"/>
                     <field name="account_id"/>
                     <field name="user_id"/>
                     <group string="Group By..." expand="0">
-                        <filter string="Analytic Account" context="{'group_by':'account_id'}"/>
-                        <filter string="Fin. Account" context="{'group_by':'general_account_id'}"/>
-                        <filter string="Journal" context="{'group_by':'journal_id'}" name="group_journal"/>
-                        <filter string="Version" context="{'group_by':'version_id'}" name="group_version"/>
+                        <filter string="Analytic Account"
+                                context="{'group_by':'account_id'}"/>
+                        <filter string="Fin. Account"
+                                context="{'group_by':'general_account_id'}"/>
+                        <filter string="Journal"
+                                context="{'group_by':'journal_id'}"
+                                name="group_journal"/>
+                        <filter string="Version"
+                                context="{'group_by':'version_id'}"
+                                name="group_version"/>
                         <separator/>
-                        <filter string="Product" context="{'group_by':'product_id'}"/>
-                        <filter string="User" context="{'group_by':'user_id'}"/>
+                        <filter string="Product"
+                                context="{'group_by':'product_id'}"/>
+                        <filter string="User"
+                                context="{'group_by':'user_id'}"/>
                         <separator/>
-                        <filter string="Date" context="{'group_by':'date'}" name="group_date"/>
+                        <filter string="Date"
+                                context="{'group_by':'date'}" name="group_date"/>
                     </group>
                 </search>
             </field>
@@ -123,25 +140,21 @@
             <field name="context">{"search_default_user_id":uid}</field>
             <field name="view_id" ref="view_account_analytic_line_plan_tree"/>
         </record>
-        
 
-#---------------------------------------------------------------------------------------------------------
-#   Open journal entries
-#---------------------------------------------------------------------------------------------------------
+<!--Open journal entries-->
+        <record id="action_account_analytic_plan_journal_open_form" model="ir.actions.act_window">
+            <field name="name">Analytic Journal Plan Items</field>
+            <field name="res_model">account.analytic.line.plan</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="search_view_id" ref="view_account_analytic_line_plan_filter"/>
+        </record>
 
-        <!--<record id="action_account_analytic_plan_journal_open_form" model="ir.actions.act_window">-->
-            <!--<field name="name">Analytic Journal Plan Items</field>-->
-            <!--<field name="res_model">account.analytic.line.plan</field>-->
-            <!--<field name="view_type">form</field>-->
-            <!--<field name="view_mode">tree,form,graph</field>-->
-            <!--<field name="search_view_id" ref="view_account_analytic_line_plan_filter" />-->
-        <!--</record>-->
-        <!---->
-        <!--<menuitem groups="analytic.group_analytic_accounting"-->
-            <!--action="action_account_analytic_plan_journal_open_form"-->
-            <!--id="account_analytic_plan_journal_entries"-->
-            <!--parent="account.menu_finance_entries" -->
-            <!--sequence="7"/>-->
+        <menuitem groups="analytic.group_analytic_accounting"
+                  action="action_account_analytic_plan_journal_open_form"
+                  id="account_analytic_plan_journal_entries"
+                  parent="account.menu_finance_entries"
+                  sequence="7"/>
 
     </data>
 </openerp>

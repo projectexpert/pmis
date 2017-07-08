@@ -2,17 +2,16 @@
 # © 2015 Eficent Business and IT Consulting Services S.L.
 # (Jordi Ballester Alomar)
 #
-# © 2016 Matmoz d.o.o.
+# © 2016 Matmoz d.o.o. & 2017 Luxim d.o.o.
 # (Matjaž Mozetič)
 #
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
     'name': 'Analytic Plan',
-    'version': '8.0.2.0.2',
+    'version': '8.0.2.1.0',
     'author':   'Eficent, '
-                'Matmoz, '
-                'Luxim, '
+                'Matmoz & Luxim, '
                 'Project Expert Team',
     'contributors': [
         'Jordi Ballester <jordi.ballester@eficent.com>',

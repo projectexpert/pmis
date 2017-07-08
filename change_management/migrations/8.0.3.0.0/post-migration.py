@@ -4,6 +4,7 @@
 
 from openerp import fields
 
+
 def migrate(cr, version):
     cr.execute(
         'SELECT id, stakeholder_id_premigration FROM change_management_change'

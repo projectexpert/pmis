@@ -26,11 +26,11 @@ class ProjectProject (models.Model):
     )
 
     change_count = fields.Integer(
-        compute='_change_count', type='integer'
+        compute='_compute_change_count', type='integer'
     )
 
     @api.depends('change_ids')
-    def _change_count(self):
+    def _compute_change_count(self):
         for record in self:
             record.change_count = len(record.change_ids)
 

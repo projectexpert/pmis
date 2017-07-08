@@ -2,17 +2,14 @@
 # © 2015 Eficent Business and IT Consulting Services S.L.
 # (Jordi Ballester Alomar)
 #
-# © 2015 Serpent Consulting Services Pvt. Ltd.
-# (Sudhir Arya)
-#
-# © 2016 Matmoz d.o.o.
+# © 2016 Matmoz d.o.o. & 2017 Luxim d.o.o.
 # (Matjaž Mozetič)
 #
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from openerp import api, fields, models
 from openerp.tools.translate import _
-from openerp.exceptions import Warning as UserError
+from openerp import osv
 
 
 class AnalyticPlanCopyVersion(models.TransientModel):
@@ -37,72 +34,72 @@ class AnalyticPlanCopyVersion(models.TransientModel):
         default=True
     )
 
-    @api.multi
-    def analytic_plan_copy_version_open_window(self):
-        new_line_plan_ids = []
-        analytic_obj = self.env['account.analytic.account']
-        line_plan_obj = self.env['account.analytic.line.plan']
+    @api.v7
+    def analytic_plan_copy_version_open_window(
+            self, cr, uid, ids, context=None
+    ):
 
-        data = self[0]
-        record_ids = self._context and self._context.get('active_ids', False)
-        active_model = self._context and self._context.get(
-            'active_model', False
-        )
-        assert active_model == (
-            'account.analytic.account', 'Bad context propagation'
-        )
-        record = analytic_obj.browse(record_ids)
-        include_child = (
-            data.include_child if data and data.include_child else False
-        )
-        source_version = (
-            data.source_version_id if data and data.source_version_id else False
-        )
-        dest_version = (
-            data.dest_version_id if data and data.dest_version_id else False
+        if context is None:
+            context = {}
+        new_line_plan_ids = []
+        analytic_obj = self.pool.get('account.analytic.account')
+        line_plan_obj = self.pool.get('account.analytic.line.plan')
+        plan_version_obj = self.pool.get('account.analytic.plan.version')
+
+        data = self.read(cr, uid, ids, [], context=context)[0]
+        record_ids = context and context.get('active_ids', False)
+        include_child = data.get('include_child', False)
+        source_version_id = data.get('source_version_id', False)
+        dest_version_id = data.get('dest_version_id', False)
+        dest_version = plan_version_obj.browse(
+            cr, uid, dest_version_id[0], context=context
         )
         if dest_version.default_plan:
-            raise UserError(
-                _(
-                    'It is prohibited to copy '
-                    'to the default planning version.'
-                )
+            raise osv.except_osv(
+                _('Error !'),
+                _('It is prohibited to copy '
+                  'to the default planning version.')
             )
-        if source_version == dest_version:
-            raise UserError(
-                _(
-                    'Choose different source and destination '
-                    'planning versions.'
-                )
+
+        if source_version_id == dest_version_id:
+            raise osv.except_osv(
+                _('Error !'),
+                _('Choose different source and destination '
+                  'planning versions.')
             )
         if include_child:
-            account_ids = record.get_child_accounts().keys()
+            account_ids = analytic_obj.get_child_accounts(
+                cr, uid, record_ids, context=context).keys()
         else:
             account_ids = record_ids
 
-        line_plans = line_plan_obj.search(
+        line_plan_ids = line_plan_obj.search(
+            cr, uid,
             [
                 ('account_id', 'in', account_ids),
-                ('version_id', '=', source_version.id)
-            ]
+                ('version_id', '=', source_version_id[0])
+            ],
+            context=context
         )
-        new_line_plan_rec = line_plan_obj
-        for line_plan in line_plans:
-            new_line_plan = line_plan.copy()
-            new_line_plan_rec += new_line_plan
-            new_line_plan_ids.append(new_line_plan.id)
-        if new_line_plan_rec:
-            new_line_plan_rec.write({'version_id': dest_version[0]})
+
+        for line_plan_id in line_plan_ids:
+            new_line_plan_id = line_plan_obj.copy(
+                cr, uid, line_plan_id, context=context)
+            new_line_plan_ids.append(new_line_plan_id)
+
+        line_plan_obj.write(
+            cr, uid, new_line_plan_ids,
+            {'version_id': dest_version_id[0]}, context=context
+        )
 
         return {
-                'domain': "[('id','in', [" + ','.join(
-                    map(str, new_line_plan_ids)
-                ) + "])]",
-                'name': _('Analytic Planning Lines'),
-                'view_type': 'form',
-                'view_mode': 'tree,form',
-                'res_model': 'account.analytic.line.plan',
-                'view_id': False,
-                'context': False,
-                'type': 'ir.actions.act_window'
+            'domain': "[('id','in', ["+','.join(
+                map(str, new_line_plan_ids))+"])]",
+            'name': _('Analytic Planning Lines'),
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            'res_model': 'account.analytic.line.plan',
+            'view_id': False,
+            'context': False,
+            'type': 'ir.actions.act_window'
         }

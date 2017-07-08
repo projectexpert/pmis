@@ -4,6 +4,7 @@
 
 _name__ = u"Proposer becomes partner from stakeholder"
 
+
 def migrate(cr, version):
     cr.execute(
         'ALTER TABLE change_management_change '

@@ -156,7 +156,7 @@ and obtain sign-off from all key stakeholders.
         help="The stakeholder that proposes the  processing of the request."
     )
     color = fields.Integer(
-        'Color'
+        'Color', default=0
     )
 
     date_confirmed = fields.Date(
@@ -212,7 +212,7 @@ and obtain sign-off from all key stakeholders.
         'project.task', 'change_id', 'Response Ids'
     )
     change_response_count = fields.Integer(
-        compute='_change_response_count', type='integer'
+        compute='_compute_response_count', type='integer'
     )
     state = fields.Selection(
         selection="_get_states",
@@ -269,7 +269,7 @@ and obtain sign-off from all key stakeholders.
         return states
 
     @api.depends('change_response_ids')
-    def _change_response_count(self):
+    def _compute_response_count(self):
         for record in self:
             record.change_response_count = len(record.change_response_ids)
 

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-
-#---------------------------------------------------------------------------------------------------------
-#   Analytic Journal
-#---------------------------------------------------------------------------------------------------------
+<!--Analytic Journal-->
         <record id="view_account_analytic_plan_version_tree" model="ir.ui.view">
             <field name="name">account.analytic.plan.version.tree</field>
             <field name="model">account.analytic.plan.version</field>
@@ -28,8 +25,10 @@
                       <field name="code"/>
                       <field name="name"/>                                      
                   </group>
-                  <group string="Group By..." expand="0">
-                   	<filter string="Active" context="{'group_by':'active'}"/>                   	
+                  <group string="Group By..."
+                         expand="0">
+                   	<filter string="Active"
+                            context="{'group_by':'active'}"/>
                   </group>
                 </search>
             </field>
@@ -48,7 +47,9 @@
                     <field name="active"/>  
  					<field name="default_committed"/>
 					<field name="default_plan"/> 					                                     
-                    <field name="company_id" groups="base.group_multi_company" widget="selection"/>                   
+                    <field name="company_id"
+                           groups="base.group_multi_company"
+                           widget="selection"/>
                     <notebook colspan="2">
 	                    <page string="Notes" name="notes">
 	                    	<field name="notes"/>
