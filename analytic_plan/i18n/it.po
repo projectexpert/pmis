@@ -6,16 +6,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-16 12:16+0200\n"
-"PO-Revision-Date: 2016-10-16 12:16+0200\n"
-"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"POT-Creation-Date: 2017-07-08 09:50+0200\n"
+"PO-Revision-Date: 2017-07-08 09:54+0200\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 2.0.2\n"
+
+#. module: analytic_plan
+#: model:ir.actions.act_window,help:analytic_plan.action_account_analytic_plan_journal_tree
+msgid ""
+"\n"
+"                To print a planning analytics (or costs) journal for a "
+"given\n"
+"                period. The report give code, move name, account number,\n"
+"                general amount and analytic amount.\n"
+"            "
+msgstr ""
 
 #. module: analytic_plan
 #: model:ir.actions.act_window,help:analytic_plan.act_analytic_plan_cost_revenue
@@ -70,11 +81,6 @@ msgid "Amount"
 msgstr "Ammontare"
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,amount_currency:0
-msgid "Amount Currency"
-msgstr "Amm. in valuta"
-
-#. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
 #: field:account.analytic.line.plan,account_id:0
 #: model:ir.model,name:analytic_plan.model_account_analytic_account
@@ -85,11 +91,6 @@ msgstr "Conto analitico"
 #: model:ir.ui.menu,name:analytic_plan.analytic_plan_analytic_account_menu
 msgid "Analytic Accounting"
 msgstr "Contabilità analitica"
-
-#. module: analytic_plan
-#: model:ir.ui.menu,name:analytic_plan.account_analytic_def_account
-msgid "Analytic Accounts"
-msgstr "Conti analitici"
 
 #. module: analytic_plan
 #: field:account.analytic.account,plan_line_ids:0
@@ -126,7 +127,6 @@ msgstr "Giornale pianificazione"
 #. module: analytic_plan
 #: model:ir.actions.act_window,name:analytic_plan.action_account_analytic_plan_journal_open_form
 #: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_journal_entries
-#: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_journal_entries_2
 msgid "Analytic Journal Plan Items"
 msgstr "Articoli del giornale di pianificazione"
 
@@ -146,10 +146,10 @@ msgid "Analytic Plan copy versions"
 msgstr "Coppia versioni piano analitico"
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:101
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:98
 #, python-format
 msgid "Analytic Planning Lines"
-msgstr ""
+msgstr "Righe piano analitico"
 
 #. module: analytic_plan
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_form
@@ -185,10 +185,10 @@ msgid "Cash"
 msgstr "Contanti"
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:73
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:67
 #, python-format
 msgid "Choose different source and destination planning versions."
-msgstr ""
+msgstr "Scegli versioni di piano sorgente e destinazione diverse"
 
 #. module: analytic_plan
 #: field:account.analytic.line.plan,code:0
@@ -273,6 +273,19 @@ msgid "Display Name"
 msgstr "Nome visualizzato"
 
 #. module: analytic_plan
+#: code:addons/analytic_plan/models/plan_analytic_lines.py:193
+#, python-format
+msgid "Entries: "
+msgstr "Inserimenti:"
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:59
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:66
+#, python-format
+msgid "Error !"
+msgstr "Errore!"
+
+#. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Fin. Account"
 msgstr "Conto finanziario"
@@ -342,10 +355,10 @@ msgid "Include child accounts"
 msgstr "Include child accounts"
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:66
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:60
 #, python-format
 msgid "It is prohibited to copy to the default planning version."
-msgstr ""
+msgstr "È proibito fare copie nella versione di piano predefinita."
 
 #. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
@@ -395,13 +408,13 @@ msgid "Notes"
 msgstr "Note"
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/account_analytic_plan_version.py:62
+#: code:addons/analytic_plan/models/analytic_plan_version.py:62
 #, python-format
 msgid "Only one default commitments version can exist."
-msgstr ""
+msgstr "Può esistere una sola versione d'impegno"
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/account_analytic_plan_version.py:77
+#: code:addons/analytic_plan/models/analytic_plan_version.py:77
 #, python-format
 msgid "Only one default plan version can exist."
 msgstr "Può esistere solo una versione predefinita del piano."
@@ -530,6 +543,11 @@ msgid "Quantity"
 msgstr "Quantità"
 
 #. module: analytic_plan
+#: field:account.analytic.account,quantity_plan:0
+msgid "Quantity Debit"
+msgstr "Quantità debito"
+
+#. module: analytic_plan
 #: field:account.analytic.line.plan,ref:0
 msgid "Ref."
 msgstr "Rif."
@@ -560,32 +578,16 @@ msgid "Source Planning Version"
 msgstr "Source Planning Version"
 
 #. module: analytic_plan
-#: help:account.analytic.line.plan,amount_currency:0
-msgid "The amount expressed in an optional other currency."
-msgstr "L'ammontare espresso in una valuta opzionale."
-
-#. module: analytic_plan
-#: code:addons/analytic_plan/models/account_analytic_account.py:223
+#: code:addons/analytic_plan/models/plan_analytic_lines.py:123
 #, python-format
 msgid "There is no expense account defined for this product: \"%s\" (id:%d)"
-msgstr ""
+msgstr "Il prodotto: \"%s\" (id:%d) non ha un conto di costi definito."
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/account_analytic_account.py:234
+#: code:addons/analytic_plan/models/plan_analytic_lines.py:134
 #, python-format
 msgid "There is no income account defined for this product: \"%s\" (id:%d)"
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.actions.act_window,help:analytic_plan.action_account_analytic_plan_journal_tree
-msgid ""
-"To print a planning analytics (or costs) journal for a given period. The "
-"report give code, move name, account number, general amount and analytic "
-"amount."
-msgstr ""
-"Per stampare un giornale analitico (o di costi) per un certo periodo. Il "
-"rapporto contiene codice, nome del movimento, numero del conto, ammontare "
-"generale ed ammontare analitico."
+msgstr "Il prodotto: \"%s\" (id:%d) non ha un conto dei ricavi definito."
 
 #. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_tree
@@ -624,6 +626,24 @@ msgstr "Versione"
 msgid "and revenues"
 msgstr "e ricavi"
 
+#~ msgid "Amount Currency"
+#~ msgstr "Amm. in valuta"
+
+#~ msgid "Analytic Accounts"
+#~ msgstr "Conti analitici"
+
+#~ msgid "The amount expressed in an optional other currency."
+#~ msgstr "L'ammontare espresso in una valuta opzionale."
+
+#~ msgid ""
+#~ "To print a planning analytics (or costs) journal for a given period. The "
+#~ "report give code, move name, account number, general amount and analytic "
+#~ "amount."
+#~ msgstr ""
+#~ "Per stampare un giornale analitico (o di costi) per un certo periodo. Il "
+#~ "rapporto contiene codice, nome del movimento, numero del conto, ammontare "
+#~ "generale ed ammontare analitico."
+
 #~ msgid ""
 #~ "\n"
 #~ "            Calculated by multiplying the quantity\n"
@@ -653,17 +673,8 @@ msgstr "e ricavi"
 #~ msgid "Active plan version"
 #~ msgstr "Versione attiva del piano"
 
-#~ msgid "Entries: "
-#~ msgstr "Inserimenti:"
-
-#~ msgid "Error !"
-#~ msgstr "Errore!"
-
 #~ msgid "Error!"
 #~ msgstr "Errore!"
 
 #~ msgid "Line Total"
 #~ msgstr "Totale"
-
-#~ msgid "Quantity Debit"
-#~ msgstr "Quantità debito"
