@@ -123,14 +123,14 @@
                    <filter string="Active Changes"
                            domain="[('state','in',('active', 'accepted', 'in_progress'))]"
                            help="Active changes"
-                           name="active" icon="gtk-execute"/>
+                           name="active"/>
                    <filter string="Changes without actions"
                            domain="[('change_response_ids','=',False)]"
                            help="Changes without actions"
-                           name="no_actions" icon="terp-check"/>
+                           name="no_actions"/>
                    <field name="change_owner_id" select="1" string="Change Owner">
                        <filter domain="[('change_owner_id','=',False)]"
-                               help="Changes without ownership" icon="terp-personal-"/>
+                               help="Changes without ownership"/>
                    </field>
                    <separator orientation="vertical"/>
 
@@ -138,7 +138,7 @@
                    <field name="project_id" select="1"
                           domain="['|',('user_id','=',uid),('members','in',uid)]">
                        <filter domain="['|',('project_id.user_id','=',uid),('project_id.members','in',uid)]"
-                               help="My Projects" icon="terp-personal"/>
+                               help="My Projects"/>
                    </field>
                    <field name="change_category_id" select="1"/>
                    <separator orientation="vertical"/>
@@ -151,39 +151,35 @@
                    <group expand="0" string="Group By..." colspan="4" col="20">
                        <filter string="Project"
                                name="group_project_id"
-                               icon="terp-folder-violet"
                                domain="[]"
                                context="{'group_by':'project_id'}"/>
                        <separator orientation="vertical"/>
 
                        <filter string="Change Owner"
                                name="group_change_owner_id"
-                               icon="terp-stage"
                                domain="[]"
                                context="{'group_by':'change_owner_id'}"/>
                        <filter string="Category"
                                name="group_change_category_id"
-                               icon="terp-stage" domain="[]"
+                               domain="[]"
                                context="{'group_by':'change_category_id'}"/>
                        <filter string="State"
                                name="group_state"
-                               icon="terp-stock_effects-object-colorize"
                                domain="[]"
                                context="{'group_by':'state'}"/>
                        <filter string="Proximity"
                                name="group_proximity_id"
-                               icon="terp-stock_effects-object-colorize"
                                domain="[]"
                                context="{'group_by':'proximity_id'}"/>
                        <separator orientation="vertical"/>
 
-                       <filter string="Reg. Date" icon="terp-go-month" domain="[]"
+                       <filter string="Reg. Date" domain="[]"
                                context="{'group_by':'create_date'}"/>
-                       <filter string="Mod. Date" icon="terp-go-month" domain="[]"
+                       <filter string="Mod. Date" domain="[]"
                                context="{'group_by':'date_modified'}"/>
-                       <filter string="Conf. Date" icon="terp-go-month" domain="[]"
+                       <filter string="Conf. Date" domain="[]"
                                context="{'group_by':'date_confirmed'}"/>
-                       <filter string="Appr. Date" icon="terp-go-month" domain="[]"
+                       <filter string="Appr. Date" domain="[]"
                                context="{'group_by':'date_approved'}"/>
                    </group>
                </search>
@@ -234,7 +230,11 @@
 							  </span>
 							</div>
 							<div class="oe_kanban_project_avatars">
-							  <img t-att-src="kanban_image('res.users', 'image_small', record.change_owner_id.raw_value)" t-att-title="record.change_owner_id.value" width="24" height="24" class="oe_kanban_avatar" t-if="record.change_owner_id.value"/>
+							  <img t-att-src="kanban_image('res.users', 'image_small', record.change_owner_id.raw_value)"
+                                   t-att-title="record.change_owner_id.value"
+                                   width="24" height="24"
+                                   class="oe_kanban_avatar"
+                                   t-if="record.change_owner_id.value"/>
 							</div>
 						  </div>
 						</div>
@@ -296,11 +296,11 @@
                 <xpath expr="//div[@name='buttons']"
                        position="inside">
                     <button help="Change Management"
-                                class="oe_inline oe_stat_button"
-                                name="%(change_management.action_show_changes)d"
-                                type="action"
-                                icon="fa-code-fork"
-                                context="{'default_project_id': active_id,'search_default_project_id': active_id}">
+                            class="oe_inline oe_stat_button"
+                            name="%(change_management.action_show_changes)d"
+                            type="action"
+                            icon="fa-code-fork"
+                            context="{'default_project_id': active_id,'search_default_project_id': active_id}">
                         <field name="change_count"
                                string="Changes"
                                widget="statinfo"/>

@@ -22,7 +22,7 @@
 
 {
     'name': 'Project Time Management - Activity Sequencing',
-    'version': '8.0.1.1.0',
+    'version': '8.0.1.1.1',
     'author':   'Eficent, '
                 'Matmoz d.o.o., '
                 'Project Expert Team',

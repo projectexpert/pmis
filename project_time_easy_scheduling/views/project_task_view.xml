@@ -26,7 +26,7 @@
                         <filter string="Active Tasks"
                                 domain="[('progress','!=','100')]"
                                 help="Active tasks"
-                                name="active_tasks" icon="gtk-execute"/>
+                                name="active_tasks"/>
                     </group>
                 </search>
             </field>
@@ -44,16 +44,17 @@
                     <button string="Project Form View"
                         name="action_open_task_form"
                         type="object"
-                        icon="gtk-edit"/>
+                        icon="../../../../../project_time_easy_scheduling/static/src/img/icons/edit"/>
 					<button groups="base.group_erp_manager"
-						name="%(project_time_sequence.action_project_task_link_predecessors_str)d"
-						string="Link"
-						type="action" icon="gtk-sort-descending"
-						help="For linking to a predecessor task"/>
+                        name="%(project_time_sequence.action_project_task_link_predecessors_str)d"
+                        string="Link"
+                        type="action"
+                        icon="../../../../../project_time_easy_scheduling/static/src/img/icons/view-sort-descending"
+                        help="For linking to a predecessor task"/>
 					<button groups="base.group_erp_manager"
 						name="%(project_time_schedule.action_project_task_calculate_network)d"
 						string="Schedule network"
-						type="action" icon="gtk-execute"
+						type="action" icon="../../../../../project_time_easy_scheduling/static/src/img/icons/exec"
 						help="Schedule network"/>
                     <field name="name"/>
                     <field name="project_id"/>
@@ -106,7 +107,7 @@
                         <filter string="Active Tasks"
                                 domain="[('progress','!=','100')]"
                                 help="Active tasks"
-                                name="active_tasks" icon="gtk-execute"/>
+                                name="active_tasks"/>
                     </group>
                 </search>            			          			         				            		
             </field>
@@ -130,7 +131,7 @@
                             name="%(project_time_sequence.action_project_task_link_predecessors_str)d"
                             string="Link"
                             type="action"
-                            icon="gtk-sort-descending"
+                            icon="../../../../../project_time_easy_scheduling/static/src/img/icons/view-sort-descending"
                             help="For linking to a predecessor task"/>
                     <field name="milestone"/>
                 </tree>            	        	            	            	            	                    		

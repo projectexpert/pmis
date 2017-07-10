@@ -61,7 +61,10 @@
 	                                <field name="date_late_finish"/>
 									<field name="project_poc"/>
 									<field name="invoice_percentage"/> 	                                
-	                                <button  name="%(project.action_project_task_delegate)d" string="Delegate" type="action" icon="gtk-sort-descending" help="For changing to delegate state"/>                                
+	                                <button  name="%(project.action_project_task_delegate)d"
+                                             string="Delegate" type="action"
+                                             icon="../../../../../project_time_milestone/static/src/img/icons/view-sort-descending"
+                                             help="For changing to delegate state"/>
 	                            </tree>
 	                         </field>
 	                 </page>       

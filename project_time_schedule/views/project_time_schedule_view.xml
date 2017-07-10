@@ -75,8 +75,9 @@
            						<field name="create_date" readonly="1" />
 							</group>		 	   								            						
 							                          
-                            <button name="calculate_network" icon="gtk-execute"
-                            	string="Calculate Network" type="object"/>
+                            <button name="calculate_network"
+                                    icon="../../../../../project_time_schedule/static/src/img/icons/exec"
+                                    string="Calculate Network" type="object"/>
 						</group>
                         </page>
 					</notebook>

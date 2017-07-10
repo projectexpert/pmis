@@ -18,7 +18,7 @@
             		<field name="predecessor_ids_str"/>    
             		<button name="%(action_project_task_link_predecessors)d"
                             string="Link" type="action"
-                            icon="gtk-sort-descending"
+                            icon="../../../../../project_time_sequence/static/src/img/icons/view-sort-descending"
                             help="For linking to a predecessor task"/>
             	</field>            	            	            	            	                    		
             </field>
