@@ -72,12 +72,13 @@
 								<separator string="Actual dates" colspan="2"/>			           						
            						<field name="date_start" readonly="1"/>           						
            						<field name="date_end" readonly="1" />
-           						<field name="create_date" readonly="1" />
+           						<field name="create_date" readonly="1"/>
 							</group>		 	   								            						
 							                          
                             <button name="calculate_network"
-                                    icon="../../../../../project_time_schedule/static/src/img/icons/exec"
-                                    string="Calculate Network" type="object"/>
+                                    string="Calculate Network" type="object"
+                                    class="oe_inline oe_stat_button"
+                                    icon="fa-cog"/>
 						</group>
                         </page>
 					</notebook>
