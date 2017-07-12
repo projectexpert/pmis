@@ -148,6 +148,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form,graph</field>
             <field name="search_view_id" ref="view_account_analytic_line_plan_filter"/>
+            <field name="context">{'search_default_account_id': [active_id], 'default_account_id' :active_id}</field>
         </record>
 
         <menuitem groups="analytic.group_analytic_accounting"

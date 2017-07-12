@@ -162,8 +162,8 @@ class AccountAnalyticLine(models.Model):
             pricetype.field)[prod.id]
         self.env.args = cr, uid, misc.frozendict(context)
         prec = self.env['decimal.precision'].precision_get('Account')
-        amount = amount_unit * self.unit_amount or 1.0
-        result = round(amount, prec)
+        self.amount = amount_unit * self.unit_amount or 1.0
+        result = round(self.amount, prec)
         if not flag:
             if journal.type != 'sale':
                 result *= -1
