@@ -2,7 +2,7 @@
 
 {
     'name': 'Project Charter',
-    'version': '8.0.1.2.2',
+    'version': '8.0.1.2.3',
     'author': 'Matmoz d.o.o., '
               'Project Expert Team',
     'contributors': [
@@ -23,13 +23,9 @@
         'analytic_billing_plan',
         'project_wbs',
         'web_ckeditor4',
-        'document_page',
-        'project_document_page',
-        'document_page_approval',
     ],
     'data': ['views/project_charter_view.xml',
              'views/analytic_view.xml',
-             'removed_views/project_wbs_config.xml',
              'security/ir.model.access.csv'],
     'test': [],
     'demo': [],

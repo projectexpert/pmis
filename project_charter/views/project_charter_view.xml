@@ -28,113 +28,73 @@
         <record id="view_project_form" model="ir.ui.view">
             <field name="name">view.project.form</field>
             <field name="model">project.project</field>
-            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="inherit_id" ref="project_wbs.edit_project"/>
             <field name="arch" type="xml">
-                <xpath expr="//form/sheet/notebook/page" position="before">
-                    <page name="charter" string="Charter/Plan">
-                        <notebook>
-                            <page string="Project Purpose">
-                                <group string="Project Purpose">
-                                    <field name="notes" nolabel="1" widget="text_html"/>
-                                </group>
-                            </page>
-                            <!--add project broad scope-->
-                            <page string="Scope">
-                                <group>
-                                    <button name="%(project_wbs.create_wbs_element)d"
-                                      string="Create child WBS element"
-                                      type="action"
-                                      context="{'default_parent_id': analytic_account_id,'default_partner_id': partner_id,'default_user_id': user_id, 'default_state': 'draft'}"/>
-                                </group>
-                                <field name="project_child_complete_ids" nolabel="1"/>
-                                <group string="Project Exclusions">
+                <xpath expr="//tree[@name='wbstree']" position="after">
+                    <group string="Project Exclusions">
+                        <group>
+                            <field name="project_outscope_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="out_scope" />
+                                 </tree>
+                                <form>
                                     <group>
-                                        <field name="project_outscope_ids" nolabel="1">
-                                            <tree editable="bottom">
-                                                <field name="out_scope" />
-                                             </tree>
-                                            <form>
-                                                <group>                                 
-                                                    <field name="out_scope" />
-                                                </group>
-                                           </form>
-                                        </field>
+                                        <field name="out_scope" />
                                     </group>
-                                </group>
-                            </page>
-                            <page string="Requirements and Success">
-                                <group string="Success and Acceptance Criteria">
-                                    <field name="project_success_ids" nolabel="1">
-                                        <!--make tree editable to avoid form input-->
-                                        <tree editable="bottom">
-                                            <field name="success"/>
-                                         </tree>
-                                        <form>
-                                            <group>
-                                                <field name="success"/>                                       
-                                            </group>
-                                       </form>
-                                    </field>
-                                </group>
-                            </page>
-                            <!--add constraints, assumptions aka high level risks list will be added by risk management module-->
-                            <page string="Assumptions, Constraints">
-                                <group string="Constraints">
-                                    <group>
-                                        <field name="project_constraints_ids" nolabel="1">
-                                            <tree editable="bottom">
-                                                <field name="constraints"/>
-                                            </tree>
-                                            <form>
-                                                <group>
-                                                    <field name="constraints"/>
-                                                </group>
-                                           </form>
-                                        </field>
-                                    </group>
-                                </group>
-                            </page>
-                            <!--add milestone list-->
-                            <!--add resource plan rough cut-->
-                            <page string="Planned Balance">
-                                <!--<button help="Resource planning lines"
-                                    class="oe_inline oe_stat_button"
-                                    name="%(analytic_resource_plan.action_analytic_resource_plan_line_open_form)d"
-                                    type="action"
-                                    icon="fa-shopping-cart"
-                                    context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
-                                    groups="project.group_project_manager">
-                                    <div>Resource plan</div>
-                                </button>
-                                <button help="Budget lines"
-                                    class="oe_inline oe_stat_button"
-                                    name="%(analytic_billing_plan.action_analytic_billing_plan_line_open_form)d"
-                                    type="action"
-                                    icon="fa-money"
-                                    context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
-                                    groups="project.group_project_manager">
-                                    <div>Budget plan</div>
-                                </button>-->
-                                <group string="Planned balance">
-                                    <field name="plan_line_ids" nolabel="1" readonly="1"/>
-                                </group>
-                            </page>
-
-                        </notebook>
-                        
-                    </page>
-
+                               </form>
+                            </field>
+                        </group>
+                    </group>
                 </xpath>
-				<page name="team" position="inside">
-                    <group string="Communications">
-                    </group>
-					<notebook>
-					</notebook>
-				</page>
-                <field name="members" position="before">
-                    <group string="Project Team Members">
-                    </group>
-                </field>
+                <xpath expr="//page[@name='scope']" position="before">
+                    <page string="Project Purpose">
+                        <group string="Project Purpose">
+                            <field name="notes" nolabel="1" widget="text_html"/>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//page[@name='scope']" position="after">
+                    <page string="Requirements and Success">
+                        <group string="Success and Acceptance Criteria">
+                            <field name="project_success_ids" nolabel="1">
+                                <!--make tree editable to avoid form input-->
+                                <tree editable="bottom">
+                                    <field name="success"/>
+                                 </tree>
+                                <form>
+                                    <group>
+                                        <field name="success"/>
+                                    </group>
+                               </form>
+                            </field>
+                        </group>
+                    </page>
+                    <!--add constraints, assumptions aka high level risks list,
+                     will be added by risk management module-->
+                    <page string="Assumptions, Constraints">
+                        <group string="Constraints">
+                            <group>
+                                <field name="project_constraints_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="constraints"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="constraints"/>
+                                        </group>
+                                   </form>
+                                </field>
+                            </group>
+                        </group>
+                    </page>
+                    <!--add milestone list-->
+                    <!--add resource plan rough cut-->
+                    <page string="Planned Balance">
+                        <group string="Planned balance">
+                            <field name="plan_line_ids" nolabel="1" readonly="1"/>
+                        </group>
+                    </page>
+                </xpath>
             </field>
         </record>
     </data>

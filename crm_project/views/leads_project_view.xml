@@ -5,11 +5,15 @@
         <record id="view_project_leads" model="ir.ui.view">
             <field name="name">project.project.leads</field>
             <field name="model">project.project</field>
-            <field name="inherit_id" ref="project_charter.view_project_form"/>
+            <field name="inherit_id" ref="project_wbs.edit_project"/>
             <field name="arch" type="xml">
-                <xpath expr="//page[@name='team']/notebook" position='inside'>
+                <xpath expr="//notebook[@name='events']" position='inside'>
                     <page string="Cases">
-                        <field name="lead_ids" nolabel="1" colspan="4" domain="[]" context="{'default_project_id': active_id}"/>
+                        <field name="lead_ids"
+                               nolabel="1"
+                               colspan="4"
+                               domain="[]"
+                               context="{'default_project_id': active_id}"/>
                     </page>
                     <page string="Open Issues">
                         <field name="issue_ids"

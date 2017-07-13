@@ -2,7 +2,7 @@
 
 {
     'name': 'Account Analytic Line of Business',
-    'version': '8.0.1.0.1',
+    'version': '8.0.1.0.2',
     'summary': 'Introduce business segments in analytic accounts.',
     'author':   'Eficent, '
                 'Project Expert Team',

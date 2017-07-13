@@ -7,7 +7,7 @@
         <field name="name">project.project.form</field>
         <field name="model">project.project</field>
         <field name="type">form</field>
-        <field name="inherit_id" ref="project_charter.view_project_form"/>
+        <field name="inherit_id" ref="project.edit_project"/>
         <field name="arch" type="xml">
             <xpath expr='//div[@name="buttons"]' position='inside'>
                 <button class="oe_inline oe_stat_button"
@@ -19,7 +19,15 @@
                     <field string="Meetings" name="project_meeting_count" widget="statinfo"/>
                 </button>
             </xpath>
-            <xpath expr="//page[@name='team']/notebook" position='inside'>
+        </field>
+    </record>
+    <record id="edit_project_notebook_events" model="ir.ui.view">
+        <field name="name">project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="project_wbs.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook[@name='events']" position='inside'>
                 <page string="Meetings">
                     <field name="calendar_events"
                            nolabel="True"

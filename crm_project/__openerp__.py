@@ -14,7 +14,7 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'summary': '''CRM tasks and CRM leads connected to project''',
-    'depends': ['crm', 'project_charter', 'project_issue'],
+    'depends': ['crm', 'project_wbs', 'project_issue'],
     'data': [
         'views/crm_opportunity.xml',
         'views/project_lead.xml',

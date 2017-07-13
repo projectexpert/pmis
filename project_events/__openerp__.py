@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
 {
     "name": "Events in Projects",
-    "version": "8.0.1.0.1",
+    "version": "8.0.1.0.2",
     "depends": [
-        "project_charter",
+        "project_wbs",
         "event",
     ],
     'summary': 'Events in project communications tab',

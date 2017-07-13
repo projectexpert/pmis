@@ -88,9 +88,9 @@
             <field name="name">project.project.form</field>
             <field name="model">project.project</field>
             <field name="type">form</field>
-            <field name="inherit_id" ref="project_charter.view_project_form"/>
+            <field name="inherit_id" ref="project_wbs.edit_project"/>
             <field name="arch" type="xml">
-                <xpath expr="//page[@name='team']/notebook" position='inside'>
+                <xpath expr="//notebook[@name='events']" position='inside'>
                     <page string="Events">
                         <field name="event_ids"
                                nolabel="True"

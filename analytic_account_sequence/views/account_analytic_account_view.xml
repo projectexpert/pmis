@@ -8,13 +8,13 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="project_wbs.edit_project"/>
             <field name="arch" type="xml">
-                <page string='Other Info' position="before">
+                <notebook name='config' position="inside">
                     <page string="Child sequence">
                         <group string="Child sequence">
                             <field name="sequence_ids" nolabel="1"/>
                         </group>
                     </page>
-                </page>
+                </notebook>
             </field>
         </record>
 

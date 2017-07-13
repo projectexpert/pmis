@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Work Breakdown Structure',
-    'version': '8.0.2.4.1',
+    'version': '8.0.2.4.2',
     'author': 'Eficent, '
               'Matmoz, '
               'Luxim, '
@@ -24,8 +24,6 @@
     'data': [
         'views/account_analytic_account_view.xml',
         'views/project_project_view.xml',
-        'views/project_configuration.xml',
-        # 'security/ir.model.access.csv',
     ],
     'demo': [
     ],

@@ -131,10 +131,24 @@
 }
 
 .border {
+    border-radius: 1em;
+    background-color: rgb(237, 237, 246);
     /*border: 1px solid lightgrey;*/
-    border-radius: 5px;
-    background-color: rgba(155,89,136,0.05);
+    text-align: center;
+    /*float: left;*/
+    font-size: smaller;
+    width: auto;
+    /*border-left: 1px double rgba(124, 123, 173, 0.61);*/
+    padding: 2px 2px 2px 2px;
+}
 
+.references {
+    /*text-align: center;*/
+    float: left;
+    font-size: smaller;
+    width: auto;
+    margin-left: 5%;
+    /*margin-top: -2%;*/
 }
 
 .openerp .oe_list_group_name {
@@ -143,4 +157,18 @@
 
 .oe_kanban_content div:first-child {
     margin-right: 0 !important;
+}
+
+.vertical_label {
+	transform: rotate(270deg);
+	transform-origin: left top 0;
+    float: left;
+    margin-top: -14px;
+    font-size: small;
+    margin-left: -24px;
+    color: rgb(237, 237, 246);
+}
+
+.options_active {
+    font-size: small;
 }
