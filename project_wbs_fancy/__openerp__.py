@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Fancy Project WBS',
-    'version': '8.0.1.0.5',
+    'version': '8.0.1.0.6',
     'summary': 'Enhance the Project WBS UI',
     'author':   'Matmoz d.o.o., '
                 'Project Expert Team',
@@ -13,7 +13,8 @@
     'license': 'AGPL-3',
     'depends': ['web_tree_dynamic_colored_field', 'project_wbs'],
     'data': [
-        'views/project_view.xml'
+        'views/project_view.xml',
+        'views/analytic_view.xml'
     ],
     'demo': [],
     'installable': True,

@@ -6,4 +6,4 @@
 
 import account_analytic_account
 import project_project
-import form_button
+import project_form_button

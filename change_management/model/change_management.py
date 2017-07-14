@@ -97,6 +97,9 @@ class CMChange (models.Model):
 
     description = fields.Char(
         string='Request Description',
+        readonly=True,
+        states={'draft': [('readonly', False)],
+                'active': [('readonly', False)]},
         help='''
 Short description of the change.
 
@@ -149,10 +152,15 @@ and obtain sign-off from all key stakeholders.
     author_id = fields.Many2one(
         'res.users', 'Requestor', required=True,
         default=lambda self: self.env.user,
+        readonly=True,
+        states={'draft': [('readonly', False)]},
         help="The author of the initial request."
     )
     stakeholder_id = fields.Many2one(
         'res.partner', string='Proposer',
+        readonly=True,
+        states={'draft': [('readonly', False)],
+                'active': [('readonly', False)]},
         help="The stakeholder that proposes the  processing of the request."
     )
     color = fields.Integer(
@@ -186,18 +194,30 @@ and obtain sign-off from all key stakeholders.
     change_category_id = fields.Many2one(
         'change.management.category', 'Change Category',
         default=lambda s: s._get_default_category(),
+        readonly=True,
+        states={'draft': [('readonly', False)],
+                'active': [('readonly', False)]},
         help="Change Category: "
         "The type of change in terms of the project's or business"
         "chosen categories (e.g. Schedule, quality, legal etc.)"
     )
     description_cause = fields.Html(
-        'Change'
+        'Change',
+        readonly=True,
+        states={'draft': [('readonly', False)],
+                'active': [('readonly', False)]},
     )
     description_event = fields.Html(
-        'Reason'
+        'Reason',
+        readonly=True,
+        states={'draft': [('readonly', False)],
+                'active': [('readonly', False)]},
     )
     description_effect = fields.Html(
-        'Effect'
+        'Effect',
+        readonly=True,
+        states={'draft': [('readonly', False)],
+                'active': [('readonly', False)]},
     )
     proximity_id = fields.Many2one(
         'change.management.proximity', 'Proximity',
@@ -224,6 +244,9 @@ and obtain sign-off from all key stakeholders.
     )
     change_owner_id = fields.Many2one(
         'res.users', 'Change Manager',
+        readonly=True,
+        states={'draft': [('readonly', False)],
+                'active': [('readonly', False)]},
         help="Change Manager: "
         "The person responsible for managing the change (there can be"
         "only one change owner per change), change ownership is assigned"

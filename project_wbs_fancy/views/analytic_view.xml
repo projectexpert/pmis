@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    <record id="analytic_color" model="ir.ui.view">
+        <field name="name">account.analytic.account.form</field>
+        <field name="model">account.analytic.account</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="project_wbs.view_account_analytic_account_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr='//field[@name="complete_name"]' position="attributes">
+                <attribute name="bg_color">#7C7BAD:account_class == 'portfolio';</attribute>
+                <attribute name="fg_color">white:account_class in 'portfolio'; blue:type in 'view';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="code"]' position="attributes">
+                <attribute name="bg_color">#7C7BAD:account_class == 'portfolio';</attribute>
+                <attribute name="fg_color">white:account_class in 'portfolio'; blue:type in 'view';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="complete_wbs_code"]' position="attributes">
+                <attribute name="bg_color">#7C7BAD:account_class == 'portfolio';</attribute>
+                <attribute name="fg_color">white:account_class in 'portfolio'; blue:type in 'view';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="account_class"]' position="attributes">
+                <attribute name="bg_color">#7C7BAD:account_class == 'portfolio';</attribute>
+                <attribute name="fg_color">white:account_class in 'portfolio'; blue:type in 'view';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="active_analytic_planning_version"]' position="attributes">
+                <attribute name="bg_color">#7C7BAD:account_class == 'portfolio';</attribute>
+                <attribute name="fg_color">white:account_class in 'portfolio'; blue:type in 'view';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="debit"]' position="attributes">
+                <attribute name="bg_color">#7C7BAD:account_class == 'portfolio';</attribute>
+                <attribute name="fg_color">white:account_class in 'portfolio'; blue:type in 'view';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="credit"]' position="attributes">
+                <attribute name="bg_color">#7C7BAD:account_class == 'portfolio';</attribute>
+                <attribute name="fg_color">white:account_class in 'portfolio'; blue:type in 'view';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="balance"]' position="attributes">
+                <attribute name="bg_color">#7C7BAD:account_class == 'portfolio';</attribute>
+                <attribute name="fg_color">white:account_class in 'portfolio'; blue:type in 'view';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="credit_plan"]' position="attributes">
+                <attribute name="bg_color">#7C7BAD:account_class == 'portfolio';</attribute>
+                <attribute name="fg_color">white:account_class in 'portfolio'; blue:type in 'view';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="debit_plan"]' position="attributes">
+                <attribute name="bg_color">#7C7BAD:account_class == 'portfolio';</attribute>
+                <attribute name="fg_color">white:account_class in 'portfolio'; blue:type in 'view';</attribute>
+            </xpath>
+            <xpath expr='//field[@name="balance_plan"]' position="attributes">
+                <attribute name="bg_color">#7C7BAD:account_class == 'portfolio';</attribute>
+                <attribute name="fg_color">white:account_class in 'portfolio'; blue:type in 'view';</attribute>
+            </xpath>
+        </field>
+    </record>
+    </data>
+</openerp>

@@ -11,7 +11,7 @@
                     <separator colspan="2"/>
                     <button name="button_create_change_project"
                             type='object'
-                            attrs="{'invisible': [('change_project_id', '!=', False)]}"
+                            attrs="{'invisible': ['|', ('change_project_id', 'not in', False), ('state', 'not in', ['accepted', 'in_progress'])]}"
                             colspan="2"
                             class="oe_stat_button"
                             icon="fa-level-down">
