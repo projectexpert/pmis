@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
-        <record id="analytic_account_stage_search" model="ir.ui.view">
-            <field name="name">analytic.account.stage.search</field>
-            <field name="model">analytic.account.stage</field>
+        <record id="project_project_stage_search" model="ir.ui.view">
+            <field name="name">project.project.stage.search</field>
+            <field name="model">project.project.stage</field>
             <field name="arch" type="xml">
-                <search string="Analytic Account Stages">
-                   <field name="name" string="Analytic Account Stages"/>                   
+                <search string="Project Stages">
+                   <field name="name" string="Project Account Stages"/>
                 </search>
             </field>
         </record>
 
-        <record id="analytic_account_stage_edit" model="ir.ui.view">
-            <field name="name">analytic.account.stage.form</field>
-            <field name="model">analytic.account.stage</field>
+        <record id="project_project_stage_edit" model="ir.ui.view">
+            <field name="name">project.project.stage.form</field>
+            <field name="model">project.project.stage</field>
             <field name="arch" type="xml">
-                <form string="Analytic Account Stage" version="7.0">
+                <form string="Project Account Stage" version="7.0">
                     <group>
                         <group>
                             <field name="name"/>                            
@@ -24,7 +24,6 @@
                             <field name="sequence"/>
                             <field name="fold"/>
                             <field name="case_default"/>
-                            <field name="project_state"/>
                         </group>
                     </group>
                     <field name="description" placeholder="Add a description..."/>
@@ -32,11 +31,11 @@
             </field>
         </record>
 
-        <record id="analytic_account_stage_tree" model="ir.ui.view">
-            <field name="name">analytic.account.stage.tree</field>
-            <field name="model">analytic.account.stage</field>
+        <record id="project_project_stage_tree" model="ir.ui.view">
+            <field name="name">project.project.stage.tree</field>
+            <field name="model">project.project.stage</field>
             <field name="arch" type="xml">
-                <tree string="Analytic Account Stage">
+                <tree string="Project Stage">
                     <field name="sequence" widget="handle"/>
                     <field name="name"/>
                     <field name="case_default"/>
@@ -44,10 +43,10 @@
             </field>
         </record>
 
-        <record id="open_analytic_account_stage_form" model="ir.actions.act_window">
+        <record id="open_project_project_stage_form" model="ir.actions.act_window">
             <field name="name">Project/Analytic Stages</field>
-            <field name="res_model">analytic.account.stage</field>
-            <field name="view_id" ref="analytic_account_stage_tree"/>
+            <field name="res_model">project.project.stage</field>
+            <field name="view_id" ref="project_project_stage_tree"/>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
                 Click to add a stage in the project/analytic account pipeline.
@@ -60,11 +59,11 @@
             </field>
         </record>                  	   
 
-        <menuitem groups="analytic.group_analytic_accounting"
-            name="Analytic Account Stages"
-        	action="open_analytic_account_stage_form"
-        	id="menu_analytic_account_stages_view"
-        	parent="account.menu_analytic_accounting"/>
+        <menuitem groups="project.group_project_manager"
+            name="Project Stages"
+        	action="open_project_project_stage_form"
+        	id="menu_project_project_stages_view"
+        	parent="project.menu_project_config"/>
 
     </data>
-</openerp>
+</odoo>
