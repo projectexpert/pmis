@@ -5,7 +5,7 @@
         <field name="name">account.analytic.account.form</field>
         <field name="model">account.analytic.account</field>
         <field name="type">form</field>
-        <field name="inherit_id" ref="project_wbs.view_account_analytic_account_tree"/>
+        <field name="inherit_id" ref="analytic_plan.view_account_analytic_account_tree_inh"/>
         <field name="arch" type="xml">
             <xpath expr='//field[@name="complete_name"]' position="attributes">
                 <attribute name="bg_color">#7C7BAD:account_class == 'portfolio';</attribute>
