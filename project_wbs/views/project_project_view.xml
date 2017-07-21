@@ -69,8 +69,8 @@
             <field name="arch" type="xml">
                 <xpath expr='//tree' position="attributes">
                     <attribute name="editable">top</attribute>
-                    <attribute name="fonts">bold:account_class in 'portfolio';bold:account_class in 'project';italic:account_class in 'work_package';underline:state in 'pending'</attribute>
-                    <attribute name="colors">#7C7BAD:account_class == 'program';#7C7BAD:account_class == 'portfolio';gray:state in 'cancelled'</attribute>
+                    <attribute name="fonts">bold:account_class in 'portfolio';bold:account_class in 'project';italic:account_class in 'work_package';</attribute>
+                    <attribute name="colors">#7C7BAD:account_class == 'program';#7C7BAD:account_class == 'portfolio';gray:state in ('close','cancelled'),#aeb5b5:state in ('draft','pending')</attribute>
                     <attribute name="default_order">complete_wbs_code</attribute>
                     <!--<attribute name="default_sort">complete_wbs_code asc</attribute>-->
                 </xpath>

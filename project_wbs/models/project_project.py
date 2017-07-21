@@ -224,6 +224,10 @@ class Project(osv.osv):
                     10
                 )
             }
+
+        ),
+        'has_child': fields.function(
+            _has_child, method=True, readonly=True, type='boolean'
         )
     }
 
