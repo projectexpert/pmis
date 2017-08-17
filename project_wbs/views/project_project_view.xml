@@ -242,48 +242,14 @@
                     </page>
                 </xpath>
                 <xpath expr="//sheet/notebook/page[@string='Project Stages']" position="replace"/>
-				<!--<xpath expr="//sheet/notebook/page[@string='Other Info']" position="replace"/>-->
 				<xpath expr="//notebook" position="inside">
 					<page string="Project configuration">
                         <notebook name="config">
-                            <!--<page string="Work Breakdown Structure">-->
-                                <!--<group>-->
-                                    <!--<button name="%(create_wbs_element)d"-->
-                                      <!--string="Create child WBS element"-->
-                                      <!--type="action"-->
-                                      <!--context="{'default_parent_id': analytic_account_id,'default_partner_id': partner_id,'default_user_id': user_id, 'default_state': 'draft'}"/>-->
-                                <!--</group>-->
-                                <!--<tree string="Work Breakdown Structure" editable="bottom">-->
-                                    <!--<field name="project_child_complete_ids" nolabel="1"/>-->
-                                <!--</tree>-->
-                            <!--</page>-->
-
-                            <!--<page string="Other Info">-->
-                                <!--<group string="Administration">-->
-                                    <!--<field name="privacy_visibility" widget="radio"/>-->
-                                    <!--<field name="planned_hours" widget="float_time"-->
-                                            <!--groups="project.group_time_work_estimation_tasks"/>-->
-                                    <!--<field name="effective_hours" widget="float_time"-->
-                                            <!--groups="project.group_time_work_estimation_tasks"/>-->
-                                    <!--<field name="resource_calendar_id"-->
-                                            <!--groups="project.group_time_work_estimation_tasks"/>-->
-                                <!--</group>-->
-                                <!--<group string="Miscellaneous" name="misc">-->
-                                    <!--<field name="date_start" string="Start Date"/>-->
-                                    <!--<field name="date" string="End Date"/>-->
-                                    <!--<field name="sequence" groups="base.group_no_one"/>-->
-                                    <!--<field name="active" attrs="{'invisible':[('state','in',['open', 'pending', 'template'])]}"/>-->
-                                    <!--<field name="currency_id" groups="base.group_multi_currency" required="1"/>-->
-                                    <!--<field name="parent_id" string="Parent" help="Append this project to another one using analytic accounts hierarchy" domain="[('id','!=',analytic_account_id)]" context="{'current_model': 'project.project'}" />-->
-                                <!--</group>-->
-                            <!--</page>-->
-
                             <page string="Project Stages" attrs="{'invisible': [('use_tasks', '=', False)]}" name="project_stages">
                                 <group string="Project Task Stages">
                                     <field name="type_ids" nolabel="1"/>
                                 </group>
                             </page>
-
                         </notebook>
 					</page>
 				</xpath>
@@ -291,17 +257,7 @@
         </record>
 
         <!--ACTIONS-->
-        <!--OPEN wbs overview/menu_fullwbs-->
-        <!--<record id="open_view_wbs_tree" model="ir.actions.act_window">
-            <field name="name">WBS overview</field>
-            <field name="res_model">project.project</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">kanban,tree,form,gantt</field>
-            <field name="view_id" ref="project.view_project"/>
-            <field name="search_view_id" ref="project.view_project_project_filter"/>
-            <field name="context">{'search_default_Current': 1, 'default_account_class': False, 'search_default_project_tree': 1, 'order_by':'complete_wbs_code asc'}</field>
-            &lt;!&ndash;<field name="domain">[['account_class', 'not in', ('portfolio', 'program')]]</field>&ndash;&gt;
-        </record>-->
+
         <!--KANBAN BUTTONS ACTION-->
         <record id="open_view_wbs_kanban" model="ir.actions.act_window">
             <field name="name">WBS kanban</field>
@@ -408,13 +364,6 @@
             <menuitem action="group_subproject" id="menu_project_wbs_subproject" name="Sub-projects" parent="project.menu_projects" sequence="6"/>
             <menuitem action="open_view_project_wbs" id="menu_fullwbs" name="WBS overview" parent="project.menu_projects" sequence="9"/>
         <menuitem action="project.action_view_task" id="project.menu_action_view_task" parent="project.menu_project_management" sequence="5" name="Tasks"/>
-
-        <!--<record id="act_project_project_2_deliverable_all" model="ir.actions.act_window">
-            <field name="name">Deliverables</field>
-            <field name="res_model">project.project</field>
-            <field name="view_mode">kanban,tree,form,calendar,gantt,graph</field>
-            <field name="search_view_id" ref="project.view_project_project_filter"/>
-        </record>-->
 
         <!-- add css -->
         <template id="assets_backend" name="sales_team assets" inherit_id="web.assets_backend">
