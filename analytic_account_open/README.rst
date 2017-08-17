@@ -38,6 +38,7 @@ Contributors
 
 * Eficent Business and IT Consulting Services, S.L. <contact@eficent.com>
 * Matmoz d.o.o. <info@matmoz.si>
+* Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
 
 Maintainer
 ----------
