@@ -1,118 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
-    
-        <record id="view_move_form" model="ir.ui.view">
-            <field name="name">stock.move.form</field>
-            <field name="model">stock.move</field>
-            <field name="inherit_id" ref="stock.view_move_form"/>
-            <field eval="1" name="priority"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='company_id']" position="after">
-                	<field name="analytic_account_id" />
-                </xpath>
+<odoo>
+
+    <record id="view_move_form" model="ir.ui.view">
+        <field name="name">stock.move.form</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_form"/>
+        <field eval="1" name="priority"/>
+        <field name="arch" type="xml">
+            <field name="company_id" position="after">
+                <field name="analytic_account_id" />
             </field>
-        </record>
+        </field>
+    </record>
 
-        <record id="view_move_tree" model="ir.ui.view">
-            <field name="name">stock.move.tree</field>
-            <field name="model">stock.move</field>
-            <field name="inherit_id" ref="stock.view_move_tree"/>
-            <field eval="1" name="priority"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='location_id']" position="after">
-                	<field name="analytic_account_id" />
-                </xpath>
+    <record id="view_move_tree" model="ir.ui.view">
+        <field name="name">stock.move.tree</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_tree"/>
+        <field eval="1" name="priority"/>
+        <field name="arch" type="xml">
+            <field name="location_id" position="after">
+                <field name="analytic_account_id" />
             </field>
-        </record>
+        </field>
+    </record>
 
-        <record id="view_move_picking_form_analytic" model="ir.ui.view">
-            <field name="name">stock.move.form</field>
-            <field name="model">stock.move</field>
-            <field eval="2" name="priority"/>
-            <field name="inherit_id" ref="stock.view_move_picking_form"/>
-            <field name="arch" type="xml">                     
-                <xpath expr="//field[@name='location_id']" position="after">
-                	<field name="analytic_account_id"/>              	                 
-                </xpath>
+    <record id="view_move_picking_form_analytic" model="ir.ui.view">
+        <field name="name">stock.move.form</field>
+        <field name="model">stock.move</field>
+        <field eval="2" name="priority"/>
+        <field name="inherit_id" ref="stock.view_move_picking_form"/>
+        <field name="arch" type="xml">
+            <field name="location_id" position="after">
+                <field name="analytic_account_id"/>
             </field>
-        </record>
+        </field>
+    </record>
 
-        <record id="view_move_picking_tree" model="ir.ui.view">
-            <field name="name">stock.move.tree</field>
-            <field name="model">stock.move</field>
-            <field name="inherit_id" ref="stock.view_move_picking_tree"/>
-            <field eval="4" name="priority"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='location_id']" position="after">
-                	<field name="analytic_account_id"/>
-                </xpath>
+    <record id="view_move_picking_tree" model="ir.ui.view">
+        <field name="name">stock.move.tree</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_picking_tree"/>
+        <field eval="4" name="priority"/>
+        <field name="arch" type="xml">
+            <field name="location_id" position="after">
+                <field name="analytic_account_id"/>
             </field>
-        </record>
+        </field>
+    </record>
 
 
-        <record id="view_move_search_analytic" model="ir.ui.view">
-            <field name="name">stock.move.search</field>
-            <field name="model">stock.move</field>
-            <field name="inherit_id" ref="stock.view_move_search"/>
-            <field eval="3" name="priority"/>
-            <field name="arch" type="xml">        
-                <xpath expr="//field[@name='name']" position="after">
-                	<field name="analytic_account_id"/>
-                </xpath>
+    <record id="view_move_search_analytic" model="ir.ui.view">
+        <field name="name">stock.move.search</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_search"/>
+        <field eval="3" name="priority"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="analytic_account_id"/>
             </field>
-        </record>   
+        </field>
+    </record>   
 
-        <record id="view_move_tree_reception_picking_analytic" model="ir.ui.view">
-            <field name="name">stock.move.tree2</field>
-            <field name="model">stock.move</field>
-            <field name="inherit_id" ref="stock.view_move_tree_receipt_picking"/>
-            <field name="priority" eval="6"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='origin']" position="after">
-                	<field name="analytic_account_id"/>
-                </xpath>
+    <record id="view_move_tree_reception_picking_analytic" model="ir.ui.view">
+        <field name="name">stock.move.tree2</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_tree_receipt_picking"/>
+        <field name="priority" eval="6"/>
+        <field name="arch" type="xml">
+            <field name="origin" position="after">
+                <field name="analytic_account_id"/>
             </field>
-        </record>
+        </field>
+    </record>
 
-        <record id="stock_move_tree" model="ir.ui.view">
-            <field name="name">Stock Moves</field>
-            <field name="model">stock.move</field>
-            <field name="field_parent">move_history_ids</field>
-            <field name="inherit_id" ref="stock.stock_move_tree"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='picking_id']" position="after">
-                	<field name="analytic_account_id"/>
-                </xpath>
+    <record id="stock_move_tree" model="ir.ui.view">
+        <field name="name">Stock Moves</field>
+        <field name="model">stock.move</field>
+        <field name="field_parent">move_history_ids</field>
+        <field name="inherit_id" ref="stock.stock_move_tree"/>
+        <field name="arch" type="xml">
+            <field name="picking_id" position="after">
+                <field name="analytic_account_id"/>
             </field>
-        </record>
+        </field>
+    </record>
 
-        <record id="view_stock_quant_form" model="ir.ui.view">
-            <field name="name">stock.quant.form</field>
-            <field name="model">stock.quant</field>
-            <field eval="10" name="priority"/>
-            <field name="inherit_id" ref="stock.view_stock_quant_form"/>
-            <field name="arch" type="xml">
-                <field name="location_id" position="after">
-                    <field name="analytic_account_id"/>
-                </field>
+    <record id="view_stock_quant_form" model="ir.ui.view">
+        <field name="name">stock.quant.form</field>
+        <field name="model">stock.quant</field>
+        <field eval="10" name="priority"/>
+        <field name="inherit_id" ref="stock.view_stock_quant_form"/>
+        <field name="arch" type="xml">
+            <field name="location_id" position="after">
+                <field name="analytic_account_id"/>
             </field>
-        </record>
+        </field>
+    </record>
 
-        <record id="quant_search_view" model="ir.ui.view">
-            <field name="name">stock.quant.search</field>
-            <field name="model">stock.quant</field>
-            <field eval="10" name="priority"/>
-            <field name="inherit_id" ref="stock.quant_search_view"/>
-            <field name="arch" type="xml">
-                <field name="owner_id" position="after">
-                    <field name="analytic_account_id"/>
-                </field>
-                <filter name="productgroup" position="after">
-                    <filter string='Analytic Account' name="analytic" context="{'group_by': 'analytic_account_id'}"/>
-                </filter>
+    <record id="quant_search_view" model="ir.ui.view">
+        <field name="name">stock.quant.search</field>
+        <field name="model">stock.quant</field>
+        <field eval="10" name="priority"/>
+        <field name="inherit_id" ref="stock.quant_search_view"/>
+        <field name="arch" type="xml">
+            <field name="owner_id" position="after">
+                <field name="analytic_account_id"/>
             </field>
-        </record>
+            <filter name="productgroup" position="after">
+                <filter string='Analytic Account' name="analytic" context="{'group_by': 'analytic_account_id'}"/>
+            </filter>
+        </field>
+    </record>
 
-    </data>
-</openerp>
+</odoo>

@@ -1,27 +1,25 @@
 # -*- coding: utf-8 -*-
 # © 2014-17 Eficent Business and IT Consulting Services S.L.
 # © 2016 Matmoz d.o.o.
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from openerp.osv import fields, orm
+from odoo import api, fields, models
 
 
-class account_analytic_account(orm.Model):
+class account_analytic_account(models.Model):
 
     _inherit = "account.analytic.account"
 
-    _columns = {
-        'move_ids': fields.one2many('stock.move', 'analytic_account_id',
-                                    'Moves for this analytic account',
-                                    readonly=True)
-    }
+    move_ids = fields.One2many(
+        'stock.move',
+        'analytic_account_id',
+        'Moves for this analytic account',
+        readonly=True
+    )
 
-    def copy(self, cr, uid, id, default=None, context=None):
-        if context is None:
-            context = {}
-        if default is None:
-            default = {}
+    @api.multi
+    def copy(self, default=None):
+        self.ensure_one()
+        default = dict(default or {})
         default['move_ids'] = []
-        res = super(account_analytic_account, self).copy(
-            cr, uid, id, default, context
-        )
-        return res
+        return super(account_analytic_account, self).copy(default=default)
