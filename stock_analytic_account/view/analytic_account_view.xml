@@ -8,7 +8,7 @@
         <field name="name">Stock Moves</field>
         <field name="res_model">stock.move</field>
         <field name="src_model">account.analytic.account</field>
-        <field name="view_id" ref="view_move_tree"/>
+        <field name="view_id" ref="stock_analytic.view_move_tree"/>
         <field name="view_mode">tree,form</field>
         <field name="view_type">form</field>
     </record>
@@ -26,7 +26,7 @@
                     icon="fa-exchange"
                     context="{'default_analytic_account_id': active_id,'search_default_analytic_account_id': [active_id]}"
                     groups="analytic.group_analytic_accounting">
-                    <div>Stock Moves</div>
+                    <span>Stock Moves</span>
                 </button>
             </xpath>
             <xpath expr="//group[@name='main']" position="after">
