@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
 
-#---------------------------------------------------------------------------------------------------------
-#   Extend the analytic account
-#---------------------------------------------------------------------------------------------------------
-        <record id="view_account_analytic_account_form_location" model="ir.ui.view">
-            <field name="name">account.analytic.account.form.location</field>
-            <field name="model">account.analytic.account</field>
-            <field name="type">form</field>
-            <field name="inherit_id"
-                   ref="stock_analytic_account.view_account_analytic_account_form_stock_move"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='move_ids']"
-                       position="after">
-                    <field name="warehouse_id"/>
-                    <field name="location_id"/>
-                    <field name="dest_address_id"/>
-                </xpath>
+    <record id="view_account_analytic_account_form_location" model="ir.ui.view">
+        <field name="name">account.analytic.account.form.location</field>
+        <field name="model">account.analytic.account</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="location_id" context='{"default_analytic_account_id": active_id}'/>
+                <field name="dest_address_id"/>
             </field>
-        </record>
+        </field>
+    </record>
 
-    </data>
 </odoo>
