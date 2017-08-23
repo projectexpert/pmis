@@ -7,10 +7,11 @@ Purchase Stock Analytic
 
 Copies the analytic account of the purchase order item to the stock move.
 
-Installation
+Usage
 ============
 
-* The module automatically takes care of its dependencies and is ready for use after the installation
+* Create a PO line with an analytic account. The analytic account is passed to
+  the move
 
 Credits
 =======
@@ -18,7 +19,10 @@ Credits
 Contributors
 ------------
 
-* Eficent <http://www.eficent.com>
+* Jordi Ballester Alomar <jordi.ballester@eficent.com>
+* Matjaž Mozetič <m.mozetic@matmoz.si>
+* Aaron Henriquez <ahenriquez@eficent.com>
+* Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
 
 Maintainer
 ----------
