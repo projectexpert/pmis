@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2015 Matmoz d.o.o. (<http://www.matmoz.si>).
+# Copyright 2017 Matmoz d.o.o. (<http://www.matmoz.si>).
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, models, fields
+from odoo import api, fields, models
 
 
 class ProjectTask(models.Model):
@@ -10,7 +11,9 @@ class ProjectTask(models.Model):
     _inherit = 'project.task'
 
     change_id = fields.Many2one(
-        'change.management.change', 'Action on Change', readonly=True,
+        'change.management.change',
+        'Action on Change',
+        readonly=True,
         help="Task is an action on a change identified by this label."
     )
 
@@ -26,7 +29,8 @@ class ProjectProject(models.Model):
     )
 
     change_count = fields.Integer(
-        compute='_change_count', type='integer'
+        compute='_change_count',
+        type='integer'
     )
 
     @api.depends('change_ids')

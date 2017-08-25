@@ -1,20 +1,21 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2015 Matmoz d.o.o. (<http://www.matmoz.si>).
+# Copyright 2017 Matmoz d.o.o. (<http://www.matmoz.si>).
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
     'name': 'Change Management',
-    'version': '9.0.1.0.0',
+    'version': '10.0.1.0.0',
     'author': 'Matmoz d.o.o., '
               'Project Expert Team',
-    'contributors': [
-        'Matjaž Mozetič <m.mozetic@matmoz.si>',
-    ],
     'website': 'http://project.expert',
     'category': 'Project Management',
     'license': 'AGPL-3',
     'summary': 'Change Management integrated with Stakeholders Requirements',
-    'depends': ['project', 'project_wbs'],
+    'depends': [
+        'project',
+        'project_wbs'
+    ],
     'data': [
         'data/change_management_data.xml',
         'data/change_management_sequence.xml',
@@ -25,8 +26,10 @@
         'view/change_management_proximity_view.xml',
         'view/change_management_menus.xml'
     ],
-    'demo': ['demo/change_management_demo.xml'],
-    'test': ['test/test_change_management.yml'],
-    'installable': False,
+    'demo': [
+        'demo/change_management_demo.xml'
+    ],
+#    'test': ['test/test_change_management.yml'],
+    'installable': True,
     'application': True,
 }

@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-# Copyright (C) 2015 Matmoz d.o.o. (<http://www.matmoz.si>).
+# Copyright 2017 Matmoz d.o.o. (<http://www.matmoz.si>).
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, fields, models, tools, _
-from openerp.tools.safe_eval import safe_eval
-from openerp.exceptions import AccessError
+from odoo import api, fields, models, tools, _
+from odoo.tools.safe_eval import safe_eval
+from odoo.exceptions import AccessError
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -14,14 +15,22 @@ class CMChangeCategory(models.Model):
     _name = 'change.management.category'
     _description = 'Change log category table'
 
-    name = fields.Char(string='Change Category', required=True, translate=True)
+    name = fields.Char(
+        string='Change Category',
+        required=True,
+        translate=True
+    )
 
 
 class CMProximity(models.Model):
     _name = 'change.management.proximity'
     _description = 'Change log proximity table'
 
-    name = fields.Char(string='Proximity', required=True, translate=True)
+    name = fields.Char(
+        string='Proximity',
+        required=True,
+        translate=True
+    )
 
 
 class CMChange(models.Model):
@@ -73,8 +82,8 @@ class CMChange(models.Model):
     @api.model
     def create(self, vals):
         if vals.get('name', '/'):
-            vals['name'] = self.env['ir.sequence'].get(
-                'change.management.change')
+            vals['name'] =\
+                self.env['ir.sequence'].get('change.management.change')
         return super(CMChange, self).create(vals)
 
     @api.multi
@@ -82,8 +91,8 @@ class CMChange(models.Model):
         self.ensure_one()
         if default is None:
             default = {}
-        default['name'] = self.env['ir.sequence'].get(
-            'change.management.change')
+        default['name'] =\
+            self.env['ir.sequence'].get('change.management.change')
         return super(CMChange, self).copy(default)
 
     # ##### FIELDS #####  #
@@ -93,51 +102,49 @@ class CMChange(models.Model):
         default="/",
         readonly=True,
         states={'draft': [('readonly', False)]},
-        help="Change label. "
-             "Can be changed as long as change is in state 'draft'."
+        help="""Change label Can be changed as long as change is in
+        state 'draft'."""
     )
-
     description = fields.Char(
         string='Request Description',
         help='''
-Short description of the change.
+        Short description of the change.
 
-Project changes are characteristics, circumstances or
-features of the project environment that may have an
-adverse effect on the project in the form of budget,
-schedule, deliverables and results.
+        Project changes are characteristics, circumstances or
+        features of the project environment that may have an
+        adverse effect on the project in the form of budget,
+        schedule, deliverables and results.
 
-Stakeholder requirements can be considered and
-managed as changes, since we're changing the project
-charter and scope definition.
+        Stakeholder requirements can be considered and
+        managed as changes, since we're changing the project
+        charter and scope definition.
 
-The user requirements of the project must be defined and
-documented. Approval and confirmation must be obtained
-before the project can proceed. To obtain agreement about
-needs:
+        The user requirements of the project must be defined and
+        documented. Approval and confirmation must be obtained
+        before the project can proceed. To obtain agreement about
+        needs:
 
-* Separate needs from wants
-* Group the needs that are similar
-* Prioritise needs (eg essential, nice to have)
-* Identify any conflicting needs
-* Negotiate agreement between stakeholders with
-   conflicting needs
+        * Separate needs from wants
+        * Group the needs that are similar
+        * Prioritise needs (eg essential, nice to have)
+        * Identify any conflicting needs
+        * Negotiate agreement between stakeholders with
+           conflicting needs
 
-This process often requires a number of meetings with
-stakeholders. Stakeholders often express their needs in
-terms of a particular product or solution to the problem,
-which has created the need for the project in the first
-place. It is important to re-state the agreed needs in
-terms of “what the end product/service(s) of the project
-should do”.
-Stating the agreed needs in functional terms permits the
-project manager to offer a range of solutions to the client
-or key stakeholders. If the project outcomes are restricted
-to solutions offered by key stakeholders too early in the
-analysis process important alternative options might be
-overlooked. Document the final set of agreed requirements
-and obtain sign-off from all key stakeholders.
-        '''
+        This process often requires a number of meetings with
+        stakeholders. Stakeholders often express their needs in
+        terms of a particular product or solution to the problem,
+        which has created the need for the project in the first
+        place. It is important to re-state the agreed needs in
+        terms of “what the end product/service(s) of the project
+        should do”.
+        Stating the agreed needs in functional terms permits the
+        project manager to offer a range of solutions to the client
+        or key stakeholders. If the project outcomes are restricted
+        to solutions offered by key stakeholders too early in the
+        analysis process important alternative options might be
+        overlooked. Document the final set of agreed requirements
+        and obtain sign-off from all key stakeholders.'''
     )
     project_id = fields.Many2one(
         comodel_name='project.project',
@@ -149,12 +156,14 @@ and obtain sign-off from all key stakeholders.
         help="The project where the change request was initiated."
     )
     author_id = fields.Many2one(
-        'res.users', 'Requestor', required=True,
+        'res.users', 'Requestor',
+        required=True,
         default=lambda self: self.env.user.id,
         help="The author of the initial request."
     )
     stakeholder_id = fields.Many2one(
-        'res.partner', string='Proposer',
+        'res.partner',
+        string='Proposer',
         help="The stakeholder that proposes the  processing of the request."
     )
     color = fields.Integer(
@@ -186,7 +195,8 @@ and obtain sign-off from all key stakeholders.
         'Date Revised', help="Date of last revision."
     )
     change_category_id = fields.Many2one(
-        'change.management.category', 'Change Category',
+        'change.management.category',
+        'Change Category',
         default=lambda s: s._get_default_category(),
         help="Change Category: "
         "The type of change in terms of the project's or business"
@@ -202,7 +212,8 @@ and obtain sign-off from all key stakeholders.
         'Effect'
     )
     proximity_id = fields.Many2one(
-        'change.management.proximity', 'Proximity',
+        'change.management.proximity',
+        'Proximity',
         help="Proximity: /n"
         "This would typically state how close to the present time the change "
         "event is anticipated to happen (e.g. for project changes Imminent, "
@@ -211,10 +222,13 @@ and obtain sign-off from all key stakeholders.
         "continuity time scales."
     )
     change_response_ids = fields.One2many(
-        'project.task', 'change_id', 'Response Ids'
+        'project.task',
+        'change_id',
+        'Response Ids'
     )
     change_response_count = fields.Integer(
-        compute='_change_response_count', type='integer'
+        compute='_change_response_count',
+        type='integer'
     )
     state = fields.Selection(
         selection="_get_states",
@@ -225,17 +239,21 @@ and obtain sign-off from all key stakeholders.
         # track_visibility='on_change'
     )
     change_owner_id = fields.Many2one(
-        'res.users', 'Change Manager',
-        help="Change Manager: "
-        "The person responsible for managing the change (there can be"
-        "only one change owner per change), change ownership is assigned"
-        "to a managerial level, in case of business continuity to a "
-        "C-level manager."
+        'res.users',
+        'Change Manager',
+        help="""Change Manager:
+        The person responsible for managing the change (there can be
+        only one change owner per change), change ownership is assigned
+        to a managerial level, in case of business continuity to a
+        C-level manager."""
     )
 
     company_id = fields.Many2one(
-        'res.company', string='Company',
-        required=True, readonly=True, states={'draft': [('readonly', False)]},
+        'res.company',
+        string='Company',
+        required=True,
+        readonly=True,
+        states={'draft': [('readonly', False)]},
         default=lambda self: self.env.user.company_id.id,
     )
 
@@ -329,9 +347,7 @@ and obtain sign-off from all key stakeholders.
 
     @api.multi
     def write(self, vals):
-        ret = super(CMChange, self).write(
-            vals
-        )
+        ret = super(CMChange, self).write(vals)
         self._subscribe_extra_followers(vals)
         return ret
 
@@ -363,9 +379,7 @@ and obtain sign-off from all key stakeholders.
 
     @api.multi
     def message_get_suggested_recipients(self):
-        recipients = super(
-            CMChange, self
-        ).message_get_suggested_recipients()
+        recipients = super(CMChange, self).message_get_suggested_recipients()
         try:
             for change in self:
                 if change.stakeholder_id:
@@ -408,10 +422,8 @@ and obtain sign-off from all key stakeholders.
         if custom_values:
             defaults.update(custom_values)
 
-        res_id = super(
-            CMChange,
-            self.with_context(create_context)
-        ).message_new(msg, custom_values=defaults)
+        res_id = super(CMChange, self.with_context(create_context)).\
+            message_new(msg, custom_values=defaults)
         change = self.browse(res_id)
         email_list = change.email_split(msg)
         stakeholder_ids = filter(
@@ -430,9 +442,8 @@ and obtain sign-off from all key stakeholders.
             None, self._find_partner_from_emails(email_list)
         )
         self.message_subscribe(stakeholder_ids)
-        return super(CMChange, self).message_update(
-            msg, update_vals=update_vals
-        )
+        return super(CMChange, self).message_update(msg,
+                                                    update_vals=update_vals)
 
     @api.multi
     @api.returns('mail.message', lambda value: value.id)
@@ -442,9 +453,8 @@ and obtain sign-off from all key stakeholders.
          the change.
         """
         self.ensure_one()
-        mail_message = super(CMChange, self).message_post(
-            subtype=subtype, **kwargs
-        )
+        mail_message = super(CMChange, self).message_post(subtype=subtype,
+                                                          **kwargs)
         if subtype:
             self.sudo().write({'date_modified': fields.Datetime.now()})
         return mail_message

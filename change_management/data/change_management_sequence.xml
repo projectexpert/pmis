@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data noupdate="1">
         <!-- Sequences for change_management.change -->
 
@@ -9,5 +9,6 @@
             <field name="prefix">CR</field>
             <field name="padding">4</field>
         </record>
+
     </data>
-</openerp>
+</odoo>

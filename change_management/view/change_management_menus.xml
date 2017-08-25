@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
+<odoo>
 
     <menuitem name="Change Management"
               id="menu_change_management"
-              parent="base.menu_main_pm"
+              parent="project.menu_main_pm"
               action="action_show_changes"
               sequence="2"
               groups="project.group_project_manager,project.group_project_user"/>
@@ -36,5 +35,4 @@
               id="menu_change_proximity"
               parent="menu_configuration_changes"/>
 
-    </data>
-</openerp>
+</odoo>
