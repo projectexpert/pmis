@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 # Copyright 2017 Eficent Business and IT Consulting Services S.L.
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, fields, models
-from openerp.tools.translate import _
-from openerp.exceptions import Warning as UserError
+from odoo import api, fields, models
+from odoo.tools.translate import _
+from odoo.exceptions import UserError
 
 
 class ChangeManagementChange(models.Model):
@@ -16,15 +17,6 @@ class ChangeManagementChange(models.Model):
             data = {
                 'name': '%s - %s' % (change.name, change.description),
                 'parent_id': change.project_id.analytic_account_id.id,
-                'notes': (
-                    '<h1>Reason</h1> %s'
-                    '<h1>Cause</h1> %s'
-                    '<h1>Effect</h1> %s' % (
-                        change.description_event,
-                        change.description_cause,
-                        change.description_effect
-                    )
-                )
             }
         return data
 
@@ -52,6 +44,6 @@ class ChangeManagementChange(models.Model):
             for change in self:
                 if change.change_project_id:
                     change.change_project_id.\
-                        write({'parent_id': change.project_id.
-                               analytic_account_id.id})
+                        write({'parent_id':
+                               change.project_id.analytic_account_id.id})
         return res

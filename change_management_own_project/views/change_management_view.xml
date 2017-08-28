@@ -1,39 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
+<odoo>
 
-        <record id="change_form_view" model="ir.ui.view">
-            <field name="name">change.management.change.form.view</field>
-            <field name="model">change.management.change</field>
-            <field name="inherit_id" ref="change_management.change_form_view"/>
-            <field name="arch" type="xml">
-                <field name="author_id" position="after">
-                    <separator colspan="2"/>
-                    <button name="button_create_change_project"
-                            type='object'
-                            attrs="{'invisible': [('change_project_id', '!=', False)]}"
-                            colspan="2"
-                            class="oe_stat_button"
-                            icon="fa-level-down">
-                        <div>Launch a<br/>New Project</div>
-                    </button>
-                    <separator colspan="2"/>
-                    <field name="change_project_id"/>
-                </field>
+    <record id="change_form_view" model="ir.ui.view">
+        <field name="name">change.management.change.form.view</field>
+        <field name="model">change.management.change</field>
+        <field name="inherit_id" ref="change_management.change_form_view"/>
+        <field name="arch" type="xml">
+            <field name="author_id" position="after">
+                <separator colspan="2"/>
+                <button name="button_create_change_project"
+                        type='object'
+                        attrs="{'invisible': [('change_project_id', '!=', False)]}"
+                        colspan="2"
+                        class="oe_stat_button"
+                        icon="fa-level-down">
+                    <div>Launch a<br/>New Project</div>
+                </button>
+                <separator colspan="2"/>
+                <field name="change_project_id"/>
             </field>
-        </record>
+        </field>
+    </record>
 
-        <record id="change_search_form_view" model="ir.ui.view">
-            <field name="name">change.management.change.search.form.view</field>
-            <field name="model">change.management.change</field>
-            <field name="inherit_id"
-                   ref="change_management.change_search_form_view"/>
-            <field name="arch" type="xml">
-                <field name="project_id" position="after">
-                    <field name="change_project_id"/>
-                </field>
+    <record id="change_search_form_view" model="ir.ui.view">
+        <field name="name">change.management.change.search.form.view</field>
+        <field name="model">change.management.change</field>
+        <field name="inherit_id"
+               ref="change_management.change_search_form_view"/>
+        <field name="arch" type="xml">
+            <field name="project_id" position="after">
+                <field name="change_project_id"/>
             </field>
-        </record>   
+        </field>
+    </record>
 
-    </data>
-</openerp>
+</odoo>
