@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
-# © 2015 Eficent Business and IT Consulting Services S.L.
+# Copyright 2015 Eficent Business and IT Consulting Services S.L.
 # (Jordi Ballester Alomar)
-#
-# © 2016 Matmoz d.o.o.
+# Copyright 2016 Matmoz d.o.o.
 # (Matjaž Mozetič)
-#
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp.tools.translate import _
-from openerp import api, fields, models
-from openerp.exceptions import Warning as UserError
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError
 
 
 class AccountAnalyticPlanVersion(models.Model):
@@ -17,18 +15,16 @@ class AccountAnalyticPlanVersion(models.Model):
     _description = 'Analytic Planning Version'
 
     name = fields.Char(
-        'Planning Version Name', required=True
+        'Planning Version Name',
+        required=True
     )
     code = fields.Char(
         'Planning Version Code'
     )
     active = fields.Boolean(
         'Active',
-        help='If the active '
-             'field is set to False, '
-             'it will allow you to hide '
-             'the analytic planning version '
-             'without removing it.',
+        help='''If the active field is set to False, it will allow you to hide
+                the analytic planning version without removing it.''',
         default=True
     )
     notes = fields.Text(
@@ -59,10 +55,7 @@ class AccountAnalyticPlanVersion(models.Model):
                 )
                 if other_default_committed:
                     raise UserError(
-                        _(
-                            'Only one default commitments '
-                            'version can exist.'
-                        )
+                        _('Only one default commitments version can exist.')
                     )
 
     @api.model
@@ -74,18 +67,14 @@ class AccountAnalyticPlanVersion(models.Model):
                 )
                 if other_default_plan:
                     raise UserError(
-                        _(
-                            'Only one default plan version '
-                            'can exist.'
-                        )
+                        _('Only one default plan version can exist.')
                     )
 
     @api.model
     def create(self, vals):
         self._check_default_committed(vals)
         self._check_default_plan(vals)
-        res = super(AccountAnalyticPlanVersion, self).create(vals)
-        return res
+        return super(AccountAnalyticPlanVersion, self).create(vals)
 
     @api.multi
     def write(self, vals):

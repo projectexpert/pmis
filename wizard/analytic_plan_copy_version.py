@@ -1,18 +1,14 @@
 # -*- coding: utf-8 -*-
-# © 2015 Eficent Business and IT Consulting Services S.L.
+# Copyright 2015 Eficent Business and IT Consulting Services S.L.
 # (Jordi Ballester Alomar)
-#
-# © 2015 Serpent Consulting Services Pvt. Ltd.
-# (Sudhir Arya)
-#
-# © 2016 Matmoz d.o.o.
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
+# Copyright 2016 Matmoz d.o.o.
 # (Matjaž Mozetič)
-#
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, fields, models
-from openerp.tools.translate import _
-from openerp.exceptions import Warning as UserError
+from odoo import api, fields, models
+from odoo.tools.translate import _
+from odoo.exceptions import UserError
 
 
 class AnalyticPlanCopyVersion(models.TransientModel):
@@ -93,7 +89,7 @@ class AnalyticPlanCopyVersion(models.TransientModel):
             new_line_plan_ids.append(new_line_plan.id)
         if new_line_plan_rec:
             new_line_plan_rec.write({'version_id': dest_version[0]})
-
+            
         return {
                 'domain': "[('id','in', [" + ','.join(
                     map(str, new_line_plan_ids)
