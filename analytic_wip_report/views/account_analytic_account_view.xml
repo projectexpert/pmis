@@ -33,7 +33,7 @@
                 <field name="user_id" invisible="1"/>
                 <field name="partner_id" invisible="1"/>
                 <field name="parent_id" invisible="1"/>
-                <field name="account_class"/>
+                <field name="account_class" invisible="1"/>
                 <field name="company_id" groups="base.group_multi_company"/>
             </tree>
         </field>
