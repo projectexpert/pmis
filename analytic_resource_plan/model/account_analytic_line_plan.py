@@ -1,6 +1,8 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
+ # Copyright 2017 Eficent Business and IT Consulting Services S.L.
+ # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, fields, models
+from odoo import fields, models
 
 
 class AccountAnalyticLinePlan(models.Model):
@@ -9,14 +11,6 @@ class AccountAnalyticLinePlan(models.Model):
     resource_plan_id = fields.Many2one(
         'analytic.resource.plan.line',
         'Resource Plan Line',
+        copy=False,
         ondelete='cascade'
     )
-
-    @api.multi
-    def copy(self, default=None):
-        self.ensure_one()
-        if default is None:
-            default = {}
-        default['resource_plan_id'] = False
-        res = super(AccountAnalyticLinePlan, self).copy(default)
-        return res

@@ -1,8 +1,10 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
+ # Copyright 2017 Eficent Business and IT Consulting Services S.L.
+ # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, fields, models
-from openerp.tools.translate import _
-from openerp.exceptions import Warning as UserError
+from odoo import api, fields, models
+from odoo.tools.translate import _
+from odoo.exceptions import Warning
 
 
 class AnalyticResourcePlanCopyVersion(models.TransientModel):
@@ -58,12 +60,12 @@ class AnalyticResourcePlanCopyVersion(models.TransientModel):
             data.dest_version_id else False
         )
         if dest_version.default_plan:
-            raise UserError(_('It is prohibited to copy '
-                            'to the default planning version.'))
+            raise Warning(_('''It is prohibited to copy to the default
+                planning version.'''))
 
         if source_version == dest_version:
-            raise UserError(_('Choose different source and destination '
-                            'planning versions.'))
+            raise Warning(_('''Choose different source and destination
+                planning versions.'''))
         if include_child:
             account_ids = record.get_child_accounts().keys()
         else:
@@ -71,8 +73,8 @@ class AnalyticResourcePlanCopyVersion(models.TransientModel):
 
         line_plans = line_plan_obj.search(
             [
-                ('account_id', 'in', account_ids),
-                ('version_id', '=', source_version.id)
+             ('account_id', 'in', account_ids),
+             ('version_id', '=', source_version.id)
             ]
         )
         new_line_plan_rec = line_plan_obj
@@ -82,16 +84,15 @@ class AnalyticResourcePlanCopyVersion(models.TransientModel):
             new_line_plan_ids.append(new_line_plan.id)
         if new_line_plan_rec:
             new_line_plan_rec.write({'version_id': dest_version[0]})
-
         return {
-                'domain': "[('id','in', [" + ','.join(
-                    map(str, new_line_plan_ids)
-                ) + "])]",
-                'name': _('Resource Plan Lines'),
-                'view_type': 'form',
-                'view_mode': 'tree,form',
-                'res_model': 'analytic.resource.plan.line',
-                'view_id': False,
-                'context': False,
-                'type': 'ir.actions.act_window'
+            'domain': "[('id','in', [" + ','.join(
+                map(str, new_line_plan_ids)
+            ) + "])]",
+            'name': _('Resource Plan Lines'),
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            'res_model': 'analytic.resource.plan.line',
+            'view_id': False,
+            'context': False,
+            'type': 'ir.actions.act_window'
         }

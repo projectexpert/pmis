@@ -1,10 +1,12 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
+ # Copyright 2017 Eficent Business and IT Consulting Services S.L.
+ # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 import time
-from openerp import api, fields, models
-from openerp.tools.translate import _
-from openerp.exceptions import Warning as UserError
-from openerp.exceptions import ValidationError
+from odoo import api, fields, models
+from odoo.tools.translate import _
+from odoo.exceptions import Warning
+from odoo.exceptions import ValidationError
 
 
 class AnalyticResourcePlanLine(models.Model):
@@ -28,8 +30,7 @@ class AnalyticResourcePlanLine(models.Model):
         'Analytic Account',
         required=True,
         ondelete='cascade',
-        select=True,
-        domain=[('type', '<>', 'view')],
+        index=True,
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
@@ -42,18 +43,18 @@ class AnalyticResourcePlanLine(models.Model):
     date = fields.Date(
         'Date',
         required=True,
-        select=True,
+        index=True,
         readonly=True,
         states={'draft': [('readonly', False)]},
         default=lambda *a: time.strftime('%Y-%m-%d')
     )
     state = fields.Selection(
         [
-            ('draft', 'Draft'),
-            ('confirm', 'Confirmed')
+         ('draft', 'Draft'),
+         ('confirm', 'Confirmed')
         ],
         'Status',
-        select=True,
+        index=True,
         required=True,
         readonly=True,
         help=' * The \'Draft\' status is '
@@ -100,7 +101,6 @@ class AnalyticResourcePlanLine(models.Model):
         inverse_name='parent_id',
         string='Child lines'
     )
-
     has_child = fields.Boolean(
         compute='_has_child',
         string="Child lines"
@@ -122,7 +122,10 @@ class AnalyticResourcePlanLine(models.Model):
         groups='project.group_project_manager',
     )
     resource_type = fields.Selection(
-        selection=[('task', 'Task'), ('procurement', 'Procurement')],
+        [
+         ('task', 'Task'),
+         ('procurement', 'Procurement')
+        ],
         string='Type',
         required=True,
         default='task'
@@ -146,37 +149,33 @@ class AnalyticResourcePlanLine(models.Model):
     @api.model
     def _prepare_analytic_lines(self):
         plan_version_obj = self.env['account.analytic.plan.version']
-        journal_id = (
-            self.product_id.expense_analytic_plan_journal_id
-            and self.product_id.expense_analytic_plan_journal_id.id
-            or False
-        )
+        journal_id =\
+            (self.product_id.expense_analytic_plan_journal_id and
+             self.product_id.expense_analytic_plan_journal_id.id or False)
         general_account_id = (
-            self.product_id.product_tmpl_id.property_account_expense.id
+            self.product_id.product_tmpl_id.property_account_expense_id.id
         )
+        if not journal_id:
+            raise Warning(_(
+                'There is no analytic plan journal for product %s'
+                ) % self.product_id.name)
         if not general_account_id:
             general_account_id = (
-                self.product_id.categ_id.property_account_expense_categ.id
+                self.product_id.categ_id.property_account_expense_categ_id.id
             )
         if not general_account_id:
-            raise UserError(
-                _(
-                    'There is no expense account defined '
-                    'for this product: "%s" (id:%d)'
-                ) % (self.product_id.name, self.product_id.id,)
-            )
+            raise Warning(_(
+                'There is no expense account defined '
+                'for this product: "%s" (id:%d)'
+                ) % (self.product_id.name, self.product_id.id,))
         default_plan = plan_version_obj.search(
             [('default_resource_plan', '=', True)],
             limit=1
         )
 
         if not default_plan:
-            raise UserError(
-                _(
-                    'No active planning version for resource '
-                    'plan exists.'
-                )
-            )
+            raise Warning(_('''No active planning version for resource plan
+                exists.'''))
 
         return [{
             'resource_plan_id': self.id,
@@ -192,9 +191,6 @@ class AnalyticResourcePlanLine(models.Model):
             'notes': self.notes,
             'version_id': default_plan.id,
             'currency_id': self.account_id.company_id.currency_id.id,
-            # 'amount_currency': (
-            #     -1 * self.product_id.standard_price * self.unit_amount
-            # ),
         }]
 
     @api.model
@@ -203,7 +199,7 @@ class AnalyticResourcePlanLine(models.Model):
         line_plan_obj = self.env['account.analytic.line.plan']
         lines_vals = self._prepare_analytic_lines()
         for line_vals in lines_vals:
-            line = line_plan_obj.create(line_vals)
+            line_plan_obj.create(line_vals)
         return res
 
     @api.model
@@ -218,12 +214,8 @@ class AnalyticResourcePlanLine(models.Model):
         for line in self:
             for child in line.child_ids:
                 if child.state not in ('draft', 'plan'):
-                    raise UserError(
-                        _(
-                            'All the child resource plan lines must '
-                            ' be in Draft state.'
-                        )
-                    )
+                    raise Warning(_('''All the child resource plan lines
+                        must be in Draft state.'''))
             line._delete_analytic_lines()
         return self.write({'state': 'draft'})
 
@@ -231,11 +223,7 @@ class AnalyticResourcePlanLine(models.Model):
     def action_button_confirm(self):
         for line in self:
             if line.unit_amount == 0:
-                raise UserError(
-                    _(
-                        'Quantity should be greater than 0.'
-                    )
-                )
+                raise Warning(_('Quantity should be greater than 0.'))
             if not line.child_ids:
                 line.create_analytic_lines()
         return self.write({'state': 'confirm'})
@@ -244,11 +232,8 @@ class AnalyticResourcePlanLine(models.Model):
     def on_change_product_id(self):
         if self.product_id:
             self.name = self.product_id.name
-            self.product_uom_id = (
-                self.product_id.uom_id
-                and self.product_id.uom_id.id
-                or False
-            )
+            self.product_uom_id =\
+                (self.product_id.uom_id and self.product_id.uom_id.id or False)
             self.price_unit = self.product_id.standard_price
 
     @api.onchange('account_id')
@@ -270,12 +255,8 @@ class AnalyticResourcePlanLine(models.Model):
     def unlink(self):
         for line in self:
             if line.analytic_line_plan_ids:
-                raise UserError(
-                    _(
-                        'You cannot delete a record that refers to '
-                        'analytic plan lines!'
-                    )
-                )
+                raise Warning(_('''You cannot delete a record that refers to
+                    analytic plan lines!'''))
         return super(AnalyticResourcePlanLine, self).unlink()
 
     # PRICE DEFINITIONS
@@ -305,9 +286,8 @@ class AnalyticResourcePlanLine(models.Model):
     @api.constrains('resource_type', 'product_uom_id')
     def _check_description(self):
         for resource in self:
-            if self.resource_type == 'task' and (
-                        self.product_uom_id.category_id != (
-                            self.env.ref('product.uom_categ_wtime'))):
-                raise ValidationError(_(
-                    "When resource type is task, "
-                    "the uom category should be time"))
+            if resource.resource_type == 'task' and (
+                        resource.product_uom_id.category_id != (
+                            resource.env.ref('product.uom_categ_wtime'))):
+                raise ValidationError(_("""When resource type is task,
+                    the uom category should be time"""))
