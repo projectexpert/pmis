@@ -1,7 +1,9 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
+ # Copyright 2017 Eficent Business and IT Consulting Services S.L.
+ # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, fields, models
-from openerp.tools.translate import _
+from odoo import api, fields, models
+from odoo.tools.translate import _
 
 
 class ResourcePlanLineChangeState(models.TransientModel):
@@ -11,11 +13,12 @@ class ResourcePlanLineChangeState(models.TransientModel):
 
     state = fields.Selection(
         [
-            ('draft', 'Draft'),
-            ('confirm', 'Confirmed')
+         ('draft', 'Draft'),
+         ('confirm', 'Confirmed')
         ],
         'Status',
-        select=True, required=True,
+        index=True,
+        required=True,
         help=' * The \'Draft\' status is used when a user is encoding '
              'a new and unconfirmed resource plan line. '
              '\n* The \'Confirmed\' status is used for to confirm the '

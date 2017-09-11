@@ -1,8 +1,10 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
+ # Copyright 2017 Eficent Business and IT Consulting Services S.L.
+ # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp.tools.translate import _
-from openerp import api, fields, models
-from openerp.exceptions import Warning as UserError
+from odoo.tools.translate import _
+from odoo import api, fields, models
+from odoo.exceptions import Warning
 
 
 class AccountAnalyticPlanVersion(models.Model):
@@ -21,12 +23,8 @@ class AccountAnalyticPlanVersion(models.Model):
                     [('default_resource_plan', '=', True)]
                 )
                 if other_default_resource:
-                    raise UserError(
-                        _(
-                            'Only one default for resource '
-                            'plan version can exist.'
-                        )
-                    )
+                    raise Warning(_('''Only one default for resource plan
+                        version can exist.'''))
 
     @api.model
     def create(self, vals):
