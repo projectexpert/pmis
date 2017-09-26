@@ -386,6 +386,10 @@ class Project(osv.osv):
                 project.user_id.id or
                 False
             ),
+            'default_state': (
+                project.state or
+                False
+            ),
         }
         res['domain'] = "[('id', 'in', [" + ','.join(
             map(str, child_project_ids)) + "])]"
