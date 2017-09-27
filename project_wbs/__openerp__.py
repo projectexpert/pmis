@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Work Breakdown Structure',
-    'version': '8.0.2.4.3',
+    'version': '8.0.2.4.4',
     'author': 'Eficent, '
               'Matmoz, '
               'Luxim, '
