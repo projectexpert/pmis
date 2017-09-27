@@ -85,7 +85,7 @@ class AccountAnalyticLinePlan(models.Model):
         'Planning Analytic Journal',
         required=True,
         ondelete='restrict',
-        select=True,
+        index=True,
         default=lambda self:
         self._context['journal_id'] if
         self._context and 'journal_id' in
