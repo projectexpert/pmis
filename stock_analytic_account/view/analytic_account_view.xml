@@ -32,7 +32,7 @@
             <xpath expr="//group[@name='main']" position="after">
                 <notebook>
                     <page string="Stock" name="stock">
-                        <group>
+                        <group name="stock">
                             <field name="move_ids" nolabel="1"/>
                         </group>
                     </page>
