@@ -29,7 +29,6 @@
                 <field name="under_billings"/>
                 <field name="state" invisible="1"/>
                 <field name="currency_id" groups="base.group_multi_currency"/>
-                <field name="date" invisible="1"/>
                 <field name="user_id" invisible="1"/>
                 <field name="partner_id" invisible="1"/>
                 <field name="parent_id" invisible="1"/>
