@@ -25,14 +25,14 @@ class ProgressMeasurement(models.Model):
 
     @api.multi
     @api.constrains('value', 'progress_type')
-    def _check_is_valid_precision(self, cr, uid, ids):
-        for item in self.browse(cr, uid, ids):
+    def _check_is_valid_precision(self):
+        for item in self:
             if item.progress_measurement_type:
                 result = item.value % item.progress_measurement_type.precision
                 if result != 0.0:
-                    raise ValidationError('Error! The value is entered in a'
-                                          'higher precision to that defined '
-                                          'in the progress measurement type')
+                    raise ValidationError('The value is entered in a higher '
+                                          'precision to that defined in the'
+                                          ' progress measurement type')
         return True
 
     name = fields.Char('Description', size=32, required=False,
@@ -49,7 +49,7 @@ class ProgressMeasurement(models.Model):
         'progress.measurement.type', 'Progress Measurement Type',
         required=True)
     user_id = fields.Many2one('res.users', 'Entered by', required=True,
-                              default=lambda self, cr, uid, context: uid)
+                              default=lambda self: self.env.uid)
 
     @api.model
     def create(self, vals):
