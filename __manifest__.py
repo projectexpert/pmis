@@ -18,7 +18,7 @@
         'views/stock_view.xml'
     ],
     'demo': [
-        'data/stock_data.xml'
+        'demo/stock_data.xml'
     ],
     'installable': True,
 }
