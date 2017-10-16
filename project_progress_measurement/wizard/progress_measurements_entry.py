@@ -1,72 +1,53 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              <contact@eficent.com>
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright 2014-17 Eficent Business and IT Consulting Services S.L.
+#        <contact@eficent.com>
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp.osv import orm, fields, osv
-from openerp.tools.translate import _
-import time
+from odoo import api, fields, models, _
 
 
-class progress_measurements_entry(osv.osv_memory):
+class ProgressMeasurementsEntry(models.TransientModel):
     """
     For Bulk entry of progress measurements
     """
     _name = "progress.measurements.entry"
     _description = "Progress measurements entry"
 
-    _columns = {
-        'communication_date': fields.date('Communication date', required=True),
-        'progress_measurement_type_id': fields.many2one('progress.measurement.type',
-                                                        'Progress Measurement Type', required=True),
-    }
+    communication_date = fields.Date(
+        'Communication date',
+        required=True,
+        default=fields.Date.context_today
+    )
+    progress_measurement_type_id = fields.Many2one(
+        'progress.measurement.type',
+        'Progress Measurement Type',
+        required=True
+    )
 
-    _defaults = {
-        'communication_date': time.strftime('%Y-%m-%d'),
-    }
+    @api.multi
+    def progress_measurements_open_window(self):
 
-    def progress_measurements_open_window(self, cr, uid, ids, context=None):
-
-        if context is None:
-            context = {}
         res = []
-
-        project_obj = self.pool.get('project.project')
-        meas_obj = self.pool.get('project.progress.measurement')
-
-        record_ids = context and context.get('active_ids', False)
-        project_ids = project_obj._get_project_wbs(cr, uid, record_ids, context=context)
-        data = self.read(cr, uid, ids, [], context=context)[0]
+        project_obj = self.env['project.project']
+        meas_obj = self.env['project.progress.measurement']
+        record_ids = self._context and self._context.get('active_ids', False)
+        project_id = project_obj.browse(record_ids)
+        project_ids = project_id._get_project_wbs()
+        data = self.read()[0]
         communication_date = data.get('communication_date', False)
         progress_measurement_type_id = (
             data.get('progress_measurement_type_id', False) and
             data['progress_measurement_type_id'][0] or
             False
         )
-
-        cr.execute('SELECT DISTINCT ON (a.project_id) project_id, id, communication_date, value '
-                   'FROM project_progress_measurement AS a '
-                   'WHERE a.project_id IN %s '
-                   'AND a.progress_measurement_type = %s '
-                   'ORDER BY a.project_id, a.communication_date DESC',
-                   (tuple(project_ids), progress_measurement_type_id))
-        results = cr.fetchall()
+        self._cr.execute('SELECT DISTINCT ON (a.project_id) project_id, id,'
+                         'communication_date, value'
+                         'FROM project_progress_measurement AS a'
+                         'WHERE a.project_id IN %s'
+                         'AND a.progress_measurement_type = %s'
+                         'ORDER BY a.project_id, a.communication_date DESC',
+                         (tuple(project_ids), progress_measurement_type_id))
+        results = self._cr.fetchall()
 
         measurements = {}
         for result in results:
@@ -83,15 +64,15 @@ class progress_measurements_entry(osv.osv_memory):
                 'progress_measurement_type': progress_measurement_type_id,
             }
             if project_id in measurements.keys():
-                if measurements[project_id]['communication_date'] == communication_date:
+                if measurements[project_id]['communication_date'
+                                            ] == communication_date:
                     res.append(measurements[project_id]['id'])
                 else:
                     vals['value'] = measurements[project_id]['value']
-                    res.append(meas_obj.create(cr, uid, vals, context=context))
+                    res.append(meas_obj.create(vals))
             else:
                 vals['value'] = 0
-                res.append(meas_obj.create(cr, uid, vals, context=context))
-
+                res.append(meas_obj.create(vals))
         return {
             'domain': "[('id','in', [" + ','.join(map(str, res)) + "])]",
             'name': _('Non-aggregated progress measurements'),
@@ -102,6 +83,3 @@ class progress_measurements_entry(osv.osv_memory):
             'context': False,
             'type': 'ir.actions.act_window'
         }
-
-
-progress_measurements_entry()
