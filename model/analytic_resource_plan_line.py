@@ -1,26 +1,11 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Copyright (C) 2014 Eficent (<http://www.eficent.com/>)
-#              <contact@eficent.com>
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-from openerp.osv import fields, orm
-from openerp.tools.translate import _
+# Copyright 2017 Eficent Business and IT Consulting Services S.L.
+#   (http://www.eficent.com)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
+from odoo import _, api, fields, models
+import odoo.addons.decimal_precision as dp
+from odoo.exceptions import ValidationError
 
 _REQUEST_STATE = [
     ('none', 'No Request'),
@@ -31,90 +16,142 @@ _REQUEST_STATE = [
 ]
 
 
-class AnalyticResourcePlanLine(orm.Model):
+class AnalyticResourcePlanLine(models.Model):
 
     _inherit = 'analytic.resource.plan.line'
 
-    def _requested_qty(self, cr, uid, ids, name, arg, context=None):
-        res = {}
-        for line in self.browse(cr, uid, ids, context=context):
+    @api.multi
+    @api.depends('purchase_request_lines')
+    def _requested_qty(self):
+        for line in self:
             requested_qty = 0.0
             for purchase_line in line.purchase_request_lines:
-                requested_qty += purchase_line.product_qty
-            res[line.id] = requested_qty
-        return res
+                if purchase_line.request_id.state != 'rejected':
+                    requested_qty += purchase_line.product_qty
+            line.requested_qty = requested_qty
+        return True
 
-    def _get_request_state(self, cr, uid, ids, names, arg, context=None):
-            res = {}
-            for line in self.browse(cr, uid, ids, context=context):
-                res[line.id] = 'none'
+    @api.multi
+    @api.depends('purchase_request_lines')
+    def _get_request_state(self):
+        for line in self:
+            line.request_state = 'none'
+            if line.purchase_request_lines:
                 if any([pr_line.request_id.state == 'approved' for pr_line in
                         line.purchase_request_lines]):
-                    res[line.id] = 'approved'
-                elif all([pr_line.request_id.state == 'cancel' for pr_line in
+                    line.request_state = 'approved'
+                elif all([pr_line.request_id.state == 'rejected' for pr_line in
                           line.purchase_request_lines]):
-                    res[line.id] = 'cancel'
-                elif all([po_line.request_id.state in ('to_approve', 'cancel')
-                          for po_line in line.purchase_request_lines]):
-                    res[line.id] = 'to_approve'
-                elif any([po_line.request_id.state == 'approved' for po_line in
+                    line.request_state = 'rejected'
+                elif all([pr_line.request_id.state in ('to_approve', 'cancel')
+                          for pr_line in line.purchase_request_lines]):
+                              line.request_state = 'to_approve'
+                elif any([pr_line.request_id.state == 'approved' for pr_line in
                           line.purchase_request_lines]):
-                    res[line.id] = 'approved'
-                elif all([po_line.request_id.state in ('draft', 'cancel')
-                          for po_line in line.purchase_request_lines]):
-                    res[line.id] = 'draft'
-            return res
+                    line.request_state = 'approved'
+                elif all([pr_line.request_id.state in ('draft', 'cancel')
+                          for pr_line in line.purchase_request_lines]):
+                              line.request_state = 'draft'
+        return True
 
-    def _get_rpls_from_purchase_requests(self, cr, uid, ids, context=None):
-        rpl_ids = []
-        for request in self.pool['purchase.request'].browse(
-                cr, uid, ids, context=context):
-            for request_line in request.line_ids:
-                for rpl in request_line.analytic_resource_plan_lines:
-                    rpl_ids.append(rpl.id)
-        return list(set(rpl_ids))
+    requested_qty = fields.Float(
+        compute=_requested_qty,
+        string='Requested quantity',
+        digits=dp.get_precision('Product Unit of Measure'),
+        readonly=True)
 
-    def _get_rpls_from_purchase_request_lines(self, cr, uid, ids,
-                                              context=None):
-        rpl_ids = []
-        for request_line in self.pool['purchase.request.line'].browse(
-                cr, uid, ids, context=context):
-            for rpl in request_line.analytic_resource_plan_lines:
-                rpl_ids.append(rpl.id)
-        return list(set(rpl_ids))
-
-    _columns = {
-        'requested_qty': fields.function(_requested_qty,
-                                         string='Requested quantity',
-                                         type='float',
-                                         readonly=True),
-        'request_state': fields.function(
-            _get_request_state, string='Request status', type='selection',
+    request_state = fields.Selection(
+            compute=_get_request_state, string='Request status',
             selection=_REQUEST_STATE,
-            store={'purchase.request':
-                   (_get_rpls_from_purchase_requests,
-                    ['state', 'line_ids'], 10),
-                   'purchase.request.line':
-                   (_get_rpls_from_purchase_request_lines,
-                    ['analytic_resource_plan_lines'], 10)}),
-        'purchase_request_lines': fields.many2many(
+            store=True,
+            default='none')
+    purchase_request_lines = fields.Many2many(
             'purchase.request.line',
-            'purchase_request_line_analytic_resource_plan_line_line_rel',
-            'analytic_resource_plan_line_id',
-            'purchase_request_line_id',
-            'Purchase Request Lines', readonly=True),
-    }
+            copy=False,
+            string='Purchase Request Lines',
+            readonly=True)
 
-    _defaults = {
-        'request_state': 'none',
-    }
-
-    def unlink(self, cr, uid, ids, context=None):
-        for line in self.browse(cr, uid, ids, context=context):
+    @api.multi
+    def unlink(self):
+        for line in self:
             if line.purchase_request_lines:
-                raise orm.except_orm(
-                    _('Error!'),
-                    _('You cannot delete a record that refers to purchase '
-                      'purchase request lines!'))
-        return super(AnalyticResourcePlanLine, self).unlink(cr, uid, ids,
-                                                            context=context)
+                raise ValidationError(
+                    _('You cannot delete a record that refers to '
+                      'Purchase request lines!'))
+        return super(AnalyticResourcePlanLine, self).unlink()
+
+    @api.multi
+    def action_button_draft(self):
+        res = super(AnalyticResourcePlanLine, self).action_button_draft()
+        for line in self:
+            for request_line in line.purchase_request_lines:
+                request_line.request_id.button_rejected()
+        return res
+
+    @api.multi
+    def action_button_confirm(self):
+        res = super(AnalyticResourcePlanLine, self).action_button_confirm()
+        self._make_purchase_request()
+        return res
+
+    @api.model
+    def _prepare_purchase_request(self, company_id):
+        data = {
+            'company_id': company_id,
+            'origin': self.name,
+            'description': self.product_id.description,
+        }
+        return data
+
+    def _prepare_purchase_request_line(self, pr_id, qty):
+        return {
+            'request_id': pr_id.id,
+            'name': self.product_id.name,
+            'product_qty': qty,
+            'product_id': self.product_id.id,
+            'product_uom_id': self.product_uom_id.id,
+            'date_required': self.date or False,
+            'analytic_account_id': self.account_id.id,
+            'analytic_resource_plan_lines': [(4, self.id)]
+        }
+
+    @api.multi
+    def _make_purchase_request(self):
+        res = []
+        request_obj = self.env['purchase.request']
+        request_line_obj = self.env['purchase.request.line']
+        company_id = False
+        warehouse_id = False
+        for line in self:
+            if line.state != 'confirm':
+                raise ValidationError(
+                    _('All resource plan lines must be  '
+                      'confirmed.'))
+            line_company_id = line.account_id.company_id.id or False
+            if company_id is not False \
+                    and line_company_id != company_id:
+                raise ValidationError(
+                    _('You have to select lines '
+                      'from the same company.'))
+            else:
+                company_id = line_company_id
+            line_warehouse_id = \
+                line.account_id.location_id.get_warehouse() or False
+            if warehouse_id is not False \
+                    and line_warehouse_id != warehouse_id:
+                raise ValidationError(
+                    _('You have to select lines '
+                      'from the same warehouse.'))
+            else:
+                warehouse_id = line_warehouse_id
+
+            request_data = line._prepare_purchase_request(company_id)
+            request_id = request_obj.create(request_data)
+            request_line_data = line._prepare_purchase_request_line(
+                request_id, line.unit_amount)
+            request_line_id = request_line_obj.create(
+                request_line_data)
+            values = {
+                'purchase_request_lines': [(4, request_line_id.id)]
+            }
+        return True

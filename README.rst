@@ -5,8 +5,6 @@
 Analytic Resource Planning - Purchase Requests
 ==============================================
 
-Module features:
-
 * Create purchase requests from analytic resource planning lines
 
 
@@ -18,7 +16,7 @@ Contributors
 
 * Eficent <http://www.eficent.com>
 * Matmoz d.o.o. <http://www.matmoz.si>
-
+* Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
 
 Maintainer
 ----------
