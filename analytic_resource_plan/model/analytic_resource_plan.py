@@ -236,12 +236,6 @@ class AnalyticResourcePlanLine(models.Model):
                 (self.product_id.uom_id and self.product_id.uom_id.id or False)
             self.price_unit = self.product_id.standard_price
 
-    @api.onchange('account_id')
-    def on_change_account_id(self):
-        if self.account_id:
-            if self.account_id.date:
-                self.date = self.account_id.date
-
     @api.multi
     def write(self, vals):
         analytic_obj = self.env['account.analytic.account']

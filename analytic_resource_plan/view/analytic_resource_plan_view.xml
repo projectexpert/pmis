@@ -56,19 +56,19 @@
                     </group>
                 <notebook>
                     <page string="Notes" name="notes">
-                            <field name="notes"/>
-                        </page>
-                        <page string="Hierarchy" name="hierarchy">
-                            <group>
-                                <field name="parent_id"/>
-                            </group>
-                            <group>
-                                <field name="child_ids"/>
-                            </group>
-                        </page>
-                        <page string="Costs" name="costs">
-                            <field name="analytic_line_plan_ids"/>
-                        </page>
+                        <field name="notes"/>
+                    </page>
+                    <page string="Hierarchy" name="hierarchy">
+                        <group>
+                            <field name="parent_id"/>
+                        </group>
+                        <group>
+                            <field name="child_ids"/>
+                        </group>
+                    </page>
+                    <page string="Costs" name="costs">
+                        <field name="analytic_line_plan_ids"/>
+                    </page>
                 </notebook>
                 </sheet>
                 <div class="oe_chatter">
@@ -87,7 +87,7 @@
         <field name="arch" type="xml">
             <tree string="Analytic resource plan line"
                   colors = "darkmagenta:has_child == True;blue:state=='draft'"
-                  >
+                  editable = "bottom">
                 <field name="account_id"/>
                 <field name="date"/>
                 <field name="name" invisible="True"/>
@@ -98,10 +98,10 @@
                 <field name="unit_amount"/>
                 <button name="action_button_draft" states="confirm"
                         string="Draft" type="object"
-                        class="oe_stat_button"/>
+                        class="button_confirm"/>
                 <button name="action_button_confirm" states="draft"
                         string="Confirm" type="object"
-                        class="oe_stat_button"/>
+                        class="button_draft"/>
                 <field name="state"/>
                 <field name="product_uom_id"/>
                 <field name="price_unit"/>

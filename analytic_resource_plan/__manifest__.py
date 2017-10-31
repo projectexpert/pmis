@@ -15,7 +15,8 @@
     'depends': [
         'account',
         'purchase',
-        'analytic_plan'
+        'analytic_plan',
+        'analytic_resource_plan_stock'
     ],
     'data': [
         'security/ir.model.access.csv',
