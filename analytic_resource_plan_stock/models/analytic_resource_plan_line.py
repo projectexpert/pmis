@@ -15,79 +15,150 @@ class AnalyticResourcePlanLine(models.Model):
         """ Finds the incoming and outgoing quantity of product on the
         for that analytic account and the location defaulted in the analytic
         account.
-        @return: Dictionary of values
         """
-        product_obj = self.env['product.product']
         for line in self:
             if line.product_id.type == 'service':
                 continue
+            c = self.env.context.copy()
             location_id = (
                 line.account_id.location_id and
                 line.account_id.location_id.id or False
             )
-            for f in field_names:
-                if line.account_id.use_reserved_stock:
-                    c.update({'analytic_account_id': line.account_id.id})
-                if location_id:
-                    c.update({'location_id': location_id})
-                if f == 'qty_available':
-                    c.update(
-                        {
-                            'states': ('done',),
-                            'what': ('in', 'out')
-                        }
-                    )
-                if f == 'virtual_available':
-                    c.update(
-                        {
-                            'states': (
-                                'confirmed',
-                                'waiting',
-                                'assigned',
-                                'done'
-                            ),
-                            'what': ('in', 'out')
-                        }
-                    )
-                if f == 'incoming_qty':
-                    c.update(
-                        {
-                            'states': (
-                                'confirmed',
-                                'waiting',
-                                'assigned'
-                            ),
-                            'what': ('in',)
-                        }
-                    )
-                if f == 'incoming_done_qty':
-                    c.update(
-                        {
-                            'states': ('done',),
-                            'what': ('in',)
-                        }
-                    )
-                if f == 'outgoing_qty':
-                    c.update(
-                        {
-                            'states': (
-                                'confirmed',
-                                'waiting',
-                                'assigned'
-                            ),
-                            'what': ('out',)
-                        }
-                    )
-                if f == 'outgoing_done_qty':
-                    c.update(
-                        {'states': ('done',), 'what': ('out',)}
-                    )
+            c.update({'analytic_account_id': line.account_id.id})
+            if location_id:
+                c.update({'location_id': location_id})
+            c.update(
+                {
+                    'states': ('done',),
+                    'what': ('in', 'out')
+                }
+            )
+            stock = line.with_context(c).product_id._product_available()
+            line.qty_available = stock.get('qty_available', 0.0)
+        return True
 
-                stock = product_obj.get_product_available(
-                    cr, uid, [line.product_id.id], context=c
-                )
-                res[line.id][f] = stock.get(line.product_id.id, 0.0)
-        return res
+    def _compute_virtual_available(self):
+        for line in self:
+            if line.product_id.type == 'service':
+                continue
+            c = self.env.context.copy()
+            location_id = (
+                line.account_id.location_id and
+                line.account_id.location_id.id or False
+            )
+            c.update({'analytic_account_id': line.account_id.id})
+            if location_id:
+                c.update({'location_id': location_id})
+            c.update(
+                {
+                    'states': (
+                        'confirmed',
+                        'waiting',
+                        'assigned',
+                        'done'
+                    ),
+                    'what': ('in', 'out')
+                }
+            )
+            stock = line.with_context(c).product_id._product_available()
+            line.virtual_available = stock.get('virtual_available', 0.0)
+        return True
+
+    def _compute_incoming_qty(self):
+        for line in self:
+            if line.product_id.type == 'service':
+                continue
+            c = self.env.context.copy()
+            location_id = (
+                line.account_id.location_id and
+                line.account_id.location_id.id or False
+            )
+            c.update({'analytic_account_id': line.account_id.id})
+            if location_id:
+                c.update({'location_id': location_id})
+            c.update(
+                {
+                    'states': (
+                        'confirmed',
+                        'waiting',
+                        'assigned'
+                    ),
+                    'what': ('in',)
+                }
+            )
+            stock = line.with_context(c).product_id._product_available()
+            line.incoming_qty = stock.get('incoming_qty', 0.0)
+        return True
+
+    def _compute_outgoing_qty(self):
+        for line in self:
+            if line.product_id.type == 'service':
+                continue
+            c = self.env.context.copy()
+            location_id = (
+                line.account_id.location_id and
+                line.account_id.location_id.id or False
+            )
+            c.update({'analytic_account_id': line.account_id.id})
+            if location_id:
+                c.update({'location_id': location_id})
+            c.update(
+                {
+                    'states': (
+                        'confirmed',
+                        'waiting',
+                        'assigned'
+                    ),
+                    'what': ('out',)
+                }
+            )
+            stock = line.with_context(c).product_id._product_available()
+            line.outgoing_qty = stock.get('outgoing_qty', 0.0)
+        return True
+
+    def _compute_incoming_done_qty(self):
+        for line in self:
+            if line.product_id.type == 'service':
+                continue
+            c = self.env.context.copy()
+            location_id = (
+                line.account_id.location_id and
+                line.account_id.location_id.id or False
+            )
+            c.update({'analytic_account_id': line.account_id.id})
+            if location_id:
+                c.update({'location_id': location_id})
+            c.update(
+                {
+                    'states': ('done',),
+                    'what': ('in',)
+                }
+            )
+            stock = line.with_context(c).product_id._product_available()
+            line.incoming_done_qty = stock.get('incoming_qty', 0.0)
+        return True
+
+    def _compute_outgoing_done_qty(self):
+        for line in self:
+            if line.product_id.type == 'service':
+                continue
+            c = self.env.context.copy()
+            location_id = (
+                line.account_id.location_id and
+                line.account_id.location_id.id or False
+            )
+            c.update({'analytic_account_id': line.account_id.id})
+            if location_id:
+                c.update({'location_id': location_id})
+            c.update(
+                {
+                    'states': ('done',),
+                    'what': ('out',)
+                }
+            )
+            stock = line.with_context(c).product_id._product_available()
+            line.outgoing_done_qty = stock.get('outgoing_qty', 0.0)
+        return True
 
     qty_available = fields.Float(
         string='Quantity Available',
@@ -108,7 +179,7 @@ class AnalyticResourcePlanLine(models.Model):
     virtual_available = fields.Float(
         string='Virtually available',
         default=lambda self: self.unit_amount,
-        compute=_compute_qty_available,
+        compute=_compute_virtual_available,
         digits=dp.get_precision('Product Unit of Measure'),
         help="Forecast quantity (computed as Quantity On Hand "
              "- Outgoing + Incoming)\n"
@@ -126,7 +197,7 @@ class AnalyticResourcePlanLine(models.Model):
     incoming_qty = fields.Float(
         string='Quantity Incoming',
         digits=dp.get_precision('Product Unit of Measure'),
-        compute=_compute_qty_available,
+        compute=_compute_incoming_qty,
         help="Quantity of products that are planned to arrive.\n"
              "In a context with a single Stock Location, this includes "
              "goods arriving to this Location, or any of its children.\n"

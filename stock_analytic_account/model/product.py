@@ -46,7 +46,7 @@ class Product(models.Model):
                                self._context['analytic_account_id'])
             domain_move_in.append(analytic_domain)
             domain_move_out.append(analytic_domain)
-            domain_quant.append(('analytic_account', '=',
+            domain_quant.append(('analytic_account_id', '=',
                                  self._context['analytic_account_id']))
         # END OF stock_analytic_account
         Move = self.env['stock.move']
