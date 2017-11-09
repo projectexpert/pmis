@@ -28,7 +28,7 @@
         'change_management',
         'crm_change_request',
         'change_management_own_project',
-        'crm_project',
+        # 'crm_project',
         # 'gantt_improvement',
         'hr_timesheet_product',
         'issue_change_request',
