@@ -59,3 +59,5 @@ class AnalyticAccountOpen(models.TransientModel):
         result['domain'] = "[('id','in', ["+','.join(map(str, acc_ids))+"])]"
 
         return result
+
+    # TODO: action button/icon on analytic account: open all hierarchy
