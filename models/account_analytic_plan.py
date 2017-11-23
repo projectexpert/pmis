@@ -5,7 +5,9 @@
 # (Matjaž Mozetič)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError
+
 
 class AccountAnalyticLinePlan(models.Model):
     _name = 'account.analytic.line.plan'
@@ -149,8 +151,8 @@ class AccountAnalyticLinePlan(models.Model):
             if not a:
                 raise UserError(
                     _('There is no expense account defined '
-                      'for this product: "%s" (id:%d)'
-                    ) % (prod.name, prod.id,)
+                      'for this product: "%s" (id:%d)')
+                    % (prod.name, prod.id,)
                 )
         else:
             a = prod.product_tmpl_id.property_account_income_id.id
@@ -159,8 +161,8 @@ class AccountAnalyticLinePlan(models.Model):
             if not a:
                 raise UserError(
                     _('There is no income account defined '
-                      'for this product: "%s" (id:%d)'
-                    ) % (prod.name, self.product_id,)
+                      'for this product: "%s" (id:%d)')
+                    % (prod.name, self.product_id,)
                 )
         flag = False
         # Compute based on pricetype
