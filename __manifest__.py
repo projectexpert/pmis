@@ -6,7 +6,7 @@
 {
     'name': 'Analytic Resource Planning - Purchase Requests',
     'version': '10.0.1.0.0',
-    'author':   'Eficent, '
+    'author':   'Eficent, Odoo Community Association (OCA),'
                 'Project Expert Team',
     'contributors': [
         'Jordi Ballester <jordi.ballester@eficent.com>',
