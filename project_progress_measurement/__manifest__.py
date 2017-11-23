@@ -5,7 +5,7 @@
 {
     "name": "Project progress measurement",
     "version": "10.0.1.0.0",
-    "author": "Eficent, "
+    "author": "Eficent, Odoo Community Association (OCA),"
               "Project Expert Team",
     "website": "http://project.expert",
     "category": "Project Management",

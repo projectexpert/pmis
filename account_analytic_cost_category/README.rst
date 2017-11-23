@@ -11,7 +11,7 @@ Installation
 ============
 
 * The module automatically takes care of its dependencies and is ready for
-use after the installation
+use after the installation.
 
 Credits
 =======
@@ -43,3 +43,4 @@ both active members of Odoo Community Association (OCA).
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+

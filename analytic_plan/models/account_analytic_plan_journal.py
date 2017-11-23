@@ -5,7 +5,7 @@
 # (Matjaž Mozetič)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class AccountAnalyticPlanJournal(models.Model):
@@ -28,11 +28,11 @@ class AccountAnalyticPlanJournal(models.Model):
     )
     type = fields.Selection(
         [
-         ('sale', 'Sale'),
-         ('purchase', 'Purchase'),
-         ('cash', 'Cash'),
-         ('general', 'General'),
-         ('situation', 'Situation')
+            ('sale', 'Sale'),
+            ('purchase', 'Purchase'),
+            ('cash', 'Cash'),
+            ('general', 'General'),
+            ('situation', 'Situation')
         ],
         'Type',
         required=True,

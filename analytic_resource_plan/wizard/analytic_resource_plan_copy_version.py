@@ -1,6 +1,6 @@
- # -*- coding: utf-8 -*-
- # Copyright 2017 Eficent Business and IT Consulting Services S.L.
- # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+# -*- coding: utf-8 -*-
+# Copyright 2017 Eficent Business and IT Consulting Services S.L.
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
 from odoo.tools.translate import _
@@ -73,8 +73,8 @@ class AnalyticResourcePlanCopyVersion(models.TransientModel):
 
         line_plans = line_plan_obj.search(
             [
-             ('account_id', 'in', account_ids),
-             ('version_id', '=', source_version.id)
+                ('account_id', 'in', account_ids),
+                ('version_id', '=', source_version.id)
             ]
         )
         new_line_plan_rec = line_plan_obj

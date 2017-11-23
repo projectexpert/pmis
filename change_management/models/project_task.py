@@ -6,7 +6,6 @@ from odoo import api, fields, models
 
 
 class ProjectTask(models.Model):
-    _name = 'project.task'
     _inherit = 'project.task'
 
     change_id = fields.Many2one(
@@ -18,7 +17,6 @@ class ProjectTask(models.Model):
 
 
 class ProjectProject(models.Model):
-    _name = 'project.project'
     _inherit = 'project.project'
 
     change_ids = fields.One2many(
@@ -28,11 +26,17 @@ class ProjectProject(models.Model):
     )
 
     change_count = fields.Integer(
-        compute='_change_count',
+        compute='_compute_change_count',
         type='integer'
     )
 
     @api.depends('change_ids')
-    def _change_count(self):
+    def _compute_change_count(self):
         for record in self:
             record.change_count = len(record.change_ids)
+
+    @api.model
+    def _get_alias_models(self):
+        res = super(ProjectProject, self)._get_alias_models()
+        res.append(("change.management.change", "Change Requests"))
+        return res

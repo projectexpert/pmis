@@ -6,7 +6,7 @@
 {
     'name': 'Stock Analytic Account',
     'version': '10.0.1.0.1',
-    'author':   'Eficent, '
+    'author':   'Eficent, Odoo Community Association (OCA),'
                 'Project Expert Team',
     'website': 'http://project.expert',
     'category': 'Project Management',

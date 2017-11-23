@@ -3,7 +3,7 @@
 # © 2016 Matmoz d.o.o.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 import time
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
 
@@ -19,9 +19,9 @@ class ProgressMeasurement(models.Model):
             if item.progress_measurement_type:
                 if item.value > item.progress_measurement_type.\
                         default_max_value:
-                    raise ValidationError('Error! The value must be less than '
-                                          'the maximum permitted defined in '
-                                          'the progress measurement type')
+                    raise ValidationError(_('''Error! The value must be less
+                    than the maximum permitted defined in the
+                    progress measurement type'''))
 
     @api.multi
     @api.constrains('value', 'progress_type')
@@ -30,17 +30,17 @@ class ProgressMeasurement(models.Model):
             if item.progress_measurement_type:
                 result = item.value % item.progress_measurement_type.precision
                 if result != 0.0:
-                    raise ValidationError('The value is entered in a higher '
-                                          'precision to that defined in the'
-                                          ' progress measurement type')
+                    raise ValidationError(_('''The value is entered in a higher
+                    precision to that defined in the
+                    progress measurement type'''))
         return True
 
     name = fields.Char('Description', size=32, required=False,
-                        help="Description given to the measure")
+                       help="Description given to the measure")
     communication_date = fields.Date('Communication date', required=True,
-                                      help="Date when the measurement "
-                                           "was communicated",
-                                      default=time.strftime('%Y-%m-%d'))
+                                     help="Date when the measurement "
+                                     "was communicated",
+                                     default=time.strftime('%Y-%m-%d'))
     communication_date_print = fields.Char('Communication Date', size=32,
                                            required=True)
     value = fields.Float('Value', required=True, help="Value of the "

@@ -5,7 +5,7 @@
 {
     'name': 'Change Management',
     'version': '10.0.1.0.0',
-    'author': 'Matmoz d.o.o., '
+    'author': 'Matmoz d.o.o., Odoo Community Association (OCA),'
               'Project Expert Team',
     'website': 'http://project.expert',
     'category': 'Project Management',
@@ -28,7 +28,7 @@
     'demo': [
         'demo/change_management_demo.xml'
     ],
-#    'test': ['test/test_change_management.yml'],
+    #    'test': ['test/test_change_management.yml'],
     'installable': True,
     'application': True,
 }

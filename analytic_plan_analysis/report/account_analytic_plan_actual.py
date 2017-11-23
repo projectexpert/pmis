@@ -33,25 +33,23 @@ class ReportAccountAnalyticPlanActual(models.Model):
         readonly=True
     )
     day = fields.Char(
-       'Day',
-       size=12,
-       readonly=True
+        'Day',
+        size=12,
+        readonly=True
     )
-    month = fields.Selection(
-        [
-         ('01', 'January'),
-         ('02', 'February'),
-         ('03', 'March'),
-         ('04', 'April'),
-         ('05', 'May'),
-         ('06', 'June'),
-         ('07', 'July'),
-         ('08', 'August'),
-         ('09', 'September'),
-         ('10', 'October'),
-         ('11', 'November'),
-         ('12', 'December')
-        ],
+    month = fields.Selection([
+        ('01', 'January'),
+        ('02', 'February'),
+        ('03', 'March'),
+        ('04', 'April'),
+        ('05', 'May'),
+        ('06', 'June'),
+        ('07', 'July'),
+        ('08', 'August'),
+        ('09', 'September'),
+        ('10', 'October'),
+        ('11', 'November'),
+        ('12', 'December')],
         'Month',
         readonly=True
     )
@@ -80,18 +78,16 @@ class ReportAccountAnalyticPlanActual(models.Model):
         string='Full WBS Name',
         store=True
     )
-    kpi_type = fields.Selection(
-        [
-         ('PC', 'Cost - Plan'),
-         ('AC', 'Cost - Actual'),
-         ('PR', 'Revenue - Plan'),
-         ('AR', 'Revenue - Actual'),
-         ('PB', 'Gross Margin - Plan'),
-         ('AB', 'Gross Margin - Actual'),
-         ('CV', 'Cost - Variance'),
-         ('RV', 'Revenue - Variance'),
-         ('BV', 'Gross Margin - Variance')
-        ],
+    kpi_type = fields.Selection([
+        ('PC', 'Cost - Plan'),
+        ('AC', 'Cost - Actual'),
+        ('PR', 'Revenue - Plan'),
+        ('AR', 'Revenue - Actual'),
+        ('PB', 'Gross Margin - Plan'),
+        ('AB', 'Gross Margin - Actual'),
+        ('CV', 'Cost - Variance'),
+        ('RV', 'Revenue - Variance'),
+        ('BV', 'Gross Margin - Variance')],
         'Type',
         size=12,
         readonly=True

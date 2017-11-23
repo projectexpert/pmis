@@ -45,13 +45,13 @@ class AnalyticResourcePlanLine(models.Model):
                     line.request_state = 'rejected'
                 elif all([pr_line.request_id.state in ('to_approve', 'cancel')
                           for pr_line in line.purchase_request_lines]):
-                              line.request_state = 'to_approve'
+                    line.request_state = 'to_approve'
                 elif any([pr_line.request_id.state == 'approved' for pr_line in
                           line.purchase_request_lines]):
                     line.request_state = 'approved'
                 elif all([pr_line.request_id.state in ('draft', 'cancel')
                           for pr_line in line.purchase_request_lines]):
-                              line.request_state = 'draft'
+                    line.request_state = 'draft'
         return True
 
     requested_qty = fields.Float(
@@ -61,15 +61,15 @@ class AnalyticResourcePlanLine(models.Model):
         readonly=True)
 
     request_state = fields.Selection(
-            compute=_get_request_state, string='Request status',
-            selection=_REQUEST_STATE,
-            store=True,
-            default='none')
+        compute=_get_request_state, string='Request status',
+        selection=_REQUEST_STATE,
+        store=True,
+        default='none')
     purchase_request_lines = fields.Many2many(
-            'purchase.request.line',
-            copy=False,
-            string='Purchase Request Lines',
-            readonly=True)
+        'purchase.request.line',
+        copy=False,
+        string='Purchase Request Lines',
+        readonly=True)
 
     @api.multi
     def unlink(self):
@@ -117,7 +117,6 @@ class AnalyticResourcePlanLine(models.Model):
 
     @api.multi
     def _make_purchase_request(self):
-        res = []
         request_obj = self.env['purchase.request']
         request_line_obj = self.env['purchase.request.line']
         company_id = False
@@ -151,7 +150,5 @@ class AnalyticResourcePlanLine(models.Model):
                 request_id, line.unit_amount)
             request_line_id = request_line_obj.create(
                 request_line_data)
-            values = {
-                'purchase_request_lines': [(4, request_line_id.id)]
-            }
+            self.purchase_request_lines = [(4, request_line_id.id)]
         return True

@@ -7,7 +7,7 @@
     'name': 'Analytic Account Cost Category',
     'version': '10.0.1.0.0',
     'summary': 'Adds the cost category to analytic accounts.',
-    'author': 'Eficent, '
+    'author': 'Eficent, Odoo Community Association (OCA),'
               'Project Expert Team',
     'website': 'http://project.expert',
     'category': 'Project Management',

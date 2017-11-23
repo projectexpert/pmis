@@ -6,10 +6,11 @@
 {
     "name": "Progress measurement",
     "version": "10.0.1.0.0",
-    "author": "Eficent",
+    "author": "Eficent, Odoo Community Association (OCA)",
     "website": "www.eficent.com",
     "category": "Generic Modules",
     "depends": ["project"],
+    "license": "AGPL-3",
     "summary": """
         Project degree of completion with respect
         to the estimated scope of work

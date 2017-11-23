@@ -48,6 +48,7 @@ Credits
 * Jordi Ballester Alomar <jordi.ballester@eficent.com>
 * Matjaž Mozetič <m.mozetic@matmoz.si>
 * Aaron Henriquez <ahenriquez@eficent.com>
+* Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
 
 Maintainer
 ----------

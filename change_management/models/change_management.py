@@ -226,7 +226,7 @@ class CMChange(models.Model):
         'Response Ids'
     )
     change_response_count = fields.Integer(
-        compute='_change_response_count',
+        compute='_compute_change_response_count',
         type='integer'
     )
     state = fields.Selection(
@@ -273,7 +273,7 @@ class CMChange(models.Model):
         return states
 
     @api.depends('change_response_ids')
-    def _change_response_count(self):
+    def _compute_change_response_count(self):
         for record in self:
             record.change_response_count = len(record.change_response_ids)
 
@@ -355,8 +355,8 @@ class CMChange(models.Model):
         return self.env.ref(
             'change_management.change_management_new',
             False) and self.env.ref(
-            'change_management.change_management_new') or self.env[
-                   'change.management.category']
+            'change_management.change_management_new'
+            ) or self.env['change.management.category']
 
     # ##### create CR from mail #####  #
 
@@ -480,14 +480,4 @@ class CMChange(models.Model):
         if self.tag_ids:
             headers['X-Odoo-Tags'] = ','.join(self.tag_ids.mapped('name'))
         res['headers'] = repr(headers)
-        return res
-
-
-class Project(models.Model):
-    _inherit = "project.project"
-
-    @api.model
-    def _get_alias_models(self):
-        res = super(Project, self)._get_alias_models()
-        res.append(("change.management.change", "Change Requests"))
         return res
