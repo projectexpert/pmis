@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-21 08:55+0200\n"
-"PO-Revision-Date: 2017-06-21 08:58+0200\n"
+"POT-Creation-Date: 2017-12-02 10:02+0000\n"
+"PO-Revision-Date: 2017-12-02 11:10+0100\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.0.4\n"
 
 #. module: change_management
 #: help:change.management.change,description:0
@@ -161,6 +161,7 @@ msgstr "Preko projekta"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
+#: field:change.management.change,change_category_id:0
 msgid "Category"
 msgstr "Kategorija"
 
@@ -197,7 +198,6 @@ msgstr "Kategorije sprememb"
 #. module: change_management
 #: view:change.management.category:change_management.category_tree_view
 #: field:change.management.category,name:0
-#: field:change.management.change,change_category_id:0
 msgid "Change Category"
 msgstr "Kategorija spremembe"
 
@@ -250,11 +250,6 @@ msgid "Change Management"
 msgstr "Upravljanje sprememb"
 
 #. module: change_management
-#: field:change.management.change,change_owner_id:0
-msgid "Change Manager"
-msgstr "Upravitelj spremembe"
-
-#. module: change_management
 #: help:change.management.change,change_owner_id:0
 msgid ""
 "Change Manager: The person responsible for managing the change (there can "
@@ -277,6 +272,11 @@ msgid "Change Rejected"
 msgstr "Sprememba zavrnjena"
 
 #. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Change Scenario"
+msgstr "Scenarij"
+
+#. module: change_management
 #: model:mail.message.subtype,description:change_management.mt_change_withdrawn
 #: model:mail.message.subtype,name:change_management.mt_change_withdrawn
 msgid "Change Withdrawn"
@@ -291,11 +291,6 @@ msgstr "Sprememba vrnjena v osnutek"
 #: field:project.project,change_count:0
 msgid "Change count"
 msgstr "Števec sprememb"
-
-#. module: change_management
-#: help:change.management.change,name:0
-msgid "Change label. Can be changed as long as change is in state 'draft'."
-msgstr "Sprememba etikete. Spreminja se lahko, dokler je v stanju 'osnutek'."
 
 #. module: change_management
 #: model:ir.model,name:change_management.model_change_management_category
@@ -421,6 +416,11 @@ msgid "Description"
 msgstr "Opis"
 
 #. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Desired Effect"
+msgstr "Željeni učinek"
+
+#. module: change_management
 #: field:change.management.category,display_name:0
 #: field:change.management.change,display_name:0
 #: field:change.management.proximity,display_name:0
@@ -446,6 +446,30 @@ msgstr "Učinek"
 #: field:change.management.change,message_follower_ids:0
 msgid "Followers"
 msgstr "Sledilci"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "GAP Analysis"
+msgstr "Vrzel"
+
+#. module: change_management
+#: field:change.management.change,description_gap:0
+msgid "Gap Analysis"
+msgstr "Vrzel"
+
+#. module: change_management
+#: help:change.management.change,description_gap:0
+msgid ""
+"Gap Analysis: A set of techniques to examine and describe the gap between "
+"current performance and desired future goals.Gap Analysis is the comparison "
+"of actual performance with potential or desired performance; that is the "
+"‘current state’ the 'desired future state’. An important aspect of Gap "
+"Analysis is identifying what needs to be done in a Project."
+msgstr ""
+"Analiza vrzeli: skupina tehnik za preučitev in opis vrzeli med trenutnim "
+"udejstvovanjem in želenimi prihodnjimi cilji. Analiza vrzeli je primerjava "
+"med trenutnim stanjem in potencialnim ali želenim stanjem. Pomemben aspekt "
+"analize vrzeli je določitev, kaj je potrebno narediti v sklopu projekta."
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -478,6 +502,11 @@ msgid "Imminent"
 msgstr "Skorajšnje"
 
 #. module: change_management
+#: selection:change.management.change,kanban_state:0
+msgid "In Progress"
+msgstr "V teku"
+
+#. module: change_management
 #: view:change.management.change:change_management.change_form_view
 msgid "In progress"
 msgstr "V teku"
@@ -486,6 +515,11 @@ msgstr "V teku"
 #: field:change.management.change,message_is_follower:0
 msgid "Is a Follower"
 msgstr "Je sledilec"
+
+#. module: change_management
+#: field:change.management.change,kanban_state:0
+msgid "Kanban State"
+msgstr "Kanban stanje"
 
 #. module: change_management
 #: field:change.management.change,message_last_post:0
@@ -534,10 +568,15 @@ msgid "My Projects"
 msgstr "Moji projekti"
 
 #. module: change_management
-#: code:addons/change_management/model/change_management.py:421
+#: code:addons/change_management/model/change_management.py:490
 #, python-format
 msgid "No Subject"
 msgstr "Brez predmeta"
+
+#. module: change_management
+#: selection:change.management.change,kanban_state:0
+msgid "On Hold"
+msgstr "Na čakanju"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -581,6 +620,11 @@ msgstr ""
 "kontinuitete."
 
 #. module: change_management
+#: selection:change.management.change,kanban_state:0
+msgid "Ready for next stage"
+msgstr "Pripravljeno za naslednjo stopnjo"
+
+#. module: change_management
 #: field:change.management.change,description_event:0
 msgid "Reason"
 msgstr "Razlog"
@@ -601,6 +645,7 @@ msgid "Reject"
 msgstr "Zavrni"
 
 #. module: change_management
+#: view:change.management.change:change_management.change_form_view
 #: field:change.management.change,description:0
 msgid "Request Description"
 msgstr "Opis zahtevka"
@@ -632,8 +677,18 @@ msgstr "Ukrepi ob odzivu"
 
 #. module: change_management
 #: field:change.management.change,change_response_ids:0
-msgid "Response Ids"
-msgstr "ID-ji odzivov"
+msgid "Responses"
+msgstr "Odzivi"
+
+#. module: change_management
+#: field:change.management.change,change_owner_id:0
+msgid "Responsible"
+msgstr "Odgovorni"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Revisions"
+msgstr "Revizije"
 
 #. module: change_management
 #: model:change.management.category,name:change_management.change_management_category_feature
@@ -727,6 +782,16 @@ msgid "Unread messages"
 msgstr "Neprebrana sporočila"
 
 #. module: change_management
+#: field:change.management.change,website_message_ids:0
+msgid "Website Messages"
+msgstr "Sporočila iz spletne strani"
+
+#. module: change_management
+#: help:change.management.change,website_message_ids:0
+msgid "Website communication history"
+msgstr "Kronologija komunikacij spletne strani"
+
+#. module: change_management
 #: view:change.management.change:change_management.change_form_view
 msgid "Withdraw"
 msgstr "Umakni"
@@ -741,17 +806,18 @@ msgstr "V sklopu projekta"
 msgid "Within stage"
 msgstr "V sklopu stopnje"
 
+#~ msgid "Change Manager"
+#~ msgstr "Upravitelj spremembe"
+
+#~ msgid "Change label. Can be changed as long as change is in state 'draft'."
+#~ msgstr ""
+#~ "Sprememba etikete. Spreminja se lahko, dokler je v stanju 'osnutek'."
+
 #~ msgid "Action on Change"
 #~ msgstr "Ukrepi na spremembi"
 
 #~ msgid "The stakeholder that proposes the processing of the request."
 #~ msgstr "Deležnik, ki predlaga obdelavo zahtevka."
-
-#~ msgid "Website Messages"
-#~ msgstr "Sporočila iz spletne strani"
-
-#~ msgid "Website communication history"
-#~ msgstr "Kronologija komunikacij spletne strani"
 
 #~ msgid "Blocked"
 #~ msgstr "Blokirano"
@@ -759,14 +825,8 @@ msgstr "V sklopu stopnje"
 #~ msgid "Delete"
 #~ msgstr "Izbris"
 
-#~ msgid "In Progress"
-#~ msgstr "V teku"
-
 #~ msgid "Normal"
 #~ msgstr "Običajno"
-
-#~ msgid "Ready for next stage"
-#~ msgstr "Pripravljeno za naslednjo stopnjo"
 
 #~ msgid "Remaining Time"
 #~ msgstr "Preostali čas"

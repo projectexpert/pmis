@@ -8,20 +8,31 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
+# Change Category
 class CMChangeCategory (models.Model):
     _name = 'change.management.category'
     _description = 'Change log category table'
 
-    name = fields.Char(string='Change Category', required=True, translate=True)
+    name = fields.Char(
+        string='Change Category',
+        required=True,
+        translate=True
+    )
 
 
+# Change Proximity
 class CMProximity (models.Model):
     _name = 'change.management.proximity'
     _description = 'Change log proximity table'
 
-    name = fields.Char(string='Proximity', required=True, translate=True)
+    name = fields.Char(
+        string='Proximity',
+        required=True,
+        translate=True
+    )
 
 
+# Change Request
 class CMChange (models.Model):
     _name = 'change.management.change'
     _description = 'Change'
@@ -90,14 +101,13 @@ class CMChange (models.Model):
         'Request Id',
         default="/",
         readonly=True,
-        states={'draft': [('readonly', False)]},
-        help="Change label. "
-             "Can be changed as long as change is in state 'draft'."
+        # states={'draft': [('readonly', False)]},
     )
 
     description = fields.Char(
         string='Request Description',
         readonly=True,
+        required=True,
         states={'draft': [('readonly', False)],
                 'active': [('readonly', False)]},
         help='''
@@ -192,7 +202,7 @@ and obtain sign-off from all key stakeholders.
         'Date Revised', help="Date of last revision."
     )
     change_category_id = fields.Many2one(
-        'change.management.category', 'Change Category',
+        'change.management.category', 'Category',
         default=lambda s: s._get_default_category(),
         readonly=True,
         states={'draft': [('readonly', False)],
@@ -206,6 +216,20 @@ and obtain sign-off from all key stakeholders.
         readonly=True,
         states={'draft': [('readonly', False)],
                 'active': [('readonly', False)]},
+    )
+    description_gap = fields.Html(
+        'Gap Analysis',
+        readonly=True,
+        states={'draft': [('readonly', False)],
+                'active': [('readonly', False)]},
+        help="Gap Analysis: "
+             "A set of techniques to examine and describe the gap between "
+             "current performance and desired future goals."
+             "Gap Analysis is the comparison of actual performance with "
+             "potential or desired performance; that is the ‘current state’ "
+             "the 'desired future state’. "
+             "An important aspect of Gap Analysis is identifying what needs "
+             "to be done in a Project."
     )
     description_event = fields.Html(
         'Reason',
@@ -229,7 +253,9 @@ and obtain sign-off from all key stakeholders.
         "continuity time scales."
     )
     change_response_ids = fields.One2many(
-        'project.task', 'change_id', 'Response Ids'
+        comodel_name='project.task',
+        inverse_name='change_id',
+        string='Responses'
     )
     change_response_count = fields.Integer(
         compute='_compute_response_count', type='integer'
@@ -243,7 +269,8 @@ and obtain sign-off from all key stakeholders.
         # track_visibility='on_change'
     )
     change_owner_id = fields.Many2one(
-        'res.users', 'Change Manager',
+        'res.users',
+        string='Responsible',
         readonly=True,
         states={'draft': [('readonly', False)],
                 'active': [('readonly', False)]},
@@ -258,6 +285,19 @@ and obtain sign-off from all key stakeholders.
         'res.company', string='Company',
         required=True, readonly=True, states={'draft': [('readonly', False)]},
         default=lambda self: self.env.user.company_id,
+    )
+
+    kanban_state = fields.Selection(
+        [
+            ('normal', 'In Progress'),
+            ('on_hold', 'On Hold'),
+            ('done', 'Ready for next stage')
+        ],
+        'Kanban State',
+        track_visibility='onchange',
+        required=False,
+        copy=False,
+        default='normal'
     )
 
     # ##### DEFINITIONS #####  #
@@ -282,7 +322,7 @@ and obtain sign-off from all key stakeholders.
         states = [
             ('draft', 'Draft'),
             ('active', 'Confirmed'),
-            ('accepted', 'Approved'),
+            ('accepted', 'Accepted'),
             ('in_progress', 'In progress'),
             ('done', 'Done'),
             ('rejected', 'Rejected'),
@@ -313,26 +353,32 @@ and obtain sign-off from all key stakeholders.
         self.write({'state': 'accepted'})
         self.approved_id = self.env.user
         self.date_approved = fields.Datetime.now()
+        self.date_modified = fields.Datetime.now()
 
     @api.multi
     def set_in_progress(self):
         self.write({'state': 'in_progress'})
+        self.date_modified = fields.Datetime.now()
 
     @api.multi
     def set_state_done(self):
         self.write({'state': 'done'})
+        self.date_modified = fields.Datetime.now()
 
     @api.multi
     def set_state_rejected(self):
         self.write({'state': 'rejected'})
+        self.date_modified = fields.Datetime.now()
 
     @api.multi
     def set_state_deferred(self):
         self.write({'state': 'deferred'})
+        self.date_modified = fields.Datetime.now()
 
     @api.multi
     def set_state_withdrawn(self):
         self.write({'state': 'withdraw'})
+        self.date_modified = fields.Datetime.now()
 
     @api.multi
     def _subscribe_extra_followers(self, vals):

@@ -10,7 +10,9 @@ class ProjectTask (models.Model):
     _inherit = 'project.task'
 
     change_id = fields.Many2one(
-        'change.management.change', 'Source CR', readonly=True,
+        comodel_name='change.management.change',
+        string='Source CR',
+        readonly=True,
         help="Task is an action on a change identified by this label."
     )
 
@@ -20,9 +22,9 @@ class ProjectProject (models.Model):
     _inherit = 'project.project'
 
     change_ids = fields.One2many(
-        'change.management.change',
-        'project_id',
-        'Project changes'
+        comodel_name='change.management.change',
+        inverse_name='project_id',
+        string='Project changes'
     )
 
     change_count = fields.Integer(

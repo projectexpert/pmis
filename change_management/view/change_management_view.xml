@@ -35,7 +35,7 @@
                     <header>
                         <button name="set_state_draft" type="object"
                                 states="active,rejected,accepted,deferred" string="Back to Draft"
-                                groups="project.group_project_user"/>
+                                groups="project.group_project_manager"/>
                         <button name="set_state_active" type="object"
                                 states="draft,deferred" string="Confirm" class="oe_highlight"
                                 groups="project.group_project_user"/>
@@ -61,47 +61,58 @@
                                statusbar_visible="draft,active,accepted,in_progress,done,deferred"/>
                     </header>
                     <sheet string="Change">
+                        <div class="oe_left">
+                            <field name="kanban_state" class="oe_inline" widget="kanban_state_selection"/>
+                        </div>
+                        <div class="oe_right oe_button_box" name="buttons" groups="base.group_user">
+
+                        </div>
                         <label for="description" class="oe_edit_only"/>
                         <h1><field name="description"/></h1>
                         <label for="name" class="oe_edit_only"/>
                         <field name="name"/>
-				 	    <group>
-                            <group>
-						        <field name="project_id"
-                                       context="{'default_project_id':project_id}"/>
-						        <field name="stakeholder_id"/>
-						        <field name="create_date" readonly="1"/>
-                            </group>
-                            <group>
-                                <field name="proximity_id"/>
-                                <field name="change_category_id"/>
-                                <field name="company_id" groups="base.group_multi_company"/>
-                            </group>
-                        </group>
-						<group>
-                            <group col="2">
-                                <field name="change_owner_id"/>
-							    <field name="author_id"/>
-                            </group>
-                            <group>
-                                <field name="confirmed_id"/>
-                                <field name="date_confirmed"/>
-                                <field name="approved_id"/>
-                                <field name="date_approved"/>
-                            </group>
+				 	    <group col="4">
+                            <field name="stakeholder_id"/>
+                            <field name="project_id"
+                                   context="{'default_project_id':project_id}"/>
+                            <field name="change_owner_id"/>
+                            <field name="proximity_id"/>
+                            <field name="change_category_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
                         </group>
 			            <notebook>
    	            	        <page string="Description">
-                                <group>
-                		        <field name="description_event"/>
-                		        <field name="description_cause"/>
-						        <field name="description_effect"/>
+                                <group string="Request Description">
+                		            <field name="description_event" nolabel="1"/>
+                                </group>
+                                <group string="GAP Analysis">
+                                    <field name="description_gap" nolabel="1"/>
+                                </group>
+                                <group string="Change Scenario">
+                		            <field name="description_cause" nolabel="1"/>
+                                </group>
+                                <group string="Desired Effect">
+						            <field name="description_effect" nolabel="1"/>
                                 </group>
                             </page>
                             <page string="Change Enforcing">
                                 <field name="change_response_ids"
                                        string="Response Actions"
                                        context="{'user_invisible': False, 'default_project_id':project_id}"/>
+                            </page>
+                            <page string="Revisions">
+                                <group col="12">
+                                    <field name="author_id"/>
+                                    <field name="create_date" readonly="1"/>
+                                </group>
+                                <group col="12">
+                                    <field name="confirmed_id"/>
+                                    <field name="date_confirmed"/>
+                                </group>
+                                <group col="12">
+                                    <field name="approved_id"/>
+                                    <field name="date_approved"/>
+                                </group>
                             </page>
                         </notebook>
                      </sheet>
@@ -201,6 +212,7 @@
 					<field name="change_response_count"/>
 					<field name="change_owner_id"/>
 					<field name="color"/>
+                    <field name="kanban_state"/>
 					<field name="message_summary"/>
 					<templates>
 					  <t t-name="kanban-box">
@@ -214,14 +226,12 @@
 						  </div>
 						  <div class="oe_kanban_content">
 							<div>
+                                <field name="kanban_state" widget="kanban_state_selection"/>
 							  <ul>
 								<li><b><field name="description"/></b></li>
-								<li><field name="name"/></li>
-								<li><field name="change_category_id"/></li>
+
+								<li>(<field name="change_category_id"/>)</li>
 							  </ul>
-							</div>
-							<div>
-							  <field name="project_id"/>
 							</div>
 							<div style="padding-left: 0.5em">
 							  <span>
@@ -235,6 +245,10 @@
                                    width="24" height="24"
                                    class="oe_kanban_avatar"
                                    t-if="record.change_owner_id.value"/>
+							</div>
+                            <div class="oe_kanban_footer_left">
+							  <field name="project_id"/>
+                              <li>(<field name="name"/>)</li>
 							</div>
 						  </div>
 						</div>

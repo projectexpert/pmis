@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-21 06:55+0000\n"
-"PO-Revision-Date: 2017-06-21 06:55+0000\n"
+"POT-Creation-Date: 2017-12-02 10:02+0000\n"
+"PO-Revision-Date: 2017-12-02 10:02+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -122,6 +122,7 @@ msgstr ""
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
+#: field:change.management.change,change_category_id:0
 msgid "Category"
 msgstr ""
 
@@ -158,7 +159,6 @@ msgstr ""
 #. module: change_management
 #: view:change.management.category:change_management.category_tree_view
 #: field:change.management.category,name:0
-#: field:change.management.change,change_category_id:0
 msgid "Change Category"
 msgstr ""
 
@@ -207,11 +207,6 @@ msgid "Change Management"
 msgstr ""
 
 #. module: change_management
-#: field:change.management.change,change_owner_id:0
-msgid "Change Manager"
-msgstr ""
-
-#. module: change_management
 #: help:change.management.change,change_owner_id:0
 msgid "Change Manager: The person responsible for managing the change (there can beonly one change owner per change), change ownership is assignedto a managerial level, in case of business continuity to a C-level manager."
 msgstr ""
@@ -228,6 +223,11 @@ msgid "Change Rejected"
 msgstr ""
 
 #. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Change Scenario"
+msgstr ""
+
+#. module: change_management
 #: model:mail.message.subtype,description:change_management.mt_change_withdrawn
 #: model:mail.message.subtype,name:change_management.mt_change_withdrawn
 msgid "Change Withdrawn"
@@ -241,11 +241,6 @@ msgstr ""
 #. module: change_management
 #: field:project.project,change_count:0
 msgid "Change count"
-msgstr ""
-
-#. module: change_management
-#: help:change.management.change,name:0
-msgid "Change label. Can be changed as long as change is in state 'draft'."
 msgstr ""
 
 #. module: change_management
@@ -372,6 +367,11 @@ msgid "Description"
 msgstr ""
 
 #. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Desired Effect"
+msgstr ""
+
+#. module: change_management
 #: field:change.management.category,display_name:0
 #: field:change.management.change,display_name:0
 #: field:change.management.proximity,display_name:0
@@ -396,6 +396,21 @@ msgstr ""
 #. module: change_management
 #: field:change.management.change,message_follower_ids:0
 msgid "Followers"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "GAP Analysis"
+msgstr ""
+
+#. module: change_management
+#: field:change.management.change,description_gap:0
+msgid "Gap Analysis"
+msgstr ""
+
+#. module: change_management
+#: help:change.management.change,description_gap:0
+msgid "Gap Analysis: A set of techniques to examine and describe the gap between current performance and desired future goals.Gap Analysis is the comparison of actual performance with potential or desired performance; that is the ‘current state’ the 'desired future state’. An important aspect of Gap Analysis is identifying what needs to be done in a Project."
 msgstr ""
 
 #. module: change_management
@@ -426,6 +441,11 @@ msgid "Imminent"
 msgstr ""
 
 #. module: change_management
+#: selection:change.management.change,kanban_state:0
+msgid "In Progress"
+msgstr ""
+
+#. module: change_management
 #: view:change.management.change:change_management.change_form_view
 msgid "In progress"
 msgstr ""
@@ -433,6 +453,11 @@ msgstr ""
 #. module: change_management
 #: field:change.management.change,message_is_follower:0
 msgid "Is a Follower"
+msgstr ""
+
+#. module: change_management
+#: field:change.management.change,kanban_state:0
+msgid "Kanban State"
 msgstr ""
 
 #. module: change_management
@@ -482,9 +507,14 @@ msgid "My Projects"
 msgstr ""
 
 #. module: change_management
-#: code:addons/change_management/model/change_management.py:421
+#: code:addons/change_management/model/change_management.py:490
 #, python-format
 msgid "No Subject"
+msgstr ""
+
+#. module: change_management
+#: selection:change.management.change,kanban_state:0
+msgid "On Hold"
 msgstr ""
 
 #. module: change_management
@@ -520,6 +550,11 @@ msgid "Proximity: This would typically state how close to the present time the c
 msgstr ""
 
 #. module: change_management
+#: selection:change.management.change,kanban_state:0
+msgid "Ready for next stage"
+msgstr ""
+
+#. module: change_management
 #: field:change.management.change,description_event:0
 msgid "Reason"
 msgstr ""
@@ -540,6 +575,7 @@ msgid "Reject"
 msgstr ""
 
 #. module: change_management
+#: view:change.management.change:change_management.change_form_view
 #: field:change.management.change,description:0
 msgid "Request Description"
 msgstr ""
@@ -571,7 +607,17 @@ msgstr ""
 
 #. module: change_management
 #: field:change.management.change,change_response_ids:0
-msgid "Response Ids"
+msgid "Responses"
+msgstr ""
+
+#. module: change_management
+#: field:change.management.change,change_owner_id:0
+msgid "Responsible"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Revisions"
 msgstr ""
 
 #. module: change_management
@@ -663,6 +709,16 @@ msgstr ""
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
 msgid "Unread messages"
+msgstr ""
+
+#. module: change_management
+#: field:change.management.change,website_message_ids:0
+msgid "Website Messages"
+msgstr ""
+
+#. module: change_management
+#: help:change.management.change,website_message_ids:0
+msgid "Website communication history"
 msgstr ""
 
 #. module: change_management
