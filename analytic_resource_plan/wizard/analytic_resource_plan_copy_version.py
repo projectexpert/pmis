@@ -22,10 +22,10 @@ class AnalyticResourcePlanCopyVersion(models.TransientModel):
         'Destination Planning Version',
         required=True
     )
-    include_child = fields.Boolean(
-        'Include child accounts',
-        default=True
-    )
+    # include_child = fields.Boolean(
+    #     'Include child accounts',
+    #     default=True
+    # )
 
     @api.multi
     def analytic_resource_plan_copy_version_open_window(self):
@@ -45,10 +45,10 @@ class AnalyticResourcePlanCopyVersion(models.TransientModel):
             'Bad context propagation'
         )
         record = analytic_obj.browse(record_ids)
-        include_child = (
-            data.include_child if data and
-            data.include_child else False
-        )
+        # include_child = (
+        #     data.include_child if data and
+        #     data.include_child else False
+        # )
         source_version = (
             data.source_version_id if data and
             data.source_version_id else False
@@ -64,8 +64,8 @@ class AnalyticResourcePlanCopyVersion(models.TransientModel):
         if source_version == dest_version:
             raise UserError(_('Choose different source and destination '
                             'planning versions.'))
-        if include_child:
-            account_ids = record.get_child_accounts().keys()
+        # if include_child:
+        #     account_ids = record.get_child_accounts().keys()
         else:
             account_ids = record_ids
 

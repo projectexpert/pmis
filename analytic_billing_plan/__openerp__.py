@@ -2,7 +2,7 @@
 
 {
     'name': 'Analytic billing plan',
-    'version': '8.0.2.0.2',
+    'version': '8.0.2.0.3',
     'author':   'Eficent, '
                 'Matmoz, '
                 'Luxim, '
@@ -17,7 +17,8 @@
     'depends': [
         'account',
         'sale',
-        'analytic_plan'
+        'analytic_plan',
+        'analytic_resource_plan'
     ],
     'data': [
         'wizard/analytic_billing_plan_line_make_sale.xml',

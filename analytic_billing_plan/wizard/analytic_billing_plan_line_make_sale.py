@@ -239,5 +239,3 @@ class AnalyticBillingPlanLineMakeSale(orm.TransientModel):
             'context': False,
             'type': 'ir.actions.act_window'
         }
-
-AnalyticBillingPlanLineMakeSale()

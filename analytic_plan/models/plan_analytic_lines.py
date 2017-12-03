@@ -30,7 +30,10 @@ class AccountAnalyticLine(models.Model):
         default=fields.Date.context_today
     )
     amount = fields.Float(
-        'Amount', required=True, default=0.0
+        'Amount',
+        required=True,
+        default=0.0,
+        store=True
     )
     unit_amount = fields.Float(
         'Quantity', default=0.0

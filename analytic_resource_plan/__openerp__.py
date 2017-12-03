@@ -2,7 +2,7 @@
 
 {
     'name': 'Analytic Resource Planning',
-    'version': '8.0.2.0.4',
+    'version': '8.0.2.0.5',
     'author':   'Eficent, '
                 'Matmoz, '
                 'Luxim, '

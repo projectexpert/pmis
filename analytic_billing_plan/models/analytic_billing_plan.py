@@ -49,22 +49,35 @@ class BillingPlanLine(models.Model):
         help='Indicates that this billing plan line '
              'contains at least one non-cancelled billing request.'
     )
+    resource_ids = fields.One2many(
+        comodel_name='analytic.resource.plan.line',
+        inverse_name='deliverable_id',
+        string='Resource Lines',
+        copy=True,
+    )
 
     @api.onchange('unit_amount')
     def on_change_unit_amount(self):
         amount = self.price_unit * self.unit_amount
         if self.unit_amount:
-            # self.amount_currency = self.price_unit * self.unit_amount
+            self.amount = self.price_unit * self.unit_amount
+
+    @api.onchange('price_unit')
+    def on_change_price_unit(self):
+        if self.price_unit:
             self.amount = self.price_unit * self.unit_amount
 
     @api.onchange('product_id')
     def on_change_product_id(self):
         if self.product_id:
-            self.name = self.product_id.name
+            if self.product_id.description_sale:
+                self.name = self.product_id.description_sale
+            if not self.product_id.description_sale:
+                self.name = self.product_id.name
             self.product_uom_id = (
-                self.product_id.uom_id
-                and self.product_id.uom_id.id
-                or False
+                self.product_id.uom_id and
+                self.product_id.uom_id.id or
+                False
             )
             self.price_unit = self.product_id.list_price
             self.journal_id = (
@@ -122,3 +135,13 @@ class BillingPlanLine(models.Model):
                     )
                 )
         return super(BillingPlanLine, self).unlink()
+
+class ResourcePlanLine(models.Model):
+
+    _inherit = 'analytic.resource.plan.line'
+
+    deliverable_id = fields.Many2one(
+        comodel_name='analytic.billing.plan.line',
+        string='Deliverable',
+        ondelete='cascade'
+    )

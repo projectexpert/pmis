@@ -9,7 +9,7 @@
                     <group>
                         <field name="source_version_id"/>
                         <field name="dest_version_id"/>
-                        <field name="include_child"/>
+                        <!--<field name="include_child"/>-->
                     </group>
                     <footer>
                         <button string="Create" name="analytic_resource_plan_copy_version_open_window" type="object" class="oe_highlight"/>

@@ -58,6 +58,9 @@
                         </group>
                     </group>
                     <notebook>
+                        <page string="Resources">
+                            <field name="resource_ids" context="{'default_account_id': account_id}"/>
+                        </page>
                         <page string="Notes" name="notes">
                             <field name="notes"/>
                         </page>
