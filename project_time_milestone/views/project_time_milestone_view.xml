@@ -33,7 +33,7 @@
             <field eval="False" name="filter"/>
             <field name="inherit_id" ref="project.view_task_tree2"/>   
             <field name="domain">[('milestone', '=', True)]</field>
-            <field name="context">{"search_default_user_id":uid, "search_default_current": 1,'milestone': True}</field>
+            <field name="context">{"default_user_id":uid, "search_default_current": 1,'milestone': True, 'search_default_active_tasks': 1}</field>
             <field name="search_view_id" ref="project.view_task_search_form"/>
             <field name="help">Manage Project milestones</field>
         </record>
@@ -42,7 +42,7 @@
 	 	
         <record id="project.action_view_task" model="ir.actions.act_window">
             <field name="domain">[('milestone', '=', False)]</field>
-            <field name="context">{"search_default_user_id":uid, "search_default_current": 1,'milestone': True}</field>            
+            <field name="context">{"search_default_user_id":uid, "search_default_current": 1,'milestone': True}</field>
         </record>
 
 		<record id="edit_project" model="ir.ui.view">

@@ -11,8 +11,7 @@
                       fonts="bold:message_unread == True">
 					<field name="name"/>
 					<field name="description"/>
-					<field name="project_id"/>
-					<field name="author_id"/>
+					<!--<field name="author_id"/>-->
 					<field name="stakeholder_id"/>
 					<field name="create_date"/>
 					<field name="date_modified"/>
@@ -20,6 +19,7 @@
 					<field name="proximity_id"/>
 					<field name="change_response_ids" string="Actions"/>
 					<field name="state"/>
+                    <field name="project_id"/>
 					<field name="change_owner_id"/>
                     <field name="message_unread" invisible="1"/>
 		   		</tree>
