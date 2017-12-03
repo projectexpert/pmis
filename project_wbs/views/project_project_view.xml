@@ -223,15 +223,15 @@
                     <page name="overview" string="Overview">
                         <notebook name="submenu">
                             <page string="Scope" name="scope">
-                                <group>
-                                    <button name="%(create_wbs_element)d"
-                                      string="Create child WBS element"
-                                      type="action"
-                                      context="{'default_parent_id': analytic_account_id,'default_partner_id': partner_id,'default_user_id': user_id, 'default_state': 'draft'}"/>
-                                </group>
-                                <tree string="Work Breakdown Structure" name="wbstree" editable="bottom">
-                                    <field name="project_child_complete_ids" nolabel="1"/>
-                                </tree>
+                                <!--<group>-->
+                                    <!--<button name="%(create_wbs_element)d"-->
+                                      <!--string="Create child WBS element"-->
+                                      <!--type="action"-->
+                                      <!--context="{'default_parent_id': analytic_account_id,'default_partner_id': partner_id,'default_user_id': user_id, 'default_state': 'draft'}"/>-->
+                                <!--</group>-->
+                                <!--<tree string="Work Breakdown Structure" name="wbstree" editable="0">-->
+                                    <!--<field name="project_child_complete_ids" nolabel="1"/>-->
+                                <!--</tree>-->
                             </page>
                         </notebook>
                     </page>

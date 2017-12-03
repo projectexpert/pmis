@@ -289,7 +289,7 @@
             <field name="inherit_id" ref="project_charter.view_project_form"/>
             <field name="arch" type="xml">
                 <data>
-                    <xpath expr='//form/sheet/notebook/page/notebook/page[@string="Requirements and Success"]/group[@string="Success and Acceptance Criteria"]' position="before">
+                    <xpath expr='//form/sheet/notebook/page/notebook/page[@name="scope"]/group[@string="Constraints"]' position="before">
                         <tree string='Stakeholder Requests'>
                             <group string="Requirements">
                                 <field name="change_ids" nolabel="1"

@@ -51,7 +51,7 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="project_charter.view_project_form"/>
             <field name="arch" type="xml">                
-            	<xpath expr='//form/sheet/notebook/page/notebook/page[@string="Requirements and Success"]' position="after">
+            	<xpath expr='//form/sheet/notebook/page/notebook/page[@name="scope"]' position="after">
 	            	<page string="Milestones">
 	                        <field colspan="4" name="milestones" nolabel="1"  mode="tree" context="{'default_project_id': active_id}">
 	                            <tree string="Milestones">

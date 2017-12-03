@@ -30,32 +30,39 @@
             <field name="model">project.project</field>
             <field name="inherit_id" ref="project_wbs.edit_project"/>
             <field name="arch" type="xml">
-                <xpath expr="//tree[@name='wbstree']" position="after">
-                    <group string="Project Exclusions">
+                <xpath expr="//page[@name='scope']" position="inside">
+                    <!--<group string="Project Exclusions">-->
+                        <!--<group>-->
+                            <!--<field name="project_outscope_ids" nolabel="1">-->
+                                <!--<tree editable="bottom">-->
+                                    <!--<field name="out_scope" />-->
+                                 <!--</tree>-->
+                                <!--<form>-->
+                                    <!--<group>-->
+                                        <!--<field name="out_scope" />-->
+                                    <!--</group>-->
+                               <!--</form>-->
+                            <!--</field>-->
+                        <!--</group>-->
+                    <!--</group>-->
+
+                <!--add constraints, assumptions aka high level risks list,
+                     will be added by risk management module-->
+                    <group string="Constraints">
                         <group>
-                            <field name="project_outscope_ids" nolabel="1">
+                            <field name="project_constraints_ids" nolabel="1">
                                 <tree editable="bottom">
-                                    <field name="out_scope" />
-                                 </tree>
+                                    <field name="constraints"/>
+                                </tree>
                                 <form>
                                     <group>
-                                        <field name="out_scope" />
+                                        <field name="constraints"/>
                                     </group>
                                </form>
                             </field>
                         </group>
                     </group>
-                </xpath>
-                <xpath expr="//page[@name='scope']" position="before">
-                    <page string="Project Purpose">
-                        <group string="Project Purpose">
-                            <field name="notes" nolabel="1" widget="text_html"/>
-                        </group>
-                    </page>
-                </xpath>
-                <xpath expr="//page[@name='scope']" position="after">
-                    <page string="Requirements and Success">
-                        <group string="Success and Acceptance Criteria">
+                    <group string="Success and Acceptance Criteria">
                             <field name="project_success_ids" nolabel="1">
                                 <!--make tree editable to avoid form input-->
                                 <tree editable="bottom">
@@ -68,25 +75,19 @@
                                </form>
                             </field>
                         </group>
-                    </page>
-                    <!--add constraints, assumptions aka high level risks list,
-                     will be added by risk management module-->
-                    <page string="Assumptions, Constraints">
-                        <group string="Constraints">
-                            <group>
-                                <field name="project_constraints_ids" nolabel="1">
-                                    <tree editable="bottom">
-                                        <field name="constraints"/>
-                                    </tree>
-                                    <form>
-                                        <group>
-                                            <field name="constraints"/>
-                                        </group>
-                                   </form>
-                                </field>
-                            </group>
+                </xpath>
+                <xpath expr="//page[@name='scope']" position="before">
+                    <page string="Project Purpose">
+                        <group string="Project Purpose">
+                            <field name="notes" nolabel="1" widget="text_html"/>
                         </group>
                     </page>
+                </xpath>
+                <xpath expr="//page[@name='scope']" position="after">
+                    <!--<page string="Requirements and Success">-->
+                        <!---->
+                    <!--</page>-->
+
                     <!--add milestone list-->
                     <!--add resource plan rough cut-->
                     <page string="Planned Balance">

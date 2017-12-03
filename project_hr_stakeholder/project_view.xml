@@ -13,18 +13,9 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="project_charter.view_project_form"/>
             <field name="arch" type="xml">
-            	<xpath expr='//form/sheet/notebook/page/notebook/page[@string="Requirements and Success"]' position="before">
+            	<xpath expr='//form/sheet/notebook/page/notebook/page[@name="scope"]' position="before">
 					<page groups="base.group_erp_manager" string="Stakeholders">
 						<group string="Project Stakeholders">
-							<button help="Project Stakeholders"
-									class="oe_inline oe_stat_button"
-									name="%(action_project_hr_stakeholder_tree)d"
-									type="action"
-									icon="fa-users"
-									context="{'default_project_id': active_id,'search_default_project_id': active_id}"
-									groups="project.group_project_manager">
-							<div>Stakeholders</div>
-							</button>
 							<newline/>
 							<field name="stakeholder_ids" nolabel="1" context="{'default_project_id': active_id}">
 
@@ -53,6 +44,18 @@
 						</group>
                     </page>
 				</xpath>
+				<xpath expr="//div[@name='buttons']"
+                       position="inside">
+                    <button help="Project Stakeholders"
+                            class="oe_inline oe_stat_button"
+                            name="%(action_project_hr_stakeholder_tree)d"
+                            type="action"
+                            icon="fa-users"
+                            context="{'default_project_id': active_id,'search_default_project_id': active_id}"
+                            groups="project.group_project_manager">
+                        <div>Stakeholders</div>
+                    </button>
+                </xpath>
             </field>
         </record>
 

@@ -22,7 +22,7 @@
 
 {
     'name': 'Project Stakeholder Management',
-    'version': '8.0.2.0.7',
+    'version': '8.0.2.0.8',
     'author': 'Eficent, '
               'Matmoz d.o.o., '
               'Project Expert Team',
