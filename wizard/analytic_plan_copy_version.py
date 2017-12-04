@@ -51,7 +51,8 @@ class AnalyticPlanCopyVersion(models.TransientModel):
             data.include_child if data and data.include_child else False
         )
         source_version = (
-            data.source_version_id if data and data.source_version_id else False
+            data.source_version_id if data and data.source_version_id else
+            False
         )
         dest_version = (
             data.dest_version_id if data and data.dest_version_id else False
@@ -88,13 +89,13 @@ class AnalyticPlanCopyVersion(models.TransientModel):
             new_line_plan_ids.append(new_line_plan.id)
         if new_line_plan_rec:
             new_line_plan_rec.write({'version_id': dest_version[0]})
-            
+
         return {
-                'domain': "[('id','in', [" + ','.join(
-                    map(str, new_line_plan_ids)
-                ) + "])]",
-                'name': _('Analytic Planning Lines'),
-                'view_type': 'form',
+            'domain': "[('id','in', [" + ','.join(
+                map(str, new_line_plan_ids)
+            ) + "])]",
+            'name': _('Analytic Planning Lines'),
+            'view_type': 'form',
                 'view_mode': 'tree,form',
                 'res_model': 'account.analytic.line.plan',
                 'view_id': False,
