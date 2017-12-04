@@ -56,7 +56,7 @@
                                 groups="project.group_project_manager"/>
 						<button name="set_state_withdrawn" type="object"
                                 states="active,accepted,in_progress" string="Withdraw"
-                                groups="project.group_project_manager"/>
+                                class="oe_highlight" groups="project.group_project_manager"/>
                         <field name="state" widget="statusbar"
                                statusbar_visible="draft,active,accepted,in_progress,done,deferred"/>
                     </header>
@@ -78,6 +78,7 @@
                             <field name="change_owner_id"/>
                             <field name="proximity_id"/>
                             <field name="change_category_id"/>
+                            <field name="type_id"/>
                             <field name="company_id" groups="base.group_multi_company"/>
                         </group>
 			            <notebook>
@@ -152,6 +153,7 @@
                                help="My Projects"/>
                    </field>
                    <field name="change_category_id" select="1"/>
+                   <field name="type_id" select="1"/>
                    <separator orientation="vertical"/>
 
                    <field name="message_unread" select="1">

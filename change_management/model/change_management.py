@@ -268,6 +268,16 @@ and obtain sign-off from all key stakeholders.
         states={'draft': [('readonly', False)]},
         # track_visibility='on_change'
     )
+    type_id = fields.Selection(
+        selection="_get_type",
+        default='change',
+        readonly=True,
+        string="Request Type",
+        states={'draft': [('readonly', False)]},
+        help="Tyoe: "
+             "Is this na original requirement or a change in an undergoing "
+             "project?"
+    )
     change_owner_id = fields.Many2one(
         'res.users',
         string='Responsible',
@@ -330,6 +340,14 @@ and obtain sign-off from all key stakeholders.
             ('deferred', 'Deferred')
         ]
         return states
+
+    @api.model
+    def _get_type(self):
+        types = [
+            ('change', 'Change'),
+            ('requirement', 'Requirement')
+        ]
+        return types
 
     @api.depends('change_response_ids')
     def _compute_response_count(self):
