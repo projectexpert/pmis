@@ -1,6 +1,6 @@
- # -*- coding: utf-8 -*-
- # Copyright 2017 Eficent Business and IT Consulting Services S.L.
- # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+# -*- coding: utf-8 -*-
+# Copyright 2017 Eficent Business and IT Consulting Services S.L.
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 import time
 from odoo import api, fields, models
@@ -50,8 +50,8 @@ class AnalyticResourcePlanLine(models.Model):
     )
     state = fields.Selection(
         [
-         ('draft', 'Draft'),
-         ('confirm', 'Confirmed')
+            ('draft', 'Draft'),
+            ('confirm', 'Confirmed')
         ],
         'Status',
         index=True,
@@ -123,8 +123,8 @@ class AnalyticResourcePlanLine(models.Model):
     )
     resource_type = fields.Selection(
         [
-         ('task', 'Task'),
-         ('procurement', 'Procurement')
+            ('task', 'Task'),
+            ('procurement', 'Procurement')
         ],
         string='Type',
         required=True,
@@ -158,7 +158,7 @@ class AnalyticResourcePlanLine(models.Model):
         if not journal_id:
             raise Warning(_(
                 'There is no analytic plan journal for product %s'
-                ) % self.product_id.name)
+            ) % self.product_id.name)
         if not general_account_id:
             general_account_id = (
                 self.product_id.categ_id.property_account_expense_categ_id.id
@@ -167,7 +167,7 @@ class AnalyticResourcePlanLine(models.Model):
             raise Warning(_(
                 'There is no expense account defined '
                 'for this product: "%s" (id:%d)'
-                ) % (self.product_id.name, self.product_id.id,))
+            ) % (self.product_id.name, self.product_id.id,))
         default_plan = plan_version_obj.search(
             [('default_resource_plan', '=', True)],
             limit=1
@@ -281,7 +281,7 @@ class AnalyticResourcePlanLine(models.Model):
     def _check_description(self):
         for resource in self:
             if resource.resource_type == 'task' and (
-                        resource.product_uom_id.category_id != (
-                            resource.env.ref('product.uom_categ_wtime'))):
+                resource.product_uom_id.category_id != (
+                    resource.env.ref('product.uom_categ_wtime'))):
                 raise ValidationError(_("""When resource type is task,
                     the uom category should be time"""))
