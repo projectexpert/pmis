@@ -16,24 +16,24 @@ class ProgressMeasurementType(models.Model):
     def _check_default_max_value(self):
         for item in self:
             if item.default_max_value <= 0:
-                    return ValidationError(
-                        'The maximum value must be greater than 0')
+                return ValidationError(
+                    'The maximum value must be greater than 0')
 
     @api.constrains('is_percent', 'default_max_value')
     @api.multi
     def _check_is_percent_default_max_value(self):
         for item in self:
             if item.is_percent is True and item.default_max_value > 100:
-                    return ValidationError(
-                        'The maximum percentage must not exceed 100')
+                return ValidationError(
+                    'The maximum percentage must not exceed 100')
 
     @api.constrains('precision')
     @api.multi
     def _check_precision(self):
         for item in self:
             if item.precision <= 0:
-                    return ValidationError(
-                        'The precision value must be greater than 0')
+                return ValidationError(
+                    'The precision value must be greater than 0')
 
     @api.constrains('precision', 'default_max_value')
     @api.multi
@@ -56,7 +56,7 @@ class ProgressMeasurementType(models.Model):
                         'can exist.')
 
     name = fields.Char('Name', size=32, required=True, translate=True,
-                        help="Name given to the progress measurement type")
+                       help="Name given to the progress measurement type")
 
     default_max_value = fields.Float('Default Maximum Value',
                                      help="Maximum value that is "
@@ -67,9 +67,9 @@ class ProgressMeasurementType(models.Model):
                              help="Value of increments permitted"
                                   "for the given progress measurement type "
                                   "measured as a total measure of progress.")
-    active =  fields.Boolean('Active', default=True,
-                             help="Indicates that this type of progress can "
-                                  "be used")
+    active = fields.Boolean('Active', default=True,
+                            help="Indicates that this type of progress can "
+                            "be used")
 
     is_percent = fields.Boolean('Percentage',
                                 help="Indicates that progress measurements of "
@@ -81,8 +81,6 @@ class ProgressMeasurementType(models.Model):
 
     _sql_constraints = [('progress_measurement_type_name_unique',
                          'unique(name)', 'Progress type name already exists')]
-
-
 
     @api.model
     def create(self, vals):

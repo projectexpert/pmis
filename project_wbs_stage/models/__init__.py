@@ -6,5 +6,5 @@
 
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-import project_project_stage
-import project_project
+from . import project_project_stage
+from . import project_project
