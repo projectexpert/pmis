@@ -651,3 +651,51 @@ class Project(models.Model):
         res = super(Project, self)._get_alias_models()
         res.append(("change.management.change", "Change Requests"))
         return res
+
+    change_ids = fields.One2many(
+        comodel_name='change.management.change',
+        inverse_name='project_id',
+        string='Changes',
+        domain=[('type_id', '=', 'change')]
+    )
+
+    requirement_ids = fields.One2many(
+        comodel_name='change.management.change',
+        inverse_name='project_id',
+        string='Requirements',
+        domain=[('type_id', '=', 'Requirement')]
+    )
+
+    risk_ids = fields.One2many(
+        comodel_name='change.management.change',
+        inverse_name='project_id',
+        string='Changes',
+        domain=[('type_id', '=', 'risk')]
+    )
+
+    cr_count = fields.Integer(
+        compute='_compute_cr_count', type='integer'
+    )
+
+    req_count = fields.Integer(
+        compute='_compute_req_count', type='integer'
+    )
+
+    risk_count = fields.Integer(
+        compute='_compute_risk_count', type='integer'
+    )
+
+    @api.depends('change_ids')
+    def _compute_cr_count(self):
+        for record in self:
+            record.cr_count = len(record.change_ids)
+
+    @api.depends('requirement_ids')
+    def _compute_req_count(self):
+        for record in self:
+            record.req_count = len(record.requirement_ids)
+
+    @api.depends('risk_ids')
+    def _compute_risk_count(self):
+        for record in self:
+            record.risk_count = len(record.risk_ids)

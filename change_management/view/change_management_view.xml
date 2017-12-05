@@ -319,7 +319,7 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form,kanban</field>
 			<field name="search_view_id" ref="change_search_form_view"/>
-			<field name="context">{'search_default_active': 1}</field>
+			<field name="context">{'search_default_active': 1, 'default_type_id': 'change'}</field>
             <field name="domain">[('type_id', '=', 'change')]</field>
 		</record>
 
@@ -330,7 +330,7 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form,kanban</field>
 			<field name="search_view_id" ref="change_search_form_view"/>
-			<field name="context">{'search_default_active': 1}</field>
+			<field name="context">{'search_default_active': 1, 'default_type_id': 'requirement'}</field>
             <field name="domain">[('type_id', '=', 'requirement')]</field>
 		</record>
 
@@ -341,7 +341,7 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form,kanban</field>
 			<field name="search_view_id" ref="change_search_form_view"/>
-			<field name="context">{'search_default_active': 1}</field>
+			<field name="context">{'search_default_active': 1, 'default_type_id': 'risk'}</field>
             <field name="domain">[('type_id', '=', 'risk')]</field>
 		</record>
 
@@ -357,7 +357,6 @@
 			<field name="context">{'search_default_active_tasks': 1}</field>
         </record>
 
-        <!--TODO: better requirements backlog; counters and actions-->
 		<record id="change_management_project_charter_tree_view" model="ir.ui.view">
             <field name="name">change.management.inherit.charter.tree1</field>
             <field name="model">project.project</field>
@@ -367,8 +366,17 @@
                 <data>
                     <xpath expr='//form/sheet/notebook/page/notebook/page[@name="scope"]/group[@string="Constraints"]' position="before">
                         <tree string='Stakeholder Requests'>
-                            <group string="Requirements Backlog">
-                                <field name="change_ids" nolabel="1"/>
+                            <group string="Requirements">
+                                <field name="requirement_ids" nolabel="1"
+                                       context="{'default_type_id': 'requirement', 'default_project_id': active_id}"/>
+                            </group>
+                            <group string="Changes">
+                                <field name="change_ids" nolabel="1"
+                                       context="{'default_type_id': 'change', 'default_project_id': active_id}"/>
+                            </group>
+                            <group string="Risks">
+                                <field name="risk_ids" nolabel="1"
+                                       context="{'default_type_id': 'risk', 'default_project_id': active_id}"/>
                             </group>
                         </tree>
                     </xpath>
@@ -383,14 +391,34 @@
             <field name="arch" type="xml">
                 <xpath expr="//div[@name='buttons']"
                        position="inside">
+                    <button help="Requirement Management"
+                            class="oe_inline oe_stat_button"
+                            name="%(change_management.action_show_requirements)d"
+                            type="action"
+                            icon="fa-list-ol"
+                            context="{'default_project_id': active_id,'search_default_project_id': active_id, 'default_type_id': 'requirement'}">
+                        <field name="req_count"
+                               string="Requirements"
+                               widget="statinfo"/>
+                    </button>
                     <button help="Change Management"
                             class="oe_inline oe_stat_button"
-                            name="%(change_management.action_show_changes)d"
+                            name="%(change_management.action_show_cr)d"
                             type="action"
                             icon="fa-code-fork"
-                            context="{'default_project_id': active_id,'search_default_project_id': active_id}">
-                        <field name="change_count"
+                            context="{'default_project_id': active_id,'search_default_project_id': active_id, 'default_type_id': 'change'}">
+                        <field name="cr_count"
                                string="Changes"
+                               widget="statinfo"/>
+                    </button>
+                    <button help="Risk Management"
+                            class="oe_inline oe_stat_button"
+                            name="%(change_management.action_show_risks)d"
+                            type="action"
+                            icon="fa-exclamation-circle"
+                            context="{'default_project_id': active_id,'search_default_project_id': active_id, 'default_type_id': 'risk'}">
+                        <field name="risk_count"
+                               string="Risks"
                                widget="statinfo"/>
                     </button>
                 </xpath>
