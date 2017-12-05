@@ -1,24 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
-	<menuitem name="Changes"
+	<menuitem name="Requests Log"
 			  id="menu_change_management"
 			  parent="project_charter.project_management"
 			  action="action_show_changes"
 			  sequence="1"
 			  groups="project.group_project_manager,project.group_project_user"/>
 
-		<!--<menuitem name="Changes"-->
-				  <!--id="menu_changes"-->
-				  <!--parent="menu_change_management"-->
-				  <!--action="action_show_changes"/>-->
+		<menuitem name="Changes"
+				  id="menu_changes"
+				  parent="project_charter.project_management"
+                  sequence="2"
+				  action="action_show_cr"/>
+
+        <menuitem name="Requirements"
+				  id="menu_requirements"
+				  parent="project_charter.project_management"
+                  sequence="3"
+				  action="action_show_requirements"/>
+
+        <menuitem name="Risks"
+				  id="menu_risks"
+				  parent="project_charter.project_management"
+                  sequence="4"
+				  action="action_show_risks"/>
 
 		<menuitem name="Actions"
 				  id="menu_actions_on_change"
-				  parent="menu_change_management"
+				  parent="project_charter.project_management"
+                  sequence="9"
 				  action="action_show_actions"/>
 
-	<menuitem name="Changes"
+	<menuitem name="Change Management"
 			  id="menu_configuration_changes"
 			  parent="base.menu_definitions"
 			  groups="project.group_project_manager"/>

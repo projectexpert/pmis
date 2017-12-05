@@ -9,7 +9,7 @@
             <field name="inherit_id" ref="project.view_task_form2"/>
             <field name="arch" type="xml">
                 <field name="categ_ids" position="after">
-                    <field name="change_id" attrs="{'invisible': [('change_id', '==', False)]}"/>
+                    <field name="change_id"/>
                 </field>
             </field>
         </record>
@@ -37,7 +37,7 @@
             <field name="inherit_id" ref="project.view_task_search_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//filter[@string='Unassigned']" position="after">
-                    <filter string="Change Action" context="{'change_id_visible': False}"
+                    <filter string="Action on Request" context="{'change_id_visible': False}"
                             domain="[('change_id','&lt;&gt;',False)]"
                             help="Show only tasks (actions) on change"/>
                     <filter string="Active Tasks"

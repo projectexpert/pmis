@@ -95,6 +95,21 @@ class CMChange (models.Model):
             'change.management.change')
         return super(CMChange, self).copy(default)
 
+    # Risk management values
+    @api.depends('impact_inherent', 'probability_inherent')
+    def _calculate_expected_inherent_value(self):
+        for record in self:
+            record.expected_value_inherent = (
+                    record.impact_inherent * record.probability_inherent
+            )
+
+    @api.depends('impact_residual', 'probability_residual')
+    def _calculate_expected_residual_value(self):
+        for record in self:
+            record.expected_value_residual = (
+                    record.impact_residual * record.probability_residual
+            )
+
     # ##### FIELDS #####  #
 
     name = fields.Char(
@@ -274,9 +289,9 @@ and obtain sign-off from all key stakeholders.
         readonly=True,
         string="Request Type",
         states={'draft': [('readonly', False)]},
-        help="Tyoe: "
-             "Is this na original requirement or a change in an undergoing "
-             "project?"
+        help="Type: "
+             "Is this na original requirement, a change in an undergoing "
+             "project or a risk?"
     )
     change_owner_id = fields.Many2one(
         'res.users',
@@ -308,6 +323,54 @@ and obtain sign-off from all key stakeholders.
         required=False,
         copy=False,
         default='normal'
+    )
+    # risk management related
+    impact_inherent = fields.Integer(
+        'Inherent Impact', required=True,
+        default=0,
+        help="Inherent Impact: "
+        "The result of a particular threat or opportunity actually "
+        "occurring, or the anticipation of such a result. This is the "
+        "pre-response value, common used scales are 1 to 10 or 1 to 100."
+    )
+    impact_residual = fields.Integer(
+        'Residual Impact', required=True,
+        default=0,
+        help="Residual Impact: "
+        "The result of a particular threat or opportunity actually "
+        "occurring, or the anticipation of such a result. This is the "
+        "post-response value, common used scales are 1 to 10 or 1 to 100."
+    )
+    probability_inherent = fields.Integer(
+        'Inherent Probability', required=True,
+        default=0,
+        help="Inherent Probability: The evaluated likelihood of a particular "
+        "threat or opportunity actually happening, including a consideration "
+        "of the frequency with which this may arise. This is the pre-response"
+        " value, common used scales are 1 to 10 or 1 to 100."
+    )
+    probability_residual = fields.Integer(
+        'Residual Probability', required=True,
+        default=0,
+        help="Residual Probability: "
+        "The evaluated likelihood of a particular threat or opportunity "
+        "actually happening, including a consideration of the frequency "
+        "with which this may arise. This is the post-response value, "
+        "common used scales are 1 to 10 or 1 to 100."
+    )
+    expected_value_inherent = fields.Float(
+        compute='_calculate_expected_inherent_value', method=True,
+        string='Expected Inherent Value', store=True,
+        help="Expected Value. "
+        "Cost of inherent impact * inherent probability. This is the "
+        "pre-response value."
+    )
+    expected_value_residual = fields.Float(
+        compute='_calculate_expected_residual_value', method=True,
+        string='Expected Residual Value', store=True,
+        help="Expected Value. "
+        "Cost of residual impact * residual probability. This is the "
+        "post-response value."
     )
 
     # ##### DEFINITIONS #####  #
@@ -345,7 +408,8 @@ and obtain sign-off from all key stakeholders.
     def _get_type(self):
         types = [
             ('change', 'Change'),
-            ('requirement', 'Requirement')
+            ('requirement', 'Requirement'),
+            ('risk', 'Risk')
         ]
         return types
 

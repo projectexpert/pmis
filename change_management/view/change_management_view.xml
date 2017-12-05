@@ -11,7 +11,7 @@
                       fonts="bold:message_unread == True">
 					<field name="name"/>
 					<field name="description"/>
-					<!--<field name="author_id"/>-->
+					<field name="author_id" invisible="1"/>
 					<field name="stakeholder_id"/>
 					<field name="create_date"/>
 					<field name="date_modified"/>
@@ -21,6 +21,7 @@
 					<field name="state"/>
                     <field name="project_id"/>
 					<field name="change_owner_id"/>
+                    <field name="type_id"/>
                     <field name="message_unread" invisible="1"/>
 		   		</tree>
 			</field>
@@ -115,6 +116,30 @@
                                     <field name="date_approved"/>
                                 </group>
                             </page>
+                            <page string="Risk Score" attrs="{'invisible':[('type_id','!=','risk')]}">
+   	            	            <group>
+   	            			        <group>
+                    			        <field name="impact_inherent"/>
+								        <field name="probability_inherent"/>
+							        </group>
+                                    <group>
+                                        <div>
+                                            <label for="expected_value_inherent"/>
+                                            <h2><field name="expected_value_inherent" readonly="1" string="Inherent Risk Score"/></h2>
+                                        </div>
+                                    </group>
+		             		        <group>
+                                        <field name="impact_residual"/>
+                                        <field name="probability_residual"/>
+							        </group>
+                                    <group>
+                                        <div>
+                                            <label for="expected_value_residual"/>
+                                            <h2><field name="expected_value_residual" readonly="1" string="Residual Risk Score"/></h2>
+                                        </div>
+                                    </group>
+					            </group>
+                            </page>
                         </notebook>
                      </sheet>
                     <div class="oe_chatter">
@@ -132,18 +157,30 @@
             <field name="model">change.management.change</field>
             <field name="arch" type="xml">
                <search string="Change Edition">
-                   <filter string="Active Changes"
+                   <filter string="Active"
                            domain="[('state','in',('active', 'accepted', 'in_progress'))]"
-                           help="Active changes"
+                           help="Active Requests"
                            name="active"/>
-                   <filter string="Changes without actions"
+                   <filter string="No actions"
                            domain="[('change_response_ids','=',False)]"
-                           help="Changes without actions"
+                           help="Requests without actions"
                            name="no_actions"/>
-                   <field name="change_owner_id" select="1" string="Change Owner">
+                   <field name="change_owner_id" select="1" string="Request Owner">
                        <filter domain="[('change_owner_id','=',False)]"
-                               help="Changes without ownership"/>
+                               help="Without owner"/>
                    </field>
+                   <filter string="Changes"
+                           domain="[('type_id', '=', 'change')]"
+                           help="Change Requests"
+                           name="changes"/>
+                   <filter string="Requirements"
+                           domain="[('type_id', '=', 'requirement')]"
+                           help="Requirements"
+                           name="requirements"/>
+                   <filter string="Risks"
+                           domain="[('type_id', '=', 'risk')]"
+                           help="Risks"
+                           name="risks"/>
                    <separator orientation="vertical"/>
 
                    <field name="name" select="1"/>
@@ -167,7 +204,9 @@
                                domain="[]"
                                context="{'group_by':'project_id'}"/>
                        <separator orientation="vertical"/>
-
+                       <filter string="Request Type"
+                               name="group_type_id"
+                               domain="[]" context="{'group_by':'type_id'}"/>
                        <filter string="Change Owner"
                                name="group_change_owner_id"
                                domain="[]"
@@ -208,6 +247,7 @@
 					<field name="name"/>
 					<field name="description"/>
 					<field name="state"/>
+                    <field name="type_id"/>
 					<field name="project_id"/>
 					<field name="change_category_id"/>
 					<field name="change_response_ids"/>
@@ -263,6 +303,16 @@
 
         <!-- ACTIONS  -->
 		<record model="ir.actions.act_window" id="action_show_changes">
+			<field name="name">Request Backlog</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">change.management.change</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+			<field name="search_view_id" ref="change_search_form_view"/>
+			<field name="context">{'search_default_active': 1}</field>
+		</record>
+
+        <record model="ir.actions.act_window" id="action_show_cr">
 			<field name="name">Changes</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">change.management.change</field>
@@ -270,6 +320,29 @@
 			<field name="view_mode">tree,form,kanban</field>
 			<field name="search_view_id" ref="change_search_form_view"/>
 			<field name="context">{'search_default_active': 1}</field>
+            <field name="domain">[('type_id', '=', 'change')]</field>
+		</record>
+
+        <record model="ir.actions.act_window" id="action_show_requirements">
+			<field name="name">Requirements</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">change.management.change</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+			<field name="search_view_id" ref="change_search_form_view"/>
+			<field name="context">{'search_default_active': 1}</field>
+            <field name="domain">[('type_id', '=', 'requirement')]</field>
+		</record>
+
+        <record model="ir.actions.act_window" id="action_show_risks">
+			<field name="name">Risks</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">change.management.change</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+			<field name="search_view_id" ref="change_search_form_view"/>
+			<field name="context">{'search_default_active': 1}</field>
+            <field name="domain">[('type_id', '=', 'risk')]</field>
 		</record>
 
         <record model="ir.actions.act_window" id="action_show_actions">
@@ -284,6 +357,7 @@
 			<field name="context">{'search_default_active_tasks': 1}</field>
         </record>
 
+        <!--TODO: better requirements backlog; counters and actions-->
 		<record id="change_management_project_charter_tree_view" model="ir.ui.view">
             <field name="name">change.management.inherit.charter.tree1</field>
             <field name="model">project.project</field>
@@ -293,10 +367,8 @@
                 <data>
                     <xpath expr='//form/sheet/notebook/page/notebook/page[@name="scope"]/group[@string="Constraints"]' position="before">
                         <tree string='Stakeholder Requests'>
-                            <group string="Requirements">
-                                <field name="change_ids" nolabel="1"
-                                       context="{'default_project_id': active_id}">
-                                </field>
+                            <group string="Requirements Backlog">
+                                <field name="change_ids" nolabel="1"/>
                             </group>
                         </tree>
                     </xpath>

@@ -11,8 +11,8 @@ class ProjectTask (models.Model):
 
     change_id = fields.Many2one(
         comodel_name='change.management.change',
-        string='Source CR',
-        readonly=True,
+        string='Request',
+        readonly=False,
         help="Task is an action on a change identified by this label."
     )
 
@@ -35,20 +35,3 @@ class ProjectProject (models.Model):
     def _compute_change_count(self):
         for record in self:
             record.change_count = len(record.change_ids)
-
-
-# class CMChange (models.Model):
-#     _inherit = 'change.management.change'
-#
-#     @api.multi
-#     def name_get(self):
-#         res = super(CMChange, self).name_get()
-#         data = []
-#         for changeR in self:
-#             display_value = ''
-#             display_value += changeR.description or ""
-#             display_value += ' ['
-#             display_value += changeR.name or ""
-#             display_value += ']'
-#             data.append(changeR.id)
-#         return data
