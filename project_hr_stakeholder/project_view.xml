@@ -53,7 +53,9 @@
                             icon="fa-users"
                             context="{'default_project_id': active_id,'search_default_project_id': active_id}"
                             groups="project.group_project_manager">
-                        <div>Stakeholders</div>
+                        <field name="stakeholders_count"
+                               widget="statinfo"
+                               string="Stakeholders"/>
                     </button>
                 </xpath>
             </field>

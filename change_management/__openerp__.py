@@ -4,7 +4,7 @@
 
 {
     'name': 'Change Management',
-    'version': '8.0.3.1.2',
+    'version': '8.0.3.1.3',
     'author': 'Matmoz d.o.o., '
               'Project Expert Team',
     'contributors': [
@@ -26,7 +26,7 @@
         'view/change_management_menus.xml'
     ],
     'demo': ['demo/change_management_demo.xml'],
-    'test': ['test/test_change_management.yml'],
+    'test': [],
     'installable': True,
     'application': True,
     'active': False,

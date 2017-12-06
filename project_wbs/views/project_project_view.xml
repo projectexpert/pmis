@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+©2015 Eficent, Spain (Jordi Ballester Alomar)
+©2017 Matmoz d.o.o., Slovenia and Luxim d.o.o., Slovenia
+(Matjaž Mozetič <m.mozetic@matmoz.si>)
+License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+-->
 <openerp>
     <data>
         <!--KANBAN VIEW-->
@@ -19,7 +25,7 @@
                     <div class="oe_nav_buttons text-center"
                          name="wbs_navigation_up"
                          attrs="{'invisible': [('account_class', '=', 'portfolio')]}">
-                        <a name="action_openParentKanbanView"
+                        <a name="action_open_parent_kanban_view"
                            type="object">
                             <!--GO UP-->
                             <div class="oe_wbs_navigation">
@@ -44,7 +50,7 @@
                         </a>
                     </div>
                     <div class="oe_nav_buttons text-center" name="wbs_navigation_down">
-                        <a name="action_openChildKanbanView"
+                        <a name="action_open_child_kanban_view"
                            type="object">
                             <!--GO DOWN-->
                             <h6 class="fa fa-level-down oe_wbs_navigation text-center parentheading oe_kanban_action_a">
@@ -104,12 +110,12 @@
                 </xpath>
                 <field name="state" position="after">
                     <button string="Parent"
-                        name="action_openParentTreeView"
+                        name="action_open_parent_tree_view"
                         type="object"
                         icon="../../../../../project_wbs/static/src/img/icons/parent"
                         attrs="{'invisible': [('account_class', '=', 'portfolio')]}"/>
                     <button string="Children"
-                        name="action_openChildTreeView"
+                        name="action_open_child_tree_view"
                         type="object"
                         icon="../../../../../project_wbs/static/src/img/icons/child"/>
                     <!--OPEN FORM BUTTON-->
@@ -295,6 +301,16 @@
             </field>
         </record>
 
+        <!--MENU project drafts -->
+        <record id="open_view_drafts" model="ir.actions.act_window">
+            <field name="name">Draft Projects</field>
+            <field name="res_model">project.project</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="project.view_project"/>
+            <field name="context">{'default_state': 'draft'}</field>
+            <field name="domain">[('state','=','draft')]</field>
+        </record>
+
         <!--MENU PORTFOLIOS-->
         <record id="group_portfolio" model="ir.actions.act_window">
            <field name="name">Portfolios</field>
@@ -357,18 +373,42 @@
             <field name="context">{'search_default_Current': 1, 'search_default_account_class':False, 'default_account_class':False}</field>
         </record>
 
-        <menuitem action="open_view_project_wbs" id="project.menu_projects" name="WBS edit" parent="project.menu_project_management" sequence="1"/>
-            <menuitem action="group_portfolio" id="menu_project_wbs_portfolio" name="Portfolios" parent="project.menu_projects" sequence="3"/>
-            <menuitem action="group_program" id="menu_project_wbs_program" name="Programs" parent="project.menu_projects" sequence="4"/>
-            <menuitem action="group_project" id="menu_project_wbs_project" name="Projects" parent="project.menu_projects" sequence="5"/>
-            <menuitem action="group_subproject" id="menu_project_wbs_subproject" name="Sub-projects" parent="project.menu_projects" sequence="6"/>
-            <menuitem action="open_view_project_wbs" id="menu_fullwbs" name="WBS overview" parent="project.menu_projects" sequence="9"/>
-        <menuitem action="project.action_view_task" id="project.menu_action_view_task" parent="project.menu_project_management" sequence="5" name="Tasks"/>
+        <menuitem action="open_view_project_wbs"
+                  id="project.menu_projects"
+                  name="WBS edit"
+                  parent="project.menu_project_management"
+                  sequence="1"/>
+            <menuitem action="group_portfolio"
+                      id="menu_project_wbs_portfolio"
+                      name="Portfolios"
+                      parent="project.menu_projects"
+                      groups="project.group_project_manager"
+                      sequence="3"/>
+            <!--<menuitem action="group_program" id="menu_project_wbs_program" name="Programs" parent="project.menu_projects" sequence="4"/>-->
+            <!--<menuitem action="group_project" id="menu_project_wbs_project" name="Projects" parent="project.menu_projects" sequence="5"/>-->
+            <!--<menuitem action="group_subproject" id="menu_project_wbs_subproject" name="Sub-projects" parent="project.menu_projects" sequence="6"/>-->
+            <menuitem action="open_view_project_wbs"
+                      id="menu_fullwbs"
+                      name="WBS overview"
+                      parent="project.menu_projects"
+                      sequence="9"/>
+            <menuitem action="open_view_drafts"
+                      id="menu_draft"
+                      name="Project Proposals"
+                      parent="project.menu_projects"
+                      sequence="12"/>
+        <menuitem action="project.action_view_task"
+                  id="project.menu_action_view_task"
+                  parent="project.menu_project_management"
+                  sequence="5"
+                  name="Tasks"/>
 
         <!-- add css -->
-        <template id="assets_backend" name="sales_team assets" inherit_id="web.assets_backend">
+        <template id="assets_backend"
+                  name="sales_team assets" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
-                <link rel="stylesheet" href="/project_wbs/static/src/css/project_kanban.css"/>
+                <link rel="stylesheet"
+                      href="/project_wbs/static/src/css/project_kanban.css"/>
             </xpath>
         </template>
 

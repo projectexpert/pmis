@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-©2017 Matmoz d.o.o., Slovenia and Luxim d.o.o., Slovenia
-Author: Matjaž Mozetič <m.mozetic@matmoz.si>
-License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
--->
 <openerp>
 	<data>
 		<record model="ir.ui.view" id="proximity_tree_view">
-			<field name="name">change.management.proximity.tree.view</field>
-			<field name="model">change.management.proximity</field>
+			<field name="name">risk.management.proximity.tree.view</field>
+			<field name="model">risk.management.proximity</field>
 			<field name="priority">10</field>
 			<field name="arch" type="xml">
 				<tree string='Proximity'>
@@ -21,7 +16,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 		<record model="ir.actions.act_window" id="action_show_proximity">
 			<field name="name">Proximity</field>
 			<field name="type">ir.actions.act_window</field>
-			<field name="res_model">change.management.proximity</field>
+			<field name="res_model">risk.management.proximity</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 			<field name="view_id" ref="proximity_tree_view"/>

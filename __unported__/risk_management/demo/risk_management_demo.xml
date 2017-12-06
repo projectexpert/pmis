@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+    <record id="partner_risk_user" model="res.partner">
+        <field name="name">Risk User</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="customer" eval="False"/>
+    </record>
+
+    <record id="partner_risk_manager" model="res.partner">
+        <field name="name">Risk Manager</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="customer" eval="False"/>
+    </record>
+
+    <record id="user_risk_user" model="res.users">
+        <field name="partner_id" ref="partner_risk_user"/>
+        <field name="login">riskuser</field>
+        <field name="password">riskuser</field>
+        <field name="signature">--
+            Mr Risk Uesr</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="groups_id" eval="[(6,0,[ref('base.group_user')])]"/>
+    </record>
+
+    <record id="user_risk_manager" model="res.users">
+        <field name="partner_id" ref="partner_risk_manager"/>
+        <field name="login">riskmanager</field>
+        <field name="password">riskmanager</field>
+        <field name="signature">--
+            Mr Risk Manager</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="groups_id" eval="[(6,0,[ref('base.group_user')])]"/>
+    </record>
+
+</data>
+</openerp>

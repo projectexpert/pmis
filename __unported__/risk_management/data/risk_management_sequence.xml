@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!-- Sequences for risk_management.risk -->
+        <record id="seq_type_risk_management_risk" model="ir.sequence.type">
+            <field name="name">Risk Id</field>
+            <field name="code">risk.management.risk</field>
+        </record>
+
+        <record id="seq_risk_management_risk" model="ir.sequence">
+            <field name="name">Risk Id</field>
+            <field name="code">risk.management.risk</field>
+            <field name="prefix">RI</field>
+            <field name="padding">4</field>
+        </record>
+    </data>
+</openerp>

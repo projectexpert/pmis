@@ -663,7 +663,7 @@ class Project(models.Model):
         comodel_name='change.management.change',
         inverse_name='project_id',
         string='Requirements',
-        domain=[('type_id', '=', 'Requirement')]
+        domain=[('type_id', '=', 'requirement')]
     )
 
     risk_ids = fields.One2many(

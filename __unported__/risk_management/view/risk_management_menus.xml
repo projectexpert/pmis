@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+	<menuitem name="Risks"
+			  id="menu_risk_management"
+			  parent="project_charter.project_management"
+			  action="action_show_risks"
+			  sequence="2"
+			  groups="project.group_project_manager,project.group_project_user"/>
+
+		<!--<menuitem name="Risks"-->
+				  <!--id="menu_risks"-->
+				  <!--parent="menu_risk_management"-->
+				  <!--action="action_show_risks"/>-->
+
+		<menuitem name="Actions"
+				  id="menu_actions_on_risk"
+				  parent="menu_risk_management"
+				  action="action_show_actions"/>
+
+	<menuitem name="Risks"
+			  id="menu_configuration_risks"
+			  parent="base.menu_definitions"
+			  groups="project.group_project_manager"/>
+
+		<menuitem name="Risk Categories"
+				  action="action_show_categories"
+				  id="menu_risk_categories"
+				  parent="menu_configuration_risks"/>
+
+		<menuitem name="Response Categories"
+				  action="action_show_response_categories"
+				  id="menu_risk_response_categories"
+				  parent="menu_configuration_risks"/>
+
+		<menuitem name="Proximity"
+				  action="action_show_proximity"
+				  id="menu_risk_proximity"
+				  parent="menu_configuration_risks"/>
+
+	</data>
+</openerp>
