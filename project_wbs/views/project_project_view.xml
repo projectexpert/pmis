@@ -110,14 +110,14 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                 </xpath>
                 <field name="state" position="after">
                     <button string="Parent"
-                        name="action_open_parent_tree_view"
-                        type="object"
-                        icon="../../../../../project_wbs/static/src/img/icons/parent"
-                        attrs="{'invisible': [('account_class', '=', 'portfolio')]}"/>
+                            name="action_open_parent_tree_view"
+                            type="object"
+                            icon="../../../../../project_wbs/static/src/img/icons/parent"
+                            attrs="{'invisible': [('account_class', '=', 'portfolio')]}"/>
                     <button string="Children"
-                        name="action_open_child_tree_view"
-                        type="object"
-                        icon="../../../../../project_wbs/static/src/img/icons/child"/>
+                            name="action_open_child_tree_view"
+                            type="object"
+                            icon="../../../../../project_wbs/static/src/img/icons/child"/>
                     <!--OPEN FORM BUTTON-->
                     <button string="Open Form"
                         name="action_open_view_project_form"

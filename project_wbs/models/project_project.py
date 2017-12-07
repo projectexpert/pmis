@@ -288,10 +288,10 @@ class Project(models.Model):
         )
         for project in self:
             if project.parent_id:
-                for parent_project_id in self.pool.get(
+                for parent_project_id in self.env[
                         'project.project'
-                ).search(
-                    [('analytic_account_id', '=', project.parent_id.id)]
+                ].search(
+                       [('analytic_account_id', '=', project.parent_id.id)]
                 ):
                     analytic_account_ids.append(parent_project_id.id)
         if analytic_account_ids:

@@ -352,7 +352,7 @@ class Project(osv.osv):
                 'nodestroy': True
             }
 
-    def action_openChildView(
+    def action_open_child_view(
             self, cr, uid, ids, module, act_window,
             context=None
     ):
@@ -397,77 +397,77 @@ class Project(osv.osv):
         res['nodestroy'] = False
         return res
 
-    def action_openProjectsView(
+    # def action_openProjectsView(
+    #         self, cr, uid, ids, context=None
+    # ):
+    #
+    #     return self.action_openChildView(
+    #         cr, uid, ids, 'project_wbs',
+    #         'open_view_project_projects',
+    #         context=context
+    #     )
+    #
+    # def action_openPhasesView(
+    #         self, cr, uid, ids, context=None
+    # ):
+    #
+    #     return self.action_openChildView(
+    #         cr, uid, ids, 'project_wbs',
+    #         'open_view_project_phases',
+    #         context=context
+    #     )
+    #
+    # def action_openDeliverablesView(
+    #         self, cr, uid, ids, context=None
+    # ):
+    #
+    #     return self.action_openChildView(
+    #         cr, uid, ids, 'project_wbs',
+    #         'open_view_project_deliverables',
+    #         context=context
+    #     )
+    #
+    # def action_openWorkPackagesView(
+    #         self, cr, uid, ids, context=None
+    # ):
+    #
+    #     return self.action_openChildView(
+    #         cr, uid, ids, 'project_wbs',
+    #         'open_view_project_work_packages',
+    #         context=context
+    #     )
+    #
+    # def action_openUnclassifiedView(
+    #         self, cr, uid, ids, context=None
+    # ):
+    #
+    #     return self.action_openChildView(
+    #         cr, uid, ids, 'project_wbs',
+    #         'open_view_unclassified',
+    #         context=context
+    #     )
+
+    def action_open_child_treeView(
             self, cr, uid, ids, context=None
     ):
 
-        return self.action_openChildView(
-            cr, uid, ids, 'project_wbs',
-            'open_view_project_projects',
-            context=context
-        )
-
-    def action_openPhasesView(
-            self, cr, uid, ids, context=None
-    ):
-
-        return self.action_openChildView(
-            cr, uid, ids, 'project_wbs',
-            'open_view_project_phases',
-            context=context
-        )
-
-    def action_openDeliverablesView(
-            self, cr, uid, ids, context=None
-    ):
-
-        return self.action_openChildView(
-            cr, uid, ids, 'project_wbs',
-            'open_view_project_deliverables',
-            context=context
-        )
-
-    def action_openWorkPackagesView(
-            self, cr, uid, ids, context=None
-    ):
-
-        return self.action_openChildView(
-            cr, uid, ids, 'project_wbs',
-            'open_view_project_work_packages',
-            context=context
-        )
-
-    def action_openUnclassifiedView(
-            self, cr, uid, ids, context=None
-    ):
-
-        return self.action_openChildView(
-            cr, uid, ids, 'project_wbs',
-            'open_view_unclassified',
-            context=context
-        )
-
-    def action_openChildTreeView(
-            self, cr, uid, ids, context=None
-    ):
-
-        return self.action_openChildView(
+        return self.action_open_child_view(
             cr, uid, ids, 'project_wbs',
             'open_view_project_wbs',
             context=context
         )
 
-    def action_openChildKanbanView(
+    def action_open_child_kanban_view(
             self, cr, uid, ids, context=None
     ):
 
-        return self.action_openChildView(
+        return self.action_open_child_view(
             cr, uid, ids, 'project_wbs',
             'open_view_wbs_kanban',
             context=context
         )
 
-    def action_openParentTreeView(
+    def action_open_parent_tree_view(
             self, cr, uid, ids, context=None
     ):
         """
@@ -496,7 +496,7 @@ class Project(osv.osv):
             cr, uid, ids, parent_id
         )
 
-    def action_openParentKanbanView(
+    def action_open_parent_kanban_view(
             self, cr, uid, ids, context=None
     ):
         """

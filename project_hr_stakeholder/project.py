@@ -19,9 +19,7 @@
 #
 ##############################################################################
 
-from openerp import tools
 from openerp import fields, models, api
-from openerp.tools.translate import _
 
 
 class Project(models.Model):
