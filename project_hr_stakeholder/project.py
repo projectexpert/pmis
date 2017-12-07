@@ -41,4 +41,4 @@ class Project(models.Model):
     @api.depends('stakeholder_ids')
     def _compute_stakehold_count(self):
         for record in self:
-            record.cr_count = len(record.stakeholder_ids)
+            record.stakeholders_count = len(record.stakeholder_ids)
