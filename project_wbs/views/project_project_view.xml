@@ -82,6 +82,20 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                 </xpath>
                 <xpath expr='//field[@name="sequence"]' position="replace">
                     <field name="complete_wbs_code" string="Code" invisible="1"/>
+                    <!--<button string="Parent"-->
+                            <!--name="action_open_parent_tree_view"-->
+                            <!--type="object"-->
+                            <!--icon="../../../../../project_wbs/static/src/img/icons/parent"-->
+                            <!--attrs="{'invisible': [('account_class', '=', 'portfolio')]}"/>-->
+                    <button string="Children"
+                            name="action_open_child_tree_view"
+                            type="object"
+                            icon="../../../../../project_wbs/static/src/img/icons/child"/>
+                    <!--OPEN FORM BUTTON-->
+                    <button string="Open Form"
+                        name="action_open_view_project_form"
+                        type="object"
+                        icon="../../../../../project_wbs/static/src/img/icons/edit"/>
                     <field name="wbs_indent"/>
                 </xpath>
                 <xpath expr='//field[@name="date"]' position="replace"/>
@@ -108,22 +122,22 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                     <field name="date_start" string="Start Date"/>
                     <field name="date" string="End Date"/>
                 </xpath>
-                <field name="state" position="after">
-                    <button string="Parent"
-                            name="action_open_parent_tree_view"
-                            type="object"
-                            icon="../../../../../project_wbs/static/src/img/icons/parent"
-                            attrs="{'invisible': [('account_class', '=', 'portfolio')]}"/>
-                    <button string="Children"
-                            name="action_open_child_tree_view"
-                            type="object"
-                            icon="../../../../../project_wbs/static/src/img/icons/child"/>
-                    <!--OPEN FORM BUTTON-->
-                    <button string="Open Form"
-                        name="action_open_view_project_form"
-                        type="object"
-                        icon="../../../../../project_wbs/static/src/img/icons/edit"/>
-                </field>
+                <!--<field name="state" position="after">-->
+                    <!--<button string="Parent"-->
+                            <!--name="action_open_parent_tree_view"-->
+                            <!--type="object"-->
+                            <!--icon="../../../../../project_wbs/static/src/img/icons/parent"-->
+                            <!--attrs="{'invisible': [('account_class', '=', 'portfolio')]}"/>-->
+                    <!--<button string="Children"-->
+                            <!--name="action_open_child_tree_view"-->
+                            <!--type="object"-->
+                            <!--icon="../../../../../project_wbs/static/src/img/icons/child"/>-->
+                    <!--&lt;!&ndash;OPEN FORM BUTTON&ndash;&gt;-->
+                    <!--<button string="Open Form"-->
+                        <!--name="action_open_view_project_form"-->
+                        <!--type="object"-->
+                        <!--icon="../../../../../project_wbs/static/src/img/icons/edit"/>-->
+                <!--</field>-->
             </field>
         </record>
 

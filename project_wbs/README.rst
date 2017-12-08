@@ -28,7 +28,8 @@ Project Scope
 Installation
 ============
 
-* The module automatically takes care of its dependencies and is ready for use after the installation
+* The module automatically takes care of its dependencies and is ready for use
+  after the installation
 
 Credits
 =======
@@ -38,7 +39,8 @@ Contributors
 
 * Eficent <http://www.eficent.com>
 * Matmoz d.o.o. <http://www.matmoz.si>
-* SeprentCS <http://www.serpentcs.com/>
+* Luxim d.o.o. <https://www.luxim.si>
+* Deneroteam <http://www.deneroteam.com>
 
 Maintainer
 ----------
@@ -49,8 +51,8 @@ Maintainer
 
 This module is maintained by Project Expert Team.
 
-Project Expert is a joint effort between EFICENT (Barcelona, Spain) and MATMOZ (Ljubljana, Slovenia),
-both active members of Odoo Community Association (OCA).
+Project Expert is a joint effort between EFICENT (Barcelona, Spain) and MATMOZ
+(Ljubljana, Slovenia), both active members of Odoo Community Association (OCA).
 
 .. image:: http://odoo-community.org/logo.png
    :alt: Odoo Community Association

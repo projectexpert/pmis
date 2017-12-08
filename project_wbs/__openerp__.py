@@ -7,7 +7,7 @@
 
 {
     'name': 'Work Breakdown Structure',
-    'version': '8.0.2.4.6',
+    'version': '8.0.2.4.7',
     'author': 'Matmoz d.o.o., '
               'Luxim d.o.o., '
               'Deneroteam, '

@@ -129,6 +129,19 @@ class Project(models.Model):
         return None
 
     @api.multi
+    def _get_parent_members(self):
+        context = self.env.context or {}
+        member_ids = []
+        project_obj = self.env['project.project']
+        if 'default_parent_id' in context and context['default_parent_id']:
+            for project in project_obj.search(
+                [('analytic_account_id', '=', context['default_parent_id'])]
+            ):
+                for member in project.members:
+                    member_ids.append(member.id)
+        return member_ids
+
+    @api.multi
     def _get_analytic_complete_wbs_code(self):
         result = {}
         for project in self:
@@ -178,6 +191,51 @@ class Project(models.Model):
 
         return project.name_get()
 
+    # def action_open_child_view(
+    #         self, cr, uid, ids, module, act_window,
+    #         context=None
+    # ):
+    #     """
+    #     :return dict: dictionary value for created view
+    #     """
+    #     if context is None:
+    #         context = {}
+    #     project = self.browse(
+    #         cr, uid, ids[0], context
+    #     )
+    #     child_project_ids = self.pool.get(
+    #         'project.project').search(
+    #         cr, uid, [('parent_id', '=', project.analytic_account_id.id)]
+    #     )
+    #     res = self.pool.get('ir.actions.act_window').for_xml_id(
+    #         cr, uid, module, act_window, context
+    #     )
+    #     res['context'] = {
+    #         'default_parent_id': (
+    #             project.analytic_account_id and
+    #             project.analytic_account_id.id or
+    #             False
+    #         ),
+    #         'default_partner_id': (
+    #             project.partner_id and
+    #             project.partner_id.id or
+    #             False
+    #         ),
+    #         'default_user_id': (
+    #             project.user_id and
+    #             project.user_id.id or
+    #             False
+    #         ),
+    #         'default_state': (
+    #             project.state or
+    #             False
+    #         ),
+    #     }
+    #     res['domain'] = "[('id', 'in', [" + ','.join(
+    #         map(str, child_project_ids)) + "])]"
+    #     res['nodestroy'] = False
+    #     return res
+
     @api.multi
     def action_open_child_view(self, module, act_window):
         """
@@ -193,7 +251,7 @@ class Project(models.Model):
             )
             for child_project_id in child_project_ids:
                 project_ids.append(child_project_id.id)
-            context.update({
+            res['context'] = ({
                 'default_parent_id': (
                     project.analytic_account_id and
                     project.analytic_account_id.id or
@@ -268,6 +326,12 @@ class Project(models.Model):
                         [('analytic_account_id', '=', project.parent_id.id)]
                 ):
                     analytic_account_ids.append(parent_project_id.id)
+                    # res['context'] = ({
+                    #     'default_parent_id': (
+                    #         analytic_account_id
+                    #     )
+                    # })
+
         if analytic_account_ids:
             domain.append(('id', 'in', analytic_account_ids))
             res.update({
