@@ -24,10 +24,11 @@ class BillingPlanLine(models.Model):
                 if order_line.state and order_line.state != 'cancel':
                     rec.has_active_order = bool(rec.order_line_ids)
 
-    price_unit = fields.Float(
+    unit_price = fields.Float(
         string='Sale Price',
         groups='project.group_project_manager',
-        digits=dp.get_precision('Sale Price')
+        digits=dp.get_precision('Sale Price'),
+        oldname='price_unit'
     )
     customer_id = fields.Many2one(
         comodel_name='res.partner',
@@ -70,15 +71,15 @@ class BillingPlanLine(models.Model):
     #     store='True'
     # )
 
-    @api.onchange('unit_amount')
-    def on_change_unit_amount(self):
-        if self.unit_amount:
-            self.amount = self.price_unit * self.unit_amount
+    @api.onchange('quantity')
+    def on_change_quantity(self):
+        if self.quantity:
+            self.amount = self.unit_price * self.quantity
 
-    @api.onchange('price_unit')
-    def on_change_price_unit(self):
-        if self.price_unit:
-            self.amount = self.price_unit * self.unit_amount
+    @api.onchange('unit_price')
+    def on_change_unit_price(self):
+        if self.unit_price:
+            self.amount = self.unit_price * self.quantity
 
     @api.onchange('product_id')
     def on_change_product_id(self):
@@ -92,7 +93,7 @@ class BillingPlanLine(models.Model):
                 self.product_id.uom_id.id or
                 False
             )
-            self.price_unit = self.product_id.list_price
+            self.unit_price = self.product_id.list_price
             self.journal_id = (
                 self.product_id.revenue_analytic_plan_journal_id and
                 self.product_id.revenue_analytic_plan_journal_id.id or
@@ -101,8 +102,8 @@ class BillingPlanLine(models.Model):
             # self.general_account_id = (
             #     self.product_id.product_tmpl_id.property_account_income.id
             # )
-            # # self.amount_currency = self.price_unit * self.unit_amount
-            # self.amount = self.price_unit * self.unit_amount
+            # # self.amount_currency = self.unit_price * self.quantity
+            # self.amount = self.unit_price * self.quantity
             # if not self.general_account_id:
             #     self.general_account_id = (
             #         self.product_id.categ_id.property_account_income_categ.id
@@ -124,12 +125,12 @@ class BillingPlanLine(models.Model):
                 self.partner_id = self.account_id.partner_id.id
             if self.account_id.company_id.currency_id:
                 self.currency_id = self.account_id.company_id.currency_id.id
-                self.amount = self.price_unit * self.unit_amount
+                self.amount = self.unit_price * self.quantity
 
     @api.multi
-    @api.depends('price_unit', 'unit_amount')
+    @api.depends('unit_price', 'quantity')
     def _total_price(self):
-        self.amount = self.price_unit * self.unit_amount
+        self.amount = self.unit_price * self.quantity
 
     @api.multi
     def copy(self, default=None):

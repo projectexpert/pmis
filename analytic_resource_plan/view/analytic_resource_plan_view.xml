@@ -26,7 +26,7 @@
                             <field name="product_id"/>
                             <field name="resource_type"/>
                             <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
-                            <!--<field name="unit_amount"/>-->
+                            <!--<field name="quantity"/>-->
                             <!--<field name="product_uom_id"/>-->
                             <!--<field name="price_unit"/>-->
                         </group>
@@ -37,11 +37,11 @@
                         </group>
                         <group groups="analytic.group_analytic_accounting" col="4">
                             <div>
-                            <label for="unit_amount" class="oe_edit_only"/>
+                            <label for="quantity" class="oe_edit_only"/>
                             <!--<label for="price_unit" class="oe_edit_only"/>-->
                             <!--<label for="amount" class="oe_edit_only"/>-->
                             <h2>
-                                <field name="unit_amount" class="oe_inline"
+                                <field name="quantity" class="oe_inline"
                                        required="True"/>
                                 <field name="product_uom_id" class="oe_inline"
                                        required="True" placeholder="Product Unit of Measure"/>
@@ -104,7 +104,7 @@
 	                <field name="product_id"/>
                     <field name="name"/>
                     <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
-					<field name="unit_amount" string="Qty"/>
+					<field name="quantity" string="Qty"/>
                     <field name="product_uom_id"/>
                     <field name="price_unit"/>
                     <!--<field name="has_child"/>-->

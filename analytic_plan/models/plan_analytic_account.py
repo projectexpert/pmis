@@ -92,7 +92,7 @@ class AccountAnalyticAccount(orm.Model):
                          END
                           ) as credit_plan,
                      COALESCE(SUM(l.amount),0) AS balance_plan,
-                     COALESCE(SUM(l.unit_amount),0) AS quantity_plan
+                     COALESCE(SUM(l.quantity),0) AS quantity_plan
               FROM account_analytic_account a
                   LEFT JOIN account_analytic_line_plan l ON
                   (a.id = l.account_id)

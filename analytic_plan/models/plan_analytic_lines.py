@@ -32,8 +32,9 @@ class AccountAnalyticLine(models.Model):
         default=0.0,
         store=True
     )
-    unit_amount = fields.Float(
-        'Quantity', default=0.0
+    quantity = fields.Float(
+        'Quantity', default=0.0,
+        oldname='unit_amount'
     )
     account_id = fields.Many2one(
         'account.analytic.account',
@@ -98,8 +99,8 @@ class AccountAnalyticLine(models.Model):
         )
     )
 
-    @api.onchange('unit_amount', 'product_uom_id')
-    def on_change_unit_amount(self):
+    @api.onchange('quantity', 'product_uom_id')
+    def on_change_quantity(self):
         analytic_journal_obj = self.env['account.analytic.plan.journal']
         product_price_type_obj = self.env['product.price.type']
 
@@ -162,7 +163,7 @@ class AccountAnalyticLine(models.Model):
             pricetype.field)[prod.id]
         self.env.args = cr, uid, misc.frozendict(context)
         prec = self.env['decimal.precision'].precision_get('Account')
-        self.amount = amount_unit * self.unit_amount or 1.0
+        self.amount = amount_unit * self.quantity or 1.0
         result = round(self.amount, prec)
         if not flag:
             if journal.type != 'sale':
@@ -174,7 +175,7 @@ class AccountAnalyticLine(models.Model):
 
     @api.onchange('product_id')
     def on_change_product_id(self):
-        self.on_change_unit_amount()
+        self.on_change_quantity()
         prod = self.product_id
         self.name = prod.name
         if prod.uom_id:

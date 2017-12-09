@@ -77,13 +77,14 @@ class AnalyticResourcePlanLine(models.Model):
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
-    unit_amount = fields.Float(
+    quantity = fields.Float(
         'Planned Quantity',
         readonly=True,
         required=True,
         states={'draft': [('readonly', False)]},
         help='Specifies the quantity that has '
              'been planned.',
+        oldname='unit_amount',
         default=1
     )
     notes = fields.Text(
@@ -190,15 +191,15 @@ class AnalyticResourcePlanLine(models.Model):
             'date': self.date,
             'product_id': self.product_id.id,
             'product_uom_id': self.product_uom_id.id,
-            'unit_amount': self.unit_amount,
-            'amount': -1 * self.product_id.standard_price * self.unit_amount,
+            'quantity': self.quantity,
+            'amount': -1 * self.product_id.standard_price * self.quantity,
             'general_account_id': general_account_id,
             'journal_id': journal_id,
             'notes': self.notes,
             'version_id': default_plan.id,
             'currency_id': self.account_id.company_id.currency_id.id,
             # 'amount_currency': (
-            #     -1 * self.product_id.standard_price * self.unit_amount
+            #     -1 * self.product_id.standard_price * self.quantity
             # ),
         }]
 
@@ -235,7 +236,7 @@ class AnalyticResourcePlanLine(models.Model):
     @api.multi
     def action_button_confirm(self):
         for line in self:
-            if line.unit_amount == 0:
+            if line.quantity == 0:
                 raise UserError(
                     _(
                         'Quantity should be greater than 0.'
@@ -285,10 +286,10 @@ class AnalyticResourcePlanLine(models.Model):
 
     # PRICE DEFINITIONS
     @api.multi
-    @api.depends('price_unit', 'unit_amount')
+    @api.depends('price_unit', 'quantity')
     def _compute_get_price_total(self):
         for resource in self:
-            resource.price_total = resource.price_unit * resource.unit_amount
+            resource.price_total = resource.price_unit * resource.quantity
 
     @api.multi
     def _get_pricelist(self):

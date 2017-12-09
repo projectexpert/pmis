@@ -165,7 +165,7 @@ class AnalyticBillingPlanLineMakeSale(orm.TransientModel):
 
                     sale_order_line = {
                         'name': line.name,
-                        'product_uom_qty': line.unit_amount,
+                        'product_uom_qty': line.quantity,
                         'product_id': line.product_id.id,
                         'product_uom': uom_id.id,
                         'price_unit': price_unit,

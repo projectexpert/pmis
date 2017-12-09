@@ -12,9 +12,9 @@
                     <group>
                         <group colspan="2" col="4" name="Product Information">
                             <field name="product_id"/>
-                            <!--<field name="unit_amount" required="True"/>-->
+                            <!--<field name="quantity" required="True"/>-->
                             <!--<field name="product_uom_id" required="True"/>-->
-                            <!--<field name="price_unit" required="True"/>-->
+                            <!--<field name="unit_price" required="True"/>-->
                             <!--<field name="amount_currency" required="True" readonly="True"/>-->
                             <field name="currency_id"/>
                         </group>
@@ -25,16 +25,16 @@
                         </group>
                         <group groups="analytic.group_analytic_accounting" col="4">
                             <div>
-                            <label for="unit_amount" class="oe_edit_only"/>
-                            <!--<label for="price_unit" class="oe_edit_only"/>-->
+                            <label for="quantity" class="oe_edit_only"/>
+                            <!--<label for="unit_price" class="oe_edit_only"/>-->
                             <!--<label for="amount" class="oe_edit_only"/>-->
                             <h2>
-                                <field name="unit_amount" class="oe_inline"
+                                <field name="quantity" class="oe_inline"
                                        required="True"/>
                                 <field name="product_uom_id" class="oe_inline"
-                                       required="True" placeholder="Product Unit of Measure"/>
+                                       placeholder="Product Unit of Measure"/>
                                 <span class="oe_grey"> x </span>
-                                <field name="price_unit" class="oe_inline"
+                                <field name="unit_price" class="oe_inline"
                                        required="True" widget="monetary"
                                        options="{'currency_field': 'currency_id'}"/>
                                 <span class="oe_grey"> = </span>
@@ -51,7 +51,7 @@
                         </group>
                         <group colspan="2" col="4"  name="Analytic Information" groups="analytic.group_analytic_accounting">
                             <field name="version_id"/>
-                            <field name="journal_id"/>
+                            <field name="journal_id" domain="[('type', '=', 'sale')]"/>
                             <!--<field name="general_account_id"/>-->
                             <field name="ref"/>
                             <field name="company_id" groups="base.group_multi_company"/>
@@ -82,16 +82,16 @@
             <field name="model">analytic.billing.plan.line</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
-				<tree string="Analytic billing plan line" editable="top">
+				<tree string="Analytic billing plan line">
                     <field name="account_id"/>
                     <field name="customer_id"/>
                     <field name="date"/>
                     <field name="product_id" colspan="4" required="True"/>
                     <field name="name"/>
-					<field name="unit_amount" colspan="2" required="True"/>
+					<field name="quantity" colspan="2" required="True"/>
                     <field name="product_uom_id" required="True"/>
                     <field name="version_id"/>
-					<field name="price_unit" required="True"/>
+					<field name="unit_price" required="True"/>
                     <!--<field name="amount_currency" required="True" readonly="True"/>-->
                     <field name="currency_id" required="True"/>
                     <field name="amount"/>
