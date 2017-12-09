@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
-# © 2015 Eficent Business and IT Consulting Services S.L.
-# (Jordi Ballester Alomar)
-#
-# © 2016 Matmoz d.o.o. & 2017 Luxim d.o.o.
-# (Matjaž Mozetič)
-#
-# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+#    Copyright 2015 Matmoz d.o.o. (Matjaž Mozetič)
+#    Copyright 2015 Eficent (Jordi Ballester Alomar)
+#    Copyright 2017 Luxim d.o.o. (Matjaž Mozetič)
+#    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from openerp import api, fields, models
 from openerp.tools.translate import _
@@ -62,12 +59,12 @@ class AccountAnalyticLine(models.Model):
     product_id = fields.Many2one(
         'product.product', 'Product'
     )
-    general_account_id = fields.Many2one(
-        'account.account',
-        'General Account',
-        required=True,
-        ondelete='restrict'
-    )
+    # general_account_id = fields.Many2one(
+    #     'account.account',
+    #     'General Account',
+    #     # required=True,
+    #     # ondelete='restrict'
+    # )
     journal_id = fields.Many2one(
         'account.analytic.plan.journal',
         'Planning Analytic Journal',
@@ -117,28 +114,28 @@ class AccountAnalyticLine(models.Model):
             journal = j[0] if j and j[0] else False
         if not self.journal_id or not self.product_id:
             return {}
-        if journal.type != 'sale' and prod:
-            a = prod.product_tmpl_id.property_account_expense.id
-            if not a:
-                a = prod.categ_id.property_account_expense_categ.id
-            if not a:
-                raise UserError(
-                    _(
-                        'There is no expense account defined '
-                        'for this product: "%s" (id:%d)'
-                    ) % (prod.name, prod.id,)
-                )
-        else:
-            a = prod.product_tmpl_id.property_account_income.id
-            if not a:
-                a = prod.categ_id.property_account_income_categ.id
-            if not a:
-                raise UserError(
-                    _(
-                        'There is no income account defined '
-                        'for this product: "%s" (id:%d)'
-                    ) % (prod.name, self.product_id,)
-                )
+        # if journal.type != 'sale' and prod:
+        #     a = prod.product_tmpl_id.property_account_expense.id
+        #     if not a:
+        #         a = prod.categ_id.property_account_expense_categ.id
+        #     if not a:
+        #         raise UserError(
+        #             _(
+        #                 'There is no expense account defined '
+        #                 'for this product: "%s" (id:%d)'
+        #             ) % (prod.name, prod.id,)
+        #         )
+        # else:
+        #     a = prod.product_tmpl_id.property_account_income.id
+        #     if not a:
+        #         a = prod.categ_id.property_account_income_categ.id
+        #     if not a:
+        #         raise UserError(
+        #             _(
+        #                 'There is no income account defined '
+        #                 'for this product: "%s" (id:%d)'
+        #             ) % (prod.name, self.product_id,)
+        #         )
         flag = False
         # Compute based on pricetype
         product_price_type = product_price_type_obj.search(
@@ -171,7 +168,7 @@ class AccountAnalyticLine(models.Model):
             if journal.type != 'sale':
                 result *= -1
         # self.amount_currency = result
-        self.general_account_id = a
+        # self.general_account_id = a
         # self.on_change_amount_currency()
         return {}
 

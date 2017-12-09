@@ -11,12 +11,12 @@
                 <sheet string="Billing plan line">
                     <group>
                         <group colspan="2" col="4" name="Product Information">
-                            <field name="product_id" required="True"/>
+                            <field name="product_id"/>
                             <!--<field name="unit_amount" required="True"/>-->
                             <!--<field name="product_uom_id" required="True"/>-->
                             <!--<field name="price_unit" required="True"/>-->
                             <!--<field name="amount_currency" required="True" readonly="True"/>-->
-                            <field name="currency_id" required="True"/>
+                            <field name="currency_id"/>
                         </group>
                         <group colspan="2" col="4">
                             <h1>
@@ -52,7 +52,7 @@
                         <group colspan="2" col="4"  name="Analytic Information" groups="analytic.group_analytic_accounting">
                             <field name="version_id"/>
                             <field name="journal_id"/>
-                            <field name="general_account_id"/>
+                            <!--<field name="general_account_id"/>-->
                             <field name="ref"/>
                             <field name="company_id" groups="base.group_multi_company"/>
                         </group>
@@ -98,7 +98,7 @@
                     <field name="company_id" invisible="True"/>
                     <field name="journal_id" invisible="True"/>
                     <field name="ref" invisible="True"/>
-                    <field name="general_account_id" invisible="True"/>
+                    <!--<field name="general_account_id" invisible="True"/>-->
                     <field name="has_active_order"/>
 	            </tree>
             </field>
@@ -116,7 +116,7 @@
                         <field name="name"/>
                         <field name="version_id"/>
                         <field name="journal_id"/>
-                        <field name="general_account_id"/>
+                        <!--<field name="general_account_id"/>-->
                     </group>
 					<group expand="0" string="Group By">
                         <filter string="Project" name="Project" context="{'group_by':'account_id'}"/>

@@ -19,6 +19,7 @@ Contributors
 
 * Eficent <http://www.eficent.com>
 * Matmoz d.o.o. <http://www.matmoz.si>
+* Luxim d.o.o. <https://www.luxim.si>
 
 
 Maintainer

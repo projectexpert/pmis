@@ -7,7 +7,6 @@ import logging
 
 _logger = logging.getLogger(__name__)
 
-
 # Change Category
 class CMChangeCategory (models.Model):
     _name = 'change.management.category'
@@ -226,12 +225,12 @@ and obtain sign-off from all key stakeholders.
         "The type of change in terms of the project's or business"
         "chosen categories (e.g. Schedule, quality, legal etc.)"
     )
-    description_cause = fields.Html(
-        'Change',
-        readonly=True,
-        states={'draft': [('readonly', False)],
-                'active': [('readonly', False)]},
-    )
+    # description_cause = fields.Html(
+    #     'Change',
+    #     readonly=True,
+    #     states={'draft': [('readonly', False)],
+    #             'active': [('readonly', False)]},
+    # )
     description_gap = fields.Html(
         'Gap Analysis',
         readonly=True,
@@ -252,12 +251,12 @@ and obtain sign-off from all key stakeholders.
         states={'draft': [('readonly', False)],
                 'active': [('readonly', False)]},
     )
-    description_effect = fields.Html(
-        'Effect',
-        readonly=True,
-        states={'draft': [('readonly', False)],
-                'active': [('readonly', False)]},
-    )
+    # description_effect = fields.Html(
+    #     'Effect',
+    #     readonly=True,
+    #     states={'draft': [('readonly', False)],
+    #             'active': [('readonly', False)]},
+    # )
     proximity_id = fields.Many2one(
         'change.management.proximity', 'Proximity',
         help="Proximity: "
@@ -300,8 +299,8 @@ and obtain sign-off from all key stakeholders.
         states={'draft': [('readonly', False)],
                 'active': [('readonly', False)]},
         help="Change Manager: "
-        "The person responsible for managing the change (there can be"
-        "only one change owner per change), change ownership is assigned"
+        "The person responsible for managing the change (there can be "
+        "only one change owner per change), change ownership is assigned "
         "to a managerial level, in case of business continuity to a "
         "C-level manager."
     )
@@ -371,6 +370,16 @@ and obtain sign-off from all key stakeholders.
         help="Expected Value. "
         "Cost of residual impact * residual probability. This is the "
         "post-response value."
+    )
+
+    gap_ids = fields.One2many(
+        comodel_name="change.gap.analysis",
+        inverse_name="change_id",
+        string="Gap analysis lines",
+    )
+
+    account_id = fields.Many2one(
+        related='project_id.analytic_account_id'
     )
 
     # ##### DEFINITIONS #####  #
@@ -525,29 +534,6 @@ and obtain sign-off from all key stakeholders.
             ) for change in changes
         )
 
-    # @api.multi
-    # def message_get_suggested_recipients(self):
-    #     recipients = super(
-    #         CMChange, self
-    #     ).message_get_suggested_recipients()
-    #     try:
-    #         for change in self:
-    #             if change.stakeholder_id:
-    #                 change._message_add_suggested_recipient(
-    #                     recipients, partner=change.stakeholder_id,
-    #                     reason=_('Customer')
-    #                 )
-    #             elif change.email_from:
-    #                 change._message_add_suggested_recipient(
-    #                     recipients, email=change.email_from,
-    #                     reason=_('Customer Email')
-    #                 )
-    #     except AccessError:
-    #         # no read access rights -> just ignore suggested recipients
-    #         # because this imply modifying followers
-    #         pass
-    #     return recipients
-
     @api.multi
     def email_split(self, msg):
         email_list = tools.email_split(
@@ -588,59 +574,6 @@ and obtain sign-off from all key stakeholders.
         )
         change.message_subscribe(stakeholder_ids)
         return res_id
-
-    # Some v10 related entries
-
-    # @api.multi
-    # def message_update(self, msg, update_vals=None):
-    #     """ Override to update the change according to the email. """
-    #     email_list = self.email_split(msg)
-    #     stakeholder_ids = filter(
-    #         None, self._find_partner_from_emails(email_list)
-    #     )
-    #     self.message_subscribe(stakeholder_ids)
-    #     return super(CMChange, self).message_update(
-    #         msg, update_vals=update_vals
-    #     )
-
-    # @api.multi
-    # @api.returns('mail.message', lambda value: value.id)
-    # def message_post(self, subtype=None, **kwargs):
-    #     """ Overrides mail_thread message_post so that we can set
-    #      the date of last action field when a new message is posted on
-    #      the change.
-    #     """
-    #     self.ensure_one()
-    #     mail_message = super(CMChange, self).message_post(
-    #         subtype=subtype, **kwargs
-    #     )
-    #     if subtype:
-    #         self.sudo().write({'date_modified': fields.Datetime.now()})
-    #     return mail_message
-
-    # @api.multi
-    # def message_get_email_values(self, notif_mail=None):
-    #     self.ensure_one()
-    #     res = super(CMChange, self).message_get_email_values(
-    #         notif_mail=notif_mail)
-    #     headers = {}
-    #     if res.get('headers'):
-    #         try:
-    #             headers.update(safe_eval(res['headers']))
-    #         except Exception:
-    #             pass
-    #     if self.project_id:
-    #         current_objects = filter(
-    #             None, headers.get('X-Odoo-Objects', '').split(',')
-    #         )
-    #         current_objects.insert(
-    #             0, 'project.project-%s, ' % self.project_id.id
-    #         )
-    #         headers['X-Odoo-Objects'] = ','.join(current_objects)
-    #     if self.tag_ids:
-    #         headers['X-Odoo-Tags'] = ','.join(self.tag_ids.mapped('name'))
-    #     res['headers'] = repr(headers)
-    #     return res
 
 
 class Project(models.Model):
@@ -699,3 +632,53 @@ class Project(models.Model):
     def _compute_risk_count(self):
         for record in self:
             record.risk_count = len(record.risk_ids)
+
+# Gap Analysis
+class GapAnalysis (models.Model):
+    _name = 'change.gap.analysis'
+    _description = 'GAP analysis table'
+
+    topic = fields.Char(
+        string='Topic/User Story',
+        required=True,
+    )
+
+    current_sit = fields.Char(
+        string="Curent situation",
+        required=False
+    )
+
+    desired_sit = fields.Char(
+        string="Desired situation",
+        required=False
+    )
+
+    diagnosis = fields.Char(
+        string="Scenario",
+        required=False
+    )
+
+    deliverable_id = fields.Many2one(
+        comodel_name='analytic.billing.plan.line',
+        string='Action (Deliverable)',
+        ondelete='cascade',
+        help="Planned deliverable to fill the gap."
+    )
+
+    change_id = fields.Many2one(
+        comodel_name='change.management.change',
+        string='Request',
+    )
+
+    project_id = fields.Many2one(
+        comodel_name='project.project',
+        related='change_id.project_id'
+    )
+
+    account_id = fields.Many2one(
+        comodel_name='account.analytic.account',
+        related='change_id.project_id.analytic_account_id'
+    )
+
+    # company_id = fields.Many2one(
+    #     related='change_id.project_id.analytic_account_id.company_id')

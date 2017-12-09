@@ -40,37 +40,48 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 				<form string="Change">
                     <header>
                         <button name="set_state_draft" type="object"
-                                states="active,rejected,accepted,deferred" string="Back to Draft"
+                                states="active,rejected,accepted,deferred"
+                                string="Back to Draft"
                                 groups="project.group_project_manager"/>
                         <button name="set_state_active" type="object"
-                                states="draft,deferred" string="Confirm" class="oe_highlight"
+                                states="draft,deferred"
+                                string="Confirm" class="oe_highlight"
                                 groups="project.group_project_user"/>
                         <button name="set_state_accepted" type="object"
-                                states="active" string="Approve" class="oe_highlight"
+                                states="active"
+                                string="Approve" class="oe_highlight"
                                 groups="project.group_project_manager"/>
                         <button name="set_in_progress" type="object"
-                                states="accepted" string="In progress" class="oe_highlight"
+                                states="accepted"
+                                string="In progress" class="oe_highlight"
                                 groups="project.group_project_manager"/>
                         <button name="set_state_done" type="object"
-                                states="in_progress" string="Done" class="oe_highlight"
+                                states="in_progress"
+                                string="Done" class="oe_highlight"
                                 groups="project.group_project_manager"/>
                         <button name="set_state_rejected" type="object"
-                                states="active" string="Reject" class="oe_highlight"
+                                states="active"
+                                string="Reject" class="oe_highlight"
                                 groups="project.group_project_manager"/>
                         <button name="set_state_deferred" type="object"
-                                states="active,accepted,in_progress" string="Defer"
+                                states="active,accepted,in_progress"
+                                string="Defer"
                                 groups="project.group_project_manager"/>
 						<button name="set_state_withdrawn" type="object"
-                                states="active,accepted,in_progress" string="Withdraw"
-                                class="oe_highlight" groups="project.group_project_manager"/>
+                                states="active,accepted,in_progress"
+                                string="Withdraw" class="oe_highlight"
+                                groups="project.group_project_manager"/>
                         <field name="state" widget="statusbar"
                                statusbar_visible="draft,active,accepted,in_progress,done,deferred"/>
                     </header>
                     <sheet string="Change">
                         <div class="oe_left">
-                            <field name="kanban_state" class="oe_inline" widget="kanban_state_selection"/>
+                            <field name="kanban_state"
+                                   class="oe_inline"
+                                   widget="kanban_state_selection"/>
                         </div>
-                        <div class="oe_right oe_button_box" name="buttons" groups="base.group_user">
+                        <div class="oe_right oe_button_box"
+                             name="buttons" groups="base.group_user">
 
                         </div>
                         <label for="description" class="oe_edit_only"/>
@@ -85,7 +96,8 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                             <field name="proximity_id"/>
                             <field name="change_category_id"/>
                             <field name="type_id"/>
-                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="company_id"
+                                   groups="base.group_multi_company"/>
                         </group>
 			            <notebook>
    	            	        <page string="Description">
@@ -93,14 +105,25 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                 		            <field name="description_event" nolabel="1"/>
                                 </group>
                                 <group string="GAP Analysis">
-                                    <field name="description_gap" nolabel="1"/>
+                                    <field name="gap_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="topic"/>
+                                            <field name="current_sit"/>
+                                            <field name="desired_sit"/>
+                                            <field name="diagnosis"/>
+                                            <field name="change_id" invisible="1"/>
+                                            <field name="project_id" invisible="1"/>
+                                            <field name="account_id" invisible="1"/>
+                                            <field name="deliverable_id" domain="[('account_id', '=', account_id)]" context="{'default_account_id': account_id, 'default_name': diagnosis}"/>
+                                        </tree>
+                                    </field>
                                 </group>
-                                <group string="Change Scenario">
-                		            <field name="description_cause" nolabel="1"/>
-                                </group>
-                                <group string="Desired Effect">
-						            <field name="description_effect" nolabel="1"/>
-                                </group>
+                                <!--<group string="Change Scenario">-->
+                		            <!--<field name="description_cause" nolabel="1"/>-->
+                                <!--</group>-->
+                                <!--<group string="Desired Effect">-->
+						            <!--<field name="description_effect" nolabel="1"/>-->
+                                <!--</group>-->
                             </page>
                             <page string="Change Enforcing">
                                 <field name="change_response_ids"
@@ -121,7 +144,8 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                                     <field name="date_approved"/>
                                 </group>
                             </page>
-                            <page string="Risk Score" attrs="{'invisible':[('type_id','!=','risk')]}">
+                            <page string="Risk Score"
+                                  attrs="{'invisible':[('type_id','!=','risk')]}">
    	            	            <group>
    	            			        <group>
                     			        <field name="impact_inherent"/>
@@ -130,7 +154,11 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                                     <group>
                                         <div>
                                             <label for="expected_value_inherent"/>
-                                            <h2><field name="expected_value_inherent" readonly="1" string="Inherent Risk Score"/></h2>
+                                            <h2>
+                                                <field name="expected_value_inherent"
+                                                       readonly="1"
+                                                       string="Inherent Risk Score"/>
+                                            </h2>
                                         </div>
                                     </group>
 		             		        <group>
@@ -140,7 +168,11 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                                     <group>
                                         <div>
                                             <label for="expected_value_residual"/>
-                                            <h2><field name="expected_value_residual" readonly="1" string="Residual Risk Score"/></h2>
+                                            <h2>
+                                                <field name="expected_value_residual"
+                                                       readonly="1"
+                                                       string="Residual Risk Score"/>
+                                            </h2>
                                         </div>
                                     </group>
 					            </group>
@@ -170,7 +202,9 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                            domain="[('change_response_ids','=',False)]"
                            help="Requests without actions"
                            name="no_actions"/>
-                   <field name="change_owner_id" select="1" string="Request Owner">
+                   <field name="change_owner_id"
+                          select="1"
+                          string="Request Owner">
                        <filter domain="[('change_owner_id','=',False)]"
                                help="Without owner"/>
                    </field>
@@ -267,16 +301,24 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 						  <div class="oe_dropdown_toggle oe_dropdown_kanban">
 							<span class="oe_e">í</span>
 							  <ul class="oe_dropdown_menu">
-							  <t t-if="widget.view.is_action_enabled('edit')"><li><a type="edit">Edit...</a></li></t>
-							  <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+							  <t t-if="widget.view.is_action_enabled('edit')">
+                                  <li>
+                                      <a type="edit">Edit...</a>
+                                  </li>
+                              </t>
+							  <li>
+                                  <ul class="oe_kanban_colorpicker" data-field="color"/>
+                              </li>
 							</ul>
 						  </div>
 						  <div class="oe_kanban_content">
 							<div>
-                                <field name="kanban_state" widget="kanban_state_selection"/>
+                                <field name="kanban_state"
+                                       widget="kanban_state_selection"/>
 							  <ul>
-								<li><b><field name="description"/></b></li>
-
+								<li>
+                                    <b><field name="description"/></b>
+                                </li>
 								<li>(<field name="change_category_id"/>)</li>
 							  </ul>
 							</div>

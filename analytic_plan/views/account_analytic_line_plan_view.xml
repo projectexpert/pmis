@@ -36,9 +36,9 @@
                                        class="oe_inline"/>
                             </div>
                         </group>
-                        <group string="General Accounting">
-                            <field name="general_account_id"/>
-                        </group>                        
+                        <!--<group string="General Accounting">-->
+                            <!--<field name="general_account_id"/>-->
+                        <!--</group>                        -->
                     </group>
                     <notebook>
                     <page string="Notes" name="notes">
@@ -66,7 +66,7 @@
                     <field name="currency_id"/>
                     <field name="amount" sum="Total"/>
                     <field name="company_id" invisible="True"/>
-                    <field name="general_account_id"/>
+                    <!--<field name="general_account_id"/>-->
                 </tree>
             </field>
         </record>
@@ -98,8 +98,8 @@
                     <group string="Group By..." expand="0">
                         <filter string="Analytic Account"
                                 context="{'group_by':'account_id'}"/>
-                        <filter string="Fin. Account"
-                                context="{'group_by':'general_account_id'}"/>
+                        <!--<filter string="Fin. Account"-->
+                                <!--context="{'group_by':'general_account_id'}"/>-->
                         <filter string="Journal"
                                 context="{'group_by':'journal_id'}"
                                 name="group_journal"/>

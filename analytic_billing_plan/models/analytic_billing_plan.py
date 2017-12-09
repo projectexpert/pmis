@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+#    Copyright 2015 Matmoz d.o.o. (Matjaž Mozetič)
+#    Copyright 2015 Eficent (Jordi Ballester Alomar)
+#    Copyright 2017 Luxim d.o.o. (Matjaž Mozetič)
+#    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 import time
 import openerp.addons.decimal_precision as dp
@@ -55,10 +59,19 @@ class BillingPlanLine(models.Model):
         string='Resource Lines',
         copy=True,
     )
+    # gap_ids = fields.One2many(
+    #     comodel_name='change.gap.analysis',
+    #     inverse_name='deliverable_id',
+    #     string='Gap Lines',
+    # )
+    # amount = fields.Float(
+    #     compute='_total_price',
+    #     string='Total revenue',
+    #     store='True'
+    # )
 
     @api.onchange('unit_amount')
     def on_change_unit_amount(self):
-        amount = self.price_unit * self.unit_amount
         if self.unit_amount:
             self.amount = self.price_unit * self.unit_amount
 
@@ -85,22 +98,22 @@ class BillingPlanLine(models.Model):
                 self.product_id.revenue_analytic_plan_journal_id.id or
                 False
             )
-            self.general_account_id = (
-                self.product_id.product_tmpl_id.property_account_income.id
-            )
-            # self.amount_currency = self.price_unit * self.unit_amount
-            self.amount = self.price_unit * self.unit_amount
-            if not self.general_account_id:
-                self.general_account_id = (
-                    self.product_id.categ_id.property_account_income_categ.id
-                )
-            if not self.general_account_id:
-                raise UserError(
-                    _(
-                        'There is no income account defined '
-                        'for this product: "%s" (id:%d)'
-                    ) % (self.product_id.name, self.product_id.id,)
-                )
+            # self.general_account_id = (
+            #     self.product_id.product_tmpl_id.property_account_income.id
+            # )
+            # # self.amount_currency = self.price_unit * self.unit_amount
+            # self.amount = self.price_unit * self.unit_amount
+            # if not self.general_account_id:
+            #     self.general_account_id = (
+            #         self.product_id.categ_id.property_account_income_categ.id
+            #     )
+            # if not self.general_account_id:
+            #     raise UserError(
+            #         _(
+            #             'There is no income account defined '
+            #             'for this product: "%s" (id:%d)'
+            #         ) % (self.product_id.name, self.product_id.id,)
+            #     )
 
     @api.onchange('account_id')
     def on_change_account_id(self):
@@ -111,8 +124,12 @@ class BillingPlanLine(models.Model):
                 self.partner_id = self.account_id.partner_id.id
             if self.account_id.company_id.currency_id:
                 self.currency_id = self.account_id.company_id.currency_id.id
-                # self.amount_currency = self.price_unit * self.unit_amount
                 self.amount = self.price_unit * self.unit_amount
+
+    @api.multi
+    @api.depends('price_unit', 'unit_amount')
+    def _total_price(self):
+        self.amount = self.price_unit * self.unit_amount
 
     @api.multi
     def copy(self, default=None):

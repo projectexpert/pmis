@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
-
+#    Copyright (C) 2015 Eficent (Jordi Ballester Alomar)
+#    Copyright (C) 2017 Matmoz d.o.o. (Matjaž Mozetič)
+#    Copyright (C) 2017 Luxim d.o.o. (Matjaž Mozetič)
+#    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     'name': 'Project Time Management - Milestones',
-    'version': '8.0.1.0.4',
+    'version': '8.0.1.0.5',
     'author':   'Eficent, '
                 'Matmoz d.o.o., '
+                'Luxim d.o.o., '
                 'Project Expert Team',
     'contributors': [
         'Jordi Ballester <jordi.ballester@eficent.com>',

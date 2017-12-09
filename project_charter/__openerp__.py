@@ -2,7 +2,7 @@
 
 {
     'name': 'Project Charter',
-    'version': '8.0.1.2.4',
+    'version': '8.0.1.2.5',
     'author': 'Matmoz d.o.o., '
               'Project Expert Team',
     'contributors': [
@@ -18,9 +18,9 @@
     'depends': [
         'project',
         'analytic_account_sequence',
-        'analytic_plan',
-        'analytic_resource_plan',
-        'analytic_billing_plan',
+        # 'analytic_plan',
+        # 'analytic_resource_plan',
+        # 'analytic_billing_plan',
         'project_wbs',
         'web_ckeditor4',
     ],

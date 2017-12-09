@@ -11,7 +11,7 @@
     'contributors': [
         'Jordi Ballester <jordi.ballester@eficent.com>',
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
-        'Sudhir Arya <>'
+        'Sudhir Arya <arya.sudhir@yahoo.co.in>'
     ],
     'website': 'http://project.expert',
     'category': 'Project Management',

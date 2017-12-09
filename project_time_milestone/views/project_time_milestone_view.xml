@@ -13,8 +13,10 @@
             		<field name="milestone"/>            		  
             	</field>
 
-	            <xpath expr="//sheet//page[@string='Extra Info']//notebook[@name='Scheduling']" position="inside">
-					<page  string="Milestone" attrs="{'readonly':[('milestone','=',False)]}">
+	            <xpath expr="//sheet//page[@string='Extra Info']//notebook[@name='Scheduling']"
+                       position="inside">
+					<page  string="Milestone"
+                           attrs="{'readonly':[('milestone','=',False)]}">
 						<group colspan="2" col="2">    
 							<field name="public_milestone"/>                          
 							<field name="project_poc"/>
@@ -33,16 +35,28 @@
             <field eval="False" name="filter"/>
             <field name="inherit_id" ref="project.view_task_tree2"/>   
             <field name="domain">[('milestone', '=', True)]</field>
-            <field name="context">{"default_user_id":uid, "search_default_current": 1,'milestone': True, 'search_default_active_tasks': 1}</field>
+            <field name="context">{
+                "default_user_id":uid,
+                "search_default_current": 1,
+                'milestone': True,
+                'search_default_active_tasks': 1 }
+            </field>
             <field name="search_view_id" ref="project.view_task_search_form"/>
             <field name="help">Manage Project milestones</field>
         </record>
 
-        <menuitem action="action_view_milestone" id="menu_action_view_milestone" parent="project.menu_action_view_task" sequence="4"/>
+        <menuitem action="action_view_milestone"
+                  id="menu_action_view_milestone"
+                  parent="project.menu_action_view_task"
+                  sequence="4"/>
 	 	
         <record id="project.action_view_task" model="ir.actions.act_window">
             <field name="domain">[('milestone', '=', False)]</field>
-            <field name="context">{"search_default_user_id":uid, "search_default_current": 1,'milestone': True}</field>
+            <field name="context">{
+                "search_default_user_id":uid,
+                "search_default_current": 1,
+                'milestone': True}
+            </field>
         </record>
 
 		<record id="edit_project" model="ir.ui.view">
@@ -53,7 +67,11 @@
             <field name="arch" type="xml">                
             	<xpath expr='//form/sheet/notebook/page/notebook/page[@name="scope"]' position="after">
 	            	<page string="Milestones">
-	                        <field colspan="4" name="milestones" nolabel="1"  mode="tree" context="{'default_project_id': active_id}">
+	                        <field colspan="4"
+                                   name="milestones"
+                                   nolabel="1"
+                                   mode="tree"
+                                   context="{'default_project_id': active_id, 'default_milestone': True}">
 	                            <tree string="Milestones">
 	                            	<field name="id"/>
 	                                <field name="name"/>

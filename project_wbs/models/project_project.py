@@ -160,7 +160,7 @@ class Project(models.Model):
         return project_ids
 
     project_child_complete_ids = fields.Many2many(
-        'project.project',
+        comodel_name='project.project',
         string="Project Hierarchy",
         compute="_child_compute"
     )

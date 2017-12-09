@@ -4,7 +4,7 @@
 
 {
     'name': 'Change Management',
-    'version': '8.0.3.1.3',
+    'version': '8.0.3.1.4',
     'author': 'Matmoz d.o.o., '
               'Project Expert Team',
     'contributors': [
@@ -14,7 +14,7 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'summary': 'Change Management integrated with Stakeholders Requirements',
-    'depends': ['project', 'project_charter', 'project_wbs'],
+    'depends': ['project_charter', 'analytic_billing_plan'],
     'data': [
         'data/change_management_data.xml',
         'data/change_management_sequence.xml',

@@ -90,11 +90,14 @@
 
                     <!--add milestone list-->
                     <!--add resource plan rough cut-->
-                    <page string="Planned Balance">
-                        <group string="Planned balance">
-                            <field name="plan_line_ids" nolabel="1" readonly="1"/>
-                        </group>
-                    </page>
+                    <!--<page string="Planned Balance">-->
+                        <!--<group string="Planned balance">-->
+                            <!--<field name="plan_line_ids"-->
+                                   <!--nolabel="1"-->
+                                   <!--readonly="1"-->
+                                   <!--domain="[('version_id', '=', 'active_analytic_planning_version')]"/>-->
+                        <!--</group>-->
+                    <!--</page>-->
                 </xpath>
             </field>
         </record>

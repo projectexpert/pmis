@@ -9,9 +9,10 @@
 
 {
     'name': 'Analytic Plan',
-    'version': '8.0.2.1.1',
+    'version': '8.0.2.1.2',
     'author':   'Eficent, '
-                'Matmoz & Luxim, '
+                'Matmoz, '
+                'Luxim, '
                 'Project Expert Team',
     'contributors': [
         'Jordi Ballester <jordi.ballester@eficent.com>',
