@@ -38,7 +38,7 @@ class BillingPlanLine(models.Model):
     )
     analytic_line_plan_id = fields.Many2one(
         comodel_name='account.analytic.line.plan',
-        string='Planning analytic lines',
+        string='Planning lines',
         ondelete="cascade",
         required=True
     )
@@ -60,15 +60,16 @@ class BillingPlanLine(models.Model):
         string='Resource Lines',
         copy=True,
     )
-    # gap_ids = fields.One2many(
-    #     comodel_name='change.gap.analysis',
-    #     inverse_name='deliverable_id',
-    #     string='Gap Lines',
-    # )
-    # amount = fields.Float(
-    #     compute='_total_price',
-    #     string='Total revenue',
-    #     store='True'
+    # TODO: add reference to gap lines
+    # the idea is, that the deliverable manager could have a list of user
+    # user stories on the deliverable form to follow completion of assigned
+    # tasks that he encoded in the resources; the deliverable becomes s
+    # sprint
+
+    # todo_ids = fields.One2many(
+    #     comodel_name="change.gap.analysis",
+    #     inverse_name="deliverable_id",
+    #     string="User Stories"
     # )
 
     @api.onchange('quantity')
@@ -99,22 +100,6 @@ class BillingPlanLine(models.Model):
                 self.product_id.revenue_analytic_plan_journal_id.id or
                 False
             )
-            # self.general_account_id = (
-            #     self.product_id.product_tmpl_id.property_account_income.id
-            # )
-            # # self.amount_currency = self.unit_price * self.quantity
-            # self.amount = self.unit_price * self.quantity
-            # if not self.general_account_id:
-            #     self.general_account_id = (
-            #         self.product_id.categ_id.property_account_income_categ.id
-            #     )
-            # if not self.general_account_id:
-            #     raise UserError(
-            #         _(
-            #             'There is no income account defined '
-            #             'for this product: "%s" (id:%d)'
-            #         ) % (self.product_id.name, self.product_id.id,)
-            #     )
 
     @api.onchange('account_id')
     def on_change_account_id(self):

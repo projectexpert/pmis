@@ -27,7 +27,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
             <field name="arch" type="xml">
                 <data>
                     <field name="name" position="after">
-                        <field name="change_id" string="Change Request"/>
+                        <field name="change_id" string="Request"/>
                     </field>
                     <field name="user_id" position="replace">
                         <field name="user_id"/>

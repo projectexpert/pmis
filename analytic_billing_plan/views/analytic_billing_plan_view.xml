@@ -10,56 +10,85 @@
 				<form string="Analytic billing plan line">
                 <sheet string="Billing plan line">
                     <group>
-                        <group colspan="2" col="4" name="Product Information">
-                            <field name="product_id"/>
-                            <!--<field name="quantity" required="True"/>-->
-                            <!--<field name="product_uom_id" required="True"/>-->
-                            <!--<field name="unit_price" required="True"/>-->
-                            <!--<field name="amount_currency" required="True" readonly="True"/>-->
-                            <field name="currency_id"/>
-                        </group>
-                        <group colspan="2" col="4">
+                        <group colspan="4" col="4">
                             <h1>
-                            <field name="name"/>
+                                <field name="name"/>
                             </h1>
                         </group>
-                        <group groups="analytic.group_analytic_accounting" col="4">
+                        <group groups="analytic.group_analytic_accounting" col="4" colspan="4">
                             <div>
-                            <label for="quantity" class="oe_edit_only"/>
-                            <!--<label for="unit_price" class="oe_edit_only"/>-->
-                            <!--<label for="amount" class="oe_edit_only"/>-->
-                            <h2>
-                                <field name="quantity" class="oe_inline"
-                                       required="True"/>
-                                <field name="product_uom_id" class="oe_inline"
-                                       placeholder="Product Unit of Measure"/>
-                                <span class="oe_grey"> x </span>
-                                <field name="unit_price" class="oe_inline"
-                                       required="True" widget="monetary"
-                                       options="{'currency_field': 'currency_id'}"/>
-                                <span class="oe_grey"> = </span>
-                                <field name="amount" class="oe_inline"
-                                       readonly="True" widget="monetary"
-                                       options="{'currency_field': 'currency_id'}"/>
-                            </h2>
+                                <label for="quantity" class="oe_edit_only">Quantity</label>
+                                <h2><field name="quantity" class="oe_inline"
+                                       required="True"/></h2>
+                            </div>
+                            <div>
+                                <label for="product_uom_id" class="oe_edit_only">UoM</label>
+                                <h2><field name="product_uom_id" class="oe_inline"
+                                       placeholder="Product Unit of Measure"/></h2>
+                            </div>
+                            <div>
+                                <label for="unit_price" class="oe_edit_only">Price/UoM</label>
+                                <h2>
+                                    <span class="oe_grey"> x </span>
+                                    <field name="unit_price" class="oe_inline"
+                                           required="True" widget="monetary"
+                                           options="{'currency_field': 'currency_id'}"/>
+                                </h2>
+                            </div>
+                            <div>
+                                <label for="amount" class="oe_edit_only">Total</label>
+                                <h2>
+                                    <span class="oe_grey"> = </span>
+                                    <field name="amount" class="oe_inline"
+                                           readonly="True" widget="monetary"
+                                           options="{'currency_field': 'currency_id'}"/>
+                                </h2>
                             </div>
                         </group>
-                        <group colspan="2" col="4" name="project_data">
-                            <field name="account_id"/>
-                            <field name="date"/>
-                            <field name="customer_id"/>
-                        </group>
-                        <group colspan="2" col="4"  name="Analytic Information" groups="analytic.group_analytic_accounting">
-                            <field name="version_id"/>
-                            <field name="journal_id" domain="[('type', '=', 'sale')]"/>
-                            <!--<field name="general_account_id"/>-->
-                            <field name="ref"/>
-                            <field name="company_id" groups="base.group_multi_company"/>
+                        <group col="2" name="internal">
+                            <group name="Product Information">
+                                <field name="product_id"/>
+                                <field name="currency_id"/>
+                            </group>
+                            <group name="project_data">
+                                <field name="account_id"/>
+                                <field name="date"/>
+                                <field name="customer_id"/>
+                            </group>
+                            <group colspan="2" col="4"  name="Analytic Information" groups="analytic.group_analytic_accounting">
+                                <field name="version_id"/>
+                                <field name="journal_id" domain="[('type', '=', 'sale')]"/>
+                                <!--<field name="general_account_id"/>-->
+                                <field name="ref"/>
+                                <field name="company_id" groups="base.group_multi_company"/>
+                            </group>
                         </group>
                     </group>
                     <notebook>
                         <page string="Resources">
-                            <field name="resource_ids" context="{'default_account_id': account_id}"/>
+                            <field name="resource_ids" context="{'default_account_id': account_id}">
+                            <tree string="Analytic resource plan line"
+                                  editable="bottom"
+                                  colors = "blue:state=='draft'">
+                                <field name="resource_type"/>
+                                <field name="product_id"/>
+                                <field name="name"/>
+                                <field name="account_id" invisible="True"/>
+                                <field name="date"/>
+                                <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
+                                <field name="quantity" string="Qty"/>
+                                <field name="product_uom_id"/>
+                                <field name="price_unit"/>
+                                <field name="price_total" readonly="True" sum="Total Price"/>
+                                <field name="state" invisible="1"/>
+                                <button name="action_button_draft" states="confirm"
+                                        string="Draft" type="object"
+                                        icon="gtk-ok"/>
+                                <button name="action_button_confirm" states="draft"
+                                        string="Confirm" type="object"
+                                        icon="gtk-go-forward"/>
+                            </tree>
+                            </field>
                         </page>
                         <page string="Notes" name="notes">
                             <field name="notes"/>

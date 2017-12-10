@@ -13,7 +13,7 @@ class CMChangeCategory (models.Model):
     _description = 'Change log category table'
 
     name = fields.Char(
-        string='Change Category',
+        string='Category',
         required=True,
         translate=True
     )
@@ -119,7 +119,7 @@ class CMChange (models.Model):
     )
 
     description = fields.Char(
-        string='Request Description',
+        string='Description',
         readonly=True,
         required=True,
         states={'draft': [('readonly', False)],
@@ -660,7 +660,7 @@ class GapAnalysis (models.Model):
 
     deliverable_id = fields.Many2one(
         comodel_name='analytic.billing.plan.line',
-        string='Action (Deliverable)',
+        string='Value',
         ondelete='cascade',
         help="Planned deliverable to fill the gap."
     )

@@ -68,7 +68,7 @@ class AccountAnalyticLine(models.Model):
     # )
     journal_id = fields.Many2one(
         'account.analytic.plan.journal',
-        'Planning Analytic Journal',
+        'Planning Journal',
         required=True,
         ondelete='restrict',
         index=True,

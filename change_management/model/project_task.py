@@ -13,25 +13,5 @@ class ProjectTask (models.Model):
         comodel_name='change.management.change',
         string='Request',
         readonly=False,
-        help="Task is an action on a change identified by this label."
+        help="Task is an action on a change identified by this label.",
     )
-
-
-class ProjectProject (models.Model):
-    _name = 'project.project'
-    _inherit = 'project.project'
-
-    change_ids = fields.One2many(
-        comodel_name='change.management.change',
-        inverse_name='project_id',
-        string='Project changes'
-    )
-
-    change_count = fields.Integer(
-        compute='_compute_change_count', type='integer'
-    )
-
-    @api.depends('change_ids')
-    def _compute_change_count(self):
-        for record in self:
-            record.change_count = len(record.change_ids)
