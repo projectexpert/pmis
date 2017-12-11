@@ -104,7 +104,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                                 <group string="Request Description">
                 		            <field name="description_event" nolabel="1"/>
                                 </group>
-                                <group string="GAP Analysis">
+                                <group string="GAP Analysis" attrs="{'invisible': [('type_id', '=', 'risk')]}">
                                     <field name="gap_ids" nolabel="1">
                                         <tree editable="bottom">
                                             <field name="topic"/>
@@ -112,11 +112,27 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                                             <field name="desired_sit"/>
                                             <field name="diagnosis"/>
                                             <field name="change_id" invisible="1"/>
+                                            <!--<field name="change_type_id" invisible=""/>-->
                                             <field name="project_id" invisible="1"/>
                                             <field name="account_id" invisible="1"/>
                                             <field name="deliverable_id"
                                                    domain="[('account_id', '=', account_id)]"
                                                    context="{'default_account_id': account_id, 'default_name': diagnosis}"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group string="Action plan" attrs="{'invisible': [('type_id', '!=', 'risk')]}">
+                                    <field name="change_response_ids"
+                                           string="Response Actions"
+                                           context="{'user_invisible': False, 'default_project_id': project_id}"
+                                           nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="name"/>
+                                            <field name="project_id" invisible="1"/>
+                                            <field name="duration"/>
+                                            <field name="user_id"/>
+                                            <field name="date_earliest_start"/>
+                                            <field name="date_latest_finish"/>
                                         </tree>
                                     </field>
                                 </group>
@@ -127,11 +143,11 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 						            <!--<field name="description_effect" nolabel="1"/>-->
                                 <!--</group>-->
                             </page>
-                            <page string="Change Enforcing">
-                                <field name="change_response_ids"
-                                       string="Response Actions"
-                                       context="{'user_invisible': False, 'default_project_id':project_id}"/>
-                            </page>
+                            <!--<page string="Change Enforcing">-->
+                                <!--<field name="change_response_ids"-->
+                                       <!--string="Response Actions"-->
+                                       <!--context="{'user_invisible': False, 'default_project_id':project_id}"/>-->
+                            <!--</page>-->
                             <page string="Revisions">
                                 <group col="12">
                                     <field name="author_id"/>

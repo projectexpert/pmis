@@ -289,7 +289,7 @@ and obtain sign-off from all key stakeholders.
         string="Request Type",
         states={'draft': [('readonly', False)]},
         help="Type: "
-             "Is this na original requirement, a change in an undergoing "
+             "Is this an original requirement, a change in an undergoing "
              "project or a risk?"
     )
     change_owner_id = fields.Many2one(
@@ -642,39 +642,32 @@ class GapAnalysis (models.Model):
         string='Topic/User Story',
         required=True,
     )
-
     current_sit = fields.Char(
         string="Curent situation",
         required=False
     )
-
     desired_sit = fields.Char(
         string="Desired situation",
         required=False
     )
-
     diagnosis = fields.Char(
         string="Scenario",
         required=False
     )
-
     deliverable_id = fields.Many2one(
         comodel_name='analytic.billing.plan.line',
         string='Value',
         ondelete='cascade',
         help="Planned deliverable to fill the gap."
     )
-
     change_id = fields.Many2one(
         comodel_name='change.management.change',
         string='Request',
     )
-
     project_id = fields.Many2one(
         comodel_name='project.project',
         related='change_id.project_id'
     )
-
     account_id = fields.Many2one(
         comodel_name='account.analytic.account',
         related='change_id.project_id.analytic_account_id'
