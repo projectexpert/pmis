@@ -391,7 +391,7 @@ msgid "Review the existing billing request lines:"
 msgstr ""
 
 #. module: analytic_billing_plan
-#: field:analytic.billing.plan.line,price_unit:0
+#: field:analytic.billing.plan.line,unit_price:0
 msgid "Sale Price"
 msgstr ""
 

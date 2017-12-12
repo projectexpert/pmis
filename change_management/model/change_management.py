@@ -672,6 +672,10 @@ class GapAnalysis (models.Model):
         comodel_name='account.analytic.account',
         related='change_id.project_id.analytic_account_id'
     )
+    # change_response_id = fields.Many2one(
+    #     comodel_name='project.task',
+    #     related='change_id'
+    # )
 
     # company_id = fields.Many2one(
     #     related='change_id.project_id.analytic_account_id.company_id')

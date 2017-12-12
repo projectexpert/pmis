@@ -13,16 +13,6 @@ class AnalyticResourcePlanLine(models.Model):
     _description = "Analytic Resource Planning lines"
     _inherit = ['mail.thread', 'ir.needaction_mixin']
 
-    # @api.multi
-    # @api.depends('child_ids')
-    # def _has_child(self):
-    #     res = {}
-    #     for line in self:
-    #         res[line.id] = False
-    #         if line.child_ids:
-    #             res[line.id] = True
-    #     return res
-
     account_id = fields.Many2one(
         'account.analytic.account',
         'Analytic Account',
@@ -90,22 +80,6 @@ class AnalyticResourcePlanLine(models.Model):
     notes = fields.Text(
         'Notes'
     )
-    # parent_id = fields.Many2one(
-    #     'analytic.resource.plan.line',
-    #     'Parent',
-    #     readonly=True,
-    #     ondelete='cascade'
-    # )
-    # child_ids = fields.One2many(
-    #     comodel_name='analytic.resource.plan.line',
-    #     inverse_name='parent_id',
-    #     string='Child lines'
-    # )
-    #
-    # has_child = fields.Boolean(
-    #     compute='_has_child',
-    #     string="Child lines"
-    # )
     analytic_line_plan_ids = fields.One2many(
         'account.analytic.line.plan',
         'resource_plan_id',
@@ -133,11 +107,6 @@ class AnalyticResourcePlanLine(models.Model):
         string='Assign To',
         ondelete='set null'
     )
-    # deliverable_id = fields.Many2one(
-    #     comodel_name='analytic.billing.plan.line',
-    #     string='Deliverable',
-    #     ondelete='cascade'
-    # )
 
     @api.multi
     def copy(self, default=None):
@@ -198,9 +167,6 @@ class AnalyticResourcePlanLine(models.Model):
             'notes': self.notes,
             'version_id': default_plan.id,
             'currency_id': self.account_id.company_id.currency_id.id,
-            # 'amount_currency': (
-            #     -1 * self.product_id.standard_price * self.quantity
-            # ),
         }]
 
     @api.model
@@ -222,14 +188,6 @@ class AnalyticResourcePlanLine(models.Model):
     @api.multi
     def action_button_draft(self):
         for line in self:
-            # for child in line.child_ids:
-            #     if child.state not in ('draft', 'plan'):
-            #         raise UserError(
-            #             _(
-            #                 'All the child resource plan lines must '
-            #                 ' be in Draft state.'
-            #             )
-            #         )
             line._delete_analytic_lines()
         return self.write({'state': 'draft'})
 
@@ -242,8 +200,6 @@ class AnalyticResourcePlanLine(models.Model):
                         'Quantity should be greater than 0.'
                     )
                 )
-            # if not line.child_ids:
-            #     line.create_analytic_lines()
         return self.write({'state': 'confirm'})
 
     @api.onchange('product_id')

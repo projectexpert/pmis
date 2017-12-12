@@ -148,3 +148,8 @@ class ResourcePlanLine(models.Model):
         string='Deliverable',
         ondelete='cascade'
     )
+
+    @api.onchange('deliverable_id')
+    def on_change_deliverable_id(self):
+        if self.deliverable_id:
+            self.account_id = self.deliverable_id.account_id

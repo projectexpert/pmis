@@ -115,6 +115,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                                             <!--<field name="change_type_id" invisible=""/>-->
                                             <field name="project_id" invisible="1"/>
                                             <field name="account_id" invisible="1"/>
+                                            <!--<field name="change_response_id"/>-->
                                             <field name="deliverable_id"
                                                    domain="[('account_id', '=', account_id)]"
                                                    context="{'default_account_id': account_id, 'default_name': diagnosis}"/>

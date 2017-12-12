@@ -1,51 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-
-       <record id="view_analytic_billing_plan_line_form" model="ir.ui.view">
+        <!--FORM VIEW-->
+        <record id="view_analytic_billing_plan_line_form" model="ir.ui.view">
             <field name="name">analytic.billing.plan.line.form</field>
             <field name="model">analytic.billing.plan.line</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
 				<form string="Analytic billing plan line">
-                <sheet string="Billing plan line">
-                    <group>
-                        <group colspan="4" col="4">
+                    <sheet string="Billing plan line">
+                        <div colspan="2" col="2">
+                            <label for="name"
+                                   class="oe_edit_only">
+                                Line name
+                            </label>
                             <h1>
                                 <field name="name"/>
                             </h1>
-                        </group>
-                        <group groups="analytic.group_analytic_accounting" col="4" colspan="4">
+                        </div>
+                        <group groups="analytic.group_analytic_accounting"
+                               col="4"
+                               colspan="2">
                             <div>
-                                <label for="quantity" class="oe_edit_only">Quantity</label>
-                                <h2><field name="quantity" class="oe_inline"
-                                       required="True"/></h2>
-                            </div>
-                            <div>
-                                <label for="product_uom_id" class="oe_edit_only">UoM</label>
-                                <h2><field name="product_uom_id" class="oe_inline"
-                                       placeholder="Product Unit of Measure"/></h2>
-                            </div>
-                            <div>
-                                <label for="unit_price" class="oe_edit_only">Price/UoM</label>
+                                <label for="quantity"
+                                       class="oe_edit_only">
+                                    Quantity
+                                </label>
                                 <h2>
+                                    <field name="quantity"
+                                           class="oe_inline"
+                                           required="True"/>
+                                    <field name="product_uom_id"
+                                           placeholder="Product Unit of Measure"
+                                           class="oe_inline"/>
                                     <span class="oe_grey"> x </span>
-                                    <field name="unit_price" class="oe_inline"
-                                           required="True" widget="monetary"
+                                    <field name="unit_price"
+                                           placeholder="Price per unit"
+                                           class="oe_inline"
+                                           required="True"
+                                           widget="monetary"
                                            options="{'currency_field': 'currency_id'}"/>
-                                </h2>
-                            </div>
-                            <div>
-                                <label for="amount" class="oe_edit_only">Total</label>
-                                <h2>
                                     <span class="oe_grey"> = </span>
-                                    <field name="amount" class="oe_inline"
-                                           readonly="True" widget="monetary"
+                                    <field name="amount"
+                                           placeholder="Total"
+                                           class="oe_inline"
+                                           readonly="True"
+                                           widget="monetary"
                                            options="{'currency_field': 'currency_id'}"/>
                                 </h2>
                             </div>
                         </group>
-                        <group col="2" name="internal">
+                        <group col="2" colspan="2" name="internal">
                             <group name="Product Information">
                                 <field name="product_id"/>
                                 <field name="currency_id"/>
@@ -55,49 +60,65 @@
                                 <field name="date"/>
                                 <field name="customer_id"/>
                             </group>
-                            <group colspan="2" col="4"  name="Analytic Information" groups="analytic.group_analytic_accounting">
+                            <group name="Analytic Information"
+                                   groups="analytic.group_analytic_accounting">
                                 <field name="version_id"/>
-                                <field name="journal_id" domain="[('type', '=', 'sale')]"/>
-                                <!--<field name="general_account_id"/>-->
+                                <field name="journal_id"
+                                       domain="[('type', '=', 'sale')]"/>
+                            </group>
+                            <group>
                                 <field name="ref"/>
-                                <field name="company_id" groups="base.group_multi_company"/>
+                                <field name="company_id"
+                                       groups="base.group_multi_company"/>
                             </group>
                         </group>
-                    </group>
-                    <notebook>
-                        <page string="Resources">
-                            <field name="resource_ids" context="{'default_account_id': account_id}">
-                            <tree string="Analytic resource plan line"
-                                  editable="bottom"
-                                  colors = "blue:state=='draft'">
-                                <field name="resource_type"/>
-                                <field name="product_id"/>
-                                <field name="name"/>
-                                <field name="account_id" invisible="True"/>
-                                <field name="date"/>
-                                <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
-                                <field name="quantity" string="Qty"/>
-                                <field name="product_uom_id"/>
-                                <field name="price_unit"/>
-                                <field name="price_total" readonly="True" sum="Total Price"/>
-                                <field name="state" invisible="1"/>
-                                <button name="action_button_draft" states="confirm"
-                                        string="Draft" type="object"
-                                        icon="gtk-ok"/>
-                                <button name="action_button_confirm" states="draft"
-                                        string="Confirm" type="object"
-                                        icon="gtk-go-forward"/>
-                            </tree>
-                            </field>
-                        </page>
-                        <page string="Notes" name="notes">
-                            <field name="notes"/>
-                        </page>
-                        <page string="Billing requests">
-                            <field name="order_line_ids"/>
-                        </page>
-                    </notebook>
-                </sheet>
+
+                        <notebook>
+                            <page string="Resources">
+                                <field name="resource_ids"
+                                       context="{'default_account_id': account_id}">
+                                    <tree string="Analytic resource plan line"
+                                          editable="bottom"
+                                          colors = "blue:state=='draft'">
+                                        <field name="resource_type"/>
+                                        <field name="product_id"/>
+                                        <field name="name"/>
+                                        <field name="account_id"
+                                               invisible="True"/>
+                                        <field name="date"/>
+                                        <field name="user_id"
+                                               attrs="{'readonly':[('resource_type','=','procurement')]}"/>
+                                        <field name="quantity"
+                                               string="Qty"/>
+                                        <field name="product_uom_id"/>
+                                        <field name="price_unit"/>
+                                        <field name="price_total"
+                                               readonly="True"
+                                               sum="Total Price"/>
+                                        <field name="state"
+                                               invisible="1"/>
+                                        <button name="action_button_draft"
+                                                states="confirm"
+                                                string="Draft"
+                                                type="object"
+                                                icon="gtk-ok"/>
+                                        <button name="action_button_confirm"
+                                                states="draft"
+                                                string="Confirm"
+                                                type="object"
+                                                icon="gtk-go-forward"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Notes" name="notes">
+                                <field name="notes"/>
+                            </page>
+                            <page string="Billing requests">
+                                <field name="order_line_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+
                     <div class="oe_chatter">
                         <field name="message_follower_ids"
                                widget="mail_followers" groups="base.group_user"/>
@@ -106,6 +127,8 @@
                 </form>
             </field>
         </record>
+
+        <!--TREE VIEW-->
         <record id="view_analytic_billing_plan_line_tree" model="ir.ui.view">
             <field name="name">analytic.billing.plan.line.tree</field>
             <field name="model">analytic.billing.plan.line</field>
@@ -121,17 +144,17 @@
                     <field name="product_uom_id" required="True"/>
                     <field name="version_id"/>
 					<field name="unit_price" required="True"/>
-                    <!--<field name="amount_currency" required="True" readonly="True"/>-->
                     <field name="currency_id" required="True"/>
                     <field name="amount"/>
                     <field name="company_id" invisible="True"/>
                     <field name="journal_id" invisible="True"/>
                     <field name="ref" invisible="True"/>
-                    <!--<field name="general_account_id" invisible="True"/>-->
                     <field name="has_active_order"/>
 	            </tree>
             </field>
         </record>
+
+        <!--FILTER VIEW-->
         <record id="view_analytic_billing_plan_line_filter" model="ir.ui.view">
             <field name="name">analytic.billing.plan.line.select</field>
             <field name="model">analytic.billing.plan.line</field>
@@ -145,18 +168,22 @@
                         <field name="name"/>
                         <field name="version_id"/>
                         <field name="journal_id"/>
-                        <!--<field name="general_account_id"/>-->
                     </group>
 					<group expand="0" string="Group By">
-                        <filter string="Project" name="Project" context="{'group_by':'account_id'}"/>
-						<filter string="Version" name="Version" context="{'group_by':'version_id'}"/>
-						<filter string="Planning Journal" name="Planning Journal" context="{'group_by':'journal_id'}"/>
-						<filter string="Product" name="Product" context="{'group_by':'product_id'}"/>
+                        <filter string="Project" name="Project"
+                                context="{'group_by':'account_id'}"/>
+						<filter string="Version" name="Version"
+                                context="{'group_by':'version_id'}"/>
+						<filter string="Planning Journal" name="Planning Journal"
+                                context="{'group_by':'journal_id'}"/>
+						<filter string="Product" name="Product"
+                                context="{'group_by':'product_id'}"/>
                     </group>
                 </search>
             </field>
         </record>
 
+        <!--OPEN FILTER ACTION-->
         <record id="action_analytic_billing_plan_line_open_form" model="ir.actions.act_window">
             <field name="name">Billing plan</field>
             <field name="res_model">analytic.billing.plan.line</field>
@@ -164,14 +191,16 @@
             <field name="view_mode">tree,form</field>
             <field name="search_view_id" ref="view_analytic_billing_plan_line_filter" />
         </record>
-        
+
+        <!--OPEN TREE ACTION-->
 		<record model="ir.actions.act_window.view" id="action_analytic_billing_plan_line_tree">
 	        <field name="sequence" eval="1"/>
 	        <field name="view_mode">tree</field>
 	        <field name="view_id" ref="view_analytic_billing_plan_line_tree"/>
 	        <field name="act_window_id" ref="action_analytic_billing_plan_line_open_form"/>
 	   	</record>
-	   	
+
+	   	<!--OPEN FORM ACTION-->
 	   	<record model="ir.actions.act_window.view" id="action_analytic_billing_plan_line_form2">
 	        <field name="sequence" eval="1"/>
 	        <field name="view_mode">form</field>
@@ -179,6 +208,7 @@
 	        <field name="act_window_id" ref="action_analytic_billing_plan_line_open_form"/>
 	   	</record>
 
+        <!--MENUS-->
         <menuitem groups="project.group_project_manager,project.group_project_user"
             action="action_analytic_billing_plan_line_open_form"
             id="analytic_billing_plan_line_entries"

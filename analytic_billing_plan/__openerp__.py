@@ -6,7 +6,7 @@
 
 {
     'name': 'Analytic billing plan',
-    'version': '8.0.2.0.4',
+    'version': '8.0.2.0.5',
     'author':   'Eficent, '
                 'Matmoz, '
                 'Luxim, '
@@ -30,6 +30,7 @@
         'views/analytic_account_view.xml',
         'views/product_view.xml',
         'views/project_view.xml',
+        'views/resource_plan.xml',
         'security/ir.model.access.csv',
 
     ],

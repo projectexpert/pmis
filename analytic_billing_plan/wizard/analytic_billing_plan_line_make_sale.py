@@ -22,8 +22,9 @@ class AnalyticBillingPlanLineMakeSale(orm.TransientModel):
             order_line_ids = []
             line_plan_obj = self.pool.get('analytic.billing.plan.line')
 
-            for line in line_plan_obj.browse(cr, uid, record_ids,
-                                             context=context):
+            for line in line_plan_obj.browse(
+                    cr, uid, record_ids, context=context
+            ):
                     for order_line in line.order_line_ids:
                         order_line_id = order_line and order_line.id
                         order_line_ids.extend([order_line_id])
@@ -31,42 +32,33 @@ class AnalyticBillingPlanLineMakeSale(orm.TransientModel):
                 return order_line_ids
         return False
 
-    # def _get_default_shop(self, cr, uid, context=None):
-    #     company_id = self.pool.get('res.users').browse(
-    #         cr, uid, uid, context=context).company_id.id
-    #     shop_ids = self.pool.get('sale.shop').search(
-    #         cr, uid, [('company_id', '=', company_id)], context=context)
-    #     if not shop_ids:
-    #         raise osv.except_osv(_('Error!'),
-    #                              _('There is no default shop '
-    #                                'for the current user\'s company!'))
-    #     return shop_ids[0]
-
     _columns = {
-        'order_line_ids': fields.many2many('sale.order.line',
-                                           'make_sale_order_line_rel',
-                                           'order_line_id',
-                                           'make_sale_order_id'),
-        # 'shop_id': fields.many2one('sale.shop', 'Shop', required=True),
-        'invoice_quantity': fields.selection([('order',
-                                               'Ordered Quantities')],
-                                             'Invoice on',
-                                             help="The sales order will "
-                                                  "automatically create the "
-                                                  "invoice proposition "
-                                                  "(draft invoice).",
-                                             required=True),
-        'order_policy': fields.selection([('manual', 'On Demand')],
-                                         'Create Invoice',
-                                         help="""This field controls how
-                                         invoice and delivery
-                                         operations are synchronized.""",
-                                         required=True),
+        'order_line_ids': fields.many2many(
+            'sale.order.line',
+            'make_sale_order_line_rel',
+            'order_line_id',
+            'make_sale_order_id'
+        ),
+        'invoice_quantity': fields.selection(
+            [('order', 'Ordered Quantities')],
+            'Invoice on',
+            help="The sales order will "
+                 "automatically create the "
+                 "invoice proposition " 
+                 "(draft invoice).",
+            required=True),
+        'order_policy': fields.selection(
+            [('manual', 'On Demand')],
+            'Create Invoice',
+            help="This field controls how "
+                 "invoice and delivery "
+                 "operations are synchronized.",
+            required=True
+        ),
     }
 
     _defaults = {
         'order_line_ids': _get_order_lines,
-        # 'shop_id': _get_default_shop,
         'order_policy': 'manual',
         'invoice_quantity': 'order',
     }
@@ -104,62 +96,68 @@ class AnalyticBillingPlanLineMakeSale(orm.TransientModel):
             sale_id = False
             account_id = False
 
-            for line in billing_plan_obj.browse(cr, uid, record_ids,
-                                                context=context):
+            for line in billing_plan_obj.browse(
+                    cr, uid, record_ids, context=context
+            ):
 
                     uom_id = line.product_uom_id
 
                     if not line.customer_id:
                         raise osv.except_osv(
                             _('Could not create sale order !'),
-                            _('You have to enter a customer.'))
+                            _('You have to enter a customer.')
+                        )
 
                     if customer_data is not False \
                             and line.customer_id != customer_data:
                         raise osv.except_osv(
                             _('Could not create sale order !'),
                             _('You have to select lines '
-                              'from the same customer.'))
+                              'from the same customer.')
+                        )
                     else:
                         customer_data = line.customer_id
 
                     partner_addr = partner_obj.address_get(
-                        cr, uid, [customer_data.id], ['default',
-                                                      'invoice',
-                                                      'delivery',
-                                                      'contact'])
+                        cr, uid, [customer_data.id],
+                        ['default', 'invoice', 'delivery', 'contact']
+                    )
                     newdate = datetime.today()
                     partner = customer_data
-                    pricelist_id = partner.property_product_pricelist \
-                        and partner.property_product_pricelist.id \
-                        or False
-                    price_unit = line.price_unit
+                    pricelist_id = (
+                            partner.property_product_pricelist and
+                            partner.property_product_pricelist.id or
+                            False
+                    )
+                    unit_price = line.unit_price
 
-                    line_company_id = line.company_id \
-                        and line.company_id.id \
-                        or False
+                    line_company_id = (
+                            line.company_id and
+                            line.company_id.id or
+                            False
+                    )
                     if company_id is not False \
                             and line_company_id != company_id:
                         raise osv.except_osv(
                             _('Could not create sale order !'),
                             _('You have to select lines '
-                              'from the same company.'))
+                              'from the same company.')
+                        )
                     else:
                         company_id = line_company_id
 
-                    # shop_id = make_order.shop_id \
-                    #     and make_order.shop_id.id \
-                    #     or False
-
-                    line_account_id = line.account_id \
-                        and line.account_id.id \
-                        or False
+                    line_account_id = (
+                            line.account_id and
+                            line.account_id.id or
+                            False
+                    )
                     if account_id is not False \
                             and line_account_id != account_id:
                         raise osv.except_osv(
                             _('Could not create billing request!'),
                             _('You have to select lines from the '
-                              'same analytic account.'))
+                              'same analytic account.')
+                        )
                     else:
                         account_id = line_account_id
 
@@ -167,8 +165,8 @@ class AnalyticBillingPlanLineMakeSale(orm.TransientModel):
                         'name': line.name,
                         'product_uom_qty': line.quantity,
                         'product_id': line.product_id.id,
-                        'product_uom': uom_id.id,
-                        'price_unit': price_unit,
+                        'product_uom': line.product_uom_id.id,
+                        'price_unit': line.unit_price,
                         'notes': line.notes,
                     }
 
@@ -177,17 +175,17 @@ class AnalyticBillingPlanLineMakeSale(orm.TransientModel):
                         taxes_ids = line.product_id.product_tmpl_id.taxes_id
                         taxes = acc_pos_obj.map_tax(
                             cr, uid, partner.property_account_position,
-                            taxes_ids)
+                            taxes_ids
+                        )
                     if taxes:
-                        sale_order_line.update({
-                            'tax_id': [(6, 0, taxes)]
-                        })
+                        sale_order_line.update(
+                            {'tax_id': [(6, 0, taxes)]}
+                        )
                     list_line.append(sale_order_line)
 
                     if sale_id is False:
                         sale_id = order_obj.create(cr, uid, {
                             'origin': '',
-                            # 'shop_id': shop_id,
                             'partner_id': customer_data.id,
                             'pricelist_id': pricelist_id,
                             'partner_invoice_id': partner_addr['invoice'],
@@ -210,22 +208,24 @@ class AnalyticBillingPlanLineMakeSale(orm.TransientModel):
                         if line.account_id.user_id:
                             order_obj.message_subscribe_users(
                                 cr, uid, [sale_id],
-                                user_ids=[line.account_id.user_id.id])
+                                user_ids=[line.account_id.user_id.id]
+                            )
 
-                    sale_order_line.update({
-                        'order_id': sale_id
-                    })
+                    sale_order_line.update(
+                        {'order_id': sale_id}
+                    )
 
-                    order_line_id = order_line_obj.create(cr, uid,
-                                                          sale_order_line,
-                                                          context=context)
+                    order_line_id = order_line_obj.create(
+                        cr, uid, sale_order_line, context=context
+                    )
 
                     values = {
                         'order_line_ids': [(4, order_line_id)]
                     }
 
-                    billing_plan_obj.write(cr, uid, [line.id], values,
-                                           context=context)
+                    billing_plan_obj.write(
+                        cr, uid, [line.id], values, context=context
+                    )
 
                     res.append(order_line_id)
 
