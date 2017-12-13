@@ -15,3 +15,20 @@ class ProjectTask (models.Model):
         readonly=False,
         help="Task is an action on a change identified by this label.",
     )
+    topic = fields.Char(
+        string='Topic/User Story',
+        required=True,
+    )
+    current_sit = fields.Char(
+        string="Curent situation",
+        required=False
+    )
+    desired_sit = fields.Char(
+        string="Desired situation",
+        required=False
+    )
+
+    @api.onchange('topic')
+    def on_change_topic(self):
+        if self.topic:
+            self.name = self.topic

@@ -633,30 +633,30 @@ class Project(models.Model):
         for record in self:
             record.risk_count = len(record.risk_ids)
 
-# Gap Analysis
+# Ment for Gap Analysis but changed to requirement management
 class GapAnalysis (models.Model):
     _name = 'change.gap.analysis'
     _description = 'GAP analysis table'
 
-    topic = fields.Char(
-        string='Topic/User Story',
-        required=True,
-    )
-    current_sit = fields.Char(
-        string="Curent situation",
-        required=False
-    )
-    desired_sit = fields.Char(
-        string="Desired situation",
-        required=False
-    )
+    # topic = fields.Char(
+    #     string='Topic/User Story',
+    #     required=True,
+    # )
+    # current_sit = fields.Char(
+    #     string="Curent situation",
+    #     required=False
+    # )
+    # desired_sit = fields.Char(
+    #     string="Desired situation",
+    #     required=False
+    # )
     diagnosis = fields.Char(
         string="Scenario",
         required=False
     )
     deliverable_id = fields.Many2one(
         comodel_name='analytic.billing.plan.line',
-        string='Value',
+        string='Deliverable',
         ondelete='cascade',
         help="Planned deliverable to fill the gap."
     )
@@ -672,10 +672,3 @@ class GapAnalysis (models.Model):
         comodel_name='account.analytic.account',
         related='change_id.project_id.analytic_account_id'
     )
-    # change_response_id = fields.Many2one(
-    #     comodel_name='project.task',
-    #     related='change_id'
-    # )
-
-    # company_id = fields.Many2one(
-    #     related='change_id.project_id.analytic_account_id.company_id')

@@ -17,19 +17,19 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 				  id="menu_changes"
 				  parent="project_charter.project_management"
                   sequence="2"
-				  action="action_show_cr"/>
+				  action="menu_show_changes"/>
 
         <menuitem name="Requirements"
 				  id="menu_requirements"
 				  parent="project_charter.project_management"
                   sequence="3"
-				  action="action_show_requirements"/>
+				  action="menu_show_requirements"/>
 
         <menuitem name="Risks"
 				  id="menu_risks"
 				  parent="project_charter.project_management"
                   sequence="4"
-				  action="action_show_risks"/>
+				  action="menu_show_risks"/>
 
 		<menuitem name="Actions"
 				  id="menu_actions_on_change"

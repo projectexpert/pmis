@@ -104,17 +104,14 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                                 <group string="Request Description">
                 		            <field name="description_event" nolabel="1"/>
                                 </group>
-                                <group string="GAP Analysis" attrs="{'invisible': [('type_id', '=', 'risk')]}">
+                                <group string="Deliverables Plan" attrs="{'invisible': [('type_id', '!=', 'requirement')]}">
                                     <field name="gap_ids" nolabel="1">
                                         <tree editable="bottom">
-                                            <field name="topic"/>
-                                            <field name="current_sit"/>
-                                            <field name="desired_sit"/>
-                                            <field name="diagnosis"/>
                                             <field name="change_id" invisible="1"/>
                                             <!--<field name="change_type_id" invisible=""/>-->
                                             <field name="project_id" invisible="1"/>
                                             <field name="account_id" invisible="1"/>
+                                            <field name="diagnosis"/>
                                             <!--<field name="change_response_id"/>-->
                                             <field name="deliverable_id"
                                                    domain="[('account_id', '=', account_id)]"
@@ -122,13 +119,19 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                                         </tree>
                                     </field>
                                 </group>
-                                <group string="Action plan" attrs="{'invisible': [('type_id', '!=', 'risk')]}">
+                                <group string="Gap Analysis and Action Plan" attrs="{'invisible': [('type_id', '=', 'requirement')]}">
                                     <field name="change_response_ids"
                                            string="Response Actions"
                                            context="{'user_invisible': False, 'default_project_id': project_id}"
                                            nolabel="1">
                                         <tree editable="bottom">
+                                            <field name="sequence" widget="handle"/>
+                                            <field name="priority"/>
+                                            <field name="topic"/>
+                                            <field name="current_sit"/>
+                                            <field name="desired_sit"/>
                                             <field name="name"/>
+                                            <field name="change_id" invisible="1"/>
                                             <field name="project_id" invisible="1"/>
                                             <field name="duration"/>
                                             <field name="user_id"/>
@@ -368,6 +371,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 
         <!-- ACTIONS  -->
+        <!--MENUS-->
 		<record model="ir.actions.act_window" id="action_show_changes">
 			<field name="name">Request Backlog</field>
 			<field name="type">ir.actions.act_window</field>
@@ -380,8 +384,8 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
             }</field>
 		</record>
 
-        <record model="ir.actions.act_window" id="action_show_cr">
-			<field name="name">Changes</field>
+        <record model="ir.actions.act_window" id="menu_show_changes">
+			<field name="name">Request Backlog</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">change.management.change</field>
 			<field name="view_type">form</field>
@@ -394,8 +398,22 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
             <field name="domain">[('type_id', '=', 'change')]</field>
 		</record>
 
-        <record model="ir.actions.act_window" id="action_show_requirements">
-			<field name="name">Requirements</field>
+        <record model="ir.actions.act_window" id="menu_show_risks">
+			<field name="name">Request Backlog</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">change.management.change</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+			<field name="search_view_id" ref="change_search_form_view"/>
+			<field name="context">{
+                'search_default_active': 1,
+                'default_type_id': 'risk'
+            }</field>
+            <field name="domain">[('type_id', '=', 'risk')]</field>
+		</record>
+
+        <record model="ir.actions.act_window" id="menu_show_requirements">
+			<field name="name">Request Backlog</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">change.management.change</field>
 			<field name="view_type">form</field>
@@ -408,6 +426,39 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
             <field name="domain">[('type_id', '=', 'requirement')]</field>
 		</record>
 
+        <!--BUTTON CHANGES-->
+        <record model="ir.actions.act_window" id="action_show_cr">
+			<field name="name">Changes</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">change.management.change</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+			<field name="search_view_id" ref="change_search_form_view"/>
+			<field name="context">{
+                'search_default_active': 1,
+                'default_type_id': 'change',
+                'search_default_project_id': [active_id],
+                'default_project_id': active_id,
+            }</field>
+            <field name="domain">[('type_id', '=', 'change')]</field>
+		</record>
+        <!--BUTTON REQUIREMENTS-->
+        <record model="ir.actions.act_window" id="action_show_requirements">
+			<field name="name">Requirements</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">change.management.change</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+			<field name="search_view_id" ref="change_search_form_view"/>
+			<field name="context">{
+                'search_default_active': 1,
+                'default_type_id': 'requirement',
+                'search_default_project_id': [active_id],
+                'default_project_id': active_id
+            }</field>
+            <field name="domain">[('type_id', '=', 'requirement')]</field>
+		</record>
+        <!--BUTTON RISKS-->
         <record model="ir.actions.act_window" id="action_show_risks">
 			<field name="name">Risks</field>
 			<field name="type">ir.actions.act_window</field>
@@ -417,7 +468,9 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 			<field name="search_view_id" ref="change_search_form_view"/>
 			<field name="context">{
                 'search_default_active': 1,
-                'default_type_id': 'risk'
+                'default_type_id': 'risk',
+                'search_default_project_id': [active_id],
+                'default_project_id': active_id,
             }</field>
             <field name="domain">[('type_id', '=', 'risk')]</field>
 		</record>
@@ -512,22 +565,19 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                         <a t-if="record.cr_count.raw_value"
                            name="%(change_management.action_show_cr)d"
                            type="action"
-                           class="fa fa-code-fork oe_wbs_button"
-                           context="{'default_project_id': active_id,'search_default_project_id': active_id, 'default_type_id': 'requirement'}">
+                           class="fa fa-code-fork oe_wbs_button">
                             Changes: <field name="cr_count"/>
                         </a>
                         <a t-if="record.req_count.raw_value"
                            name="%(change_management.action_show_requirements)d"
                            type="action"
-                           class="fa fa-list-ol oe_wbs_button"
-                           context="{'default_project_id': active_id,'search_default_project_id': active_id, 'default_type_id': 'requirement'}">
+                           class="fa fa-list-ol oe_wbs_button">
                             Requirements: <field name="req_count"/>
                         </a>
                         <a t-if="record.risk_count.raw_value"
                            name="%(change_management.action_show_risks)d"
                            type="action"
-                           class="fa fa-exclamation-circle oe_wbs_button"
-                           context="{'default_project_id': active_id,'search_default_project_id': active_id, 'default_type_id': 'risk'}">
+                           class="fa fa-exclamation-circle oe_wbs_button">
                             Risks: <field name="risk_count"/>
                         </a>
                     </div>
