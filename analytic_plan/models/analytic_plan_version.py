@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-#    Copyright 2015 Matmoz d.o.o. (Matjaž Mozetič)
+#    Copyright 2017 Matmoz d.o.o. & Luxim d.o.o. (Matjaž Mozetič)
 #    Copyright 2015 Eficent (Jordi Ballester Alomar)
-#    Copyright 2017 Luxim d.o.o. (Matjaž Mozetič)
 #    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from openerp.tools.translate import _
@@ -14,36 +13,37 @@ class AccountAnalyticPlanVersion(models.Model):
     _description = 'Analytic Planning Version'
 
     name = fields.Char(
-        'Planning Version Name', required=True
+        string='Planning Version Name',
+        required=True
     )
     code = fields.Char(
-        'Planning Version Code'
+        string='Planning Version Code'
     )
     active = fields.Boolean(
-        'Active',
-        help='If the active '
+        string='Active',
+        help='When active '
              'field is set to False, '
-             'it will allow you to hide '
+             'it allows you to hide '
              'the analytic planning version '
              'without removing it.',
         default=True
     )
     notes = fields.Text(
-        'Notes'
+        string='Notes'
     )
     company_id = fields.Many2one(
-        'res.company',
-        'Company',
+        comodel_name='res.company',
+        string='Company',
         required=True,
         default=lambda self:
             self.env['res.users'].browse(self._uid).company_id.id
     )
     default_committed = fields.Boolean(
-        'Default version for committed costs',
+        string='Default version for committed costs',
         default=False
     )
     default_plan = fields.Boolean(
-        'Default planning version',
+        string='Default planning version',
         default=False
     )
 

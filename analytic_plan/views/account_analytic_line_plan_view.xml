@@ -28,9 +28,9 @@
                         </group>
                         <group string="Product Information">
                             <field name="product_id"/>
-                            <label for="quantity"/>
+                            <label for="unit_amount"/>
                             <div>
-                                <field name="quantity"
+                                <field name="unit_amount"
                                        class="oe_inline"/>
                                 <field name="product_uom_id"
                                        class="oe_inline"/>
@@ -60,8 +60,8 @@
                     <field name="journal_id" invisible="False"/>     
                     <field name="version_id"/>               
                     <field name="product_id"/>
-                    <field name="quantity"
-                           sum="Total Quantity" invisible="False"/>
+                    <field name="unit_amount"
+                           sum="Total unit_amount" invisible="False"/>
                     <field name="product_uom_id" invisible="False"/>
                     <field name="currency_id"/>
                     <field name="amount" sum="Total"/>

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-#    Copyright 2015 Matmoz d.o.o. (Matjaž Mozetič)
+#    Copyright 2017 Matmoz d.o.o. & Luxim d.o.o. (Matjaž Mozetič)
 #    Copyright 2015 Eficent (Jordi Ballester Alomar)
-#    Copyright 2017 Luxim d.o.o. (Matjaž Mozetič)
 #    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from openerp import api, fields, models
@@ -20,29 +19,39 @@ class AccountAnalyticLine(models.Model):
         return self.env.context.get('user_id', self.env.user.id)
 
     name = fields.Char(
-        'Description', required=True
+        string='Description',
+        required=True
     )
     date = fields.Date(
-        'Date', required=True, index=True,
+        string='Date',
+        required=True,
+        index=True,
         default=fields.Date.context_today
     )
     amount = fields.Float(
-        'Amount',
+        string='Amount',
         required=True,
         default=0.0,
-        store=True
     )
-    quantity = fields.Float(
-        'Quantity', default=0.0,
-        oldname='unit_amount'
+    unit_amount = fields.Float(
+        string='Quantity',
+        default=0.0,
+        oldname='quantity'
     )
     account_id = fields.Many2one(
-        'account.analytic.account',
-        'Analytic Account', required=True,
-        ondelete='restrict', index=True
+        comodel_name='account.analytic.account',
+        string='Analytic Account',
+        required=True,
+        ondelete='restrict',
+        index=True
+    )
+    partner_id = fields.Many2one(
+        comodel_name='res.partner',
+        string='Partner'
     )
     user_id = fields.Many2one(
-        'res.users', string='User',
+        comodel_name='res.users',
+        string='User',
         default=_default_user
     )
     company_id = fields.Many2one(
@@ -55,10 +64,12 @@ class AccountAnalyticLine(models.Model):
         string="Currency", readonly=True
     )
     product_uom_id = fields.Many2one(
-        'product.uom', 'UoM'
+        comodel_name='product.uom',
+        string='UoM'
     )
     product_id = fields.Many2one(
-        'product.product', 'Product'
+        comodel_name='product.product',
+        string='Product'
     )
     # general_account_id = fields.Many2one(
     #     'account.account',
@@ -67,8 +78,8 @@ class AccountAnalyticLine(models.Model):
     #     # ondelete='restrict'
     # )
     journal_id = fields.Many2one(
-        'account.analytic.plan.journal',
-        'Planning Journal',
+        comodel_name='account.analytic.plan.journal',
+        string='Planning Journal',
         required=True,
         ondelete='restrict',
         index=True,
@@ -78,17 +89,17 @@ class AccountAnalyticLine(models.Model):
         self._context else None
     )
     code = fields.Char(
-        'Code'
+        string='Code'
     )
     ref = fields.Char(
-        'Ref.'
+        string='Ref.'
     )
     notes = fields.Text(
-        'Notes'
+        string='Notes'
     )
     version_id = fields.Many2one(
-        'account.analytic.plan.version',
-        'Planning Version',
+        comodel_name='account.analytic.plan.version',
+        string='Planning Version',
         required=True,
         ondelete='cascade',
         default=lambda s:
@@ -99,8 +110,8 @@ class AccountAnalyticLine(models.Model):
         )
     )
 
-    @api.onchange('quantity', 'product_uom_id')
-    def on_change_quantity(self):
+    @api.onchange('unit_amount', 'product_uom_id', 'journal_id')
+    def on_change_unit_amount(self):
         analytic_journal_obj = self.env['account.analytic.plan.journal']
         product_price_type_obj = self.env['product.price.type']
 
@@ -115,28 +126,28 @@ class AccountAnalyticLine(models.Model):
             journal = j[0] if j and j[0] else False
         if not self.journal_id or not self.product_id:
             return {}
-        # if journal.type != 'sale' and prod:
-        #     a = prod.product_tmpl_id.property_account_expense.id
-        #     if not a:
-        #         a = prod.categ_id.property_account_expense_categ.id
-        #     if not a:
-        #         raise UserError(
-        #             _(
-        #                 'There is no expense account defined '
-        #                 'for this product: "%s" (id:%d)'
-        #             ) % (prod.name, prod.id,)
-        #         )
-        # else:
-        #     a = prod.product_tmpl_id.property_account_income.id
-        #     if not a:
-        #         a = prod.categ_id.property_account_income_categ.id
-        #     if not a:
-        #         raise UserError(
-        #             _(
-        #                 'There is no income account defined '
-        #                 'for this product: "%s" (id:%d)'
-        #             ) % (prod.name, self.product_id,)
-        #         )
+        if journal.type != 'sale' and prod:
+            a = prod.product_tmpl_id.property_account_expense.id
+            if not a:
+                a = prod.categ_id.property_account_expense_categ.id
+            if not a:
+                raise UserError(
+                    _(
+                        'There is no expense account defined '
+                        'for this product: "%s" (id:%d)'
+                    ) % (prod.name, prod.id,)
+                )
+        else:
+            a = prod.product_tmpl_id.property_account_income.id
+            if not a:
+                a = prod.categ_id.property_account_income_categ.id
+            if not a:
+                raise UserError(
+                    _(
+                        'There is no income account defined '
+                        'for this product: "%s" (id:%d)'
+                    ) % (prod.name, self.product_id,)
+                )
         flag = False
         # Compute based on pricetype
         product_price_type = product_price_type_obj.search(
@@ -163,11 +174,12 @@ class AccountAnalyticLine(models.Model):
             pricetype.field)[prod.id]
         self.env.args = cr, uid, misc.frozendict(context)
         prec = self.env['decimal.precision'].precision_get('Account')
-        self.amount = amount_unit * self.quantity or 1.0
+        self.amount = amount_unit * self.unit_amount or 1.0
         result = round(self.amount, prec)
         if not flag:
             if journal.type != 'sale':
-                result *= -1
+                self.amount = -1 * amount_unit * self.unit_amount or -1.0
+                result = round(self.amount, prec)
         # self.amount_currency = result
         # self.general_account_id = a
         # self.on_change_amount_currency()
@@ -175,22 +187,9 @@ class AccountAnalyticLine(models.Model):
 
     @api.onchange('product_id')
     def on_change_product_id(self):
-        self.on_change_quantity()
+        self.on_change_unit_amount()
         prod = self.product_id
         self.name = prod.name
         if prod.uom_id:
             self.product_uom_id = prod.uom_id.id
         return {}
-
-    @api.model
-    def view_header_get(self, view_id, view_type):
-        if self._context.get('account_id', False):
-            self._cr.execute(
-                'select name from account_analytic_account where'
-                'id=%s', (self._context['account_id'],)
-            )
-            res = self._cr.fetchone()
-            if res:
-                res = _('Entries: ') + (res[0] or '')
-            return res
-        return False

@@ -31,9 +31,10 @@
             <field name="inherit_id" ref="account.view_account_analytic_account_tree"/>
             <field name="arch" type="xml">         	   
             	<field name="balance" position="after">    
-            	    <field name="debit_plan"/>            	   
+            	    <field name="debit_plan" widget=""/>
                     <field name="credit_plan"/>                    
-                    <field name="balance_plan"/>
+                    <field name="balance_plan" widget="monetary"
+                           options="{'currency_field': 'currency_id'}"/>
 					<button string="Planned cost lines"
                             name="action_openplancostlist"
                             type="object"

@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-#    Copyright 2015 Matmoz d.o.o. (Matjaž Mozetič)
+#    Copyright 2017 Matmoz d.o.o. & Luxim d.o.o. (Matjaž Mozetič)
 #    Copyright 2015 Eficent (Jordi Ballester Alomar)
-#    Copyright 2017 Luxim d.o.o. (Matjaž Mozetič)
 #    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, fields, models
+from openerp import fields, models
 
 
 class AccountAnalyticPlanJournal(models.Model):
@@ -13,48 +12,50 @@ class AccountAnalyticPlanJournal(models.Model):
     _description = 'Analytic Journal Plan'
 
     name = fields.Char(
-        'Planning Journal Name', required=True
+        string='Planning Journal Name',
+        required=True
     )
     code = fields.Char(
-        'Planning Journal Code'
+        string='Planning Journal Code'
     )
     active = fields.Boolean(
-        'Active',
-        help="If the active field is set to False, "
-             "it will allow you to hide the analytic "
+        string='Active',
+        help="The active field set to False allows "
+             "hiding the analytic "
              "journal without removing it.",
         default=True
     )
     type = fields.Selection(
-        [
+        selection=[
             ('sale', 'Sale'),
             ('purchase', 'Purchase'),
             ('cash', 'Cash'),
             ('general', 'General'),
             ('situation', 'Situation')
         ],
-        'Type',
+        string='Type',
         required=True,
         help="Gives the type of the analytic "
-             "journal. When it needs for a document "
-             "(eg: an invoice) to create analytic "
-             "entries, Odoo will look  for a "
+             "journal. When a document needs "
+             "(eg: an invoice) the creation of "
+             "analytic entries, Odoo looks for a "
              "matching journal of the same type.",
         default='general'
     )
     line_ids = fields.One2many(
-        'account.analytic.line.plan',
-        'journal_id',
-        'Lines'
+        comodel_name='account.analytic.line.plan',
+        inverse_name='journal_id',
+        string='Lines'
     )
     company_id = fields.Many2one(
-        'res.company',
-        'Company',
+        comodel_name='res.company',
+        string='Company',
         required=True,
         default=lambda self:
-            self.env['res.users'].browse(self._uid).company_id.id)
+            self.env['res.users'].browse(self._uid).company_id.id
+    )
     analytic_journal = fields.Many2one(
-        'account.analytic.journal',
-        'Actual Analytic journal',
+        comodel_name='account.analytic.journal',
+        string='Actual Analytic journal',
         required=False
     )

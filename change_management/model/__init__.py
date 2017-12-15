@@ -5,3 +5,4 @@
 
 import change_management
 import project_task
+import gap_analysis
