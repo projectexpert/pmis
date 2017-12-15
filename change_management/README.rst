@@ -6,19 +6,24 @@ Change Management
 =================
 
 Change Management for integrated with Stakeholders Requirements Management
+and Risk Management
 
-Fully integrated with project_charter module enables the change management through the Change Request Document.
+Fully integrated with project_charter module enables the change management
+through the Change Request Document.
+
 Project requirements handled as change requests.
 
 Insert a project requirement and manage it through the change management.
 
-Chatter integrated - follow change requests and project requirement proposal through the approval process.
+Chatter integrated - follow change requests and project requirement proposal
+through the approval process.
 
 
 Installation
 ============
 
-* The module automatically takes care of its dependencies and is ready for use after the installation
+* The module automatically takes care of its dependencies and is ready for
+use after the installation
 
 Credits
 =======
@@ -27,6 +32,7 @@ Contributors
 ------------
 
 * Matmoz d.o.o. (http://www.matmoz.si)
+* Luxim d.o.o. (https://www.luxim.si)
 
 Maintainer
 ----------
@@ -37,8 +43,9 @@ Maintainer
 
 This module is maintained by Project Expert Team.
 
-Project Expert is a joint effort between EFICENT (Barcelona, Spain) and MATMOZ (Ljubljana, Slovenia),
-both active members of Odoo Community Association (OCA).
+Project Expert is a joint effort between EFICENT (Barcelona, Spain) and
+MATMOZ (Ljubljana, Slovenia), both active members of
+Odoo Community Association (OCA).
 
 .. image:: http://odoo-community.org/logo.png
    :alt: Odoo Community Association
