@@ -22,12 +22,12 @@
                                col="4"
                                colspan="2">
                             <div>
-                                <label for="quantity"
+                                <label for="unit_amount"
                                        class="oe_edit_only">
-                                    Quantity
+                                    unit_amount
                                 </label>
                                 <h2>
-                                    <field name="quantity"
+                                    <field name="unit_amount"
                                            class="oe_inline"
                                            required="True"/>
                                     <field name="product_uom_id"
@@ -88,7 +88,7 @@
                                         <field name="date"/>
                                         <field name="user_id"
                                                attrs="{'readonly':[('resource_type','=','procurement')]}"/>
-                                        <field name="quantity"
+                                        <field name="unit_amount"
                                                string="Qty"/>
                                         <field name="product_uom_id"/>
                                         <field name="price_unit"/>
@@ -140,7 +140,7 @@
                     <field name="date"/>
                     <field name="product_id" colspan="4" required="True"/>
                     <field name="name"/>
-					<field name="quantity" colspan="2" required="True"/>
+					<field name="unit_amount" colspan="2" required="True"/>
                     <field name="product_uom_id" required="True"/>
                     <field name="version_id"/>
 					<field name="unit_price" required="True"/>
