@@ -67,12 +67,12 @@ class AnalyticResourcePlanLine(models.Model):
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
-    quantity = fields.Float(
-        'Planned Quantity',
+    unit_amount = fields.Float(
+        'Planned unit_amount',
         readonly=True,
         required=True,
         states={'draft': [('readonly', False)]},
-        help='Specifies the quantity that has '
+        help='Specifies the unit_amount that has '
              'been planned.',
         oldname='unit_amount',
         default=1
@@ -160,8 +160,8 @@ class AnalyticResourcePlanLine(models.Model):
             'date': self.date,
             'product_id': self.product_id.id,
             'product_uom_id': self.product_uom_id.id,
-            'quantity': self.quantity,
-            'amount': -1 * self.product_id.standard_price * self.quantity,
+            'unit_amount': self.unit_amount,
+            'amount': -1 * self.product_id.standard_price * self.unit_amount,
             'general_account_id': general_account_id,
             'journal_id': journal_id,
             'notes': self.notes,
@@ -194,10 +194,10 @@ class AnalyticResourcePlanLine(models.Model):
     @api.multi
     def action_button_confirm(self):
         for line in self:
-            if line.quantity == 0:
+            if line.unit_amount == 0:
                 raise UserError(
                     _(
-                        'Quantity should be greater than 0.'
+                        'unit_amount should be greater than 0.'
                     )
                 )
         return self.write({'state': 'confirm'})
@@ -242,10 +242,10 @@ class AnalyticResourcePlanLine(models.Model):
 
     # PRICE DEFINITIONS
     @api.multi
-    @api.depends('price_unit', 'quantity')
+    @api.depends('price_unit', 'unit_amount')
     def _compute_get_price_total(self):
         for resource in self:
-            resource.price_total = resource.price_unit * resource.quantity
+            resource.price_total = resource.price_unit * resource.unit_amount
 
     @api.multi
     def _get_pricelist(self):

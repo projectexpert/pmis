@@ -72,15 +72,15 @@ class BillingPlanLine(models.Model):
     #     string="User Stories"
     # )
 
-    @api.onchange('quantity')
-    def on_change_quantity(self):
-        if self.quantity:
-            self.amount = self.unit_price * self.quantity
+    @api.onchange('unit_amount')
+    def on_change_unit_amount(self):
+        if self.unit_amount:
+            self.amount = self.unit_price * self.unit_amount
 
     @api.onchange('unit_price')
     def on_change_unit_price(self):
         if self.unit_price:
-            self.amount = self.unit_price * self.quantity
+            self.amount = self.unit_price * self.unit_amount
 
     @api.onchange('product_id')
     def on_change_product_id(self):
@@ -110,12 +110,12 @@ class BillingPlanLine(models.Model):
                 self.partner_id = self.account_id.partner_id.id
             if self.account_id.company_id.currency_id:
                 self.currency_id = self.account_id.company_id.currency_id.id
-                self.amount = self.unit_price * self.quantity
+                self.amount = self.unit_price * self.unit_amount
 
     @api.multi
-    @api.depends('unit_price', 'quantity')
+    @api.depends('unit_price', 'unit_amount')
     def _total_price(self):
-        self.amount = self.unit_price * self.quantity
+        self.amount = self.unit_price * self.unit_amount
 
     @api.multi
     def copy(self, default=None):
