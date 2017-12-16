@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+©2017 Matmoz d.o.o., Slovenia and Luxim d.o.o., Slovenia
+Author: Matjaž Mozetič <m.mozetic@matmoz.si>
+License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+-->
+<openerp>
+    <data noupdate="1">
+
+        <record model="ir.module.category" id="module_category_advanced_project_management">
+            <field name="name">Advanced Project Management</field>
+            <field name="description"></field>
+            <field name="sequence">10</field>
+        </record>
+
+    </data>
+</openerp>

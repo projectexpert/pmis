@@ -14,36 +14,36 @@ class AnalyticResourcePlanLine(models.Model):
     _inherit = ['mail.thread', 'ir.needaction_mixin']
 
     account_id = fields.Many2one(
-        'account.analytic.account',
-        'Analytic Account',
+        comodel_name='account.analytic.account',
+        string='Analytic Account',
         required=True,
         ondelete='cascade',
-        select=True,
-        domain=[('type', '<>', 'view')],
+        indec=True,
+        # domain=[('type', '<>', 'view')],
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
     name = fields.Char(
-        'Activity description',
+        string='Activity description',
         required=True,
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
     date = fields.Date(
-        'Date',
+        string='Date',
         required=True,
-        select=True,
+        index=True,
         readonly=True,
         states={'draft': [('readonly', False)]},
         default=lambda *a: time.strftime('%Y-%m-%d')
     )
     state = fields.Selection(
-        [
+        selection=[
             ('draft', 'Draft'),
             ('confirm', 'Confirmed')
         ],
-        'Status',
-        select=True,
+        string='Status',
+        index=True,
         required=True,
         readonly=True,
         help=' * The \'Draft\' status is '
@@ -54,21 +54,21 @@ class AnalyticResourcePlanLine(models.Model):
         default='draft'
     )
     product_id = fields.Many2one(
-        'product.product',
-        'Product',
+        comodel_name='product.product',
+        string='Product',
         readonly=True,
         required=True,
         states={'draft': [('readonly', False)]}
     )
     product_uom_id = fields.Many2one(
-        'product.uom',
-        'UoM',
+        comodel_name='product.uom',
+        string='UoM',
         required=True,
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
     unit_amount = fields.Float(
-        'Planned unit_amount',
+        string='Planned unit_amount',
         readonly=True,
         required=True,
         states={'draft': [('readonly', False)]},
@@ -78,12 +78,12 @@ class AnalyticResourcePlanLine(models.Model):
         default=1
     )
     notes = fields.Text(
-        'Notes'
+        string='Notes'
     )
     analytic_line_plan_ids = fields.One2many(
-        'account.analytic.line.plan',
-        'resource_plan_id',
-        'Planned costs',
+        comodel_name='account.analytic.line.plan',
+        inverse_name='resource_plan_id',
+        string='Planned costs',
         readonly=True
     )
     price_unit = fields.Float(
@@ -97,7 +97,9 @@ class AnalyticResourcePlanLine(models.Model):
         groups='project.group_project_manager',
     )
     resource_type = fields.Selection(
-        selection=[('task', 'Task'), ('procurement', 'Procurement')],
+        selection=[
+            ('task', 'Task'), ('procurement', 'Procurement')
+        ],
         string='Type',
         required=True,
         default='task'
@@ -119,7 +121,7 @@ class AnalyticResourcePlanLine(models.Model):
         return res
 
     @api.model
-    def _prepare_analytic_lines(self):
+    def _prepare_analytic_lines(self, default_resource_plan):
         plan_version_obj = self.env['account.analytic.plan.version']
         journal_id = (
             self.product_id.expense_analytic_plan_journal_id
@@ -129,6 +131,12 @@ class AnalyticResourcePlanLine(models.Model):
         general_account_id = (
             self.product_id.product_tmpl_id.property_account_expense.id
         )
+        if not journal_id:
+            raise UserError(
+                _(
+                    'There is no analytic plan journal for product %s'
+                ) % self.product_id.name
+            )
         if not general_account_id:
             general_account_id = (
                 self.product_id.categ_id.property_account_expense_categ.id
@@ -170,13 +178,11 @@ class AnalyticResourcePlanLine(models.Model):
         }]
 
     @api.model
-    def create_analytic_lines(self):
-        res = []
-        line_plan_obj = self.env['account.analytic.line.plan']
-        lines_vals = self._prepare_analytic_lines()
+    def create_analytic_lines(self, lines_vals):
+        line_plan_model = self.env['account.analytic.line.plan']
+        lines_vals = self._prepare_analytic_lines(self)
         for line_vals in lines_vals:
-            line = line_plan_obj.create(line_vals)
-        return res
+            line_plan_model.create(line_vals)
 
     @api.model
     def _delete_analytic_lines(self):
@@ -200,6 +206,7 @@ class AnalyticResourcePlanLine(models.Model):
                         'unit_amount should be greater than 0.'
                     )
                 )
+            self.create_analytic_lines(self)
         return self.write({'state': 'confirm'})
 
     @api.onchange('product_id')
@@ -207,9 +214,9 @@ class AnalyticResourcePlanLine(models.Model):
         if self.product_id:
             self.name = self.product_id.name
             self.product_uom_id = (
-                self.product_id.uom_id
-                and self.product_id.uom_id.id
-                or False
+                self.product_id.uom_id and
+                self.product_id.uom_id.id or
+                False
             )
             self.price_unit = self.product_id.standard_price
 

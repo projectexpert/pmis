@@ -12,7 +12,7 @@
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
     'website': 'http://project.expert',
-    'category': 'Project Management',
+    'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     'summary': 'Change Management and change based (agile) life cycle',
     'depends': ['project_charter', 'analytic_billing_plan'],

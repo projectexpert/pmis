@@ -7,7 +7,7 @@
 
 {
     'name': 'Work Breakdown Structure',
-    'version': '8.0.2.4.7',
+    'version': '8.0.3.0.0',
     'author': 'Matmoz d.o.o., '
               'Luxim d.o.o., '
               'Deneroteam, '
@@ -19,7 +19,7 @@
         'Vijaykumar Baladaniya <vijay@deneroteam.com>'
     ],
     'website': 'http://project.expert',
-    'category': 'Project Management',
+    'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     'depends': [
         'project',
@@ -32,6 +32,7 @@
     'data': [
         'views/account_analytic_account_view.xml',
         'views/project_project_view.xml',
+        'data/category_data.xml'
     ],
     'demo': [
     ],

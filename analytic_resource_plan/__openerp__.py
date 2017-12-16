@@ -2,7 +2,7 @@
 
 {
     'name': 'Analytic Resource Planning',
-    'version': '8.0.2.0.6',
+    'version': '8.0.3.0.0',
     'author':   'Eficent, '
                 'Matmoz, '
                 'Luxim, '
@@ -12,7 +12,7 @@
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
     'website': 'http://project.expert',
-    'category': 'Project Management',
+    'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     'depends': ['account', 'purchase', 'analytic_plan'],
     'data': [
