@@ -3,6 +3,11 @@
 #    Copyright 2015 Eficent (Jordi Ballester Alomar)
 #    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
+from openerp import api, fields, models
+from openerp.tools.translate import _
+from openerp.exceptions import Warning as UserError
+
+
 class AnalyticPlanCopyVersion(models.TransientModel):
     """
     For copying all the planned costs to a separate planning version
