@@ -6,7 +6,7 @@
 
 {
     'name': 'Analytic billing plan',
-    'version': '8.0.3.0.0',
+    'version': '8.0.3.0.1',
     'author':   'Eficent, '
                 'Matmoz, '
                 'Luxim, '

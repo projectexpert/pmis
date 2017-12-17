@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-02 10:02+0000\n"
-"PO-Revision-Date: 2017-12-02 10:02+0000\n"
+"POT-Creation-Date: 2017-12-17 13:37+0000\n"
+"PO-Revision-Date: 2017-12-17 13:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,46 +16,8 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: change_management
-#: help:change.management.change,description:0
-msgid "\n"
-"Short description of the change.\n"
-"\n"
-"Project changes are characteristics, circumstances or\n"
-"features of the project environment that may have an\n"
-"adverse effect on the project in the form of budget,\n"
-"schedule, deliverables and results.\n"
-"\n"
-"Stakeholder requirements can be considered and\n"
-"managed as changes, since we're changing the project\n"
-"charter and scope definition.\n"
-"\n"
-"The user requirements of the project must be defined and\n"
-"documented. Approval and confirmation must be obtained\n"
-"before the project can proceed. To obtain agreement about\n"
-"needs:\n"
-"\n"
-"* Separate needs from wants\n"
-"* Group the needs that are similar\n"
-"* Prioritise needs (eg essential, nice to have)\n"
-"* Identify any conflicting needs\n"
-"* Negotiate agreement between stakeholders with\n"
-"   conflicting needs\n"
-"\n"
-"This process often requires a number of meetings with\n"
-"stakeholders. Stakeholders often express their needs in\n"
-"terms of a particular product or solution to the problem,\n"
-"which has created the need for the project in the first\n"
-"place. It is important to re-state the agreed needs in\n"
-"terms of “what the end product/service(s) of the project\n"
-"should do”.\n"
-"Stating the agreed needs in functional terms permits the\n"
-"project manager to offer a range of solutions to the client\n"
-"or key stakeholders. If the project outcomes are restricted\n"
-"to solutions offered by key stakeholders too early in the\n"
-"analysis process important alternative options might be\n"
-"overlooked. Document the final set of agreed requirements\n"
-"and obtain sign-off from all key stakeholders.\n"
-"        "
+#: view:project.task:change_management.change_management_project_task_search_view
+msgid "Action on Request"
 msgstr ""
 
 #. module: change_management
@@ -72,7 +34,12 @@ msgstr ""
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
-msgid "Active Changes"
+msgid "Active"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+msgid "Active Requests"
 msgstr ""
 
 #. module: change_management
@@ -81,13 +48,13 @@ msgid "Active Tasks"
 msgstr ""
 
 #. module: change_management
-#: view:change.management.change:change_management.change_search_form_view
-msgid "Active changes"
+#: view:project.task:change_management.change_management_project_task_search_view
+msgid "Active tasks"
 msgstr ""
 
 #. module: change_management
-#: view:project.task:change_management.change_management_project_task_search_view
-msgid "Active tasks"
+#: model:ir.model,name:change_management.model_analytic_billing_plan_line
+msgid "Analytic Billing Plan lines"
 msgstr ""
 
 #. module: change_management
@@ -121,22 +88,18 @@ msgid "Beyond project"
 msgstr ""
 
 #. module: change_management
+#: field:change.management.category,name:0
 #: view:change.management.change:change_management.change_search_form_view
 #: field:change.management.change,change_category_id:0
 msgid "Category"
 msgstr ""
 
 #. module: change_management
+#: view:analytic.billing.plan.line:change_management.view_analytic_billing_plan_line_filter
 #: view:change.management.change:change_management.change_form_view
-#: field:change.management.change,description_cause:0
 #: model:ir.model,name:change_management.model_change_management_change
 #: view:project.task:change_management.change_management_project_task_search_view
 msgid "Change"
-msgstr ""
-
-#. module: change_management
-#: view:project.task:change_management.change_management_project_task_search_view
-msgid "Change Action"
 msgstr ""
 
 #. module: change_management
@@ -158,7 +121,6 @@ msgstr ""
 
 #. module: change_management
 #: view:change.management.category:change_management.category_tree_view
-#: field:change.management.category,name:0
 msgid "Change Category"
 msgstr ""
 
@@ -191,24 +153,20 @@ msgid "Change Edition"
 msgstr ""
 
 #. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Change Enforcing"
-msgstr ""
-
-#. module: change_management
 #: model:mail.message.subtype,description:change_management.mt_change_in_progress
 #: model:mail.message.subtype,name:change_management.mt_change_in_progress
 msgid "Change In Progress"
 msgstr ""
 
 #. module: change_management
+#: model:ir.ui.menu,name:change_management.menu_configuration_changes
 #: view:project.project:change_management.edit_project
 msgid "Change Management"
 msgstr ""
 
 #. module: change_management
 #: help:change.management.change,change_owner_id:0
-msgid "Change Manager: The person responsible for managing the change (there can beonly one change owner per change), change ownership is assignedto a managerial level, in case of business continuity to a C-level manager."
+msgid "Change Manager: The person responsible for managing the change (there can be only one change owner per change), change ownership is assigned to a managerial level, in case of business continuity to a C-level manager."
 msgstr ""
 
 #. module: change_management
@@ -223,8 +181,8 @@ msgid "Change Rejected"
 msgstr ""
 
 #. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Change Scenario"
+#: view:change.management.change:change_management.change_search_form_view
+msgid "Change Requests"
 msgstr ""
 
 #. module: change_management
@@ -236,11 +194,6 @@ msgstr ""
 #. module: change_management
 #: model:mail.message.subtype,description:change_management.mt_change_draft
 msgid "Change back in Draft"
-msgstr ""
-
-#. module: change_management
-#: field:project.project,change_count:0
-msgid "Change count"
 msgstr ""
 
 #. module: change_management
@@ -259,22 +212,15 @@ msgid "Change response count"
 msgstr ""
 
 #. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
 #: view:change.management.change:change_management.change_tree_view
-#: model:ir.actions.act_window,name:change_management.action_show_changes
-#: model:ir.ui.menu,name:change_management.menu_change_management
-#: model:ir.ui.menu,name:change_management.menu_configuration_changes
+#: model:ir.actions.act_window,name:change_management.action_show_cr
+#: model:ir.ui.menu,name:change_management.menu_changes
+#: view:project.project:change_management.change_management_project_charter_tree_view
 #: view:project.project:change_management.edit_project
+#: field:project.project,change_ids:0
+#: field:project.project,risk_ids:0
 msgid "Changes"
-msgstr ""
-
-#. module: change_management
-#: view:change.management.change:change_management.change_search_form_view
-msgid "Changes without actions"
-msgstr ""
-
-#. module: change_management
-#: view:change.management.change:change_management.change_search_form_view
-msgid "Changes without ownership"
 msgstr ""
 
 #. module: change_management
@@ -313,8 +259,18 @@ msgid "Confirmed by"
 msgstr ""
 
 #. module: change_management
+#: field:change.management.change,account_id:0
+msgid "Contract/Analytic"
+msgstr ""
+
+#. module: change_management
 #: model:change.management.category,name:change_management.change_management_category_extra
 msgid "Cost"
+msgstr ""
+
+#. module: change_management
+#: field:project.project,cr_count:0
+msgid "Cr count"
 msgstr ""
 
 #. module: change_management
@@ -329,6 +285,11 @@ msgstr ""
 #: field:change.management.change,create_date:0
 #: field:change.management.proximity,create_date:0
 msgid "Created on"
+msgstr ""
+
+#. module: change_management
+#: field:project.task,current_sit:0
+msgid "Curent situation"
 msgstr ""
 
 #. module: change_management
@@ -357,18 +318,36 @@ msgid "Defer"
 msgstr ""
 
 #. module: change_management
+#: code:addons/change_management/models/change_management.py:472
+#: field:change.management.change,deliverable_ids:0
+#, python-format
+msgid "Deliverable Lines"
+msgstr ""
+
+#. module: change_management
 #: model:change.management.category,name:change_management.change_management_deliverables
 msgid "Deliverables"
 msgstr ""
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
-msgid "Description"
+msgid "Deliverables List"
 msgstr ""
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
-msgid "Desired Effect"
+msgid "Deliverables Plan"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+#: field:change.management.change,description:0
+msgid "Description"
+msgstr ""
+
+#. module: change_management
+#: field:project.task,desired_sit:0
+msgid "Desired situation"
 msgstr ""
 
 #. module: change_management
@@ -389,8 +368,23 @@ msgid "Edit..."
 msgstr ""
 
 #. module: change_management
-#: field:change.management.change,description_effect:0
-msgid "Effect"
+#: field:change.management.change,expected_value_inherent:0
+msgid "Expected Inherent Value"
+msgstr ""
+
+#. module: change_management
+#: field:change.management.change,expected_value_residual:0
+msgid "Expected Residual Value"
+msgstr ""
+
+#. module: change_management
+#: help:change.management.change,expected_value_inherent:0
+msgid "Expected Value. Cost of inherent impact * inherent probability. This is the pre-response value."
+msgstr ""
+
+#. module: change_management
+#: help:change.management.change,expected_value_residual:0
+msgid "Expected Value. Cost of residual impact * residual probability. This is the post-response value."
 msgstr ""
 
 #. module: change_management
@@ -399,18 +393,13 @@ msgid "Followers"
 msgstr ""
 
 #. module: change_management
+#: model:ir.model,name:change_management.model_change_gap_analysis
+msgid "GAP analysis table"
+msgstr ""
+
+#. module: change_management
 #: view:change.management.change:change_management.change_form_view
-msgid "GAP Analysis"
-msgstr ""
-
-#. module: change_management
-#: field:change.management.change,description_gap:0
-msgid "Gap Analysis"
-msgstr ""
-
-#. module: change_management
-#: help:change.management.change,description_gap:0
-msgid "Gap Analysis: A set of techniques to examine and describe the gap between current performance and desired future goals.Gap Analysis is the comparison of actual performance with potential or desired performance; that is the ‘current state’ the 'desired future state’. An important aspect of Gap Analysis is identifying what needs to be done in a Project."
+msgid "Gap Analysis and Action Plan"
 msgstr ""
 
 #. module: change_management
@@ -451,6 +440,31 @@ msgid "In progress"
 msgstr ""
 
 #. module: change_management
+#: field:change.management.change,impact_inherent:0
+msgid "Inherent Impact"
+msgstr ""
+
+#. module: change_management
+#: help:change.management.change,impact_inherent:0
+msgid "Inherent Impact: The result of a particular threat or opportunity actually occurring, or the anticipation of such a result. This is the pre-response value, common used scales are 1 to 10 or 1 to 100."
+msgstr ""
+
+#. module: change_management
+#: field:change.management.change,probability_inherent:0
+msgid "Inherent Probability"
+msgstr ""
+
+#. module: change_management
+#: help:change.management.change,probability_inherent:0
+msgid "Inherent Probability: The evaluated likelihood of a particular threat or opportunity actually happening, including a consideration of the frequency with which this may arise. This is the pre-response value, common used scales are 1 to 10 or 1 to 100."
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Inherent Risk Score"
+msgstr ""
+
+#. module: change_management
 #: field:change.management.change,message_is_follower:0
 msgid "Is a Follower"
 msgstr ""
@@ -487,6 +501,11 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: change_management
+#: help:change.management.change,account_id:0
+msgid "Link this project to an analytic account if you need financial management on projects. It enables you to connect projects with budgets, planning, cost and revenue analysis, timesheets on projects, etc."
+msgstr ""
+
+#. module: change_management
 #: field:change.management.change,message_ids:0
 msgid "Messages"
 msgstr ""
@@ -507,9 +526,14 @@ msgid "My Projects"
 msgstr ""
 
 #. module: change_management
-#: code:addons/change_management/model/change_management.py:490
+#: code:addons/change_management/models/change_management.py:528
 #, python-format
 msgid "No Subject"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+msgid "No actions"
 msgstr ""
 
 #. module: change_management
@@ -518,15 +542,20 @@ msgid "On Hold"
 msgstr ""
 
 #. module: change_management
+#: help:project.task,change_id:0
+msgid "Origined from this request."
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Plan a deliverable"
+msgstr ""
+
+#. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
 #: field:change.management.change,project_id:0
 #: model:ir.model,name:change_management.model_project_project
 msgid "Project"
-msgstr ""
-
-#. module: change_management
-#: field:project.project,change_ids:0
-msgid "Project changes"
 msgstr ""
 
 #. module: change_management
@@ -575,8 +604,26 @@ msgid "Reject"
 msgstr ""
 
 #. module: change_management
+#: field:project.project,req_count:0
+msgid "Req count"
+msgstr ""
+
+#. module: change_management
+#: view:project.task:change_management.change_management_project_task_tree_view
+#: field:project.task,change_id:0
+msgid "Request"
+msgstr ""
+
+#. module: change_management
+#: model:ir.actions.act_window,name:change_management.action_show_changes
+#: model:ir.actions.act_window,name:change_management.menu_show_changes
+#: model:ir.actions.act_window,name:change_management.menu_show_requirements
+#: model:ir.actions.act_window,name:change_management.menu_show_risks
+msgid "Request Backlog"
+msgstr ""
+
+#. module: change_management
 #: view:change.management.change:change_management.change_form_view
-#: field:change.management.change,description:0
 msgid "Request Description"
 msgstr ""
 
@@ -586,13 +633,79 @@ msgid "Request Id"
 msgstr ""
 
 #. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+msgid "Request Owner"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+#: field:change.management.change,type_id:0
+msgid "Request Type"
+msgstr ""
+
+#. module: change_management
 #: field:change.management.change,author_id:0
 msgid "Requestor"
 msgstr ""
 
 #. module: change_management
+#: model:ir.ui.menu,name:change_management.menu_change_management
+msgid "Requests Log"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+msgid "Requests without actions"
+msgstr ""
+
+#. module: change_management
+#: view:analytic.billing.plan.line:change_management.view_analytic_billing_plan_line_filter
+msgid "Requirement"
+msgstr ""
+
+#. module: change_management
+#: view:project.project:change_management.edit_project
+msgid "Requirement Management"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+#: model:ir.actions.act_window,name:change_management.action_show_requirements
+#: model:ir.ui.menu,name:change_management.menu_requirements
 #: view:project.project:change_management.change_management_project_charter_tree_view
+#: view:project.project:change_management.edit_project
+#: field:project.project,requirement_ids:0
 msgid "Requirements"
+msgstr ""
+
+#. module: change_management
+#: view:project.project:change_management.view_project_kanban
+msgid "Requirements:"
+msgstr ""
+
+#. module: change_management
+#: field:change.management.change,impact_residual:0
+msgid "Residual Impact"
+msgstr ""
+
+#. module: change_management
+#: help:change.management.change,impact_residual:0
+msgid "Residual Impact: The result of a particular threat or opportunity actually occurring, or the anticipation of such a result. This is the post-response value, common used scales are 1 to 10 or 1 to 100."
+msgstr ""
+
+#. module: change_management
+#: field:change.management.change,probability_residual:0
+msgid "Residual Probability"
+msgstr ""
+
+#. module: change_management
+#: help:change.management.change,probability_residual:0
+msgid "Residual Probability: The evaluated likelihood of a particular threat or opportunity actually happening, including a consideration of the frequency with which this may arise. This is the post-response value, common used scales are 1 to 10 or 1 to 100."
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Residual Risk Score"
 msgstr ""
 
 #. module: change_management
@@ -621,6 +734,35 @@ msgid "Revisions"
 msgstr ""
 
 #. module: change_management
+#: view:project.project:change_management.edit_project
+msgid "Risk Management"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Risk Score"
+msgstr ""
+
+#. module: change_management
+#: field:project.project,risk_count:0
+msgid "Risk count"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+#: model:ir.actions.act_window,name:change_management.action_show_risks
+#: model:ir.ui.menu,name:change_management.menu_risks
+#: view:project.project:change_management.change_management_project_charter_tree_view
+#: view:project.project:change_management.edit_project
+msgid "Risks"
+msgstr ""
+
+#. module: change_management
+#: view:project.project:change_management.view_project_kanban
+msgid "Risks:"
+msgstr ""
+
+#. module: change_management
 #: model:change.management.category,name:change_management.change_management_category_feature
 msgid "Schedule"
 msgstr ""
@@ -631,13 +773,23 @@ msgid "Scope"
 msgstr ""
 
 #. module: change_management
+#: help:change.management.change,description:0
+msgid "Short description of the request."
+msgstr ""
+
+#. module: change_management
+#: view:analytic.billing.plan.line:change_management.view_analytic_billing_plan_line_filter
+msgid "Show only change based deliverables"
+msgstr ""
+
+#. module: change_management
 #: view:project.task:change_management.change_management_project_task_search_view
 msgid "Show only tasks (actions) on change"
 msgstr ""
 
 #. module: change_management
-#: field:project.task,change_id:0
-msgid "Source CR"
+#: field:analytic.billing.plan.line,change_id:0
+msgid "Source"
 msgstr ""
 
 #. module: change_management
@@ -659,11 +811,6 @@ msgstr ""
 #. module: change_management
 #: model:ir.model,name:change_management.model_project_task
 msgid "Task"
-msgstr ""
-
-#. module: change_management
-#: help:project.task,change_id:0
-msgid "Task is an action on a change identified by this label."
 msgstr ""
 
 #. module: change_management
@@ -694,6 +841,16 @@ msgstr ""
 #. module: change_management
 #: help:change.management.change,stakeholder_id:0
 msgid "The stakeholder that proposes the  processing of the request."
+msgstr ""
+
+#. module: change_management
+#: field:project.task,topic:0
+msgid "Topic/User Story"
+msgstr ""
+
+#. module: change_management
+#: help:change.management.change,type_id:0
+msgid "Type: Is this an original requirement, a change in an undergoing project or a risk?"
 msgstr ""
 
 #. module: change_management
@@ -734,5 +891,10 @@ msgstr ""
 #. module: change_management
 #: model:change.management.proximity,name:change_management.change_management_proximity_within_stage
 msgid "Within stage"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_search_form_view
+msgid "Without owner"
 msgstr ""
 

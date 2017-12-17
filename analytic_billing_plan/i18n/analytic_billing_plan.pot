@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-16 10:13+0000\n"
-"PO-Revision-Date: 2016-10-16 10:13+0000\n"
+"POT-Creation-Date: 2017-12-17 13:35+0000\n"
+"PO-Revision-Date: 2017-12-17 13:35+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,18 +21,24 @@ msgid "Amount"
 msgstr ""
 
 #. module: analytic_billing_plan
-#: field:analytic.billing.plan.line,amount_currency:0
-msgid "Amount Currency"
-msgstr ""
-
-#. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,account_id:0
+#: model:ir.model,name:analytic_billing_plan.model_account_analytic_account
 msgid "Analytic Account"
 msgstr ""
 
 #. module: analytic_billing_plan
 #: model:ir.model,name:analytic_billing_plan.model_analytic_billing_plan_copy_version
 msgid "Analytic Billing Plan copy versions"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: model:ir.model,name:analytic_billing_plan.model_analytic_billing_plan_line
+msgid "Analytic Billing Plan lines"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: model:ir.model,name:analytic_billing_plan.model_analytic_resource_plan_line
+msgid "Analytic Resource Planning lines"
 msgstr ""
 
 #. module: analytic_billing_plan
@@ -47,13 +53,12 @@ msgid "Analytic billing plan line make sale"
 msgstr ""
 
 #. module: analytic_billing_plan
-#: model:ir.model,name:analytic_billing_plan.model_account_analytic_line_plan
-msgid "Analytic planning line"
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Analytic resource plan line"
 msgstr ""
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:102
-#: model:ir.model,name:analytic_billing_plan.model_analytic_billing_plan_line
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:96
 #, python-format
 msgid "Billing Plan Lines"
 msgstr ""
@@ -62,7 +67,6 @@ msgstr ""
 #: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
 #: model:ir.actions.act_window,name:analytic_billing_plan.action_analytic_billing_plan_line_open_form
 #: model:ir.ui.menu,name:analytic_billing_plan.analytic_billing_plan_line_entries
-#: view:project.project:analytic_billing_plan.edit_project
 msgid "Billing plan"
 msgstr ""
 
@@ -75,7 +79,6 @@ msgstr ""
 #: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
 #: model:ir.actions.act_window,name:analytic_billing_plan.act_account_analytic_2_analytic_billing_plan_line
 #: model:ir.actions.act_window,name:analytic_billing_plan.billing_plan_line_action_project
-#: view:project.project:analytic_billing_plan.edit_project
 msgid "Billing plan lines"
 msgstr ""
 
@@ -85,7 +88,7 @@ msgid "Billing request"
 msgstr ""
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:252
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:234
 #, python-format
 msgid "Billing request lines"
 msgstr ""
@@ -101,7 +104,7 @@ msgid "Cancel"
 msgstr ""
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:72
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:63
 #, python-format
 msgid "Choose different source and destination planning versions."
 msgstr ""
@@ -117,15 +120,20 @@ msgid "Company"
 msgstr ""
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:178
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Confirm"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:157
 #, python-format
 msgid "Could not create billing request!"
 msgstr ""
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:132
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:138
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:162
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:107
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:114
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:142
 #, python-format
 msgid "Could not create sale order !"
 msgstr ""
@@ -176,6 +184,23 @@ msgid "Date of the last message posted on the record."
 msgstr ""
 
 #. module: analytic_billing_plan
+#: view:analytic.resource.plan.line:analytic_billing_plan.view_analytic_resource_plan_line_filter
+#: field:analytic.resource.plan.line,deliverable_id:0
+msgid "Deliverable"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: field:account.analytic.account,deliverable_count:0
+msgid "Deliverable count"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: field:account.analytic.account,deliverable_ids:0
+#: view:project.project:analytic_billing_plan.edit_project
+msgid "Deliverables"
+msgstr ""
+
+#. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,name:0
 msgid "Description"
 msgstr ""
@@ -193,8 +218,13 @@ msgid "Display Name"
 msgstr ""
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:66
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:71
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Draft"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:55
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:62
 #, python-format
 msgid "Error !"
 msgstr ""
@@ -202,11 +232,6 @@ msgstr ""
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,message_follower_ids:0
 msgid "Followers"
-msgstr ""
-
-#. module: analytic_billing_plan
-#: field:analytic.billing.plan.line,general_account_id:0
-msgid "General Account"
 msgstr ""
 
 #. module: analytic_billing_plan
@@ -252,7 +277,7 @@ msgid "Is a Follower"
 msgstr ""
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:67
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:56
 #, python-format
 msgid "It is prohibited to copy to the default planning version."
 msgstr ""
@@ -281,6 +306,11 @@ msgstr ""
 #: field:analytic.billing.plan.line,write_date:0
 #: field:analytic.billing.plan.line.make.sale,write_date:0
 msgid "Last Updated on"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Line name"
 msgstr ""
 
 #. module: analytic_billing_plan
@@ -321,16 +351,13 @@ msgstr ""
 
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,customer_id:0
+#: field:analytic.billing.plan.line,partner_id:0
 msgid "Partner"
 msgstr ""
 
 #. module: analytic_billing_plan
-#: field:analytic.billing.plan.line,journal_id:0
-msgid "Planning Analytic Journal"
-msgstr ""
-
-#. module: analytic_billing_plan
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
+#: field:analytic.billing.plan.line,journal_id:0
 msgid "Planning Journal"
 msgstr ""
 
@@ -341,7 +368,12 @@ msgstr ""
 
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,analytic_line_plan_id:0
-msgid "Planning analytic lines"
+msgid "Planning lines"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Price per unit"
 msgstr ""
 
 #. module: analytic_billing_plan
@@ -366,6 +398,16 @@ msgid "Project"
 msgstr ""
 
 #. module: analytic_billing_plan
+#: view:project.project:analytic_billing_plan.edit_project
+msgid "Project budget"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Qty"
+msgstr ""
+
+#. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,unit_amount:0
 msgid "Quantity"
 msgstr ""
@@ -376,8 +418,18 @@ msgid "Ref."
 msgstr ""
 
 #. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,resource_ids:0
+msgid "Resource Lines"
+msgstr ""
+
+#. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,resource_plan_id:0
 msgid "Resource Plan Line"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Resources"
 msgstr ""
 
 #. module: analytic_billing_plan
@@ -411,26 +463,23 @@ msgid "Summary"
 msgstr ""
 
 #. module: analytic_billing_plan
-#: help:analytic.billing.plan.line,amount_currency:0
-msgid "The amount expressed in an optional other currency."
-msgstr ""
-
-#. module: analytic_billing_plan
 #: help:analytic.billing.plan.line.make.sale,invoice_quantity:0
 msgid "The sales order will automatically create the invoice proposition (draft invoice)."
 msgstr ""
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/models/analytic_billing_plan.py:92
-#, python-format
-msgid "There is no income account defined for this product: \"%s\" (id:%d)"
+#: help:analytic.billing.plan.line.make.sale,order_policy:0
+msgid "This field controls how invoice and delivery operations are synchronized."
 msgstr ""
 
 #. module: analytic_billing_plan
-#: help:analytic.billing.plan.line.make.sale,order_policy:0
-msgid "This field controls how\n"
-"                                         invoice and delivery\n"
-"                                         operations are synchronized."
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Total"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Total Price"
 msgstr ""
 
 #. module: analytic_billing_plan
@@ -464,33 +513,32 @@ msgid "Website communication history"
 msgstr ""
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/models/analytic_billing_plan.py:123
-#, python-format
-msgid "You cannot delete a record that refers to analytic plan lines!"
-msgstr ""
-
-#. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:133
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:108
 #, python-format
 msgid "You have to enter a customer."
 msgstr ""
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:179
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:158
 #, python-format
 msgid "You have to select lines from the same analytic account."
 msgstr ""
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:163
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:143
 #, python-format
 msgid "You have to select lines from the same company."
 msgstr ""
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:139
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:115
 #, python-format
 msgid "You have to select lines from the same customer."
+msgstr ""
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "unit_amount"
 msgstr ""
 
 #. module: analytic_billing_plan

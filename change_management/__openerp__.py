@@ -5,7 +5,7 @@
 
 {
     'name': 'Change Management',
-    'version': '8.0.3.1.5',
+    'version': '8.0.3.1.6',
     'author': 'Matmoz d.o.o., '
               'Project Expert Team',
     'contributors': [
@@ -24,7 +24,8 @@
         'view/change_management_view.xml',
         'view/change_management_category_view.xml',
         'view/change_management_proximity_view.xml',
-        'view/change_management_menus.xml'
+        'view/change_management_menus.xml',
+        'view/billing_plan_view.xml'
     ],
     'demo': ['demo/change_management_demo.xml'],
     'test': [],

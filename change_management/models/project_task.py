@@ -14,7 +14,7 @@ class ProjectTask (models.Model):
         comodel_name='change.management.change',
         string='Request',
         readonly=False,
-        help="Task is an action on a change identified by this label.",
+        help="Origined from this request.",
     )
     topic = fields.Char(
         string='Topic/User Story',

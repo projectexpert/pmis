@@ -60,17 +60,6 @@ class BillingPlanLine(models.Model):
         string='Resource Lines',
         copy=True,
     )
-    # TODO: add reference to gap lines
-    # the idea is, that the deliverable manager could have a list of user
-    # user stories on the deliverable form to follow completion of assigned
-    # tasks that he encoded in the resources; the deliverable becomes s
-    # sprint
-
-    # todo_ids = fields.One2many(
-    #     comodel_name="change.gap.analysis",
-    #     inverse_name="deliverable_id",
-    #     string="User Stories"
-    # )
 
     @api.onchange('unit_amount')
     def on_change_unit_amount(self):
@@ -113,31 +102,22 @@ class BillingPlanLine(models.Model):
                 self.amount = self.unit_price * self.unit_amount
 
     @api.multi
-    @api.depends('unit_price', 'unit_amount')
-    def _total_price(self):
-        self.amount = self.unit_price * self.unit_amount
-
-    @api.multi
     def copy(self, default=None):
         self.ensure_one()
         if default is None:
             default = {}
         default['parent_id'] = False
-        default['analytic_line_plan_ids'] = []
+        default['analytic_line_plan_id'] = []
         res = super(BillingPlanLine, self).copy(default)
         return res
 
     @api.multi
     def unlink(self):
-        for line in self:
-            if line.analytic_line_plan_ids:
-                raise UserError(
-                    _(
-                        'You cannot delete a record that refers to '
-                        'analytic plan lines!'
-                    )
-                )
-        return super(BillingPlanLine, self).unlink()
+        billing = self.env['account.analytic.line.plan']
+        res = super(BillingPlanLine, self).unlink()
+        for billing in self:
+            return res
+
 
 class ResourcePlanLine(models.Model):
 

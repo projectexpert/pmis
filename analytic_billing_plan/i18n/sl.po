@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-16 12:21+0200\n"
-"PO-Revision-Date: 2016-10-16 12:25+0200\n"
+"POT-Creation-Date: 2017-12-17 13:35+0000\n"
+"PO-Revision-Date: 2017-12-17 14:43+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 2.0.5\n"
 
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,amount:0
@@ -23,12 +23,8 @@ msgid "Amount"
 msgstr "Znesek"
 
 #. module: analytic_billing_plan
-#: field:analytic.billing.plan.line,amount_currency:0
-msgid "Amount Currency"
-msgstr "Znesek"
-
-#. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,account_id:0
+#: model:ir.model,name:analytic_billing_plan.model_account_analytic_account
 msgid "Analytic Account"
 msgstr "Analitični konto"
 
@@ -38,24 +34,33 @@ msgid "Analytic Billing Plan copy versions"
 msgstr "Kopiranje verzij analit. plana"
 
 #. module: analytic_billing_plan
+#: model:ir.model,name:analytic_billing_plan.model_analytic_billing_plan_line
+msgid "Analytic Billing Plan lines"
+msgstr "Postavke obračunskega plana"
+
+#. module: analytic_billing_plan
+#: model:ir.model,name:analytic_billing_plan.model_analytic_resource_plan_line
+msgid "Analytic Resource Planning lines"
+msgstr "Postavke plana virov"
+
+#. module: analytic_billing_plan
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_tree
 msgid "Analytic billing plan line"
-msgstr "Postavka analitičnega obračunskega plana"
+msgstr "Postavka obračunskega plana"
 
 #. module: analytic_billing_plan
 #: model:ir.model,name:analytic_billing_plan.model_analytic_billing_plan_line_make_sale
 msgid "Analytic billing plan line make sale"
-msgstr "Postavka analitičnega obračunskega plana za prodajo"
+msgstr "Postavka obračunskega plana za prodajo"
 
 #. module: analytic_billing_plan
-#: model:ir.model,name:analytic_billing_plan.model_account_analytic_line_plan
-msgid "Analytic planning line"
-msgstr "Postavka analitičnega plana"
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Analytic resource plan line"
+msgstr "Postavka plana virov"
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:102
-#: model:ir.model,name:analytic_billing_plan.model_analytic_billing_plan_line
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:96
 #, python-format
 msgid "Billing Plan Lines"
 msgstr "Postavke obrač. plana"
@@ -64,7 +69,6 @@ msgstr "Postavke obrač. plana"
 #: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
 #: model:ir.actions.act_window,name:analytic_billing_plan.action_analytic_billing_plan_line_open_form
 #: model:ir.ui.menu,name:analytic_billing_plan.analytic_billing_plan_line_entries
-#: view:project.project:analytic_billing_plan.edit_project
 msgid "Billing plan"
 msgstr "Obračun. plan"
 
@@ -77,7 +81,6 @@ msgstr "Postavka obračunskega plana"
 #: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
 #: model:ir.actions.act_window,name:analytic_billing_plan.act_account_analytic_2_analytic_billing_plan_line
 #: model:ir.actions.act_window,name:analytic_billing_plan.billing_plan_line_action_project
-#: view:project.project:analytic_billing_plan.edit_project
 msgid "Billing plan lines"
 msgstr "Postavke obračunskega plana"
 
@@ -87,7 +90,7 @@ msgid "Billing request"
 msgstr "Obračunski zahtevek"
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:252
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:234
 #, python-format
 msgid "Billing request lines"
 msgstr "Postavke obračunskega zahtevka"
@@ -103,7 +106,7 @@ msgid "Cancel"
 msgstr "Preklic"
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:72
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:63
 #, python-format
 msgid "Choose different source and destination planning versions."
 msgstr "Izberite različni izvorno in ciljno verzijo plana."
@@ -119,15 +122,20 @@ msgid "Company"
 msgstr "Družba"
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:178
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Confirm"
+msgstr "Potrdi"
+
+#. module: analytic_billing_plan
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:157
 #, python-format
 msgid "Could not create billing request!"
 msgstr "Ni bilo mogoče ustvariti obračunskega zahtevka!"
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:132
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:138
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:162
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:107
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:114
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:142
 #, python-format
 msgid "Could not create sale order !"
 msgstr "Ni bilo mogoče ustvariti prodajnega naloga!"
@@ -178,6 +186,23 @@ msgid "Date of the last message posted on the record."
 msgstr "Datum zadnjega sporočila pri tem zapisu."
 
 #. module: analytic_billing_plan
+#: view:analytic.resource.plan.line:analytic_billing_plan.view_analytic_resource_plan_line_filter
+#: field:analytic.resource.plan.line,deliverable_id:0
+msgid "Deliverable"
+msgstr "Dobava"
+
+#. module: analytic_billing_plan
+#: field:account.analytic.account,deliverable_count:0
+msgid "Deliverable count"
+msgstr "Konto dobav"
+
+#. module: analytic_billing_plan
+#: field:account.analytic.account,deliverable_ids:0
+#: view:project.project:analytic_billing_plan.edit_project
+msgid "Deliverables"
+msgstr "Dobave"
+
+#. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,name:0
 msgid "Description"
 msgstr "Opis"
@@ -195,8 +220,13 @@ msgid "Display Name"
 msgstr "Prikazni naziv"
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:66
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:71
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Draft"
+msgstr "Osnutek"
+
+#. module: analytic_billing_plan
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:55
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:62
 #, python-format
 msgid "Error !"
 msgstr "Napaka!"
@@ -205,11 +235,6 @@ msgstr "Napaka!"
 #: field:analytic.billing.plan.line,message_follower_ids:0
 msgid "Followers"
 msgstr "Sledilci"
-
-#. module: analytic_billing_plan
-#: field:analytic.billing.plan.line,general_account_id:0
-msgid "General Account"
-msgstr "Konto glavne knjige"
 
 #. module: analytic_billing_plan
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
@@ -262,7 +287,7 @@ msgid "Is a Follower"
 msgstr "Je sledilec"
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:67
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:56
 #, python-format
 msgid "It is prohibited to copy to the default planning version."
 msgstr "Kopiranje privzete verzije plana je prepovedano."
@@ -292,6 +317,11 @@ msgstr "Zadnjič posodobil"
 #: field:analytic.billing.plan.line.make.sale,write_date:0
 msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Line name"
+msgstr "Naziv postavke"
 
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,message_ids:0
@@ -331,16 +361,13 @@ msgstr "Naročene količine"
 
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,customer_id:0
+#: field:analytic.billing.plan.line,partner_id:0
 msgid "Partner"
 msgstr "Partner"
 
 #. module: analytic_billing_plan
-#: field:analytic.billing.plan.line,journal_id:0
-msgid "Planning Analytic Journal"
-msgstr "Planski dnevnik"
-
-#. module: analytic_billing_plan
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
+#: field:analytic.billing.plan.line,journal_id:0
 msgid "Planning Journal"
 msgstr "Dnevnik planiranja"
 
@@ -351,8 +378,13 @@ msgstr "Verzija plana"
 
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,analytic_line_plan_id:0
-msgid "Planning analytic lines"
-msgstr "Planske analitične postavke"
+msgid "Planning lines"
+msgstr "Planske postavke"
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Price per unit"
+msgstr "Cena na enoto"
 
 #. module: analytic_billing_plan
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
@@ -376,6 +408,16 @@ msgid "Project"
 msgstr "Projekt"
 
 #. module: analytic_billing_plan
+#: view:project.project:analytic_billing_plan.edit_project
+msgid "Project budget"
+msgstr "Projektni proračun"
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Qty"
+msgstr "Kol"
+
+#. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,unit_amount:0
 msgid "Quantity"
 msgstr "Količina"
@@ -386,9 +428,19 @@ msgid "Ref."
 msgstr "Sklic"
 
 #. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,resource_ids:0
+msgid "Resource Lines"
+msgstr "Postavke virov"
+
+#. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,resource_plan_id:0
 msgid "Resource Plan Line"
 msgstr "Postavka plana virov"
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Resources"
+msgstr "Viri"
 
 #. module: analytic_billing_plan
 #: field:product.template,revenue_analytic_plan_journal_id:0
@@ -401,7 +453,7 @@ msgid "Review the existing billing request lines:"
 msgstr "Pregled obstoječih postavk obračunskih zahtevkov"
 
 #. module: analytic_billing_plan
-#: field:analytic.billing.plan.line,price_unit:0
+#: field:analytic.billing.plan.line,unit_price:0
 msgid "Sale Price"
 msgstr "Prodajna cena"
 
@@ -421,11 +473,6 @@ msgid "Summary"
 msgstr "Povzetek"
 
 #. module: analytic_billing_plan
-#: help:analytic.billing.plan.line,amount_currency:0
-msgid "The amount expressed in an optional other currency."
-msgstr "Znesek izražen v drugi valuti"
-
-#. module: analytic_billing_plan
 #: help:analytic.billing.plan.line.make.sale,invoice_quantity:0
 msgid ""
 "The sales order will automatically create the invoice proposition (draft "
@@ -433,21 +480,21 @@ msgid ""
 msgstr "Prodajni nalog samodejno ustvari predlogo računa."
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/models/analytic_billing_plan.py:92
-#, python-format
-msgid "There is no income account defined for this product: \"%s\" (id:%d)"
-msgstr "Za izdelek \"%s\" (id:%d) ni določen konto prihodkov."
-
-#. module: analytic_billing_plan
 #: help:analytic.billing.plan.line.make.sale,order_policy:0
 msgid ""
-"This field controls how\n"
-"                                         invoice and delivery\n"
-"                                         operations are synchronized."
+"This field controls how invoice and delivery operations are synchronized."
 msgstr ""
-"To polje kontrolira način\n"
-"                                         sinhronizacije obračunskih\n"
-"                                         in dostavnih operacij."
+"To polje kontrolira način sinhronizacije obračunskih in dostavnih operacij."
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Total"
+msgstr "Skupaj"
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Total Price"
+msgstr "Cena skupaj"
 
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,message_unread:0
@@ -480,42 +527,53 @@ msgid "Website communication history"
 msgstr "Kronologija komunikacij spletne strani"
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/models/analytic_billing_plan.py:123
-#, python-format
-msgid "You cannot delete a record that refers to analytic plan lines!"
-msgstr "Zapisa, ki se sklicuje na postavke plana virov, ne morete brisati!"
-
-#. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:133
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:108
 #, python-format
 msgid "You have to enter a customer."
 msgstr "Vnesite kupca."
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:179
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:158
 #, python-format
 msgid "You have to select lines from the same analytic account."
 msgstr "Izbrati morate postavke iz istega analitičnega konta."
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:163
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:143
 #, python-format
 msgid "You have to select lines from the same company."
 msgstr "Izbrati morate postavke iz iste družbe."
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:139
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:115
 #, python-format
 msgid "You have to select lines from the same customer."
 msgstr "Izbrati morate postavke od iste stranke."
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "unit_amount"
+msgstr "unit_amount"
 
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line.make.sale,order_line_ids:0
 msgid "unknown"
 msgstr "neznano"
 
-#~ msgid "Analytic Billing Plan lines"
-#~ msgstr "Postavke analitičnega obračunskega plana"
+#~ msgid "Amount Currency"
+#~ msgstr "Znesek"
+
+#~ msgid "Planning Analytic Journal"
+#~ msgstr "Planski dnevnik"
+
+#~ msgid "The amount expressed in an optional other currency."
+#~ msgstr "Znesek izražen v drugi valuti"
+
+#~ msgid "There is no income account defined for this product: \"%s\" (id:%d)"
+#~ msgstr "Za izdelek \"%s\" (id:%d) ni določen konto prihodkov."
+
+#~ msgid "You cannot delete a record that refers to analytic plan lines!"
+#~ msgstr "Zapisa, ki se sklicuje na postavke plana virov, ne morete brisati!"
 
 #~ msgid "Analytic Planning Journal for revenues"
 #~ msgstr "Dnevnik analitičnega planiranja za prihodke"

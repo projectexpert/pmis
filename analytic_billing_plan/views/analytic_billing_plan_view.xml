@@ -44,7 +44,6 @@
                                     <field name="amount"
                                            placeholder="Total"
                                            class="oe_inline"
-                                           readonly="True"
                                            widget="monetary"
                                            options="{'currency_field': 'currency_id'}"/>
                                 </h2>
@@ -138,10 +137,10 @@
                     <field name="account_id"/>
                     <field name="customer_id"/>
                     <field name="date"/>
-                    <field name="product_id" colspan="4" required="True"/>
+                    <field name="product_id" colspan="4"/>
                     <field name="name"/>
 					<field name="unit_amount" colspan="2" required="True"/>
-                    <field name="product_uom_id" required="True"/>
+                    <field name="product_uom_id"/>
                     <field name="version_id"/>
 					<field name="unit_price" required="True"/>
                     <field name="currency_id" required="True"/>

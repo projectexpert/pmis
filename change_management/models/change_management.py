@@ -125,45 +125,7 @@ class CMChange (models.Model):
         required=True,
         states={'draft': [('readonly', False)],
                 'active': [('readonly', False)]},
-        help='''
-Short description of the change.
-
-Project changes are characteristics, circumstances or
-features of the project environment that may have an
-adverse effect on the project in the form of budget,
-schedule, deliverables and results.
-
-Stakeholder requirements can be considered and
-managed as changes, since we're changing the project
-charter and scope definition.
-
-The user requirements of the project must be defined and
-documented. Approval and confirmation must be obtained
-before the project can proceed. To obtain agreement about
-needs:
-
-* Separate needs from wants
-* Group the needs that are similar
-* Prioritise needs (eg essential, nice to have)
-* Identify any conflicting needs
-* Negotiate agreement between stakeholders with
-   conflicting needs
-
-This process often requires a number of meetings with
-stakeholders. Stakeholders often express their needs in
-terms of a particular product or solution to the problem,
-which has created the need for the project in the first
-place. It is important to re-state the agreed needs in
-terms of “what the end product/service(s) of the project
-should do”.
-Stating the agreed needs in functional terms permits the
-project manager to offer a range of solutions to the client
-or key stakeholders. If the project outcomes are restricted
-to solutions offered by key stakeholders too early in the
-analysis process important alternative options might be
-overlooked. Document the final set of agreed requirements
-and obtain sign-off from all key stakeholders.
-        '''
+        help='Short description of the request.'
     )
     project_id = fields.Many2one(
         comodel_name='project.project',
@@ -226,38 +188,14 @@ and obtain sign-off from all key stakeholders.
         "The type of change in terms of the project's or business"
         "chosen categories (e.g. Schedule, quality, legal etc.)"
     )
-    # description_cause = fields.Html(
-    #     'Change',
-    #     readonly=True,
-    #     states={'draft': [('readonly', False)],
-    #             'active': [('readonly', False)]},
-    # )
-    description_gap = fields.Html(
-        'Gap Analysis',
-        readonly=True,
-        states={'draft': [('readonly', False)],
-                'active': [('readonly', False)]},
-        help="Gap Analysis: "
-             "A set of techniques to examine and describe the gap between "
-             "current performance and desired future goals."
-             "Gap Analysis is the comparison of actual performance with "
-             "potential or desired performance; that is the ‘current state’ "
-             "the 'desired future state’. "
-             "An important aspect of Gap Analysis is identifying what needs "
-             "to be done in a Project."
-    )
     description_event = fields.Html(
         'Reason',
         readonly=True,
-        states={'draft': [('readonly', False)],
-                'active': [('readonly', False)]},
+        states={
+            'draft': [('readonly', False)],
+            'active': [('readonly', False)]
+        },
     )
-    # description_effect = fields.Html(
-    #     'Effect',
-    #     readonly=True,
-    #     states={'draft': [('readonly', False)],
-    #             'active': [('readonly', False)]},
-    # )
     proximity_id = fields.Many2one(
         'change.management.proximity', 'Proximity',
         help="Proximity: "
@@ -281,7 +219,6 @@ and obtain sign-off from all key stakeholders.
         readonly=True,
         string='State',
         states={'draft': [('readonly', False)]},
-        # track_visibility='on_change'
     )
     type_id = fields.Selection(
         selection="_get_type",
@@ -373,14 +310,17 @@ and obtain sign-off from all key stakeholders.
         "post-response value."
     )
 
-    gap_ids = fields.One2many(
-        comodel_name="change.gap.analysis",
-        inverse_name="change_id",
-        string="Gap analysis lines",
-    )
-
     account_id = fields.Many2one(
         related='project_id.analytic_account_id'
+    )
+    deliverable_ids = fields.One2many(
+        comodel_name="analytic.billing.plan.line",
+        inverse_name="change_id",
+        string="Deliverable Lines",
+        readonly=False,
+        copy=True,
+        states={'draft': [('readonly', False)],
+                'active': [('readonly', False)]},
     )
 
     # ##### DEFINITIONS #####  #
@@ -516,6 +456,35 @@ and obtain sign-off from all key stakeholders.
             False) and self.env.ref(
             'change_management.change_management_new') or self.env[
                    'change.management.category']
+
+    @api.multi
+    def open_deliverable_line(self):
+        for self in self:
+            domain = [
+                ('change_id', '=', self.id)
+            ]
+            cr_id = 0
+            ac_id = 9
+            if self.state in ('draft', 'active'):
+                cr_id = self.id
+                ac_id = self.account_id.id
+            return {
+                'name': _('Deliverable Lines'),
+                'type': 'ir.actions.act_window',
+                'view_type': 'form',
+                'view_mode': 'tree,form,graph',
+                'res_model': 'analytic.billing.plan.line',
+                'target': 'current',
+                'domain': domain,
+                'context': {
+                    'tree_view_ref': 'analytic_billing_plan.' +
+                                     'view_analytic_billing_plan_line_tree',
+                    'form_view_ref': 'analytic_billing_plan.' +
+                                     'view_analytic_billing_plan_line_form',
+                    'default_change_id': cr_id,
+                    'default_account_id': ac_id
+                }
+            }
 
     # ##### create CR from mail #####  #
 

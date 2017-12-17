@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+©2017 Matmoz d.o.o., Slovenia and Luxim d.o.o., Slovenia
+Author: Matjaž Mozetič <m.mozetic@matmoz.si>
+License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+-->
+<openerp>
+    <data>
+        <!--FORM-->
+        <record model="ir.ui.view" id="view_analytic_billing_plan_line_form">
+            <field name="name">analytic.billing.plan.line.form</field>
+            <field name="model">analytic.billing.plan.line</field>
+            <field name="type">form</field>
+            <field name="inherit_id"
+                   ref="analytic_billing_plan.view_analytic_billing_plan_line_form"/>
+            <field name="arch" type="xml">
+                <group name="project_data" position="inside">
+                    <field name="change_id"/>
+                </group>
+            </field>
+        </record>
+        <!--TREE-->
+        <record id="view_analytic_billing_plan_line_tree" model="ir.ui.view">
+            <field name="name">analytic.billing.plan.line.tree</field>
+            <field name="model">analytic.billing.plan.line</field>
+            <field name="type">tree</field>
+            <field name="inherit_id"
+                   ref="analytic_billing_plan.view_analytic_billing_plan_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="account_id" position="after">
+                    <field name="change_id"/>
+                </field>
+            </field>
+        </record>
+        <!--SEARCH-->
+        <record id="view_analytic_billing_plan_line_filter" model="ir.ui.view">
+            <field name="name">analytic.billing.plan.line.select</field>
+            <field name="model">analytic.billing.plan.line</field>
+            <field name="inherit_id" ref="analytic_billing_plan.view_analytic_billing_plan_line_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='journal_id']" position="after">
+                    <filter string="Requirement" context="{'change_id_visible': False}"
+                            domain="[('change_id','&lt;&gt;',False)]"
+                            help="Show only change based deliverables"/>
+                </xpath>
+               <filter name="Project" position="after">
+                    <filter string="Change"
+                            name="group_change_id"
+                            domain="[]"
+                            context="{'group_by' : 'change_id'}"/>
+               </filter>
+            </field>
+        </record>
+
+    </data>
+</openerp>

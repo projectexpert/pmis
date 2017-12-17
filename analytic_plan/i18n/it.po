@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-08 09:50+0200\n"
-"PO-Revision-Date: 2017-07-08 09:54+0200\n"
+"POT-Creation-Date: 2017-12-17 13:36+0000\n"
+"PO-Revision-Date: 2017-12-17 14:56+0100\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.0.5\n"
 
 #. module: analytic_plan
 #: model:ir.actions.act_window,help:analytic_plan.action_account_analytic_plan_journal_tree
@@ -146,7 +146,7 @@ msgid "Analytic Plan copy versions"
 msgstr "Coppia versioni piano analitico"
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:98
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:95
 #, python-format
 msgid "Analytic Planning Lines"
 msgstr "Righe piano analitico"
@@ -273,44 +273,21 @@ msgid "Display Name"
 msgstr "Nome visualizzato"
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/plan_analytic_lines.py:193
-#, python-format
-msgid "Entries: "
-msgstr "Inserimenti:"
-
-#. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:59
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:66
-#, python-format
-msgid "Error !"
-msgstr "Errore!"
-
-#. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
-msgid "Fin. Account"
-msgstr "Conto finanziario"
-
-#. module: analytic_plan
 #: selection:account.analytic.plan.journal,type:0
 msgid "General"
 msgstr "Generale"
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,general_account_id:0
-msgid "General Account"
-msgstr "Conto generale"
-
-#. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_form
-msgid "General Accounting"
-msgstr "Contabilità generale"
-
-#. module: analytic_plan
 #: help:account.analytic.plan.journal,type:0
+#, fuzzy
+#| msgid ""
+#| "Gives the type of the analytic journal. When it needs for a document (eg: "
+#| "an invoice) to create analytic entries, OpenERP will look  for a matching "
+#| "journal of the same type."
 msgid ""
-"Gives the type of the analytic journal. When it needs for a document (eg: an "
-"invoice) to create analytic entries, OpenERP will look  for a matching "
-"journal of the same type."
+"Gives the type of the analytic journal. When a document needs (eg: an "
+"invoice) the creation of analytic entries, Odoo looks for a matching journal "
+"of the same type."
 msgstr ""
 "Gives the type of the analytic journal. When it needs for a document (eg: an "
 "invoice) to create analytic entries, OpenERP will look  for a matching "
@@ -330,24 +307,6 @@ msgstr "Raggruppa per..."
 #: field:analytic.plan.copy.version,id:0
 msgid "ID"
 msgstr "ID"
-
-#. module: analytic_plan
-#: help:account.analytic.plan.journal,active:0
-msgid ""
-"If the active field is set to False, it will allow you to hide the analytic "
-"journal without removing it."
-msgstr ""
-"Quando il campo attivo viene impostato come falso, permette di nascondere il "
-"giornale analitico senza rimuoverlo."
-
-#. module: analytic_plan
-#: help:account.analytic.plan.version,active:0
-msgid ""
-"If the active field is set to False, it will allow you to hide the analytic "
-"planning version without removing it."
-msgstr ""
-"Quando il campo attivo viene impostato come falso, permette di nascondere la "
-"versione di pianificazione senza rimuoverla."
 
 #. module: analytic_plan
 #: field:analytic.plan.copy.version,include_child:0
@@ -408,13 +367,13 @@ msgid "Notes"
 msgstr "Note"
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/analytic_plan_version.py:62
+#: code:addons/analytic_plan/models/analytic_plan_version.py:59
 #, python-format
 msgid "Only one default commitments version can exist."
 msgstr "Può esistere una sola versione d'impegno"
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/analytic_plan_version.py:77
+#: code:addons/analytic_plan/models/analytic_plan_version.py:74
 #, python-format
 msgid "Only one default plan version can exist."
 msgstr "Può esistere solo una versione predefinita del piano."
@@ -423,6 +382,11 @@ msgstr "Può esistere solo una versione predefinita del piano."
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Others"
 msgstr "Altro"
+
+#. module: analytic_plan
+#: field:account.analytic.line.plan,partner_id:0
+msgid "Partner"
+msgstr ""
 
 #. module: analytic_plan
 #: model:ir.ui.menu,name:analytic_plan.project_plan
@@ -475,15 +439,17 @@ msgid "Planning Analytic Entries"
 msgstr "Inserimenti di pianificazione analitica"
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,journal_id:0
-msgid "Planning Analytic Journal"
-msgstr "Giornale di pianificazione analitica"
-
-#. module: analytic_plan
 #: model:ir.actions.act_window,name:analytic_plan.action_account_analytic_plan_journal_form
 #: model:ir.ui.menu,name:analytic_plan.account_def_analytic_plan_journal
 msgid "Planning Analytic Journals"
 msgstr "Giornali di pianificazione analitica"
+
+#. module: analytic_plan
+#: field:account.analytic.line.plan,journal_id:0
+#, fuzzy
+#| msgid "Planning Journal Code"
+msgid "Planning Journal"
+msgstr "Codice del giornale di pianificazione"
 
 #. module: analytic_plan
 #: field:account.analytic.plan.journal,code:0
@@ -543,11 +509,6 @@ msgid "Quantity"
 msgstr "Quantità"
 
 #. module: analytic_plan
-#: field:account.analytic.account,quantity_plan:0
-msgid "Quantity Debit"
-msgstr "Quantità debito"
-
-#. module: analytic_plan
 #: field:account.analytic.line.plan,ref:0
 msgid "Ref."
 msgstr "Rif."
@@ -578,13 +539,26 @@ msgid "Source Planning Version"
 msgstr "Source Planning Version"
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/plan_analytic_lines.py:123
+#: help:account.analytic.plan.journal,active:0
+#, fuzzy
+#| msgid ""
+#| "If the active field is set to False, it will allow you to hide the "
+#| "analytic journal without removing it."
+msgid ""
+"The active field set to False allows hiding the analytic journal without "
+"removing it."
+msgstr ""
+"Quando il campo attivo viene impostato come falso, permette di nascondere il "
+"giornale analitico senza rimuoverlo."
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/analytic_plan_line.py:135
 #, python-format
 msgid "There is no expense account defined for this product: \"%s\" (id:%d)"
 msgstr "Il prodotto: \"%s\" (id:%d) non ha un conto di costi definito."
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/plan_analytic_lines.py:134
+#: code:addons/analytic_plan/models/analytic_plan_line.py:146
 #, python-format
 msgid "There is no income account defined for this product: \"%s\" (id:%d)"
 msgstr "Il prodotto: \"%s\" (id:%d) non ha un conto dei ricavi definito."
@@ -596,7 +570,9 @@ msgstr "Totale"
 
 #. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_tree
-msgid "Total Quantity"
+#, fuzzy
+#| msgid "Total Quantity"
+msgid "Total unit_amount"
 msgstr "Quantità totale"
 
 #. module: analytic_plan
@@ -622,9 +598,43 @@ msgid "Version"
 msgstr "Versione"
 
 #. module: analytic_plan
+#: help:account.analytic.plan.version,active:0
+#, fuzzy
+#| msgid ""
+#| "If the active field is set to False, it will allow you to hide the "
+#| "analytic planning version without removing it."
+msgid ""
+"When active field is set to False, it allows you to hide the analytic "
+"planning version without removing it."
+msgstr ""
+"Quando il campo attivo viene impostato come falso, permette di nascondere la "
+"versione di pianificazione senza rimuoverla."
+
+#. module: analytic_plan
 #: view:account.analytic.account:analytic_plan.view_account_analytic_account_form_analytic_plan
 msgid "and revenues"
 msgstr "e ricavi"
+
+#~ msgid "Entries: "
+#~ msgstr "Inserimenti:"
+
+#~ msgid "Error !"
+#~ msgstr "Errore!"
+
+#~ msgid "Fin. Account"
+#~ msgstr "Conto finanziario"
+
+#~ msgid "General Account"
+#~ msgstr "Conto generale"
+
+#~ msgid "General Accounting"
+#~ msgstr "Contabilità generale"
+
+#~ msgid "Planning Analytic Journal"
+#~ msgstr "Giornale di pianificazione analitica"
+
+#~ msgid "Quantity Debit"
+#~ msgstr "Quantità debito"
 
 #~ msgid "Amount Currency"
 #~ msgstr "Amm. in valuta"
