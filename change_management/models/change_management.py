@@ -322,6 +322,12 @@ class CMChange (models.Model):
         states={'draft': [('readonly', False)],
                 'active': [('readonly', False)]},
     )
+    # active_deliverable_ids = fields.One2many(
+    #     comodel_name='analytic.billing.plan.line',
+    #     inverse_name='change_id',
+    #     string='Active deliverables',
+    #     domain=[('version_id', '=', 'active_analytic_planning_version')]
+    # )
 
     # ##### DEFINITIONS #####  #
 

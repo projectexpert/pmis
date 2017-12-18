@@ -110,7 +110,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                                             string="Plan a deliverable"
                                             type="object"/>
                                 </group>
-                                <group string="Deliverables List">
+                                <group string="Deliverables List" attrs="{'invisible': [('type_id', '!=', 'requirement')]}">
                                     <field name="deliverable_ids" readonly="1" nolabel="1">
                                         <tree>
                                             <field name="date"/>
@@ -120,6 +120,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                                             <field name="unit_amount" required="True"/>
                                             <field name="unit_price" required="True"/>
                                             <field name="amount"/>
+                                            <field name="version_id"/>
                                             <field name="has_active_order"/>
                                         </tree>
                                     </field>
