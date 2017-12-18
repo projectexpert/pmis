@@ -6,7 +6,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 -->
 <openerp>
 	<data>
-		<record model="ir.ui.view" id="change_tree_view">
+		<record id="change_tree_view" model="ir.ui.view">
 			<field name="name">change.management.change.tree.view</field>
 			<field name="model">change.management.change</field>
 			<field name="priority">10</field>
@@ -32,7 +32,21 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 			</field>
 		</record>
 
-		<record model="ir.ui.view" id="change_form_view">
+        <!--BUTTON TASKS-->
+        <record id="action_show_cr_actions" model="ir.actions.act_window">
+            <field name="name">Actions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">project.task</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('change_id','=', active_id)]</field>
+			<field name="context">{
+                'search_default_active_tasks': 1,
+                'default_change_id': active_id
+                }</field>
+        </record>
+
+		<record id="change_form_view" model="ir.ui.view">
 			<field name="name">change.management.change.form.view</field>
 			<field name="model">change.management.change</field>
 			<field name="priority">5</field>
@@ -78,10 +92,32 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                         <div class="oe_left">
                             <field name="kanban_state"
                                    class="oe_inline"
+                                   icon="fa-tasks"
                                    widget="kanban_state_selection"/>
                         </div>
                         <div class="oe_right oe_button_box"
                              name="buttons" groups="base.group_user">
+                            <button help="Responses"
+                                    attrs="{'invisible': [('type_id', '=', 'requirement')]}"
+                                    class="oe_inline oe_stat_button"
+                                    name="%(change_management.action_show_cr_actions)d"
+                                    type="action"
+                                    icon="fa-list-ol"
+                                    context="{'default_change_id': active_id}">
+                                <field name="change_response_count"
+                                       string="Tasks"
+                                       widget="statinfo"/>
+                            </button>
+                            <button name="open_deliverable_line"
+                                    attrs="{'invisible': [('type_id', '!=', 'requirement')]}"
+                                    class="oe_inline oe_stat_button"
+                                    icon="fa-money"
+                                    groups="project.group_project_user, project.group_project_manager"
+                                    type="object">
+                                <field name="deliverable_count"
+                                       widget="statinfo"
+                                       string="Deliverables"/>
+                            </button>
 
                         </div>
                         <label for="description" class="oe_edit_only"/>
@@ -107,8 +143,15 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                                 </group>
                                 <group string="Deliverables Plan" attrs="{'invisible': [('type_id', '!=', 'requirement')]}">
                                     <button name="open_deliverable_line"
-                                            string="Plan a deliverable"
-                                            type="object"/>
+                                            attrs="{'invisible': [('type_id', '!=', 'requirement')]}"
+                                            class="oe_inline oe_stat_button"
+                                            icon="fa-money"
+                                            groups="project.group_project_user, project.group_project_manager"
+                                            type="object">
+                                        <field name="deliverable_count"
+                                               widget="statinfo"
+                                               string="Add Deliverable"/>
+                                    </button>
                                 </group>
                                 <group string="Deliverables List" attrs="{'invisible': [('type_id', '!=', 'requirement')]}">
                                     <field name="deliverable_ids" readonly="1" nolabel="1">
@@ -119,7 +162,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                                             <field name="product_uom_id"/>
                                             <field name="unit_amount" required="True"/>
                                             <field name="unit_price" required="True"/>
-                                            <field name="amount"/>
+                                            <field name="amount" sum="Total"/>
                                             <field name="version_id"/>
                                             <field name="has_active_order"/>
                                         </tree>
@@ -130,19 +173,23 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                                            string="Response Actions"
                                            context="{'user_invisible': False, 'default_project_id': project_id}"
                                            nolabel="1">
-                                        <tree editable="bottom">
+                                        <tree editable="bottom"
+                                              colors="red:state in 'new';gray:state in 'cancelled';green:state in 'done';#b818ce:state in 'waiting';">
                                             <field name="sequence" widget="handle"/>
                                             <field name="priority"/>
                                             <field name="topic"/>
                                             <field name="current_sit"/>
                                             <field name="desired_sit"/>
-                                            <field name="name"/>
+                                            <field name="name" invisible="1"/>
                                             <field name="change_id" invisible="1"/>
                                             <field name="project_id" invisible="1"/>
-                                            <field name="duration"/>
+                                            <field name="duration" sum="Total"/>
+                                            <field name="planned_hours" sum="Total"/>
                                             <field name="user_id"/>
-                                            <field name="date_earliest_start"/>
+                                            <!--<field name="date_earliest_start"/>-->
                                             <field name="date_latest_finish"/>
+                                            <field name="stage_id" readonly="1"/>
+                                            <field name="state" invisible="1"/>
                                         </tree>
                                     </field>
                                 </group>
@@ -367,7 +414,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
         <!-- ACTIONS  -->
         <!--MENUS-->
-		<record model="ir.actions.act_window" id="action_show_changes">
+		<record id="action_show_changes" model="ir.actions.act_window">
 			<field name="name">Request Backlog</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">change.management.change</field>
@@ -379,7 +426,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
             }</field>
 		</record>
 
-        <record model="ir.actions.act_window" id="menu_show_changes">
+        <record id="menu_show_changes" model="ir.actions.act_window">
 			<field name="name">Request Backlog</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">change.management.change</field>
@@ -393,7 +440,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
             <field name="domain">[('type_id', '=', 'change')]</field>
 		</record>
 
-        <record model="ir.actions.act_window" id="menu_show_risks">
+        <record id="menu_show_risks" model="ir.actions.act_window">
 			<field name="name">Request Backlog</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">change.management.change</field>
@@ -407,7 +454,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
             <field name="domain">[('type_id', '=', 'risk')]</field>
 		</record>
 
-        <record model="ir.actions.act_window" id="menu_show_requirements">
+        <record id="menu_show_requirements" model="ir.actions.act_window">
 			<field name="name">Request Backlog</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">change.management.change</field>
@@ -422,7 +469,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 		</record>
 
         <!--BUTTON CHANGES-->
-        <record model="ir.actions.act_window" id="action_show_cr">
+        <record id="action_show_cr" model="ir.actions.act_window">
 			<field name="name">Changes</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">change.management.change</field>
@@ -438,7 +485,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
             <field name="domain">[('type_id', '=', 'change')]</field>
 		</record>
         <!--BUTTON REQUIREMENTS-->
-        <record model="ir.actions.act_window" id="action_show_requirements">
+        <record id="action_show_requirements" model="ir.actions.act_window">
 			<field name="name">Requirements</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">change.management.change</field>
@@ -454,7 +501,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
             <field name="domain">[('type_id', '=', 'requirement')]</field>
 		</record>
         <!--BUTTON RISKS-->
-        <record model="ir.actions.act_window" id="action_show_risks">
+        <record id="action_show_risks" model="ir.actions.act_window">
 			<field name="name">Risks</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">change.management.change</field>
@@ -469,8 +516,8 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
             }</field>
             <field name="domain">[('type_id', '=', 'risk')]</field>
 		</record>
-
-        <record model="ir.actions.act_window" id="action_show_actions">
+        <!--MENU TASKS-->
+        <record id="action_show_actions" model="ir.actions.act_window">
             <field name="name">Actions</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">project.task</field>

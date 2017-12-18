@@ -322,12 +322,14 @@ class CMChange (models.Model):
         states={'draft': [('readonly', False)],
                 'active': [('readonly', False)]},
     )
-    # active_deliverable_ids = fields.One2many(
-    #     comodel_name='analytic.billing.plan.line',
-    #     inverse_name='change_id',
-    #     string='Active deliverables',
-    #     domain=[('version_id', '=', 'active_analytic_planning_version')]
-    # )
+    deliverable_count = fields.Integer(
+        compute='_compute_deliverable_count', type='integer'
+    )
+
+    @api.depends('deliverable_ids')
+    def _compute_deliverable_count(self):
+        for record in self:
+            record.deliverable_count = len(record.deliverable_ids)
 
     # ##### DEFINITIONS #####  #
 
