@@ -117,7 +117,6 @@ class AnalyticResourcePlanLine(models.Model):
 
     @api.multi
     def _make_purchase_request(self):
-        res = []
         request_obj = self.env['purchase.request']
         request_line_obj = self.env['purchase.request.line']
         company_id = False
@@ -151,7 +150,5 @@ class AnalyticResourcePlanLine(models.Model):
                 request_id, line.unit_amount)
             request_line_id = request_line_obj.create(
                 request_line_data)
-            values = {
-                'purchase_request_lines': [(4, request_line_id.id)]
-            }
+            self.purchase_request_lines = [(4, request_line_id.id)]
         return True
