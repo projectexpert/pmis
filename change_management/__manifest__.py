@@ -5,7 +5,7 @@
 {
     'name': 'Change Management',
     'version': '10.0.1.0.0',
-    'author': 'Matmoz d.o.o., '
+    'author': 'Matmoz d.o.o., Odoo Community Association (OCA),'
               'Project Expert Team',
     'website': 'http://project.expert',
     'category': 'Project Management',

@@ -4,9 +4,6 @@
 
 
 def migrate(cr, version):
-	new_proposer = False
     cr.execute(
         'SELECT id, stakeholder_id_premigration FROM change_management_change'
     )
-    for record_id, old_proposer in cr.fetchall():
-        new_proposer = None
