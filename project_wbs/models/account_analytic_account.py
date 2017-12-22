@@ -11,47 +11,48 @@ from openerp import api, fields, models, _
 class AccountAnalyticAccount(models.Model):
     _inherit = 'account.analytic.account'
 
-    @api.multi
-    def get_child_accounts(self):
-        result = {}
-        for curr_id in self.ids:
-            result[curr_id] = True
-        # Now add the children
-        self.env.cr.execute('''
-        WITH RECURSIVE children AS (
-        SELECT parent_id, id
-        FROM account_analytic_account
-        WHERE parent_id IN %s
-        UNION ALL
-        SELECT a.parent_id, a.id
-        FROM account_analytic_account a
-        JOIN children b ON(a.parent_id = b.id)
-        )
-        SELECT * FROM children order by parent_id
-        ''', (tuple(self.ids),))
-        res = self.env.cr.fetchall()
-        for x, y in res:
-            result[y] = True
-        return result
-
-    @api.multi
-    @api.depends('code')
-    def _complete_wbs_code_calc(self):
-        for account in self:
-            data = []
-            acc = account
-            while acc:
-                if acc.code:
-                    data.insert(0, acc.code)
-
-                acc = acc.parent_id
-            if data:
-                if len(data) >= 2:
-                    data = '/'.join(data)
-                else:
-                    data = data[0]
-                data = '[' + data + '] '
-            account.complete_wbs_code = data or ''
+    # TODO: uncomment when function + store is solved in new api
+    # @api.multi
+    # def get_child_accounts(self):
+    #     result = {}
+    #     for curr_id in self.ids:
+    #         result[curr_id] = True
+    #     # Now add the children
+    #     self.env.cr.execute('''
+    #     WITH RECURSIVE children AS (
+    #     SELECT parent_id, id
+    #     FROM account_analytic_account
+    #     WHERE parent_id IN %s
+    #     UNION ALL
+    #     SELECT a.parent_id, a.id
+    #     FROM account_analytic_account a
+    #     JOIN children b ON(a.parent_id = b.id)
+    #     )
+    #     SELECT * FROM children order by parent_id
+    #     ''', (tuple(self.ids),))
+    #     res = self.env.cr.fetchall()
+    #     for x, y in res:
+    #         result[y] = True
+    #     return result
+    #
+    # @api.multi
+    # @api.depends('code')
+    # def _complete_wbs_code_calc(self):
+    #     for account in self:
+    #         data = []
+    #         acc = account
+    #         while acc:
+    #             if acc.code:
+    #                 data.insert(0, acc.code)
+    #
+    #             acc = acc.parent_id
+    #         if data:
+    #             if len(data) >= 2:
+    #                 data = '/'.join(data)
+    #             else:
+    #                 data = data[0]
+    #             data = '[' + data + '] '
+    #         account.complete_wbs_code = data or ''
 
     @api.multi
     @api.depends('name')
@@ -100,8 +101,10 @@ class AccountAnalyticAccount(models.Model):
             return context['default_parent_id']
         if isinstance(context.get('default_parent_id'), basestring):
             analytic_account_name = context['default_parent_id']
-            analytic_account_ids = self.env['account.analytic.account'].name_search(
-                name=analytic_account_name)
+            analytic_account_ids = self.env[
+                'account.analytic.account'].name_search(
+                name=analytic_account_name
+            )
             if len(analytic_account_ids) == 1:
                 return analytic_account_ids[0][0]
         return None
@@ -144,18 +147,20 @@ class AccountAnalyticAccount(models.Model):
         string='Level',
         readonly=True
     )
-    complete_wbs_code_calc = fields.Char(
-        compute="_complete_wbs_code_calc",
-        string='Full WBS Code',
-        help='Computed WBS code'
-    )
-    complete_wbs_code = fields.Char(
-        compute="_complete_wbs_code_calc",
-        string='Full WBS Code',
-        help='The full WBS code describes the full path of this component '
-             'within the project WBS hierarchy',
-        store=True
-    )
+    # TODO: find a better way for function + store in new api
+    # complete_wbs_code_calc = fields.Char(
+    #     compute="_complete_wbs_code_calc",
+    #     string='Full WBS Code',
+    #     help='Computed WBS code'
+    # )
+    # complete_wbs_code = fields.Char(
+    #     compute="_complete_wbs_code_calc",
+    #     inverse="get_child_accounts",
+    #     string='Full WBS Code',
+    #     help='The full WBS code describes the full path of this component '
+    #          'within the project WBS hierarchy',
+    #     store=True
+    # )
     complete_wbs_name = fields.Char(
         compute="_complete_wbs_name_calc",
         string='Full WBS path',

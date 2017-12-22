@@ -164,12 +164,8 @@ class Project(models.Model):
         string="Project Hierarchy",
         compute="_child_compute"
     )
-    c_wbs_code = fields.Char(
-        compute="_get_analytic_complete_wbs_code",
-        string='WBS Code',
-        readonly=True,
-        store=True
-    )
+    c_wbs_code = fields.Char(related='analytic_account_id.complete_wbs_code',
+                             string='WBS Code', store=True, readonly=True)
 
     _order = "c_wbs_code"
 
@@ -190,51 +186,6 @@ class Project(models.Model):
         project = projectbycode + projectbyname
 
         return project.name_get()
-
-    # def action_open_child_view(
-    #         self, cr, uid, ids, module, act_window,
-    #         context=None
-    # ):
-    #     """
-    #     :return dict: dictionary value for created view
-    #     """
-    #     if context is None:
-    #         context = {}
-    #     project = self.browse(
-    #         cr, uid, ids[0], context
-    #     )
-    #     child_project_ids = self.pool.get(
-    #         'project.project').search(
-    #         cr, uid, [('parent_id', '=', project.analytic_account_id.id)]
-    #     )
-    #     res = self.pool.get('ir.actions.act_window').for_xml_id(
-    #         cr, uid, module, act_window, context
-    #     )
-    #     res['context'] = {
-    #         'default_parent_id': (
-    #             project.analytic_account_id and
-    #             project.analytic_account_id.id or
-    #             False
-    #         ),
-    #         'default_partner_id': (
-    #             project.partner_id and
-    #             project.partner_id.id or
-    #             False
-    #         ),
-    #         'default_user_id': (
-    #             project.user_id and
-    #             project.user_id.id or
-    #             False
-    #         ),
-    #         'default_state': (
-    #             project.state or
-    #             False
-    #         ),
-    #     }
-    #     res['domain'] = "[('id', 'in', [" + ','.join(
-    #         map(str, child_project_ids)) + "])]"
-    #     res['nodestroy'] = False
-    #     return res
 
     @api.multi
     def action_open_child_view(self, module, act_window):
