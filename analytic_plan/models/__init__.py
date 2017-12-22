@@ -6,4 +6,5 @@
 from . import analytic_plan_version
 from . import analytic_plan_journal
 from . import analytic_plan_line
+from . import analytic_plan_oldapi
 from . import analytic_plan
