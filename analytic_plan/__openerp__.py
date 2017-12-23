@@ -5,7 +5,7 @@
 
 {
     'name': 'Analytic Plan',
-    'version': '8.0.3.0.1',
+    'version': '8.0.3.0.2',
     'author':   'Eficent, '
                 'Matmoz, '
                 'Luxim, '

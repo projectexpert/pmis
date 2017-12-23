@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-17 13:36+0000\n"
-"PO-Revision-Date: 2017-12-17 13:36+0000\n"
+"POT-Creation-Date: 2017-12-23 06:18+0000\n"
+"PO-Revision-Date: 2017-12-23 06:18+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -37,6 +37,7 @@ msgid "<p>\n"
 msgstr ""
 
 #. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
 #: field:account.analytic.plan.journal,active:0
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_search
 #: field:account.analytic.plan.version,active:0
@@ -45,7 +46,6 @@ msgstr ""
 
 #. module: analytic_plan
 #: view:account.analytic.account:analytic_plan.view_account_analytic_account_form_inh
-#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
 #: view:project.project:analytic_plan.edit_project_inh
 msgid "Active Plan Version"
 msgstr ""
@@ -364,13 +364,24 @@ msgid "Partner"
 msgstr ""
 
 #. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
+msgid "Passive"
+msgstr ""
+
+#. module: analytic_plan
 #: model:ir.ui.menu,name:analytic_plan.project_plan
 msgid "Plan"
 msgstr ""
 
 #. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
 #: model:ir.model,name:analytic_plan.model_account_analytic_plan_version
 msgid "Plan Version"
+msgstr ""
+
+#. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
+msgid "Planned Active"
 msgstr ""
 
 #. module: analytic_plan
@@ -391,6 +402,11 @@ msgstr ""
 #. module: analytic_plan
 #: field:account.analytic.account,debit_plan:0
 msgid "Planned Debit"
+msgstr ""
+
+#. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
+msgid "Planned Passive"
 msgstr ""
 
 #. module: analytic_plan
@@ -479,6 +495,11 @@ msgstr ""
 #. module: analytic_plan
 #: field:account.analytic.line.plan,unit_amount:0
 msgid "Quantity"
+msgstr ""
+
+#. module: analytic_plan
+#: field:account.analytic.account,quantity_plan:0
+msgid "Quantity Debit"
 msgstr ""
 
 #. module: analytic_plan

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-17 13:36+0000\n"
-"PO-Revision-Date: 2017-12-17 14:56+0100\n"
+"POT-Creation-Date: 2017-12-23 06:18+0000\n"
+"PO-Revision-Date: 2017-12-23 07:22+0100\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -51,6 +51,7 @@ msgstr ""
 "            "
 
 #. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
 #: field:account.analytic.plan.journal,active:0
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_search
 #: field:account.analytic.plan.version,active:0
@@ -59,7 +60,6 @@ msgstr "Attivo"
 
 #. module: analytic_plan
 #: view:account.analytic.account:analytic_plan.view_account_analytic_account_form_inh
-#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
 #: view:project.project:analytic_plan.edit_project_inh
 msgid "Active Plan Version"
 msgstr "Versione attiva del piano"
@@ -279,19 +279,11 @@ msgstr "Generale"
 
 #. module: analytic_plan
 #: help:account.analytic.plan.journal,type:0
-#, fuzzy
-#| msgid ""
-#| "Gives the type of the analytic journal. When it needs for a document (eg: "
-#| "an invoice) to create analytic entries, OpenERP will look  for a matching "
-#| "journal of the same type."
 msgid ""
 "Gives the type of the analytic journal. When a document needs (eg: an "
 "invoice) the creation of analytic entries, Odoo looks for a matching journal "
 "of the same type."
 msgstr ""
-"Gives the type of the analytic journal. When it needs for a document (eg: an "
-"invoice) to create analytic entries, OpenERP will look  for a matching "
-"journal of the same type."
 
 #. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
@@ -386,7 +378,12 @@ msgstr "Altro"
 #. module: analytic_plan
 #: field:account.analytic.line.plan,partner_id:0
 msgid "Partner"
-msgstr ""
+msgstr "Partner"
+
+#. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
+msgid "Passive"
+msgstr "Passivo"
 
 #. module: analytic_plan
 #: model:ir.ui.menu,name:analytic_plan.project_plan
@@ -394,9 +391,15 @@ msgid "Plan"
 msgstr "Plan"
 
 #. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
 #: model:ir.model,name:analytic_plan.model_account_analytic_plan_version
 msgid "Plan Version"
 msgstr "Versione del piano"
+
+#. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
+msgid "Planned Active"
+msgstr "Pian. attivo"
 
 #. module: analytic_plan
 #: field:account.analytic.account,balance_plan:0
@@ -417,6 +420,11 @@ msgstr "Credito pianificato"
 #: field:account.analytic.account,debit_plan:0
 msgid "Planned Debit"
 msgstr "Debito pianificato"
+
+#. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
+msgid "Planned Passive"
+msgstr "Pian. passivo"
 
 #. module: analytic_plan
 #: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
@@ -446,10 +454,8 @@ msgstr "Giornali di pianificazione analitica"
 
 #. module: analytic_plan
 #: field:account.analytic.line.plan,journal_id:0
-#, fuzzy
-#| msgid "Planning Journal Code"
 msgid "Planning Journal"
-msgstr "Codice del giornale di pianificazione"
+msgstr "Giornale di pianificazione"
 
 #. module: analytic_plan
 #: field:account.analytic.plan.journal,code:0
@@ -509,6 +515,11 @@ msgid "Quantity"
 msgstr "Quantità"
 
 #. module: analytic_plan
+#: field:account.analytic.account,quantity_plan:0
+msgid "Quantity Debit"
+msgstr "Quantità debito"
+
+#. module: analytic_plan
 #: field:account.analytic.line.plan,ref:0
 msgid "Ref."
 msgstr "Rif."
@@ -540,10 +551,6 @@ msgstr "Source Planning Version"
 
 #. module: analytic_plan
 #: help:account.analytic.plan.journal,active:0
-#, fuzzy
-#| msgid ""
-#| "If the active field is set to False, it will allow you to hide the "
-#| "analytic journal without removing it."
 msgid ""
 "The active field set to False allows hiding the analytic journal without "
 "removing it."
@@ -570,8 +577,6 @@ msgstr "Totale"
 
 #. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_tree
-#, fuzzy
-#| msgid "Total Quantity"
 msgid "Total unit_amount"
 msgstr "Quantità totale"
 
@@ -599,10 +604,6 @@ msgstr "Versione"
 
 #. module: analytic_plan
 #: help:account.analytic.plan.version,active:0
-#, fuzzy
-#| msgid ""
-#| "If the active field is set to False, it will allow you to hide the "
-#| "analytic planning version without removing it."
 msgid ""
 "When active field is set to False, it allows you to hide the analytic "
 "planning version without removing it."
@@ -632,9 +633,6 @@ msgstr "e ricavi"
 
 #~ msgid "Planning Analytic Journal"
 #~ msgstr "Giornale di pianificazione analitica"
-
-#~ msgid "Quantity Debit"
-#~ msgstr "Quantità debito"
 
 #~ msgid "Amount Currency"
 #~ msgstr "Amm. in valuta"

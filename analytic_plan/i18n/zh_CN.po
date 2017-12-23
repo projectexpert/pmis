@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-08 09:54+0200\n"
-"PO-Revision-Date: 2017-07-08 09:55+0200\n"
+"POT-Creation-Date: 2017-12-23 06:18+0000\n"
+"PO-Revision-Date: 2017-12-23 07:23+0100\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.0.5\n"
 
 #. module: analytic_plan
 #: model:ir.actions.act_window,help:analytic_plan.action_account_analytic_plan_journal_tree
@@ -51,6 +51,7 @@ msgstr ""
 "            "
 
 #. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
 #: field:account.analytic.plan.journal,active:0
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_search
 #: field:account.analytic.plan.version,active:0
@@ -59,7 +60,6 @@ msgstr "启用"
 
 #. module: analytic_plan
 #: view:account.analytic.account:analytic_plan.view_account_analytic_account_form_inh
-#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
 #: view:project.project:analytic_plan.edit_project_inh
 msgid "Active Plan Version"
 msgstr "启用的计划版本"
@@ -147,7 +147,7 @@ msgid "Analytic Plan copy versions"
 msgstr "分析计划副本版本"
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:98
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:95
 #, python-format
 msgid "Analytic Planning Lines"
 msgstr ""
@@ -276,44 +276,21 @@ msgid "Display Name"
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/plan_analytic_lines.py:193
-#, python-format
-msgid "Entries: "
-msgstr ""
-
-#. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:59
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:66
-#, python-format
-msgid "Error !"
-msgstr ""
-
-#. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
-msgid "Fin. Account"
-msgstr "财务账户"
-
-#. module: analytic_plan
 #: selection:account.analytic.plan.journal,type:0
 msgid "General"
 msgstr "总"
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,general_account_id:0
-msgid "General Account"
-msgstr "总账"
-
-#. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_form
-msgid "General Accounting"
-msgstr "普通会计"
-
-#. module: analytic_plan
 #: help:account.analytic.plan.journal,type:0
+#, fuzzy
+#| msgid ""
+#| "Gives the type of the analytic journal. When it needs for a document (eg: "
+#| "an invoice) to create analytic entries, OpenERP will look  for a matching "
+#| "journal of the same type."
 msgid ""
-"Gives the type of the analytic journal. When it needs for a document (eg: an "
-"invoice) to create analytic entries, OpenERP will look  for a matching "
-"journal of the same type."
+"Gives the type of the analytic journal. When a document needs (eg: an "
+"invoice) the creation of analytic entries, Odoo looks for a matching journal "
+"of the same type."
 msgstr ""
 "\n"
 "            给出分析分类账的类型。当凭证（如发票）\n"
@@ -335,30 +312,6 @@ msgstr "分组项..."
 #: field:analytic.plan.copy.version,id:0
 msgid "ID"
 msgstr "ID"
-
-#. module: analytic_plan
-#: help:account.analytic.plan.journal,active:0
-msgid ""
-"If the active field is set to False, it will allow you to hide the analytic "
-"journal without removing it."
-msgstr ""
-"\n"
-"            如果启用字段被置为不选，\n"
-"            将允许把分析分类账\n"
-"            进行隐藏而不用将其删除。\n"
-"            "
-
-#. module: analytic_plan
-#: help:account.analytic.plan.version,active:0
-msgid ""
-"If the active field is set to False, it will allow you to hide the analytic "
-"planning version without removing it."
-msgstr ""
-"\n"
-"            如果启用字段被置为不选，\n"
-"            将允许把分析用计划版本\n"
-"            进行隐藏而不用将其删除。\n"
-"            "
 
 #. module: analytic_plan
 #: field:analytic.plan.copy.version,include_child:0
@@ -419,13 +372,13 @@ msgid "Notes"
 msgstr "备注"
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/analytic_plan_version.py:62
+#: code:addons/analytic_plan/models/analytic_plan_version.py:59
 #, python-format
 msgid "Only one default commitments version can exist."
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/analytic_plan_version.py:77
+#: code:addons/analytic_plan/models/analytic_plan_version.py:74
 #, python-format
 msgid "Only one default plan version can exist."
 msgstr "默认计划版本"
@@ -436,14 +389,32 @@ msgid "Others"
 msgstr "其他"
 
 #. module: analytic_plan
+#: field:account.analytic.line.plan,partner_id:0
+msgid "Partner"
+msgstr ""
+
+#. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
+msgid "Passive"
+msgstr ""
+
+#. module: analytic_plan
 #: model:ir.ui.menu,name:analytic_plan.project_plan
 msgid "Plan"
 msgstr "计划"
 
 #. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
 #: model:ir.model,name:analytic_plan.model_account_analytic_plan_version
 msgid "Plan Version"
 msgstr "计划版本"
+
+#. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
+#, fuzzy
+#| msgid "Planned costs"
+msgid "Planned Active"
+msgstr "计划成本"
 
 #. module: analytic_plan
 #: field:account.analytic.account,balance_plan:0
@@ -467,6 +438,13 @@ msgstr "计划记入借方"
 
 #. module: analytic_plan
 #: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
+#, fuzzy
+#| msgid "Planned costs"
+msgid "Planned Passive"
+msgstr "计划成本"
+
+#. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
 msgid "Planned cost lines"
 msgstr ""
 
@@ -486,15 +464,17 @@ msgid "Planning Analytic Entries"
 msgstr "规划分析分录明细"
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,journal_id:0
-msgid "Planning Analytic Journal"
-msgstr "规划分析分类账"
-
-#. module: analytic_plan
 #: model:ir.actions.act_window,name:analytic_plan.action_account_analytic_plan_journal_form
 #: model:ir.ui.menu,name:analytic_plan.account_def_analytic_plan_journal
 msgid "Planning Analytic Journals"
 msgstr "规划分析分类账"
+
+#. module: analytic_plan
+#: field:account.analytic.line.plan,journal_id:0
+#, fuzzy
+#| msgid "Planning Journal Code"
+msgid "Planning Journal"
+msgstr "计划分类账编号"
 
 #. module: analytic_plan
 #: field:account.analytic.plan.journal,code:0
@@ -589,13 +569,29 @@ msgid "Source Planning Version"
 msgstr "源规划版本"
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/plan_analytic_lines.py:123
+#: help:account.analytic.plan.journal,active:0
+#, fuzzy
+#| msgid ""
+#| "If the active field is set to False, it will allow you to hide the "
+#| "analytic journal without removing it."
+msgid ""
+"The active field set to False allows hiding the analytic journal without "
+"removing it."
+msgstr ""
+"\n"
+"            如果启用字段被置为不选，\n"
+"            将允许把分析分类账\n"
+"            进行隐藏而不用将其删除。\n"
+"            "
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/analytic_plan_line.py:135
 #, python-format
 msgid "There is no expense account defined for this product: \"%s\" (id:%d)"
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/plan_analytic_lines.py:134
+#: code:addons/analytic_plan/models/analytic_plan_line.py:146
 #, python-format
 msgid "There is no income account defined for this product: \"%s\" (id:%d)"
 msgstr ""
@@ -607,7 +603,9 @@ msgstr "总计"
 
 #. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_tree
-msgid "Total Quantity"
+#, fuzzy
+#| msgid "Total Quantity"
+msgid "Total unit_amount"
 msgstr "合计数量"
 
 #. module: analytic_plan
@@ -633,9 +631,37 @@ msgid "Version"
 msgstr "版本"
 
 #. module: analytic_plan
+#: help:account.analytic.plan.version,active:0
+#, fuzzy
+#| msgid ""
+#| "If the active field is set to False, it will allow you to hide the "
+#| "analytic planning version without removing it."
+msgid ""
+"When active field is set to False, it allows you to hide the analytic "
+"planning version without removing it."
+msgstr ""
+"\n"
+"            如果启用字段被置为不选，\n"
+"            将允许把分析用计划版本\n"
+"            进行隐藏而不用将其删除。\n"
+"            "
+
+#. module: analytic_plan
 #: view:account.analytic.account:analytic_plan.view_account_analytic_account_form_analytic_plan
 msgid "and revenues"
 msgstr "和收入"
+
+#~ msgid "Fin. Account"
+#~ msgstr "财务账户"
+
+#~ msgid "General Account"
+#~ msgstr "总账"
+
+#~ msgid "General Accounting"
+#~ msgstr "普通会计"
+
+#~ msgid "Planning Analytic Journal"
+#~ msgstr "规划分析分类账"
 
 #, fuzzy
 #~ msgid "Amount Currency"
