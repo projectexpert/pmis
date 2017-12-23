@@ -5,7 +5,7 @@
 
 {
     'name': 'Change Management',
-    'version': '8.0.3.1.8',
+    'version': '8.0.3.1.9',
     'author': 'Matmoz d.o.o., '
               'Project Expert Team',
     'contributors': [

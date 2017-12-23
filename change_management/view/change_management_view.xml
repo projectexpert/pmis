@@ -359,6 +359,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 					<field name="color"/>
                     <field name="kanban_state"/>
 					<field name="message_summary"/>
+                    <field name="kanban_actions"/>
 					<templates>
 					  <t t-name="kanban-box">
 						<div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click">
@@ -387,10 +388,17 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 							  </ul>
 							</div>
 							<div style="padding-left: 0.5em">
-							  <span>
-								<label>Actions:</label>
-								<t t-esc="record.change_response_count.value"/>
-							  </span>
+							  <!--<span>-->
+								<!--<div>In progress:</div>-->
+                                  <!--<h6 class="fa fa-level-down oe_wbs_navigation text-center parentheading oe_kanban_action_a">-->
+                                    <!--<field name="kanban_actions"/>-->
+                                  <!--</h6>-->
+                                <div>
+                                  <t t-raw="record.kanban_actions.raw_value"/>
+                                </div>
+                                      <!--<t t-esc="child.name"/>-->
+                                  <!--</t>-->
+							  <!--</span>-->
 							</div>
 							<div class="oe_kanban_project_avatars">
 							  <img t-att-src="kanban_image('res.users', 'image_small', record.change_owner_id.raw_value)"

@@ -4,6 +4,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from openerp import tools, models, fields, api, _
+from openerp.tools import html_escape as escape
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -325,11 +326,43 @@ class CMChange (models.Model):
     deliverable_count = fields.Integer(
         compute='_compute_deliverable_count', type='integer'
     )
+    kanban_actions = fields.Text(
+        compute='_compute_kanban_actions'
+    )
 
     @api.depends('deliverable_ids')
     def _compute_deliverable_count(self):
         for record in self:
             record.deliverable_count = len(record.deliverable_ids)
+
+    @api.multi
+    def _compute_kanban_actions(self):
+        for record in self:
+            result_string3 = ''
+            for action in record.change_response_ids:
+                bounding_length = 25
+                tmp_list = action.name.split()
+                for index in range(len(tmp_list)):
+                    if len(tmp_list[index]) > bounding_length:
+                        tmp_list[index] = (
+                                tmp_list[index][:bounding_length] + '...')
+                tmp_action_name = " ".join(tmp_list)
+                if action.stage_id.state == 'open':
+                    tmp_string3 = escape(u': {0}'.format(tmp_action_name))
+                    result_string3 += u'<li><b>DOING</b>{}</li>'.format(
+                        tmp_string3
+                    )
+                elif action.stage_id.state == 'draft':
+                    tmp_string3 = escape(u': {0}'.format(tmp_action_name))
+                    result_string3 += u'<li><b>TODO</b>{}</li>'.format(
+                        tmp_string3
+                    )
+                elif action.stage_id.state == 'pending':
+                    tmp_string3 = escape(u': {0}'.format(tmp_action_name))
+                    result_string3 += u'<li><b>BLOCKED</b>{}</li>'.format(
+                        tmp_string3
+                    )
+            record.kanban_actions = '<ul>' + result_string3 + '</ul>'
 
     # ##### DEFINITIONS #####  #
 
