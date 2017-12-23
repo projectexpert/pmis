@@ -50,12 +50,15 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                             help="Active tasks"
                             name="active_tasks"/>
                 </xpath>
-               <filter name="project" position="after">
+                <filter name="project" position="after">
                     <filter string="Change"
                             name="group_change_id"
                             domain="[]"
                             context="{'group_by' : 'change_id'}"/>
-               </filter>
+                </filter>
+                <field name="stage_id" position="after">
+                    <field name="change_id" string="Request"/>
+                </field>
             </field>
         </record>
     </data>
