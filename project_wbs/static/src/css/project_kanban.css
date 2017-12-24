@@ -151,9 +151,9 @@
     /*margin-top: -2%;*/
 }
 
-/*.openerp .oe_list_group_name {*/
-    /*position: absolute;*/
-/*}*/
+.openerp .oe_list_group_name {
+    position: absolute;
+}
 
 .oe_kanban_content div:first-child {
     margin-right: 0 !important;

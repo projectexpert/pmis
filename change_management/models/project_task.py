@@ -16,10 +16,10 @@ class ProjectTask (models.Model):
         readonly=False,
         help="Origined from this request.",
     )
-    topic = fields.Char(
-        string='Topic/User Story',
-        required=True,
-    )
+    # topic = fields.Char(
+    #     string='Topic/User Story',
+    #     required=True,
+    # )
     current_sit = fields.Char(
         string="Curent situation",
         required=False
@@ -29,7 +29,7 @@ class ProjectTask (models.Model):
         required=False
     )
 
-    @api.onchange('topic')
-    def on_change_topic(self):
-        if self.topic:
-            self.name = self.topic
+    # @api.onchange('topic')
+    # def on_change_topic(self):
+    #     if self.topic:
+    #         self.name = self.topic

@@ -138,36 +138,36 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                         </group>
 			            <notebook>
    	            	        <page string="Description">
-                                <group string="Request Description">
+                                <group string="Request Description/User Epic">
                 		            <field name="description_event" nolabel="1"/>
                                 </group>
-                                <group string="Deliverables Plan" attrs="{'invisible': [('type_id', '!=', 'requirement')]}">
-                                    <button name="open_deliverable_line"
-                                            attrs="{'invisible': [('type_id', '!=', 'requirement')]}"
-                                            class="oe_inline oe_stat_button"
-                                            icon="fa-money"
-                                            groups="project.group_project_user, project.group_project_manager"
-                                            type="object">
-                                        <field name="deliverable_count"
-                                               widget="statinfo"
-                                               string="Add Deliverable"/>
-                                    </button>
-                                </group>
-                                <group string="Deliverables List" attrs="{'invisible': [('type_id', '!=', 'requirement')]}">
-                                    <field name="deliverable_ids" readonly="1" nolabel="1">
-                                        <tree>
-                                            <field name="date"/>
-                                            <field name="product_id"/>
-                                            <field name="name"/>
-                                            <field name="product_uom_id"/>
-                                            <field name="unit_amount" required="True"/>
-                                            <field name="unit_price" required="True"/>
-                                            <field name="amount" sum="Total"/>
-                                            <field name="version_id"/>
-                                            <field name="has_active_order"/>
-                                        </tree>
-                                    </field>
-                                </group>
+                                <!--<group string="Deliverables Plan" attrs="{'invisible': [('type_id', '!=', 'requirement')]}">-->
+                                    <!--<button name="open_deliverable_line"-->
+                                            <!--attrs="{'invisible': [('type_id', '!=', 'requirement')]}"-->
+                                            <!--class="oe_inline oe_stat_button"-->
+                                            <!--icon="fa-money"-->
+                                            <!--groups="project.group_project_user, project.group_project_manager"-->
+                                            <!--type="object">-->
+                                        <!--<field name="deliverable_count"-->
+                                               <!--widget="statinfo"-->
+                                               <!--string="Add Deliverable"/>-->
+                                    <!--</button>-->
+                                <!--</group>-->
+                                <!--<group string="Deliverables List" attrs="{'invisible': [('type_id', '!=', 'requirement')]}">-->
+                                    <!--<field name="deliverable_ids" readonly="1" nolabel="1">-->
+                                        <!--<tree>-->
+                                            <!--<field name="date"/>-->
+                                            <!--<field name="product_id"/>-->
+                                            <!--<field name="name"/>-->
+                                            <!--<field name="product_uom_id"/>-->
+                                            <!--<field name="unit_amount" required="True"/>-->
+                                            <!--<field name="unit_price" required="True"/>-->
+                                            <!--<field name="amount" sum="Total"/>-->
+                                            <!--<field name="version_id"/>-->
+                                            <!--<field name="has_active_order"/>-->
+                                        <!--</tree>-->
+                                    <!--</field>-->
+                                <!--</group>-->
                                 <group string="Gap Analysis and Action Plan" attrs="{'invisible': [('type_id', '=', 'requirement')]}">
                                     <field name="change_response_ids"
                                            string="Response Actions"
@@ -177,10 +177,10 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                                               colors="red:state in 'new';gray:state in 'cancelled';green:state in 'done';#b818ce:state in 'waiting';">
                                             <field name="sequence" widget="handle"/>
                                             <field name="priority"/>
-                                            <field name="topic"/>
+                                            <field name="name" string="Summary/User Story"/>
+                                            <!--<field name="topic"/>-->
                                             <field name="current_sit"/>
                                             <field name="desired_sit"/>
-                                            <field name="name" invisible="1"/>
                                             <field name="change_id" invisible="1"/>
                                             <field name="project_id" invisible="1"/>
                                             <field name="duration" sum="Total"/>
@@ -388,17 +388,9 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 							  </ul>
 							</div>
 							<div style="padding-left: 0.5em">
-							  <!--<span>-->
-								<!--<div>In progress:</div>-->
-                                  <!--<h6 class="fa fa-level-down oe_wbs_navigation text-center parentheading oe_kanban_action_a">-->
-                                    <!--<field name="kanban_actions"/>-->
-                                  <!--</h6>-->
                                 <div>
                                   <t t-raw="record.kanban_actions.raw_value"/>
                                 </div>
-                                      <!--<t t-esc="child.name"/>-->
-                                  <!--</t>-->
-							  <!--</span>-->
 							</div>
 							<div class="oe_kanban_project_avatars">
 							  <img t-att-src="kanban_image('res.users', 'image_small', record.change_owner_id.raw_value)"

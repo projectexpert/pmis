@@ -155,9 +155,8 @@ class CMChange (models.Model):
         'Color', default=0
     )
 
-    date_confirmed = fields.Date(
+    date_confirmed = fields.Datetime(
         string='Confirmation Date',
-        readonly=True,
         help="Date of the change confirmation. Auto populated."
     )
     confirmed_id = fields.Many2one(
@@ -314,6 +313,11 @@ class CMChange (models.Model):
     account_id = fields.Many2one(
         related='project_id.analytic_account_id'
     )
+    active_plan_version = fields.Many2one(
+        related=(
+            'project_id.analytic_account_id.active_analytic_planning_version'
+        )
+    )
     deliverable_ids = fields.One2many(
         comodel_name="analytic.billing.plan.line",
         inverse_name="change_id",
@@ -414,6 +418,8 @@ class CMChange (models.Model):
         self.write({'state': 'draft'})
         self.confirmed_id = self.approved_id = []
         self.date_confirmed = self.approval_date = ''
+        self.date_approved = self.approval_date = ''
+        self.date_modified = self.approval_date = ''
 
     @api.multi
     def set_state_active(self):
@@ -500,7 +506,7 @@ class CMChange (models.Model):
 
     @api.multi
     def open_deliverable_line(self):
-        for self in self:
+        for line in self:
             domain = [
                 ('change_id', '=', self.id)
             ]
@@ -522,6 +528,7 @@ class CMChange (models.Model):
                                      'view_analytic_billing_plan_line_tree',
                     'form_view_ref': 'analytic_billing_plan.' +
                                      'view_analytic_billing_plan_line_form',
+                    'search_default_Version': 1,
                     'default_change_id': cr_id,
                     'default_account_id': ac_id
                 }
