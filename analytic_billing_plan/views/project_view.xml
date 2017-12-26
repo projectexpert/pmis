@@ -12,9 +12,9 @@
                         name="%(action_analytic_billing_plan_line_open_form)d"
                         type="action"
                         icon="fa-money"
-                        context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
-                        groups="project.group_project_user, project.group_project_manager">
-                    <field name="deliverable_count"
+                        context="{'default_account_id': analytic_account_id, 'search_default_account_id': analytic_account_id, 'search_default_Version': 1, }"
+                        groups="analytic.group_analytic_accounting">
+                        <field name="deliverable_count"
                                widget="statinfo"
                                string="Deliverables"/>
                     </button>
@@ -27,8 +27,7 @@
             id="billing_plan_line_action_project"
             res_model="analytic.billing.plan.line"
             src_model="project.project"
-            context="{'default_account_id': analytic_account_id,'search_default_account_id': [analytic_account_id]}"
-            groups="project.group_project_user,project.group_project_manager"/>
+            groups="analytic.group_analytic_accounting"/>
 
     </data>
 

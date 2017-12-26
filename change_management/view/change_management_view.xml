@@ -99,6 +99,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                              name="buttons" groups="base.group_user">
                             <button help="Responses"
                                     attrs="{'invisible': [('type_id', '=', 'requirement')]}"
+                                    groups="project.group_project_user, project.group_project_manager"
                                     class="oe_inline oe_stat_button"
                                     name="%(change_management.action_show_cr_actions)d"
                                     type="action"
@@ -112,7 +113,7 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                                     attrs="{'invisible': [('type_id', '!=', 'requirement')]}"
                                     class="oe_inline oe_stat_button"
                                     icon="fa-money"
-                                    groups="project.group_project_user, project.group_project_manager"
+                                    groups="analytic.group_analytic_accounting"
                                     type="object">
                                 <field name="deliverable_count"
                                        widget="statinfo"
