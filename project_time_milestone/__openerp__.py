@@ -5,7 +5,7 @@
 #    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     'name': 'Project Time Management - Milestones',
-    'version': '8.0.1.0.5',
+    'version': '8.0.1.0.6',
     'author':   'Eficent, '
                 'Matmoz d.o.o., '
                 'Luxim d.o.o., '

@@ -13,10 +13,9 @@
             		<field name="milestone"/>            		  
             	</field>
 
-	            <xpath expr="//sheet//page[@string='Extra Info']//notebook[@name='Scheduling']"
-                       position="inside">
-					<page  string="Milestone"
-                           attrs="{'readonly':[('milestone','=',False)]}">
+	            <xpath expr="//sheet//page[@string='Extra Info']" position="inside">
+					<page string="Milestone"
+                          attrs="{'readonly':[('milestone','=',False)]}">
 						<group colspan="2" col="2">    
 							<field name="public_milestone"/>                          
 							<field name="project_poc"/>
