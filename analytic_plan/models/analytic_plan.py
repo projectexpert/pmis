@@ -17,9 +17,8 @@ class AccountAnalyticAccount(models.Model):
         )
         for plan_version in plan_versions:
             if plan_version:
-                res['active_analytic_planning_version'] = plan_version[0]
-                return res
-        return plan_versions
+                return plan_version[0]
+        return False
 
     plan_line_ids = fields.One2many(
         'account.analytic.line.plan',

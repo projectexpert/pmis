@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-17 13:37+0000\n"
-"PO-Revision-Date: 2017-12-17 15:12+0100\n"
+"POT-Creation-Date: 2017-12-26 13:16+0000\n"
+"PO-Revision-Date: 2017-12-26 14:26+0100\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -25,14 +25,10 @@ msgstr "Ukrep na zahtevo"
 #. module: change_management
 #: view:change.management.change:change_management.change_tree_view
 #: model:ir.actions.act_window,name:change_management.action_show_actions
+#: model:ir.actions.act_window,name:change_management.action_show_cr_actions
 #: model:ir.ui.menu,name:change_management.menu_actions_on_change
 msgid "Actions"
 msgstr "Ukrepi"
-
-#. module: change_management
-#: view:change.management.change:change_management.change_kanban_view
-msgid "Actions:"
-msgstr "Ukrepi:"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -48,6 +44,11 @@ msgstr "Aktivni zahtevki"
 #: view:project.task:change_management.change_management_project_task_search_view
 msgid "Active Tasks"
 msgstr "Aktivna opravila"
+
+#. module: change_management
+#: field:change.management.change,active_plan_version:0
+msgid "Active planning Version"
+msgstr "Aktivna verzija plana"
 
 #. module: change_management
 #: view:project.task:change_management.change_management_project_task_search_view
@@ -329,26 +330,22 @@ msgid "Defer"
 msgstr "Odloži"
 
 #. module: change_management
-#: code:addons/change_management/models/change_management.py:472
+#: code:addons/change_management/models/change_management.py:519
 #: field:change.management.change,deliverable_ids:0
 #, python-format
 msgid "Deliverable Lines"
 msgstr "Postavke dobave"
 
 #. module: change_management
+#: field:change.management.change,deliverable_count:0
+msgid "Deliverable count"
+msgstr "Števec dobav"
+
+#. module: change_management
 #: model:change.management.category,name:change_management.change_management_deliverables
+#: view:change.management.change:change_management.change_form_view
 msgid "Deliverables"
 msgstr "Dobave"
-
-#. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Deliverables List"
-msgstr "Seznam dobav"
-
-#. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Deliverables Plan"
-msgstr "Plan dobav"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
@@ -410,11 +407,6 @@ msgstr ""
 #: field:change.management.change,message_follower_ids:0
 msgid "Followers"
 msgstr "Sledilci"
-
-#. module: change_management
-#: model:ir.model,name:change_management.model_change_gap_analysis
-msgid "GAP analysis table"
-msgstr "Tabela analize vrzeli"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
@@ -511,6 +503,11 @@ msgid "Kanban State"
 msgstr "Kanban stanje"
 
 #. module: change_management
+#: field:change.management.change,kanban_actions:0
+msgid "Kanban actions"
+msgstr "Kanban ukrepi"
+
+#. module: change_management
 #: field:change.management.change,message_last_post:0
 msgid "Last Message Date"
 msgstr "Datum zadnjega sporočila"
@@ -568,7 +565,7 @@ msgid "My Projects"
 msgstr "Moji projekti"
 
 #. module: change_management
-#: code:addons/change_management/models/change_management.py:528
+#: code:addons/change_management/models/change_management.py:576
 #, python-format
 msgid "No Subject"
 msgstr "Brez predmeta"
@@ -587,11 +584,6 @@ msgstr "Na čakanju"
 #: help:project.task,change_id:0
 msgid "Origined from this request."
 msgstr "Izhaja iz tega zahtevka"
-
-#. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Plan a deliverable"
-msgstr "Planiraj dobavo"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -660,6 +652,7 @@ msgid "Req count"
 msgstr "Števec zahtevkov"
 
 #. module: change_management
+#: view:project.task:change_management.change_management_project_task_search_view
 #: view:project.task:change_management.change_management_project_task_tree_view
 #: field:project.task,change_id:0
 msgid "Request"
@@ -675,8 +668,8 @@ msgstr "Dnevnik zahtevkov"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
-msgid "Request Description"
-msgstr "Opis zahtevka"
+msgid "Request Description/User Epic"
+msgstr "Opis zahtevka/Uporabiška epika"
 
 #. module: change_management
 #: field:change.management.change,name:0
@@ -784,6 +777,7 @@ msgid "Response Actions"
 msgstr "Ukrepi ob odzivu"
 
 #. module: change_management
+#: view:change.management.change:change_management.change_form_view
 #: field:change.management.change,change_response_ids:0
 msgid "Responses"
 msgstr "Odzivi"
@@ -874,9 +868,19 @@ msgid "Summary"
 msgstr "Povzetek"
 
 #. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Summary/User Story"
+msgstr "Povzetek/uporabnikov opis"
+
+#. module: change_management
 #: model:ir.model,name:change_management.model_project_task
 msgid "Task"
 msgstr "Opravilo"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Tasks"
+msgstr "Opravila"
 
 #. module: change_management
 #: model:change.management.category,name:change_management.change_management_quality
@@ -909,9 +913,9 @@ msgid "The stakeholder that proposes the  processing of the request."
 msgstr "Deležnik, ki predlaga obdelavo zahtevka."
 
 #. module: change_management
-#: field:project.task,topic:0
-msgid "Topic/User Story"
-msgstr "Tematika/uporabnikov opis"
+#: view:change.management.change:change_management.change_form_view
+msgid "Total"
+msgstr "Skupaj"
 
 #. module: change_management
 #: help:change.management.change,type_id:0
@@ -966,6 +970,21 @@ msgstr "V sklopu stopnje"
 #: view:change.management.change:change_management.change_search_form_view
 msgid "Without owner"
 msgstr "Brez lastnika"
+
+#~ msgid "Actions:"
+#~ msgstr "Ukrepi:"
+
+#~ msgid "Deliverables List"
+#~ msgstr "Seznam dobav"
+
+#~ msgid "Deliverables Plan"
+#~ msgstr "Plan dobav"
+
+#~ msgid "GAP analysis table"
+#~ msgstr "Tabela analize vrzeli"
+
+#~ msgid "Plan a deliverable"
+#~ msgstr "Planiraj dobavo"
 
 #~ msgid ""
 #~ "\n"
@@ -1044,9 +1063,6 @@ msgstr "Brez lastnika"
 #~ "Dokumentirajte končni niz dogovorjenih zahtev in pridobite\n"
 #~ "podpise vseh ključnih deležnikov.\n"
 #~ "        "
-
-#~ msgid "Active Changes"
-#~ msgstr "Aktivne spremembe"
 
 #~ msgid "Active changes"
 #~ msgstr "Aktivne spremembe"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-28 12:32+0100\n"
-"PO-Revision-Date: 2015-10-28 12:33+0100\n"
+"POT-Creation-Date: 2017-12-26 13:17+0000\n"
+"PO-Revision-Date: 2017-12-26 14:21+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian <info@matmoz.si>\n"
 "Language: sl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : "
 "2;\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 2.0.5\n"
 
 #. module: project_time_schedule
 #: help:project.task,free_float:0
@@ -77,9 +77,9 @@ msgid "Critical Path"
 msgstr "Kritična pot"
 
 #. module: project_time_schedule
-#: view:project.task:project_time_schedule.view_task_form2
-msgid "Dates"
-msgstr "Datumi"
+#: field:project.task.calculate.network,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
 
 #. module: project_time_schedule
 #: help:project.task,duration:0
@@ -97,14 +97,15 @@ msgid "Early Finish Date"
 msgstr "Najzgodnejši datum dokončanja"
 
 #. module: project_time_schedule
-#: field:project.task,date_early_start:0
-msgid "Early Start Date"
-msgstr "Najzgodnejši datum začetka"
-
-#. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
 msgid "Early dates"
 msgstr "Najzgodnejši datumi"
+
+#. module: project_time_schedule
+#: code:addons/project_time_schedule/models/project_time_schedule.py:84
+#, python-format
+msgid "Error"
+msgstr "Napaka"
 
 #. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
@@ -120,6 +121,11 @@ msgstr "Prosta toleranca"
 #: field:project.task.calculate.network,id:0
 msgid "ID"
 msgstr "ID"
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
 
 #. module: project_time_schedule
 #: field:project.task.calculate.network,write_uid:0
@@ -172,11 +178,6 @@ msgid "Project Task add Predecessors"
 msgstr "Dodaj predhodno projektno opravilo"
 
 #. module: project_time_schedule
-#: view:project.task:project_time_schedule.view_task_form2
-msgid "Remaining"
-msgstr "Preostanek"
-
-#. module: project_time_schedule
 #: view:project.task.calculate.network:project_time_schedule.view_project_task_calculate_network
 msgid "Schedule Network"
 msgstr "Razporedi omrežje"
@@ -208,6 +209,12 @@ msgid "Tasks"
 msgstr "Opravila"
 
 #. module: project_time_schedule
+#: code:addons/project_time_schedule/models/project_time_schedule.py:85
+#, python-format
+msgid "The task duration cannot be set to a value less than zero."
+msgstr "Trajanje opravila ne more biti manj od nič."
+
+#. module: project_time_schedule
 #: field:project.task,total_float:0
 msgid "Total float"
 msgstr "Skupna toleranca"
@@ -216,6 +223,15 @@ msgstr "Skupna toleranca"
 #: view:project.task.calculate.network:project_time_schedule.view_project_task_calculate_network
 msgid "_Cancel"
 msgstr "_Preklic"
+
+#~ msgid "Dates"
+#~ msgstr "Datumi"
+
+#~ msgid "Early Start Date"
+#~ msgstr "Najzgodnejši datum začetka"
+
+#~ msgid "Remaining"
+#~ msgstr "Preostanek"
 
 #~ msgid "Error ! Task end-date must be greater then task start-date"
 #~ msgstr "Začetni datum mora biti pred končnim."

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-17 13:37+0000\n"
-"PO-Revision-Date: 2017-12-17 13:37+0000\n"
+"POT-Creation-Date: 2017-12-26 13:16+0000\n"
+"PO-Revision-Date: 2017-12-26 13:16+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,13 +23,9 @@ msgstr ""
 #. module: change_management
 #: view:change.management.change:change_management.change_tree_view
 #: model:ir.actions.act_window,name:change_management.action_show_actions
+#: model:ir.actions.act_window,name:change_management.action_show_cr_actions
 #: model:ir.ui.menu,name:change_management.menu_actions_on_change
 msgid "Actions"
-msgstr ""
-
-#. module: change_management
-#: view:change.management.change:change_management.change_kanban_view
-msgid "Actions:"
 msgstr ""
 
 #. module: change_management
@@ -45,6 +41,11 @@ msgstr ""
 #. module: change_management
 #: view:project.task:change_management.change_management_project_task_search_view
 msgid "Active Tasks"
+msgstr ""
+
+#. module: change_management
+#: field:change.management.change,active_plan_version:0
+msgid "Active planning Version"
 msgstr ""
 
 #. module: change_management
@@ -318,25 +319,21 @@ msgid "Defer"
 msgstr ""
 
 #. module: change_management
-#: code:addons/change_management/models/change_management.py:472
+#: code:addons/change_management/models/change_management.py:519
 #: field:change.management.change,deliverable_ids:0
 #, python-format
 msgid "Deliverable Lines"
 msgstr ""
 
 #. module: change_management
+#: field:change.management.change,deliverable_count:0
+msgid "Deliverable count"
+msgstr ""
+
+#. module: change_management
 #: model:change.management.category,name:change_management.change_management_deliverables
+#: view:change.management.change:change_management.change_form_view
 msgid "Deliverables"
-msgstr ""
-
-#. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Deliverables List"
-msgstr ""
-
-#. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Deliverables Plan"
 msgstr ""
 
 #. module: change_management
@@ -390,11 +387,6 @@ msgstr ""
 #. module: change_management
 #: field:change.management.change,message_follower_ids:0
 msgid "Followers"
-msgstr ""
-
-#. module: change_management
-#: model:ir.model,name:change_management.model_change_gap_analysis
-msgid "GAP analysis table"
 msgstr ""
 
 #. module: change_management
@@ -475,6 +467,11 @@ msgid "Kanban State"
 msgstr ""
 
 #. module: change_management
+#: field:change.management.change,kanban_actions:0
+msgid "Kanban actions"
+msgstr ""
+
+#. module: change_management
 #: field:change.management.change,message_last_post:0
 msgid "Last Message Date"
 msgstr ""
@@ -526,7 +523,7 @@ msgid "My Projects"
 msgstr ""
 
 #. module: change_management
-#: code:addons/change_management/models/change_management.py:528
+#: code:addons/change_management/models/change_management.py:576
 #, python-format
 msgid "No Subject"
 msgstr ""
@@ -544,11 +541,6 @@ msgstr ""
 #. module: change_management
 #: help:project.task,change_id:0
 msgid "Origined from this request."
-msgstr ""
-
-#. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Plan a deliverable"
 msgstr ""
 
 #. module: change_management
@@ -609,6 +601,7 @@ msgid "Req count"
 msgstr ""
 
 #. module: change_management
+#: view:project.task:change_management.change_management_project_task_search_view
 #: view:project.task:change_management.change_management_project_task_tree_view
 #: field:project.task,change_id:0
 msgid "Request"
@@ -624,7 +617,7 @@ msgstr ""
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
-msgid "Request Description"
+msgid "Request Description/User Epic"
 msgstr ""
 
 #. module: change_management
@@ -719,6 +712,7 @@ msgid "Response Actions"
 msgstr ""
 
 #. module: change_management
+#: view:change.management.change:change_management.change_form_view
 #: field:change.management.change,change_response_ids:0
 msgid "Responses"
 msgstr ""
@@ -809,8 +803,18 @@ msgid "Summary"
 msgstr ""
 
 #. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Summary/User Story"
+msgstr ""
+
+#. module: change_management
 #: model:ir.model,name:change_management.model_project_task
 msgid "Task"
+msgstr ""
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Tasks"
 msgstr ""
 
 #. module: change_management
@@ -844,8 +848,8 @@ msgid "The stakeholder that proposes the  processing of the request."
 msgstr ""
 
 #. module: change_management
-#: field:project.task,topic:0
-msgid "Topic/User Story"
+#: view:change.management.change:change_management.change_form_view
+msgid "Total"
 msgstr ""
 
 #. module: change_management

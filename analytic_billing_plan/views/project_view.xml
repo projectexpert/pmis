@@ -23,7 +23,7 @@
         </record>
 
         <act_window
-            name="Billing plan lines"
+            name="Deliverable lines"
             id="billing_plan_line_action_project"
             res_model="analytic.billing.plan.line"
             src_model="project.project"

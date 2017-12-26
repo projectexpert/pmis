@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-13 07:39+0000\n"
-"PO-Revision-Date: 2015-11-13 07:39+0000\n"
+"POT-Creation-Date: 2017-12-26 13:17+0000\n"
+"PO-Revision-Date: 2017-12-26 13:17+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -61,8 +61,8 @@ msgid "Critical Path"
 msgstr ""
 
 #. module: project_time_schedule
-#: view:project.task:project_time_schedule.view_task_form2
-msgid "Dates"
+#: field:project.task.calculate.network,display_name:0
+msgid "Display Name"
 msgstr ""
 
 #. module: project_time_schedule
@@ -81,13 +81,14 @@ msgid "Early Finish Date"
 msgstr ""
 
 #. module: project_time_schedule
-#: field:project.task,date_early_start:0
-msgid "Early Start Date"
+#: view:project.task:project_time_schedule.view_task_form2
+msgid "Early dates"
 msgstr ""
 
 #. module: project_time_schedule
-#: view:project.task:project_time_schedule.view_task_form2
-msgid "Early dates"
+#: code:addons/project_time_schedule/models/project_time_schedule.py:84
+#, python-format
+msgid "Error"
 msgstr ""
 
 #. module: project_time_schedule
@@ -103,6 +104,11 @@ msgstr ""
 #. module: project_time_schedule
 #: field:project.task.calculate.network,id:0
 msgid "ID"
+msgstr ""
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,__last_update:0
+msgid "Last Modified on"
 msgstr ""
 
 #. module: project_time_schedule
@@ -156,11 +162,6 @@ msgid "Project Task add Predecessors"
 msgstr ""
 
 #. module: project_time_schedule
-#: view:project.task:project_time_schedule.view_task_form2
-msgid "Remaining"
-msgstr ""
-
-#. module: project_time_schedule
 #: view:project.task.calculate.network:project_time_schedule.view_project_task_calculate_network
 msgid "Schedule Network"
 msgstr ""
@@ -189,6 +190,12 @@ msgstr ""
 #: view:project.task:project_time_schedule.view_task_calendar2
 #: view:project.task:project_time_schedule.view_task_gantt2
 msgid "Tasks"
+msgstr ""
+
+#. module: project_time_schedule
+#: code:addons/project_time_schedule/models/project_time_schedule.py:85
+#, python-format
+msgid "The task duration cannot be set to a value less than zero."
 msgstr ""
 
 #. module: project_time_schedule

@@ -13,7 +13,7 @@ from openerp.exceptions import Warning as UserError
 
 class BillingPlanLine(models.Model):
     _name = 'analytic.billing.plan.line'
-    _description = "Billing Plan Lines"
+    _description = "Deliverable Lines"
     _inherit = ['mail.thread', 'ir.needaction_mixin']
     _inherits = {'account.analytic.line.plan': "analytic_line_plan_id"}
 
@@ -60,6 +60,104 @@ class BillingPlanLine(models.Model):
         string='Resource Lines',
         copy=True,
     )
+    task_margin = fields.Float(
+        string='Work Price Margin (%)',
+        help='Sale Margin for work in %',
+        groups='project.group_project_manager',
+        default='66',
+        required=True
+    )
+    procurement_margin = fields.Float(
+        string='Material Price Margin (%)',
+        help='Sale Margin for materials in %',
+        groups='project.group_project_manager',
+        default='66',
+        required=True
+    )
+    target_revenue = fields.Float(
+        string='Target budget',
+        help='Target budget computed from costs and wanted margin.',
+        groups='project.group_project_manager',
+        compute='_compute_target_revenue'
+    )
+    resource_task_total = fields.Float(
+        compute='_compute_resource_task_total',
+        string='Total tasks',
+        store=True
+    )
+    resource_procurement_total = fields.Float(
+        compute='_compute_resource_procurement_total',
+        string='Total procurement',
+        store=True
+    )
+    delivered_task = fields.Float(
+        compute='_compute_sale_task_total',
+        string='Total work',
+        help='Total tasks sale price',
+        store=True
+    )
+    delivered_material = fields.Float(
+        compute='_compute_sale_procurement_total',
+        string='Total material',
+        help='Total materials sale price',
+        store=True
+    )
+    wanted_price_unit = fields.Float(
+        compute='_compute_wanted_price_unit',
+        string='Budget/Unit',
+        help='Proposed sale price per UoM'
+    )
+
+    @api.multi
+    @api.depends('resource_ids', 'resource_ids.price_total')
+    def _compute_resource_task_total(self):
+        for rec in self:
+            rec.resource_task_total = sum(
+                rec.mapped('resource_ids').filtered(
+                    lambda r: r.resource_type == 'task').mapped(
+                    'price_total'))
+
+    @api.multi
+    @api.depends('resource_ids', 'resource_ids.price_total')
+    def _compute_resource_procurement_total(self):
+        for rec in self:
+            rec.resource_procurement_total = sum(
+                rec.mapped('resource_ids').filtered(
+                    lambda r: r.resource_type == 'procurement').mapped(
+                    'price_total'))
+
+    @api.multi
+    @api.depends('resource_task_total', 'task_margin')
+    def _compute_sale_task_total(self):
+        for res in self:
+            res.delivered_task = (
+                    res.resource_task_total * (1 + res.task_margin/100)
+            )
+
+    @api.multi
+    @api.depends('resource_procurement_total', 'procurement_margin')
+    def _compute_sale_procurement_total(self):
+        for res in self:
+            margin = (1 + res.procurement_margin/100)
+            res.delivered_material = (
+                    res.resource_procurement_total * margin
+            )
+
+    @api.multi
+    @api.depends('delivered_material', 'delivered_task')
+    def _compute_target_revenue(self):
+        for res in self:
+            res.target_revenue = (
+                res.delivered_material + res.delivered_task
+            )
+
+    @api.multi
+    @api.depends('target_revenue', 'unit_amount')
+    def _compute_wanted_price_unit(self):
+        for res in self:
+            res.wanted_price_unit = (
+                res.target_revenue/res.unit_amount
+            )
 
     @api.onchange('unit_amount')
     def on_change_unit_amount(self):

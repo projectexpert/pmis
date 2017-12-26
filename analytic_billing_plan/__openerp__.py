@@ -5,8 +5,8 @@
 #    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'Analytic billing plan',
-    'version': '8.0.3.0.1',
+    'name': 'Deliverable plan',
+    'version': '8.0.3.0.2',
     'author':   'Eficent, '
                 'Matmoz, '
                 'Luxim, '

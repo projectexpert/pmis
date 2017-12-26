@@ -21,7 +21,7 @@
 
 from datetime import datetime, date, timedelta
 from openerp.tools.translate import _
-from openerp.osv import fields, osv
+from openerp.osv import fields, osv, orm
 from dijkstra import shortestPath
 from itertools import count
 from dateutil.rrule import rrule
@@ -32,7 +32,7 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class task(osv.osv):
+class Task(orm.Model):
     _inherit = 'project.task'
     _description = "Activity"
 
@@ -128,7 +128,7 @@ subsequent activity.
         else:
             date_latest_finish = read_data['date_latest_finish']
 
-        d_activities[ids[0]] = network_activity(
+        d_activities[ids[0]] = NetworkActivity(
             ids[0], replan_duration, date_earliest_start, date_latest_finish
         )
 
@@ -173,10 +173,10 @@ subsequent activity.
     def calculate_network(self, cr, uid, ids, context, *args):
 
         d_activities = {}
-        d_activities['start'] = network_activity(None, 0, None, None)
+        d_activities['start'] = NetworkActivity(None, 0, None, None)
         d_activities['start'].is_start = True
         d_activities['start'].activity_id = 'start'
-        d_activities['stop'] = network_activity(None, 0, None, None)
+        d_activities['stop'] = NetworkActivity(None, 0, None, None)
         d_activities['stop'].is_stop = True
         d_activities['stop'].activity_id = 'stop'
 
@@ -207,11 +207,11 @@ subsequent activity.
                 l_successor_date_earliest_start
             )
         else:
-            start_activity.date_early_start = network_activity.next_work_day(
+            start_activity.date_early_start = NetworkActivity.next_work_day(
                 datetime.today()
             )
 
-        network_activity.walk_list_ahead(start_activity)
+        NetworkActivity.walk_list_ahead(start_activity)
 
         for stop_activity in activities:
             if stop_activity.is_stop:
@@ -219,14 +219,14 @@ subsequent activity.
 
         stop_activity.date_late_finish = stop_activity.date_early_finish
 
-        stop_activity.date_late_start = network_activity.sub_work_days(
+        stop_activity.date_late_start = NetworkActivity.sub_work_days(
             stop_activity.date_late_finish, stop_activity.replan_duration
         )
 
-        network_activity.walk_list_aback(stop_activity)
+        NetworkActivity.walk_list_aback(stop_activity)
 
         start_activity.date_late_finish = start_activity.date_early_finish
-        start_activity.date_late_start = network_activity.sub_work_days(
+        start_activity.date_late_start = NetworkActivity.sub_work_days(
             start_activity.date_late_finish, start_activity.replan_duration
         )
 
@@ -237,10 +237,10 @@ subsequent activity.
             for successor in act.successors:
                 l_successor_date_early_start.append(successor.date_early_start)
             if l_successor_date_early_start:
-                [act.free_float, rr] = network_activity.work_days_diff(
+                [act.free_float, rr] = NetworkActivity.work_days_diff(
                     act.date_early_finish, min(l_successor_date_early_start)
                 )
-            [act.total_float, rr] = network_activity.work_days_diff(
+            [act.total_float, rr] = NetworkActivity.work_days_diff(
                 act.date_early_start, act.date_late_start
             )
 
@@ -299,14 +299,14 @@ subsequent activity.
                 }, context=context)
 
     def create(self, cr, uid, vals, context=None):
-        res = super(task, self).create(cr, uid, vals, context)
+        res = super(Task, self).create(cr, uid, vals, context)
         self.calculate_network(cr, uid, [res], context)
         return res
 
     def write(self, cr, uid, ids, vals, context=None):
         if context is None:
             context = {}
-        res = super(task, self).write(cr, uid, ids, vals, context)
+        res = super(Task, self).write(cr, uid, ids, vals, context)
         if not context.get('calculate_network') and ids and (
             vals.get('duration') or
             vals.get('stage_id') or
@@ -320,11 +320,9 @@ subsequent activity.
             self.calculate_network(cr, uid, ids, context)
         return res
 
-task()
 
-
-class network_activity(object):
-    'Activity in network diagram'
+class NetworkActivity(object):
+    """Activity in network diagram"""
 
     def __init__(
         self, activity_id, duration, date_earliest_start, date_latest_finish
@@ -412,6 +410,7 @@ class network_activity(object):
         )
         return rr.after(date, inc=True)
 
+    # TODO: use the odoo worktime
     @staticmethod
     def add_work_days(date, duration):
         if duration:
@@ -435,7 +434,7 @@ class network_activity(object):
         if duration:
             correct_date_init = False
             while correct_date_init is False:
-                [rr_count, rr] = network_activity.work_days_diff(
+                [rr_count, rr] = NetworkActivity.work_days_diff(
                     DATE_INIT, date
                 )
                 if rr_count < duration:
@@ -472,7 +471,7 @@ class network_activity(object):
             position.date_early_start = position.date_earliest_start
 
         if position.is_start:
-            position.date_early_finish = network_activity.add_work_days(
+            position.date_early_finish = NetworkActivity.add_work_days(
                 position.date_early_start, position.replan_duration
             )
 
@@ -488,12 +487,12 @@ class network_activity(object):
 
                     successor.date_early_start = predecessor.date_early_finish
 
-            successor.date_early_finish = network_activity.add_work_days(
+            successor.date_early_finish = NetworkActivity.add_work_days(
                 successor.date_early_start, successor.replan_duration
             )
 
         for successor in position.successors:
-            network_activity.walk_list_ahead(successor)
+            NetworkActivity.walk_list_ahead(successor)
 
     @staticmethod
     def walk_list_aback(activity):
@@ -505,7 +504,7 @@ class network_activity(object):
                 activity.date_late_finish = activity.date_latest_finish
 
         if activity.is_stop:
-            activity.date_late_start = network_activity.sub_work_days(
+            activity.date_late_start = NetworkActivity.sub_work_days(
                 activity.date_late_finish, activity.replan_duration
             )
 
@@ -522,9 +521,9 @@ class network_activity(object):
                 elif predecessor.date_late_finish > successor.date_late_start:
                     predecessor.date_late_finish = successor.date_late_start
 
-            predecessor.date_late_start = network_activity.sub_work_days(
+            predecessor.date_late_start = NetworkActivity.sub_work_days(
                 predecessor.date_late_finish, predecessor.replan_duration
             )
 
         for predecessor in activity.predecessors:
-            network_activity.walk_list_aback(predecessor)
+            NetworkActivity.walk_list_aback(predecessor)

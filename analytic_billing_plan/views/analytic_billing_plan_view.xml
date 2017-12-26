@@ -7,8 +7,8 @@
             <field name="model">analytic.billing.plan.line</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-				<form string="Analytic billing plan line">
-                    <sheet string="Billing plan line">
+				<form string="Deliverable plan line">
+                    <sheet string="Deliverable plan line">
                         <div colspan="2" col="2">
                             <label for="name"
                                    class="oe_edit_only">
@@ -50,26 +50,36 @@
                             </div>
                         </group>
                         <group col="2" colspan="2" name="internal">
-                            <group name="Product Information">
+                            <group name="project_data">
                                 <field name="product_id"/>
                                 <field name="currency_id"/>
-                            </group>
-                            <group name="project_data">
                                 <field name="account_id"/>
                                 <field name="date"/>
                                 <field name="customer_id"/>
-                            </group>
-                            <group name="Analytic Information"
-                                   groups="analytic.group_analytic_accounting">
-                                <field name="version_id"/>
+                                <separator colspan="2"/>
+                                <field name="version_id"
+                                       groups="analytic.group_analytic_accounting"/>
                                 <field name="journal_id"
+                                       groups="analytic.group_analytic_accounting"
                                        domain="[('type', '=', 'sale')]"/>
-                            </group>
-                            <group>
+                                <separator colspan="2"/>
                                 <field name="ref"/>
                                 <field name="company_id"
                                        groups="base.group_multi_company"/>
                             </group>
+                            <group name="Analytic Information"
+                                   groups="analytic.group_analytic_accounting">
+                                <field name="task_margin"/>
+                                <field name="procurement_margin"/>
+                                <field name="resource_task_total"/>
+                                <field name="resource_procurement_total"/>
+                                <field name="delivered_task"/>
+                                <field name="delivered_material"/>
+                                <separator string="Recommendation" colspan="2"/>
+                                <field name="target_revenue"/>
+                                <field name="wanted_price_unit"/>
+                            </group>
+
                         </group>
 
                         <notebook>
@@ -133,7 +143,7 @@
             <field name="model">analytic.billing.plan.line</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
-				<tree string="Analytic billing plan line">
+				<tree string="Deliverable plan line">
                     <field name="account_id"/>
                     <field name="customer_id"/>
                     <field name="date"/>
@@ -159,7 +169,7 @@
             <field name="model">analytic.billing.plan.line</field>
             <field name="type">search</field>
             <field name="arch" type="xml">
-                <search string="Search billing plan lines">
+                <search string="Search deliverable lines">
                     <group col='6' colspan='5'>
                         <field name="account_id"/>
                         <field name="product_id"/>
@@ -184,7 +194,7 @@
 
         <!--OPEN FILTER ACTION-->
         <record id="action_analytic_billing_plan_line_open_form" model="ir.actions.act_window">
-            <field name="name">Billing plan</field>
+            <field name="name">Deliverables plan</field>
             <field name="res_model">analytic.billing.plan.line</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>

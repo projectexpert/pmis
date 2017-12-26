@@ -9,7 +9,7 @@ class AnalyticBillingPlanCopyVersion(osv.osv_memory):
     For copying all the planned billings to a separate planning version
     """
     _name = "analytic.billing.plan.copy.version"
-    _description = "Analytic Billing Plan copy versions"
+    _description = "Deliverable Plan copy versions"
 
     _columns = {
         'source_version_id': fields.many2one(
@@ -93,7 +93,7 @@ class AnalyticBillingPlanCopyVersion(osv.osv_memory):
                     str, new_line_plan_ids
                 )
             )+"])]",
-            'name': _('Billing Plan Lines'),
+            'name': _('Deliverable Plan Lines'),
             'view_type': 'form',
             'view_mode': 'tree,form',
             'res_model': 'analytic.billing.plan.line',

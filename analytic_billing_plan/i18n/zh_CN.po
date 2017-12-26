@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-17 13:35+0000\n"
-"PO-Revision-Date: 2017-12-17 14:54+0100\n"
+"POT-Creation-Date: 2017-12-26 13:15+0000\n"
+"PO-Revision-Date: 2017-12-26 14:39+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -47,12 +47,6 @@ msgid "Analytic Resource Planning lines"
 msgstr "分析规划项"
 
 #. module: analytic_billing_plan
-#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
-#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_tree
-msgid "Analytic billing plan line"
-msgstr "分析用计费计划项"
-
-#. module: analytic_billing_plan
 #: model:ir.model,name:analytic_billing_plan.model_analytic_billing_plan_line_make_sale
 msgid "Analytic billing plan line make sale"
 msgstr "分析用计费计划项生成销售"
@@ -64,28 +58,7 @@ msgid "Analytic resource plan line"
 msgstr "分析规划项"
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:96
-#, fuzzy, python-format
-msgid "Billing Plan Lines"
-msgstr "计费计划项"
-
-#. module: analytic_billing_plan
 #: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
-#: model:ir.actions.act_window,name:analytic_billing_plan.action_analytic_billing_plan_line_open_form
-#: model:ir.ui.menu,name:analytic_billing_plan.analytic_billing_plan_line_entries
-msgid "Billing plan"
-msgstr "计费计划"
-
-#. module: analytic_billing_plan
-#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
-#, fuzzy
-msgid "Billing plan line"
-msgstr "计费计划项"
-
-#. module: analytic_billing_plan
-#: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
-#: model:ir.actions.act_window,name:analytic_billing_plan.act_account_analytic_2_analytic_billing_plan_line
-#: model:ir.actions.act_window,name:analytic_billing_plan.billing_plan_line_action_project
 msgid "Billing plan lines"
 msgstr "计费计划项"
 
@@ -104,6 +77,11 @@ msgstr "计费申请"
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
 msgid "Billing requests"
 msgstr "计费申请"
+
+#. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,wanted_price_unit:0
+msgid "Budget/Unit"
+msgstr ""
 
 #. module: analytic_billing_plan
 #: view:analytic.billing.plan.line.make.sale:analytic_billing_plan.view_analytic_billing_plan_line_make_sale
@@ -202,9 +180,35 @@ msgid "Deliverable"
 msgstr ""
 
 #. module: analytic_billing_plan
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:96
+#, fuzzy, python-format
+msgid "Deliverable Plan Lines"
+msgstr "总账"
+
+#. module: analytic_billing_plan
 #: field:account.analytic.account,deliverable_count:0
 #, fuzzy
 msgid "Deliverable count"
+msgstr "总账"
+
+#. module: analytic_billing_plan
+#: model:ir.actions.act_window,name:analytic_billing_plan.act_account_analytic_2_analytic_billing_plan_line
+#: model:ir.actions.act_window,name:analytic_billing_plan.billing_plan_line_action_project
+#, fuzzy
+msgid "Deliverable lines"
+msgstr "总账"
+
+#. module: analytic_billing_plan
+#: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
+#, fuzzy
+msgid "Deliverable plan"
+msgstr "总账"
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_tree
+#, fuzzy
+msgid "Deliverable plan line"
 msgstr "总账"
 
 #. module: analytic_billing_plan
@@ -212,6 +216,13 @@ msgstr "总账"
 #: view:project.project:analytic_billing_plan.edit_project
 msgid "Deliverables"
 msgstr ""
+
+#. module: analytic_billing_plan
+#: model:ir.actions.act_window,name:analytic_billing_plan.action_analytic_billing_plan_line_open_form
+#: model:ir.ui.menu,name:analytic_billing_plan.analytic_billing_plan_line_entries
+#, fuzzy
+msgid "Deliverables plan"
+msgstr "总账"
 
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,name:0
@@ -343,6 +354,11 @@ msgid "Line name"
 msgstr ""
 
 #. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,procurement_margin:0
+msgid "Material Price Margin (%)"
+msgstr ""
+
+#. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,message_ids:0
 #, fuzzy
 msgid "Messages"
@@ -441,6 +457,11 @@ msgid "Project budget"
 msgstr "项目"
 
 #. module: analytic_billing_plan
+#: help:analytic.billing.plan.line,wanted_price_unit:0
+msgid "Proposed sale price per UoM"
+msgstr ""
+
+#. module: analytic_billing_plan
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
 msgid "Qty"
 msgstr ""
@@ -450,6 +471,11 @@ msgstr ""
 #, fuzzy
 msgid "Quantity"
 msgstr "数量"
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Recommendation"
+msgstr ""
 
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,ref:0
@@ -486,6 +512,16 @@ msgid "Review the existing billing request lines:"
 msgstr "查看已存的计费申请项："
 
 #. module: analytic_billing_plan
+#: help:analytic.billing.plan.line,procurement_margin:0
+msgid "Sale Margin for materials in %"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: help:analytic.billing.plan.line,task_margin:0
+msgid "Sale Margin for work in %"
+msgstr ""
+
+#. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,unit_price:0
 #, fuzzy
 msgid "Sale Price"
@@ -493,7 +529,9 @@ msgstr "单价"
 
 #. module: analytic_billing_plan
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
-msgid "Search billing plan lines"
+#, fuzzy
+#| msgid "Search billing plan lines"
+msgid "Search deliverable lines"
 msgstr "搜索计费计划项"
 
 #. module: analytic_billing_plan
@@ -506,6 +544,18 @@ msgstr "源计划版本"
 #, fuzzy
 msgid "Summary"
 msgstr "概要"
+
+#. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,target_revenue:0
+#, fuzzy
+#| msgid "Project"
+msgid "Target budget"
+msgstr "项目"
+
+#. module: analytic_billing_plan
+#: help:analytic.billing.plan.line,target_revenue:0
+msgid "Target budget computed from costs and wanted margin."
+msgstr ""
 
 #. module: analytic_billing_plan
 #: help:analytic.billing.plan.line.make.sale,invoice_quantity:0
@@ -537,6 +587,40 @@ msgstr ""
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
 #, fuzzy
 msgid "Total Price"
+msgstr "单价"
+
+#. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,delivered_material:0
+#, fuzzy
+msgid "Total material"
+msgstr "单价"
+
+#. module: analytic_billing_plan
+#: help:analytic.billing.plan.line,delivered_material:0
+msgid "Total materials sale price"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,resource_procurement_total:0
+#, fuzzy
+msgid "Total procurement"
+msgstr "单价"
+
+#. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,resource_task_total:0
+msgid "Total tasks"
+msgstr ""
+
+#. module: analytic_billing_plan
+#: help:analytic.billing.plan.line,delivered_task:0
+#, fuzzy
+msgid "Total tasks sale price"
+msgstr "单价"
+
+#. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,delivered_task:0
+#, fuzzy
+msgid "Total work"
 msgstr "单价"
 
 #. module: analytic_billing_plan
@@ -575,6 +659,11 @@ msgid "Website communication history"
 msgstr "网站沟通历史"
 
 #. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,task_margin:0
+msgid "Work Price Margin (%)"
+msgstr ""
+
+#. module: analytic_billing_plan
 #: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:108
 #, python-format
 msgid "You have to enter a customer."
@@ -607,6 +696,20 @@ msgstr ""
 #: field:analytic.billing.plan.line.make.sale,order_line_ids:0
 msgid "unknown"
 msgstr "未知"
+
+#~ msgid "Analytic billing plan line"
+#~ msgstr "分析用计费计划项"
+
+#, fuzzy
+#~ msgid "Billing Plan Lines"
+#~ msgstr "计费计划项"
+
+#~ msgid "Billing plan"
+#~ msgstr "计费计划"
+
+#, fuzzy
+#~ msgid "Billing plan line"
+#~ msgstr "计费计划项"
 
 #, fuzzy
 #~ msgid "Planning Analytic Journal"

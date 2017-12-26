@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-17 13:37+0000\n"
-"PO-Revision-Date: 2017-12-17 15:17+0100\n"
+"POT-Creation-Date: 2017-12-26 13:16+0000\n"
+"PO-Revision-Date: 2017-12-26 14:27+0100\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -25,14 +25,10 @@ msgstr "Azione su richiesta"
 #. module: change_management
 #: view:change.management.change:change_management.change_tree_view
 #: model:ir.actions.act_window,name:change_management.action_show_actions
+#: model:ir.actions.act_window,name:change_management.action_show_cr_actions
 #: model:ir.ui.menu,name:change_management.menu_actions_on_change
 msgid "Actions"
 msgstr "Azioni"
-
-#. module: change_management
-#: view:change.management.change:change_management.change_kanban_view
-msgid "Actions:"
-msgstr "Azioni:"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -50,6 +46,11 @@ msgid "Active Tasks"
 msgstr "Attività attive"
 
 #. module: change_management
+#: field:change.management.change,active_plan_version:0
+msgid "Active planning Version"
+msgstr "Versione attiva del piano"
+
+#. module: change_management
 #: view:project.task:change_management.change_management_project_task_search_view
 msgid "Active tasks"
 msgstr "Attività attive"
@@ -57,7 +58,7 @@ msgstr "Attività attive"
 #. module: change_management
 #: model:ir.model,name:change_management.model_analytic_billing_plan_line
 msgid "Analytic Billing Plan lines"
-msgstr ""
+msgstr "Voci piano fatturazione"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -330,26 +331,22 @@ msgid "Defer"
 msgstr "Rinvia"
 
 #. module: change_management
-#: code:addons/change_management/models/change_management.py:472
+#: code:addons/change_management/models/change_management.py:519
 #: field:change.management.change,deliverable_ids:0
 #, python-format
 msgid "Deliverable Lines"
 msgstr "Righe consegne"
 
 #. module: change_management
+#: field:change.management.change,deliverable_count:0
+msgid "Deliverable count"
+msgstr "Conteggio consegne"
+
+#. module: change_management
 #: model:change.management.category,name:change_management.change_management_deliverables
+#: view:change.management.change:change_management.change_form_view
 msgid "Deliverables"
 msgstr "Consegnabili"
-
-#. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Deliverables List"
-msgstr "Lista consegne"
-
-#. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Deliverables Plan"
-msgstr "Piano consegne"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
@@ -407,11 +404,6 @@ msgstr ""
 #: field:change.management.change,message_follower_ids:0
 msgid "Followers"
 msgstr "Seguaci"
-
-#. module: change_management
-#: model:ir.model,name:change_management.model_change_gap_analysis
-msgid "GAP analysis table"
-msgstr "Tabella per le Analisi delle lacune"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
@@ -503,6 +495,11 @@ msgid "Kanban State"
 msgstr "Stato kanban"
 
 #. module: change_management
+#: field:change.management.change,kanban_actions:0
+msgid "Kanban actions"
+msgstr "Azioni kanban"
+
+#. module: change_management
 #: field:change.management.change,message_last_post:0
 msgid "Last Message Date"
 msgstr "Data ultimo messaggio"
@@ -557,7 +554,7 @@ msgid "My Projects"
 msgstr "I miei progetti"
 
 #. module: change_management
-#: code:addons/change_management/models/change_management.py:528
+#: code:addons/change_management/models/change_management.py:576
 #, python-format
 msgid "No Subject"
 msgstr "Senza soggetto"
@@ -576,11 +573,6 @@ msgstr "Fermo"
 #: help:project.task,change_id:0
 msgid "Origined from this request."
 msgstr ""
-
-#. module: change_management
-#: view:change.management.change:change_management.change_form_view
-msgid "Plan a deliverable"
-msgstr "Pianifica una consegna"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_search_form_view
@@ -650,6 +642,7 @@ msgid "Req count"
 msgstr "Conteggio richieste"
 
 #. module: change_management
+#: view:project.task:change_management.change_management_project_task_search_view
 #: view:project.task:change_management.change_management_project_task_tree_view
 #: field:project.task,change_id:0
 msgid "Request"
@@ -665,8 +658,8 @@ msgstr "Giornale richieste"
 
 #. module: change_management
 #: view:change.management.change:change_management.change_form_view
-msgid "Request Description"
-msgstr "Descrizione della richiesta"
+msgid "Request Description/User Epic"
+msgstr "Descrizione richiesta/Romanzo utente"
 
 #. module: change_management
 #: field:change.management.change,name:0
@@ -767,6 +760,7 @@ msgid "Response Actions"
 msgstr "Azioni in risposta"
 
 #. module: change_management
+#: view:change.management.change:change_management.change_form_view
 #: field:change.management.change,change_response_ids:0
 msgid "Responses"
 msgstr "Risposte"
@@ -857,8 +851,18 @@ msgid "Summary"
 msgstr "Riepilogo"
 
 #. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Summary/User Story"
+msgstr ""
+
+#. module: change_management
 #: model:ir.model,name:change_management.model_project_task
 msgid "Task"
+msgstr "Attività"
+
+#. module: change_management
+#: view:change.management.change:change_management.change_form_view
+msgid "Tasks"
 msgstr "Attività"
 
 #. module: change_management
@@ -892,8 +896,8 @@ msgid "The stakeholder that proposes the  processing of the request."
 msgstr "La parte interessata, che propone la elaborazione della richiesta."
 
 #. module: change_management
-#: field:project.task,topic:0
-msgid "Topic/User Story"
+#: view:change.management.change:change_management.change_form_view
+msgid "Total"
 msgstr ""
 
 #. module: change_management
@@ -947,6 +951,21 @@ msgstr "Entro stadio"
 #: view:change.management.change:change_management.change_search_form_view
 msgid "Without owner"
 msgstr "Senza proprietario"
+
+#~ msgid "Actions:"
+#~ msgstr "Azioni:"
+
+#~ msgid "Deliverables List"
+#~ msgstr "Lista consegne"
+
+#~ msgid "Deliverables Plan"
+#~ msgstr "Piano consegne"
+
+#~ msgid "GAP analysis table"
+#~ msgstr "Tabella per le Analisi delle lacune"
+
+#~ msgid "Plan a deliverable"
+#~ msgstr "Pianifica una consegna"
 
 #~ msgid ""
 #~ "\n"
@@ -1030,9 +1049,6 @@ msgstr "Senza proprietario"
 #~ "Documentate la serie finale dei requisiti accordati e ottenete una\n"
 #~ "firma da tutte le parti interessate chiave.\n"
 #~ "        "
-
-#~ msgid "Active Changes"
-#~ msgstr "Modifiche attive"
 
 #~ msgid "Active changes"
 #~ msgstr "Modifiche attive"

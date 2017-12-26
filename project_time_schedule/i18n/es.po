@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.0.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-24 12:45+0200\n"
-"PO-Revision-Date: 2015-09-24 12:45+0200\n"
+"POT-Creation-Date: 2017-12-26 13:17+0000\n"
+"PO-Revision-Date: 2017-12-26 14:23+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 2.0.5\n"
 
 #. module: project_time_schedule
 #: help:project.task,free_float:0
@@ -56,14 +56,24 @@ msgid "Calculate Network"
 msgstr "Calcular Red"
 
 #. module: project_time_schedule
+#: field:project.task.calculate.network,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: project_time_schedule
 #: field:project.task,is_critical_path:0
 msgid "Critical Path"
 msgstr "Camino Crítico"
 
 #. module: project_time_schedule
-#: view:project.task:project_time_schedule.view_task_form2
-msgid "Dates"
-msgstr "Fechas"
+#: field:project.task.calculate.network,display_name:0
+msgid "Display Name"
+msgstr ""
 
 #. module: project_time_schedule
 #: help:project.task,duration:0
@@ -81,14 +91,15 @@ msgid "Early Finish Date"
 msgstr "Fecha de Finalización Temprana"
 
 #. module: project_time_schedule
-#: field:project.task,date_early_start:0
-msgid "Early Start Date"
-msgstr "Fecha de Comienzo Temprana"
-
-#. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
 msgid "Early dates"
 msgstr "Fechas tempranas"
+
+#. module: project_time_schedule
+#: code:addons/project_time_schedule/models/project_time_schedule.py:84
+#, python-format
+msgid "Error"
+msgstr ""
 
 #. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
@@ -99,6 +110,30 @@ msgstr "Información extra"
 #: field:project.task,free_float:0
 msgid "Free float"
 msgstr "Holgura libre"
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,id:0
+msgid "ID"
+msgstr ""
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,write_uid:0
+#, fuzzy
+#| msgid "Late dates"
+msgid "Last Updated by"
+msgstr "Fechas Tardías"
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,write_date:0
+#, fuzzy
+#| msgid "Late dates"
+msgid "Last Updated on"
+msgstr "Fechas Tardías"
 
 #. module: project_time_schedule
 #: field:project.task,date_late_finish:0
@@ -131,14 +166,40 @@ msgid "Margins"
 msgstr "Márgenes"
 
 #. module: project_time_schedule
-#: view:project.task:project_time_schedule.view_task_form2
-msgid "Remaining"
+#: view:project.task.calculate.network:project_time_schedule.view_project_task_calculate_network
+#, fuzzy
+#| msgid "Calculate Network"
+msgid "Project Task Calculate Network"
+msgstr "Calcular Red"
+
+#. module: project_time_schedule
+#: model:ir.actions.act_window,name:project_time_schedule.action_project_task_calculate_network
+msgid "Project Task add Predecessors"
 msgstr ""
+
+#. module: project_time_schedule
+#: view:project.task.calculate.network:project_time_schedule.view_project_task_calculate_network
+#, fuzzy
+#| msgid "Calculate Network"
+msgid "Schedule Network"
+msgstr "Calcular Red"
+
+#. module: project_time_schedule
+#: model:ir.model,name:project_time_schedule.model_project_task_calculate_network
+#, fuzzy
+#| msgid "Calculate Network"
+msgid "Schedule network"
+msgstr "Calcular Red"
 
 #. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
 msgid "Scheduling"
 msgstr "Programación"
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,task_id:0
+msgid "Target task"
+msgstr ""
 
 #. module: project_time_schedule
 #: model:ir.model,name:project_time_schedule.model_project_task
@@ -153,9 +214,26 @@ msgid "Tasks"
 msgstr "Tareas"
 
 #. module: project_time_schedule
+#: code:addons/project_time_schedule/models/project_time_schedule.py:85
+#, python-format
+msgid "The task duration cannot be set to a value less than zero."
+msgstr ""
+
+#. module: project_time_schedule
 #: field:project.task,total_float:0
 msgid "Total float"
 msgstr "Holgura Total"
+
+#. module: project_time_schedule
+#: view:project.task.calculate.network:project_time_schedule.view_project_task_calculate_network
+msgid "_Cancel"
+msgstr ""
+
+#~ msgid "Dates"
+#~ msgstr "Fechas"
+
+#~ msgid "Early Start Date"
+#~ msgstr "Fecha de Comienzo Temprana"
 
 #~ msgid "Error ! Task end-date must be greater then task start-date"
 #~ msgstr ""

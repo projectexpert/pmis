@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-17 13:35+0000\n"
-"PO-Revision-Date: 2017-12-17 14:43+0100\n"
+"POT-Creation-Date: 2017-12-26 13:15+0000\n"
+"PO-Revision-Date: 2017-12-26 14:33+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -44,12 +44,6 @@ msgid "Analytic Resource Planning lines"
 msgstr "Postavke plana virov"
 
 #. module: analytic_billing_plan
-#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
-#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_tree
-msgid "Analytic billing plan line"
-msgstr "Postavka obračunskega plana"
-
-#. module: analytic_billing_plan
 #: model:ir.model,name:analytic_billing_plan.model_analytic_billing_plan_line_make_sale
 msgid "Analytic billing plan line make sale"
 msgstr "Postavka obračunskega plana za prodajo"
@@ -60,27 +54,7 @@ msgid "Analytic resource plan line"
 msgstr "Postavka plana virov"
 
 #. module: analytic_billing_plan
-#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:96
-#, python-format
-msgid "Billing Plan Lines"
-msgstr "Postavke obrač. plana"
-
-#. module: analytic_billing_plan
 #: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
-#: model:ir.actions.act_window,name:analytic_billing_plan.action_analytic_billing_plan_line_open_form
-#: model:ir.ui.menu,name:analytic_billing_plan.analytic_billing_plan_line_entries
-msgid "Billing plan"
-msgstr "Obračun. plan"
-
-#. module: analytic_billing_plan
-#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
-msgid "Billing plan line"
-msgstr "Postavka obračunskega plana"
-
-#. module: analytic_billing_plan
-#: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
-#: model:ir.actions.act_window,name:analytic_billing_plan.act_account_analytic_2_analytic_billing_plan_line
-#: model:ir.actions.act_window,name:analytic_billing_plan.billing_plan_line_action_project
 msgid "Billing plan lines"
 msgstr "Postavke obračunskega plana"
 
@@ -99,6 +73,11 @@ msgstr "Postavke obračunskega zahtevka"
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
 msgid "Billing requests"
 msgstr "Obračunski zahtevki"
+
+#. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,wanted_price_unit:0
+msgid "Budget/Unit"
+msgstr "Proračun/EM"
 
 #. module: analytic_billing_plan
 #: view:analytic.billing.plan.line.make.sale:analytic_billing_plan.view_analytic_billing_plan_line_make_sale
@@ -192,15 +171,44 @@ msgid "Deliverable"
 msgstr "Dobava"
 
 #. module: analytic_billing_plan
+#: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_copy_version.py:96
+#, python-format
+msgid "Deliverable Plan Lines"
+msgstr "Postavke plana dobav"
+
+#. module: analytic_billing_plan
 #: field:account.analytic.account,deliverable_count:0
 msgid "Deliverable count"
 msgstr "Konto dobav"
+
+#. module: analytic_billing_plan
+#: model:ir.actions.act_window,name:analytic_billing_plan.act_account_analytic_2_analytic_billing_plan_line
+#: model:ir.actions.act_window,name:analytic_billing_plan.billing_plan_line_action_project
+msgid "Deliverable lines"
+msgstr "Predmeti dobave"
+
+#. module: analytic_billing_plan
+#: view:account.analytic.account:analytic_billing_plan.view_account_analytic_account_form
+msgid "Deliverable plan"
+msgstr "Plan dobav"
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_tree
+msgid "Deliverable plan line"
+msgstr "Predmet dobave"
 
 #. module: analytic_billing_plan
 #: field:account.analytic.account,deliverable_ids:0
 #: view:project.project:analytic_billing_plan.edit_project
 msgid "Deliverables"
 msgstr "Dobave"
+
+#. module: analytic_billing_plan
+#: model:ir.actions.act_window,name:analytic_billing_plan.action_analytic_billing_plan_line_open_form
+#: model:ir.ui.menu,name:analytic_billing_plan.analytic_billing_plan_line_entries
+msgid "Deliverables plan"
+msgstr "Plan dobav"
 
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,name:0
@@ -324,6 +332,11 @@ msgid "Line name"
 msgstr "Naziv postavke"
 
 #. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,procurement_margin:0
+msgid "Material Price Margin (%)"
+msgstr "Marža za material (%)"
+
+#. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,message_ids:0
 msgid "Messages"
 msgstr "Sporočila"
@@ -413,6 +426,11 @@ msgid "Project budget"
 msgstr "Projektni proračun"
 
 #. module: analytic_billing_plan
+#: help:analytic.billing.plan.line,wanted_price_unit:0
+msgid "Proposed sale price per UoM"
+msgstr "Priporočena prodajna cena na EM"
+
+#. module: analytic_billing_plan
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
 msgid "Qty"
 msgstr "Kol"
@@ -421,6 +439,11 @@ msgstr "Kol"
 #: field:analytic.billing.plan.line,unit_amount:0
 msgid "Quantity"
 msgstr "Količina"
+
+#. module: analytic_billing_plan
+#: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
+msgid "Recommendation"
+msgstr "Priporočilo"
 
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,ref:0
@@ -453,14 +476,24 @@ msgid "Review the existing billing request lines:"
 msgstr "Pregled obstoječih postavk obračunskih zahtevkov"
 
 #. module: analytic_billing_plan
+#: help:analytic.billing.plan.line,procurement_margin:0
+msgid "Sale Margin for materials in %"
+msgstr "Prodajna marža za material v %"
+
+#. module: analytic_billing_plan
+#: help:analytic.billing.plan.line,task_margin:0
+msgid "Sale Margin for work in %"
+msgstr "Prodajna marža za delo v %"
+
+#. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,unit_price:0
 msgid "Sale Price"
 msgstr "Prodajna cena"
 
 #. module: analytic_billing_plan
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_filter
-msgid "Search billing plan lines"
-msgstr "Iskanje postavk obračunskega plana"
+msgid "Search deliverable lines"
+msgstr "Iskanje predmetov dobave"
 
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.copy.version,source_version_id:0
@@ -471,6 +504,16 @@ msgstr "Izvorna verzija plana"
 #: field:analytic.billing.plan.line,message_summary:0
 msgid "Summary"
 msgstr "Povzetek"
+
+#. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,target_revenue:0
+msgid "Target budget"
+msgstr "Ciljni proračun"
+
+#. module: analytic_billing_plan
+#: help:analytic.billing.plan.line,target_revenue:0
+msgid "Target budget computed from costs and wanted margin."
+msgstr "Ciljni proračun izračunan iz stroškov in želenih marž."
 
 #. module: analytic_billing_plan
 #: help:analytic.billing.plan.line.make.sale,invoice_quantity:0
@@ -495,6 +538,36 @@ msgstr "Skupaj"
 #: view:analytic.billing.plan.line:analytic_billing_plan.view_analytic_billing_plan_line_form
 msgid "Total Price"
 msgstr "Cena skupaj"
+
+#. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,delivered_material:0
+msgid "Total material"
+msgstr "Skupaj material"
+
+#. module: analytic_billing_plan
+#: help:analytic.billing.plan.line,delivered_material:0
+msgid "Total materials sale price"
+msgstr "Skupna prodajna cena materiala"
+
+#. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,resource_procurement_total:0
+msgid "Total procurement"
+msgstr "Skupaj nabava"
+
+#. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,resource_task_total:0
+msgid "Total tasks"
+msgstr "Skupaj opravila"
+
+#. module: analytic_billing_plan
+#: help:analytic.billing.plan.line,delivered_task:0
+msgid "Total tasks sale price"
+msgstr "Skupna prodajna cena dela"
+
+#. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,delivered_task:0
+msgid "Total work"
+msgstr "Skupaj delo"
 
 #. module: analytic_billing_plan
 #: field:analytic.billing.plan.line,message_unread:0
@@ -525,6 +598,11 @@ msgstr "Sporočila iz spletne strani"
 #: help:analytic.billing.plan.line,website_message_ids:0
 msgid "Website communication history"
 msgstr "Kronologija komunikacij spletne strani"
+
+#. module: analytic_billing_plan
+#: field:analytic.billing.plan.line,task_margin:0
+msgid "Work Price Margin (%)"
+msgstr "Marža za delo (%)"
 
 #. module: analytic_billing_plan
 #: code:addons/analytic_billing_plan/wizard/analytic_billing_plan_line_make_sale.py:108
@@ -559,6 +637,18 @@ msgstr "unit_amount"
 #: field:analytic.billing.plan.line.make.sale,order_line_ids:0
 msgid "unknown"
 msgstr "neznano"
+
+#~ msgid "Analytic billing plan line"
+#~ msgstr "Postavka obračunskega plana"
+
+#~ msgid "Billing Plan Lines"
+#~ msgstr "Postavke obrač. plana"
+
+#~ msgid "Billing plan"
+#~ msgstr "Obračun. plan"
+
+#~ msgid "Billing plan line"
+#~ msgstr "Postavka obračunskega plana"
 
 #~ msgid "Amount Currency"
 #~ msgstr "Znesek"

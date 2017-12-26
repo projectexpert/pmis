@@ -35,7 +35,7 @@ class AccountAnalyticLine(models.Model):
     )
     unit_amount = fields.Float(
         string='Quantity',
-        default=0.0,
+        default=1.0,
         oldname='quantity'
     )
     account_id = fields.Many2one(

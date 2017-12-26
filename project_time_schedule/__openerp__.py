@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Project Time Management - Activity Scheduling',
-    'version': '8.0.1.0.3',
+    'version': '8.0.1.0.4',
     'author':   'Eficent, '
                 'Matmoz d.o.o., '
                 'Project Expert Team',
@@ -10,7 +10,7 @@
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
     'website': 'http://project.expert',
-    'category': 'Project Management',
+    'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     'summary': 'Activity Scheduling',
     'depends': [

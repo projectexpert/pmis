@@ -2,8 +2,8 @@
     :alt: License AGPL-3
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
 
-Analytic billing plan
-=====================
+Deliverable plan
+================
 
 Record planned sales and create sales orders
 --------------------------------------------
@@ -11,6 +11,12 @@ Record planned sales and create sales orders
 Automatically record the analytic planned sales associated to sales orders.
 
 You can create sales orders out of the planned sales.
+
+Deliverable sale price analysis
+-------------------------------
+
+Define the deliverable sale price consulting the recommended prices computed
+from resource plan.
 
 Credits
 =======

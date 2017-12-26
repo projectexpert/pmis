@@ -94,32 +94,36 @@ class Task(orm.Model):
         return dict(res)
 
     _columns = {
+
+        'predecessor_ids': fields.many2many(
+            'project.task',
+            'project_task_predecessor_rel',
+            'task_id', 'parent_id',
+            'Predecessor Tasks'
+        ),
+        'successor_ids': fields.many2many(
+            'project.task',
+            'project_task_predecessor_rel',
+            'parent_id', 'task_id',
+            'Successor Tasks'
+        ),
+
         'predecessor_ids_str': fields.function(
             _predecessor_ids_calc,
             method=True, type='char',
             string='Predecessor tasks',
-            size=20, help='Predecessor tasks ids',
-            # store={
-            #     'project.task': (
-            #         get_related_tasks,
-            #         ['parent_ids','child_ids'], 10
-            #     ),
-            # }
-            ),
+            size=20,
+            help='Predecessor tasks ids',
+        ),
         'predecessor_names_str': fields.function(
             _predecessor_names_calc,
             method=True, type='char',
             string='Predecessor tasks',
-            size=512, help='Predecessor tasks ids',
-            # store={
-            #     'project.task': (
-            #         get_related_tasks,
-            #         ['parent_ids','child_ids'], 10
-            #     ),
-            # }
-            ),
+            size=512,
+            help='Predecessor tasks ids',
+        ),
 
-        }
+    }
 
     def do_link_predecessors(
         self, cr, uid, task_id, link_predecessors_data=None, context=None

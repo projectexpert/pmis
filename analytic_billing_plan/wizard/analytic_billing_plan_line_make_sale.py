@@ -7,7 +7,7 @@ from openerp.tools.translate import _
 
 class AnalyticBillingPlanLineMakeSale(orm.TransientModel):
     _name = "analytic.billing.plan.line.make.sale"
-    _description = "Analytic billing plan line make sale"
+    _description = "Deliverable plan line make sale"
 
     def _get_order_lines(self, cr, uid, context=None):
         """

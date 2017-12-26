@@ -5,13 +5,12 @@
 
 from openerp import api, models, fields
 
-class BillingPlanLine(models.Model):
+class DeliverableLine(models.Model):
     _name = 'analytic.billing.plan.line'
     _inherit = 'analytic.billing.plan.line'
 
     change_id = fields.Many2one(
         comodel_name='change.management.change',
-        required=True,
         ondelete='cascade',
         string='Source'
     )
