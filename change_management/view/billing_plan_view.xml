@@ -39,12 +39,13 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
             <field name="inherit_id" ref="analytic_billing_plan.view_analytic_billing_plan_line_filter"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='journal_id']" position="after">
+                    <field name="change_id"/>
                     <filter string="Requirement" context="{'change_id_visible': False}"
                             domain="[('change_id','&lt;&gt;',False)]"
                             help="Show only change based deliverables"/>
                 </xpath>
                <filter name="Project" position="after">
-                    <filter string="Change"
+                    <filter string="Source"
                             name="group_change_id"
                             domain="[]"
                             context="{'group_by' : 'change_id'}"/>

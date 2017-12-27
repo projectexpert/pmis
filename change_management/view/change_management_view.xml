@@ -114,10 +114,16 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
                                     class="oe_inline oe_stat_button"
                                     icon="fa-money"
                                     groups="analytic.group_analytic_accounting"
+                                    context="{'search_default_active_version': 1}"
                                     type="object">
                                 <field name="deliverable_count"
                                        widget="statinfo"
                                        string="Deliverables"/>
+                                <field name="expected_revenue"
+                                       class="oe_inline badge"
+                                       nolabel="1"
+                                       widget="statinfo"
+                                       modifiers="{'readonly': true}"/>
                             </button>
 
                         </div>

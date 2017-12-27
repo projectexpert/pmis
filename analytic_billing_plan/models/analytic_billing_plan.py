@@ -24,6 +24,15 @@ class BillingPlanLine(models.Model):
                 if order_line.state and order_line.state != 'cancel':
                     rec.has_active_order = bool(rec.order_line_ids)
 
+    @api.multi
+    @api.depends('version_id', 'active_account_version', 'account_id')
+    def _compute_is_active(self):
+        for res in self:
+            if res.version_id == res.active_account_version:
+                res.is_active = True
+            else:
+                res.is_active = False
+
     unit_price = fields.Float(
         string='Sale Price',
         groups='project.group_project_manager',
@@ -106,6 +115,15 @@ class BillingPlanLine(models.Model):
         compute='_compute_wanted_price_unit',
         string='Budget/Unit',
         help='Proposed sale price per UoM'
+    )
+    active_account_version = fields.Many2one(
+        related='account_id.active_analytic_planning_version'
+    )
+    is_active = fields.Boolean(
+        string="Active version",
+        readonly=True,
+        compute='_compute_is_active',
+        store=True
     )
 
     @api.multi
@@ -198,6 +216,16 @@ class BillingPlanLine(models.Model):
             if self.account_id.company_id.currency_id:
                 self.currency_id = self.account_id.company_id.currency_id.id
                 self.amount = self.unit_price * self.unit_amount
+            if self.account_id.active_analytic_planning_version:
+                self._compute_is_active
+
+    @api.onchange('version_id')
+    def on_change_version_id(self):
+        self._compute_is_active
+
+    @api.onchange('is_active')
+    def on_change_is_active(self):
+        self._compute_is_active
 
     @api.multi
     def copy(self, default=None):

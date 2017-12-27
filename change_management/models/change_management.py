@@ -40,6 +40,16 @@ class CMChange (models.Model):
     _inherit = ['mail.thread', 'ir.needaction_mixin']
     _order = 'id desc'
 
+    @api.model
+    def proximity_groups(self, present_ids, domain, **kwargs):
+        proximities = self.env['change.management.proximity'].search(
+            []).name_get()
+        return proximities, None
+
+    _group_by_full = {
+        'proximity_id': proximity_groups,
+    }
+
     # ##### Track state changes #####  #
     _track = {
         'state': {
@@ -111,7 +121,7 @@ class CMChange (models.Model):
                     record.impact_residual * record.probability_residual
             )
 
-    # ##### FIELDS #####  #
+    # FIELDS
 
     name = fields.Char(
         'Request Id',
@@ -261,6 +271,7 @@ class CMChange (models.Model):
         copy=False,
         default='normal'
     )
+
     # risk management related
     impact_inherent = fields.Integer(
         'Inherent Impact', required=True,
@@ -310,6 +321,7 @@ class CMChange (models.Model):
         "post-response value."
     )
 
+    # Deliverable related
     account_id = fields.Many2one(
         related='project_id.analytic_account_id'
     )
@@ -333,12 +345,31 @@ class CMChange (models.Model):
     kanban_actions = fields.Text(
         compute='_compute_kanban_actions'
     )
+    expected_revenue = fields.Float(
+        string='Expected Revenue',
+        compute='_compute_expected_revenue'
+    )
+    active_deliverable_ids = fields.One2many(
+        comodel_name="analytic.billing.plan.line",
+        inverse_name="change_id",
+        string="Active deliverables",
+        domain=lambda self: [('is_active', '=', True)]
+    )
 
     @api.depends('deliverable_ids')
     def _compute_deliverable_count(self):
         for record in self:
-            record.deliverable_count = len(record.deliverable_ids)
+            record.deliverable_count = len(record.active_deliverable_ids)
 
+    @api.multi
+    def _compute_expected_revenue(self):
+        for r in self:
+            r.expected_revenue = sum(
+                line.amount for line in
+                r.active_deliverable_ids
+            )
+
+    # task list with states on kanban
     @api.multi
     def _compute_kanban_actions(self):
         for record in self:
@@ -368,8 +399,7 @@ class CMChange (models.Model):
                     )
             record.kanban_actions = '<ul>' + result_string3 + '</ul>'
 
-    # ##### DEFINITIONS #####  #
-
+    # DEFINITIONS
     @api.multi
     def name_get(self):
         """
@@ -528,14 +558,13 @@ class CMChange (models.Model):
                                      'view_analytic_billing_plan_line_tree',
                     'form_view_ref': 'analytic_billing_plan.' +
                                      'view_analytic_billing_plan_line_form',
-                    'search_default_Version': 1,
+                    # 'search_default_Version': 1,
                     'default_change_id': cr_id,
                     'default_account_id': ac_id
                 }
             }
 
-    # ##### create CR from mail #####  #
-
+    # create CR from mail
     @api.model
     def message_get_reply_to(self, res_ids, default=None):
         """ Override to get the reply_to of the parent project. """
