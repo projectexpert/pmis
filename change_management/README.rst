@@ -5,13 +5,23 @@
 Change Management
 =================
 
-Change Management for integrated with Stakeholders Requirements Management
-and Risk Management
+Change Management used as Stakeholders Requirements Management,
+Risk Management and Hybrid Agile Framework.
 
-Fully integrated with project_charter module enables the change management
-through the Change Request Document.
+Change requests are handled as project requirements. For known requirements
+(known specification) define type requirement, for undefined requirements
+select type change and manage them as an agile project cycle where task stages
+are considered as iterarions (sprints). Assess (and manage risks) as type risk
+change requests (tasks are considered as an action plan to follow if the risk
+"happens".
 
-Project requirements handled as change requests.
+Project changes of type request handled as Agile "User Epic" term, tasks
+handled as gap analysis lines (user story lines in Agile terminology).
+
+Project changes of requirement handled as deliverable plan, deliverable lines
+confirmation workflow integrated with sale workflow. Price analysis on
+deliverables suggests a targer budget (sale price) based on resource plan
+lines and chosen margins.
 
 Insert a project requirement and manage it through the change management.
 
@@ -23,7 +33,7 @@ Installation
 ============
 
 * The module automatically takes care of its dependencies and is ready for
-use after the installation
+  use after the installation
 
 Credits
 =======
