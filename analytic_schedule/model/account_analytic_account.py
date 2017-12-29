@@ -1,32 +1,16 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Copyright (C) 2015 Eficent (<http://www.eficent.com/>)
-#               <contact@eficent.com>
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright 2017 Eficent Business and IT Consulting Services S.L.
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import models
+from openerp import models, api
 
 
 class AnalyticAccount(models.Model):
     _inherit = "account.analytic.account"
 
-    def _compute_scheduled_dates(self, cr, uid, analytic, context=None):
-        # Obtain the earliest and latest dates of the children
+    @api.model
+    def _compute_scheduled_dates(self, analytic):
+        """Obtains the earliest and latest dates of the children."""
         start_dates = []
         end_dates = []
         if not analytic.child_ids:
@@ -46,23 +30,23 @@ class AnalyticAccount(models.Model):
             'date_start': min_start_date,
             'date': max_end_date,
         }
-        self.write(cr, uid, [analytic.id], vals, context=context)
+        analytic.write(vals)
+
         return True
 
-    def create(self, cr, uid, values, context=None):
-        acc_id = super(AnalyticAccount, self).create(
-            cr, uid, values, context=context)
-        acc = self.browse(cr, uid, acc_id, context=context)
-        self._compute_scheduled_dates(cr, uid, acc.parent_id, context=context)
-        return acc_id
+    @api.model
+    def create(self, vals):
+        acc = super(AnalyticAccount, self).create(vals)
+        self._compute_scheduled_dates(acc.parent_id)
+        return acc
 
-    def write(self, cr, uid, ids, vals, context=None):
-        res = super(AnalyticAccount, self).write(
-            cr, uid, ids, vals, context=context)
+    @api.multi
+    def write(self, vals):
+        res = super(AnalyticAccount, self).write(vals)
         if 'date_start' in vals or 'date' in vals:
-            for acc in self.browse(cr, uid, ids, context=context):
+            for acc in self:
                 if not acc.parent_id:
                     return res
-                self._compute_scheduled_dates(
-                    cr, uid, acc.parent_id, context=context)
+                self._compute_scheduled_dates(acc.parent_id)
+
         return res
