@@ -31,6 +31,7 @@
                                            class="oe_inline"
                                            required="True"/>
                                     <field name="product_uom_id"
+                                           required="True"
                                            placeholder="Product Unit of Measure"
                                            class="oe_inline"/>
                                     <span class="oe_grey"> x </span>

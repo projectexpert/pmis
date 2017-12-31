@@ -6,7 +6,7 @@
 
 {
     'name': 'Deliverable plan',
-    'version': '8.0.3.0.3',
+    'version': '8.0.3.0.4',
     'author':   'Eficent, '
                 'Matmoz, '
                 'Luxim, '

@@ -57,7 +57,7 @@
                                 </h2>
                             </div>
                         </group>
-                        <group>
+                        <group name="account">
                             <field name="account_id"/>
                             <field name="date"/>
                         </group>
