@@ -1,28 +1,18 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-    :alt: License AGPL-3
-    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   :alt: License: AGPL-3
 
-======================
-Stock Analytic Account
-======================
+=======================
+Purchase Stock Analytic
+=======================
 
-Project Procurement
--------------------
-Features of this module:
-
-* Adds the analytic account to the stock move
-* Makes it possible to search stock moves by analytic account or its
-  project manager
-* Makes it possible to search picking lists by analytic account or its
-  project manager
-* Adds button in the Project Form and an Action from Project's 'More'
-  menu to list the Procurement Orders associated to the selected project.
+Copies the analytic account of the purchase order item to the stock move.
 
 Installation
 ============
 
-* The module automatically takes care of its dependencies and is ready for
-  use after the installation
+* The module automatically takes care of its dependencies and is ready for use
+  after the installation
 
 Credits
 =======
@@ -31,8 +21,6 @@ Contributors
 ------------
 
 * Eficent <http://www.eficent.com>
-* Matmoz d.o.o. <http://www.matmoz.si>
-* Luxim d.o.o. <https://www.luxim.si>
 
 
 Maintainer

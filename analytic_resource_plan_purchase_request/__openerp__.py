@@ -18,12 +18,12 @@
     'license': 'AGPL-3',
     'depends': [
         'analytic_resource_plan',
-        'analytic_resource_plan_stock_picking',
+        # 'analytic_resource_plan_stock_picking',
         'analytic_location',
         'purchase_request'
     ],
     'data': [
-        # 'wizard/analytic_resource_plan_line_make_purchase_request.xml',
+        'views/analytic_resource_plan_line_make_purchase_request.xml',
         'views/purchase_request_view.xml',
         'views/analytic_resource_plan_view.xml',
     ],

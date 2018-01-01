@@ -11,6 +11,10 @@ class AccountAnalyticAccount(orm.Model):
     _inherit = 'account.analytic.account'
 
     _columns = {
+        'warehouse_id': fields.many2one(
+            'stock.warehouse',
+            'Warehouse'
+        ),
         'location_id': fields.many2one(
             'stock.location',
             'Default Stock Location',
@@ -25,6 +29,24 @@ class AccountAnalyticAccount(orm.Model):
         ),
     }
 
+    def _default_warehouse(self, cr, uid, context=None):
+        warehouse_obj = self.pool.get('stock.warehouse')
+        company_obj = self.pool.get('res.company')
+        company_id = company_obj._company_default_get(cr, uid,
+                                                      'stock.warehouse',
+                                                      context=context)
+        if context is None:
+            context = {}
+
+        warehouse_ids = warehouse_obj.search(
+            cr, uid, [('company_id', '=', company_id)], limit=1,
+            context=context) or []
+
+        if warehouse_ids:
+            return warehouse_ids[0]
+        else:
+            return False
+
     def _default_dest_address(self, cr, uid, context=None):
         if context is None:
             context = {}
@@ -37,5 +59,6 @@ class AccountAnalyticAccount(orm.Model):
             return False
 
     _defaults = {
+        'warehouse_id': _default_warehouse,
         'dest_address_id': _default_dest_address,
         }

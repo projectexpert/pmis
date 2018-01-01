@@ -14,7 +14,6 @@
     'website': 'http://project.expert',
     'category': 'Project Management',
     'license': 'AGPL-3',
-    'images': ['images/deliveries_to_invoice.jpeg'],
     'depends': [
         'stock_analytic'
     ],

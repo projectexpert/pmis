@@ -11,6 +11,7 @@
                 <xpath expr="//group[@string='Stock Moves for this Account']"
                        position="before">
                     <group string="Default Stock Location">
+                        <field name="warehouse_id"/>
                         <field name="location_id" context='{"default_analytic_account_id": active_id}'/>/>
                         <field name="dest_address_id"/>
                     </group>
