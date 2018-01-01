@@ -17,7 +17,7 @@
         'Sudhir Arya <http://www.serpentcs.com/>'
     ],
     'website': 'http://project.expert',
-    'category': 'Project Management',
+    'category': 'Advanced Project Management',
     'depends': ['project_wbs'],
     'data': [
         'views/analytic_account_sequence_view.xml',

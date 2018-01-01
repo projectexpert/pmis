@@ -8,7 +8,7 @@
     "version": "8.0.1.0.0",
     "author": "Eficent",
     "website": "www.eficent.com",
-    "category": "Generic Modules/Projects & Services",
+    'category': 'Advanced Project Management',
     "depends": ["project", "stock_analytic_account"],
     "Summary": """
 

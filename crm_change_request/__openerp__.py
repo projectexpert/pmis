@@ -11,7 +11,7 @@
     'contributors': [
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
-    'website': 'http://project.expert',
+    'category': 'Advanced Project Management',
     'category': 'Project Management',
     'license': 'AGPL-3',
     'data': [

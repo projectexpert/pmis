@@ -14,7 +14,7 @@
         'Sudhir Arya <arya.sudhir@yahoo.co.in>'
     ],
     'website': 'http://project.expert',
-    'category': 'Project Management',
+    'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     'depends': ['project_wbs'],
     'data': [

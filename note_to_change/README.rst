@@ -4,14 +4,17 @@
 Convert a note to a Change Request
 ==================================
 
-Introduces the button Change to CR on a note to give the possibility to change notes to CRs.
-That way notes can be launched in the project management workflow.
+Introduces the button Change to CR on a note to give the possibility to change
+notes to CRs. That way notes can be launched in the project management
+workflow by giving to the manager the chance of personal planning before
+launching requests.
 
 
 Installation
 ============
 
-* The module automatically takes care of its dependencies and is ready for use after the installation
+* The module automatically takes care of its dependencies and is ready for
+  use after the installation
 
 Credits
 =======

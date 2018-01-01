@@ -9,7 +9,7 @@
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
     'website': 'http://project.expert',
-    'category': 'Project Management',
+    'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     'summary': 'Start and End Dates from Children',
     'depends': [

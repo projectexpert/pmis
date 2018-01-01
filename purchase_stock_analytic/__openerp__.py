@@ -15,7 +15,7 @@
         'Aaron Henriquez <ahenriquez@eficent.com>',
     ],
     'website': 'http://project.expert',
-    'category': 'Project Management',
+    'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     "depends": ["purchase", "stock_analytic"],
     "summary": 'Copies the analytic account of the PO item to the stock move.',

@@ -8,7 +8,7 @@
     "author": "Eficent",
     "license": 'AGPL-3',
     "website": "www.eficent.com",
-    "category": "Generic Modules/Projects & Services",
+    'category': 'Advanced Project Management',
     "depends": ["project_stock", "analytic_location"],
     "Summary": """
         stock location in the project.

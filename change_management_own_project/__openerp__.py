@@ -12,7 +12,7 @@
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
     'website': 'www.eficent.com',
-    'category': 'Project Management',
+    'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     'summary': 'Proposes a project for each Change Request, child of the'
                'indicated source project.',

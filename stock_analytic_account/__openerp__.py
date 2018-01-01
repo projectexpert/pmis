@@ -13,7 +13,7 @@
         'Jordi Ballester <jordi.ballester@eficent.com>',
     ],
     'website': 'http://project.expert',
-    'category': 'Project Management',
+    'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     'depends': ['stock_analytic'],
     'data': [
