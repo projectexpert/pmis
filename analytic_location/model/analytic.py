@@ -32,9 +32,9 @@ class AccountAnalyticAccount(orm.Model):
     def _default_warehouse(self, cr, uid, context=None):
         warehouse_obj = self.pool.get('stock.warehouse')
         company_obj = self.pool.get('res.company')
-        company_id = company_obj._company_default_get(cr, uid,
-                                                      'stock.warehouse',
-                                                      context=context)
+        company_id = company_obj._company_default_get(
+            cr, uid, 'stock.warehouse', context=context
+        )
         if context is None:
             context = {}
 

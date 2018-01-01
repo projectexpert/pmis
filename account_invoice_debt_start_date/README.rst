@@ -1,5 +1,6 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
+    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
 
 Invoice Start Debt Relation Date
 ================================
@@ -8,7 +9,7 @@ This module adds two new date fields on invoice.
 
 This module makes the old 'invoice_date' field on invoice act as start debt
 relation date, while new 'invoice_date_creation' field serves as date of
-invoice.
+invoice as a document.
 
 New field 'invoice_date_recieved' also exist on supplier invoices.
 

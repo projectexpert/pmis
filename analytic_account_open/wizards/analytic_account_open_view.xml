@@ -2,7 +2,8 @@
 <openerp>
     <data>
 
-        <record id="analytic_account_open_view" model="ir.ui.view">
+        <record id="analytic_account_open_view"
+                model="ir.ui.view">
             <field name="name">Open analytic account</field>
             <field name="model">analytic.account.open</field>
             <field name="arch" type="xml">
@@ -14,15 +15,21 @@
                         <field name="include_child"/>
                     </group>
                     <footer>
-                        <button name="analytic_account_open_window" string="Open" type="object" class="oe_highlight"/>
+                        <button name="analytic_account_open_window"
+                                string="Open"
+                                type="object"
+                                class="oe_highlight"/>
                         or
-                        <button string="Cancel" class="oe_link" special="cancel"/>
+                        <button string="Cancel"
+                                class="oe_link"
+                                special="cancel"/>
                     </footer>
                 </form>
             </field>
         </record>
 
-        <record id="action_analytic_account_open_window" model="ir.actions.act_window">
+        <record id="action_analytic_account_open_window"
+                model="ir.actions.act_window">
             <field name="name">Open analytic account</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">analytic.account.open</field>
@@ -34,8 +41,7 @@
 
         <menuitem action="action_analytic_account_open_window"
                   id="menu_analytic_account_open_window"
-            parent="account.menu_analytic_accounting"/>
-
+                  parent="account.menu_analytic_accounting"/>
 
     </data>
 </openerp>
