@@ -1,4 +1,3 @@
-﻿# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* project_time_schedule
 #
@@ -6,16 +5,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-13 15:05+0800\n"
-"PO-Revision-Date: 2015-11-13 15:10+0800\n"
+"POT-Creation-Date: 2017-12-26 13:17+0000\n"
+"PO-Revision-Date: 2017-12-26 14:23+0100\n"
+"Last-Translator: Jason Cui <jason@qdodoo.com>\n"
 "Language-Team: \n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.6\n"
-"Last-Translator: Jason Cui <jason@qdodoo.com>\n"
-"Language: zh_CN\n"
+"X-Generator: Poedit 2.0.5\n"
 
 #. module: project_time_schedule
 #: help:project.task,free_float:0
@@ -58,14 +57,24 @@ msgid "Calculate Network"
 msgstr "计算进度网络"
 
 #. module: project_time_schedule
+#: field:project.task.calculate.network,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: project_time_schedule
 #: field:project.task,is_critical_path:0
 msgid "Critical Path"
 msgstr "关键路径"
 
 #. module: project_time_schedule
-#: view:project.task:project_time_schedule.view_task_form2
-msgid "Dates"
-msgstr "日期"
+#: field:project.task.calculate.network,display_name:0
+msgid "Display Name"
+msgstr ""
 
 #. module: project_time_schedule
 #: help:project.task,duration:0
@@ -83,14 +92,15 @@ msgid "Early Finish Date"
 msgstr "提前完成日"
 
 #. module: project_time_schedule
-#: field:project.task,date_early_start:0
-msgid "Early Start Date"
-msgstr "提前起始日"
-
-#. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
 msgid "Early dates"
 msgstr "提前日期"
+
+#. module: project_time_schedule
+#: code:addons/project_time_schedule/models/project_time_schedule.py:84
+#, python-format
+msgid "Error"
+msgstr ""
 
 #. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
@@ -101,6 +111,30 @@ msgstr "附加信息"
 #: field:project.task,free_float:0
 msgid "Free float"
 msgstr "自由浮动时长"
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,id:0
+msgid "ID"
+msgstr ""
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,write_uid:0
+#, fuzzy
+#| msgid "Late dates"
+msgid "Last Updated by"
+msgstr "滞后日期"
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,write_date:0
+#, fuzzy
+#| msgid "Late dates"
+msgid "Last Updated on"
+msgstr "滞后日期"
 
 #. module: project_time_schedule
 #: field:project.task,date_late_finish:0
@@ -133,14 +167,40 @@ msgid "Margins"
 msgstr "边际时长"
 
 #. module: project_time_schedule
-#: view:project.task:project_time_schedule.view_task_form2
-msgid "Remaining"
-msgstr "剩余"
+#: view:project.task.calculate.network:project_time_schedule.view_project_task_calculate_network
+#, fuzzy
+#| msgid "Calculate Network"
+msgid "Project Task Calculate Network"
+msgstr "计算进度网络"
+
+#. module: project_time_schedule
+#: model:ir.actions.act_window,name:project_time_schedule.action_project_task_calculate_network
+msgid "Project Task add Predecessors"
+msgstr ""
+
+#. module: project_time_schedule
+#: view:project.task.calculate.network:project_time_schedule.view_project_task_calculate_network
+#, fuzzy
+#| msgid "Calculate Network"
+msgid "Schedule Network"
+msgstr "计算进度网络"
+
+#. module: project_time_schedule
+#: model:ir.model,name:project_time_schedule.model_project_task_calculate_network
+#, fuzzy
+#| msgid "Calculate Network"
+msgid "Schedule network"
+msgstr "计算进度网络"
 
 #. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
 msgid "Scheduling"
 msgstr "调度"
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,task_id:0
+msgid "Target task"
+msgstr ""
 
 #. module: project_time_schedule
 #: model:ir.model,name:project_time_schedule.model_project_task
@@ -154,6 +214,26 @@ msgid "Tasks"
 msgstr "任务"
 
 #. module: project_time_schedule
+#: code:addons/project_time_schedule/models/project_time_schedule.py:85
+#, python-format
+msgid "The task duration cannot be set to a value less than zero."
+msgstr ""
+
+#. module: project_time_schedule
 #: field:project.task,total_float:0
 msgid "Total float"
 msgstr "总浮动时长"
+
+#. module: project_time_schedule
+#: view:project.task.calculate.network:project_time_schedule.view_project_task_calculate_network
+msgid "_Cancel"
+msgstr ""
+
+#~ msgid "Dates"
+#~ msgstr "日期"
+
+#~ msgid "Early Start Date"
+#~ msgstr "提前起始日"
+
+#~ msgid "Remaining"
+#~ msgstr "剩余"

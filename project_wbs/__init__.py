@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
-# © 2015 Eficent Business and IT Consulting Services S.L.
-#  - Jordi Ballester Alomar
-# © 2015 MATMOZ d.o.o.
-#  - Matjaž Mozetič
-# © 2015 Serpent Consulting Services Pvt. Ltd.
-#  - Sudhir Arya
-# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+#    Copyright 2015 Matmoz d.o.o. (Matjaž Mozetič)
+#    Copyright 2015 Eficent (Jordi Ballester Alomar)
+#    Copyright 2017 Deneroteam (Vijaykumar Baladaniya)
+#    Copyright 2017 Luxim d.o.o. (Matjaž Mozetič)
+#    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from . import models

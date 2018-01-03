@@ -1,24 +1,21 @@
 # -*- coding: utf-8 -*-
-# © 2015 Eficent Business and IT Consulting Services S.L.
-# (Jordi Ballester Alomar)
-#
-# © 2016 Matmoz d.o.o. & 2017 Luxim d.o.o.
-# (Matjaž Mozetič)
-#
-# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+#    Copyright 2017 Matmoz d.o.o. & Luxim d.o.o. (Matjaž Mozetič)
+#    Copyright 2015 Eficent (Jordi Ballester Alomar)
+#    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
     'name': 'Analytic Plan',
-    'version': '8.0.2.1.1',
+    'version': '8.0.3.0.2',
     'author':   'Eficent, '
-                'Matmoz & Luxim, '
+                'Matmoz, '
+                'Luxim, '
                 'Project Expert Team',
     'contributors': [
         'Jordi Ballester <jordi.ballester@eficent.com>',
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
     'website': 'http://project.expert',
-    'category': 'Project Management',
+    'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     'depends': ['account', 'analytic', 'project'],
     'data': [

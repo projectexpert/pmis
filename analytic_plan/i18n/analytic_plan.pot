@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-08 07:42+0000\n"
-"PO-Revision-Date: 2017-07-08 07:42+0000\n"
+"POT-Creation-Date: 2017-12-23 06:18+0000\n"
+"PO-Revision-Date: 2017-12-23 06:18+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -37,6 +37,7 @@ msgid "<p>\n"
 msgstr ""
 
 #. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
 #: field:account.analytic.plan.journal,active:0
 #: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_search
 #: field:account.analytic.plan.version,active:0
@@ -45,7 +46,6 @@ msgstr ""
 
 #. module: analytic_plan
 #: view:account.analytic.account:analytic_plan.view_account_analytic_account_form_inh
-#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
 #: view:project.project:analytic_plan.edit_project_inh
 msgid "Active Plan Version"
 msgstr ""
@@ -132,7 +132,7 @@ msgid "Analytic Plan copy versions"
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:98
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:95
 #, python-format
 msgid "Analytic Planning Lines"
 msgstr ""
@@ -259,41 +259,13 @@ msgid "Display Name"
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/plan_analytic_lines.py:193
-#, python-format
-msgid "Entries: "
-msgstr ""
-
-#. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:59
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:66
-#, python-format
-msgid "Error !"
-msgstr ""
-
-#. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
-msgid "Fin. Account"
-msgstr ""
-
-#. module: analytic_plan
 #: selection:account.analytic.plan.journal,type:0
 msgid "General"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,general_account_id:0
-msgid "General Account"
-msgstr ""
-
-#. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_form
-msgid "General Accounting"
-msgstr ""
-
-#. module: analytic_plan
 #: help:account.analytic.plan.journal,type:0
-msgid "Gives the type of the analytic journal. When it needs for a document (eg: an invoice) to create analytic entries, OpenERP will look  for a matching journal of the same type."
+msgid "Gives the type of the analytic journal. When a document needs (eg: an invoice) the creation of analytic entries, Odoo looks for a matching journal of the same type."
 msgstr ""
 
 #. module: analytic_plan
@@ -309,16 +281,6 @@ msgstr ""
 #: field:account.analytic.plan.version,id:0
 #: field:analytic.plan.copy.version,id:0
 msgid "ID"
-msgstr ""
-
-#. module: analytic_plan
-#: help:account.analytic.plan.journal,active:0
-msgid "If the active field is set to False, it will allow you to hide the analytic journal without removing it."
-msgstr ""
-
-#. module: analytic_plan
-#: help:account.analytic.plan.version,active:0
-msgid "If the active field is set to False, it will allow you to hide the analytic planning version without removing it."
 msgstr ""
 
 #. module: analytic_plan
@@ -380,13 +342,13 @@ msgid "Notes"
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/analytic_plan_version.py:62
+#: code:addons/analytic_plan/models/analytic_plan_version.py:59
 #, python-format
 msgid "Only one default commitments version can exist."
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/analytic_plan_version.py:77
+#: code:addons/analytic_plan/models/analytic_plan_version.py:74
 #, python-format
 msgid "Only one default plan version can exist."
 msgstr ""
@@ -397,13 +359,29 @@ msgid "Others"
 msgstr ""
 
 #. module: analytic_plan
+#: field:account.analytic.line.plan,partner_id:0
+msgid "Partner"
+msgstr ""
+
+#. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
+msgid "Passive"
+msgstr ""
+
+#. module: analytic_plan
 #: model:ir.ui.menu,name:analytic_plan.project_plan
 msgid "Plan"
 msgstr ""
 
 #. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
 #: model:ir.model,name:analytic_plan.model_account_analytic_plan_version
 msgid "Plan Version"
+msgstr ""
+
+#. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
+msgid "Planned Active"
 msgstr ""
 
 #. module: analytic_plan
@@ -428,6 +406,11 @@ msgstr ""
 
 #. module: analytic_plan
 #: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
+msgid "Planned Passive"
+msgstr ""
+
+#. module: analytic_plan
+#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
 msgid "Planned cost lines"
 msgstr ""
 
@@ -447,14 +430,14 @@ msgid "Planning Analytic Entries"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,journal_id:0
-msgid "Planning Analytic Journal"
-msgstr ""
-
-#. module: analytic_plan
 #: model:ir.actions.act_window,name:analytic_plan.action_account_analytic_plan_journal_form
 #: model:ir.ui.menu,name:analytic_plan.account_def_analytic_plan_journal
 msgid "Planning Analytic Journals"
+msgstr ""
+
+#. module: analytic_plan
+#: field:account.analytic.line.plan,journal_id:0
+msgid "Planning Journal"
 msgstr ""
 
 #. module: analytic_plan
@@ -550,13 +533,18 @@ msgid "Source Planning Version"
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/plan_analytic_lines.py:123
+#: help:account.analytic.plan.journal,active:0
+msgid "The active field set to False allows hiding the analytic journal without removing it."
+msgstr ""
+
+#. module: analytic_plan
+#: code:addons/analytic_plan/models/analytic_plan_line.py:135
 #, python-format
 msgid "There is no expense account defined for this product: \"%s\" (id:%d)"
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/plan_analytic_lines.py:134
+#: code:addons/analytic_plan/models/analytic_plan_line.py:146
 #, python-format
 msgid "There is no income account defined for this product: \"%s\" (id:%d)"
 msgstr ""
@@ -568,7 +556,7 @@ msgstr ""
 
 #. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_tree
-msgid "Total Quantity"
+msgid "Total unit_amount"
 msgstr ""
 
 #. module: analytic_plan
@@ -591,6 +579,11 @@ msgstr ""
 #. module: analytic_plan
 #: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Version"
+msgstr ""
+
+#. module: analytic_plan
+#: help:account.analytic.plan.version,active:0
+msgid "When active field is set to False, it allows you to hide the analytic planning version without removing it."
 msgstr ""
 
 #. module: analytic_plan

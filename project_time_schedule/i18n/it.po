@@ -6,22 +6,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-13 07:39+0000\n"
-"PO-Revision-Date: 2016-05-02 15:49+0200\n"
+"POT-Creation-Date: 2017-12-26 13:17+0000\n"
+"PO-Revision-Date: 2017-12-26 14:22+0100\n"
 "Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
 "Language-Team: \n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: it\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.5\n"
 
 #. module: project_time_schedule
 #: help:project.task,free_float:0
 msgid ""
 "\n"
-"Number of hours that the activity can be delayed without delaying the next\n"
+"Number of hours that the activity can be delayed without delaying the "
+"next\n"
 "subsequent activity.\n"
 "            "
 msgstr ""
@@ -34,11 +35,13 @@ msgstr ""
 #: help:project.task,total_float:0
 msgid ""
 "\n"
-"Number of hours that the activity can be delayed without delaying the project.\n"
+"Number of hours that the activity can be delayed without delaying the "
+"project.\n"
 "            "
 msgstr ""
 "\n"
-"Ore di ritardo permesse per un'attività senza che venisse ritardato il progetto.\n"
+"Ore di ritardo permesse per un'attività senza che venisse ritardato il "
+"progetto.\n"
 "            "
 
 #. module: project_time_schedule
@@ -72,9 +75,9 @@ msgid "Critical Path"
 msgstr "Via critica"
 
 #. module: project_time_schedule
-#: view:project.task:project_time_schedule.view_task_form2
-msgid "Dates"
-msgstr "Date"
+#: field:project.task.calculate.network,display_name:0
+msgid "Display Name"
+msgstr "Nome visualizzato"
 
 #. module: project_time_schedule
 #: help:project.task,duration:0
@@ -92,14 +95,15 @@ msgid "Early Finish Date"
 msgstr "Data fine anticipata"
 
 #. module: project_time_schedule
-#: field:project.task,date_early_start:0
-msgid "Early Start Date"
-msgstr "Data inizio anticipata"
-
-#. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
 msgid "Early dates"
 msgstr "Date anticipate"
+
+#. module: project_time_schedule
+#: code:addons/project_time_schedule/models/project_time_schedule.py:84
+#, python-format
+msgid "Error"
+msgstr "Errore"
 
 #. module: project_time_schedule
 #: view:project.task:project_time_schedule.view_task_form2
@@ -115,6 +119,11 @@ msgstr "Fluttuo libero"
 #: field:project.task.calculate.network,id:0
 msgid "ID"
 msgstr "ID"
+
+#. module: project_time_schedule
+#: field:project.task.calculate.network,__last_update:0
+msgid "Last Modified on"
+msgstr "Ultimo cambiamento"
 
 #. module: project_time_schedule
 #: field:project.task.calculate.network,write_uid:0
@@ -167,11 +176,6 @@ msgid "Project Task add Predecessors"
 msgstr "Aggiungi predecessore dell'attività progettuale"
 
 #. module: project_time_schedule
-#: view:project.task:project_time_schedule.view_task_form2
-msgid "Remaining"
-msgstr "Rimanente"
-
-#. module: project_time_schedule
 #: view:project.task.calculate.network:project_time_schedule.view_project_task_calculate_network
 msgid "Schedule Network"
 msgstr "Pianificazione rete"
@@ -203,6 +207,12 @@ msgid "Tasks"
 msgstr "Attività"
 
 #. module: project_time_schedule
+#: code:addons/project_time_schedule/models/project_time_schedule.py:85
+#, python-format
+msgid "The task duration cannot be set to a value less than zero."
+msgstr "La durata di un attività non può essere negativa."
+
+#. module: project_time_schedule
 #: field:project.task,total_float:0
 msgid "Total float"
 msgstr "Fluttuo totale"
@@ -211,3 +221,12 @@ msgstr "Fluttuo totale"
 #: view:project.task.calculate.network:project_time_schedule.view_project_task_calculate_network
 msgid "_Cancel"
 msgstr "_Cancella"
+
+#~ msgid "Dates"
+#~ msgstr "Date"
+
+#~ msgid "Early Start Date"
+#~ msgstr "Data inizio anticipata"
+
+#~ msgid "Remaining"
+#~ msgstr "Rimanente"

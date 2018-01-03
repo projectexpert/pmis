@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <template id="report.external_layout_header_ext" inherit_id="report.external_layout_header">
-            <xpath expr="//div[@t-field='company.partner_id']" position="attributes">
+        <template id="report.external_layout_header_ext"
+                  inherit_id="report.external_layout_header">
+            <xpath expr="//div[@t-field='company.partner_id']"
+                   position="attributes">
                 <attribute name="class"/>
             </xpath>
-            <xpath expr="//div[@t-field='company.partner_id']" position="after">
+            <xpath expr="//div[@t-field='company.partner_id']"
+                   position="after">
                 <strong>TIN: <span t-field="o.company_id.vat"/></strong>
             </xpath>
-            <xpath expr="//div[@style='border-bottom: 1px solid black;']" position="replace"/>
-            <xpath expr="//div[contains(@class, 'col-xs-3')]" position="attributes">
+            <xpath expr="//div[@style='border-bottom: 1px solid black;']"
+                   position="replace"/>
+            <xpath expr="//div[contains(@class, 'col-xs-3')]"
+                   position="attributes">
                 <attribute name="class">text-center</attribute>
             </xpath>
-            <xpath expr="//div[contains(@t-field, 'company.rml_header1')]" position="attributes">
+            <xpath expr="//div[contains(@t-field, 'company.rml_header1')]"
+                   position="attributes">
                 <attribute name="class">text-right</attribute>
                 <attribute name="style">margin-top:5px</attribute>
             </xpath>

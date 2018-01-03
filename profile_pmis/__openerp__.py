@@ -2,7 +2,7 @@
 
 {
     'name': 'Profile PMIS',
-    'version': '8.0.1.1.6',
+    'version': '8.0.1.1.7',
     'sequence': 9,
     'summary': 'Project Management Information System',
     'author':   'Matmoz d.o.o., '
@@ -11,7 +11,7 @@
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
     'website': 'http://project.expert',
-    'category': 'Project Management',
+    'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     'complexity': 'easy',
     'images': [],
@@ -22,7 +22,7 @@
         'analytic_account_sequence',
         'analytic_billing_plan',
         # 'analytic_location',
-        'analytic_resource_plan_purchase_request',
+        # 'analytic_resource_plan_purchase_request',
         'analytic_wip_report',
         'analytic_schedule',
         'change_management',
@@ -45,9 +45,9 @@
         'project_wbs_task',
         'project_wbs_fancy',
         # 'project_wbs_gtd',
-        'risk_management',
+        # 'risk_management',
         'purchase_request_to_rfq',
-        'stock_analytic_account',
+        # 'stock_analytic_account',
         'web_sheet_full_width',
         'web_dialog_size',
         'web_export_view',

@@ -3,7 +3,7 @@
 {
     'name': 'Project Task Issues',
     'version': '8.0.1.4.3',
-    'category': 'Projects Management',
+    'category': 'Advanced Project Management',
     'summary': "Creatable issues list on task view form",
     'author':   'Matmoz d.o.o., '
                 'Project Expert Team',

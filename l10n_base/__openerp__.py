@@ -8,6 +8,7 @@
                 'Luxim & Matmoz',
     'website': 'http://www.didotech.com',
     'license': "AGPL-3",
+    'category': 'Customer Relationship Management',
     'contributors': [
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
         'Andrei Levin <andrei.levin@didotech.com>',

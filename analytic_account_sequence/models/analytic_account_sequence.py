@@ -21,7 +21,7 @@
 
 import logging
 import time
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 from openerp.tools.translate import _
 
 _logger = logging.getLogger(__name__)
@@ -32,15 +32,15 @@ def _code_get(self, cr, uid, context=None):
     return cr.fetchall()
 
 
-class analytic_account_sequence(osv.osv):
+class analytic_account_sequence(orm.Model):
 
     _name = 'analytic.account.sequence'
 
     def _get_number_next_actual(
         self, cr, user, ids, field_name, arg, context=None
     ):
-        '''Return number from ir_sequence row when no_gap implementation,
-        and number from postgres sequence when standard implementation.'''
+        """Return number from ir_sequence row when no_gap implementation,
+        and number from postgres sequence when standard implementation."""
         res = dict.fromkeys(ids)
         for element in self.browse(cr, user, ids, context=context):
             if element.implementation != 'standard':
@@ -206,7 +206,7 @@ class analytic_account_sequence(osv.osv):
         There is no access rights check.
         """
         if number_increment == 0:
-            raise osv.except_osv(_('Warning!'),
+            raise orm.except_orm(_('Warning!'),
                                  _("Increment number must not be zero."))
         assert isinstance(id, (int, long))
         sql = (
@@ -240,7 +240,7 @@ class analytic_account_sequence(osv.osv):
         There is no access rights check.
         """
         if number_increment == 0:
-            raise osv.except_osv(_('Warning!'),
+            raise orm.except_orm(_('Warning!'),
                                  _("Increment number must not be zero."))
         assert isinstance(id, (int, long))
         seq_name = 'analytic_account_sequence_%05d' % (id,)
@@ -387,7 +387,7 @@ class analytic_account_sequence(osv.osv):
             interpolated_prefix = self._interpolate(seq['prefix'], d)
             interpolated_suffix = self._interpolate(seq['suffix'], d)
         except ValueError:
-            raise osv.except_osv(
+            raise orm.except_orm(
                 _('Warning'),
                 _('Invalid prefix or suffix '
                   'for sequence \'%s\''

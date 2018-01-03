@@ -26,7 +26,7 @@
     "author": "Mentis d.o.o., "
               "Matmoz d.o.o.",
     "website": "http://www.matmoz.si",
-    "category": "Localization/Account Charts",
+    "category": "Accounting",
     "depends": [
         "account",
         "base_iban",

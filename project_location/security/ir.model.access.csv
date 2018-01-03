@@ -1,0 +1,2 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_stock_location_project_manager","stock.location project manager","stock.model_stock_location","project.group_project_manager",1,0,0,0

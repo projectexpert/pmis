@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+#    Copyright 2015 Matmoz d.o.o. (Matjaž Mozetič)
+#    Copyright 2015 Eficent (Jordi Ballester Alomar)
+#    Copyright 2017 Luxim d.o.o. (Matjaž Mozetič)
+#    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 import time
 import openerp.addons.decimal_precision as dp
@@ -9,7 +13,7 @@ from openerp.exceptions import Warning as UserError
 
 class BillingPlanLine(models.Model):
     _name = 'analytic.billing.plan.line'
-    _description = "Billing Plan Lines"
+    _description = "Deliverable Lines"
     _inherit = ['mail.thread', 'ir.needaction_mixin']
     _inherits = {'account.analytic.line.plan': "analytic_line_plan_id"}
 
@@ -20,10 +24,20 @@ class BillingPlanLine(models.Model):
                 if order_line.state and order_line.state != 'cancel':
                     rec.has_active_order = bool(rec.order_line_ids)
 
-    price_unit = fields.Float(
+    @api.multi
+    @api.depends('version_id', 'active_account_version', 'account_id')
+    def _compute_is_active(self):
+        for res in self:
+            if res.version_id == res.active_account_version:
+                res.is_active = True
+            else:
+                res.is_active = False
+
+    unit_price = fields.Float(
         string='Sale Price',
         groups='project.group_project_manager',
-        digits=dp.get_precision('Sale Price')
+        digits=dp.get_precision('Sale Price'),
+        oldname='price_unit'
     )
     customer_id = fields.Many2one(
         comodel_name='res.partner',
@@ -33,7 +47,7 @@ class BillingPlanLine(models.Model):
     )
     analytic_line_plan_id = fields.Many2one(
         comodel_name='account.analytic.line.plan',
-        string='Planning analytic lines',
+        string='Planning lines',
         ondelete="cascade",
         required=True
     )
@@ -49,45 +63,148 @@ class BillingPlanLine(models.Model):
         help='Indicates that this billing plan line '
              'contains at least one non-cancelled billing request.'
     )
+    resource_ids = fields.One2many(
+        comodel_name='analytic.resource.plan.line',
+        inverse_name='deliverable_id',
+        string='Resource Lines',
+        copy=True,
+    )
+    task_margin = fields.Float(
+        string='Work Price Margin (%)',
+        help='Sale Margin for work in %',
+        groups='project.group_project_manager',
+        default='66',
+        required=True
+    )
+    procurement_margin = fields.Float(
+        string='Material Price Margin (%)',
+        help='Sale Margin for materials in %',
+        groups='project.group_project_manager',
+        default='66',
+        required=True
+    )
+    target_revenue = fields.Float(
+        string='Target budget',
+        help='Target budget computed from costs and wanted margin.',
+        groups='project.group_project_manager',
+        compute='_compute_target_revenue'
+    )
+    resource_task_total = fields.Float(
+        compute='_compute_resource_task_total',
+        string='Total tasks',
+        store=True
+    )
+    resource_procurement_total = fields.Float(
+        compute='_compute_resource_procurement_total',
+        string='Total procurement',
+        store=True
+    )
+    delivered_task = fields.Float(
+        compute='_compute_sale_task_total',
+        string='Total work',
+        help='Total tasks sale price',
+        store=True
+    )
+    delivered_material = fields.Float(
+        compute='_compute_sale_procurement_total',
+        string='Total material',
+        help='Total materials sale price',
+        store=True
+    )
+    wanted_price_unit = fields.Float(
+        compute='_compute_wanted_price_unit',
+        string='Budget/Unit',
+        help='Proposed sale price per UoM'
+    )
+    active_account_version = fields.Many2one(
+        related='account_id.active_analytic_planning_version'
+    )
+    is_active = fields.Boolean(
+        string="Active version",
+        readonly=True,
+        compute='_compute_is_active',
+        store=True
+    )
+
+    @api.multi
+    @api.depends('resource_ids', 'resource_ids.price_total')
+    def _compute_resource_task_total(self):
+        for rec in self:
+            rec.resource_task_total = sum(
+                rec.mapped('resource_ids').filtered(
+                    lambda r: r.resource_type == 'task').mapped(
+                    'price_total'))
+
+    @api.multi
+    @api.depends('resource_ids', 'resource_ids.price_total')
+    def _compute_resource_procurement_total(self):
+        for rec in self:
+            rec.resource_procurement_total = sum(
+                rec.mapped('resource_ids').filtered(
+                    lambda r: r.resource_type == 'procurement').mapped(
+                    'price_total'))
+
+    @api.multi
+    @api.depends('resource_task_total', 'task_margin')
+    def _compute_sale_task_total(self):
+        for res in self:
+            res.delivered_task = (
+                    res.resource_task_total * (1 + res.task_margin/100)
+            )
+
+    @api.multi
+    @api.depends('resource_procurement_total', 'procurement_margin')
+    def _compute_sale_procurement_total(self):
+        for res in self:
+            margin = (1 + res.procurement_margin/100)
+            res.delivered_material = (
+                    res.resource_procurement_total * margin
+            )
+
+    @api.multi
+    @api.depends('delivered_material', 'delivered_task')
+    def _compute_target_revenue(self):
+        for res in self:
+            res.target_revenue = (
+                res.delivered_material + res.delivered_task
+            )
+
+    @api.multi
+    @api.depends('target_revenue', 'unit_amount')
+    def _compute_wanted_price_unit(self):
+        for res in self:
+            res.wanted_price_unit = (
+                res.target_revenue/res.unit_amount
+            )
 
     @api.onchange('unit_amount')
     def on_change_unit_amount(self):
-        amount = self.price_unit * self.unit_amount
         if self.unit_amount:
-            # self.amount_currency = self.price_unit * self.unit_amount
-            self.amount = self.price_unit * self.unit_amount
+            self.amount = self.unit_price * self.unit_amount
+
+    @api.onchange('unit_price')
+    def on_change_unit_price(self):
+        if self.unit_price:
+            self.amount = self.unit_price * self.unit_amount
 
     @api.onchange('product_id')
     def on_change_product_id(self):
         if self.product_id:
-            self.name = self.product_id.name
+            if self.product_id.description_sale:
+                self.name = self.product_id.description_sale
+            if not self.product_id.description_sale:
+                self.name = self.product_id.name
             self.product_uom_id = (
-                self.product_id.uom_id
-                and self.product_id.uom_id.id
-                or False
+                self.product_id.uom_id and
+                self.product_id.uom_id.id or
+                False
             )
-            self.price_unit = self.product_id.list_price
+            self.unit_price = self.product_id.list_price
             self.journal_id = (
                 self.product_id.revenue_analytic_plan_journal_id and
                 self.product_id.revenue_analytic_plan_journal_id.id or
                 False
             )
-            self.general_account_id = (
-                self.product_id.product_tmpl_id.property_account_income.id
-            )
-            # self.amount_currency = self.price_unit * self.unit_amount
-            self.amount = self.price_unit * self.unit_amount
-            if not self.general_account_id:
-                self.general_account_id = (
-                    self.product_id.categ_id.property_account_income_categ.id
-                )
-            if not self.general_account_id:
-                raise UserError(
-                    _(
-                        'There is no income account defined '
-                        'for this product: "%s" (id:%d)'
-                    ) % (self.product_id.name, self.product_id.id,)
-                )
 
     @api.onchange('account_id')
     def on_change_account_id(self):
@@ -98,8 +215,17 @@ class BillingPlanLine(models.Model):
                 self.partner_id = self.account_id.partner_id.id
             if self.account_id.company_id.currency_id:
                 self.currency_id = self.account_id.company_id.currency_id.id
-                # self.amount_currency = self.price_unit * self.unit_amount
-                self.amount = self.price_unit * self.unit_amount
+                self.amount = self.unit_price * self.unit_amount
+            if self.account_id.active_analytic_planning_version:
+                self._compute_is_active
+
+    @api.onchange('version_id')
+    def on_change_version_id(self):
+        self._compute_is_active
+
+    @api.onchange('is_active')
+    def on_change_is_active(self):
+        self._compute_is_active
 
     @api.multi
     def copy(self, default=None):
@@ -107,18 +233,29 @@ class BillingPlanLine(models.Model):
         if default is None:
             default = {}
         default['parent_id'] = False
-        default['analytic_line_plan_ids'] = []
+        default['analytic_line_plan_id'] = []
         res = super(BillingPlanLine, self).copy(default)
         return res
 
     @api.multi
     def unlink(self):
-        for line in self:
-            if line.analytic_line_plan_ids:
-                raise UserError(
-                    _(
-                        'You cannot delete a record that refers to '
-                        'analytic plan lines!'
-                    )
-                )
-        return super(BillingPlanLine, self).unlink()
+        billing = self.env['account.analytic.line.plan']
+        res = super(BillingPlanLine, self).unlink()
+        for billing in self:
+            return res
+
+
+class ResourcePlanLine(models.Model):
+
+    _inherit = 'analytic.resource.plan.line'
+
+    deliverable_id = fields.Many2one(
+        comodel_name='analytic.billing.plan.line',
+        string='Deliverable',
+        ondelete='cascade'
+    )
+
+    @api.onchange('deliverable_id')
+    def on_change_deliverable_id(self):
+        if self.deliverable_id:
+            self.account_id = self.deliverable_id.account_id

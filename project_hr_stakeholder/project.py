@@ -19,9 +19,7 @@
 #
 ##############################################################################
 
-from openerp import tools
-from openerp import fields, models
-from openerp.tools.translate import _
+from openerp import fields, models, api
 
 
 class Project(models.Model):
@@ -29,7 +27,16 @@ class Project(models.Model):
     _inherit = "project.project"
 
     stakeholder_ids = fields.One2many(
-        'project.hr.stakeholder',
-        'project_id',
-        'Stakeholders'
+        comodel_name='project.hr.stakeholder',
+        inverse_name='project_id',
+        string='Stakeholders'
     )
+
+    stakeholders_count = fields.Integer(
+        compute='_compute_stakehold_count', type='integer'
+    )
+
+    @api.depends('stakeholder_ids')
+    def _compute_stakehold_count(self):
+        for record in self:
+            record.stakeholders_count = len(record.stakeholder_ids)

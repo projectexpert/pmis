@@ -31,8 +31,8 @@
             <field name="inherit_id" ref="account.view_account_analytic_account_tree"/>
             <field name="arch" type="xml">         	   
             	<field name="balance" position="after">    
-            	    <field name="debit_plan"/>            	   
-                    <field name="credit_plan"/>                    
+            	    <field name="debit_plan" string="Planned Active"/>
+                    <field name="credit_plan" string="Planned Passive"/>
                     <field name="balance_plan"/>
 					<button string="Planned cost lines"
                             name="action_openplancostlist"
@@ -41,7 +41,13 @@
             	</field>
                 <field name="debit" position="before">
                     <field name="active_analytic_planning_version"
-                           string="Active Plan Version"/>
+                           string="Plan Version"/>
+                </field>
+                <field name="debit" position="attributes">
+                    <attribute name="string">Active</attribute>
+                </field>
+                <field name="credit" position="attributes">
+                    <attribute name="string">Passive</attribute>
                 </field>
             </field>
         </record>

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+©2017 Matmoz d.o.o., Slovenia and Luxim d.o.o., Slovenia
+Author: Matjaž Mozetič <m.mozetic@matmoz.si>
+License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+-->
 <openerp>
     <data>
         <record model="ir.ui.view" id="change_management_project_task_form_view">
@@ -22,7 +27,7 @@
             <field name="arch" type="xml">
                 <data>
                     <field name="name" position="after">
-                        <field name="change_id"/>
+                        <field name="change_id" string="Request"/>
                     </field>
                     <field name="user_id" position="replace">
                         <field name="user_id"/>
@@ -37,7 +42,7 @@
             <field name="inherit_id" ref="project.view_task_search_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//filter[@string='Unassigned']" position="after">
-                    <filter string="Change Action" context="{'change_id_visible': False}"
+                    <filter string="Action on Request" context="{'change_id_visible': False}"
                             domain="[('change_id','&lt;&gt;',False)]"
                             help="Show only tasks (actions) on change"/>
                     <filter string="Active Tasks"
@@ -45,12 +50,15 @@
                             help="Active tasks"
                             name="active_tasks"/>
                 </xpath>
-               <filter name="project" position="after">
+                <filter name="project" position="after">
                     <filter string="Change"
                             name="group_change_id"
                             domain="[]"
                             context="{'group_by' : 'change_id'}"/>
-               </filter>
+                </filter>
+                <field name="stage_id" position="after">
+                    <field name="change_id" string="Request"/>
+                </field>
             </field>
         </record>
     </data>

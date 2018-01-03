@@ -22,7 +22,7 @@
 
 {
     'name': 'Project Time Management - Activity Sequencing',
-    'version': '8.0.1.1.1',
+    'version': '8.0.1.1.2',
     'author':   'Eficent, '
                 'Matmoz d.o.o., '
                 'Project Expert Team',
@@ -31,7 +31,7 @@
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
     'website': 'http://project.expert',
-    'category': 'Project Management',
+    'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     'depends': ['project'],
     'data': [

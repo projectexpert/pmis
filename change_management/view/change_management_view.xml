@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+©2017 Matmoz d.o.o., Slovenia and Luxim d.o.o., Slovenia
+Author: Matjaž Mozetič <m.mozetic@matmoz.si>
+License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+-->
 <openerp>
 	<data>
-		<record model="ir.ui.view" id="change_tree_view">
+		<record id="change_tree_view" model="ir.ui.view">
 			<field name="name">change.management.change.tree.view</field>
 			<field name="model">change.management.change</field>
 			<field name="priority">10</field>
@@ -11,8 +16,7 @@
                       fonts="bold:message_unread == True">
 					<field name="name"/>
 					<field name="description"/>
-					<field name="project_id"/>
-					<field name="author_id"/>
+					<field name="author_id" invisible="1"/>
 					<field name="stakeholder_id"/>
 					<field name="create_date"/>
 					<field name="date_modified"/>
@@ -20,13 +24,29 @@
 					<field name="proximity_id"/>
 					<field name="change_response_ids" string="Actions"/>
 					<field name="state"/>
+                    <field name="project_id"/>
 					<field name="change_owner_id"/>
+                    <field name="type_id"/>
                     <field name="message_unread" invisible="1"/>
 		   		</tree>
 			</field>
 		</record>
 
-		<record model="ir.ui.view" id="change_form_view">
+        <!--BUTTON TASKS-->
+        <record id="action_show_cr_actions" model="ir.actions.act_window">
+            <field name="name">Actions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">project.task</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('change_id','=', active_id)]</field>
+			<field name="context">{
+                'search_default_active_tasks': 1,
+                'default_change_id': active_id
+                }</field>
+        </record>
+
+		<record id="change_form_view" model="ir.ui.view">
 			<field name="name">change.management.change.form.view</field>
 			<field name="model">change.management.change</field>
 			<field name="priority">5</field>
@@ -34,74 +54,169 @@
 				<form string="Change">
                     <header>
                         <button name="set_state_draft" type="object"
-                                states="active,rejected,accepted,deferred" string="Back to Draft"
-                                groups="project.group_project_user"/>
+                                states="active,rejected,accepted,deferred"
+                                string="Back to Draft"
+                                groups="project.group_project_manager"/>
                         <button name="set_state_active" type="object"
-                                states="draft,deferred" string="Confirm" class="oe_highlight"
+                                states="draft,deferred"
+                                string="Confirm" class="oe_highlight"
                                 groups="project.group_project_user"/>
                         <button name="set_state_accepted" type="object"
-                                states="active" string="Approve" class="oe_highlight"
+                                states="active"
+                                string="Approve" class="oe_highlight"
                                 groups="project.group_project_manager"/>
                         <button name="set_in_progress" type="object"
-                                states="accepted" string="In progress" class="oe_highlight"
+                                states="accepted"
+                                string="In progress" class="oe_highlight"
                                 groups="project.group_project_manager"/>
                         <button name="set_state_done" type="object"
-                                states="in_progress" string="Done" class="oe_highlight"
+                                states="in_progress"
+                                string="Done" class="oe_highlight"
                                 groups="project.group_project_manager"/>
                         <button name="set_state_rejected" type="object"
-                                states="active" string="Reject" class="oe_highlight"
+                                states="active"
+                                string="Reject" class="oe_highlight"
                                 groups="project.group_project_manager"/>
                         <button name="set_state_deferred" type="object"
-                                states="active,accepted,in_progress" string="Defer"
+                                states="active,accepted,in_progress"
+                                string="Defer"
                                 groups="project.group_project_manager"/>
 						<button name="set_state_withdrawn" type="object"
-                                states="active,accepted,in_progress" string="Withdraw"
+                                states="active,accepted,in_progress"
+                                string="Withdraw" class="oe_highlight"
                                 groups="project.group_project_manager"/>
                         <field name="state" widget="statusbar"
                                statusbar_visible="draft,active,accepted,in_progress,done,deferred"/>
                     </header>
                     <sheet string="Change">
+                        <div class="oe_left">
+                            <field name="kanban_state"
+                                   class="oe_inline"
+                                   icon="fa-tasks"
+                                   widget="kanban_state_selection"/>
+                        </div>
+                        <div class="oe_right oe_button_box"
+                             name="buttons" groups="base.group_user">
+                            <button help="Responses"
+                                    attrs="{'invisible': [('type_id', '=', 'requirement')]}"
+                                    groups="project.group_project_user, project.group_project_manager"
+                                    class="oe_inline oe_stat_button"
+                                    name="%(change_management.action_show_cr_actions)d"
+                                    type="action"
+                                    icon="fa-list-ol"
+                                    context="{'default_change_id': active_id}">
+                                <field name="change_response_count"
+                                       string="Tasks"
+                                       widget="statinfo"/>
+                            </button>
+                            <button name="open_deliverable_line"
+                                    attrs="{'invisible': [('type_id', '!=', 'requirement')]}"
+                                    class="oe_inline oe_stat_button"
+                                    icon="fa-money"
+                                    groups="analytic.group_analytic_accounting"
+                                    context="{'search_default_active_version': 1}"
+                                    type="object">
+                                <field name="deliverable_count"
+                                       widget="statinfo"
+                                       string="Deliverables"/>
+                                <field name="expected_revenue"
+                                       class="oe_inline badge"
+                                       nolabel="1"
+                                       widget="statinfo"
+                                       modifiers="{'readonly': true}"/>
+                            </button>
+
+                        </div>
                         <label for="description" class="oe_edit_only"/>
                         <h1><field name="description"/></h1>
                         <label for="name" class="oe_edit_only"/>
                         <field name="name"/>
-				 	    <group>
-                            <group>
-						        <field name="project_id"
-                                       context="{'default_project_id':project_id}"/>
-						        <field name="stakeholder_id"/>
-						        <field name="create_date" readonly="1"/>
-                            </group>
-                            <group>
-                                <field name="proximity_id"/>
-                                <field name="change_category_id"/>
-                                <field name="company_id" groups="base.group_multi_company"/>
-                            </group>
-                        </group>
-						<group>
-                            <group col="2">
-                                <field name="change_owner_id"/>
-							    <field name="author_id"/>
-                            </group>
-                            <group>
-                                <field name="confirmed_id"/>
-                                <field name="date_confirmed"/>
-                                <field name="approved_id"/>
-                                <field name="date_approved"/>
-                            </group>
+				 	    <group col="4">
+                            <field name="stakeholder_id"/>
+                            <field name="project_id"
+                                   context="{'default_project_id':project_id}"/>
+                            <field name="change_owner_id"/>
+                            <field name="account_id" readonly="1"/>
+                            <field name="proximity_id"/>
+                            <field name="change_category_id"/>
+                            <field name="type_id"/>
+                            <field name="company_id"
+                                   groups="base.group_multi_company"/>
                         </group>
 			            <notebook>
    	            	        <page string="Description">
-                                <group>
-                		        <field name="description_event"/>
-                		        <field name="description_cause"/>
-						        <field name="description_effect"/>
+                                <group string="Request Description/User Epic">
+                		            <field name="description_event" nolabel="1"/>
+                                </group>
+                                <group string="Gap Analysis and Action Plan" attrs="{'invisible': [('type_id', '=', 'requirement')]}">
+                                    <field name="change_response_ids"
+                                           string="Response Actions"
+                                           context="{'user_invisible': False, 'default_project_id': project_id}"
+                                           nolabel="1">
+                                        <tree editable="bottom"
+                                              colors="red:state in 'new';gray:state in 'cancelled';green:state in 'done';#b818ce:state in 'waiting';">
+                                            <field name="sequence" widget="handle"/>
+                                            <field name="priority"/>
+                                            <field name="name" string="Summary/User Story"/>
+                                            <field name="current_sit"/>
+                                            <field name="desired_sit"/>
+                                            <field name="change_id" invisible="1"/>
+                                            <field name="project_id" invisible="1"/>
+                                            <!--<field name="duration" sum="Total"/>-->
+                                            <field name="planned_hours" sum="Total"/>
+                                            <field name="user_id"/>
+                                            <field name="stage_id" readonly="1"/>
+                                            <field name="state" invisible="1"/>
+                                        </tree>
+                                    </field>
                                 </group>
                             </page>
-                            <page string="Change Enforcing">
-                                <field name="change_response_ids"
-                                       string="Response Actions"
-                                       context="{'user_invisible': False, 'default_project_id':project_id}"/>
+                            <page string="Revisions">
+                                <group col="12">
+                                    <field name="author_id"/>
+                                    <field name="create_date" readonly="1"/>
+                                </group>
+                                <group col="12">
+                                    <field name="confirmed_id"/>
+                                    <field name="date_confirmed"/>
+                                </group>
+                                <group col="12">
+                                    <field name="approved_id"/>
+                                    <field name="date_approved"/>
+                                </group>
+                            </page>
+                            <page string="Risk Score"
+                                  attrs="{'invisible':[('type_id','!=','risk')]}">
+   	            	            <group>
+   	            			        <group>
+                    			        <field name="impact_inherent"/>
+								        <field name="probability_inherent"/>
+							        </group>
+                                    <group>
+                                        <div>
+                                            <label for="expected_value_inherent"/>
+                                            <h2>
+                                                <field name="expected_value_inherent"
+                                                       readonly="1"
+                                                       string="Inherent Risk Score"/>
+                                            </h2>
+                                        </div>
+                                    </group>
+		             		        <group>
+                                        <field name="impact_residual"/>
+                                        <field name="probability_residual"/>
+							        </group>
+                                    <group>
+                                        <div>
+                                            <label for="expected_value_residual"/>
+                                            <h2>
+                                                <field name="expected_value_residual"
+                                                       readonly="1"
+                                                       string="Residual Risk Score"/>
+                                            </h2>
+                                        </div>
+                                    </group>
+					            </group>
                             </page>
                         </notebook>
                      </sheet>
@@ -120,18 +235,32 @@
             <field name="model">change.management.change</field>
             <field name="arch" type="xml">
                <search string="Change Edition">
-                   <filter string="Active Changes"
+                   <filter string="Active"
                            domain="[('state','in',('active', 'accepted', 'in_progress'))]"
-                           help="Active changes"
+                           help="Active Requests"
                            name="active"/>
-                   <filter string="Changes without actions"
+                   <filter string="No actions"
                            domain="[('change_response_ids','=',False)]"
-                           help="Changes without actions"
+                           help="Requests without actions"
                            name="no_actions"/>
-                   <field name="change_owner_id" select="1" string="Change Owner">
+                   <field name="change_owner_id"
+                          select="1"
+                          string="Request Owner">
                        <filter domain="[('change_owner_id','=',False)]"
-                               help="Changes without ownership"/>
+                               help="Without owner"/>
                    </field>
+                   <filter string="Changes"
+                           domain="[('type_id', '=', 'change')]"
+                           help="Change Requests"
+                           name="changes"/>
+                   <filter string="Requirements"
+                           domain="[('type_id', '=', 'requirement')]"
+                           help="Requirements"
+                           name="requirements"/>
+                   <filter string="Risks"
+                           domain="[('type_id', '=', 'risk')]"
+                           help="Risks"
+                           name="risks"/>
                    <separator orientation="vertical"/>
 
                    <field name="name" select="1"/>
@@ -141,6 +270,7 @@
                                help="My Projects"/>
                    </field>
                    <field name="change_category_id" select="1"/>
+                   <field name="type_id" select="1"/>
                    <separator orientation="vertical"/>
 
                    <field name="message_unread" select="1">
@@ -154,7 +284,9 @@
                                domain="[]"
                                context="{'group_by':'project_id'}"/>
                        <separator orientation="vertical"/>
-
+                       <filter string="Request Type"
+                               name="group_type_id"
+                               domain="[]" context="{'group_by':'type_id'}"/>
                        <filter string="Change Owner"
                                name="group_change_owner_id"
                                domain="[]"
@@ -195,39 +327,47 @@
 					<field name="name"/>
 					<field name="description"/>
 					<field name="state"/>
+                    <field name="type_id"/>
 					<field name="project_id"/>
 					<field name="change_category_id"/>
 					<field name="change_response_ids"/>
 					<field name="change_response_count"/>
 					<field name="change_owner_id"/>
 					<field name="color"/>
+                    <field name="kanban_state"/>
 					<field name="message_summary"/>
+                    <field name="kanban_actions"/>
 					<templates>
 					  <t t-name="kanban-box">
 						<div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click">
 						  <div class="oe_dropdown_toggle oe_dropdown_kanban">
 							<span class="oe_e">í</span>
 							  <ul class="oe_dropdown_menu">
-							  <t t-if="widget.view.is_action_enabled('edit')"><li><a type="edit">Edit...</a></li></t>
-							  <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+							  <t t-if="widget.view.is_action_enabled('edit')">
+                                  <li>
+                                      <a type="edit">Edit...</a>
+                                  </li>
+                              </t>
+							  <li>
+                                  <ul class="oe_kanban_colorpicker" data-field="color"/>
+                              </li>
 							</ul>
 						  </div>
 						  <div class="oe_kanban_content">
 							<div>
+                                <field name="kanban_state"
+                                       widget="kanban_state_selection"/>
 							  <ul>
-								<li><b><field name="description"/></b></li>
-								<li><field name="name"/></li>
-								<li><field name="change_category_id"/></li>
+								<li>
+                                    <b><field name="description"/></b>
+                                </li>
+								<li>(<field name="change_category_id"/>)</li>
 							  </ul>
 							</div>
-							<div>
-							  <field name="project_id"/>
-							</div>
 							<div style="padding-left: 0.5em">
-							  <span>
-								<label>Actions:</label>
-								<t t-esc="record.change_response_count.value"/>
-							  </span>
+                                <div>
+                                  <t t-raw="record.kanban_actions.raw_value"/>
+                                </div>
 							</div>
 							<div class="oe_kanban_project_avatars">
 							  <img t-att-src="kanban_image('res.users', 'image_small', record.change_owner_id.raw_value)"
@@ -235,6 +375,10 @@
                                    width="24" height="24"
                                    class="oe_kanban_avatar"
                                    t-if="record.change_owner_id.value"/>
+							</div>
+                            <div class="oe_kanban_footer_left">
+							  <field name="project_id"/>
+                              <li>(<field name="name"/>)</li>
 							</div>
 						  </div>
 						</div>
@@ -246,17 +390,111 @@
 
 
         <!-- ACTIONS  -->
-		<record model="ir.actions.act_window" id="action_show_changes">
+        <!--MENUS-->
+		<record id="action_show_changes" model="ir.actions.act_window">
+			<field name="name">Request Backlog</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">change.management.change</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+			<field name="search_view_id" ref="change_search_form_view"/>
+			<field name="context">{
+                'search_default_active': 1
+            }</field>
+		</record>
+
+        <record id="menu_show_changes" model="ir.actions.act_window">
+			<field name="name">Request Backlog</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">change.management.change</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+			<field name="search_view_id" ref="change_search_form_view"/>
+			<field name="context">{
+                'search_default_active': 1,
+                'default_type_id': 'change'
+            }</field>
+            <field name="domain">[('type_id', '=', 'change')]</field>
+		</record>
+
+        <record id="menu_show_risks" model="ir.actions.act_window">
+			<field name="name">Request Backlog</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">change.management.change</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+			<field name="search_view_id" ref="change_search_form_view"/>
+			<field name="context">{
+                'search_default_active': 1,
+                'default_type_id': 'risk'
+            }</field>
+            <field name="domain">[('type_id', '=', 'risk')]</field>
+		</record>
+
+        <record id="menu_show_requirements" model="ir.actions.act_window">
+			<field name="name">Request Backlog</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">change.management.change</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+			<field name="search_view_id" ref="change_search_form_view"/>
+			<field name="context">{
+                'search_default_active': 1,
+                'default_type_id': 'requirement'
+            }</field>
+            <field name="domain">[('type_id', '=', 'requirement')]</field>
+		</record>
+
+        <!--BUTTON CHANGES-->
+        <record id="action_show_cr" model="ir.actions.act_window">
 			<field name="name">Changes</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="res_model">change.management.change</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form,kanban</field>
 			<field name="search_view_id" ref="change_search_form_view"/>
-			<field name="context">{'search_default_active': 1}</field>
+			<field name="context">{
+                'search_default_active': 1,
+                'default_type_id': 'change',
+                'search_default_project_id': [active_id],
+                'default_project_id': active_id,
+            }</field>
+            <field name="domain">[('type_id', '=', 'change')]</field>
 		</record>
-
-        <record model="ir.actions.act_window" id="action_show_actions">
+        <!--BUTTON REQUIREMENTS-->
+        <record id="action_show_requirements" model="ir.actions.act_window">
+			<field name="name">Requirements</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">change.management.change</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+			<field name="search_view_id" ref="change_search_form_view"/>
+			<field name="context">{
+                'search_default_active': 1,
+                'default_type_id': 'requirement',
+                'search_default_project_id': [active_id],
+                'default_project_id': active_id
+            }</field>
+            <field name="domain">[('type_id', '=', 'requirement')]</field>
+		</record>
+        <!--BUTTON RISKS-->
+        <record id="action_show_risks" model="ir.actions.act_window">
+			<field name="name">Risks</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">change.management.change</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+			<field name="search_view_id" ref="change_search_form_view"/>
+			<field name="context">{
+                'search_default_active': 1,
+                'default_type_id': 'risk',
+                'search_default_project_id': [active_id],
+                'default_project_id': active_id,
+            }</field>
+            <field name="domain">[('type_id', '=', 'risk')]</field>
+		</record>
+        <!--MENU TASKS-->
+        <record id="action_show_actions" model="ir.actions.act_window">
             <field name="name">Actions</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">project.task</field>
@@ -275,12 +513,19 @@
             <field name="inherit_id" ref="project_charter.view_project_form"/>
             <field name="arch" type="xml">
                 <data>
-                    <xpath expr='//form/sheet/notebook/page/notebook/page[@string="Requirements and Success"]/group[@string="Success and Acceptance Criteria"]' position="before">
+                    <xpath expr='//form/sheet/notebook/page/notebook/page[@name="scope"]/group[@string="Constraints"]' position="before">
                         <tree string='Stakeholder Requests'>
                             <group string="Requirements">
+                                <field name="requirement_ids" nolabel="1"
+                                       context="{'default_type_id': 'requirement', 'default_project_id': active_id}"/>
+                            </group>
+                            <group string="Changes">
                                 <field name="change_ids" nolabel="1"
-                                       context="{'default_project_id': active_id}">
-                                </field>
+                                       context="{'default_type_id': 'change', 'default_project_id': active_id}"/>
+                            </group>
+                            <group string="Risks">
+                                <field name="risk_ids" nolabel="1"
+                                       context="{'default_type_id': 'risk', 'default_project_id': active_id}"/>
                             </group>
                         </tree>
                     </xpath>
@@ -295,14 +540,34 @@
             <field name="arch" type="xml">
                 <xpath expr="//div[@name='buttons']"
                        position="inside">
+                    <button help="Requirement Management"
+                            class="oe_inline oe_stat_button"
+                            name="%(change_management.action_show_requirements)d"
+                            type="action"
+                            icon="fa-list-ol"
+                            context="{'default_project_id': active_id,'search_default_project_id': active_id, 'default_type_id': 'requirement'}">
+                        <field name="req_count"
+                               string="Requirements"
+                               widget="statinfo"/>
+                    </button>
                     <button help="Change Management"
                             class="oe_inline oe_stat_button"
-                            name="%(change_management.action_show_changes)d"
+                            name="%(change_management.action_show_cr)d"
                             type="action"
                             icon="fa-code-fork"
-                            context="{'default_project_id': active_id,'search_default_project_id': active_id}">
-                        <field name="change_count"
+                            context="{'default_project_id': active_id,'search_default_project_id': active_id, 'default_type_id': 'change'}">
+                        <field name="cr_count"
                                string="Changes"
+                               widget="statinfo"/>
+                    </button>
+                    <button help="Risk Management"
+                            class="oe_inline oe_stat_button"
+                            name="%(change_management.action_show_risks)d"
+                            type="action"
+                            icon="fa-exclamation-circle"
+                            context="{'default_project_id': active_id,'search_default_project_id': active_id, 'default_type_id': 'risk'}">
+                        <field name="risk_count"
+                               string="Risks"
                                widget="statinfo"/>
                     </button>
                 </xpath>
@@ -316,19 +581,26 @@
             <field name="arch" type="xml">
                 <xpath expr="//div[contains(@class, 'oe_kanban_alias')]" position="after">
                     <div class="oe_kanban_project_list">
-                        <!--<a t-if="record.change_count.raw_value"-->
-                           <!--name="%(change_management.action_show_changes)d"-->
-                           <!--type="action"-->
-                           <!--style="margin-right: 10px">-->
-                            <!--<field name="change_count"/> Changes-->
-                        <!--</a>-->
-                        <a t-if="record.change_count.raw_value"
-                           name="%(change_management.action_show_changes)d"
+                        <a t-if="record.cr_count.raw_value"
+                           name="%(change_management.action_show_cr)d"
                            type="action"
                            class="fa fa-code-fork oe_wbs_button">
-                            Changes: <field name="change_count"/>
+                            Changes: <field name="cr_count"/>
+                        </a>
+                        <a t-if="record.req_count.raw_value"
+                           name="%(change_management.action_show_requirements)d"
+                           type="action"
+                           class="fa fa-list-ol oe_wbs_button">
+                            Requirements: <field name="req_count"/>
+                        </a>
+                        <a t-if="record.risk_count.raw_value"
+                           name="%(change_management.action_show_risks)d"
+                           type="action"
+                           class="fa fa-exclamation-circle oe_wbs_button">
+                            Risks: <field name="risk_count"/>
                         </a>
                     </div>
+
                 </xpath>
             </field>
         </record>

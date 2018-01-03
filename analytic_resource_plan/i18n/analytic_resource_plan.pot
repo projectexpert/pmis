@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-16 10:15+0000\n"
-"PO-Revision-Date: 2016-10-16 10:15+0000\n"
+"POT-Creation-Date: 2017-12-26 13:16+0000\n"
+"PO-Revision-Date: 2017-12-26 13:16+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,12 +30,6 @@ msgstr ""
 #. module: analytic_resource_plan
 #: field:analytic.resource.plan.line,name:0
 msgid "Activity description"
-msgstr ""
-
-#. module: analytic_resource_plan
-#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:220
-#, python-format
-msgid "All the child resource plan lines must  be in Draft state."
 msgstr ""
 
 #. module: analytic_resource_plan
@@ -67,18 +61,17 @@ msgid "Analytic resource plan line"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,user_id:0
+msgid "Assign To"
+msgstr ""
+
+#. module: analytic_resource_plan
 #: model:ir.model,name:analytic_resource_plan.model_resource_plan_line_change_state
 msgid "Change state of resource plan line"
 msgstr ""
 
 #. module: analytic_resource_plan
-#: field:analytic.resource.plan.line,child_ids:0
-#: field:analytic.resource.plan.line,has_child:0
-msgid "Child lines"
-msgstr ""
-
-#. module: analytic_resource_plan
-#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:75
+#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:65
 #, python-format
 msgid "Choose different source and destination planning versions."
 msgstr ""
@@ -175,11 +168,6 @@ msgid "Group By..."
 msgstr ""
 
 #. module: analytic_resource_plan
-#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
-msgid "Hierarchy"
-msgstr ""
-
-#. module: analytic_resource_plan
 #: help:analytic.resource.plan.line,message_summary:0
 msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
 msgstr ""
@@ -197,17 +185,12 @@ msgid "If checked new messages require your attention."
 msgstr ""
 
 #. module: analytic_resource_plan
-#: field:analytic.resource.plan.copy.version,include_child:0
-msgid "Include child accounts"
-msgstr ""
-
-#. module: analytic_resource_plan
 #: field:analytic.resource.plan.line,message_is_follower:0
 msgid "Is a Follower"
 msgstr ""
 
 #. module: analytic_resource_plan
-#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:71
+#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:61
 #, python-format
 msgid "It is prohibited to copy to the default planning version."
 msgstr ""
@@ -249,7 +232,7 @@ msgid "Messages and communication history"
 msgstr ""
 
 #. module: analytic_resource_plan
-#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:175
+#: code:addons/analytic_resource_plan/models/analytic_plan_resource.py:158
 #, python-format
 msgid "No active planning version for resource plan exists."
 msgstr ""
@@ -261,15 +244,9 @@ msgid "Notes"
 msgstr ""
 
 #. module: analytic_resource_plan
-#: code:addons/analytic_resource_plan/model/account_analytic_plan_version.py:36
+#: code:addons/analytic_resource_plan/models/analytic_plan_version.py:25
 #, python-format
 msgid "Only one default for resource plan version can exist."
-msgstr ""
-
-#. module: analytic_resource_plan
-#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
-#: field:analytic.resource.plan.line,parent_id:0
-msgid "Parent"
 msgstr ""
 
 #. module: analytic_resource_plan
@@ -284,13 +261,18 @@ msgid "Plan resources"
 msgstr ""
 
 #. module: analytic_resource_plan
-#: field:analytic.resource.plan.line,unit_amount:0
-msgid "Planned Quantity"
+#: field:analytic.resource.plan.line,analytic_line_plan_ids:0
+msgid "Planned costs"
 msgstr ""
 
 #. module: analytic_resource_plan
-#: field:analytic.resource.plan.line,analytic_line_plan_ids:0
-msgid "Planned costs"
+#: field:analytic.resource.plan.line,unit_amount:0
+msgid "Planned unit_amount"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: selection:analytic.resource.plan.line,resource_type:0
+msgid "Procurement"
 msgstr ""
 
 #. module: analytic_resource_plan
@@ -310,14 +292,8 @@ msgid "Product Unit of Measure"
 msgstr ""
 
 #. module: analytic_resource_plan
-#: model:ir.model,name:analytic_resource_plan.model_project_project
-msgid "Project"
-msgstr ""
-
-#. module: analytic_resource_plan
-#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:233
-#, python-format
-msgid "Quantity should be greater than 0."
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_tree
+msgid "Qty"
 msgstr ""
 
 #. module: analytic_resource_plan
@@ -326,21 +302,25 @@ msgid "Resource Plan Line"
 msgstr ""
 
 #. module: analytic_resource_plan
-#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:100
+#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:90
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
 #, python-format
 msgid "Resource Plan Lines"
 msgstr ""
 
 #. module: analytic_resource_plan
-#: code:addons/analytic_resource_plan/wizard/resource_plan_line_change_state.py:46
+#: code:addons/analytic_resource_plan/wizard/resource_plan_line_change_state.py:39
 #, python-format
 msgid "Resource Planning Lines"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: field:account.analytic.account,resource_count:0
+msgid "Resource count"
+msgstr ""
+
+#. module: analytic_resource_plan
 #: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
-#: view:project.project:analytic_resource_plan.edit_project
 msgid "Resource plan"
 msgstr ""
 
@@ -357,6 +337,12 @@ msgid "Resource planning lines"
 msgstr ""
 
 #. module: analytic_resource_plan
+#: field:account.analytic.account,resource_ids:0
+#: view:project.project:analytic_resource_plan.edit_project
+msgid "Resources"
+msgstr ""
+
+#. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
 msgid "Search resource plan lines"
 msgstr ""
@@ -368,7 +354,7 @@ msgstr ""
 
 #. module: analytic_resource_plan
 #: help:analytic.resource.plan.line,unit_amount:0
-msgid "Specifies the quantity that has been planned."
+msgid "Specifies the unit_amount that has been planned."
 msgstr ""
 
 #. module: analytic_resource_plan
@@ -384,7 +370,18 @@ msgid "Summary"
 msgstr ""
 
 #. module: analytic_resource_plan
-#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:163
+#: selection:analytic.resource.plan.line,resource_type:0
+msgid "Task"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/models/analytic_plan_resource.py:136
+#, python-format
+msgid "There is no analytic plan journal for product %s"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/models/analytic_plan_resource.py:146
 #, python-format
 msgid "There is no expense account defined for this product: \"%s\" (id:%d)"
 msgstr ""
@@ -397,6 +394,11 @@ msgstr ""
 #. module: analytic_resource_plan
 #: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
 msgid "Total:"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,resource_type:0
+msgid "Type"
 msgstr ""
 
 #. module: analytic_resource_plan
@@ -420,7 +422,13 @@ msgid "Website communication history"
 msgstr ""
 
 #. module: analytic_resource_plan
-#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:272
+#: code:addons/analytic_resource_plan/models/analytic_plan_resource.py:280
+#, python-format
+msgid "When resource type is task, the uom category should be time"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/models/analytic_plan_resource.py:243
 #, python-format
 msgid "You cannot delete a record that refers to analytic plan lines!"
 msgstr ""
@@ -428,5 +436,11 @@ msgstr ""
 #. module: analytic_resource_plan
 #: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
 msgid "lines"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/models/analytic_plan_resource.py:205
+#, python-format
+msgid "unit_amount should be greater than 0."
 msgstr ""
 

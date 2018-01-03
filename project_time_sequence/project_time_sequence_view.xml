@@ -14,10 +14,10 @@
             <field eval="2" name="priority"/>
             <field name="inherit_id" ref="project.view_task_tree2"/>
             <field name="arch" type="xml">
-            	<field name="name" position="after">
+            	<field name="name" position="before">
             		<field name="predecessor_ids_str"/>    
             		<button name="%(action_project_task_link_predecessors)d"
-                            string="Link" type="action"
+                            string="Link predecessor" type="action"
                             icon="../../../../../project_time_sequence/static/src/img/icons/view-sort-descending"
                             help="For linking to a predecessor task"/>
             	</field>            	            	            	            	                    		
@@ -32,7 +32,7 @@
             <field name="inherit_id" ref="project.view_task_form2"/>       
             <field name="arch" type="xml">        
         		<xpath expr="//page[@string='Delegation']" position="replace">        		        			
-					<page  string="Relationships">
+					<page string="Relationships">
                         <separator string="Predecessor Activities" colspan="4"/>
                         <field colspan="4" height="150"
                                name="parent_ids" nolabel="1"/>

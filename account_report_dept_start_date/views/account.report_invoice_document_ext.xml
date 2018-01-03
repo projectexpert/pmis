@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <template id="account.report_invoice_document_ext" inherit_id="account.report_invoice_document">
+        <template id="account.report_invoice_document_ext"
+                  inherit_id="account.report_invoice_document">
             <xpath expr="//div[@t-if='o.name']" position="before">
                 <div class="col-xs-2" t-if="o.company_id.city">
                     <strong>Place of Issue:</strong>

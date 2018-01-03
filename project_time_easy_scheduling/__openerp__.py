@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Project Easy Scheduling tool',
-    'version': '8.0.1.0.4',
+    'version': '8.0.1.0.5',
     'author':   'Eficent, '
                 'Project Expert Team',
     'contributors': [
@@ -9,7 +9,7 @@
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
     'website': 'http://project.expert',
-    'category': 'Project Management',
+    'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     'summary': 'Better project schedule by introducing an activities view',
     'depends': [

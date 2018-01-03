@@ -19,10 +19,10 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
 
-class account_analytic_account(osv.osv):
+class account_analytic_account(orm.Model):
 
     _inherit = 'account.analytic.account'
 
@@ -179,5 +179,3 @@ class account_analytic_account(osv.osv):
         )
         self.map_sequences(cr, uid, id, res, context)
         return res
-
-account_analytic_account()

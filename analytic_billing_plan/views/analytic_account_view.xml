@@ -5,7 +5,7 @@
         <act_window			            
             domain="[('journal_id.type','=','sale')]"
             id="act_account_analytic_2_analytic_billing_plan_line"
-            name="Billing plan lines"
+            name="Deliverable lines"
 			context = "{'search_default_account_id': [active_id], 'default_account_id' :active_id}"
             res_model="analytic.billing.plan.line"
             src_model="account.analytic.account"
@@ -29,7 +29,7 @@
 					type="action"
 					class="oe_inline oe_stat_button"
 					icon="fa-pencil-square-o">
-					<div>Billing plan</div>
+					<div>Deliverable plan</div>
 					</button>
                 </xpath>                
             </field>

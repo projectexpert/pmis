@@ -1,207 +1,119 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Copyright (C) 2015 Eficent (<http://www.eficent.com/>)
-#              Jordi Ballester Alomar <jordi.ballester@eficent.com>
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-from openerp.osv import orm
+# Copyright 2017 Eficent Business and IT Consulting Services S.L.
+# Copyright 2017 Matmoz d.o.o.
+# Copyright 2017 Luxim d.o.o.
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+
+from openerp import api, fields, models
+from openerp.tools import float_round
 
 
-class Product(orm.Model):
+class Product(models.Model):
 
     _inherit = "product.product"
 
-    def get_product_available(self, cr, uid, ids, context=None):
-        """ Finds whether product is available or not in particular warehouse.
-        Attention!!! This method overrides the standard without calling Super
-        The changes introduced by this module are encoded within a
-        comments START OF and END OF stock_analytic_account.
-        @return: Dictionary of values
-        """
-        if context is None:
-            context = {}
+    @api.multi
+    def _compute_quantities_dict(self, lot_id, owner_id, package_id,
+                                 from_date=False, to_date=False):
+        domain_quant_loc, domain_move_in_loc, domain_move_out_loc =\
+            self._get_domain_locations()
+        domain_quant = [('product_id', 'in', self.ids)] + domain_quant_loc
+        dates_in_the_past = False
+        if to_date and to_date < fields.Datetime.now():
+            dates_in_the_past = True
 
-        location_obj = self.pool.get('stock.location')
-        warehouse_obj = self.pool.get('stock.warehouse')
-        shop_obj = self.pool.get('sale.shop')
-
-        states = context.get('states', [])
-        what = context.get('what', ())
-        if not ids:
-            ids = self.search(cr, uid, [])
-        res = {}.fromkeys(ids, 0.0)
-        if not ids:
-            return res
-
-        if context.get('shop', False):
-            warehouse_id = shop_obj.read(
-                cr, uid, int(context['shop']),
-                ['warehouse_id'])['warehouse_id'][0]
-            if warehouse_id:
-                context['warehouse'] = warehouse_id
-
-        if context.get('warehouse', False):
-            lot_id = warehouse_obj.read(
-                cr, uid, int(context['warehouse']),
-                ['lot_stock_id'])['lot_stock_id'][0]
-            if lot_id:
-                context['location'] = lot_id
-
-        if context.get('location', False):
-            if type(context['location']) == type(1):
-                location_ids = [context['location']]
-            elif type(context['location']) in (type(''), type(u'')):
-                location_ids = location_obj.search(
-                    cr, uid, [('name', 'ilike', context['location'])],
-                    context=context)
-            else:
-                location_ids = context['location']
-        else:
-            location_ids = []
-            wids = warehouse_obj.search(cr, uid, [], context=context)
-            if not wids:
-                return res
-            for w in warehouse_obj.browse(cr, uid, wids, context=context):
-                location_ids.append(w.lot_stock_id.id)
-
-        # build the list of ids of children of the location given by id
-        if context.get('compute_child', True):
-            child_location_ids = location_obj.search(
-                cr, uid, [('location_id', 'child_of', location_ids)])
-            location_ids = child_location_ids or location_ids
-
-        # this will be a dictionary of the product UoM by product id
-        product2uom = {}
-        uom_ids = []
-        for product in self.read(cr, uid, ids, ['uom_id'], context=context):
-            product2uom[product['id']] = product['uom_id'][0]
-            uom_ids.append(product['uom_id'][0])
-        # this will be a dictionary of the UoM resources we need for
-        # conversion purposes, by UoM id
-        uoms_o = {}
-        for uom in self.pool.get('product.uom').browse(cr, uid, uom_ids,
-                                                       context=context):
-            uoms_o[uom.id] = uom
-
-        results = []
-        results2 = []
-
-        from_date = context.get('from_date', False)
-        to_date = context.get('to_date', False)
-        date_str = False
-        date_values = False
-        where = [tuple(location_ids), tuple(location_ids), tuple(ids),
-                 tuple(states)]
-        if from_date and to_date:
-            date_str = "date>=%s and date<=%s"
-            where.append(tuple([from_date]))
-            where.append(tuple([to_date]))
-        elif from_date:
-            date_str = "date>=%s"
-            date_values = [from_date]
-        elif to_date:
-            date_str = "date<=%s"
-            date_values = [to_date]
-        if date_values:
-            where.append(tuple(date_values))
-
-        prodlot_id = context.get('prodlot_id', False)
-        prodlot_clause = ''
-        if prodlot_id:
-            prodlot_clause = ' and prodlot_id = %s '
-            where += [prodlot_id]
-        elif 'prodlot_id' in context and not prodlot_id:
-            prodlot_clause = ' and prodlot_id is null '
-
+        domain_move_in = [('product_id', 'in', self.ids)] + domain_move_in_loc
+        domain_move_out = [('product_id', 'in', self.ids)
+                           ] + domain_move_out_loc
+        if lot_id:
+            domain_quant += [('lot_id', '=', lot_id)]
+        if owner_id:
+            domain_quant += [('owner_id', '=', owner_id)]
+            domain_move_in += [('restrict_partner_id', '=', owner_id)]
+            domain_move_out += [('restrict_partner_id', '=', owner_id)]
+        if package_id:
+            domain_quant += [('package_id', '=', package_id)]
+        if dates_in_the_past:
+            domain_move_in_done = list(domain_move_in)
+            domain_move_out_done = list(domain_move_out)
+        if from_date:
+            domain_move_in += [('date', '>=', from_date)]
+            domain_move_out += [('date', '>=', from_date)]
+        if to_date:
+            domain_move_in += [('date', '<=', to_date)]
+            domain_move_out += [('date', '<=', to_date)]
         # START OF stock_analytic_account
-        analytic_account_id = context.get('analytic_account_id', False)
-        analytic_account_clause = ''
-        if analytic_account_id:
-            analytic_account_clause = (
-                ' and analytic_account_id = %s and '
-                'analytic_reserved = True '
-            )
-            where += [analytic_account_id]
-        elif 'analytic_account_id' in context and not analytic_account_clause:
-            analytic_account_clause = ' and analytic_account_id is null '
+        if self._context.get('analytic_account_id'):
+            analytic_domain = ('analytic_account_id', '=',
+                               self._context['analytic_account_id'])
+            domain_move_in.append(analytic_domain)
+            domain_move_out.append(analytic_domain)
+            domain_quant.append(('analytic_account_id', '=',
+                                 self._context['analytic_account_id']))
         # END OF stock_analytic_account
-
-        # TODO: perhaps merge in one query.
-        if 'in' in what:
-            # all moves from a location out of the set to a location in the set
-            cr.execute(
-                'select sum(product_qty), product_id, product_uom '
-                'from stock_move '
-                'where location_id NOT IN %s '
-                'and location_dest_id IN %s '
-                'and product_id IN %s '
-                'and state IN %s ' + (
-                    date_str and 'and '+date_str+' ' or ''
-                ) + ' ' + prodlot_clause + ' ' +
-                # START OF stock_analytic_account
-                analytic_account_clause +
-                # END OF stock_analytic_account
-                'group by product_id,product_uom', tuple(where)
-            )
-            results = cr.fetchall()
-        if 'out' in what:
-            # all moves from a location in the set to a location out of the set
-            cr.execute(
-                'select sum(product_qty), product_id, product_uom '
-                'from stock_move '
-                'where location_id IN %s '
-                'and location_dest_id NOT IN %s '
-                'and product_id  IN %s '
-                'and state in %s ' + (
-                    date_str and 'and '+date_str+' ' or ''
-                ) + ' ' + prodlot_clause + ' ' +
-                # START OF stock_analytic_account
-                analytic_account_clause +
-                # END OF stock_analytic_account
-                'group by product_id,product_uom', tuple(where)
-            )
-            results2 = cr.fetchall()
-
-        # Get the missing UoM resources
-        uom_obj = self.pool.get('product.uom')
-        uoms = map(lambda x: x[2], results) + map(lambda x: x[2], results2)
-        if context.get('uom', False):
-            uoms += [context['uom']]
-        uoms = filter(lambda x: x not in uoms_o.keys(), uoms)
-        if uoms:
-            uoms = uom_obj.browse(cr, uid, list(set(uoms)), context=context)
-            for o in uoms:
-                uoms_o[o.id] = o
-
-        # TOCHECK: before change uom of product, stock move line are in old
-        # uom.
-        context.update({'raise-exception': False})
-        # Count the incoming quantities
-        for amount, prod_id, prod_uom in results:
-            amount = uom_obj._compute_qty_obj(
-                cr, uid, uoms_o[prod_uom], amount,
-                uoms_o[context.get('uom', False) or product2uom[prod_id]],
-                context=context)
-            res[prod_id] += amount
-        # Count the outgoing quantities
-        for amount, prod_id, prod_uom in results2:
-            amount = uom_obj._compute_qty_obj(
-                cr, uid, uoms_o[prod_uom], amount,
-                uoms_o[context.get('uom', False) or product2uom[prod_id]],
-                context=context)
-            res[prod_id] -= amount
+        Move = self.env['stock.move']
+        Quant = self.env['stock.quant']
+        domain_move_in_todo = [('state', 'not in', ('done', 'cancel', 'draft'))
+                               ] + domain_move_in
+        domain_move_out_todo = [('state', 'not in', ('done', 'cancel', 'draft')
+                                 )] + domain_move_out
+        moves_in_res =\
+            dict((item['product_id'][0], item['product_qty']
+                  ) for item in Move.read_group(domain_move_in_todo,
+                                                ['product_id', 'product_qty'],
+                                                ['product_id']))
+        moves_out_res =\
+            dict((item['product_id'][0], item['product_qty']
+                  ) for item in Move.read_group(domain_move_out_todo,
+                                                ['product_id', 'product_qty'],
+                                                ['product_id']))
+        quants_res =\
+            dict((item['product_id'][0], item['qty']
+                  ) for item in Quant.read_group(domain_quant,
+                                                 ['product_id', 'qty'],
+                                                 ['product_id']))
+        if dates_in_the_past:
+            # Calculate the moves that were done before now to calculate back
+            # in time (as most questions will be recent ones)
+            domain_move_in_done =\
+                [('state', '=', 'done'), ('date', '>', to_date)
+                 ] + domain_move_in_done
+            domain_move_out_done =\
+                [('state', '=', 'done'), ('date', '>', to_date)
+                 ] + domain_move_out_done
+            moves_in_res_past =\
+                dict((item['product_id'][0], item['product_qty']
+                      ) for item in Move.read_group(domain_move_in_done,
+                                                    ['product_id',
+                                                     'product_qty'],
+                                                    ['product_id']))
+            moves_out_res_past =\
+                dict((item['product_id'][0], item['product_qty']
+                      ) for item in Move.read_group(domain_move_out_done,
+                                                    ['product_id',
+                                                     'product_qty'],
+                                                    ['product_id']))
+        res = dict()
+        for product in self.with_context(prefetch_fields=False):
+            res[product.id] = {}
+            if dates_in_the_past:
+                qty_available =\
+                    quants_res.get(product.id, 0.0) - moves_in_res_past.\
+                    get(product.id, 0.0) + moves_out_res_past.get(product.id,
+                                                                  0.0)
+            else:
+                qty_available = quants_res.get(product.id, 0.0)
+            res[product.id]['qty_available'] =\
+                float_round(qty_available,
+                            precision_rounding=product.uom_id.rounding)
+            res[product.id]['incoming_qty'] =\
+                float_round(moves_in_res.get(product.id, 0.0),
+                            precision_rounding=product.uom_id.rounding)
+            res[product.id]['outgoing_qty'] =\
+                float_round(moves_out_res.get(product.id, 0.0),
+                            precision_rounding=product.uom_id.rounding)
+            res[product.id]['virtual_available'] =\
+                float_round(qty_available + res[product.id]['incoming_qty'] -
+                            res[product.id]['outgoing_qty'],
+                            precision_rounding=product.uom_id.rounding)
         return res

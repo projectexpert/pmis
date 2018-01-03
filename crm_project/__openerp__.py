@@ -11,7 +11,7 @@
         'Matjaž Mozetič <m.mozetic@matmoz.si>',
     ],
     'website': 'http://project.expert',
-    'category': 'Project Management',
+    'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     'summary': '''CRM tasks and CRM leads connected to project''',
     'depends': ['crm', 'project_wbs', 'project_issue'],

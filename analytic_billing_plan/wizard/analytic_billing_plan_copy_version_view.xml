@@ -5,7 +5,7 @@
             <field name="name">analytic.billing.plan.copy.version.form</field>
             <field name="model">analytic.billing.plan.copy.version</field>
             <field name="arch" type="xml">
-                <form string="Copy Billing Plan lines to a different version" version="7.0">
+                <form string="Copy Deliverable Plan lines to a different version" version="7.0">
                     <group>
                         <field name="source_version_id"/>
                         <field name="dest_version_id"/>
@@ -20,7 +20,7 @@
         </record>
 
         <record id="action_analytic_billing_plan_copy_version_form" model="ir.actions.act_window">
-            <field name="name">Copy Billing Plan lines to a different version</field>
+            <field name="name">Copy Deliverable lines to a different version</field>
             <field name="res_model">analytic.billing.plan.copy.version</field>
             <field name="view_type">form</field>
             <field name="view_mode">form,tree</field>
@@ -28,7 +28,7 @@
             <field name="target">new</field>
         </record>
 
-        <act_window name="Copy Billing Plan Lines"
+        <act_window name="Copy Deliverable Plan Lines"
             res_model="analytic.billing.plan.copy.version"
             src_model="account.analytic.account"
             view_mode="form"

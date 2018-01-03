@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="edit_project_stock_move" model="ir.ui.view">
+            <field name="name">project.project.form.stock.move</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project_stock.edit_project_stock_move"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='move']"
+                       position="before">
+                    <group name="stock" string="Default Stock Location">
+                        <!--<field name="project_analytic_id" invisible="1"/>-->
+                        <field name="location_id" context="{'default_analytic_account_id': analytic_account_id}"/>
+                        <field name="dest_address_id"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

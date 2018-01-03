@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <record id="view_analytic_billing_plan_line_make_sale" model="ir.ui.view">
-            <field name="name">Project billing plan make sale</field>
+            <field name="name">Project deliverable plan make sale</field>
             <field name="model">analytic.billing.plan.line.make.sale</field>
             <field name="type">form</field>
             <field name="arch" type="xml">

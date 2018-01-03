@@ -1,8 +1,9 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
+    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
 
-Analytic billing plan
-=====================
+Deliverable plan
+================
 
 Record planned sales and create sales orders
 --------------------------------------------
@@ -10,6 +11,12 @@ Record planned sales and create sales orders
 Automatically record the analytic planned sales associated to sales orders.
 
 You can create sales orders out of the planned sales.
+
+Deliverable sale price analysis
+-------------------------------
+
+Define the deliverable sale price consulting the recommended prices computed
+from resource plan.
 
 Credits
 =======
@@ -19,20 +26,20 @@ Contributors
 
 * Eficent <http://www.eficent.com>
 * Matmoz d.o.o. <http://www.matmoz.si>
+* Luxim d.o.o. <https://www.luxim.si>
 
 
 Maintainer
 ----------
 
-.. image:: http://www.matmoz.si/wp-content/uploads/2015/10/PME.png
+.. image:: https://www.luxim.si/wp-content/uploads/2017/12/pexpert_alt.png
    :alt: Project Expert
    :target: http://project.expert
 
 This module is maintained by Project Expert Team.
 
-Project Expert is a joint effort between EFICENT (Barcelona, Spain) and
-MATMOZ (Ljubljana, Slovenia),
-both active members of Odoo Community Association (OCA).
+Project Expert is a joint effort between EFICENT (Barcelona, Spain) and MATMOZ
+(Ljubljana, Slovenia), both active members of Odoo Community Association (OCA).
 Since 2017 the development team was joined by LUXIM (Nova Gorica, Slovenia)
 after MATMOZ and LUXIM began the company merging process.
 

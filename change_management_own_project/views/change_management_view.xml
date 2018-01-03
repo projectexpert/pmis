@@ -7,7 +7,7 @@
             <field name="model">change.management.change</field>
             <field name="inherit_id" ref="change_management.change_form_view"/>
             <field name="arch" type="xml">
-                <field name="author_id" position="after">
+                <field name="company_id" position="after">
                     <separator colspan="2"/>
                     <button name="button_create_change_project"
                             type='object'
@@ -18,7 +18,7 @@
                         <div>Launch a<br/>New Project</div>
                     </button>
                     <separator colspan="2"/>
-                    <field name="change_project_id"/>
+                    <field name="change_project_id" attrs="{'invisible': [('change_project_id', '=', False)]}"/>
                 </field>
             </field>
         </record>
