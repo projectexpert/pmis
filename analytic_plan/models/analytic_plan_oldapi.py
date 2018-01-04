@@ -10,6 +10,17 @@ from openerp.osv import fields, orm
 class AccountAnalyticAccount(orm.Model):
     _inherit = 'account.analytic.account'
 
+    def _get_active_analytic_planning_version(
+            self, cr, uid, ids, context=None):
+
+        plan_versions = self.pool.get('account.analytic.plan.version').search(
+            cr, uid, [('default_plan', '=', True)], context=None),
+        for plan_version in plan_versions:
+            if plan_version:
+                return plan_version[0]
+
+        return False
+
     def _compute_level_tree_plan(
             self, cr, uid, ids, child_ids, res, field_names, context=None
     ):
@@ -120,4 +131,14 @@ class AccountAnalyticAccount(orm.Model):
             string='Quantity Debit', multi='debit_credit_bal_qtty_plan',
             digits_compute=dp.get_precision('Account')
         ),
+        'active_analytic_planning_version': fields.many2one(
+            'account.analytic.plan.version',
+            'Active planning Version',
+            required=True
+        ),
+    }
+    #
+    _defaults = {
+        'active_analytic_planning_version':
+            _get_active_analytic_planning_version
     }

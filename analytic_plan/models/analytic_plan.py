@@ -9,16 +9,16 @@ from openerp import api, fields, models
 class AccountAnalyticAccount(models.Model):
     _inherit = 'account.analytic.account'
 
-    @api.v8
-    @api.model
-    def default_version(self):
-        plan_versions = self.env['account.analytic.plan.version'].search(
-            [('default_plan', '=', True)], limit=1
-        )
-        for plan_version in plan_versions:
-            if plan_version:
-                return plan_version[0]
-        return False
+    # @api.v8
+    # @api.model
+    # def default_version(self):
+    #     plan_versions = self.env['account.analytic.plan.version'].search(
+    #         [('default_plan', '=', True)], limit=1
+    #     )
+    #     for plan_version in plan_versions:
+    #         if plan_version:
+    #             return plan_version[0]
+    #     return False
 
     plan_line_ids = fields.One2many(
         'account.analytic.line.plan',
@@ -48,12 +48,12 @@ class AccountAnalyticAccount(models.Model):
     #     string="Currency",
     #     readonly=True
     # )
-    active_analytic_planning_version = fields.Many2one(
-        'account.analytic.plan.version',
-        'Active planning Version',
-        required=True,
-        default=default_version
-    )
+    # active_analytic_planning_version = fields.Many2one(
+    #     'account.analytic.plan.version',
+    #     'Active planning Version',
+    #     required=True,
+    #     default=default_version
+    # )
 
     @api.multi
     def action_openplancostlist(self):
