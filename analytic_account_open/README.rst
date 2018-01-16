@@ -16,7 +16,6 @@ Usage
 * Go to 'Accounting / Configuration / Analytic Accounting' and select menu
 entry 'Open Analytic Account'.
 
-
 Installation
 ============
 
@@ -59,3 +58,4 @@ both active members of Odoo Community Association (OCA).
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
