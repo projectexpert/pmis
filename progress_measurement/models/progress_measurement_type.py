@@ -2,7 +2,7 @@
 # © 2014-17 Eficent Business and IT Consulting Services S.L.
 # © 2016 Matmoz d.o.o.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
 
@@ -16,8 +16,8 @@ class ProgressMeasurementType(models.Model):
     def _check_default_max_value(self):
         for item in self:
             if item.default_max_value <= 0:
-                return ValidationError(
-                    'The maximum value must be greater than 0')
+                return ValidationError(_(
+                    'The maximum value must be greater than 0'))
 
     @api.constrains('is_percent', 'default_max_value')
     @api.multi
