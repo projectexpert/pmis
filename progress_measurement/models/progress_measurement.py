@@ -20,8 +20,8 @@ class ProgressMeasurement(models.Model):
                 if item.value > item.progress_measurement_type.\
                         default_max_value:
                     raise ValidationError(_('''Error! The value must be less
-                    than the maximum permitted defined in the
-                    progress measurement type'''))
+                     than the maximum permitted defined in the
+                     progress measurement type'''))
 
     @api.multi
     @api.constrains('value', 'progress_type')
