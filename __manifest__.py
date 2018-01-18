@@ -5,7 +5,7 @@
 {
     'name': 'Analytic Resource Planning',
     'version': '10.0.1.0.0',
-    'author': 'Eficent, Odoo Community Association (OCA), '
+    'author': 'Eficent, Odoo Community Association (OCA) , '
               'Matmoz, '
               'Luxim, '
               'Project Expert Team',
