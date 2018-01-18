@@ -17,7 +17,7 @@ class AnalyticResourcePlanLine(models.Model):
 
     @api.multi
     @api.depends('child_ids')
-    def _has_child(self):
+    def _compute_has_child(self):
         res = {}
         for line in self:
             res[line.id] = False
@@ -102,7 +102,7 @@ class AnalyticResourcePlanLine(models.Model):
         string='Child lines'
     )
     has_child = fields.Boolean(
-        compute='_has_child',
+        compute='_compute_has_child',
         string="Child lines"
     )
     analytic_line_plan_ids = fields.One2many(

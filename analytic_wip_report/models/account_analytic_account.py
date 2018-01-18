@@ -11,7 +11,7 @@ class AccountAnalyticAccount(models.Model):
     _inherit = 'account.analytic.account'
 
     @api.multi
-    def _wip_report(self):
+    def _compute_wip_report(self):
         res = {}
         for account in self:
             all_ids = self.get_child_accounts().keys()
@@ -27,7 +27,6 @@ class AccountAnalyticAccount(models.Model):
                 'over_billings': 0,
                 'under_billings': 0,
             }
-
             # Total Value
             query_params = [tuple(all_ids)]
             where_date = ''
@@ -153,60 +152,60 @@ class AccountAnalyticAccount(models.Model):
         return res
 
     total_value = fields.Float(
-        compute='_wip_report',
+        compute='_compute_wip_report',
         string='Total Value',
         help="""Total estimated revenue of the contract""",
         digits=dp.get_precision('Account')
     )
     actual_billings = fields.Float(
-        compute='_wip_report',
+        compute='_compute_wip_report',
         string='Actual Billings to date',
         help="""Total invoiced amount issued to the customer to date""",
         digits=dp.get_precision('Account')
     )
     actual_costs = fields.Float(
-        compute='_wip_report',
+        compute='_compute_wip_report',
         string='Actual Costs to date',
         digits=dp.get_precision('Account')
     )
     total_estimated_costs = fields.Float(
-        compute='_wip_report',
+        compute='_compute_wip_report',
         string='Total Estimated Costs',
         digits=dp.get_precision('Account')
     )
     estimated_costs_to_complete = fields.Float(
-        compute='_wip_report',
+        compute='_compute_wip_report',
         string='Estimated Costs to Complete',
         help="""Total Estimated Costs – Actual Costs to Date""",
         digits=dp.get_precision('Account')
     )
     estimated_gross_profit = fields.Float(
-        compute='_wip_report',
+        compute='_compute_wip_report',
         string='Estimated Gross Profit',
         help="""Total Value – Total Estimated Costs""",
         digits=dp.get_precision('Account')
     )
     percent_complete = fields.Float(
-        compute='_wip_report',
+        compute='_compute_wip_report',
         string='Percent Complete',
         help="Actual Costs to Date / Total Estimated Costs",
         digits=dp.get_precision('Account')
     )
     earned_revenue = fields.Float(
-        compute='_wip_report',
+        compute='_compute_wip_report',
         string='Earned Revenue to date',
         help="Percent Complete * Total Estimated Revenue",
         digits=dp.get_precision('Account')
     )
     over_billings = fields.Float(
-        compute='_wip_report',
+        compute='_compute_wip_report',
         string='Over billings',
         help="""Total Billings on Contract – Earned Revenue to Date
                 (when > 0 )""",
         digits=dp.get_precision('Account')
     )
     under_billings = fields.Float(
-        compute='_wip_report',
+        compute='_compute_wip_report',
         string='Under billings',
         help="""Total Billings on Contract – Earned Revenue to Date
                 (when < 0 )""",

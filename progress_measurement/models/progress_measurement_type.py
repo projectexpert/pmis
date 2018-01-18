@@ -51,9 +51,9 @@ class ProgressMeasurementType(models.Model):
             if vals['is_default'] is True:
                 other_default = self.search([('is_default', '=', True)])
                 if other_default:
-                    raise ValidationError(
+                    raise ValidationError(_(
                         'Only one default measurement type '
-                        'can exist.')
+                        'can exist.'))
 
     name = fields.Char('Name', size=32, required=True, translate=True,
                        help="Name given to the progress measurement type")
