@@ -84,8 +84,7 @@ class AccountAnalyticAccount(models.Model):
                 ON L.general_account_id = AC.id
                 INNER JOIN account_account_type AT
                 ON AT.id = AC.user_type_id
-                WHERE AT.name in ('Expenses', 'Depreciation',
-                'Cost of Revenue')
+                WHERE AT.name in ('Expense', 'Cost of Goods Sold')
                 AND L.account_id IN %s
                 """ + where_date + """
                 """, query_params
@@ -104,8 +103,7 @@ class AccountAnalyticAccount(models.Model):
                 ON L.general_account_id = AC.id
                 INNER JOIN account_account_type AT
                 ON AT.id = AC.user_type_id
-                WHERE AT.name in ('Expenses', 'Depreciation',
-                'Cost of Revenue')
+                WHERE AT.name in ('Expense', 'Cost of Goods Sold')
                 AND L.account_id IN %s
                 AND A.active_analytic_planning_version = L.version_id
                 """ + where_date + """
