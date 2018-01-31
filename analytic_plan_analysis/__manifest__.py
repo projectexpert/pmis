@@ -17,5 +17,5 @@
         'security/ir.model.access.csv',
         'report/account_analytic_plan_actual_view.xml',
     ],
-    'installable': True,
+    'installable': False,
 }

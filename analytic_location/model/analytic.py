@@ -19,11 +19,9 @@ class AccountAnalyticAccount(models.Model):
         else:
             return False
 
-    location_id = fields.Many2one(
-        'stock.location',
-        'Default Stock Location',
-        domain=[('usage', '<>', 'view')]
-    )
+    picking_tye_id = fields.Many2one(
+        'stock.pickig.type',
+        'Default Picking Type for the project')
     dest_address_id = fields.Many2one(
         'res.partner',
         'Delivery Address',
