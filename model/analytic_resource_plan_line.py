@@ -95,11 +95,12 @@ class AnalyticResourcePlanLine(models.Model):
         return res
 
     @api.model
-    def _prepare_purchase_request(self, company_id):
+    def _prepare_purchase_request(self, company_id, picking_type_id=None):
         data = {
             'company_id': company_id,
             'origin': self.name,
             'description': self.product_id.description,
+            'picking_type_id': picking_type_id,
         }
         return data
 
@@ -143,8 +144,12 @@ class AnalyticResourcePlanLine(models.Model):
                       'from the same warehouse.'))
             else:
                 warehouse_id = line_warehouse_id
-
-            request_data = line._prepare_purchase_request(company_id)
+            picking_type_id = line.account_id.picking_type_id
+            if not picking_type_id:
+                raise ValidationError(
+                    "No picking type defined for the analytic account")
+            request_data = line._prepare_purchase_request(
+                company_id, picking_type_id)
             request_id = request_obj.create(request_data)
             request_line_data = line._prepare_purchase_request_line(
                 request_id, line.unit_amount)
