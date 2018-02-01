@@ -19,6 +19,6 @@ class PurchaseOrderLine(models.Model):
         for move in picking.move_lines:
             if move.analytic_account_id:
                 res[0].update({
-                    'analytic_account_id': move.analytic_account_id
+                    'analytic_account_id': self.analytic_account_id
                 })
         return res

@@ -136,7 +136,7 @@ class AnalyticResourcePlanLine(models.Model):
             else:
                 company_id = line_company_id
             line_warehouse_id = \
-                line.account_id.location_id.get_warehouse() or False
+                line.account_id.picking_type_id.warehouse_id or False
             if warehouse_id is not False \
                     and line_warehouse_id != warehouse_id:
                 raise ValidationError(
@@ -149,7 +149,7 @@ class AnalyticResourcePlanLine(models.Model):
                 raise ValidationError(
                     "No picking type defined for the analytic account")
             request_data = line._prepare_purchase_request(
-                company_id, picking_type_id)
+                company_id, picking_type_id.id)
             request_id = request_obj.create(request_data)
             request_line_data = line._prepare_purchase_request_line(
                 request_id, line.unit_amount)
