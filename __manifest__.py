@@ -15,7 +15,7 @@
         'analytic_location'
     ],
     'data': [
-        'views/stock_view.xml'
+        'views/stock_view.xml',
     ],
     'demo': [
         'demo/stock_demo.xml'
