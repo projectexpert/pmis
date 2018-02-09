@@ -147,12 +147,23 @@ class AccountAnalyticAccount(models.Model):
             )
 
             # Over/Under billings
-            over_under_billings = res[account.id]['actual_billings'] - res[
-                account.id]['earned_revenue']
+            over_under_billings = res[account.id]['under_billings'] - \
+                                  res[account.id]['over_billings']
+            res[account.id]['under_over'] = over_under_billings
+
             if over_under_billings > 0:
                 res[account.id]['over_billings'] = over_under_billings
             else:
                 res[account.id]['under_billings'] = -1*over_under_billings
+            try:
+                res[account.id]['estimated_gross_profit_per'] = \
+                    res[account.id]['estimated_gross_profit'] / \
+                    res[account.id]['total_value'] * 100
+            except ZeroDivisionError:
+                res[account.id]['estimated_gross_profit_per'] = 0
+            over_under_billings = res[account.id]['under_billings'] - \
+                                  res[account.id]['over_billings']
+            res[account.id]['under_over'] = over_under_billings
         return res
 
     total_value = fields.Float(
@@ -199,6 +210,12 @@ class AccountAnalyticAccount(models.Model):
         help="""Total Value – Total Estimated Costs""",
         digits=dp.get_precision('Account')
     )
+    estimated_gross_profit_per = fields.Float(
+        compute='_compute_wip_report',
+        string='Estimated Gross Profit',
+        help="""Total Value – Total Estimated Costs""",
+        digits=dp.get_precision('Account')
+    )
     percent_complete = fields.Float(
         compute='_compute_wip_report',
         string='Percent Complete',
@@ -225,28 +242,34 @@ class AccountAnalyticAccount(models.Model):
                 (when < 0 )""",
         digits=dp.get_precision('Account')
     )
-    actual_billings_line_ids = fields.Many2Many(
-        relation="account.analytic.line",
+    under_over = fields.Float(
+        compute='_compute_wip_report',
+        string='Under over',
+        help="""Billings in excess of costs""",
+        digits=dp.get_precision('Account')
+    )
+    actual_billings_line_ids = fields.Many2many(
+        comodel_name="account.analytic.line",
         compute='_fy_wip_report',
         string='Detail',
     )
-    actual_cost_line_ids = fields.Many2Many(
-        relation="account.analytic.line",
+    actual_cost_line_ids = fields.Many2many(
+        comodel_name="account.analytic.line",
         compute='_fy_wip_report',
         string='Detail',
     )
-    actual_material_line_ids = fields.Many2Many(
-        relation="account.analytic.line",
+    actual_material_line_ids = fields.Many2many(
+        comodel_name="account.analytic.line",
         compute='_fy_wip_report',
         string='Detail',
     )
-    actual_labor_line_ids = fields.Many2Many(
-        relation="account.analytic.line",
+    actual_labor_line_ids = fields.Many2many(
+        comodel_name="account.analytic.line",
         compute='_fy_wip_report',
         string='Detail',
     )
-    total_estimated_cost_line_ids = fields.Many2Many(
-        relation="account.analytic.line.plan",
+    total_estimated_cost_line_ids = fields.Many2many(
+        comodel_name="account.analytic.line.plan",
         compute='_fy_wip_report',
         string='Detail',
     )
