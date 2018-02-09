@@ -1,32 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-#---------------------------------------------------------------------------------------------------------
-#   Extend the menus
-#---------------------------------------------------------------------------------------------------------
-
-#---------------------------------------------------------------------------------------------------------
-#   Extend the analytic account
-#---------------------------------------------------------------------------------------------------------
-
     <record id="view_account_analytic_account_wip_tree" model="ir.ui.view">
         <field name="name">account.analytic.account.wip.tree</field>
         <field name="model">account.analytic.account</field>
         <field name="field_parent">child_ids</field>
         <field name="arch" type="xml">
             <tree colors="green:state=='pending';grey:state in ('close','cancelled');blue:type=='view'" string="Analytic account" toolbar="1">
-                <field name="complete_wbs_code"/>
-                <field name="complete_wbs_name"/>
-                <field name="total_value"/>
-                <field name="actual_billings"/>
-                <field name="actual_costs"/>
-                <field name="total_estimated_costs"/>
-                <field name="estimated_costs_to_complete"/>
-                <field name="estimated_gross_profit"/>
-                <field name="percent_complete"/>
-                <field name="earned_revenue"/>
-                <field name="over_billings"/>
-                <field name="under_billings"/>
+                <field name="complete_wbs_code" string="Contract Code"/>
+                <field name="complete_wbs_name" string="Contract"/>
+                <field name="total_contract_value" sum="Total"/>
+                <field name="actual_costs" string="Cost Incurred To Date" sum="Total"/>
+                <button string="Detail"
+                    name="action_open_cost_lines"
+                    type="object"
+                    icon="gtk-find"/>
+                <field name="actual_material_cost" sum="Total"/>
+                <button string="Detail"
+                    name="action_open_material_lines"
+                    type="object"
+                    icon="gtk-find"/>
+                <field name="actual_labor_cost"  sum="Total"/>
+                <button string="Detail"
+                    name="action_open_labor_lines"
+                    type="object"
+                    icon="gtk-find"/>
+                <field name="estimated_costs_to_complete" string="Total Estimated Additional Cost" sum="Total"/>
+                <field name="total_estimated_costs" string="Total Estimated Cost" sum="Total"/>
+                <button string="Detail"
+                    name="action_open_total_estimated_cost_lines"
+                    type="object"
+                    icon="gtk-find"/>
+                <field name="estimated_gross_profit" string="Estimated Gross Profit" sum="Total"/>
+                <field name="percent_complete" string="Percent Complete" sum="Total"/>
+                <field name="estimated_gross_profit_per" string="Estimated Gross Profit Percent" sum="Total"/>
+                <field name="actual_billings" string="Contract Billings to Date" sum="Total"/>
+                <button string="Detail"
+                    name="action_open_analytic_lines"
+                    type="object"
+                    icon="gtk-find"/>
+                <field name="earned_revenue" string='Revenues Earned' sum="Total"/>
+                <field name="under_over" string='Total under/over billed for the entire contract' sum="Total"/>
+                <field name="under_billings" string="Under Billed" sum="Total"/>
+                <field name="over_billings" string ='Over Billed' sum="Total"/>
                 <field name="state" invisible="1"/>
                 <field name="currency_id" groups="base.group_multi_currency"/>
                 <field name="user_id" invisible="1"/>
@@ -45,12 +60,5 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_account_analytic_account_wip_tree"/>
-        <!--<field name="search_view_id" ref="account.view_account_analytic_account_search"/>-->
     </record>
-
-    <!-- <menuitem action="action_account_analytic_account_wip_form"
-              id="account_analytic_account_wip"
-              parent="project.menu_project_report"
-              groups="project.group_project_manager"/> -->
-
 </odoo>

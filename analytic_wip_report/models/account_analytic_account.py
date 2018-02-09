@@ -74,23 +74,29 @@ class AccountAnalyticAccount(models.Model):
             )
             val = cr.fetchone()[0] or 0
             res[account.id]['actual_billings'] = val
-
             # Actual costs to date
             cr.execute(
                 """
-                SELECT COALESCE(-1*sum(amount),0.0)
-                FROM account_analytic_line L
-                INNER JOIN account_account AC
-                ON L.general_account_id = AC.id
-                INNER JOIN account_account_type AT
-                ON AT.id = AC.user_type_id
-                WHERE AT.name in ('Expense', 'Cost of Goods Sold')
-                AND L.account_id IN %s
+                SELECT COALESCE(-1*sum(amount),0.0) total, AAJ.cost_type
+                                FROM account_analytic_line L
+                                INNER JOIN account_analytic_journal AAJ
+                                ON AAJ.id = L.journal_id
+                                INNER JOIN account_account AC
+                                ON L.general_account_id = AC.id
+                                INNER JOIN account_account_type AT
+                                ON AT.id = AC.user_type_id
+                                WHERE AT.name in ('Expense', 'Cost of Goods Sold')
+                                AND L.account_id IN %s
                 """ + where_date + """
-                """, query_params
-            )
-            val = cr.fetchone()[0] or 0
-            res[account.id]['actual_costs'] = val
+                """ + "GROUP BY AAJ.cost_type" + """
+                """, query_params)
+            res[account.id]['actual_costs'] = 0
+            for (total, cost_type) in cr.fetchall():
+                if cost_type in ('material', 'revenue'):
+                    res[account.id]['actual_material_cost'] = total
+                elif cost_type == 'labor':
+                    res[account.id]['actual_labor_cost'] = total
+                res[account.id]['actual_costs'] += total
 
             # Total estimated costs
             cr.execute(
@@ -166,6 +172,16 @@ class AccountAnalyticAccount(models.Model):
         string='Actual Costs to date',
         digits=dp.get_precision('Account')
     )
+    actual_material_cost = fields.Float(
+        compute='_compute_wip_report',
+        string='Material Costs to date',
+        digits=dp.get_precision('Account')
+    )
+    actual_labor_cost = fields.Float(
+        compute='_compute_wip_report',
+        string='Labor Costs to date',
+        digits=dp.get_precision('Account')
+    )
     total_estimated_costs = fields.Float(
         compute='_compute_wip_report',
         string='Total Estimated Costs',
@@ -209,3 +225,81 @@ class AccountAnalyticAccount(models.Model):
                 (when < 0 )""",
         digits=dp.get_precision('Account')
     )
+    actual_billings_line_ids = fields.Many2Many(
+        relation="account.analytic.line",
+        compute='_fy_wip_report',
+        string='Detail',
+    )
+    actual_cost_line_ids = fields.Many2Many(
+        relation="account.analytic.line",
+        compute='_fy_wip_report',
+        string='Detail',
+    )
+    actual_material_line_ids = fields.Many2Many(
+        relation="account.analytic.line",
+        compute='_fy_wip_report',
+        string='Detail',
+    )
+    actual_labor_line_ids = fields.Many2Many(
+        relation="account.analytic.line",
+        compute='_fy_wip_report',
+        string='Detail',
+    )
+    total_estimated_cost_line_ids = fields.Many2Many(
+        relation="account.analytic.line.plan",
+        compute='_fy_wip_report',
+        string='Detail',
+    )
+
+    @api.multi
+    def action_open_analytic_lines(self):
+        line = self
+        bill_lines = [x.id for x in line.actual_billings_line_ids]
+        res = self.pool.get('ir.actions.act_window').for_xml_id(
+            'account', 'action_account_tree1')
+        res['domain'] = "[('id', 'in', ["+','.join(
+                    map(str, bill_lines))+"])]"
+        return res
+
+    @api.multi
+    def action_open_cost_lines(self):
+        line = self
+        bill_lines = [x.id for x in line.actual_cost_line_ids]
+        res = self.pool.get('ir.actions.act_window').for_xml_id(
+            'account', 'action_account_tree1')
+        res['domain'] = "[('id', 'in', ["+','.join(
+                    map(str, bill_lines))+"])]"
+        return res
+
+    @api.multi
+    def action_open_material_lines(self):
+        line = self
+        bill_lines = [x.id for x in line.actual_material_line_ids]
+        res = self.pool.get('ir.actions.act_window').for_xml_id(
+            'account', 'action_account_tree1')
+        res['domain'] = "[('id', 'in', ["+','.join(
+                    map(str, bill_lines))+"])]"
+        return res
+
+    @api.multi
+    def action_open_labor_lines(self):
+        """
+        :return dict: dictionary value for created view
+        """
+        line = self
+        bill_lines = [x.id for x in line.actual_labor_line_ids]
+        res = self.pool.get('ir.actions.act_window').for_xml_id(
+           'account', 'action_account_tree1')
+        res['domain'] = "[('id', 'in', ["+','.join(
+                    map(str, bill_lines))+"])]"
+        return res
+
+    @api.multi
+    def action_open_total_estimated_cost_lines(self):
+        line = self
+        bill_lines = [x.id for x in line.total_estimated_cost_line_ids]
+        res = self.pool.get('ir.actions.act_window').for_xml_id(
+            'analytic_plan', 'action_account_analytic_line_plan_form')
+        res['domain'] = "[('id', 'in', ["+','.join(
+                    map(str, bill_lines))+"])]"
+        return res
