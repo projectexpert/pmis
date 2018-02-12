@@ -53,7 +53,7 @@ class AccountAnalyticPlanJournal(models.Model):
         default=lambda self:
             self.env['res.users'].browse(self._uid).company_id.id)
     analytic_journal = fields.Many2one(
-        'account.journal',
+        'account.analytic.journal',
         'Actual Journal',
         required=False
     )

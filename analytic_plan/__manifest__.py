@@ -17,6 +17,7 @@
     'depends': [
         'account',
         'analytic',
+        'analytic_journal',
         'project',
         'project_wbs'
     ],
