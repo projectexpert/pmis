@@ -19,6 +19,8 @@ class AccountAnalyticAccount(models.Model):
                 'total_value': 0,
                 'actual_billings': 0,
                 'actual_costs': 0,
+                'actual_material_cost': 0,
+                'actual_labor_cost': 0,
                 'total_estimated_costs': 0,
                 'estimated_costs_to_complete': 0,
                 'estimated_gross_profit': 0,
@@ -77,7 +79,7 @@ class AccountAnalyticAccount(models.Model):
             # Actual costs to date
             cr.execute(
                 """
-                SELECT COALESCE(-1*sum(amount),0.0) total, AAJ.cost_type
+                SELECT COALESCE(-1*sum(amount),0.0) total, AAJ.type
                                 FROM account_analytic_line L
                                 INNER JOIN account_analytic_journal AAJ
                                 ON AAJ.id = L.journal_id
@@ -88,15 +90,15 @@ class AccountAnalyticAccount(models.Model):
                                 WHERE AT.name in ('Expense', 'Cost of Goods Sold')
                                 AND L.account_id IN %s
                 """ + where_date + """
-                """ + "GROUP BY AAJ.cost_type" + """
+                """ + "GROUP BY AAJ.type" + """
                 """, query_params)
             res[account.id]['actual_costs'] = 0
             for (total, cost_type) in cr.fetchall():
                 if cost_type in ('material', 'revenue'):
-                    res[account.id]['actual_material_cost'] = total
+                    res[account.id]['actual_material_cost'] -= total
                 elif cost_type == 'labor':
-                    res[account.id]['actual_labor_cost'] = total
-                res[account.id]['actual_costs'] += total
+                    res[account.id]['actual_labor_cost'] -= total
+                res[account.id]['actual_costs'] -= total
 
             # Total estimated costs
             cr.execute(

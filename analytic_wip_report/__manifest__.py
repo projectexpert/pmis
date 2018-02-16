@@ -14,6 +14,8 @@
         'analytic',
         'analytic_plan',
         'project_wbs',
+        'analytic_contract_value',
+        'analytic_journal',
     ],
     'data': [
         'security/ir.model.access.csv',
