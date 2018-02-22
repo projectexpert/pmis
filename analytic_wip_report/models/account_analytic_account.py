@@ -12,23 +12,8 @@ class AccountAnalyticAccount(models.Model):
 
     @api.multi
     def _compute_wip_report(self):
-        res = {}
         for account in self:
-            all_ids = self.get_child_accounts().keys()
-            res[account.id] = {
-                'total_value': 0,
-                'actual_billings': 0,
-                'actual_costs': 0,
-                'actual_material_cost': 0,
-                'actual_labor_cost': 0,
-                'total_estimated_costs': 0,
-                'estimated_costs_to_complete': 0,
-                'estimated_gross_profit': 0,
-                'percent_complete': 0,
-                'earned_revenue': 0,
-                'over_billings': 0,
-                'under_billings': 0,
-            }
+            all_ids = account.get_child_accounts().keys()
             # Total Value
             query_params = [tuple(all_ids)]
             where_date = ''
@@ -58,12 +43,12 @@ class AccountAnalyticAccount(models.Model):
                 query_params
             )
             val = cr.fetchone()[0] or 0
-            res[account.id]['total_value'] = val
+            account.total_value = val
 
             # Actual billings to date
             cr.execute(
                 """
-                SELECT COALESCE(sum(amount),0.0)
+                SELECT amount, L.id
                 FROM account_analytic_line L
                 INNER JOIN account_account AC
                 ON L.general_account_id = AC.id
@@ -74,36 +59,53 @@ class AccountAnalyticAccount(models.Model):
                 """ + where_date + """
                 """, query_params
             )
-            val = cr.fetchone()[0] or 0
-            res[account.id]['actual_billings'] = val
+            actual_billings_line_ids = []
+            for (total, line_id) in cr.fetchall():
+                account.actual_billings += total
+                actual_billings_line_ids.append(line_id)
+
+            account.actual_billings_line_ids = [
+                (6, 0, [l for l in actual_billings_line_ids])]
             # Actual costs to date
             cr.execute(
                 """
-                SELECT COALESCE(-1*sum(amount),0.0) total, AAJ.type
-                                FROM account_analytic_line L
-                                INNER JOIN account_analytic_journal AAJ
-                                ON AAJ.id = L.journal_id
-                                INNER JOIN account_account AC
-                                ON L.general_account_id = AC.id
-                                INNER JOIN account_account_type AT
-                                ON AT.id = AC.user_type_id
-                                WHERE AT.name in ('Expense', 'Cost of Goods Sold')
-                                AND L.account_id IN %s
+                SELECT amount, L.id, AAJ.cost_type
+                       FROM account_analytic_line L
+                       INNER JOIN account_analytic_journal AAJ
+                       ON AAJ.id = L.journal_id
+                       INNER JOIN account_account AC
+                       ON L.general_account_id = AC.id
+                       INNER JOIN account_account_type AT
+                       ON AT.id = AC.user_type_id
+                       WHERE AT.name in ('Expense', 'Cost of Goods Sold')
+                       AND L.account_id IN %s
                 """ + where_date + """
-                """ + "GROUP BY AAJ.type" + """
-                """, query_params)
-            res[account.id]['actual_costs'] = 0
-            for (total, cost_type) in cr.fetchall():
+                """,
+                query_params)
+            account.actual_costs = 0
+            actual_cost_line_ids = []
+            actual_material_line_ids = []
+            actual_labor_line_ids = []
+            for (total, line_id, cost_type) in cr.fetchall():
                 if cost_type in ('material', 'revenue'):
-                    res[account.id]['actual_material_cost'] -= total
+                    account.actual_material_cost -= total
+                    actual_material_line_ids.append(line_id)
                 elif cost_type == 'labor':
-                    res[account.id]['actual_labor_cost'] -= total
-                res[account.id]['actual_costs'] -= total
+                    account.actual_labor_cost -= total
+                    actual_labor_line_ids.append(line_id)
+                account.actual_costs -= total
+                actual_cost_line_ids.append(line_id)
+            account.actual_cost_line_ids = [
+                (6, 0, [l for l in actual_cost_line_ids])]
+            account.actual_material_line_ids = [
+                (6, 0, [l for l in actual_material_line_ids])]
+            account.actual_labor_line_ids = [
+                (6, 0, [l for l in actual_labor_line_ids])]
 
             # Total estimated costs
             cr.execute(
                 """
-                SELECT COALESCE(-1*sum(amount),0.0) AS total_value
+                SELECT -amount, L.id
                 FROM account_analytic_line_plan AS L
                 LEFT JOIN account_analytic_account AS A
                 ON L.account_id = A.id
@@ -118,55 +120,51 @@ class AccountAnalyticAccount(models.Model):
                 """,
                 query_params
             )
-            val = cr.fetchone()[0] or 0
-            res[account.id]['total_estimated_costs'] = val
-
+            total_estimated_cost_line_ids = []
+            for (total, line_id) in cr.fetchall():
+                account.total_estimated_costs += total
+                total_estimated_cost_line_ids.append(line_id)
+            account.total_estimated_cost_line_ids = [
+                (6, 0, [l for l in total_estimated_cost_line_ids])]
             # Estimated costs to complete
-            res[account.id]['estimated_costs_to_complete'] = (
-                res[account.id]['total_estimated_costs'] - res[
-                    account.id]['actual_costs']
-            )
+            account.estimated_costs_to_complete = (
+                    account.total_estimated_costs - account.actual_costs)
 
             # Estimated gross profit
-            res[account.id]['estimated_gross_profit'] = (
-                res[account.id]['total_value'] - res[account.id][
-                    'total_estimated_costs']
-            )
+            account.estimated_gross_profit = (
+                account.total_value - account.total_estimated_costs)
 
             # Percent complete
             try:
-                res[account.id]['percent_complete'] = (
-                    (res[account.id]['actual_costs'] / res[account.id][
-                        'total_estimated_costs']) * 100
-                )
+                account.percent_complete = (
+                    (account.actual_costs / account.total_estimated_costs)
+                    * 100)
             except ZeroDivisionError:
-                res[account.id]['percent_complete'] = 0
+                account.percent_complete = 0
 
             # Earned revenue
-            res[account.id]['earned_revenue'] = (
-                res[account.id]['percent_complete']/100 * res[account.id][
-                    'total_value']
-            )
+            account.earned_revenue = (
+                account.percent_complete/100 * account.total_value)
 
             # Over/Under billings
-            over_under_billings = res[account.id]['under_billings'] - \
-                                  res[account.id]['over_billings']
-            res[account.id]['under_over'] = over_under_billings
+            over_under_billings = (account.under_billings -
+                                  account.over_billings)
+            account.under_over  = over_under_billings
 
             if over_under_billings > 0:
-                res[account.id]['over_billings'] = over_under_billings
+                account.over_billings = over_under_billings
             else:
-                res[account.id]['under_billings'] = -1*over_under_billings
+                account.under_billings = -1*over_under_billings
             try:
-                res[account.id]['estimated_gross_profit_per'] = \
-                    res[account.id]['estimated_gross_profit'] / \
-                    res[account.id]['total_value'] * 100
+                account.estimated_gross_profit_per = (
+                    account.estimated_gross_profit /
+                    account.total_value * 100)
             except ZeroDivisionError:
-                res[account.id]['estimated_gross_profit_per'] = 0
-            over_under_billings = res[account.id]['under_billings'] - \
-                                  res[account.id]['over_billings']
-            res[account.id]['under_over'] = over_under_billings
-        return res
+                account.estimated_gross_profit_per = 0
+            over_under_billings = (account.under_billings -
+                                   account.over_billings)
+            account.under_over = over_under_billings
+        return True
 
     total_value = fields.Float(
         compute='_compute_wip_report',
@@ -280,7 +278,7 @@ class AccountAnalyticAccount(models.Model):
     def action_open_analytic_lines(self):
         line = self
         bill_lines = [x.id for x in line.actual_billings_line_ids]
-        res = self.pool.get('ir.actions.act_window').for_xml_id(
+        res = self.env['ir.actions.act_window'].for_xml_id(
             'account', 'action_account_tree1')
         res['domain'] = "[('id', 'in', ["+','.join(
                     map(str, bill_lines))+"])]"
@@ -290,7 +288,7 @@ class AccountAnalyticAccount(models.Model):
     def action_open_cost_lines(self):
         line = self
         bill_lines = [x.id for x in line.actual_cost_line_ids]
-        res = self.pool.get('ir.actions.act_window').for_xml_id(
+        res = self.env['ir.actions.act_window'].for_xml_id(
             'account', 'action_account_tree1')
         res['domain'] = "[('id', 'in', ["+','.join(
                     map(str, bill_lines))+"])]"
@@ -300,7 +298,7 @@ class AccountAnalyticAccount(models.Model):
     def action_open_material_lines(self):
         line = self
         bill_lines = [x.id for x in line.actual_material_line_ids]
-        res = self.pool.get('ir.actions.act_window').for_xml_id(
+        res = self.env['ir.actions.act_window'].for_xml_id(
             'account', 'action_account_tree1')
         res['domain'] = "[('id', 'in', ["+','.join(
                     map(str, bill_lines))+"])]"
@@ -313,7 +311,7 @@ class AccountAnalyticAccount(models.Model):
         """
         line = self
         bill_lines = [x.id for x in line.actual_labor_line_ids]
-        res = self.pool.get('ir.actions.act_window').for_xml_id(
+        res = self.env['ir.actions.act_window'].for_xml_id(
            'account', 'action_account_tree1')
         res['domain'] = "[('id', 'in', ["+','.join(
                     map(str, bill_lines))+"])]"
@@ -323,7 +321,7 @@ class AccountAnalyticAccount(models.Model):
     def action_open_total_estimated_cost_lines(self):
         line = self
         bill_lines = [x.id for x in line.total_estimated_cost_line_ids]
-        res = self.pool.get('ir.actions.act_window').for_xml_id(
+        res = self.env['ir.actions.act_window'].for_xml_id(
             'analytic_plan', 'action_account_analytic_line_plan_form')
         res['domain'] = "[('id', 'in', ["+','.join(
                     map(str, bill_lines))+"])]"
