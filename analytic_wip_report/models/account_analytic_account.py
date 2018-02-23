@@ -151,9 +151,9 @@ class AccountAnalyticAccount(models.Model):
                 account.percent_complete/100 * account.total_value)
 
             # Over/Under billings
-            over_under_billings = (account.under_billings -
-                                  account.over_billings)
-            account.under_over  = over_under_billings
+            over_under_billings = (account.actual_billings -
+                                   account.earned_revenue)
+            account.under_over = over_under_billings
 
             if over_under_billings > 0:
                 account.over_billings = over_under_billings
