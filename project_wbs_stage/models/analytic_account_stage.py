@@ -9,8 +9,8 @@
 from odoo import api, fields, models
 
 
-class ProjectProjectStage(models.Model):
-    _name = 'project.project.stage'
+class AnalyticAccountStage(models.Model):
+    _name = 'analytic.account.stage'
     _description = 'Project Stage'
     _order = 'sequence'
 

@@ -4,6 +4,7 @@
 
 from odoo.addons import decimal_precision as dp
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class AccountAnalyticAccount(models.Model):
@@ -27,7 +28,7 @@ class AccountAnalyticAccount(models.Model):
                 query_params += [context['to_date']]
             cr.execute(
                 """
-                SELECT COALESCE(sum(amount),0.0) AS total_value
+                SELECT amount, L.id
                 FROM account_analytic_line_plan AS L
                 LEFT JOIN account_analytic_account AS A
                 ON L.account_id = A.id
@@ -42,9 +43,12 @@ class AccountAnalyticAccount(models.Model):
                 """,
                 query_params
             )
-            val = cr.fetchone()[0] or 0
-            account.total_value = val
-
+            total_value_line_ids = []
+            for (total, line_id) in cr.fetchall():
+                account.total_value += total
+                total_value_line_ids.append(line_id)
+            account.total_value_line_ids = [
+                (6, 0, [l for l in total_value_line_ids])]
             # Actual billings to date
             cr.execute(
                 """
@@ -250,36 +254,41 @@ class AccountAnalyticAccount(models.Model):
     )
     actual_billings_line_ids = fields.Many2many(
         comodel_name="account.analytic.line",
-        compute='_fy_wip_report',
+        compute='_compute_wip_report',
         string='Detail',
     )
     actual_cost_line_ids = fields.Many2many(
         comodel_name="account.analytic.line",
-        compute='_fy_wip_report',
+        compute='_compute_wip_report',
         string='Detail',
     )
     actual_material_line_ids = fields.Many2many(
         comodel_name="account.analytic.line",
-        compute='_fy_wip_report',
+        compute='_compute_wip_report',
         string='Detail',
     )
     actual_labor_line_ids = fields.Many2many(
         comodel_name="account.analytic.line",
-        compute='_fy_wip_report',
+        compute='_compute_wip_report',
         string='Detail',
     )
     total_estimated_cost_line_ids = fields.Many2many(
         comodel_name="account.analytic.line.plan",
-        compute='_fy_wip_report',
+        compute='_compute_wip_report',
         string='Detail',
     )
+    total_value_line_ids = fields.Many2many(
+            comodel_name="account.analytic.line.plan",
+            compute='_compute_wip_report',
+            string='Detail',
+        )
 
     @api.multi
     def action_open_analytic_lines(self):
         line = self
         bill_lines = [x.id for x in line.actual_billings_line_ids]
         res = self.env['ir.actions.act_window'].for_xml_id(
-            'account', 'action_account_tree1')
+            'analytic', 'account_analytic_line_action_entries')
         res['domain'] = "[('id', 'in', ["+','.join(
                     map(str, bill_lines))+"])]"
         return res
@@ -289,7 +298,7 @@ class AccountAnalyticAccount(models.Model):
         line = self
         bill_lines = [x.id for x in line.actual_cost_line_ids]
         res = self.env['ir.actions.act_window'].for_xml_id(
-            'account', 'action_account_tree1')
+            'analytic', 'account_analytic_line_action_entries')
         res['domain'] = "[('id', 'in', ["+','.join(
                     map(str, bill_lines))+"])]"
         return res
@@ -299,7 +308,7 @@ class AccountAnalyticAccount(models.Model):
         line = self
         bill_lines = [x.id for x in line.actual_material_line_ids]
         res = self.env['ir.actions.act_window'].for_xml_id(
-            'account', 'action_account_tree1')
+            'analytic', 'account_analytic_line_action_entries')
         res['domain'] = "[('id', 'in', ["+','.join(
                     map(str, bill_lines))+"])]"
         return res
@@ -312,7 +321,7 @@ class AccountAnalyticAccount(models.Model):
         line = self
         bill_lines = [x.id for x in line.actual_labor_line_ids]
         res = self.env['ir.actions.act_window'].for_xml_id(
-           'account', 'action_account_tree1')
+           'analytic', 'account_analytic_line_action_entries')
         res['domain'] = "[('id', 'in', ["+','.join(
                     map(str, bill_lines))+"])]"
         return res
@@ -326,3 +335,14 @@ class AccountAnalyticAccount(models.Model):
         res['domain'] = "[('id', 'in', ["+','.join(
                     map(str, bill_lines))+"])]"
         return res
+
+    @api.multi
+    def action_open_totalvalue_lines(self):
+        line = self
+        bill_lines = [x.id for x in line.total_value_line_ids]
+        res = self.env['ir.actions.act_window'].for_xml_id(
+            'analytic_plan', 'action_account_analytic_line_plan_form')
+        res['domain'] = "[('id', 'in', ["+','.join(
+                    map(str, bill_lines))+"])]"
+        return res
+

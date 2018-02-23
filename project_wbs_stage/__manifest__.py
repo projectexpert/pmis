@@ -16,8 +16,8 @@
     """,
     "depends": ["project_wbs", "analytic", "project"],
     "data": [
-        "views/project_project_stage_view.xml",
-        "views/project_project_view.xml",
+        "views/analytic_account_stage_view.xml",
+        "views/account_analytic_account_view.xml",
         "security/ir.model.access.csv",
     ],
 

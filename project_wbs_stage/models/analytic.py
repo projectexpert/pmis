@@ -9,22 +9,21 @@
 from odoo import api, fields, models
 
 
-class ProjectProject(models.Model):
-    _name = "project.project"
-    _inherit = "project.project"
+class AccountAnalyticAccount(models.Model):
+    _inherit = "account.analytic.account"
 
     def _default_stage_id(self):
-        return self.env["project.project.stage"].search(
+        return self.env["analytic.account.stage"].search(
             [('case_default', '=', True)], limit=1)
 
     stage_id = fields.Many2one(
-        'project.project.stage', 'Stage',
+        'analytic.account.stage', 'Stage',
         default=_default_stage_id,
         domain="[('fold', '=', False)]")
 
     @api.multi
     def write(self, values):
-        res = super(ProjectProject, self).write(values)
+        res = super(AccountAnalyticAccount, self).write(values)
         if values.get('stage_id'):
             stage_obj = self.env['project.project.stage']
             for project in self:
