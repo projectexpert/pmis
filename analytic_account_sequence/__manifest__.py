@@ -14,9 +14,9 @@
                 'SerpentCS ,'
                 'Project Expert Team ,'
                 'Odoo Community Association (OCA)',
-    'website': 'https://www.github.com/OCA/project',
-    'category': 'Project Management',
-    'depends': ['project_wbs', 'stock_analytic_account'],
+    'website': 'https://www.github.com/OCA/account-analytic',
+    'category': 'Analytic',
+    'depends': ['analytic', 'account_analytic_parent'],
     'data': [
         'views/analytic_account_sequence_view.xml',
         'data/analytic_account_sequence_data.xml',
