@@ -128,7 +128,7 @@ class AnalyticResourcePlanLine(models.Model):
         ],
         string='Type',
         required=True,
-        default='task'
+        default='procurement'
     )
     user_id = fields.Many2one(
         comodel_name='res.users',

@@ -95,10 +95,11 @@ class AnalyticResourcePlanLine(models.Model):
         return res
 
     @api.model
-    def _prepare_purchase_request(self, company_id, picking_type_id=None):
+    def _prepare_purchase_request(self, company_id, picking_type_id=None,
+                                  line=None):
         data = {
             'company_id': company_id,
-            'origin': self.name,
+            'origin': line.account_id.name if line else self.name,
             'description': self.product_id.description,
             'picking_type_id': picking_type_id,
         }
@@ -149,7 +150,7 @@ class AnalyticResourcePlanLine(models.Model):
                 raise ValidationError(
                     "No picking type defined for the analytic account")
             request_data = line._prepare_purchase_request(
-                company_id, picking_type_id.id)
+                company_id, picking_type_id.id, line)
             request_id = request_obj.create(request_data)
             request_line_data = line._prepare_purchase_request_line(
                 request_id, line.unit_amount)
