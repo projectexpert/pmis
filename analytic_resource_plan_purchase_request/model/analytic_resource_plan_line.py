@@ -105,11 +105,11 @@ class AnalyticResourcePlanLine(models.Model):
         }
         return data
 
-    def _prepare_purchase_request_line(self, pr_id, qty):
+    def _prepare_purchase_request_line(self, pr_id, line):
         return {
             'request_id': pr_id.id,
             'name': self.product_id.name,
-            'product_qty': qty,
+            'product_qty': line.unit_amount,
             'product_id': self.product_id.id,
             'product_uom_id': self.product_uom_id.id,
             'date_required': self.date or False,
@@ -153,7 +153,7 @@ class AnalyticResourcePlanLine(models.Model):
                 company_id, picking_type_id.id, line)
             request_id = request_obj.create(request_data)
             request_line_data = line._prepare_purchase_request_line(
-                request_id, line.unit_amount)
+                request_id, line)
             request_line_id = request_line_obj.create(
                 request_line_data)
             self.purchase_request_lines = [(4, request_line_id.id)]
