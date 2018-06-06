@@ -285,3 +285,19 @@ class AnalyticResourcePlanLine(models.Model):
                     resource.env.ref('product.uom_categ_wtime'))):
                 raise ValidationError(_("""When resource type is task,
                     the uom category should be time"""))
+
+    @api.multi
+    def action_open_view_rpl_form(self):
+        self.with_context(view_buttons=True)
+        view = {
+            'name': _('Details'),
+            'view_type': 'form',
+            'view_mode': 'form,tree',
+            'res_model': 'analytic.resource.plan.line',
+            'view_id': False,
+            'type': 'ir.actions.act_window',
+            'target': 'current',
+            'res_id': self.id,
+            'context': self.env.context
+        }
+        return view
