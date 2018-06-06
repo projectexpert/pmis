@@ -84,7 +84,8 @@
         <field name="model">analytic.resource.plan.line</field>
         <field name="arch" type="xml">
             <tree string="Analytic resource plan line"
-                  colors = "darkmagenta:has_child == True;blue:state=='draft'">
+                  colors = "darkmagenta:has_child == True;blue:state=='draft'"
+                  editable="top">
                 <field name="account_id"/>
                 <field name="date"/>
                 <field name="name" invisible="True"/>
@@ -104,6 +105,9 @@
                 <field name="price_unit"/>
                 <field name="has_child"/>
                 <field name="parent_id"/>
+                <button name="action_open_view_rpl_form"
+                        string="Open" type="object"
+                        icon="fa-folder-open-o"/>
             </tree>
         </field>
     </record>
