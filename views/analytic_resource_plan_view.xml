@@ -30,7 +30,7 @@
                         <field name="request_state"/>
                     </group>
                     <newline/>
-                    <group>
+                    <group name="purchases">
                         <field name="purchase_request_lines"
                                  nolabel="1"/>
                     </group>
