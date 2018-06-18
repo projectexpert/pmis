@@ -194,6 +194,29 @@ class AnalyticResourcePlanLine(models.Model):
         }]
 
     @api.model
+    def _get_child_resource_plan_lines(self):
+        result = {}
+        curr_id = self.id
+        result[curr_id] = True
+        # Now add the children
+        self.env.cr.execute('''
+        WITH RECURSIVE children AS (
+        SELECT parent_id, id
+        FROM analytic_resource_plan_line
+        WHERE parent_id = %s
+        UNION ALL
+        SELECT a.parent_id, a.id
+        FROM analytic_resource_plan_line a
+        JOIN children b ON(a.parent_id = b.id)
+        )
+        SELECT * FROM children order by parent_id
+        ''', (curr_id,))
+        res = self.env.cr.fetchall()
+        for x, y in res:
+            result[y] = True
+        return result
+
+    @api.model
     def create_analytic_lines(self):
         res = []
         line_plan_obj = self.env['account.analytic.line.plan']
@@ -222,11 +245,14 @@ class AnalyticResourcePlanLine(models.Model):
     @api.multi
     def action_button_confirm(self):
         for line in self:
-            if line.unit_amount == 0:
-                raise Warning(_('Quantity should be greater than 0.'))
-            if not line.child_ids:
-                line.create_analytic_lines()
-        return self.write({'state': 'confirm'})
+            children = line._get_child_resource_plan_lines()
+            for child in self.browse(children):
+                if child.unit_amount == 0:
+                    raise Warning(_('Quantity should be greater than 0.'))
+                if not child.child_ids:
+                    child.create_analytic_lines()
+                child.write({'state': 'confirm'})
+        return True
 
     @api.onchange('product_id')
     def on_change_product_id(self):

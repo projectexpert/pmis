@@ -8,7 +8,6 @@ import odoo.addons.decimal_precision as dp
 from odoo.exceptions import ValidationError
 
 
-
 class AnalyticResourcePlanLine(models.Model):
 
     _inherit = 'analytic.resource.plan.line'
