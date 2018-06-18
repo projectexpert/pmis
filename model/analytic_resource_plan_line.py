@@ -123,11 +123,10 @@ class AnalyticResourcePlanLine(models.Model):
         request_line_obj = self.env['purchase.request.line']
         company_id = False
         warehouse_id = False
-        for line in self:
-            if line.state != 'confirm':
-                raise ValidationError(
-                    _('All resource plan lines must be  '
-                      'confirmed.'))
+        children = self._get_child_resource_plan_lines()
+        for line in self.browse(children):
+            if line.child_ids:
+                continue
             line_company_id = line.account_id.company_id.id or False
             if company_id is not False \
                     and line_company_id != company_id:
@@ -156,5 +155,5 @@ class AnalyticResourcePlanLine(models.Model):
                 request_id, line)
             request_line_id = request_line_obj.create(
                 request_line_data)
-            self.purchase_request_lines = [(4, request_line_id.id)]
+            line.purchase_request_lines = [(4, request_line_id.id)]
         return True
