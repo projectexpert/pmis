@@ -10,6 +10,7 @@
     "author": "Odoo SA",
     "category": "Analytic",
     "depends": ["account", "analytic"],
-    "data": ['views/analytic_view.xml'],
+    "data": ['views/analytic_view.xml',
+             'security/ir.model.access.csv', ],
     'installable': True,
 }
