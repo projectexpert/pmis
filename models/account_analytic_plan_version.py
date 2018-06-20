@@ -45,38 +45,24 @@ class AccountAnalyticPlanVersion(models.Model):
         default=False
     )
 
-    @api.model
-    def _check_default_committed(self, vals):
-        if 'default_committed' in vals:
-            if vals['default_committed'] is True:
-                other_default_committed = self.search(
-                    [('default_committed', '=', True)]
+    @api.multi
+    @api.constrains('default_committed')
+    def _check_default_committed(self):
+        for rec in self:
+            default_committed = self.search([('default_committed', '=', True)])
+            if len(default_committed) > 1:
+                raise UserError(
+                    _('Only one default commitments version can exist.')
                 )
-                if other_default_committed:
-                    raise UserError(
-                        _('Only one default commitments version can exist.')
-                    )
-
-    @api.model
-    def _check_default_plan(self, vals):
-        if 'default_plan' in vals:
-            if vals['default_plan'] is True:
-                other_default_plan = self.search(
-                    [('default_plan', '=', True)]
-                )
-                if other_default_plan:
-                    raise UserError(
-                        _('Only one default plan version can exist.')
-                    )
-
-    @api.model
-    def create(self, vals):
-        self._check_default_committed(vals)
-        self._check_default_plan(vals)
-        return super(AccountAnalyticPlanVersion, self).create(vals)
+            return
 
     @api.multi
-    def write(self, vals):
-        self._check_default_committed(vals)
-        self._check_default_plan(vals)
-        return super(AccountAnalyticPlanVersion, self).write(vals)
+    @api.constrains('default_plan')
+    def _check_default_plan(self):
+        for rec in self:
+            default_plan = self.search([('default_plan', '=', True)])
+            if len(default_plan) > 1:
+                raise UserError(
+                    _('Only one default plan version can exist.')
+                )
+            return
