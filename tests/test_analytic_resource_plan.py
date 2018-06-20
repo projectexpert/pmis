@@ -15,11 +15,10 @@ class TestAnalyticResourcePlan(common.SavepointCase):
         cls.project = cls.env['project.project'].create(
             {'name': 'Test project',
              'code': '0001'})
-        cls.parent_account = cls.project.analytic_account_id
+        cls.account_id = cls.project.analytic_account_id
         cls.plan_version = cls.env.ref(
             'analytic_plan.analytic_plan_version_P02')
-        cls.plan_version.write({'default_resource_plan': True})
-        cls.parent_account.write({
+        cls.account_id.write({
             'active_analytic_planning_version': cls.plan_version.id})
         cls.product = cls.env.ref('product.product_product_6')
         cls.anal_journal = cls.env['account.analytic.journal'].create(
@@ -37,13 +36,21 @@ class TestAnalyticResourcePlan(common.SavepointCase):
             {'product_id': cls.product.id,
              'product_uom_id': cls.product.uom_id.id,
              'name': 'fetch',
-             'account_id': cls.parent_account.id,
+             'account_id': cls.account_id.id,
              'unit_amount': 1.0,
              }
         )
         cls.product.write(
             {'expense_analytic_plan_journal_id': cls.plan_expenses.id,})
 
-    def test_confirm(cls):
+    def test_plan(cls):
         cls.resource_plan_line.action_button_confirm()
         cls.assertEqual(cls.resource_plan_line.state, 'confirm')
+        plan_line = cls.env['account.analytic.line.plan'].search(
+            [('resource_plan_id', '=', cls.resource_plan_line.id)])
+        cls.assertEqual(len(plan_line), 1, 'Wrong plan lines number')
+        cls.resource_plan_line.action_button_draft()
+        cls.assertEqual(cls.resource_plan_line.state, 'draft')
+        plan_line = cls.env['account.analytic.line.plan'].search(
+            [('resource_plan_id', '=', cls.resource_plan_line.id)])
+        cls.assertEqual(len(plan_line), 0, 'Plan line not deleted')
