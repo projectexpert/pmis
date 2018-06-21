@@ -12,9 +12,11 @@ class Product(models.Model):
 
     def _get_domain_locations(self):
         if self._context.get('analytic_account_id'):
-            locations = self.env['stock_location'].search(
+            locations = self.env['stock.location'].search(
                 [('analytic_account_id', '=', self._context.get(
-                    'analytic_account_id'))])
-            return [('location_id', '=', locations)]
+                    'analytic_account_id'))]).ids
+            dom_loc_out = dom_quant = [('location_id', '=', locations)]
+            dom_loc_in = [('location_dest_id', '=', locations)]
+            return (dom_quant, dom_loc_in, dom_loc_out)
         else:
             return super(Product, self)._get_domain_locations()

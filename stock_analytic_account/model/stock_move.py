@@ -2,7 +2,7 @@
 # Copyright 2014-17 Eficent Business and IT Consulting Services S.L.
 # Copyright 2016 Matmoz d.o.o.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from odoo import api, fields, models
+from odoo import api, exceptions, fields, models
 
 
 class StockMove(models.Model):
@@ -65,20 +65,20 @@ class StockMove(models.Model):
                 dest_anal = move.location_dest_id.analytic_account_id
                 if analytic:
                     if src_anal and dest_anal:
-                        raise ValidationError(_("""
+                        raise exceptions.ValidationError(_("""
                             Cannot move between different projects locations,
                             please move first to general stock"""))
                     elif src_anal and not dest_anal:
                         if src_anal != analytic:
-                            raise ValidationError(_(
+                            raise exceptions.ValidationError(_(
                                 """Wrong analytic account in source or move"""))
                     elif dest_anal and not src_anal:
                         if dest_anal != analytic:
-                            raise ValidationError(_(
+                            raise exceptions.ValidationError(_(
                                 """Wrong analytic account in destination or
                                  move"""))
                     else:
-                        raise ValidationError(_(
+                        raise exceptions.ValidationError(_(
                             """Wrong analytic account in move or one of the
                              locations"""))
         return True
