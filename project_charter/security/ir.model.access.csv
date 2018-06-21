@@ -1,7 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_project_success,project.success,model_project_success,project.group_project_user,1,0,0,0
-access_project_success_manager,project.success,model_project_success,project.group_project_manager,1,1,1,1
-access_project_outscope,project.outscope,model_project_outscope,project.group_project_user,1,0,0,0
-access_project_outscope_manager,project.outscope,model_project_outscope,project.group_project_manager,1,1,1,1
-access_project_constraints,project.constraints,model_project_constraints,project.group_project_user,1,0,0,0
-access_project_constraints_manager,project.constraints,model_project_constraints,project.group_project_manager,1,1,1,1
