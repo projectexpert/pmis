@@ -13,7 +13,8 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'depends': [
-        'stock_analytic_account'
+        'stock',
+        'analytic',
     ],
     'data': [
         'view/analytic_account_view.xml',
