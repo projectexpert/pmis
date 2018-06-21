@@ -12,6 +12,7 @@
     'summary': 'Stock on Resource Plan',
     'depends': [
         'analytic_resource_plan',
+        'stock_location_analytic',
         'stock'
     ],
     'data': [
