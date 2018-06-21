@@ -1,9 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_risk_management_category_manager,risk.management.category.manager.access,model_risk_management_category,project.group_project_manager,1,1,1,1
-access_risk_management_category_user,risk.management.category.user.access,model_risk_management_category,project.group_project_user,1,0,0,0
-access_risk_management_response_category_manager,risk.management.response.category.manager.access,model_risk_management_response_category,project.group_project_manager,1,1,1,1
-access_risk_management_response_category_user,risk.management.response.category.user.access,model_risk_management_response_category,project.group_project_user,1,0,0,0
-access_risk_management_proximity_manager,risk.management.proximity.manager.access,model_risk_management_proximity,project.group_project_manager,1,1,1,1
-access_risk_management_proximity_user,risk.management.proximity.user.access,model_risk_management_proximity,project.group_project_user,1,0,0,0
-access_risk_management_risk_manager,risk.management.risk.manager.access,model_risk_management_risk,project.group_project_manager,1,1,1,1
-access_risk_management_risk_user,risk.management.risk.user.access,model_risk_management_risk,project.group_project_user,1,1,1,0
