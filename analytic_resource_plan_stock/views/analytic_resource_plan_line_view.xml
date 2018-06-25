@@ -10,8 +10,8 @@
                 <field name="qty_available"/>
                 <field name="virtual_available"/>
                 <field name="incoming_qty"/>
-                <field name="incoming_done_qty"/>
                 <field name="outgoing_qty"/>
+                <field name="incoming_done_qty"/>
                 <field name="outgoing_done_qty"/>
             </xpath>
         </field>
