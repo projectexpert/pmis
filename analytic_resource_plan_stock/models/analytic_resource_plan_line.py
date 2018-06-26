@@ -20,32 +20,19 @@ class AnalyticResourcePlanLine(models.Model):
                 line.virtual_available = \
                     stock[line.product_id.id]['virtual_available']
                 line.qty_available = stock[line.product_id.id]['qty_available']
-
             else:
                 line.incoming_qty = 0.0
                 line.outgoing_qty = 0.0
                 line.virtual_available = 0.0
-                line.qty_available = 0.0
                 line.qty_available = 0.0
 
     def _compute_done_quantities(self):
         for line in self:
             line = line.with_context(
-                analytic_account_id=line.account_id.id)
+                analytic_account_id_out=line.account_id.id)
             stock = line.product_id._product_available()
-            if stock.get(line.product_id.id, False):
-                line.incoming_qty = stock[line.product_id.id]['incoming_qty']
-                line.outgoing_qty = stock[line.product_id.id]['outgoing_qty']
-                line.virtual_available = \
-                    stock[line.product_id.id]['virtual_available']
-                line.qty_available = stock[line.product_id.id]['qty_available']
-
-            else:
-                line.incoming_qty = 0.0
-                line.outgoing_qty = 0.0
-                line.virtual_available = 0.0
-                line.qty_available = 0.0
-                line.qty_available = 0.0
+            line.incoming_done_qty = stock[line.product_id.id]['incoming_qty']
+            line.outgoing_done_qty = stock[line.product_id.id]['outgoing_qty']
 
     qty_available = fields.Float(
         string='Quantity Available',
