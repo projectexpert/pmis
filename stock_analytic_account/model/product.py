@@ -15,15 +15,15 @@ class Product(models.Model):
             locations = self.env['stock.location'].search(
                 [('analytic_account_id', '=', self._context.get(
                     'analytic_account_id'))]).ids
-            dom_loc_out = dom_quant = [('location_id', '=', locations)]
-            dom_loc_in = [('location_dest_id', '=', locations)]
+            dom_loc_out = dom_quant = [('location_id', 'in', locations)]
+            dom_loc_in = [('location_dest_id', 'in', locations)]
             return (dom_quant, dom_loc_in, dom_loc_out)
         elif self._context.get('analytic_account_id_out'):
             locations = self.env['stock.location'].search(
                 [('analytic_account_id', '=', self._context.get(
-                    'analytic_account_id'))]).ids
+                    'analytic_account_id_out'))]).ids
             customer_locations = self.env['stock.location'].search(
-                [('usage', '=', 'customers')]).ids
+                [('usage', '=', 'customer')]).ids
             dom_loc_out = [('location_dest_id', 'in', locations),
                            ('location_id', 'in', customer_locations),
                           ]
@@ -32,8 +32,8 @@ class Product(models.Model):
                           ]
             dom_quant = [
                 ('location_id', 'in', customer_locations),
-                ('location_id.analytic_account_id', '=',
-                 self._context.get('analytic_account_id'))
+                ('analytic_account_id', '=',
+                 self._context.get('analytic_account_id_out'))
             ]
             return (dom_quant, dom_loc_in, dom_loc_out)
         else:
