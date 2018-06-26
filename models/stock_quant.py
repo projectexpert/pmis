@@ -15,9 +15,7 @@ class StockQuant(models.Model):
             if quant.analytic_account_id:
                 analytic = quant.analytic_account_id
                 location = quant.location_id
-                parent = location.location_id
-                if parent.usage != 'view' \
-                        and parent.analytic_account_id != analytic:
-                    raise ValidationError(_("""Wrong analytic account in
-                        the quant"""))
+                if location.analytic_account_id != analytic:
+                    raise ValidationError(
+                        _('Wrong analytic account in the quant'))
         return True
