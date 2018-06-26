@@ -10,6 +10,11 @@ class StockQuant(models.Model):
 
     _inherit = "stock.quant"
 
+    analytic_account_id = fields.Many2one(
+        'account.analytic.account',
+        related='location_id.analytic_account_id'
+    )
+
     def _quants_get_reservation_domain(self, move, pack_operation_id=False,
                                        lot_id=False, company_id=False,
                                        initial_domain=None):
