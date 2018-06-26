@@ -14,11 +14,11 @@ class TestAnalyticResourcePlanStock(
     def setUp(cls):
         super(TestAnalyticResourcePlanStock, cls).setUp()
         cls.location = cls.env['stock.location'].create({
-                    'location_id': cls.env.ref('stock.stock_location_stock').id,
                     'name': 'ACC',
-                    'usage': 'internal'
+                    'usage': 'internal',
+                    'analytic_account_id': cls.account_id.id
                 })
-        cls.account_id.location_id = cls.location.id
+        cls.account_id.location_id = cls.location
 
     def test_res_stock(cls):
         cls.assertEqual(cls.resource_plan_line.qty_available, 0.0,
@@ -40,6 +40,7 @@ class TestAnalyticResourcePlanStock(
             'location_dest_id': cls.account_id.location_id.id,
         })
         picking_in.action_confirm()
+        picking_in.action_done()
         cls.assertEqual(cls.resource_plan_line.incoming_qty, 5.0,
                         'Bad Incoming Qty')
         cls.assertEqual(cls.resource_plan_line.virtual_available, 5.0,
