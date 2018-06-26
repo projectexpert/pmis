@@ -40,20 +40,42 @@ class TestAnalyticResourcePlanStock(
             'location_dest_id': cls.account_id.location_id.id,
         })
         picking_in.action_confirm()
-        picking_in.action_done()
+        # recomputing here as no relation to the pickings in this module
+        # to put in the api depends
+        cls.resource_plan_line._compute_quantities()
         cls.assertEqual(cls.resource_plan_line.incoming_qty, 5.0,
                         'Bad Incoming Qty')
         cls.assertEqual(cls.resource_plan_line.virtual_available, 5.0,
                         'Bad virtual Qty')
-
-        upd_qty = cls.env['stock.change.product.qty'].create({
+        picking_in.action_done()
+        cls.resource_plan_line._compute_quantities()
+        cls.resource_plan_line._compute_done_quantities()
+        cls.assertEqual(cls.resource_plan_line.qty_available, 5.0,
+                        'Bad QTY Available')
+        cls.assertEqual(cls.resource_plan_line.incoming_done_qty, 5.0,
+                        'Bad Incoming done Qty')
+        picking_out = cls.env['stock.picking'].create({
+            'picking_type_id': cls.env.ref('stock.picking_type_out').id,
+            'location_id': cls.location.id,
+            'location_dest_id': cls.account_id.location_id.id})
+        cls.env['stock.move'].create({
+            'name': '/',
             'product_id': cls.product.id,
-            'product_tmpl_id': cls.product.product_tmpl_id.id,
-            'new_quantity': 10.0,
-            'location_id': cls.account_id.location_id.id,
+            'product_uom_qty': 4.0,
+            'analytic_account_id': cls.account_id.id,
+            'picking_id': picking_out.id,
+            'product_uom': cls.product.uom_id.id,
+            'location_id': cls.location.id,
+            'location_dest_id':
+                cls.env.ref('stock.stock_location_customers').id,
         })
-        upd_qty.change_product_qty()
-        cls.assertEqual(cls.resource_plan_line.incoming_done_qty, 10.0,
-                        'WRONG incoming qty')
-        cls.assertEqual(cls.resource_plan_line.virtual_available, 15.0,
-                        'Wrong virtual qty')
+        picking_out.action_confirm()
+        cls.resource_plan_line._compute_quantities()
+        cls.assertEqual(cls.resource_plan_line.virtual_available, 1.0,
+                        'Bad Qty available')
+        cls.assertEqual(cls.resource_plan_line.outgoing_qty, 4.0,
+                        'Bad Incoming done Qty')
+        picking_out.action_done()
+        cls.resource_plan_line._compute_done_quantities()
+        cls.assertEqual(cls.resource_plan_line.outgoing_done_qty, 4.0,
+                        'Bad outgoing done Qty')
