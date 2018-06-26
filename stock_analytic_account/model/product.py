@@ -32,7 +32,7 @@ class Product(models.Model):
                           ]
             dom_quant = [
                 ('location_id', 'in', customer_locations),
-                ('analytic_account_id', '=',
+                ('location_id.analytic_account_id', '=',
                  self._context.get('analytic_account_id'))
             ]
             return (dom_quant, dom_loc_in, dom_loc_out)
