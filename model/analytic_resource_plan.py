@@ -3,8 +3,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 import time
-from odoo import api, fields, models
-from odoo.tools.translate import _
+from odoo import _, api, fields, models
 from odoo.exceptions import Warning
 from odoo.exceptions import ValidationError
 
