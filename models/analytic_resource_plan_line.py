@@ -10,12 +10,9 @@ class AnalyticResourcePlanLine(models.Model):
     _inherit = 'analytic.resource.plan.line'
 
     @api.multi
-    @api.depends('product_id')
     def _compute_quantities(self):
         for line in self:
-            line = line.with_context(
-                analytic_account_id=line.account_id.id)
-            stock = line.product_id._product_available()
+            stock = line.with_context(analytic_account_id=line.account_id.id).product_id._product_available()
             if stock.get(line.product_id.id, False):
                 line.incoming_qty = stock[line.product_id.id]['incoming_qty']
                 line.outgoing_qty = stock[line.product_id.id]['outgoing_qty']
@@ -29,25 +26,22 @@ class AnalyticResourcePlanLine(models.Model):
                 line.qty_available = 0.0
 
     @api.multi
-    @api.depends('product_id')
     def _compute_done_quantities(self):
         for line in self:
-            line = line.with_context(
-                analytic_account_id_out=line.account_id.id)
-            stock = line.product_id._product_available()
+            stock = line.with_context(analytic_account_id_out=line.account_id.id).product_id._product_available()
             if stock.get(line.product_id.id, False):
+                #  available in customer means done
                 line.outgoing_done_qty = (
-                    stock[line.product_id.id]['outgoing_qty'])
+                    stock[line.product_id.id]['qty_available'])
             else:
                 line.outgoing_done_qty = 0.0
             line.incoming_done_qty = (line.qty_available - line.outgoing_qty
                                       - line.outgoing_done_qty)
 
     qty_available = fields.Float(
-        string='Quantity Available',
+        string='Qty Available',
         digits=dp.get_precision('Product Unit of Measure'),
         compute='_compute_quantities',
-        store=True,
         help="Current quantity of products.\n"
              "In a context with a single Stock Location, this includes "
              "goods stored at this Location, or any of its children.\n"
@@ -63,7 +57,6 @@ class AnalyticResourcePlanLine(models.Model):
     virtual_available = fields.Float(
         string='Virtually available',
         compute='_compute_quantities',
-        store=True,
         digits=dp.get_precision('Product Unit of Measure'),
         help="Forecast quantity (computed as Quantity On Hand "
              "- Outgoing + Incoming)\n"
@@ -79,10 +72,9 @@ class AnalyticResourcePlanLine(models.Model):
              "with 'internal' type."
     )
     incoming_qty = fields.Float(
-        string='Quantity Incoming',
+        string='Qty Incoming',
         digits=dp.get_precision('Product Unit of Measure'),
         compute='_compute_quantities',
-        store=True,
         help="Quantity of products that are planned to arrive.\n"
              "In a context with a single Stock Location, this includes "
              "goods arriving to this Location, or any of its children.\n"
@@ -99,7 +91,6 @@ class AnalyticResourcePlanLine(models.Model):
         string='Virtually available',
         default=lambda self: self.unit_amount,
         compute='_compute_quantities',
-        store=True,
         digits=dp.get_precision('Product Unit of Measure'),
         help="Quantity of products that are planned to leave.\n"
              "In a context with a single Stock Location, this includes "
@@ -115,18 +106,16 @@ class AnalyticResourcePlanLine(models.Model):
     )
 
     incoming_done_qty = fields.Float(
-        string='Quantity Incoming Done',
+        string='Qty Incoming Done',
         digits=dp.get_precision('Product Unit of Measure'),
         compute='_compute_done_quantities',
-        store=True,
         help="Quantity of products that have been produced or have "
              "arrived."
     )
     outgoing_done_qty = fields.Float(
-        string='Quantity Outgoing Done',
+        string='Qty Outgoing Done',
         default=lambda self: self.unit_amount,
         compute='_compute_done_quantities',
-        store=True,
         digits=dp.get_precision('Product Unit of Measure'),
         help="Quantity of products that have been consumed or delivered."
     )

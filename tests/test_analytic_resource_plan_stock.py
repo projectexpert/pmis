@@ -42,14 +42,11 @@ class TestAnalyticResourcePlanStock(
         picking_in.action_confirm()
         # recomputing here as no relation to the pickings in this module
         # to put in the api depends
-        cls.resource_plan_line._compute_quantities()
         cls.assertEqual(cls.resource_plan_line.incoming_qty, 5.0,
                         'Bad Incoming Qty')
         cls.assertEqual(cls.resource_plan_line.virtual_available, 5.0,
                         'Bad virtual Qty')
         picking_in.action_done()
-        cls.resource_plan_line._compute_quantities()
-        cls.resource_plan_line._compute_done_quantities()
         cls.assertEqual(cls.resource_plan_line.qty_available, 5.0,
                         'Bad QTY Available')
         cls.assertEqual(cls.resource_plan_line.incoming_done_qty, 5.0,
@@ -70,12 +67,10 @@ class TestAnalyticResourcePlanStock(
                 cls.env.ref('stock.stock_location_customers').id,
         })
         picking_out.action_confirm()
-        cls.resource_plan_line._compute_quantities()
         cls.assertEqual(cls.resource_plan_line.virtual_available, 1.0,
                         'Bad Qty available')
         cls.assertEqual(cls.resource_plan_line.outgoing_qty, 4.0,
                         'Bad Incoming done Qty')
         picking_out.action_done()
-        cls.resource_plan_line._compute_done_quantities()
         cls.assertEqual(cls.resource_plan_line.outgoing_done_qty, 4.0,
                         'Bad outgoing done Qty')
