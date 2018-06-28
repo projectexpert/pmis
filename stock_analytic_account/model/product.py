@@ -36,5 +36,11 @@ class Product(models.Model):
                  self._context.get('analytic_account_id_out'))
             ]
             return (dom_quant, dom_loc_in, dom_loc_out)
+        if self._context.get('no_analytic'):
+            locations = self.env['stock.location'].search(
+                [('analytic_account_id', '=', False)]).ids
+            dom_loc_out = dom_quant = [('location_id', 'in', locations)]
+            dom_loc_in = [('location_dest_id', 'in', locations)]
+            return (dom_quant, dom_loc_in, dom_loc_out)
         else:
             return super(Product, self)._get_domain_locations()

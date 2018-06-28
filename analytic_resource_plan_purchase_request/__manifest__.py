@@ -16,7 +16,7 @@
     'category': 'Project Management',
     'license': 'AGPL-3',
     'depends': [
-        'analytic_resource_plan',
+        'analytic_resource_plan_stock',
         'analytic_location',
         'purchase_request'
     ],

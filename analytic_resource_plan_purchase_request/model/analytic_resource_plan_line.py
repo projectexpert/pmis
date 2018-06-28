@@ -32,7 +32,7 @@ class AnalyticResourcePlanLine(models.Model):
         return True
 
     @api.multi
-    @api.depends('purchase_request_lines')
+    @api.depends('purchase_request_lines.request_id.state')
     def _get_request_state(self):
         for line in self:
             line.request_state = 'none'
