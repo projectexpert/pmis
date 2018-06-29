@@ -4,7 +4,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.
 
 {
-    'name': 'Analytic Resource Planning - Purchase Requests',
+    'name': 'Analytic Resource Planning - fetch and purchase',
     'version': '10.0.1.0.0',
     'author':   'Eficent, Odoo Community Association (OCA),'
                 'Project Expert Team',
