@@ -20,7 +20,7 @@ class TestAnalyticResourcePlan(common.SavepointCase):
             'analytic_plan.analytic_plan_version_P02')
         cls.account_id.write({
             'active_analytic_planning_version': cls.plan_version.id})
-        cls.product = cls.env.ref('product.product_product_6')
+        cls.product = cls.env['product.product'].create({'name': 'SP'})
         cls.anal_journal = cls.env['account.analytic.journal'].create(
             {'name': 'Expenses',
              'code': 'EX',
@@ -29,7 +29,7 @@ class TestAnalyticResourcePlan(common.SavepointCase):
         cls.plan_expenses = cls.env['account.analytic.plan.journal'].create(
             {'name': 'expenses',
              'code': 'EXP',
-             'journal_id': cls.anal_journal.id,
+             'analytic_journal': cls.anal_journal.id,
              }
         )
         cls.resource_plan_line = cls.env['analytic.resource.plan.line'].create(
