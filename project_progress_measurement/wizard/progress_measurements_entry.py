@@ -40,11 +40,11 @@ class ProgressMeasurementsEntry(models.TransientModel):
             data['progress_measurement_type_id'][0] or
             False
         )
-        self._cr.execute('SELECT DISTINCT ON (a.project_id) project_id, id,'
-                         'communication_date, value'
-                         'FROM project_progress_measurement AS a'
-                         'WHERE a.project_id IN %s'
-                         'AND a.progress_measurement_type = %s'
+        self._cr.execute('SELECT DISTINCT ON (a.project_id) project_id, id, '
+                         'communication_date, value '
+                         'FROM project_progress_measurement a '
+                         'WHERE a.project_id IN %s '
+                         'AND a.progress_measurement_type = %s '
                          'ORDER BY a.project_id, a.communication_date DESC',
                          (tuple(project_ids), progress_measurement_type_id))
         results = self._cr.fetchall()

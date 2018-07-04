@@ -14,12 +14,12 @@ class ProjectProgressMeasurement(models.Model):
         'project.project',
         'Project',
         ondelete='cascade',
-        index="1",
+        index=True,
         required=True
     )
 
     _sql_constraints = [
-        ('project_meas_type_date_uniq', 'unique(project_id,'
+        ('project_meas_type_date_uniq', 'unique(project_id, '
          'progress_measurement_type, communication_date)',
          _("""Only one measurement of the same type can exist for each project
          on a given date."""))

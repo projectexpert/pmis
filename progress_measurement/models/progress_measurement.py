@@ -13,27 +13,15 @@ class ProgressMeasurement(models.Model):
     _description = 'Progress Measurement'
 
     @api.multi
-    @api.constrains('value', 'progress_type')
+    @api.constrains('value', 'progress_measurement_type')
     def _check_is_value_less_than_max(self):
         for item in self:
             if item.progress_measurement_type:
                 if item.value > item.progress_measurement_type.\
                         default_max_value:
-                    raise ValidationError(_('''Error! The value must be less
-                     than the maximum permitted defined in the
-                     progress measurement type'''))
-
-    @api.multi
-    @api.constrains('value', 'progress_type')
-    def _check_is_valid_precision(self):
-        for item in self:
-            if item.progress_measurement_type:
-                result = item.value % item.progress_measurement_type.precision
-                if result != 0.0:
-                    raise ValidationError(_('''The value is entered in a higher
-                    precision to that defined in the
-                    progress measurement type'''))
-        return True
+                    raise ValidationError(_(
+                        'Error! The value must be less than the maximum '
+                        'permitted defined in the progress measurement type'))
 
     name = fields.Char('Description', size=32, required=False,
                        help="Description given to the measure")
