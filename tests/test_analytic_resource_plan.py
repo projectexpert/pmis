@@ -41,7 +41,7 @@ class TestAnalyticResourcePlan(common.SavepointCase):
              }
         )
         cls.product.write(
-            {'expense_analytic_plan_journal_id': cls.plan_expenses.id,})
+            {'expense_analytic_plan_journal_id': cls.plan_expenses.id, })
 
     def test_plan(cls):
         cls.resource_plan_line.action_button_confirm()

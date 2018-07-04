@@ -34,7 +34,8 @@ class ResourcePlanLineChangeState(models.TransientModel):
         if new_state == 'draft':
             line_plan.action_button_draft()
         elif new_state == 'confirm':
-            line_plan.action_button_confirm()
+            line_plan.filtered(
+                lambda r: r.parent_id.id is False).action_button_confirm()
         return {
             'domain': "[('id','in', [" + ','.join(
                 map(str, record_ids)
