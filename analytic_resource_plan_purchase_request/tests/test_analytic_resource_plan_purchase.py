@@ -10,7 +10,7 @@ from odoo.addons.analytic_resource_plan_stock.tests import \
 
 
 class TestAnalyticResourcePlanPurchase(
-    test_analytic_resource_plan_stock.TestAnalyticResourcePlanStock):
+        test_analytic_resource_plan_stock.TestAnalyticResourcePlanStock):
 
     def setUp(cls):
         super(TestAnalyticResourcePlanPurchase, cls).setUp()
@@ -21,8 +21,10 @@ class TestAnalyticResourcePlanPurchase(
         cls.assertEqual(cls.resource_plan_line.request_state,
                         'none', 'should no request')
         cls.resource_plan_line.action_button_confirm()
-        cls.assertEqual(cls.resource_plan_line.request_state, 'draft', 'should draft request')
-        purchase_request_line = cls.resource_plan_line.purchase_request_lines[0]
+        cls.assertEqual(cls.resource_plan_line.request_state, 'draft',
+                        'should draft request')
+        purchase_request_line = \
+            cls.resource_plan_line.purchase_request_lines[0]
         purchase_request = purchase_request_line.request_id
         purchase_request.button_to_approve()
         purchase_request.button_approved()

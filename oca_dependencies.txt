@@ -1,3 +1,10 @@
-account-analytic
 eficent https://github.com/eficent/eficent-odoo-addons 10.0
-project https://github.com/eficent/project 10.0-mig-project_wbs
+account-analytic https://github.com/OCA/account-analytic 10.0
+eficent https://github.com/eficent/eficent-odoo-addons 10.0
+project https://github.com/OCA/project 10.0
+pmis https://github.com/eficent/pmis 10.0
+purchase-workflow https://github.com/OCA/purchase-workflow 10.0
+sale-workflow https://github.com/OCA/sale-workflow 10.0
+hr https://github.com/OCA/hr 10.0
+hr-timesheet https://github.com/OCA/hr-timesheet 10.0
+account-invoicing https://github.com/OCA/account-invoicing 10.0

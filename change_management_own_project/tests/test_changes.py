@@ -5,7 +5,7 @@ from odoo.addons.change_management.tests import test_changes
 
 
 class TestChangeManagementOwnProject(
-    test_changes.TestChanges):
+        test_changes.TestChanges):
 
     def setUp(cls):
         super(TestChangeManagementOwnProject, cls).setUp()

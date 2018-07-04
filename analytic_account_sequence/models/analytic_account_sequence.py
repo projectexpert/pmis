@@ -28,14 +28,14 @@ class AnalyticAccountSequence(models.Model):
             if element.implementation != 'standard':
                 element.number_next_actual = element.number_next
             else:
+                # pylint: disable=sql-injection
+                statement = """
+                    SELECT last_value, increment_by, is_called
+                    FROM analytic_account_sequence_%05d
+                    """ % element.id
                 # get number from postgres sequence. Cannot use
                 # currval, because that might give an error when
                 # not having used nextval before.
-                # pylint: disable=sql-injection
-                statement = (
-                    "SELECT last_value, increment_by, is_called"
-                    " FROM analytic_account_sequence_%05d"
-                    % element.id)
                 self._cr.execute(statement)
                 (last_value, increment_by, is_called) = self._cr.fetchone()
                 if is_called:

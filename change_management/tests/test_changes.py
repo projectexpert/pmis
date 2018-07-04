@@ -20,7 +20,8 @@ class TestChanges(common.SavepointCase):
         )
         cls.change_owner_id = cls.env.ref('change_management.user_change_user')
         cls.change_second_author_id = cls.change_owner_id.copy()
-        cls.change_manager_id = cls.env.ref('change_management.user_change_manager')
+        cls.change_manager_id = \
+            cls.env.ref('change_management.user_change_manager')
         cls.change_partner_manager = cls.env.ref(
             'change_management.partner_change_manager')
         cls.test_change_id = cls.change_model.create({
@@ -53,8 +54,8 @@ class TestChanges(common.SavepointCase):
 
     def test_adding_a_task_on_a_change(cls):
         change = cls.test_change_id.read(['message_follower_ids'])
-        followers = cls.env['mail.followers'
-                             ].browse(change[0]['message_follower_ids'])
+        followers = cls.env['mail.followers'].browse(
+            change[0]['message_follower_ids'])
         cls.test_change_id.write({
             'change_response_ids': [(0, 0,
                                      {'remaining_hours': 0,

@@ -2,8 +2,7 @@
 # Copyright 2014-17 Eficent Business and IT Consulting Services S.L.
 # Copyright 2016 Matmoz d.o.o.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from odoo import api, fields, models
-from odoo.tools.float_utils import float_round
+from odoo import models
 
 
 class Product(models.Model):
@@ -25,11 +24,9 @@ class Product(models.Model):
             customer_locations = self.env['stock.location'].search(
                 [('usage', '=', 'customer')]).ids
             dom_loc_out = [('location_dest_id', 'in', locations),
-                           ('location_id', 'in', customer_locations),
-                          ]
+                           ('location_id', 'in', customer_locations), ]
             dom_loc_in = [('location_dest_id', 'in', customer_locations),
-                          ('location_id', 'in', locations),
-                          ]
+                          ('location_id', 'in', locations), ]
             dom_quant = [
                 ('location_id', 'in', customer_locations),
                 ('analytic_account_id', '=',
