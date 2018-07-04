@@ -10,7 +10,6 @@
             <group name="stock" position="before">
                 <group name="location">
                     <field name="location_id" context='{"default_analytic_account_id": active_id}'/>
-                    <field name="picking_type_id"/>
                     <field name="dest_address_id"/>
                 </group>
             </group>
