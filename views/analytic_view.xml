@@ -7,9 +7,9 @@
         <field name="inherit_id"
                ref="analytic_location.view_account_analytic_account_form_location"/>
         <field name="arch" type="xml">
-            <group name="location" position="inside">
+            <field name="location_id" position="after">
                 <field name="picking_type_id"/>
-            </group>
+            </field>
         </field>
     </record>
 </odoo>
