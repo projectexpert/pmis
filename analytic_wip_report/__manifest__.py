@@ -12,7 +12,7 @@
     'license': 'AGPL-3',
     'depends': [
         'analytic',
-        'analytic_plan',
+        'analytic_plan_cost_revenue',
         'project_wbs',
         'analytic_journal',
     ],
