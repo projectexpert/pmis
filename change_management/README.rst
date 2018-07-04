@@ -7,9 +7,6 @@ Change Management
 
 Change Management for integrated with Stakeholders Requirements Management
 
-Fully integrated with project_charter module enables the change management through the Change Request Document.
-Project requirements handled as change requests.
-
 Insert a project requirement and manage it through the change management.
 
 Chatter integrated - follow change requests and project requirement proposal through the approval process.
@@ -26,7 +23,8 @@ Credits
 Contributors
 ------------
 
-* Matmoz d.o.o. (http://www.matmoz.si)
+* Eficent Business and It Consulting Services <contact@eficent.com>
+* Matmoz d.o.o. <http://www.matmoz.si>
 * Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
 
 Maintainer
