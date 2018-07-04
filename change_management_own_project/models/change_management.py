@@ -36,14 +36,3 @@ class ChangeManagementChange(models.Model):
             project = self.env['project.project'].create(project_data)
             change.write({'change_project_id': project.id})
         return True
-
-    @api.multi
-    def write(self, vals):
-        res = super(ChangeManagementChange, self).write(vals)
-        if 'project_id' in vals:
-            for change in self:
-                if change.change_project_id:
-                    change.change_project_id.\
-                        write({'parent_id':
-                               change.project_id.analytic_account_id.id})
-        return res
