@@ -88,7 +88,6 @@
                   editable="top">
                 <field name="account_id"/>
                 <field name="date"/>
-                <field name="name" invisible="True"/>
                 <field name="resource_type"/>
                 <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
                 <field name="product_id"/>
