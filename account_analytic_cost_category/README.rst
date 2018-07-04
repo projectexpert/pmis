@@ -11,7 +11,7 @@ Installation
 ============
 
 * The module automatically takes care of its dependencies and is ready for
-use after the installation.
+  use after the installation.
 
 Credits
 =======

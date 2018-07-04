@@ -26,6 +26,7 @@ class AccountAnalyticAccount(models.Model):
             if context.get('to_date', False):
                 where_date += " AND l.date <= %s"
                 query_params += [context['to_date']]
+            # pylint: disable=sql-injection
             cr.execute(
                 """
                 SELECT amount, L.id

@@ -47,8 +47,8 @@ are often called either Billings in Excess of Costs (liability account that
 reflects over-billings) or Costs in Excess of Billings (asset account that
 reflects under-billings).
 
-Work in Progress Statement
---------------------------
+Percentage of Completion
+------------------------
 The Work In Progress Statement is associated to the Percentage of Completion
 Method, and is used to compile the information necessary for the percentage
 of completion calculations, but also to provide crucial information about the

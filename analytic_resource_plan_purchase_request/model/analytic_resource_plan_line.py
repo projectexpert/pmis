@@ -147,7 +147,7 @@ class AnalyticResourcePlanLine(models.Model):
             picking_type_id = line.account_id.picking_type_id
             if not picking_type_id:
                 raise ValidationError(
-                    "No picking type defined for the analytic account")
+                    _("No picking type defined for the analytic account"))
             request_data = line._prepare_purchase_request(
                 company_id, picking_type_id.id, line)
             request_id = request_obj.create(request_data)

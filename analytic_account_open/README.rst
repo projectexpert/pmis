@@ -14,7 +14,7 @@ Usage
 =====
 
 * Go to 'Accounting / Configuration / Analytic Accounting' and select menu
-entry 'Open Analytic Account'.
+  entry 'Open Analytic Account'.
 
 Installation
 ============

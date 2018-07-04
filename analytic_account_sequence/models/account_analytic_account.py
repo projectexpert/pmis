@@ -48,10 +48,6 @@ class AccountAnalyticAccount(models.Model):
         "Child code sequence"
     )
 
-    _defaults = {
-        'code': False
-    }
-
     @api.model
     def create(self, vals):
         # Assign a new code, from the parent account's sequence, if it exists.

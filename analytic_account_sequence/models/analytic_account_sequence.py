@@ -31,6 +31,7 @@ class AnalyticAccountSequence(models.Model):
                 # get number from postgres sequence. Cannot use
                 # currval, because that might give an error when
                 # not having used nextval before.
+                # pylint: disable=sql-injection
                 statement = (
                     "SELECT last_value, increment_by, is_called"
                     " FROM analytic_account_sequence_%05d"
@@ -150,6 +151,7 @@ class AnalyticAccountSequence(models.Model):
         if number_increment == 0:
             raise UserError(_("Increment number must not be zero."))
         assert isinstance(self.id, (int, long))
+        # pylint: disable=sql-injection
         sql = (
             "CREATE SEQUENCE analytic_account_sequence_%05d "
             "INCREMENT BY %%s START WITH %%s" % self.id
@@ -170,6 +172,7 @@ class AnalyticAccountSequence(models.Model):
         names = ','.join('analytic_account_sequence_%05d' % i for i in ids)
         # RESTRICT is the default; it prevents dropping the sequence if an
         # object depends on it.
+        # pylint: disable=sql-injection
         self._cr.execute("DROP SEQUENCE IF EXISTS %s RESTRICT " % names)
 
     @api.multi
@@ -187,6 +190,7 @@ class AnalyticAccountSequence(models.Model):
             # sequence is not created yet, we're inside create() so
             # ignore it, will be set later
             return
+        # pylint: disable=sql-injection
         statement = "ALTER SEQUENCE %s INCREMENT BY %d" % (seq_name,
                                                            number_increment)
         if number_next is not None:
@@ -273,6 +277,7 @@ class AnalyticAccountSequence(models.Model):
                                s.company_id[0] == force_company]
         seq = preferred_sequences[0] if preferred_sequences else self[0]
         if seq.implementation == 'standard':
+            # pylint: disable=sql-injection
             self._cr.execute(
                 "SELECT nextval('analytic_account_sequence_%05d')" % seq.id)
             seq.number_next = self._cr.fetchone()
