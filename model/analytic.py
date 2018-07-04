@@ -3,7 +3,7 @@
 # Copyright 2017 Eficent Business and IT Consulting Services S.L.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -22,19 +22,18 @@ class AccountAnalyticJournal(models.Model):
     name = fields.Char(string='Journal Name', required=True)
     code = fields.Char(string='Short Code', size=5, required=True)
     type = fields.Selection([
-            ('sale', 'Sale'),
-            ('purchase', 'Purchase'),
-            ('cash', 'Cash'),
-            ('bank', 'Bank'),
-            ('general', 'Miscellaneous'),
-        ], required=True,
-        help="Select 'Sale' for customer invoices journals.\n"\
-        "Select 'Purchase' for vendor bills journals.\n"\
-        "Select 'Cash' or 'Bank' for journals that are used in customer or vendor payments.\n"\
-        "Select 'General' for miscellaneous operations journals.")
+        ('sale', 'Sale'),
+        ('purchase', 'Purchase'),
+        ('cash', 'Cash'),
+        ('bank', 'Bank'),
+        ('general', 'Miscellaneous')], required=True,
+        help="Select 'Sale' for customer invoices journals. Select 'Purchase'"
+             " for vendor bills journals. Select 'Cash' or 'Bank' for "
+             "journals that are used in customer or vendor payments."
+             "Select 'General' for miscellaneous operations journals.")
 
     line_ids = fields.One2many('account.analytic.line', 'journal_id',
-                                'Lines', copy=False)
+                               'Lines', copy=False)
     company_id = fields.Many2one(
         comodel_name='res.company',
         default=lambda self: self._get_default_company()
@@ -61,8 +60,8 @@ class AccountMoveLine(models.Model):
         self.ensure_one()
         res = super(AccountMoveLine, self)._prepare_analytic_line()
         if not self.journal_id.analytic_journal_id:
-            raise ValidationError("Please define an analytic journal for "
-                                  "journal %s" % self.journal_id.name)
+            raise ValidationError(_("Please define an analytic journal for "
+                                  "journal %s" % self.journal_id.name))
         res[0]['journal_id'] = self.journal_id.analytic_journal_id.id
         return res[0]
 
