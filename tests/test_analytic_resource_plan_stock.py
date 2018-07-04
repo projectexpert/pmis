@@ -5,19 +5,19 @@
 # Copyright 2017 Deneroteam.
 # Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from odoo.addons.analytic_resource_plan.tests import test_analytic_resource_plan
+from odoo.addons.analytic_resource_plan.tests import \
+    test_analytic_resource_plan
 
 
 class TestAnalyticResourcePlanStock(
-    test_analytic_resource_plan.TestAnalyticResourcePlan):
+        test_analytic_resource_plan.TestAnalyticResourcePlan):
 
     def setUp(cls):
         super(TestAnalyticResourcePlanStock, cls).setUp()
         cls.location = cls.env['stock.location'].create({
-                    'name': 'ACC',
-                    'usage': 'internal',
-                    'analytic_account_id': cls.account_id.id
-                })
+            'name': 'ACC',
+            'usage': 'internal',
+            'analytic_account_id': cls.account_id.id})
         cls.account_id.location_id = cls.location
         cls.account_id.picking_type_id = cls.env.ref('stock.picking_type_in')
 

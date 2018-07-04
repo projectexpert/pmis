@@ -12,7 +12,9 @@ class AnalyticResourcePlanLine(models.Model):
     @api.multi
     def _compute_quantities(self):
         for line in self:
-            stock = line.with_context(analytic_account_id=line.account_id.id).product_id._product_available()
+            stock = line.with_context(
+                analytic_account_id=line.account_id.id).product_id.\
+                _product_available()
             if stock.get(line.product_id.id, False):
                 line.incoming_qty = stock[line.product_id.id]['incoming_qty']
                 line.outgoing_qty = stock[line.product_id.id]['outgoing_qty']
@@ -28,7 +30,9 @@ class AnalyticResourcePlanLine(models.Model):
     @api.multi
     def _compute_done_quantities(self):
         for line in self:
-            stock = line.with_context(analytic_account_id_out=line.account_id.id).product_id._product_available()
+            stock = line.with_context(
+                analytic_account_id_out=line.account_id.id).product_id.\
+                _product_available()
             if stock.get(line.product_id.id, False):
                 #  available in customer means done
                 line.outgoing_done_qty = (
@@ -42,15 +46,15 @@ class AnalyticResourcePlanLine(models.Model):
         string='Qty Available',
         digits=dp.get_precision('Product Unit of Measure'),
         compute='_compute_quantities',
-        help="Current quantity of products.\n"
+        help="Current quantity of products. "
              "In a context with a single Stock Location, this includes "
-             "goods stored at this Location, or any of its children.\n"
+             "goods stored at this Location, or any of its children. "
              "In a context with a single Warehouse, this includes "
              "goods stored in the Stock Location of this Warehouse, "
-             "or any of its children.\n"
+             "or any of its children. "
              "In a context with a single Shop, this includes goods "
              "stored in the Stock Location of the Warehouse of this Shop, "
-             "or any of its children.\n"
+             "or any of its children. "
              "Otherwise, this includes goods stored in any Stock Location "
              "with 'internal' type."
     )
@@ -59,15 +63,15 @@ class AnalyticResourcePlanLine(models.Model):
         compute='_compute_quantities',
         digits=dp.get_precision('Product Unit of Measure'),
         help="Forecast quantity (computed as Quantity On Hand "
-             "- Outgoing + Incoming)\n"
+             "- Outgoing + Incoming) "
              "In a context with a single Stock Location, this includes "
-             "goods stored in this location, or any of its children.\n"
+             "goods stored in this location, or any of its children. "
              "In a context with a single Warehouse, this includes "
              "goods stored in the Stock Location of this Warehouse, "
-             "or any of its children.\n"
+             "or any of its children. "
              "In a context with a single Shop, this includes goods "
              "stored in the Stock Location of the Warehouse of this Shop, "
-             "or any of its children.\n"
+             "or any of its children. "
              "Otherwise, this includes goods stored in any Stock Location "
              "with 'internal' type."
     )
@@ -75,15 +79,15 @@ class AnalyticResourcePlanLine(models.Model):
         string='Qty Incoming',
         digits=dp.get_precision('Product Unit of Measure'),
         compute='_compute_quantities',
-        help="Quantity of products that are planned to arrive.\n"
+        help="Quantity of products that are planned to arrive. "
              "In a context with a single Stock Location, this includes "
-             "goods arriving to this Location, or any of its children.\n"
+             "goods arriving to this Location, or any of its children. "
              "In a context with a single Warehouse, this includes "
              "goods arriving to the Stock Location of this Warehouse, or "
-             "any of its children.\n"
+             "any of its children. "
              "In a context with a single Shop, this includes goods "
              "arriving to the Stock Location of the Warehouse of this "
-             "Shop, or any of its children.\n"
+             "Shop, or any of its children. "
              "Otherwise, this includes goods arriving to any Stock "
              "Location with 'internal' type."
     )
@@ -92,15 +96,15 @@ class AnalyticResourcePlanLine(models.Model):
         default=lambda self: self.unit_amount,
         compute='_compute_quantities',
         digits=dp.get_precision('Product Unit of Measure'),
-        help="Quantity of products that are planned to leave.\n"
+        help="Quantity of products that are planned to leave. "
              "In a context with a single Stock Location, this includes "
-             "goods leaving this Location, or any of its children.\n"
+             "goods leaving this Location, or any of its children. "
              "In a context with a single Warehouse, this includes "
              "goods leaving the Stock Location of this Warehouse, or "
-             "any of its children.\n"
+             "any of its children. "
              "In a context with a single Shop, this includes goods "
              "leaving the Stock Location of the Warehouse of this "
-             "Shop, or any of its children.\n"
+             "Shop, or any of its children. "
              "Otherwise, this includes goods leaving any Stock "
              "Location with 'internal' type."
     )
