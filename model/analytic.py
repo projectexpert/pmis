@@ -56,8 +56,9 @@ class AccountJournal(models.Model):
 class AccountMoveLine(models.Model):
     _inherit = 'account.move.line'
 
-    @api.one
+    @api.multi
     def _prepare_analytic_line(self):
+        self.ensure_one()
         res = super(AccountMoveLine, self)._prepare_analytic_line()
         if not self.journal_id.analytic_journal_id:
             raise ValidationError("Please define an analytic journal for "
