@@ -8,8 +8,9 @@
 
 {
     "name": "Project WBS Stage",
-    "version": "9.0.1.0.0",
+    "version": "10.0.1.0.0",
     "author": "Eficent",
+    'license': "AGPL-3",
     "website": "www.eficent.com",
     "category": "Generic Modules/Projects & Services",
     "summary": """Add the stage to the project wbs
