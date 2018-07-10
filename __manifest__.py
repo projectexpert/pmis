@@ -8,6 +8,7 @@
     'category': 'Logistics',
     'summary': 'Introduces the analytic account to the locations',
     'author': 'Eficent',
+    "license": "AGPL-3",
     'website': 'http://www.eficent.com',
     'depends': [
         'stock',
