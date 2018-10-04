@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Copyright 2015 Odoo SA
 # Copyright 2017 Eficent Business and IT Consulting Services S.L.
-# License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
+# License LGPL-3.0 or later (https://www.gnu.org/licenses/lpgl.html).
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
@@ -39,6 +39,23 @@ class AccountAnalyticJournal(models.Model):
         default=lambda self: self._get_default_company()
     )
 
+    @api.model
+    def find_journal(self, vals=None):
+        if vals and vals.get('code', False):
+            self.search([('code', '=', vals['code'])])
+        return None
+
+    @api.model
+    def _prepare_analytic_journal(self, vals):
+        if vals.get('type') and vals.get('name') and vals.get('code'):
+            vals = {
+                'type': vals['type'],
+                'name': _(vals['name']),
+                'code': vals['code']}
+        else:
+            raise ValidationError(_('Cannot create an analytic journal'))
+        return vals
+
     def _get_default_company(self):
         return self.env.user.company_id.id
 
@@ -61,9 +78,9 @@ class AccountMoveLine(models.Model):
         res = super(AccountMoveLine, self)._prepare_analytic_line()
         if not self.journal_id.analytic_journal_id:
             raise ValidationError(_("Please define an analytic journal for "
-                                  "journal %s" % self.journal_id.name))
+                                    "journal %s" % self.journal_id.name))
         res[0]['journal_id'] = self.journal_id.analytic_journal_id.id
-        return res[0]
+        return res
 
 
 class AccountInvoice(models.Model):
