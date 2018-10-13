@@ -19,41 +19,41 @@ class AccountAnalyticLinePlan(models.Model):
         return self.env.context.get('user_id', self.env.user.id)
 
     name = fields.Char(
-        'Description',
+        string='Description',
         required=True
     )
     date = fields.Date(
-        'Date',
+        string='Date',
         required=True,
         index=True,
         default=fields.Date.context_today
     )
     amount = fields.Float(
-        'Amount',
+        string='Amount',
         required=True,
         default=0.0
     )
     unit_amount = fields.Float(
-        'Quantity',
+        string='Quantity',
         default=0.0
     )
     amount_currency = fields.Float(
-        'Amount Currency',
+        string='Amount Currency',
         help="The amount expressed in an optional other currency."
     )
     account_id = fields.Many2one(
-        'account.analytic.account',
-        'Analytic Account',
+        comodel_name='account.analytic.account',
+        string='Analytic Account',
         required=True,
         ondelete='restrict',
         index=True
     )
     partner_id = fields.Many2one(
-        'res.partner',
+        comodel_name='res.partner',
         string='Partner'
     )
     user_id = fields.Many2one(
-        'res.users',
+        comodel_name='res.users',
         string='User',
         default=_default_user
     )
@@ -69,22 +69,22 @@ class AccountAnalyticLinePlan(models.Model):
         readonly=True
     )
     product_uom_id = fields.Many2one(
-        'product.uom',
-        'UoM'
+        comodel_name='product.uom',
+        string='UoM'
     )
     product_id = fields.Many2one(
-        'product.product',
-        'Product'
+        comodel_name='product.product',
+        string='Product'
     )
     general_account_id = fields.Many2one(
-        'account.account',
-        'General Account',
+        comodel_name='account.account',
+        string='General Account',
         required=True,
         ondelete='restrict'
     )
     journal_id = fields.Many2one(
-        'account.analytic.plan.journal',
-        'Planning Analytic Journal',
+        comodel_name='account.analytic.plan.journal',
+        string='Planning Analytic Journal',
         required=True,
         ondelete='restrict',
         index=True,
@@ -94,17 +94,17 @@ class AccountAnalyticLinePlan(models.Model):
         self._context else None
     )
     code = fields.Char(
-        'Code'
+        string='Code'
     )
     ref = fields.Char(
-        'Ref.'
+        string='Ref.'
     )
     notes = fields.Text(
-        'Notes'
+        string='Notes'
     )
     version_id = fields.Many2one(
-        'account.analytic.plan.version',
-        'Planning Version',
+        comodel_name='account.analytic.plan.version',
+        string='Planning Version',
         required=True,
         ondelete='cascade',
         default=lambda s:
@@ -145,9 +145,9 @@ class AccountAnalyticLinePlan(models.Model):
         if not self.journal_id or not self.product_id:
             return {}
         if journal.type != 'sale' and prod:
-            a = prod.product_tmpl_id.property_account_income_id.id
+            a = prod.product_tmpl_id.property_account_expense_id.id
             if not a:
-                a = prod.categ_id.property_account_income_categ_id.id
+                a = prod.categ_id.property_account_expense_categ_id.id
             if not a:
                 raise UserError(
                     _('There is no expense account defined '
