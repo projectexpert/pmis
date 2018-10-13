@@ -34,6 +34,7 @@
                         <div>
                             <field name="unit_amount" class="oe_inline"/>
                             <field name="product_uom_id" class="oe_inline"/>
+                            <field name="unit_price" class="oe_inline"/>
                         </div>
                     </group>
                     <group string="General Accounting">
@@ -63,6 +64,7 @@
                 <field name="product_id"/>
                 <field name="unit_amount" sum="Total Quantity" invisible="False"/>
                 <field name="product_uom_id" invisible="False"/>
+                <field name="unit_price"/>
                 <!--<field name="amount_currency"/>-->
                 <field name="currency_id"/>
                 <field name="amount" sum="Total"/>
