@@ -6,7 +6,8 @@
         <field name="model">account.analytic.account</field>
         <field name="type">tree</field>
         <field name="field_parent">child_complete_ids</field>
-        <field name="inherit_id" ref="analytic.view_account_analytic_account_list"/>
+        <field name="inherit_id"
+               ref="analytic.view_account_analytic_account_list"/>
         <field name="arch" type="xml">
             <field name="balance" position="after">
                 <field name="debit_plan"/>
@@ -18,7 +19,8 @@
                         icon="gtk-open"/>
             </field>
             <field name="debit" position="before">
-                <field name="active_analytic_planning_version" string="Active Plan Version"/>
+                <field name="active_analytic_planning_version"
+                       string="Active Plan Version"/>
             </field>
         </field>
     </record>
@@ -27,10 +29,12 @@
         <field name="name">account.analytic.account.form</field>
         <field name="model">account.analytic.account</field>
         <field name="type">form</field>
-        <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+        <field name="inherit_id"
+               ref="analytic.view_account_analytic_account_form"/>
         <field name="arch" type="xml">
             <field name="code" position="after">
-                <field name="active_analytic_planning_version" string="Active Plan Version"/>
+                <field name="active_analytic_planning_version"
+                       string="Active Plan Version"/>
             </field>
         </field>
     </record>
@@ -46,14 +50,14 @@
           <p>
             No activity yet on this contract.
           </p><p>
-            In OpenERP, contracts and projects are implemented using
-            analytic account. So, you can track costs and revenues to analyse
-            your margins easily.
+            Planned Costs and Revenues to track incomes from deliverables and
+            costs of resources.
           </p>
         </field>
     </record>
 
-    <record id="view_account_analytic_account_form_analytic_plan" model="ir.ui.view">
+    <record id="view_account_analytic_account_form_analytic_plan"
+            model="ir.ui.view">
         <field name="name">account.analytic.account.form.proj.cost</field>
         <field name="model">account.analytic.account</field>
         <field name="inherit_id"
@@ -67,7 +71,8 @@
                         'search_default_account_id': active_id,
                         'default_version_id': active_analytic_planning_version}"
                         groups="analytic.group_analytic_accounting"
-                        class="oe_inline oe_stat_button" icon="fa-pencil-square-o">
+                        class="oe_inline oe_stat_button"
+                        icon="fa-pencil-square-o">
                     <span>Planned costs and revenues</span>
                 </button>
             </xpath>

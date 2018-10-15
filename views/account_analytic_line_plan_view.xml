@@ -21,7 +21,8 @@
                     <group>
                         <field name="date"/>
                         <field name="ref"/>
-                        <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="company_id"
+                               groups="base.group_multi_company"/>
                     </group>
                     <group string="Amount">
                         <!--<field name="amount_currency"/>-->
@@ -62,7 +63,9 @@
                 <field name="journal_id" invisible="False"/>
                 <field name="version_id"/>
                 <field name="product_id"/>
-                <field name="unit_amount" sum="Total Quantity" invisible="False"/>
+                <field name="unit_amount"
+                       sum="Total Quantity"
+                       invisible="False"/>
                 <field name="product_uom_id" invisible="False"/>
                 <field name="unit_price"/>
                 <!--<field name="amount_currency"/>-->
@@ -82,23 +85,41 @@
             <search string="Search Planning Analytic Lines">
                 <field name="name" string="Analytic Line"/>
                 <field name="date"/>
-                <filter name="sales" string="Sales" domain="[('journal_id.type','=','sale')]" help="Analytic Journal Items related to a sale journal."/>
-                <filter name="purchases" string="Purchases" domain="[('journal_id.type','=','purchase')]" help="Analytic Journal Items related to a purchase journal."/>
-                <filter name="others" string="Others" domain="[('journal_id.type','in',('cash','general','situation'))]"/>
+                <filter name="sales"
+                        string="Sales"
+                        domain="[('journal_id.type','=','sale')]"
+                        help="Analytic Journal Items related to a sale journal."/>
+                <filter name="purchases"
+                        string="Purchases"
+                        domain="[('journal_id.type','=','purchase')]"
+                        help="Analytic Journal Items related to a purchase journal."/>
+                <filter name="others"
+                        string="Others"
+                        domain="[('journal_id.type','in',('cash','general','situation'))]"/>
                 <separator/>
                 <filter string="My Entries" domain="[('user_id','=',uid)]"/>
                 <field name="account_id"/>
                 <field name="user_id"/>
                 <group string="Group By..." expand="0">
-                    <filter string="Analytic Account" context="{'group_by':'account_id'}"/>
-                    <filter string="Fin. Account" context="{'group_by':'general_account_id'}"/>
-                    <filter string="Journal" context="{'group_by':'journal_id'}" name="group_journal"/>
-                    <filter string="Version" context="{'group_by':'version_id'}" name="group_version"/>
+                    <filter string="Analytic Account"
+                            context="{'group_by':'account_id'}"/>
+                    <filter string="Fin. Account"
+                            context="{'group_by':'general_account_id'}"/>
+                    <filter string="Journal"
+                            context="{'group_by':'journal_id'}"
+                            name="group_journal"/>
+                    <filter string="Version"
+                            context="{'group_by':'version_id'}"
+                            name="group_version"/>
                     <separator/>
-                    <filter string="Product" context="{'group_by':'product_id'}"/>
-                    <filter string="User" context="{'group_by':'user_id'}"/>
+                    <filter string="Product"
+                            context="{'group_by':'product_id'}"/>
+                    <filter string="User"
+                            context="{'group_by':'user_id'}"/>
                     <separator/>
-                    <filter string="Date" context="{'group_by':'date'}" name="group_date"/>
+                    <filter string="Date"
+                            context="{'group_by':'date'}"
+                            name="group_date"/>
                 </group>
             </search>
         </field>
@@ -138,9 +159,16 @@
     </record>
 
     <menuitem groups="analytic.group_analytic_accounting"
+              id="project_analytic"
+              name="Project Analytic"
+              parent="project.menu_main_pm"
+              sequence="3"/>
+
+    <menuitem groups="analytic.group_analytic_accounting"
         action="action_account_analytic_plan_journal_open_form"
         id="account_analytic_plan_journal_entries"
-        parent="account.menu_finance_entries" 
+        name="Analytic Plan Items"
+        parent="analytic_plan.project_analytic"
         sequence="7"/>
 
 </odoo>
