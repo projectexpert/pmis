@@ -104,6 +104,8 @@
                 <field name="price_unit"/>
                 <field name="price_total" readonly="True"/>
                 <field name="state"/>
+                <field name="has_child"/>
+                <field name="parent_id"/>
                 <button name="action_button_draft" states="confirm"
                         string="Draft" type="object"
                         icon="fa fa-arrow-left"/>
