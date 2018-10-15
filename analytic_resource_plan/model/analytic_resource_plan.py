@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 # Copyright 2017 Eficent Business and IT Consulting Services S.L.
+# Copyright 2018 Luxim d.o.o.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 import time
 from odoo import _, api, fields, models
-from odoo.exceptions import Warning
 from odoo.exceptions import ValidationError
 
 
@@ -148,33 +148,39 @@ class AnalyticResourcePlanLine(models.Model):
     @api.model
     def _prepare_analytic_lines(self):
         plan_version_obj = self.env['account.analytic.plan.version']
-        journal_id =\
-            (self.product_id.expense_analytic_plan_journal_id and
-             self.product_id.expense_analytic_plan_journal_id.id or False)
+        journal_id = (
+            self.product_id.expense_analytic_plan_journal_id
+            and self.product_id.expense_analytic_plan_journal_id.id
+            or False
+        )
         general_account_id = (
             self.product_id.product_tmpl_id.property_account_expense_id.id
         )
         if not journal_id:
-            raise Warning(_(
-                'There is no analytic plan journal for product %s'
-            ) % self.product_id.name)
+            raise ValidationError(
+                _('There is no analytic plan journal for product %s')
+                % self.product_id.name
+            )
         if not general_account_id:
             general_account_id = (
                 self.product_id.categ_id.property_account_expense_categ_id.id
             )
         if not general_account_id:
-            raise Warning(_(
-                'There is no expense account defined '
-                'for this product: "%s" (id:%d)'
-            ) % (self.product_id.name, self.product_id.id,))
+            raise ValidationError(
+                _('There is no expense account defined '
+                  'for this product: "%s" (id:%d)')
+                % (self.product_id.name, self.product_id.id,)
+            )
         default_plan = plan_version_obj.search(
             [('default_resource_plan', '=', True)],
             limit=1
         )
 
         if not default_plan:
-            raise Warning(_('''No active planning version for resource plan
-                exists.'''))
+            raise ValidationError(
+                _('No active planning version for resource plan'
+                  'exists.')
+            )
 
         return [{
             'resource_plan_id': self.id,
@@ -184,6 +190,7 @@ class AnalyticResourcePlanLine(models.Model):
             'product_id': self.product_id.id,
             'product_uom_id': self.product_uom_id.id,
             'unit_amount': self.unit_amount,
+            'unit_price': self.product_id.standard_price,
             'amount': -1 * self.product_id.standard_price * self.unit_amount,
             'general_account_id': general_account_id,
             'journal_id': journal_id,
@@ -217,12 +224,10 @@ class AnalyticResourcePlanLine(models.Model):
 
     @api.model
     def create_analytic_lines(self):
-        res = []
         line_plan_obj = self.env['account.analytic.line.plan']
         lines_vals = self._prepare_analytic_lines()
         for line_vals in lines_vals:
             line_plan_obj.create(line_vals)
-        return res
 
     @api.model
     def _delete_analytic_lines(self):
@@ -236,8 +241,10 @@ class AnalyticResourcePlanLine(models.Model):
         for line in self:
             for child in line.child_ids:
                 if child.state not in ('draft', 'plan'):
-                    raise Warning(_('''All the child resource plan lines
-                        must be in Draft state.'''))
+                    raise ValidationError(
+                        _('All the child resource plan lines'
+                          'must be in Draft state.')
+                    )
             line._delete_analytic_lines()
         return self.write({'state': 'draft'})
 
@@ -247,7 +254,9 @@ class AnalyticResourcePlanLine(models.Model):
             children = line._get_child_resource_plan_lines()
             for child in self.browse(children):
                 if child.unit_amount == 0:
-                    raise Warning(_('Quantity should be greater than 0.'))
+                    raise ValidationError(
+                        _('Quantity should be greater than 0.')
+                    )
                 if not child.child_ids:
                     child.create_analytic_lines()
                 child.write({'state': 'confirm'})
@@ -257,9 +266,18 @@ class AnalyticResourcePlanLine(models.Model):
     def on_change_product_id(self):
         if self.product_id:
             self.name = self.product_id.name
-            self.product_uom_id =\
-                (self.product_id.uom_id and self.product_id.uom_id.id or False)
+            self.product_uom_id = (
+                    self.product_id.uom_id and
+                    self.product_id.uom_id.id or
+                    False
+            )
             self.price_unit = self.product_id.standard_price
+
+    # @api.onchange('account_id')
+    # def on_change_account_id(self):
+    #     if self.account_id:
+    #         if self.account_id.date:
+    #             self.date = self.account_id.date
 
     @api.multi
     def write(self, vals):
@@ -274,8 +292,10 @@ class AnalyticResourcePlanLine(models.Model):
     def unlink(self):
         for line in self:
             if line.analytic_line_plan_ids:
-                raise Warning(_('You cannot delete a record that refers to '
-                                'analytic plan lines'))
+                raise ValidationError(
+                    _('You cannot delete a record that refers to '
+                      'analytic plan lines')
+                )
         return super(AnalyticResourcePlanLine, self).unlink()
 
     # PRICE DEFINITIONS
@@ -307,9 +327,13 @@ class AnalyticResourcePlanLine(models.Model):
         for resource in self:
             if resource.resource_type == 'task' and (
                 resource.product_uom_id.category_id != (
-                    resource.env.ref('product.uom_categ_wtime'))):
-                raise ValidationError(_("When resource type is task, "
-                                        "the uom category should be time"))
+                    resource.env.ref('product.uom_categ_wtime')
+                )
+            ):
+                raise ValidationError(
+                    _("When resource type is task, "
+                      "the uom category should be time")
+                )
 
     @api.multi
     def action_open_view_rpl_form(self):
