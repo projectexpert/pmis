@@ -22,7 +22,7 @@ class AnalyticResourcePlanLine(models.Model):
         string='Analytic Account',
         required=True,
         ondelete='cascade',
-        indec=True,
+        index=True,
         # domain=[('type', '<>', 'view')],
         readonly=True,
         states={'draft': [('readonly', False)]}
