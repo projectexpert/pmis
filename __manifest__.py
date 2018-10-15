@@ -23,7 +23,7 @@
         'view/account_analytic_line_plan_view.xml',
         'view/analytic_resource_plan_view.xml',
         'view/analytic_account_view.xml',
-        'view/product_view.xml',
+        # 'view/product_view.xml',
         'view/project_view.xml',
         'view/resource_plan_default.xml',
         'wizard/analytic_resource_plan_copy_version_view.xml',
