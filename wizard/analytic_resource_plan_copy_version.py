@@ -15,17 +15,17 @@ class AnalyticResourcePlanCopyVersion(models.TransientModel):
     _description = "Analytic Resource Plan copy versions"
 
     source_version_id = fields.Many2one(
-        'account.analytic.plan.version',
-        'Source Planning Version',
+        comodel_name='account.analytic.plan.version',
+        string='Source Planning Version',
         required=True
     )
     dest_version_id = fields.Many2one(
-        'account.analytic.plan.version',
-        'Destination Planning Version',
+        comodel_name='account.analytic.plan.version',
+        string='Destination Planning Version',
         required=True
     )
     include_child = fields.Boolean(
-        'Include child accounts',
+        string='Include child accounts',
         default=True
     )
 
