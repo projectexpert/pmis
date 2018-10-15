@@ -25,8 +25,8 @@ class AnalyticResourcePlanLine(models.Model):
         return res
 
     account_id = fields.Many2one(
-        'account.analytic.account',
-        'Analytic Account',
+        comodel_name='account.analytic.account',
+        string='Analytic Account',
         required=True,
         ondelete='cascade',
         index=True,
@@ -34,13 +34,13 @@ class AnalyticResourcePlanLine(models.Model):
         states={'draft': [('readonly', False)]}
     )
     name = fields.Char(
-        'Activity description',
+        string='Activity description',
         required=True,
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
     date = fields.Date(
-        'Date',
+        string='Date',
         required=True,
         index=True,
         readonly=True,
@@ -48,11 +48,11 @@ class AnalyticResourcePlanLine(models.Model):
         default=lambda *a: time.strftime('%Y-%m-%d')
     )
     state = fields.Selection(
-        [
+        selection=[
             ('draft', 'Draft'),
             ('confirm', 'Confirmed')
         ],
-        'Status',
+        string='Status',
         index=True,
         required=True,
         readonly=True,
@@ -64,21 +64,21 @@ class AnalyticResourcePlanLine(models.Model):
         default='draft'
     )
     product_id = fields.Many2one(
-        'product.product',
-        'Product',
+        comodel_name='product.product',
+        string='Product',
         readonly=True,
         required=True,
         states={'draft': [('readonly', False)]}
     )
     product_uom_id = fields.Many2one(
-        'product.uom',
-        'UoM',
+        comodel_name='product.uom',
+        string='UoM',
         required=True,
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
     unit_amount = fields.Float(
-        'Planned Quantity',
+        string='Planned unit_amount',
         readonly=True,
         required=True,
         states={'draft': [('readonly', False)]},
@@ -87,7 +87,7 @@ class AnalyticResourcePlanLine(models.Model):
         default=1
     )
     notes = fields.Text(
-        'Notes'
+        string='Notes'
     )
     parent_id = fields.Many2one(
         'analytic.resource.plan.line',
@@ -105,9 +105,9 @@ class AnalyticResourcePlanLine(models.Model):
         string="Child lines"
     )
     analytic_line_plan_ids = fields.One2many(
-        'account.analytic.line.plan',
-        'resource_plan_id',
-        'Planned costs',
+        comodel_name='account.analytic.line.plan',
+        inverse_name='resource_plan_id',
+        string='Planned costs',
         readonly=True
     )
     price_unit = fields.Float(
@@ -121,9 +121,8 @@ class AnalyticResourcePlanLine(models.Model):
         groups='project.group_project_manager',
     )
     resource_type = fields.Selection(
-        [
-            ('task', 'Task'),
-            ('procurement', 'Procurement')
+        selection=[
+            ('task', 'Task'), ('procurement', 'Procurement')
         ],
         string='Type',
         required=True,

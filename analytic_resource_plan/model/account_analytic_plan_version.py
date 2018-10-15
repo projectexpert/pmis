@@ -3,7 +3,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo.tools.translate import _
-from odoo import api, exceptions, fields, models
+from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class AccountAnalyticPlanVersion(models.Model):
@@ -21,6 +22,6 @@ class AccountAnalyticPlanVersion(models.Model):
             default_res_plan = self.search(
                 [('default_resource_plan', '=', True)])
             if len(default_res_plan) > 1:
-                raise exceptions.ValidationError(
+                raise ValidationError(
                     _('Only one default for resource plan version can'
                       ' exist.'))

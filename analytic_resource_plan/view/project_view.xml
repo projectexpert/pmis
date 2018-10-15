@@ -14,7 +14,9 @@
                     icon="fa-shopping-cart"
                     context="{'default_account_id': analytic_account_id,'search_default_account_id': analytic_account_id}"
                     groups="project.group_project_user,project.group_project_manager">
-                    <span>Resource plan</span>
+                    <field name="resource_count"
+                               widget="statinfo"
+                               string="Resources"/>
                 </button>
             </xpath>
         </field>

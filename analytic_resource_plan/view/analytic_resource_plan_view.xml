@@ -7,11 +7,16 @@
         <field name="arch" type="xml">
             <form string="Analytic resource plan line">
                 <header>
-                    <button name="action_button_draft" states="confirm"
-                            string="Draft" type="object"
+                    <button name="action_button_draft"
+                            states="confirm"
+                            string="Draft"
+                            type="object"
                             class="oe_highlight"/>
-                    <button name="action_button_confirm" states="draft"
-                            string="Confirm" type="object" class="oe_highlight"/>
+                    <button name="action_button_confirm"
+                            states="draft"
+                            string="Confirm"
+                            type="object"
+                            class="oe_highlight"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet string="Resource Plan Lines">
@@ -19,14 +24,16 @@
                     <group colspan="2" col="4" name="Product Information">
                         <field name="product_id"/>
                         <field name="resource_type"/>
-                        <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
+                        <field name="user_id"
+                               attrs="{'readonly':[('resource_type','=','procurement')]}"/>
                     </group>
                     <group name="name" colspan="3" col="4">
                         <h1>
                         <field name="name"/>
                         </h1>
                     </group>
-                    <group name="analytic" groups="analytic.group_analytic_accounting" col="4">
+                    <group name="analytic"
+                           groups="analytic.group_analytic_accounting" col="4">
                         <div>
                         <label for="unit_amount" class="oe_edit_only"/>
                         <h2>
@@ -89,21 +96,20 @@
                 <field name="account_id"/>
                 <field name="date"/>
                 <field name="resource_type"/>
-                <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
                 <field name="product_id"/>
                 <field name="name"/>
-                <field name="unit_amount"/>
+                <field name="user_id" attrs="{'readonly':[('resource_type','=','procurement')]}"/>
+                <field name="unit_amount" string="Qty"/>
+                <field name="product_uom_id"/>
+                <field name="price_unit"/>
+                <field name="price_total" readonly="True"/>
+                <field name="state"/>
                 <button name="action_button_draft" states="confirm"
                         string="Draft" type="object"
                         icon="fa fa-arrow-left"/>
                 <button name="action_button_confirm" states="draft"
                         string="Confirm" type="object"
                         icon="fa fa-arrow-right"/>
-                <field name="state"/>
-                <field name="product_uom_id"/>
-                <field name="price_unit"/>
-                <field name="has_child"/>
-                <field name="parent_id"/>
                 <button name="action_open_view_rpl_form"
                         string="Open" type="object"
                         icon="fa-folder-open-o"/>
@@ -152,15 +158,15 @@
         <field name="search_view_id" ref="view_analytic_resource_plan_line_filter"/>
     </record>
 
-    <menuitem id="analytic_resource_plan_menu"
+    <!--<menuitem id="analytic_resource_plan_menu"
               name="Resource Plan"
               parent="project.menu_main_pm"
-              groups="project.group_project_manager"/>
+              groups="project.group_project_manager"/>-->
 
     <menuitem groups="project.group_project_manager,project.group_project_user"
               action="action_analytic_resource_plan_line_open_form"
               id="analytic_resource_plan_line_entries"
-              parent="analytic_resource_plan_menu"
+              parent="analytic_plan.project_analytic"
               sequence="1"/>
 
 </odoo>

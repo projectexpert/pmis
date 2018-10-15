@@ -9,7 +9,14 @@
         <field name="arch" type="xml">
             <xpath expr='//group[@name="properties"]'
                    position='after'>
-                <group name="plan_journals" colspan="3"/>
+                <group name="plan_journals">
+                    <group name="Expense">
+                        <field name="expense_analytic_plan_journal_id"/>
+                    </group>
+                    <group>
+                        <field name="revenue_analytic_plan_journal_id"/>
+                    </group>
+                </group>
             </xpath>
         </field>
     </record>

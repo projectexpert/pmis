@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Copyright 2015 Eficent Business and IT Consulting Services S.L.
 # (Jordi Ballester Alomar)
-# Copyright 2016 Matmoz d.o.o.
+# Copyright 2016 Matmoz d.o.o. and 2018 Luxim d.o.o.s
 # (Matjaž Mozetič)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
@@ -88,7 +88,7 @@ class AccountAnalyticLinePlan(models.Model):
     )
     journal_id = fields.Many2one(
         comodel_name='account.analytic.plan.journal',
-        string='Planning Analytic Journal',
+        string='Planning Journal',
         required=True,
         ondelete='restrict',
         index=True,
@@ -129,13 +129,13 @@ class AccountAnalyticLinePlan(models.Model):
                 pricelist_id = line._get_pricelist()
                 line.unit_price = line.product_id.standard_price
                 if pricelist_id and line.partner_id \
-                        and line.uom_id:
+                        and line.product_uom_id:
                     product = line.product_id.with_context(
                         lang=line.partner_id.lang,
                         partner=line.partner_id.id,
-                        quantity=line.qty,
+                        unit_amount=line.unit_amount,
                         pricelist=pricelist_id.id,
-                        uom=line.uom_id.id,
+                        product_uom=line.product_uom_id.id,
                     )
                     line.unit_price = product.price
 
@@ -144,13 +144,13 @@ class AccountAnalyticLinePlan(models.Model):
                 pricelist_id = line._get_pricelist()
                 line.unit_price = line.product_id.lst_price
                 if pricelist_id and line.partner_id \
-                        and line.uom_id:
+                        and line.product_uom_id:
                     product = line.product_id.with_context(
                         lang=line.partner_id.lang,
                         partner=line.partner_id.id,
-                        quantity=line.qty,
+                        unit_amount=line.unit_amount,
                         pricelist=pricelist_id.id,
-                        uom=line.uom_id.id,
+                        product_uom=line.product_uom_id.id,
                     )
                     line.unit_price = product.price
 
