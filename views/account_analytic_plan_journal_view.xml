@@ -71,6 +71,11 @@
             id="account_def_analytic_plan_journal"
             parent="account.menu_analytic_accounting" sequence="6"/>
 
+    <menuitem groups="analytic.group_analytic_accounting"
+              action="action_account_analytic_plan_journal_form"
+              id="account_def_analytic_plan_journal_project"
+              parent="analytic_plan.project_analytic_settings" sequence="6"/>
+
 #---------------------------------------------------------------------------------------------------------
 #   Reporting
 #---------------------------------------------------------------------------------------------------------
@@ -83,8 +88,13 @@
     </record>
 
     <menuitem groups="analytic.group_analytic_accounting"
-            action="action_account_analytic_plan_journal_tree"
-            id="account_analytic_plan_journal_print"
-                  parent="account.menu_analytic_accounting"/>
+              action="action_account_analytic_plan_journal_tree"
+              id="account_analytic_plan_journal_print"
+              parent="account.menu_analytic_accounting"/>
+
+    <menuitem groups="analytic.group_analytic_accounting"
+              action="action_account_analytic_plan_journal_tree"
+              id="account_analytic_plan_journal_print_project"
+              parent="analytic_plan.project_analytic_settings"/>
 
 </odoo>

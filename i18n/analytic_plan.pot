@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-16 10:15+0000\n"
-"PO-Revision-Date: 2016-10-16 10:15+0000\n"
+"POT-Creation-Date: 2018-10-16 22:20+0000\n"
+"PO-Revision-Date: 2018-10-16 22:20+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,93 +16,84 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: analytic_plan
-#: model:ir.actions.act_window,help:analytic_plan.act_analytic_plan_cost_revenue
-msgid "<p>\n"
-"                No activity yet on this contract.\n"
-"              </p><p>\n"
-"                In OpenERP, contracts and projects are implemented using\n"
-"                analytic account. So, you can track costs and revenues to analyse\n"
-"                your margins easily.\n"
-"              </p>\n"
-"            "
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_account_form_analytic_plan
+msgid "<span>Planned costs and revenues</span>"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.plan.journal,active:0
-#: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_search
-#: field:account.analytic.plan.version,active:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_active
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_active
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_search
 msgid "Active"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.account:analytic_plan.view_account_analytic_account_form_inh
-#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
-#: view:project.project:analytic_plan.edit_project_inh
+#: model:ir.ui.view,arch_db:analytic_plan.edit_project_inh
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_account_form_inh
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_account_tree_inh
 msgid "Active Plan Version"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.account,active_analytic_planning_version:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_account_active_analytic_planning_version
+#: model:ir.model.fields,field_description:analytic_plan.field_project_project_active_analytic_planning_version
 msgid "Active planning Version"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.plan.journal,analytic_journal:0
-msgid "Actual Analytic journal"
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_analytic_journal
+msgid "Actual Journal"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_form
-#: field:account.analytic.line.plan,amount:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_amount
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_form
 msgid "Amount"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,amount_currency:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_amount_currency
 msgid "Amount Currency"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
-#: field:account.analytic.line.plan,account_id:0
 #: model:ir.model,name:analytic_plan.model_account_analytic_account
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_account_id
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Analytic Account"
 msgstr ""
 
 #. module: analytic_plan
-#: model:ir.ui.menu,name:analytic_plan.analytic_plan_analytic_account_menu
-msgid "Analytic Accounting"
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.ui.menu,name:analytic_plan.account_analytic_def_account
+#: model:ir.ui.menu,name:analytic_plan.menu_action_analytic_account_project
 msgid "Analytic Accounts"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.account,plan_line_ids:0
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_tree
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_account_plan_line_ids
+#: model:ir.model.fields,field_description:analytic_plan.field_project_project_plan_line_ids
+#: model:ir.ui.menu,name:analytic_plan.menu_action_analytic_lines_tree_project
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_tree
 msgid "Analytic Entries"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_form
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_form
 msgid "Analytic Entry"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.plan.journal:analytic_plan.view_account_analytic_plan_journal_form
-#: view:account.analytic.plan.journal:analytic_plan.view_account_analytic_plan_journal_tree
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_journal_form
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_journal_tree
 msgid "Analytic Journal"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Analytic Journal Items related to a purchase journal."
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Analytic Journal Items related to a sale journal."
 msgstr ""
 
@@ -113,19 +104,23 @@ msgstr ""
 
 #. module: analytic_plan
 #: model:ir.actions.act_window,name:analytic_plan.action_account_analytic_plan_journal_open_form
-#: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_journal_entries
-#: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_journal_entries_2
 msgid "Analytic Journal Plan Items"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.plan.journal:analytic_plan.view_account_analytic_plan_journal_search
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_journal_search
 msgid "Analytic Journals"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
+#: model:ir.model,name:analytic_plan.model_account_analytic_line_plan
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Analytic Line"
+msgstr ""
+
+#. module: analytic_plan
+#: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_journal_entries
+msgid "Analytic Plan Items"
 msgstr ""
 
 #. module: analytic_plan
@@ -134,36 +129,38 @@ msgid "Analytic Plan copy versions"
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:101
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:97
 #, python-format
 msgid "Analytic Planning Lines"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_form
-#: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_search
-#: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_tree
+#: model:ir.model,name:analytic_plan.model_account_analytic_plan_version
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_form
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_search
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_tree
 msgid "Analytic Planning Version"
 msgstr ""
 
 #. module: analytic_plan
 #: model:ir.actions.act_window,name:analytic_plan.action_account_analytic_plan_version_form
 #: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_version
+#: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_version_project
 msgid "Analytic Planning Versions"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_graph
+#: model:ir.ui.menu,name:analytic_plan.project_analytic_settings
+msgid "Analytic Settings"
+msgstr ""
+
+#. module: analytic_plan
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_graph
 msgid "Analytic line planning"
 msgstr ""
 
 #. module: analytic_plan
-#: model:ir.model,name:analytic_plan.model_account_analytic_line_plan
-msgid "Analytic planning line"
-msgstr ""
-
-#. module: analytic_plan
-#: view:analytic.plan.copy.version:analytic_plan.analytic_plan_copy_version_form
+#: model:ir.ui.view,arch_db:analytic_plan.analytic_plan_copy_version_form
 msgid "Cancel"
 msgstr ""
 
@@ -173,20 +170,20 @@ msgid "Cash"
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:73
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:69
 #, python-format
 msgid "Choose different source and destination planning versions."
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,code:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_code
 msgid "Code"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,company_id:0
-#: field:account.analytic.plan.journal,company_id:0
-#: field:account.analytic.plan.version,company_id:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_company_id
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_company_id
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_company_id
 msgid "Company"
 msgstr ""
 
@@ -196,72 +193,78 @@ msgid "Copy Analytic Plan Lines"
 msgstr ""
 
 #. module: analytic_plan
-#: view:analytic.plan.copy.version:analytic_plan.analytic_plan_copy_version_form
+#: model:ir.ui.view,arch_db:analytic_plan.analytic_plan_copy_version_form
 msgid "Copy analytic plan lines to a different version"
 msgstr ""
 
 #. module: analytic_plan
-#: view:analytic.plan.copy.version:analytic_plan.analytic_plan_copy_version_form
+#: model:ir.ui.view,arch_db:analytic_plan.analytic_plan_copy_version_form
 msgid "Create"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,create_uid:0
-#: field:account.analytic.plan.journal,create_uid:0
-#: field:account.analytic.plan.version,create_uid:0
-#: field:analytic.plan.copy.version,create_uid:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_create_uid
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_create_uid
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_create_uid
+#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,create_date:0
-#: field:account.analytic.plan.journal,create_date:0
-#: field:account.analytic.plan.version,create_date:0
-#: field:analytic.plan.copy.version,create_date:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_create_date
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_create_date
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_create_date
+#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_create_date
 msgid "Created on"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,currency_id:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_currency_id
 msgid "Currency"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
-#: field:account.analytic.line.plan,date:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_date
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Date"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.plan.version,default_plan:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_default_plan
 msgid "Default planning version"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.plan.version,default_committed:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_default_committed
 msgid "Default version for committed costs"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,name:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_name
 msgid "Description"
 msgstr ""
 
 #. module: analytic_plan
-#: field:analytic.plan.copy.version,dest_version_id:0
+#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_dest_version_id
 msgid "Destination Planning Version"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,display_name:0
-#: field:account.analytic.plan.journal,display_name:0
-#: field:account.analytic.plan.version,display_name:0
-#: field:analytic.plan.copy.version,display_name:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_display_name
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_display_name
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_display_name
+#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_display_name
 msgid "Display Name"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
+#: model:ir.model.fields,field_description:analytic_plan.field_product_product_expense_analytic_plan_journal_id
+#: model:ir.model.fields,field_description:analytic_plan.field_product_template_expense_analytic_plan_journal_id
+msgid "Expense Plan Journal"
+msgstr ""
+
+#. module: analytic_plan
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Fin. Account"
 msgstr ""
 
@@ -271,132 +274,137 @@ msgid "General"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,general_account_id:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_general_account_id
 msgid "General Account"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_form
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_form
 msgid "General Accounting"
 msgstr ""
 
 #. module: analytic_plan
-#: help:account.analytic.plan.journal,type:0
-msgid "Gives the type of the analytic journal. When it needs for a document (eg: an invoice) to create analytic entries, OpenERP will look  for a matching journal of the same type."
+#: model:ir.model.fields,help:analytic_plan.field_account_analytic_plan_journal_type
+msgid "Gives the type of the analytic journal. When it needs for a\n"
+"                document (eg: an invoice) to create analytic entries, OpenERP\n"
+"                will look  for a matching journal of the same type."
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
-#: view:account.analytic.plan.journal:analytic_plan.view_account_analytic_plan_journal_search
-#: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_search
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_journal_search
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_search
 msgid "Group By..."
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,id:0
-#: field:account.analytic.plan.journal,id:0
-#: field:account.analytic.plan.version,id:0
-#: field:analytic.plan.copy.version,id:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_id
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_id
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_id
+#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_id
 msgid "ID"
 msgstr ""
 
 #. module: analytic_plan
-#: help:account.analytic.plan.journal,active:0
-msgid "If the active field is set to False, it will allow you to hide the analytic journal without removing it."
+#: model:ir.model.fields,help:analytic_plan.field_account_analytic_plan_journal_active
+msgid "If the active field is set to False, it will allow you to\n"
+"                hide the analytic journal without removing it."
 msgstr ""
 
 #. module: analytic_plan
-#: help:account.analytic.plan.version,active:0
-msgid "If the active field is set to False, it will allow you to hide the analytic planning version without removing it."
+#: model:ir.model.fields,help:analytic_plan.field_account_analytic_plan_version_active
+msgid "If the active field is set to False, it will allow you to hide\n"
+"                the analytic planning version without removing it."
 msgstr ""
 
 #. module: analytic_plan
-#: field:analytic.plan.copy.version,include_child:0
+#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_include_child
 msgid "Include child accounts"
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:66
+#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:62
 #, python-format
 msgid "It is prohibited to copy to the default planning version."
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Journal"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,__last_update:0
-#: field:account.analytic.plan.journal,__last_update:0
-#: field:account.analytic.plan.version,__last_update:0
-#: field:analytic.plan.copy.version,__last_update:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan___last_update
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal___last_update
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version___last_update
+#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version___last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,write_uid:0
-#: field:account.analytic.plan.journal,write_uid:0
-#: field:account.analytic.plan.version,write_uid:0
-#: field:analytic.plan.copy.version,write_uid:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_write_uid
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_write_uid
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_write_uid
+#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,write_date:0
-#: field:account.analytic.plan.journal,write_date:0
-#: field:account.analytic.plan.version,write_date:0
-#: field:analytic.plan.copy.version,write_date:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_write_date
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_write_date
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_write_date
+#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_write_date
 msgid "Last Updated on"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.plan.journal,line_ids:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_line_ids
 msgid "Lines"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "My Entries"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_form
-#: field:account.analytic.line.plan,notes:0
-#: view:account.analytic.plan.version:analytic_plan.view_account_analytic_plan_version_form
-#: field:account.analytic.plan.version,notes:0
+#: model:ir.actions.act_window,help:analytic_plan.act_analytic_plan_cost_revenue
+msgid "No activity yet on this contract."
+msgstr ""
+
+#. module: analytic_plan
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_notes
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_notes
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_form
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_form
 msgid "Notes"
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/account_analytic_plan_version.py:62
+#: code:addons/analytic_plan/models/account_analytic_plan_version.py:55
 #, python-format
 msgid "Only one default commitments version can exist."
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/account_analytic_plan_version.py:77
+#: code:addons/analytic_plan/models/account_analytic_plan_version.py:66
 #, python-format
 msgid "Only one default plan version can exist."
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Others"
 msgstr ""
 
 #. module: analytic_plan
-#: model:ir.ui.menu,name:analytic_plan.project_plan
-msgid "Plan"
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_partner_id
+msgid "Partner"
 msgstr ""
 
 #. module: analytic_plan
-#: model:ir.model,name:analytic_plan.model_account_analytic_plan_version
-msgid "Plan Version"
-msgstr ""
-
-#. module: analytic_plan
-#: field:account.analytic.account,balance_plan:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_account_balance_plan
+#: model:ir.model.fields,field_description:analytic_plan.field_project_project_balance_plan
 msgid "Planned Balance"
 msgstr ""
 
@@ -406,27 +414,30 @@ msgid "Planned Costs & Revenues"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.account,credit_plan:0
+#: model:ir.actions.act_window,help:analytic_plan.act_analytic_plan_cost_revenue
+msgid "Planned Costs and Revenues to track incomes from deliverables and\n"
+"            costs of resources."
+msgstr ""
+
+#. module: analytic_plan
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_account_credit_plan
+#: model:ir.model.fields,field_description:analytic_plan.field_project_project_credit_plan
 msgid "Planned Credit"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.account,debit_plan:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_account_debit_plan
+#: model:ir.model.fields,field_description:analytic_plan.field_project_project_debit_plan
 msgid "Planned Debit"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.account:analytic_plan.view_account_analytic_account_tree_inh
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_account_tree_inh
 msgid "Planned cost lines"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.account:analytic_plan.view_account_analytic_account_form_analytic_plan
-msgid "Planned costs"
-msgstr ""
-
-#. module: analytic_plan
-#: view:account.analytic.account:analytic_plan.view_account_analytic_account_form_analytic_plan
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_account_form_analytic_plan
 msgid "Planned costs and revenues"
 msgstr ""
 
@@ -436,56 +447,68 @@ msgid "Planning Analytic Entries"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,journal_id:0
-msgid "Planning Analytic Journal"
-msgstr ""
-
-#. module: analytic_plan
 #: model:ir.actions.act_window,name:analytic_plan.action_account_analytic_plan_journal_form
 #: model:ir.ui.menu,name:analytic_plan.account_def_analytic_plan_journal
+#: model:ir.ui.menu,name:analytic_plan.account_def_analytic_plan_journal_project
 msgid "Planning Analytic Journals"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.plan.journal,code:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_journal_id
+msgid "Planning Journal"
+msgstr ""
+
+#. module: analytic_plan
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_code
 msgid "Planning Journal Code"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.plan.journal,name:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_name
 msgid "Planning Journal Name"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,version_id:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_version_id
 msgid "Planning Version"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.plan.version,code:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_code
 msgid "Planning Version Code"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.plan.version,name:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_name
 msgid "Planning Version Name"
 msgstr ""
 
 #. module: analytic_plan
 #: model:ir.actions.act_window,name:analytic_plan.action_account_analytic_plan_journal_tree
 #: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_journal_print
+#: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_journal_print_project
 msgid "Print Planning Analytic Journals"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
-#: field:account.analytic.line.plan,product_id:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_product_id
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Product"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_form
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_form
 msgid "Product Information"
+msgstr ""
+
+#. module: analytic_plan
+#: model:ir.model,name:analytic_plan.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: analytic_plan
+#: model:ir.ui.menu,name:analytic_plan.project_analytic
+msgid "Project Analytic"
 msgstr ""
 
 #. module: analytic_plan
@@ -494,18 +517,24 @@ msgid "Purchase"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Purchases"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,unit_amount:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_unit_amount
 msgid "Quantity"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,ref:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_ref
 msgid "Ref."
+msgstr ""
+
+#. module: analytic_plan
+#: model:ir.model.fields,field_description:analytic_plan.field_product_product_revenue_analytic_plan_journal_id
+#: model:ir.model.fields,field_description:analytic_plan.field_product_template_revenue_analytic_plan_journal_id
+msgid "Revenue Plan Journal"
 msgstr ""
 
 #. module: analytic_plan
@@ -514,12 +543,12 @@ msgid "Sale"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Sales"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Search Planning Analytic Lines"
 msgstr ""
 
@@ -529,23 +558,29 @@ msgid "Situation"
 msgstr ""
 
 #. module: analytic_plan
-#: field:analytic.plan.copy.version,source_version_id:0
+#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_source_version_id
 msgid "Source Planning Version"
 msgstr ""
 
 #. module: analytic_plan
-#: help:account.analytic.line.plan,amount_currency:0
+#: model:ir.model.fields,help:analytic_plan.field_account_analytic_line_plan_amount_currency
 msgid "The amount expressed in an optional other currency."
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/account_analytic_account.py:223
+#: code:addons/analytic_plan/models/account_analytic_plan.py:153
+#: code:addons/analytic_plan/models/account_analytic_plan.py:200
+#: code:addons/analytic_plan/models/account_analytic_plan.py:242
+#: code:addons/analytic_plan/models/account_analytic_plan.py:280
 #, python-format
 msgid "There is no expense account defined for this product: \"%s\" (id:%d)"
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/account_analytic_account.py:234
+#: code:addons/analytic_plan/models/account_analytic_plan.py:163
+#: code:addons/analytic_plan/models/account_analytic_plan.py:210
+#: code:addons/analytic_plan/models/account_analytic_plan.py:252
+#: code:addons/analytic_plan/models/account_analytic_plan.py:291
 #, python-format
 msgid "There is no income account defined for this product: \"%s\" (id:%d)"
 msgstr ""
@@ -556,39 +591,39 @@ msgid "To print a planning analytics (or costs) journal for a given period. The 
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_tree
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_tree
 msgid "Total"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_tree
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_tree
 msgid "Total Quantity"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.plan.journal:analytic_plan.view_account_analytic_plan_journal_search
-#: field:account.analytic.plan.journal,type:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_type
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_journal_search
 msgid "Type"
 msgstr ""
 
 #. module: analytic_plan
-#: field:account.analytic.line.plan,product_uom_id:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_unit_price
+msgid "Unit Price"
+msgstr ""
+
+#. module: analytic_plan
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_product_uom_id
 msgid "UoM"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
-#: field:account.analytic.line.plan,user_id:0
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_user_id
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "User"
 msgstr ""
 
 #. module: analytic_plan
-#: view:account.analytic.line.plan:analytic_plan.view_account_analytic_line_plan_filter
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Version"
-msgstr ""
-
-#. module: analytic_plan
-#: view:account.analytic.account:analytic_plan.view_account_analytic_account_form_analytic_plan
-msgid "and revenues"
 msgstr ""
 

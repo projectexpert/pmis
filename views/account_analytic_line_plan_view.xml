@@ -165,10 +165,22 @@
               sequence="3"/>
 
     <menuitem groups="analytic.group_analytic_accounting"
-        action="action_account_analytic_plan_journal_open_form"
-        id="account_analytic_plan_journal_entries"
-        name="Analytic Plan Items"
-        parent="analytic_plan.project_analytic"
-        sequence="7"/>
+              action="action_account_analytic_plan_journal_open_form"
+              id="account_analytic_plan_journal_entries"
+              name="Analytic Plan Items"
+              parent="analytic_plan.project_analytic"
+              sequence="7"/>
+    <menuitem name="Analytic Accounts"
+              parent="analytic_plan.project_analytic"
+              action="analytic.action_analytic_account_form"
+              id="menu_action_analytic_account_project"
+              sequence="30"
+              groups="analytic.group_analytic_accounting"/>
+    <menuitem name="Analytic Entries"
+              parent="analytic_plan.project_analytic"
+              action="analytic.account_analytic_line_action_entries"
+              id="menu_action_analytic_lines_tree_project"
+              sequence="35"
+              groups="analytic.group_analytic_accounting"/>
 
 </odoo>
