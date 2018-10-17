@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="edit_project" model="ir.ui.view">
+        <field name="name">project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr='//div[@name="button_box"]' position='inside'>
+                <button help="Deliverable planning lines"
+                        class="oe_inline oe_stat_button"
+                        name="%(action_analytic_deliverable_plan_line_open_form)d"
+                        type="action"
+                        icon="fa-money"
+                        context="{
+                        'default_account_id': analytic_account_id,
+                        'search_default_account_id': analytic_account_id
+                        }"
+                    groups="project.group_project_user,project.group_project_manager">
+                    <field name="deliverable_count"
+                           widget="statinfo"
+                           string="Deliverables"/>
+                    <field name="deliverable_total_revenue"
+                           class="oe_inline badge"
+                           nolabel="1"
+                           modifiers="{'readonly': true}"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <act_window
+        name="Deliverable plan lines"
+        id="deliverable_plan_line_action_project"
+        res_model="analytic.deliverable.plan.line"
+        src_model="project.project"
+        context="{
+        'default_account_id': analytic_account_id,
+        'search_default_account_id': [analytic_account_id]
+        }"
+        groups="project.group_project_user,project.group_project_manager"/>
+
+</odoo>

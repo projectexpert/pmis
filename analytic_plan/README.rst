@@ -61,6 +61,13 @@ defined on that analytic account.
 Users with permissions to access to analytic accounts can navigate from
 the analytic account to the to the associated Analytic Planning Lines.
 
+Bug Tracker
+===========
+
+Bugs are tracked on `GitHub Issues
+<https://github.com/projectexpert/pmis/issues>`_. In case of trouble, please
+check there if your issue has already been reported. If you spotted it first,
+help us smash it by providing detailed and welcomed feedback.
 
 Credits
 =======
@@ -76,9 +83,9 @@ Contributors
 Maintainer
 ----------
 
-.. image:: https://www.luxim.si/wp-content/uploads/2017/12/pexpert_alt.png
+.. image:: https://avatars3.githubusercontent.com/u/15308657?s=200&v=4
    :alt: Project Expert
-   :target: http://project.expert
+   :target: https://github.com/projectexpert/
 
 This module is maintained by Project Expert Team.
 

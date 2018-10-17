@@ -17,6 +17,10 @@
                     <field name="resource_count"
                                widget="statinfo"
                                string="Resources"/>
+                    <field name="resource_total_cost"
+                           class="oe_inline badge"
+                           nolabel="1"
+                           modifiers="{'readonly': true}"/>
                 </button>
             </xpath>
         </field>

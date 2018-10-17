@@ -1,3 +1,0 @@
-"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"access_analytic_billing_plan_line_project","analytic.billing.plan.line project","model_analytic_billing_plan_line","project.group_project_manager",1,1,1,1
-"access_analytic_billing_plan_line_project_user","analytic.billing.plan.line project user","model_analytic_billing_plan_line","project.group_project_user",1,0,0,0

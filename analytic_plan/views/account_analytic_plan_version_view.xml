@@ -2,6 +2,14 @@
 <odoo>
 
 #---------------------------------------------------------------------------------------------------------
+#   Top menu
+#---------------------------------------------------------------------------------------------------------
+    <menuitem groups="analytic.group_analytic_accounting"
+              name="Analytic Settings"
+              id="project_analytic_settings"
+              parent="project.menu_project_config" sequence="50"/>
+
+#---------------------------------------------------------------------------------------------------------
 #   Analytic Journal
 #---------------------------------------------------------------------------------------------------------
     <record id="view_account_analytic_plan_version_tree" model="ir.ui.view">
@@ -68,8 +76,13 @@
     </record>
 
     <menuitem groups="analytic.group_analytic_accounting" 
-            action="action_account_analytic_plan_version_form" 
-            id="account_analytic_plan_version" 
-            parent="account.menu_analytic_accounting"/>
+              action="analytic_plan.action_account_analytic_plan_version_form"
+              id="account_analytic_plan_version"
+              parent="account.menu_analytic_accounting"/>
+
+    <menuitem groups="analytic.group_analytic_accounting"
+              action="analytic_plan.action_account_analytic_plan_version_form"
+              id="account_analytic_plan_version_project"
+              parent="analytic_plan.project_analytic_settings"/>
 
 </odoo>
