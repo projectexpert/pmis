@@ -46,7 +46,7 @@ development of Odoo features and promote its widespread use. In 2017 MATMOZ
 started the merging process with LUXIM d.o.o. whose mission is Project Tools
 and Project Solutions Development and Implementation.
 
-[![EFICENT](http://www.eficent.com/wordpress/wp-content/uploads/2012/09/eficent_logo.png)](http://www.eficent.com)
+[![EFICENT](https://avatars0.githubusercontent.com/u/7718403?s=200&v=4)](https://www.eficent.com)
 
 EFICENT is a company specialized in the open source software Odoo and an
 active member of OCA, or the Odoo Community Association, which is a nonprofit
