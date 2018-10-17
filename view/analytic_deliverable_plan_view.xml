@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_analytic_deliverable_plan_line_form" model="ir.ui.view">
+        <field name="name">analytic.deliverable.plan.line.form</field>
+        <field name="model">analytic.deliverable.plan.line</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Analytic deliverable plan line">
+                <header>
+                    <button name="action_button_draft"
+                            states="confirm"
+                            string="Draft"
+                            type="object"
+                            class="oe_highlight"/>
+                    <button name="action_button_confirm"
+                            states="draft"
+                            string="Confirm"
+                            type="object"
+                            class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet string="Deliverable Plan Lines">
+                    <group name="analytic"
+                           groups="analytic.group_analytic_accounting">
+                        <div class="oe_right oe_button_box" name="buttons"/>
+                        <div colspan="2" col="2">
+                            <h2>
+                                <!--<label for="unit_amount"-->
+                                   <!--class="oe_edit_only">Quantity</label>-->
+                                <field name="product_id"
+                                       class="oe_inline"
+                                       placeholder="Product"/>
+                                <span class="oe_grey"> : </span>
+                                <field name="unit_amount"
+                                       class="oe_inline"
+                                       required="True"/>
+                                <field name="product_uom_id"
+                                       class="oe_inline"
+                                       required="True"
+                                       placeholder="Unit of Measure"/>
+                                <span class="oe_grey"> x </span>
+                                <field name="price_unit"
+                                       class="oe_inline"
+                                       required="True"
+                                       widget="monetary"
+                                       attrs="{'readonly':[('state','not in',['draft'])]}"
+                                       options="{'currency_field': 'currency_id'}"/>
+                                <span class="oe_grey"> = </span>
+                                <label for="price_total"
+                                       class="oe_edit_only">Total</label>
+                                <field name="price_total"
+                                       placeholder="Total"
+                                       class="oe_inline"
+                                       readonly="True"
+                                       widget="monetary"
+                                       options="{'currency_field': 'currency_id'}"/>
+                            </h2>
+                        </div>
+                        <div colspan="2" col="2">
+                            <h2>
+                                <field name="name"
+                                       placeholder="Sale description"/>
+                            </h2>
+                        </div>
+                    </group>
+                    <group name="internal">
+                        <group name="account">
+                            <field name="task_margin"/>
+                            <field name="procurement_margin"/>
+                            <field name="projection"
+                                   readonly="True"/>
+                            <field name="currency_id"/>
+                            <field name="account_id"/>
+                            <field name="date"/>
+                            <separator colspan="2"/>
+                            <field name="company_id"
+                                   groups="base.group_multi_company"/>
+                        </group>
+
+                        <group name="Analytic Information"
+                               groups="analytic.group_analytic_accounting">
+                            <field name="resource_task_total"/>
+                            <field name="resource_procurement_total"/>
+                            <field name="delivered_task"/>
+                            <field name="delivered_material"/>
+                            <separator string="Recommendation" colspan="2"/>
+                            <field name="target_revenue"/>
+                            <field name="wanted_price_unit"/>
+                        </group>
+
+                    </group>
+                <notebook>
+                    <page string="Resources">
+                        <field name="resource_ids"
+                               context="{'default_account_id': account_id}">
+                            <tree string="Analytic resource plan line"
+                                  editable="top"
+                                  colors = "blue:state=='draft'">
+                                <field name="resource_type"/>
+                                <field name="product_id"/>
+                                <field name="name"/>
+                                <field name="account_id"
+                                       invisible="True"/>
+                                <field name="date"/>
+                                <field name="user_id"
+                                       attrs="{'readonly':[('resource_type','=','procurement')]}"/>
+                                <field name="unit_amount"
+                                       string="Qty"/>
+                                <field name="product_uom_id"/>
+                                <field name="price_unit"/>
+                                <field name="price_total"
+                                       readonly="True"
+                                       sum="Total Price"/>
+                                <field name="state"
+                                       invisible="1"/>
+                                <button name="action_button_draft" states="confirm"
+                                        string="Draft" type="object"
+                                        icon="fa fa-arrow-left"/>
+                                <button name="action_button_confirm" states="draft"
+                                        string="Confirm" type="object"
+                                        icon="fa fa-arrow-right"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Revenues" name="revenues">
+                        <field name="analytic_line_plan_ids"/>
+                    </page>
+                </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"
+                           widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_analytic_deliverable_plan_line_tree" model="ir.ui.view">
+        <field name="name">analytic.deliverable.plan.line.tree</field>
+        <field name="model">analytic.deliverable.plan.line</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Analytic deliverable plan line"
+                  colors="blue:state=='draft'">
+                <field name="account_id"/>
+                <field name="date"/>
+                <!--<field name="deliverable_type"/>-->
+                <field name="product_id"/>
+                <field name="name"/>
+                <!--<field name="user_id" attrs="{'readonly':[('deliverable_type','=','procurement')]}"/>-->
+                <field name="unit_amount" string="Qty"/>
+                <field name="product_uom_id"/>
+                <field name="price_unit"/>
+                <field name="currency_id"/>
+                <field name="price_total" readonly="True"/>
+                <field name="company_id" invisible="True"/>
+                <field name="state"/>
+                <button name="action_button_draft" states="confirm"
+                        string="Draft" type="object"
+                        icon="fa fa-arrow-left"/>
+                <button name="action_button_confirm" states="draft"
+                        string="Confirm" type="object"
+                        icon="fa fa-arrow-right"/>
+                <!--<button name="action_open_view_rpl_form"-->
+                        <!--string="Open" type="object"-->
+                        <!--icon="fa-folder-open-o"/>-->
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_analytic_deliverable_plan_line_filter" model="ir.ui.view">
+        <field name="name">analytic.deliverable.plan.line.select</field>
+        <field name="model">analytic.deliverable.plan.line</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Search deliverable plan lines">
+                <group col='6' colspan='5'>
+                    <field name="account_id"/>
+                    <field name="product_id"/>
+                    <field name="name"/>
+                    <field name="state"/>
+                </group>
+                <group name='filters' expand="0" string="Filters"/>
+                <group name='group_by' expand="0" string="Group By...">
+                    <filter string="Analytic Account"
+                            domain="[]"
+                            context="{'group_by':'account_id'}"/>
+                    <filter string="Product"
+                            name="product"
+                            domain="[]"
+                            context="{'group_by':'product_id'}"/>
+                    <filter string="Status"
+                            name="status"
+                            domain="[]"
+                            context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_analytic_deliverable_plan_line_open_form"
+            model="ir.actions.act_window">
+        <field name="name">Plan deliverables</field>
+        <field name="res_model">analytic.deliverable.plan.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id"
+               ref="view_analytic_deliverable_plan_line_filter"/>
+    </record>
+
+    <!--OPEN TREE ACTION-->
+    <record id="action_analytic_deliverable_plan_line_tree"
+            model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="act_window_id"
+               ref="action_analytic_deliverable_plan_line_open_form"/>
+    </record>
+
+    <!--OPEN FORM ACTION-->
+    <record id="action_analytic_deliverable_plan_line_form2"
+            model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="act_window_id"
+               ref="action_analytic_deliverable_plan_line_open_form"/>
+    </record>
+
+    <menuitem groups="project.group_project_manager,project.group_project_user"
+              action="action_analytic_deliverable_plan_line_open_form"
+              id="analytic_deliverable_plan_line_entries"
+              parent="analytic_plan.project_analytic"
+              sequence="1"/>
+
+</odoo>

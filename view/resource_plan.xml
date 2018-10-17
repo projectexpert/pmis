@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_analytic_resource_plan_line_tree" model="ir.ui.view">
+        <field name="name">analytic.resource.plan.line.tree</field>
+        <field name="model">analytic.resource.plan.line</field>
+        <field name="inherit_id"
+               ref="analytic_resource_plan.view_analytic_resource_plan_line_tree"/>
+        <field name="arch" type="xml">
+            <field name="account_id" position='after'>
+                <field name="deliverable_id" required="True"/>
+            </field>
+            <field name="account_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_analytic_resource_plan_line_form" model="ir.ui.view">
+        <field name="name">analytic.resource.plan.line.form</field>
+        <field name="model">analytic.resource.plan.line</field>
+        <field name="inherit_id"
+               ref="analytic_resource_plan.view_analytic_resource_plan_line_form"/>
+        <field name="arch" type="xml">
+            <field name="account_id" position='after'>
+                <field name="deliverable_id" required="True"/>
+            </field>
+            <field name="account_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+        </field>
+    </record>
+
+
+    <record id="view_analytic_resource_plan_line_filter" model="ir.ui.view">
+            <field name="name">analytic.resource.plan.line.select</field>
+            <field name="model">analytic.resource.plan.line</field>
+            <field name="inherit_id"
+                   ref="analytic_resource_plan.view_analytic_resource_plan_line_filter"/>
+            <field name="arch" type="xml">
+                <field name="account_id" position='after'>
+                    <field name="deliverable_id" required="True"/>
+                </field>
+                <group name="group_by" position="inside">
+                    <filter string="Deliverable"
+                            context="{'group_by': 'deliverable_id'}"/>
+                </group>
+            </field>
+    </record>
+</odoo>
