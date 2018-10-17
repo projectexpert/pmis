@@ -160,15 +160,10 @@
         <field name="search_view_id" ref="view_analytic_resource_plan_line_filter"/>
     </record>
 
-    <!--<menuitem id="analytic_resource_plan_menu"
-              name="Resource Plan"
-              parent="project.menu_main_pm"
-              groups="project.group_project_manager"/>-->
-
     <menuitem groups="project.group_project_manager,project.group_project_user"
               action="action_analytic_resource_plan_line_open_form"
               id="analytic_resource_plan_line_entries"
               parent="analytic_plan.project_analytic"
-              sequence="1"/>
+              sequence="2"/>
 
 </odoo>
