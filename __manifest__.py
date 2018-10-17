@@ -5,7 +5,7 @@
 
 {
     "name": "Analytic Journal",
-    "version": "9.0.1.0.0",
+    "version": "10.0.1.0.0",
     "summary": "Analytic Journals as in previous Odoo versions",
     "author": "Odoo SA",
     "license": "LGPL-3",
