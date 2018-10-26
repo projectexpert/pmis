@@ -32,7 +32,6 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'data/category_data.xml',
         'data/account_analytic_plan_version_data.xml',
         'views/account_analytic_plan_version_view.xml',
         'views/account_analytic_plan_journal_view.xml',
