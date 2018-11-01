@@ -10,9 +10,14 @@ from odoo.exceptions import ValidationError
 class AccountAnalyticLine(models.Model):
     _inherit = "account.analytic.line"
 
+    @api.model
+    def _default_journal(self):
+        res = self.env['account.journal'].search([('code', '=', 'START')])
+        return res and res[0] or False
+
     journal_id = fields.Many2one(
         'account.analytic.journal', 'Analytic Journal', required=True,
-        ondelete='restrict', index=True)
+        ondelete='restrict', index=True, default=_default_journal)
 
 
 class AccountAnalyticJournal(models.Model):

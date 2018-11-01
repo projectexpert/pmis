@@ -12,6 +12,8 @@
     "category": "Analytic",
     "depends": ["account", "analytic"],
     "data": ['views/analytic_view.xml',
-             'security/ir.model.access.csv', ],
+             'security/ir.model.access.csv',
+             'data/journal_data.xml',
+             ],
     'installable': True,
 }
