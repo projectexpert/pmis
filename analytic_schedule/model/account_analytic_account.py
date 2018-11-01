@@ -9,24 +9,25 @@ class AccountAnalyticAccount(models.Model):
     _inherit = "account.analytic.account"
 
     @api.multi
-    @api.depends('child_ids', 'project_ids')
+    @api.depends('child_ids', 'project_ids', 'project_ids.date_start',
+                 'project_ids.date', 'child_ids.project_ids.date_start',
+                 'child_ids.project_ids.date')
     def _compute_scheduled_dates(self):
         """Obtains the earliest and latest dates of the children."""
         for analytic in self:
             start_dates = []
             end_dates = []
-            if not analytic.child_ids:
-                for project in analytic.project_ids:
-                    if project.date_start:
-                        start_dates.append(project.date_start)
-                    if project.date:
-                        end_dates.append(project.date)
             for child in analytic.child_ids:
                 for project in child.project_ids:
                     if project.date_start:
                         start_dates.append(project.date_start)
                     if project.date:
                         end_dates.append(project.date)
+            for project in analytic.project_ids:
+                if project.date_start:
+                    start_dates.append(project.date_start)
+                if project.date:
+                    end_dates.append(project.date)
             min_start_date = False
             max_end_date = False
             if start_dates:

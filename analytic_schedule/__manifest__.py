@@ -4,7 +4,7 @@
 
 {
     "name": "Analytic Schedule",
-    "version": "10.0.1.0.0",
+    "version": "10.0.2.0.0",
     "summary": "Automatically computes start and end dates for analytic "
                "accounts based on the earliest start and latest finish date "
                "of the children.",
