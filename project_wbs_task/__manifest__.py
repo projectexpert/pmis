@@ -2,14 +2,14 @@
 
 {
     'name': 'Work Breakdown Structure - Tasks',
-    'version': '8.0.2.0.2',
+    'version': '10.0.1.0.0',
     'author':   'Eficent, '
                 'Serpent CS, '
                 'Matmoz d.o.o., '
                 'Project Expert Team',
     'contributors': [
         'Jordi Ballester <jordi.ballester@eficent.com>',
-        'Matjaž Mozetič <m.mozetic@matmoz.si>',
+        'Matjaž Mozetič <matjaz@luxim.si>',
         'Sudhir Arya <>'
     ],
     'website': 'http://project.expert',
@@ -25,6 +25,6 @@
     ],
     'test': [
     ],
-    'installable': False,
+    'installable': True,
     'application': True,
 }
