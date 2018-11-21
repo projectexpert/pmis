@@ -149,7 +149,7 @@ class CrmLead(models.Model):
     )
     account_id = fields.Many2one(
         comodel_name='account.analytic.account',
-        string='Project',
+        string='Project Account',
         ondelete='set null',
     )
 
