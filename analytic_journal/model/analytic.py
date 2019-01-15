@@ -16,8 +16,8 @@ class AccountAnalyticLine(models.Model):
         return res and res[0] or False
 
     journal_id = fields.Many2one(
-        'account.analytic.journal', 'Analytic Journal', required=True,
-        ondelete='restrict', index=True, default=_default_journal)
+        'account.analytic.journal', 'Analytic Journal',
+        default=_default_journal)
 
 
 class AccountAnalyticJournal(models.Model):
