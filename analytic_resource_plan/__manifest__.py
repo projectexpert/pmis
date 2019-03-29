@@ -7,7 +7,7 @@
 
 {
     'name': 'Analytic Resource Planning',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     'summary': 'Analytic resource cost planning',
@@ -39,5 +39,5 @@
         'wizard/analytic_resource_plan_copy_version_view.xml',
         'wizard/resource_plan_line_change_state_view.xml',
     ],
-    'installable': True,
+    'installable': False,
 }
