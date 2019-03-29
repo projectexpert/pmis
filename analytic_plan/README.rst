@@ -17,19 +17,6 @@ The module 'Analytic Plan' provides the foundation for the planning of
 analytic costs and revenues, and it is used by other modules that can
 originate planned costs or revenues during the business process execution.
 
-Define Planning Versions:
--------------------------
-Organizations typically maintain different versions of their planned
-costs (rough cut, detailed, approved budget, committed,...).
-A Planning Version is defined by the following attributes:
-
-* Name
-* Code
-* Active: The planning version is active for use in the cost planning
-* Default version for committed costs: This planning version should be
-  used for committed costs
-* Default planning version: This version is proposed by default
-
 Define Analytic Planning Journals:
 ----------------------------------
 The Analytic Planning Journal serves as an attribute to classify the
@@ -40,7 +27,7 @@ Journal.
 Define Analytic Planning Lines:
 -------------------------------
 The analytic planning lines are used to capture the planned cost or
-revenue, for a given planning version. They are equivalent to the
+revenue. They are equivalent to the
 analytic lines, used to capture the actual cost or revenue.
 
 Changes to the Analytic Account:
@@ -55,8 +42,7 @@ The analytic account incorporates new analytic account planning attributes:
   and revenues.
 
 The attributes are calculated, for an analytic account, based on the
-planning analytic journal lines and based on the active planning version
-defined on that analytic account.
+planning analytic journal lines on that analytic account.
 
 Users with permissions to access to analytic accounts can navigate from
 the analytic account to the to the associated Analytic Planning Lines.

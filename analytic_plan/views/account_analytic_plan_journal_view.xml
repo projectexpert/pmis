@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <menuitem groups="analytic.group_analytic_accounting"
+              name="Analytic Settings"
+              id="project_analytic_settings"
+              parent="project.menu_project_config" sequence="50"/>
+
 #---------------------------------------------------------------------------------------------------------
 #   Analytic Journal
 #---------------------------------------------------------------------------------------------------------

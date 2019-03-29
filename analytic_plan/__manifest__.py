@@ -32,15 +32,11 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'data/account_analytic_plan_version_data.xml',
-        'views/account_analytic_plan_version_view.xml',
         'views/account_analytic_plan_journal_view.xml',
         'views/account_analytic_line_plan_view.xml',
         'views/account_analytic_account_view.xml',
         'views/account_analytic_plan_journal_data.xml',
         'views/product_view.xml',
-        'views/project_view.xml',
-        'wizard/analytic_plan_copy_version.xml',
     ],
     'installable': True,
 }

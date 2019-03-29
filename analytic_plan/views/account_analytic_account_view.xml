@@ -10,31 +10,13 @@
                ref="analytic.view_account_analytic_account_list"/>
         <field name="arch" type="xml">
             <field name="balance" position="after">
-                <field name="debit_plan"/>
+                <field name="debit_plan" domain=""/>
                 <field name="credit_plan"/>
                 <field name="balance_plan"/>
                 <button string="Planned cost lines"
                         name="open_plan_cost_tree_view"
                         type="object"
                         icon="gtk-open"/>
-            </field>
-            <field name="debit" position="before">
-                <field name="active_analytic_planning_version"
-                       string="Active Plan Version"/>
-            </field>
-        </field>
-    </record>
-
-    <record id="view_account_analytic_account_form_inh" model="ir.ui.view">
-        <field name="name">account.analytic.account.form</field>
-        <field name="model">account.analytic.account</field>
-        <field name="type">form</field>
-        <field name="inherit_id"
-               ref="analytic.view_account_analytic_account_form"/>
-        <field name="arch" type="xml">
-            <field name="code" position="after">
-                <field name="active_analytic_planning_version"
-                       string="Active Plan Version"/>
             </field>
         </field>
     </record>
@@ -68,8 +50,7 @@
                         name="%(act_analytic_plan_cost_revenue)d"
                         type="action"
                         context="{'default_account_id': active_id,
-                        'search_default_account_id': active_id,
-                        'default_version_id': active_analytic_planning_version}"
+                        'search_default_account_id': active_id}"
                         groups="analytic.group_analytic_accounting"
                         class="oe_inline oe_stat_button"
                         icon="fa-pencil-square-o">

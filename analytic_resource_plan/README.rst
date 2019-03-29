@@ -19,10 +19,6 @@ determined. If the resources are procured externally, the user can indicate
 the supplier, and the planned costs are then determined on the basis of the
 supplier's price list.
 
-Multiple planning versions can be maintained for a resource plan, so that
-the organization can create a first rough-cut resource plan, that can then
-be refined as the project progresses.
-
 Bug Tracker
 ===========
 

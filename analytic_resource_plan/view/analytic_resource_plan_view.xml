@@ -65,11 +65,11 @@
                         <field name="notes"/>
                     </page>
                     <page string="Hierarchy" name="hierarchy">
-                        <group>
-                            <field name="parent_id"/>
+                        <group name="parent" string="Parent">
+                            <field name="parent_id" nolabel="1"/>
                         </group>
-                        <group>
-                            <field name="child_ids"/>
+                        <group name="children" string="Children">
+                            <field name="child_ids" nolabel="1"/>
                         </group>
                     </page>
                     <page string="Costs" name="costs">
@@ -108,10 +108,10 @@
                 <field name="parent_id"/>
                 <button name="action_button_draft" states="confirm"
                         string="Draft" type="object"
-                        icon="fa fa-arrow-left"/>
+                        icon="fa-arrow-left"/>
                 <button name="action_button_confirm" states="draft"
                         string="Confirm" type="object"
-                        icon="fa fa-arrow-right"/>
+                        icon="fa-arrow-right"/>
                 <button name="action_open_view_rpl_form"
                         string="Open" type="object"
                         icon="fa-folder-open-o"/>
@@ -137,6 +137,7 @@
                     <filter string="Parent" name="Parent"
                     context="{'group_by':'parent_id'}"/>
                     <filter string="Analytic Account"
+                            name="anal"
                             domain="[]"
                             context="{'group_by':'account_id'}"/>
                     <filter string="Product"

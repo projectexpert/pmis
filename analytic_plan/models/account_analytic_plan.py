@@ -106,18 +106,6 @@ class AccountAnalyticLinePlan(models.Model):
     notes = fields.Text(
         string='Notes'
     )
-    version_id = fields.Many2one(
-        comodel_name='account.analytic.plan.version',
-        string='Planning Version',
-        required=True,
-        ondelete='cascade',
-        default=lambda s:
-        s.env[
-            'account.analytic.plan.version'
-        ].search(
-            [('default_plan', '=', True)], limit=1
-        )
-    )
 
     @api.multi
     def _set_unit_price(self):

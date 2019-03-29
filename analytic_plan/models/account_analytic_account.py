@@ -12,12 +12,6 @@ class AccountAnalyticAccount(models.Model):
 
     _inherit = 'account.analytic.account'
 
-    @api.model
-    def _default_version(self):
-        plan_versions = self.env['account.analytic.plan.version'].\
-            search([('default_plan', '=', True)], limit=1)
-        return plan_versions
-
     @api.multi
     def _compute_debit_credit_bal_qtty_plan(self):
         analytic_line_obj = self.env['account.analytic.line.plan']
@@ -77,9 +71,4 @@ class AccountAnalyticAccount(models.Model):
         related="company_id.currency_id",
         string="Currency",
         readonly=True
-    )
-    active_analytic_planning_version = fields.Many2one(
-        'account.analytic.plan.version',
-        'Active planning Version',
-        default=_default_version
     )

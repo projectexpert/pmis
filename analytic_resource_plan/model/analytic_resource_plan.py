@@ -14,7 +14,7 @@ class AnalyticResourcePlanLine(models.Model):
 
     _name = 'analytic.resource.plan.line'
     _description = "Analytic Resource Planning lines"
-    _inherit = ['mail.thread', 'ir.needaction_mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     @api.multi
     @api.depends('child_ids')
@@ -148,7 +148,6 @@ class AnalyticResourcePlanLine(models.Model):
 
     @api.model
     def _prepare_analytic_lines(self):
-        plan_version_obj = self.env['account.analytic.plan.version']
         journal_id = (
             self.product_id.expense_analytic_plan_journal_id
             and self.product_id.expense_analytic_plan_journal_id.id
@@ -172,16 +171,6 @@ class AnalyticResourcePlanLine(models.Model):
                   'for this product: "%s" (id:%d)')
                 % (self.product_id.name, self.product_id.id,)
             )
-        default_plan = plan_version_obj.search(
-            [('default_resource_plan', '=', True)],
-            limit=1
-        )
-
-        if not default_plan:
-            raise ValidationError(
-                _('No active planning version for resource plan'
-                  'exists.')
-            )
 
         return [{
             'resource_plan_id': self.id,
@@ -196,7 +185,6 @@ class AnalyticResourcePlanLine(models.Model):
             'general_account_id': general_account_id,
             'journal_id': journal_id,
             'notes': self.notes,
-            'version_id': default_plan.id,
             'currency_id': self.account_id.company_id.currency_id.id,
         }]
 

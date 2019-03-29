@@ -15,7 +15,6 @@
                         <field name="name"/>
                         <field name="account_id"/>
                         <field name="journal_id"/>
-                        <field name="version_id"/>
                         <field name="user_id"/>
                     </group>
                     <group>
@@ -25,7 +24,6 @@
                                groups="base.group_multi_company"/>
                     </group>
                     <group string="Amount">
-                        <!--<field name="amount_currency"/>-->
                         <field name="currency_id"/>
                         <field name="amount"/>
                     </group>
@@ -61,14 +59,12 @@
                 <field name="date"/>
                 <field name="name"/>
                 <field name="journal_id" invisible="False"/>
-                <field name="version_id"/>
                 <field name="product_id"/>
                 <field name="unit_amount"
                        sum="Total Quantity"
                        invisible="False"/>
                 <field name="product_uom_id" invisible="False"/>
                 <field name="unit_price"/>
-                <!--<field name="amount_currency"/>-->
                 <field name="currency_id"/>
                 <field name="amount" sum="Total"/>
                 <field name="company_id" invisible="True"/>
@@ -108,9 +104,6 @@
                     <filter string="Journal"
                             context="{'group_by':'journal_id'}"
                             name="group_journal"/>
-                    <filter string="Version"
-                            context="{'group_by':'version_id'}"
-                            name="group_version"/>
                     <separator/>
                     <filter string="Product" name="product"
                             context="{'group_by':'product_id'}"/>

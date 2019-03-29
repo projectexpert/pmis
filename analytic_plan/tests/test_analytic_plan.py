@@ -22,21 +22,17 @@ class TestAnalyticPlan(TransactionCase):
         self.partner = self.env.ref('base.res_partner_2')
         self.product_id = self.env.ref('product.consu_delivery_03')
         self.product1_id = self.env.ref('product.product_product_24')
-        self.analytic_plan_version =\
-            self.env.ref('analytic_plan.analytic_plan_version_P02')
         self.revenue = self.env.ref('account.data_account_type_revenue')
         self.general_account_id = self.account_obj.\
             search([('user_type_id', '=', self.revenue.id)], limit=1)
 
         self.analytic_parent1 = self.analytic_account_obj.create({
             'name': 'Parent Analytic Account',
-            'active_analytic_planning_version': self.analytic_plan_version.id,
             'partner_id': self.partner.id
         })
 
         self.analytic_account = self.analytic_account_obj.create({
             'name': 'Test Analytic Account',
-            'active_analytic_planning_version': self.analytic_plan_version.id,
             'parent_id': self.analytic_parent1.id
         })
 
@@ -55,7 +51,6 @@ class TestAnalyticPlan(TransactionCase):
             'account_id': self.analytic_account.id,
             'partner_id': self.partner.id,
             'journal_id': self.analytic_plan_journal.id,
-            'version_id': self.analytic_plan_version.id,
             'product_id': self.product_id.id,
             'general_account_id': self.general_account_id.id,
         })

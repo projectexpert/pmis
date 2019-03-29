@@ -4,7 +4,7 @@ Odoo as a Project Management Information System
 [![Odoo version](https://img.shields.io/badge/Odoo-11.0-brightgreen.svg?style=flat-square)]()
 
 Project Information System
-==============================
+==========================
 
 Customize the PM UI to follow the pmbok and iso 21500. Provide the dependencies
 needed for project planning, resource planning, billing plan, stakeholders
