@@ -1,0 +1,475 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* analytic_resource_plan
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-16 12:18+0200\n"
+"PO-Revision-Date: 2016-10-16 12:19+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: \n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.9\n"
+
+#. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,state:0
+msgid ""
+" * The 'Draft' status is used when a user is encoding a new and unconfirmed "
+"resource plan line. \n"
+"* The 'Confirmed' status is used for to confirm the execution of the "
+"resource plan lines."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: help:resource.plan.line.change.state,state:0
+msgid ""
+" * The 'Draft' status is used when a user is encoding a new and unconfirmed "
+"resource plan line. \n"
+"* The 'Confirmed' status is used for to confirm the resource plan line by "
+"the user."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,name:0
+msgid "Activity description"
+msgstr "Descrizione attività"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:220
+#, python-format
+msgid "All the child resource plan lines must  be in Draft state."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+#: field:analytic.resource.plan.line,account_id:0
+#: model:ir.model,name:analytic_resource_plan.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Conto analitico"
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_analytic_resource_plan_copy_version
+msgid "Analytic Resource Plan copy versions"
+msgstr "Coppia versioni piano risorse"
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_analytic_resource_plan_line
+msgid "Analytic Resource Planning lines"
+msgstr "Voci del piano risorse"
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_account_analytic_line_plan
+msgid "Analytic planning line"
+msgstr "Voce di pianificazione analitica"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_tree
+msgid "Analytic resource plan line"
+msgstr "Voce del piano risorse"
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_resource_plan_line_change_state
+msgid "Change state of resource plan line"
+msgstr "Cambiamento stato voce piano risorse"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,child_ids:0
+#: field:analytic.resource.plan.line,has_child:0
+msgid "Child lines"
+msgstr "Voci subordinate"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:75
+#, python-format
+msgid "Choose different source and destination planning versions."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_tree
+msgid "Confirm"
+msgstr "Conferma"
+
+#. module: analytic_resource_plan
+#: selection:analytic.resource.plan.line,state:0
+#: selection:resource.plan.line.change.state,state:0
+msgid "Confirmed"
+msgstr "Confermato"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,price_unit:0
+msgid "Cost Price"
+msgstr "Prezzo d'acquisto"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Costs"
+msgstr "Costi"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.copy.version,create_uid:0
+#: field:analytic.resource.plan.line,create_uid:0
+#: field:resource.plan.line.change.state,create_uid:0
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.copy.version,create_date:0
+#: field:analytic.resource.plan.line,create_date:0
+#: field:resource.plan.line.change.state,create_date:0
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,date:0
+msgid "Date"
+msgstr "Data"
+
+#. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr "Data pubblicazione ultimo messaggio sul record."
+
+#. module: analytic_resource_plan
+#: field:account.analytic.plan.version,default_resource_plan:0
+msgid "Default for resource plan"
+msgstr "Predefinito per piano risorse"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.copy.version,dest_version_id:0
+msgid "Destination Planning Version"
+msgstr "Versione piano destinata"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.copy.version,display_name:0
+#: field:analytic.resource.plan.line,display_name:0
+#: field:resource.plan.line.change.state,display_name:0
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_tree
+#: selection:analytic.resource.plan.line,state:0
+#: selection:resource.plan.line.change.state,state:0
+msgid "Draft"
+msgstr "Bozza"
+
+#. module: analytic_resource_plan
+#: field:product.template,expense_analytic_plan_journal_id:0
+msgid "Expense Plan Journal"
+msgstr "Giornale pianificazione costi"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Filters"
+msgstr "Filtri"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_follower_ids:0
+msgid "Followers"
+msgstr "Seguaci"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Group By..."
+msgstr "Raggruppa per..."
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Hierarchy"
+msgstr "Gerarchia"
+
+#. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+"Sommario dei messaggi (numero messaggi, ...). Questo sommario è "
+"direttamente in formato html per poter essere inserito nelle viste kanban."
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.copy.version,id:0
+#: field:analytic.resource.plan.line,id:0
+#: field:resource.plan.line.change.state,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr ""
+"Quando segnato significa, che ci sono dei nuovi messaggi a richiedere la "
+"vostra attenzione."
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.copy.version,include_child:0
+msgid "Include child accounts"
+msgstr "Includi conti subordinati"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_is_follower:0
+msgid "Is a Follower"
+msgstr "È un seguace"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:71
+#, python-format
+msgid "It is prohibited to copy to the default planning version."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_last_post:0
+msgid "Last Message Date"
+msgstr "Data ultimo messaggio"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.copy.version,__last_update:0
+#: field:analytic.resource.plan.line,__last_update:0
+#: field:resource.plan.line.change.state,__last_update:0
+msgid "Last Modified on"
+msgstr "Ultimo aggiornamento"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.copy.version,write_uid:0
+#: field:analytic.resource.plan.line,write_uid:0
+#: field:resource.plan.line.change.state,write_uid:0
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento da"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.copy.version,write_date:0
+#: field:analytic.resource.plan.line,write_date:0
+#: field:resource.plan.line.change.state,write_date:0
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_ids:0
+msgid "Messages"
+msgstr "Messaggi"
+
+#. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,message_ids:0
+msgid "Messages and communication history"
+msgstr "Messaggi e cronologia communicazioni"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:175
+#, python-format
+msgid "No active planning version for resource plan exists."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+#: field:analytic.resource.plan.line,notes:0
+msgid "Notes"
+msgstr "Note"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/account_analytic_plan_version.py:36
+#, python-format
+msgid "Only one default for resource plan version can exist."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+#: field:analytic.resource.plan.line,parent_id:0
+msgid "Parent"
+msgstr "Superiore"
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_account_analytic_plan_version
+msgid "Plan Version"
+msgstr "Versione del piano"
+
+#. module: analytic_resource_plan
+#: model:ir.actions.act_window,name:analytic_resource_plan.action_analytic_resource_plan_line_open_form
+#: model:ir.ui.menu,name:analytic_resource_plan.analytic_resource_plan_line_entries
+msgid "Plan resources"
+msgstr "Piano risorse"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,unit_amount:0
+msgid "Planned Quantity"
+msgstr "Quantità pianificata"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,analytic_line_plan_ids:0
+msgid "Planned costs"
+msgstr "Costi pianificati"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+#: field:analytic.resource.plan.line,product_id:0
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_product_template
+msgid "Product Template"
+msgstr "Template del prodotto"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Product Unit of Measure"
+msgstr "Unita di misura prodotto"
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_project_project
+msgid "Project"
+msgstr "Progetto"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:233
+#, python-format
+msgid "Quantity should be greater than 0."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:account.analytic.line.plan,resource_plan_id:0
+msgid "Resource Plan Line"
+msgstr "Voce piano risorse"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/analytic_resource_plan_copy_version.py:100
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+#, python-format
+msgid "Resource Plan Lines"
+msgstr "Voci piano risorse"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/resource_plan_line_change_state.py:46
+#, python-format
+msgid "Resource Planning Lines"
+msgstr "Voci pianificazione risorse"
+
+#. module: analytic_resource_plan
+#: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
+#: view:project.project:analytic_resource_plan.edit_project
+msgid "Resource plan"
+msgstr "Piano risorse"
+
+#. module: analytic_resource_plan
+#: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
+#: model:ir.actions.act_window,name:analytic_resource_plan.act_account_analytic_2_analytic_resource_plan_line
+#: model:ir.actions.act_window,name:analytic_resource_plan.resource_plan_line_action_project
+msgid "Resource plan lines"
+msgstr "Voce del piano risorse"
+
+#. module: analytic_resource_plan
+#: view:project.project:analytic_resource_plan.edit_project
+msgid "Resource planning lines"
+msgstr "Voci pianificazione risorse"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Search resource plan lines"
+msgstr "Ricerca voci piano risorse"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.copy.version,source_version_id:0
+msgid "Source Planning Version"
+msgstr "Versione originale piano"
+
+#. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,unit_amount:0
+msgid "Specifies the quantity that has been planned."
+msgstr "Specifica la quantità pianificata."
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_filter
+#: field:analytic.resource.plan.line,state:0
+#: field:resource.plan.line.change.state,state:0
+msgid "Status"
+msgstr "Status"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_summary:0
+msgid "Summary"
+msgstr "Riepilogo"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:163
+#, python-format
+msgid "There is no expense account defined for this product: \"%s\" (id:%d)"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,price_total:0
+msgid "Total Cost"
+msgstr "Totale costi"
+
+#. module: analytic_resource_plan
+#: view:analytic.resource.plan.line:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Total:"
+msgstr "Totale:"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,message_unread:0
+msgid "Unread Messages"
+msgstr "Messaggi non letti"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,product_uom_id:0
+msgid "UoM"
+msgstr "Unità di misura"
+
+#. module: analytic_resource_plan
+#: field:analytic.resource.plan.line,website_message_ids:0
+msgid "Website Messages"
+msgstr "Messaggi della pagina web"
+
+#. module: analytic_resource_plan
+#: help:analytic.resource.plan.line,website_message_ids:0
+msgid "Website communication history"
+msgstr "Cronologia comunicazioni pagina web"
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:272
+#, python-format
+msgid "You cannot delete a record that refers to analytic plan lines!"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: view:account.analytic.account:analytic_resource_plan.view_account_analytic_account_form
+msgid "lines"
+msgstr "voci"
+
+#~ msgid "Error !"
+#~ msgstr "Errore!"
+
+#~ msgid "Partner"
+#~ msgstr "Partner"
+
+#~ msgid "Product Information"
+#~ msgstr "Informazioni sul prodotto"
+
+#~ msgid "Analytic Planning Journal for expenses"
+#~ msgstr "Giornale piano costi"
+
+#~ msgid "Cost Planning Analytic Journal"
+#~ msgstr "Giornale piano costi"
+
+#~ msgid "Purchasing Pricelist"
+#~ msgstr "Preziario d'acquisto"
+
+#~ msgid "Supplier"
+#~ msgstr "Fornitore"
+
+#~ msgid "Analytic Information"
+#~ msgstr "Informazioni analitiche"
+
+#~ msgid "Planning analytic lines"
+#~ msgstr "Voci di pianificazione"
+
+#~ msgid "Purchase Order Information"
+#~ msgstr "Informazioni sul ordine d'acquisto"
