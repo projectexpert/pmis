@@ -13,7 +13,7 @@ class AccountAnalyticAccount(models.Model):
     _inherit = 'account.analytic.account'
 
     @api.model
-    def default_version(self):
+    def _default_version(self):
         plan_versions = self.env['account.analytic.plan.version'].\
             search([('default_plan', '=', True)], limit=1)
         return plan_versions
@@ -81,6 +81,5 @@ class AccountAnalyticAccount(models.Model):
     active_analytic_planning_version = fields.Many2one(
         'account.analytic.plan.version',
         'Active planning Version',
-        required=True,
-        default=default_version
+        default=_default_version
     )

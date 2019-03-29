@@ -32,7 +32,8 @@
                   </group>
                   <newline/>
                     <group expand="0" string="Group By...">
-                        <filter string="Type" icon="terp-stock_symbol-selection" domain="[]" context="{'group_by':'type'}"/>
+                        <filter name="anal" string="Type"
+                                icon="terp-stock_symbol-selection" domain="[]" context="{'group_by':'type'}"/>
                     </group>
             </search>
         </field>

@@ -5,7 +5,7 @@
 #    Together as the Project Expert Team
 #    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import fields, models
+from odoo import fields, models
 
 
 class ProductTemplate(models.Model):

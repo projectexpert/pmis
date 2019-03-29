@@ -112,9 +112,10 @@
                             context="{'group_by':'version_id'}"
                             name="group_version"/>
                     <separator/>
-                    <filter string="Product"
+                    <filter string="Product" name="product"
                             context="{'group_by':'product_id'}"/>
                     <filter string="User"
+                            name="user"
                             context="{'group_by':'user_id'}"/>
                     <separator/>
                     <filter string="Date"

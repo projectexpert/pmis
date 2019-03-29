@@ -28,7 +28,7 @@
         'analytic',
         'analytic_journal',
         'project',
-        'project_wbs'
+        'account_analytic_parent',
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -42,5 +42,5 @@
         'views/project_view.xml',
         'wizard/analytic_plan_copy_version.xml',
     ],
-    'installable': False,
+    'installable': True,
 }

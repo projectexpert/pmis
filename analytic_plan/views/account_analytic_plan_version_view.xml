@@ -36,7 +36,8 @@
                     <field name="name"/>
                 </group>
                 <group string="Group By..." expand="0">
-                    <filter string="Active" context="{'group_by':'active'}"/>
+                    <filter name="active" string="Active"
+                            context="{'group_by':'active'}"/>
                 </group>
             </search>
         </field>
