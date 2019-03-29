@@ -7,7 +7,7 @@
 
 {
     'name': 'Analytic Plan',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     'summary': 'Core analytic planning module',
@@ -42,5 +42,5 @@
         'views/project_view.xml',
         'wizard/analytic_plan_copy_version.xml',
     ],
-    'installable': True,
+    'installable': False,
 }
