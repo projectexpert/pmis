@@ -26,19 +26,21 @@ class AccountAnalyticJournal(models.Model):
 
     name = fields.Char(string='Journal Name', required=True)
     code = fields.Char(string='Short Code', size=5, required=True)
-    type = fields.Selection([
-        ('sale', 'Sale'),
-        ('purchase', 'Purchase'),
-        ('cash', 'Cash'),
-        ('bank', 'Bank'),
-        ('general', 'Miscellaneous')], required=True,
+    type = fields.Selection(
+        selection=[
+            ('sale', 'Sale'),
+            ('purchase', 'Purchase'),
+            ('cash', 'Cash'),
+            ('bank', 'Bank'),
+            ('general', 'Miscellaneous')],
+        required=True,
         help="Select 'Sale' for customer invoices journals. Select 'Purchase'"
              " for vendor bills journals. Select 'Cash' or 'Bank' for "
              "journals that are used in customer or vendor payments."
              "Select 'General' for miscellaneous operations journals.")
-
-    line_ids = fields.One2many('account.analytic.line', 'journal_id',
-                               'Lines', copy=False)
+    line_ids = fields.One2many(
+        comodel_name='account.analytic.line', inverse_name='journal_id',
+        string='Lines', copy=False)
     company_id = fields.Many2one(
         comodel_name='res.company',
         default=lambda self: self._get_default_company()
@@ -69,8 +71,8 @@ class AccountJournal(models.Model):
     _inherit = "account.journal"
 
     analytic_journal_id = fields.Many2one(
-        'account.analytic.journal',
-        'Analytic Journal',
+        comodel_name='account.analytic.journal',
+        string='Analytic Journal',
         help="Journal for analytic entries")
 
 
