@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-17 09:39+0000\n"
-"PO-Revision-Date: 2018-10-17 09:39+0000\n"
+"POT-Creation-Date: 2019-03-30 08:06+0000\n"
+"PO-Revision-Date: 2019-03-30 08:06+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -40,11 +40,6 @@ msgid "Analytic Account"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: model:ir.model,name:analytic_deliverable_plan.model_analytic_deliverable_plan_copy_version
-msgid "Analytic Deliverable Plan copy versions"
-msgstr ""
-
-#. module: analytic_deliverable_plan
 #: model:ir.model,name:analytic_deliverable_plan.model_analytic_deliverable_plan_line
 msgid "Analytic Deliverable Planning lines"
 msgstr ""
@@ -52,11 +47,6 @@ msgstr ""
 #. module: analytic_deliverable_plan
 #: model:ir.model,name:analytic_deliverable_plan.model_account_analytic_line_plan
 msgid "Analytic Line"
-msgstr ""
-
-#. module: analytic_deliverable_plan
-#: model:ir.model,name:analytic_deliverable_plan.model_account_analytic_plan_version
-msgid "Analytic Planning Version"
 msgstr ""
 
 #. module: analytic_deliverable_plan
@@ -81,7 +71,6 @@ msgid "Analytic resource plan line"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: model:ir.ui.view,arch_db:analytic_deliverable_plan.analytic_deliverable_plan_copy_version_form
 #: model:ir.ui.view,arch_db:analytic_deliverable_plan.deliverable_plan_line_change_state_form
 #: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_crm_make_sale
 msgid "Cancel"
@@ -103,13 +92,6 @@ msgid "Change status of Deliverable Plan Lines"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/wizard/analytic_deliverable_plan_copy_version.py:70
-#, python-format
-msgid "Choose different source and destination\n"
-"                planning versions."
-msgstr ""
-
-#. module: analytic_deliverable_plan
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_company_id
 msgid "Company"
 msgstr ""
@@ -127,22 +109,6 @@ msgid "Confirmed"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: model:ir.actions.act_window,name:analytic_deliverable_plan.action_analytic_deliverable_plan_copy_version_form
-msgid "Copy Deliverable Plan Lines"
-msgstr ""
-
-#. module: analytic_deliverable_plan
-#: model:ir.ui.view,arch_db:analytic_deliverable_plan.analytic_deliverable_plan_copy_version_form
-msgid "Copy Deliverable Plan lines to a different version"
-msgstr ""
-
-#. module: analytic_deliverable_plan
-#: model:ir.ui.view,arch_db:analytic_deliverable_plan.analytic_deliverable_plan_copy_version_form
-msgid "Create"
-msgstr ""
-
-#. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_create_uid
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_create_uid
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_create_uid
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_create_uid
@@ -150,7 +116,6 @@ msgid "Created by"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_create_date
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_create_date
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_create_date
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_create_date
@@ -173,14 +138,15 @@ msgid "Date"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_account_analytic_plan_version_default_deliverable_plan
-msgid "Default for deliverable plan"
-msgstr ""
-
-#. module: analytic_deliverable_plan
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_resource_plan_line_deliverable_id
 #: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_resource_plan_line_filter
 msgid "Deliverable"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_account_analytic_account_deliverable_count
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_project_project_deliverable_count
+msgid "Deliverable Count"
 msgstr ""
 
 #. module: analytic_deliverable_plan
@@ -189,9 +155,7 @@ msgid "Deliverable Plan Line"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/wizard/analytic_deliverable_plan_copy_version.py:94
 #: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
-#, python-format
 msgid "Deliverable Plan Lines"
 msgstr ""
 
@@ -199,12 +163,6 @@ msgstr ""
 #: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_change_state.py:46
 #, python-format
 msgid "Deliverable Planning Lines"
-msgstr ""
-
-#. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_account_analytic_account_deliverable_count
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_project_project_deliverable_count
-msgid "Deliverable count"
 msgstr ""
 
 #. module: analytic_deliverable_plan
@@ -233,18 +191,12 @@ msgid "Deliverables."
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_dest_version_id
-msgid "Destination Planning Version"
-msgstr ""
-
-#. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:313
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:301
 #, python-format
 msgid "Details"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_display_name
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_display_name
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_display_name
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_display_name
@@ -275,7 +227,6 @@ msgid "Group By..."
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_id
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_id
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_id
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_id
@@ -283,19 +234,6 @@ msgid "ID"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_include_child
-msgid "Include child accounts"
-msgstr ""
-
-#. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/wizard/analytic_deliverable_plan_copy_version.py:66
-#, python-format
-msgid "It is prohibited to copy to the default\n"
-"                planning version."
-msgstr ""
-
-#. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version___last_update
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line___last_update
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state___last_update
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale___last_update
@@ -303,7 +241,6 @@ msgid "Last Modified on"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_write_uid
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_write_uid
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_write_uid
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_write_uid
@@ -311,7 +248,6 @@ msgid "Last Updated by"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_write_date
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_write_date
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_write_date
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_write_date
@@ -339,18 +275,6 @@ msgid "Material sale price"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:214
-#, python-format
-msgid "No active planning version for deliverable planexists."
-msgstr ""
-
-#. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/model/account_analytic_plan_version.py:29
-#, python-format
-msgid "Only one default for deliverable plan version can exist."
-msgstr ""
-
-#. module: analytic_deliverable_plan
 #: model:ir.actions.act_window,name:analytic_deliverable_plan.action_analytic_deliverable_plan_line_open_form
 #: model:ir.ui.menu,name:analytic_deliverable_plan.analytic_deliverable_plan_line_entries
 msgid "Plan deliverables"
@@ -374,8 +298,13 @@ msgid "Product"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_crm_lead_account_id
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.crm_case_form_view_oppor
 msgid "Project"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_crm_lead_account_id
+msgid "Project Account"
 msgstr ""
 
 #. module: analytic_deliverable_plan
@@ -478,11 +407,6 @@ msgid "Search deliverable plan lines"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_source_version_id
-msgid "Source Planning Version"
-msgstr ""
-
-#. module: analytic_deliverable_plan
 #: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_unit_amount
 msgid "Specifies the quantity that has been planned."
 msgstr ""
@@ -500,7 +424,7 @@ msgid "Target budget computed from costs and wanted margin."
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:194
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:193
 #, python-format
 msgid "There is no analytic plan journal for product %s"
 msgstr ""
@@ -512,7 +436,7 @@ msgid "There is no available deliverable to make sale order!"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:203
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:202
 #, python-format
 msgid "There is no revenue account defined for this product: \"%s\" (id:%d)"
 msgstr ""
@@ -580,7 +504,7 @@ msgid "Work sale price"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:286
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:274
 #, python-format
 msgid "You cannot delete a record that refers to analytic plan lines"
 msgstr ""

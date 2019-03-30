@@ -31,6 +31,10 @@
                     <field name="deliverable_count"
                                widget="statinfo"
                                string="Deliverables"/>
+                    <field name="deliverable_total_revenue"
+                           class="oe_inline badge"
+                           nolabel="1"
+                           modifiers="{'readonly': true}"/>
                 </button>
             </button>
         </field>

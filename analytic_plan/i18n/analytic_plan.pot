@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-16 22:20+0000\n"
-"PO-Revision-Date: 2018-10-16 22:20+0000\n"
+"POT-Creation-Date: 2019-03-30 08:12+0000\n"
+"PO-Revision-Date: 2019-03-30 08:12+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,28 +16,8 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: analytic_plan
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_account_form_analytic_plan
-msgid "<span>Planned costs and revenues</span>"
-msgstr ""
-
-#. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_active
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_active
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_search
 msgid "Active"
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.ui.view,arch_db:analytic_plan.edit_project_inh
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_account_form_inh
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_account_tree_inh
-msgid "Active Plan Version"
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_account_active_analytic_planning_version
-#: model:ir.model.fields,field_description:analytic_plan.field_project_project_active_analytic_planning_version
-msgid "Active planning Version"
 msgstr ""
 
 #. module: analytic_plan
@@ -124,32 +104,6 @@ msgid "Analytic Plan Items"
 msgstr ""
 
 #. module: analytic_plan
-#: model:ir.model,name:analytic_plan.model_analytic_plan_copy_version
-msgid "Analytic Plan copy versions"
-msgstr ""
-
-#. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:97
-#, python-format
-msgid "Analytic Planning Lines"
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.model,name:analytic_plan.model_account_analytic_plan_version
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_form
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_search
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_tree
-msgid "Analytic Planning Version"
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.actions.act_window,name:analytic_plan.action_account_analytic_plan_version_form
-#: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_version
-#: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_version_project
-msgid "Analytic Planning Versions"
-msgstr ""
-
-#. module: analytic_plan
 #: model:ir.ui.menu,name:analytic_plan.project_analytic_settings
 msgid "Analytic Settings"
 msgstr ""
@@ -160,19 +114,8 @@ msgid "Analytic line planning"
 msgstr ""
 
 #. module: analytic_plan
-#: model:ir.ui.view,arch_db:analytic_plan.analytic_plan_copy_version_form
-msgid "Cancel"
-msgstr ""
-
-#. module: analytic_plan
 #: selection:account.analytic.plan.journal,type:0
 msgid "Cash"
-msgstr ""
-
-#. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:69
-#, python-format
-msgid "Choose different source and destination planning versions."
 msgstr ""
 
 #. module: analytic_plan
@@ -183,38 +126,18 @@ msgstr ""
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_company_id
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_company_id
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_company_id
 msgid "Company"
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.actions.act_window,name:analytic_plan.action_analytic_plan_copy_version_form
-msgid "Copy Analytic Plan Lines"
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.ui.view,arch_db:analytic_plan.analytic_plan_copy_version_form
-msgid "Copy analytic plan lines to a different version"
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.ui.view,arch_db:analytic_plan.analytic_plan_copy_version_form
-msgid "Create"
 msgstr ""
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_create_uid
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_create_uid
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_create_uid
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_create_date
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_create_date
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_create_date
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_create_date
 msgid "Created on"
 msgstr ""
 
@@ -230,30 +153,13 @@ msgid "Date"
 msgstr ""
 
 #. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_default_plan
-msgid "Default planning version"
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_default_committed
-msgid "Default version for committed costs"
-msgstr ""
-
-#. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_name
 msgid "Description"
 msgstr ""
 
 #. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_dest_version_id
-msgid "Destination Planning Version"
-msgstr ""
-
-#. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_display_name
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_display_name
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_display_name
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_display_name
 msgid "Display Name"
 msgstr ""
 
@@ -286,22 +192,19 @@ msgstr ""
 #. module: analytic_plan
 #: model:ir.model.fields,help:analytic_plan.field_account_analytic_plan_journal_type
 msgid "Gives the type of the analytic journal. When it needs for a\n"
-"                document (eg: an invoice) to create analytic entries, OpenERP\n"
+"                document (eg: an invoice) to create analytic entries, odoo\n"
 "                will look  for a matching journal of the same type."
 msgstr ""
 
 #. module: analytic_plan
 #: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 #: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_journal_search
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_search
 msgid "Group By..."
 msgstr ""
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_id
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_id
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_id
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_id
 msgid "ID"
 msgstr ""
 
@@ -312,23 +215,6 @@ msgid "If the active field is set to False, it will allow you to\n"
 msgstr ""
 
 #. module: analytic_plan
-#: model:ir.model.fields,help:analytic_plan.field_account_analytic_plan_version_active
-msgid "If the active field is set to False, it will allow you to hide\n"
-"                the analytic planning version without removing it."
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_include_child
-msgid "Include child accounts"
-msgstr ""
-
-#. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:62
-#, python-format
-msgid "It is prohibited to copy to the default planning version."
-msgstr ""
-
-#. module: analytic_plan
 #: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Journal"
 msgstr ""
@@ -336,24 +222,18 @@ msgstr ""
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan___last_update
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal___last_update
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version___last_update
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version___last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_write_uid
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_write_uid
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_write_uid
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_write_date
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_write_date
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_write_date
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_write_date
 msgid "Last Updated on"
 msgstr ""
 
@@ -374,22 +254,8 @@ msgstr ""
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_notes
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_notes
 #: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_form
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_form
 msgid "Notes"
-msgstr ""
-
-#. module: analytic_plan
-#: code:addons/analytic_plan/models/account_analytic_plan_version.py:55
-#, python-format
-msgid "Only one default commitments version can exist."
-msgstr ""
-
-#. module: analytic_plan
-#: code:addons/analytic_plan/models/account_analytic_plan_version.py:66
-#, python-format
-msgid "Only one default plan version can exist."
 msgstr ""
 
 #. module: analytic_plan
@@ -400,6 +266,17 @@ msgstr ""
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_partner_id
 msgid "Partner"
+msgstr ""
+
+#. module: analytic_plan
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_account_plan_line_count
+#: model:ir.model.fields,field_description:analytic_plan.field_project_project_plan_line_count
+msgid "Plan Line Count"
+msgstr ""
+
+#. module: analytic_plan
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_account_form_analytic_plan
+msgid "Plan. Balance"
 msgstr ""
 
 #. module: analytic_plan
@@ -416,7 +293,7 @@ msgstr ""
 #. module: analytic_plan
 #: model:ir.actions.act_window,help:analytic_plan.act_analytic_plan_cost_revenue
 msgid "Planned Costs and Revenues to track incomes from deliverables and\n"
-"            costs of resources."
+"      costs of resources."
 msgstr ""
 
 #. module: analytic_plan
@@ -466,28 +343,6 @@ msgstr ""
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_name
 msgid "Planning Journal Name"
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_version_id
-msgid "Planning Version"
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_code
-msgid "Planning Version Code"
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_name
-msgid "Planning Version Name"
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.actions.act_window,name:analytic_plan.action_account_analytic_plan_journal_tree
-#: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_journal_print
-#: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_journal_print_project
-msgid "Print Planning Analytic Journals"
 msgstr ""
 
 #. module: analytic_plan
@@ -558,36 +413,24 @@ msgid "Situation"
 msgstr ""
 
 #. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_source_version_id
-msgid "Source Planning Version"
-msgstr ""
-
-#. module: analytic_plan
 #: model:ir.model.fields,help:analytic_plan.field_account_analytic_line_plan_amount_currency
 msgid "The amount expressed in an optional other currency."
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/account_analytic_plan.py:153
-#: code:addons/analytic_plan/models/account_analytic_plan.py:200
-#: code:addons/analytic_plan/models/account_analytic_plan.py:242
-#: code:addons/analytic_plan/models/account_analytic_plan.py:280
+#: code:addons/analytic_plan/models/account_analytic_plan.py:188
+#: code:addons/analytic_plan/models/account_analytic_plan.py:230
+#: code:addons/analytic_plan/models/account_analytic_plan.py:268
 #, python-format
 msgid "There is no expense account defined for this product: \"%s\" (id:%d)"
 msgstr ""
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/account_analytic_plan.py:163
-#: code:addons/analytic_plan/models/account_analytic_plan.py:210
-#: code:addons/analytic_plan/models/account_analytic_plan.py:252
-#: code:addons/analytic_plan/models/account_analytic_plan.py:291
+#: code:addons/analytic_plan/models/account_analytic_plan.py:198
+#: code:addons/analytic_plan/models/account_analytic_plan.py:240
+#: code:addons/analytic_plan/models/account_analytic_plan.py:279
 #, python-format
 msgid "There is no income account defined for this product: \"%s\" (id:%d)"
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.actions.act_window,help:analytic_plan.action_account_analytic_plan_journal_tree
-msgid "To print a planning analytics (or costs) journal for a given period. The report give code, move name, account number, general amount and analytic amount."
 msgstr ""
 
 #. module: analytic_plan
@@ -620,10 +463,5 @@ msgstr ""
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_user_id
 #: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "User"
-msgstr ""
-
-#. module: analytic_plan
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
-msgid "Version"
 msgstr ""
 

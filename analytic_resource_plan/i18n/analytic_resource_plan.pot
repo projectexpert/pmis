@@ -1,0 +1,369 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* analytic_resource_plan
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-30 08:08+0000\n"
+"PO-Revision-Date: 2019-03-30 08:08+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,help:analytic_resource_plan.field_analytic_resource_plan_line_state
+msgid " * The 'Draft' status is used when a user is encoding a new and unconfirmed resource plan line. \n"
+"* The 'Confirmed' status is used for to confirm the execution of the resource plan lines."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,help:analytic_resource_plan.field_resource_plan_line_change_state_state
+msgid " * The 'Draft' status is used when a user is encoding a new and unconfirmed resource plan line. \n"
+"* The 'Confirmed' status is used for to confirm the resource plan line by the user."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_name
+msgid "Activity description"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:234
+#, python-format
+msgid "All the child resource plan linesmust be in Draft state."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_account_analytic_account
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_account_id
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Analytic Account"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_account_analytic_line_plan
+msgid "Analytic Line"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_analytic_resource_plan_line
+msgid "Analytic Resource Planning lines"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_form
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_tree
+msgid "Analytic resource plan line"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_user_id
+msgid "Assign To"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.view,arch_db:analytic_resource_plan.resource_plan_line_change_state_form
+msgid "Cancel"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model,name:analytic_resource_plan.model_resource_plan_line_change_state
+msgid "Change state of resource plan line"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.actions.act_window,name:analytic_resource_plan.action_resource_plan_line_change_state_form
+msgid "Change status"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.view,arch_db:analytic_resource_plan.resource_plan_line_change_state_form
+msgid "Change status of Resource Plan Lines"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_child_ids
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_has_child
+msgid "Child lines"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Children"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_form
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_tree
+msgid "Confirm"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: selection:analytic.resource.plan.line,state:0
+#: selection:resource.plan.line.change.state,state:0
+msgid "Confirmed"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_price_unit
+msgid "Cost Price"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Costs"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_create_uid
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_resource_plan_line_change_state_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_create_date
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_resource_plan_line_change_state_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_date
+msgid "Date"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:331
+#, python-format
+msgid "Details"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_display_name
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_resource_plan_line_change_state_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: selection:analytic.resource.plan.line,state:0
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_form
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_tree
+#: selection:resource.plan.line.change.state,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.view,arch_db:analytic_resource_plan.resource_plan_line_change_state_form
+msgid "Execute"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Filters"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Group By..."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Hierarchy"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_id
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_resource_plan_line_change_state_id
+msgid "ID"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line___last_update
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_resource_plan_line_change_state___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_write_uid
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_resource_plan_line_change_state_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_write_date
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_resource_plan_line_change_state_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_notes
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Notes"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_tree
+msgid "Open"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_parent_id
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_filter
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Parent"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.actions.act_window,name:analytic_resource_plan.action_analytic_resource_plan_line_open_form
+#: model:ir.ui.menu,name:analytic_resource_plan.analytic_resource_plan_line_entries
+msgid "Plan resources"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_analytic_line_plan_ids
+msgid "Planned costs"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_unit_amount
+msgid "Planned unit_amount"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: selection:analytic.resource.plan.line,resource_type:0
+msgid "Procurement"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_product_id
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Product"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Product Unit of Measure"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_tree
+msgid "Qty"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:247
+#, python-format
+msgid "Quantity should be greater than 0."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_account_analytic_account_resource_count
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_project_project_resource_count
+msgid "Resource Count"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_account_analytic_line_plan_resource_plan_id
+msgid "Resource Plan Line"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Resource Plan Lines"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/wizard/resource_plan_line_change_state.py:46
+#, python-format
+msgid "Resource Planning Lines"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.actions.act_window,name:analytic_resource_plan.act_account_analytic_2_analytic_resource_plan_line
+#: model:ir.actions.act_window,name:analytic_resource_plan.resource_plan_line_action_project
+#: model:ir.ui.view,arch_db:analytic_resource_plan.edit_project
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_account_analytic_account_form
+msgid "Resource plan lines"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_account_analytic_account_resource_ids
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_project_project_resource_ids
+#: model:ir.ui.view,arch_db:analytic_resource_plan.edit_project
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_account_analytic_account_form
+msgid "Resources"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Search resource plan lines"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,help:analytic_resource_plan.field_analytic_resource_plan_line_unit_amount
+msgid "Specifies the quantity that has been planned."
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_state
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_resource_plan_line_change_state_state
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_filter
+msgid "Status"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: selection:analytic.resource.plan.line,resource_type:0
+msgid "Task"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:161
+#, python-format
+msgid "There is no analytic plan journal for product %s"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:170
+#, python-format
+msgid "There is no expense account defined for this product: \"%s\" (id:%d)"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_account_analytic_account_resource_total_cost
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_price_total
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_project_project_resource_total_cost
+msgid "Total Cost"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.ui.view,arch_db:analytic_resource_plan.view_analytic_resource_plan_line_form
+msgid "Total:"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_resource_type
+msgid "Type"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: model:ir.model.fields,field_description:analytic_resource_plan.field_analytic_resource_plan_line_product_uom_id
+msgid "UoM"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:323
+#, python-format
+msgid "When resource type is task, the uom category should be time"
+msgstr ""
+
+#. module: analytic_resource_plan
+#: code:addons/analytic_resource_plan/model/analytic_resource_plan.py:285
+#, python-format
+msgid "You cannot delete a record that refers to analytic plan lines"
+msgstr ""
+

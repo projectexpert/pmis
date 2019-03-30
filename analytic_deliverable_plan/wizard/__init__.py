@@ -5,6 +5,5 @@
 #    Together as the Project Expert Team
 #    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from . import analytic_deliverable_plan_copy_version
 from . import deliverable_plan_line_change_state
 from . import deliverable_plan_line_make_sale

@@ -14,7 +14,7 @@ class AnalyticDeliverablePlanLine(models.Model):
 
     _name = 'analytic.deliverable.plan.line'
     _description = "Analytic Deliverable Planning lines"
-    _inherit = ['mail.thread', 'ir.needaction_mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     account_id = fields.Many2one(
         comodel_name='account.analytic.account',
@@ -180,7 +180,6 @@ class AnalyticDeliverablePlanLine(models.Model):
 
     @api.model
     def _prepare_analytic_lines(self):
-        plan_version_obj = self.env['account.analytic.plan.version']
         journal_id = (
             self.product_id.revenue_analytic_plan_journal_id
             and self.product_id.revenue_analytic_plan_journal_id.id
@@ -204,16 +203,6 @@ class AnalyticDeliverablePlanLine(models.Model):
                   'for this product: "%s" (id:%d)')
                 % (self.product_id.name, self.product_id.id,)
             )
-        default_plan = plan_version_obj.search(
-            [('default_deliverable_plan', '=', True)],
-            limit=1
-        )
-
-        if not default_plan:
-            raise ValidationError(
-                _('No active planning version for deliverable plan'
-                  'exists.')
-            )
 
         return [{
             'deliverable_plan_id': self.id,
@@ -227,7 +216,6 @@ class AnalyticDeliverablePlanLine(models.Model):
             'amount': -1 * self.price_total,
             'general_account_id': general_account_id,
             'journal_id': journal_id,
-            'version_id': default_plan.id,
             'currency_id': self.account_id.company_id.currency_id.id,
         }]
 

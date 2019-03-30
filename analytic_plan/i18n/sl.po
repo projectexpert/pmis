@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-16 22:20+0000\n"
-"PO-Revision-Date: 2018-10-17 00:27+0200\n"
-"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"POT-Creation-Date: 2019-03-30 08:12+0000\n"
+"PO-Revision-Date: 2019-03-30 09:15+0100\n"
+"Last-Translator: Matjaž Mozetič <matjaz@matmoz.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -16,32 +16,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
-"X-Generator: Poedit 2.2\n"
-
-#. module: analytic_plan
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_account_form_analytic_plan
-msgid "<span>Planned costs and revenues</span>"
-msgstr "<span>Planirani stroški in prihodki</span>"
+"X-Generator: Poedit 2.2.1\n"
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_active
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_active
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_search
 msgid "Active"
 msgstr "Aktivno"
-
-#. module: analytic_plan
-#: model:ir.ui.view,arch_db:analytic_plan.edit_project_inh
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_account_form_inh
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_account_tree_inh
-msgid "Active Plan Version"
-msgstr "Aktivna verzija plana"
-
-#. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_account_active_analytic_planning_version
-#: model:ir.model.fields,field_description:analytic_plan.field_project_project_active_analytic_planning_version
-msgid "Active planning Version"
-msgstr "Aktivna verzija plana"
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_analytic_journal
@@ -127,32 +107,6 @@ msgid "Analytic Plan Items"
 msgstr "Postavke analitičnega plana"
 
 #. module: analytic_plan
-#: model:ir.model,name:analytic_plan.model_analytic_plan_copy_version
-msgid "Analytic Plan copy versions"
-msgstr "Kopiranje verzij analit. plana"
-
-#. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:97
-#, python-format
-msgid "Analytic Planning Lines"
-msgstr "Postavke analitičnega plana"
-
-#. module: analytic_plan
-#: model:ir.model,name:analytic_plan.model_account_analytic_plan_version
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_form
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_search
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_tree
-msgid "Analytic Planning Version"
-msgstr "Verzija analitičnega plana"
-
-#. module: analytic_plan
-#: model:ir.actions.act_window,name:analytic_plan.action_account_analytic_plan_version_form
-#: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_version
-#: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_version_project
-msgid "Analytic Planning Versions"
-msgstr "Verzije analitičnega plana"
-
-#. module: analytic_plan
 #: model:ir.ui.menu,name:analytic_plan.project_analytic_settings
 msgid "Analytic Settings"
 msgstr "Nastavitve analitike"
@@ -163,20 +117,9 @@ msgid "Analytic line planning"
 msgstr "Postavka analitičnega plana"
 
 #. module: analytic_plan
-#: model:ir.ui.view,arch_db:analytic_plan.analytic_plan_copy_version_form
-msgid "Cancel"
-msgstr "Preklic"
-
-#. module: analytic_plan
 #: selection:account.analytic.plan.journal,type:0
 msgid "Cash"
 msgstr "Gotovina"
-
-#. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:69
-#, python-format
-msgid "Choose different source and destination planning versions."
-msgstr "Izberite različno izvorno in ciljno verzijo plana."
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_code
@@ -186,38 +129,18 @@ msgstr "Koda"
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_company_id
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_company_id
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_company_id
 msgid "Company"
 msgstr "Družba"
 
 #. module: analytic_plan
-#: model:ir.actions.act_window,name:analytic_plan.action_analytic_plan_copy_version_form
-msgid "Copy Analytic Plan Lines"
-msgstr "Kopiranje postavk analit. plana"
-
-#. module: analytic_plan
-#: model:ir.ui.view,arch_db:analytic_plan.analytic_plan_copy_version_form
-msgid "Copy analytic plan lines to a different version"
-msgstr "Kopiranje postavk analitičnega plana v drugo verzijo"
-
-#. module: analytic_plan
-#: model:ir.ui.view,arch_db:analytic_plan.analytic_plan_copy_version_form
-msgid "Create"
-msgstr "Ustvari"
-
-#. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_create_uid
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_create_uid
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_create_uid
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_create_uid
 msgid "Created by"
 msgstr "Ustvaril"
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_create_date
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_create_date
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_create_date
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_create_date
 msgid "Created on"
 msgstr "Ustvarjeno"
 
@@ -233,30 +156,13 @@ msgid "Date"
 msgstr "Datum"
 
 #. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_default_plan
-msgid "Default planning version"
-msgstr "Privzeta verzija plana"
-
-#. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_default_committed
-msgid "Default version for committed costs"
-msgstr "Privzeta verzija predloženih stroškov"
-
-#. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_name
 msgid "Description"
 msgstr "Opis"
 
 #. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_dest_version_id
-msgid "Destination Planning Version"
-msgstr "Ciljna verzija plana"
-
-#. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_display_name
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_display_name
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_display_name
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_display_name
 msgid "Display Name"
 msgstr "Prikazni naziv"
 
@@ -290,8 +196,7 @@ msgstr "Glavna knjiga"
 #: model:ir.model.fields,help:analytic_plan.field_account_analytic_plan_journal_type
 msgid ""
 "Gives the type of the analytic journal. When it needs for a\n"
-"                document (eg: an invoice) to create analytic entries, "
-"OpenERP\n"
+"                document (eg: an invoice) to create analytic entries, odoo\n"
 "                will look  for a matching journal of the same type."
 msgstr ""
 "Poda tip analitičnega dnevnika. Ko je za nek dokument (npr.\n"
@@ -301,15 +206,12 @@ msgstr ""
 #. module: analytic_plan
 #: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 #: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_journal_search
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_search
 msgid "Group By..."
-msgstr "Združi po"
+msgstr "Združi po..."
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_id
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_id
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_id
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_id
 msgid "ID"
 msgstr "ID"
 
@@ -323,26 +225,6 @@ msgstr ""
 "                analitičnega dnevnika, ne da bi ga odstranili."
 
 #. module: analytic_plan
-#: model:ir.model.fields,help:analytic_plan.field_account_analytic_plan_version_active
-msgid ""
-"If the active field is set to False, it will allow you to hide\n"
-"                the analytic planning version without removing it."
-msgstr ""
-"Če nastavljeno kot False, omogoča skrivanje\n"
-"                analitične verzije plana, ne da bi jo odstranili."
-
-#. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_include_child
-msgid "Include child accounts"
-msgstr "Vključno podrejeni konte"
-
-#. module: analytic_plan
-#: code:addons/analytic_plan/wizard/analytic_plan_copy_version.py:62
-#, python-format
-msgid "It is prohibited to copy to the default planning version."
-msgstr "Prepovedano je kopiranje privzete verzije plana."
-
-#. module: analytic_plan
 #: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
 msgid "Journal"
 msgstr "Dnevnik"
@@ -350,24 +232,18 @@ msgstr "Dnevnik"
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan___last_update
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal___last_update
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version___last_update
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version___last_update
 msgid "Last Modified on"
 msgstr "Zadnjič spremenjeno"
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_write_uid
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_write_uid
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_write_uid
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_write_uid
 msgid "Last Updated by"
 msgstr "Zadnji posodobil"
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_write_date
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_write_date
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_write_date
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_write_date
 msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
 
@@ -388,23 +264,9 @@ msgstr "Na tej pogodbi še ni aktivnosti."
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_notes
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_notes
 #: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_form
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_plan_version_form
 msgid "Notes"
 msgstr "Opombe"
-
-#. module: analytic_plan
-#: code:addons/analytic_plan/models/account_analytic_plan_version.py:55
-#, python-format
-msgid "Only one default commitments version can exist."
-msgstr "Obstaja lahko le ena zavezujoča verzija."
-
-#. module: analytic_plan
-#: code:addons/analytic_plan/models/account_analytic_plan_version.py:66
-#, python-format
-msgid "Only one default plan version can exist."
-msgstr "Obstaja lahko le ena privzeta verzija plana."
 
 #. module: analytic_plan
 #: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
@@ -415,6 +277,17 @@ msgstr "Ostalo"
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_partner_id
 msgid "Partner"
 msgstr "Partner"
+
+#. module: analytic_plan
+#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_account_plan_line_count
+#: model:ir.model.fields,field_description:analytic_plan.field_project_project_plan_line_count
+msgid "Plan Line Count"
+msgstr "Števec plan. postavk"
+
+#. module: analytic_plan
+#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_account_form_analytic_plan
+msgid "Plan. Balance"
+msgstr "Plan. bilanca"
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_account_balance_plan
@@ -431,10 +304,10 @@ msgstr "Planirani stroški in prihodki"
 #: model:ir.actions.act_window,help:analytic_plan.act_analytic_plan_cost_revenue
 msgid ""
 "Planned Costs and Revenues to track incomes from deliverables and\n"
-"            costs of resources."
+"      costs of resources."
 msgstr ""
 "Planirani stroški in prihodki za sledenje prihodkov iz dobav in\n"
-"            stroškov iz virov."
+"      stroškov iz virov."
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_account_credit_plan
@@ -484,28 +357,6 @@ msgstr "Koda dnevnika plana"
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_journal_name
 msgid "Planning Journal Name"
 msgstr "Naziv dnevnika plana"
-
-#. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_version_id
-msgid "Planning Version"
-msgstr "Verzija plana"
-
-#. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_code
-msgid "Planning Version Code"
-msgstr "Koda verzije plana"
-
-#. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_plan_version_name
-msgid "Planning Version Name"
-msgstr "Naziv verzije plana"
-
-#. module: analytic_plan
-#: model:ir.actions.act_window,name:analytic_plan.action_account_analytic_plan_journal_tree
-#: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_journal_print
-#: model:ir.ui.menu,name:analytic_plan.account_analytic_plan_journal_print_project
-msgid "Print Planning Analytic Journals"
-msgstr "Tiskanje dnevnikov analitičnega plana"
 
 #. module: analytic_plan
 #: model:ir.model.fields,field_description:analytic_plan.field_account_analytic_line_plan_product_id
@@ -575,42 +426,25 @@ msgid "Situation"
 msgstr "Stanje"
 
 #. module: analytic_plan
-#: model:ir.model.fields,field_description:analytic_plan.field_analytic_plan_copy_version_source_version_id
-msgid "Source Planning Version"
-msgstr "Izvorna verzija plana"
-
-#. module: analytic_plan
 #: model:ir.model.fields,help:analytic_plan.field_account_analytic_line_plan_amount_currency
 msgid "The amount expressed in an optional other currency."
-msgstr "Znesek izražen v drugi valuti"
+msgstr "Znesek izražen v drugi valuti."
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/account_analytic_plan.py:153
-#: code:addons/analytic_plan/models/account_analytic_plan.py:200
-#: code:addons/analytic_plan/models/account_analytic_plan.py:242
-#: code:addons/analytic_plan/models/account_analytic_plan.py:280
+#: code:addons/analytic_plan/models/account_analytic_plan.py:188
+#: code:addons/analytic_plan/models/account_analytic_plan.py:230
+#: code:addons/analytic_plan/models/account_analytic_plan.py:268
 #, python-format
 msgid "There is no expense account defined for this product: \"%s\" (id:%d)"
 msgstr "Konto stroškov za izdelek: \"%s\" (id:%d) ni določen."
 
 #. module: analytic_plan
-#: code:addons/analytic_plan/models/account_analytic_plan.py:163
-#: code:addons/analytic_plan/models/account_analytic_plan.py:210
-#: code:addons/analytic_plan/models/account_analytic_plan.py:252
-#: code:addons/analytic_plan/models/account_analytic_plan.py:291
+#: code:addons/analytic_plan/models/account_analytic_plan.py:198
+#: code:addons/analytic_plan/models/account_analytic_plan.py:240
+#: code:addons/analytic_plan/models/account_analytic_plan.py:279
 #, python-format
 msgid "There is no income account defined for this product: \"%s\" (id:%d)"
 msgstr "Za izdelek \"%s\" (id:%d) ni določen konto prihodkov."
-
-#. module: analytic_plan
-#: model:ir.actions.act_window,help:analytic_plan.action_account_analytic_plan_journal_tree
-msgid ""
-"To print a planning analytics (or costs) journal for a given period. The "
-"report give code, move name, account number, general amount and analytic "
-"amount."
-msgstr ""
-"Izpis analitičnega dnevnika planiranja za dano obdobje. Dnevnik poda kodo, "
-"naziv premika, številko konta, splošni znesek in analitični znesek."
 
 #. module: analytic_plan
 #: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_tree
@@ -644,10 +478,95 @@ msgstr "EM"
 msgid "User"
 msgstr "Uporabnik"
 
-#. module: analytic_plan
-#: model:ir.ui.view,arch_db:analytic_plan.view_account_analytic_line_plan_filter
-msgid "Version"
-msgstr "Verzija"
+#~ msgid "<span>Planned costs and revenues</span>"
+#~ msgstr "<span>Planirani stroški in prihodki</span>"
+
+#~ msgid "Active Plan Version"
+#~ msgstr "Aktivna verzija plana"
+
+#~ msgid "Active planning Version"
+#~ msgstr "Aktivna verzija plana"
+
+#~ msgid "Analytic Plan copy versions"
+#~ msgstr "Kopiranje verzij analit. plana"
+
+#~ msgid "Analytic Planning Lines"
+#~ msgstr "Postavke analitičnega plana"
+
+#~ msgid "Analytic Planning Version"
+#~ msgstr "Verzija analitičnega plana"
+
+#~ msgid "Analytic Planning Versions"
+#~ msgstr "Verzije analitičnega plana"
+
+#~ msgid "Cancel"
+#~ msgstr "Preklic"
+
+#~ msgid "Choose different source and destination planning versions."
+#~ msgstr "Izberite različno izvorno in ciljno verzijo plana."
+
+#~ msgid "Copy Analytic Plan Lines"
+#~ msgstr "Kopiranje postavk analit. plana"
+
+#~ msgid "Copy analytic plan lines to a different version"
+#~ msgstr "Kopiranje postavk analitičnega plana v drugo verzijo"
+
+#~ msgid "Create"
+#~ msgstr "Ustvari"
+
+#~ msgid "Default planning version"
+#~ msgstr "Privzeta verzija plana"
+
+#~ msgid "Default version for committed costs"
+#~ msgstr "Privzeta verzija predloženih stroškov"
+
+#~ msgid "Destination Planning Version"
+#~ msgstr "Ciljna verzija plana"
+
+#~ msgid ""
+#~ "If the active field is set to False, it will allow you to hide\n"
+#~ "                the analytic planning version without removing it."
+#~ msgstr ""
+#~ "Če nastavljeno kot False, omogoča skrivanje\n"
+#~ "                analitične verzije plana, ne da bi jo odstranili."
+
+#~ msgid "Include child accounts"
+#~ msgstr "Vključno podrejeni konte"
+
+#~ msgid "It is prohibited to copy to the default planning version."
+#~ msgstr "Prepovedano je kopiranje privzete verzije plana."
+
+#~ msgid "Only one default commitments version can exist."
+#~ msgstr "Obstaja lahko le ena zavezujoča verzija."
+
+#~ msgid "Only one default plan version can exist."
+#~ msgstr "Obstaja lahko le ena privzeta verzija plana."
+
+#~ msgid "Planning Version"
+#~ msgstr "Verzija plana"
+
+#~ msgid "Planning Version Code"
+#~ msgstr "Koda verzije plana"
+
+#~ msgid "Planning Version Name"
+#~ msgstr "Naziv verzije plana"
+
+#~ msgid "Print Planning Analytic Journals"
+#~ msgstr "Tiskanje dnevnikov analitičnega plana"
+
+#~ msgid "Source Planning Version"
+#~ msgstr "Izvorna verzija plana"
+
+#~ msgid ""
+#~ "To print a planning analytics (or costs) journal for a given period. The "
+#~ "report give code, move name, account number, general amount and analytic "
+#~ "amount."
+#~ msgstr ""
+#~ "Izpis analitičnega dnevnika planiranja za dano obdobje. Dnevnik poda "
+#~ "kodo, naziv premika, številko konta, splošni znesek in analitični znesek."
+
+#~ msgid "Version"
+#~ msgstr "Verzija"
 
 #~ msgid ""
 #~ "<p>\n"

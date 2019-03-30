@@ -16,10 +16,6 @@ class TestAnalyticDeliverablePlan(common.SavepointCase):
             {'name': 'Test project',
              'code': '0001'})
         cls.account_id = cls.project.analytic_account_id
-        cls.plan_version = cls.env.ref(
-            'analytic_plan.analytic_plan_version_P02')
-        cls.account_id.write({
-            'active_analytic_planning_version': cls.plan_version.id})
         cls.product = cls.env['product.product'].create({'name': 'SP'})
         cls.anal_journal = cls.env['account.analytic.journal'].create(
             {'name': 'Expenses',

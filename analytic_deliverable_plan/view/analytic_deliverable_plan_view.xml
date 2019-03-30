@@ -231,6 +231,6 @@
               action="action_analytic_deliverable_plan_line_open_form"
               id="analytic_deliverable_plan_line_entries"
               parent="analytic_plan.project_analytic"
-              sequence="1"/>
+              sequence="15"/>
 
 </odoo>

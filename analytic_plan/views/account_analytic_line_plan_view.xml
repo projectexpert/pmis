@@ -168,7 +168,7 @@
   <menuitem groups="analytic.group_analytic_accounting"
             action="action_account_analytic_plan_journal_open_form"
             id="account_analytic_plan_journal_entries"
-            name="Analytic Plan Items"
+            name="Plan Entries"
             parent="analytic_plan.project_analytic"
             sequence="30"/>
 
