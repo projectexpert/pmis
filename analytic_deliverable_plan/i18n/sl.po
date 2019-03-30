@@ -1,0 +1,761 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* analytic_deliverable_plan
+#
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-17 09:39+0000\n"
+"PO-Revision-Date: 2018-10-17 11:40+0200\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian <translate@matmoz.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.2\n"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_deliverable_plan_line_change_state_state
+msgid ""
+" * The 'Draft' status is used when a user is encoding a new and unconfirmed "
+"deliverable plan line. \n"
+"* The 'Confirmed' status is used for to confirm the deliverable plan line by "
+"the user."
+msgstr ""
+" * Stanje 'Osnutek' je ob vnosu nove in nepotrjene postavke plana dobav. \n"
+"* Stanje 'Potrjeno' se uporabi za potrditev izvedbe postavke plana dobav."
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_state
+msgid ""
+" * The 'Draft' status is used when a user is encoding a new and unconfirmed "
+"deliverable plan line. \n"
+"* The 'Confirmed' status is used for to confirm the execution of the "
+"deliverable plan lines."
+msgstr ""
+" * Stanje 'Osnutek' je ob vnosu nove in nepotrjene postavke plana dobav. \n"
+"* Stanje 'Potrjeno' se uporabi za potrditev izvedbe postavke plana dobav."
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_name
+msgid "Activity description"
+msgstr "Opis aktivnosti"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_account_analytic_account
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_account_id
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_filter
+msgid "Analytic Account"
+msgstr "Analitični konto"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_analytic_deliverable_plan_copy_version
+msgid "Analytic Deliverable Plan copy versions"
+msgstr "Kopiranje verzij plana dobav"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_analytic_deliverable_plan_line
+msgid "Analytic Deliverable Planning lines"
+msgstr "Postavke analitičnega planiranja dobav"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_account_analytic_line_plan
+msgid "Analytic Line"
+msgstr "Analitična postavka"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_account_analytic_plan_version
+msgid "Analytic Planning Version"
+msgstr "Verzija analitičnega plana"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_analytic_resource_plan_line
+msgid "Analytic Resource Planning lines"
+msgstr "Postavke analitičnega planiranja virov"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_tree
+msgid "Analytic deliverable plan line"
+msgstr "Postavka analitičnega plana dobav"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_deliverable_plan_line_make_sale
+msgid "Analytic deliverable plan line make sale"
+msgstr "Prodaja iz postavke plana dobav"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Analytic resource plan line"
+msgstr "Postavka analitičnega plana virov"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.analytic_deliverable_plan_copy_version_form
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.deliverable_plan_line_change_state_form
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_crm_make_sale
+msgid "Cancel"
+msgstr "Preklic"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_deliverable_plan_line_change_state
+msgid "Change state of deliverable plan line"
+msgstr "Sprememba stanja postavke plana dobav"
+
+#. module: analytic_deliverable_plan
+#: model:ir.actions.act_window,name:analytic_deliverable_plan.action_deliverable_plan_line_change_state_form
+msgid "Change status"
+msgstr "Spremeni stanje"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.deliverable_plan_line_change_state_form
+msgid "Change status of Deliverable Plan Lines"
+msgstr "Spremeni stanje postavk plana dobav"
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/wizard/analytic_deliverable_plan_copy_version.py:70
+#, python-format
+msgid ""
+"Choose different source and destination\n"
+"                planning versions."
+msgstr ""
+"Izberite različni izvorno in ciljno\n"
+"                verzijo plana."
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_company_id
+msgid "Company"
+msgstr "Družba"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_tree
+msgid "Confirm"
+msgstr "Potrdi"
+
+#. module: analytic_deliverable_plan
+#: selection:analytic.deliverable.plan.line,state:0
+#: selection:deliverable.plan.line.change.state,state:0
+msgid "Confirmed"
+msgstr "Potrjeno"
+
+#. module: analytic_deliverable_plan
+#: model:ir.actions.act_window,name:analytic_deliverable_plan.action_analytic_deliverable_plan_copy_version_form
+msgid "Copy Deliverable Plan Lines"
+msgstr "Kopiraj postavke plana dobav"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.analytic_deliverable_plan_copy_version_form
+msgid "Copy Deliverable Plan lines to a different version"
+msgstr "Kopiraj postavke plana dobav v drugo verzijo"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.analytic_deliverable_plan_copy_version_form
+msgid "Create"
+msgstr "Ustvari"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_create_uid
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_create_uid
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_create_uid
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_create_uid
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_create_date
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_create_date
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_create_date
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_create_date
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_currency_id
+msgid "Currency"
+msgstr "Valuta"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_partner_id
+msgid "Customer"
+msgstr "Kupec"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_date
+msgid "Date"
+msgstr "Datum"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_account_analytic_plan_version_default_deliverable_plan
+msgid "Default for deliverable plan"
+msgstr "Privzeto za plan dobav"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_resource_plan_line_deliverable_id
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_resource_plan_line_filter
+msgid "Deliverable"
+msgstr "Dobava"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_account_analytic_line_plan_deliverable_plan_id
+msgid "Deliverable Plan Line"
+msgstr "Postavka plana dobav"
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/wizard/analytic_deliverable_plan_copy_version.py:94
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+#, python-format
+msgid "Deliverable Plan Lines"
+msgstr "Postavke plana dobav"
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_change_state.py:46
+#, python-format
+msgid "Deliverable Planning Lines"
+msgstr "Postavke plana dobav"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_account_analytic_account_deliverable_count
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_project_project_deliverable_count
+msgid "Deliverable count"
+msgstr "Števec dobav"
+
+#. module: analytic_deliverable_plan
+#: model:ir.actions.act_window,name:analytic_deliverable_plan.act_account_analytic_2_analytic_deliverable_plan_line
+#: model:ir.actions.act_window,name:analytic_deliverable_plan.deliverable_plan_line_action_project
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_account_analytic_account_form
+msgid "Deliverable plan lines"
+msgstr "Postavke plana dobav"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.edit_project
+msgid "Deliverable planning lines"
+msgstr "Planske postavke dobav"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_account_analytic_account_deliverable_ids
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_project_project_deliverable_ids
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.edit_project
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_account_analytic_account_form
+msgid "Deliverables"
+msgstr "Dobave"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.crm_case_form_view_oppor
+msgid "Deliverables."
+msgstr "Dobave."
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_dest_version_id
+msgid "Destination Planning Version"
+msgstr "Ciljna verzija plana"
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:313
+#, python-format
+msgid "Details"
+msgstr "Podrobnosti"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_display_name
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_display_name
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_display_name
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_display_name
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: analytic_deliverable_plan
+#: selection:analytic.deliverable.plan.line,state:0
+#: selection:deliverable.plan.line.change.state,state:0
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_tree
+msgid "Draft"
+msgstr "Osnutek"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.deliverable_plan_line_change_state_form
+msgid "Execute"
+msgstr "Izvrši"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_filter
+msgid "Filters"
+msgstr "Filtri"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_filter
+msgid "Group By..."
+msgstr "Združi po..."
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_id
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_id
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_id
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_id
+msgid "ID"
+msgstr "ID"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_include_child
+msgid "Include child accounts"
+msgstr "Vključno podrejeni konti"
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/wizard/analytic_deliverable_plan_copy_version.py:66
+#, python-format
+msgid ""
+"It is prohibited to copy to the default\n"
+"                planning version."
+msgstr ""
+"Kopiranje v privzeto verzijo plana\n"
+"                ni dovoljeno."
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version___last_update
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line___last_update
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state___last_update
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale___last_update
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_write_uid
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_write_uid
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_write_uid
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_write_uid
+msgid "Last Updated by"
+msgstr "Zadnjič posodobil"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_write_date
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_write_date
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_write_date
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_write_date
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Indic/priložnost"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_procurement_margin
+msgid "Material Margin (%)"
+msgstr "Marža material (%)"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_resource_procurement_total
+msgid "Material cost"
+msgstr "Stroški material"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_delivered_material
+msgid "Material sale price"
+msgstr "Prodajna cena material"
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:214
+#, python-format
+msgid "No active planning version for deliverable planexists."
+msgstr "Za plan dobave ne obstaja aktivna verzija."
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/model/account_analytic_plan_version.py:29
+#, python-format
+msgid "Only one default for deliverable plan version can exist."
+msgstr "Obstaja lahko le ena privzeta verzija plana dobav."
+
+#. module: analytic_deliverable_plan
+#: model:ir.actions.act_window,name:analytic_deliverable_plan.action_analytic_deliverable_plan_line_open_form
+#: model:ir.ui.menu,name:analytic_deliverable_plan.analytic_deliverable_plan_line_entries
+msgid "Plan deliverables"
+msgstr "Plan dobav"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_analytic_line_plan_ids
+msgid "Planned revenue"
+msgstr "Planirani prihodki"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_unit_amount
+msgid "Planned unit_amount"
+msgstr "Planirana količina"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_product_id
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_filter
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Product"
+msgstr "Proizvod"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_crm_lead_account_id
+msgid "Project"
+msgstr "Projekt"
+
+#. module: analytic_deliverable_plan
+#: model:ir.actions.act_window,name:analytic_deliverable_plan.act_view_lead_deliverable
+msgid "Project Deliverable"
+msgstr "Projektna dobava"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_projection
+msgid "Projected profit/loss"
+msgstr "Pričakovani dobiček/izguba"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_projection
+msgid "Projected profit/lossCalculated as: Total revenue - Total costs"
+msgstr ""
+"Pričakovani dobiček/izguba izračunan kot: Skupni prihodki - skupni stroški"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_wanted_price_unit
+msgid "Prop. price/unit"
+msgstr "Predl. cena/enoto"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_target_revenue
+msgid "Prop. total price"
+msgstr "Predl. skupna cena"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_wanted_price_unit
+msgid "Proposed sale price per UoM"
+msgstr "Predlagana cena na EM"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_tree
+msgid "Qty"
+msgstr "Kol"
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:89
+#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:100
+#, python-format
+msgid "Quotation"
+msgstr "Predračun"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.crm_case_form_view_oppor
+msgid "Quotation (Project Deliverables)"
+msgstr "Predračun (projektne dobave)"
+
+#. module: analytic_deliverable_plan
+#: model:ir.actions.act_window,name:analytic_deliverable_plan.action_crm_project_sale
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_crm_make_sale
+msgid "Quotation from Project Deliverables"
+msgstr "Predračun iz plana projektnih dobav"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Recommendation"
+msgstr "Priporočilo"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_resource_ids
+msgid "Resource Lines"
+msgstr "Postavke virov"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Resources"
+msgstr "Viri"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Revenues"
+msgstr "Prihodki"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_procurement_margin
+msgid "Sale Margin for materials in %"
+msgstr "Prodajna marža za material v %"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_task_margin
+msgid "Sale Margin for work in %"
+msgstr "Prodajna marža za delo v %"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_price_unit
+msgid "Sale Price"
+msgstr "Prodajna cena"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Sale description"
+msgstr "Prodajni opis"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_filter
+msgid "Search deliverable plan lines"
+msgstr "Iskanje postavk plana dobav"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_source_version_id
+msgid "Source Planning Version"
+msgstr "Izvorna verzija plana"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_unit_amount
+msgid "Specifies the quantity that has been planned."
+msgstr "Določa planirano količino."
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_state
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_state
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_filter
+msgid "Status"
+msgstr "Status"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_target_revenue
+msgid "Target budget computed from costs and wanted margin."
+msgstr "Ciljni proračun izračunan iz stroškov in želene marže."
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:194
+#, python-format
+msgid "There is no analytic plan journal for product %s"
+msgstr "Ni dnevnika analitičnega plana za proizvod %s"
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:113
+#, python-format
+msgid "There is no available deliverable to make sale order!"
+msgstr "Ni dobave na voljo za izvedbo prodajnega naloga!"
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:203
+#, python-format
+msgid "There is no revenue account defined for this product: \"%s\" (id:%d)"
+msgstr "Konto prihodkov za izdelek: \"%s\" (id:%d) ni določen."
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Total"
+msgstr "Skupaj"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Total Price"
+msgstr "Cena skupaj"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_account_analytic_account_deliverable_total_revenue
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_price_total
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_project_project_deliverable_total_revenue
+msgid "Total Revenue"
+msgstr "Prihodki skupaj"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_crm_lead_resource_cost_total
+msgid "Total Revenue from deliverable"
+msgstr "Skupni prihodki iz dobave"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_delivered_material
+msgid "Total materials sale price"
+msgstr "Skupna prodajna cena materiala"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_delivered_task
+msgid "Total tasks sale price"
+msgstr "Skupna prodajna cena za delo"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Unit of Measure"
+msgstr "Enota mere"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_product_uom_id
+msgid "UoM"
+msgstr "EM"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_update_quotation
+msgid "Update existing quotation"
+msgstr "Posodobi obstoječ predračun"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_task_margin
+msgid "Work Margin (%)"
+msgstr "Marža delo (%)"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_resource_task_total
+msgid "Work cost"
+msgstr "Strošek dela"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_delivered_task
+msgid "Work sale price"
+msgstr "Prodajna cena delo"
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:286
+#, python-format
+msgid "You cannot delete a record that refers to analytic plan lines"
+msgstr ""
+"Zapisa, ki se nanaša na postavke analitičnega plana ni mogoče izbrisati"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_crm_make_sale
+msgid "_Create"
+msgstr "_Ustvari"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_crm_make_sale
+msgid "_Update"
+msgstr "_Posodobi"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_crm_make_sale
+msgid "or"
+msgstr "ali"
+
+#~ msgid "All the child deliverable plan lines must  be in Draft state."
+#~ msgstr "Vse podrejene postavke plana dobav morajo biti v stanju 'osnutek'."
+
+#~ msgid "Analytic planning line"
+#~ msgstr "Postavka analitičnega plana"
+
+#~ msgid "Child lines"
+#~ msgstr "Podrejene postavke"
+
+#~ msgid "Choose different source and destination planning versions."
+#~ msgstr "Izberite različno izvorno in ciljno verzijo plana."
+
+#~ msgid "Cost Price"
+#~ msgstr "Lastna cena"
+
+#~ msgid "Costs"
+#~ msgstr "Prihodki"
+
+#~ msgid "Date of the last message posted on the record."
+#~ msgstr "Datum zadnjega sporočila pri tem zapisu."
+
+#~ msgid "Revenue Plan Journal"
+#~ msgstr "Dnevnik plana prihodkov"
+
+#~ msgid "Followers"
+#~ msgstr "Sledilci"
+
+#~ msgid "Hierarchy"
+#~ msgstr "Hierarhija"
+
+#~ msgid ""
+#~ "Holds the Chatter summary (number of messages, ...). This summary is "
+#~ "directly in html format in order to be inserted in kanban views."
+#~ msgstr ""
+#~ "Povzetek pogovorov (število sporočil,..). Povzetek je neposredno v html "
+#~ "formatu, da se lahko neposredno vstavi v poglede tipa kanban."
+
+#~ msgid "If checked new messages require your attention."
+#~ msgstr "Če označeno, zahtevajo nova sporočila vašo pozornost."
+
+#~ msgid "Is a Follower"
+#~ msgstr "Je sledilec"
+
+#~ msgid "It is prohibited to copy to the default planning version."
+#~ msgstr "Kopiranje privzete verzije plana je prepovedano."
+
+#~ msgid "Last Message Date"
+#~ msgstr "Datum zadnjega sporočila"
+
+#~ msgid "Messages"
+#~ msgstr "Sporočila"
+
+#~ msgid "Messages and communication history"
+#~ msgstr "Komunikacije in kronologija komunikacij"
+
+#~ msgid "No active planning version for deliverable plan exists."
+#~ msgstr "Za plan dobav ni določene aktivne verzije planiranja."
+
+#~ msgid "Notes"
+#~ msgstr "Opombe"
+
+#~ msgid "Parent"
+#~ msgstr "Nadrejeni"
+
+#~ msgid "Plan Version"
+#~ msgstr "Verzija plana"
+
+#~ msgid "Planned Quantity"
+#~ msgstr "Načrtovana količina"
+
+#~ msgid "Planned costs"
+#~ msgstr "Planirani prihodki"
+
+#~ msgid "Product Template"
+#~ msgstr "Predloga proizvoda"
+
+#~ msgid "Product Unit of Measure"
+#~ msgstr "Enota mere proizvoda"
+
+#~ msgid "Quantity should be greater than 0."
+#~ msgstr "Količina mora biti večja od 0."
+
+#~ msgid "Deliverable plan"
+#~ msgstr "Plan dobav"
+
+#~ msgid "Summary"
+#~ msgstr "Povzetek"
+
+#~ msgid "Total Cost"
+#~ msgstr "Skupaj prihodki"
+
+#~ msgid "Total:"
+#~ msgstr "Skupaj:"
+
+#~ msgid "Unread Messages"
+#~ msgstr "Neprebrana sporočila"
+
+#~ msgid "Website Messages"
+#~ msgstr "Sporočila iz spletne strani"
+
+#~ msgid "Website communication history"
+#~ msgstr "Kronologija komunikacij spletne strani"
+
+#~ msgid "You cannot delete a record that refers to analytic plan lines!"
+#~ msgstr "Zapisa, ki se sklicuje na postavke plana dobav, ne morete brisati!"
+
+#~ msgid "lines"
+#~ msgstr "postavke"
+
+#~ msgid "Error !"
+#~ msgstr "Napaka!"
+
+#~ msgid "Partner"
+#~ msgstr "Partner"
+
+#~ msgid "Product Information"
+#~ msgstr "Podatki o proizvodu"
+
+#~ msgid "Analytic Planning Journal for revenues"
+#~ msgstr "Dnevnik analitičnega planiranja za izdatke"
+
+#~ msgid "Cost Planning Analytic Journal"
+#~ msgstr "Dnevnik analitičnega planiranja prihodkov"
+
+#~ msgid "Purchasing Pricelist"
+#~ msgstr "Nabavni cenik"
+
+#~ msgid "Supplier"
+#~ msgstr "Dobavitelj"
+
+#~ msgid "Analytic Information"
+#~ msgstr "Analitični podatki"
+
+#~ msgid "Planning analytic lines"
+#~ msgstr "Planske analitične postavke"
+
+#~ msgid "Purchase Order Information"
+#~ msgstr "Podatki o nabavnem nalogu"

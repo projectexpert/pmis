@@ -1,0 +1,602 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* analytic_deliverable_plan
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-17 09:39+0000\n"
+"PO-Revision-Date: 2018-10-17 09:39+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_deliverable_plan_line_change_state_state
+msgid " * The 'Draft' status is used when a user is encoding a new and unconfirmed deliverable plan line. \n"
+"* The 'Confirmed' status is used for to confirm the deliverable plan line by the user."
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_state
+msgid " * The 'Draft' status is used when a user is encoding a new and unconfirmed deliverable plan line. \n"
+"* The 'Confirmed' status is used for to confirm the execution of the deliverable plan lines."
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_name
+msgid "Activity description"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_account_analytic_account
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_account_id
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_filter
+msgid "Analytic Account"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_analytic_deliverable_plan_copy_version
+msgid "Analytic Deliverable Plan copy versions"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_analytic_deliverable_plan_line
+msgid "Analytic Deliverable Planning lines"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_account_analytic_line_plan
+msgid "Analytic Line"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_account_analytic_plan_version
+msgid "Analytic Planning Version"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_analytic_resource_plan_line
+msgid "Analytic Resource Planning lines"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_tree
+msgid "Analytic deliverable plan line"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_deliverable_plan_line_make_sale
+msgid "Analytic deliverable plan line make sale"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Analytic resource plan line"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.analytic_deliverable_plan_copy_version_form
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.deliverable_plan_line_change_state_form
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_crm_make_sale
+msgid "Cancel"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_deliverable_plan_line_change_state
+msgid "Change state of deliverable plan line"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.actions.act_window,name:analytic_deliverable_plan.action_deliverable_plan_line_change_state_form
+msgid "Change status"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.deliverable_plan_line_change_state_form
+msgid "Change status of Deliverable Plan Lines"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/wizard/analytic_deliverable_plan_copy_version.py:70
+#, python-format
+msgid "Choose different source and destination\n"
+"                planning versions."
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_company_id
+msgid "Company"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_tree
+msgid "Confirm"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: selection:analytic.deliverable.plan.line,state:0
+#: selection:deliverable.plan.line.change.state,state:0
+msgid "Confirmed"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.actions.act_window,name:analytic_deliverable_plan.action_analytic_deliverable_plan_copy_version_form
+msgid "Copy Deliverable Plan Lines"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.analytic_deliverable_plan_copy_version_form
+msgid "Copy Deliverable Plan lines to a different version"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.analytic_deliverable_plan_copy_version_form
+msgid "Create"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_create_uid
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_create_uid
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_create_uid
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_create_date
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_create_date
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_create_date
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_partner_id
+msgid "Customer"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_date
+msgid "Date"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_account_analytic_plan_version_default_deliverable_plan
+msgid "Default for deliverable plan"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_resource_plan_line_deliverable_id
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_resource_plan_line_filter
+msgid "Deliverable"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_account_analytic_line_plan_deliverable_plan_id
+msgid "Deliverable Plan Line"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/wizard/analytic_deliverable_plan_copy_version.py:94
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+#, python-format
+msgid "Deliverable Plan Lines"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_change_state.py:46
+#, python-format
+msgid "Deliverable Planning Lines"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_account_analytic_account_deliverable_count
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_project_project_deliverable_count
+msgid "Deliverable count"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.actions.act_window,name:analytic_deliverable_plan.act_account_analytic_2_analytic_deliverable_plan_line
+#: model:ir.actions.act_window,name:analytic_deliverable_plan.deliverable_plan_line_action_project
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_account_analytic_account_form
+msgid "Deliverable plan lines"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.edit_project
+msgid "Deliverable planning lines"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_account_analytic_account_deliverable_ids
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_project_project_deliverable_ids
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.edit_project
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_account_analytic_account_form
+msgid "Deliverables"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.crm_case_form_view_oppor
+msgid "Deliverables."
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_dest_version_id
+msgid "Destination Planning Version"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:313
+#, python-format
+msgid "Details"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_display_name
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_display_name
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_display_name
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: selection:analytic.deliverable.plan.line,state:0
+#: selection:deliverable.plan.line.change.state,state:0
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_tree
+msgid "Draft"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.deliverable_plan_line_change_state_form
+msgid "Execute"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_filter
+msgid "Filters"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_filter
+msgid "Group By..."
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_id
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_id
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_id
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_id
+msgid "ID"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_include_child
+msgid "Include child accounts"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/wizard/analytic_deliverable_plan_copy_version.py:66
+#, python-format
+msgid "It is prohibited to copy to the default\n"
+"                planning version."
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version___last_update
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line___last_update
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state___last_update
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_write_uid
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_write_uid
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_write_uid
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_write_date
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_write_date
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_write_date
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_procurement_margin
+msgid "Material Margin (%)"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_resource_procurement_total
+msgid "Material cost"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_delivered_material
+msgid "Material sale price"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:214
+#, python-format
+msgid "No active planning version for deliverable planexists."
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/model/account_analytic_plan_version.py:29
+#, python-format
+msgid "Only one default for deliverable plan version can exist."
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.actions.act_window,name:analytic_deliverable_plan.action_analytic_deliverable_plan_line_open_form
+#: model:ir.ui.menu,name:analytic_deliverable_plan.analytic_deliverable_plan_line_entries
+msgid "Plan deliverables"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_analytic_line_plan_ids
+msgid "Planned revenue"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_unit_amount
+msgid "Planned unit_amount"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_product_id
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_filter
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Product"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_crm_lead_account_id
+msgid "Project"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.actions.act_window,name:analytic_deliverable_plan.act_view_lead_deliverable
+msgid "Project Deliverable"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_projection
+msgid "Projected profit/loss"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_projection
+msgid "Projected profit/lossCalculated as: Total revenue - Total costs"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_wanted_price_unit
+msgid "Prop. price/unit"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_target_revenue
+msgid "Prop. total price"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_wanted_price_unit
+msgid "Proposed sale price per UoM"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_tree
+msgid "Qty"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:89
+#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:100
+#, python-format
+msgid "Quotation"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.crm_case_form_view_oppor
+msgid "Quotation (Project Deliverables)"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.actions.act_window,name:analytic_deliverable_plan.action_crm_project_sale
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_crm_make_sale
+msgid "Quotation from Project Deliverables"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Recommendation"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_resource_ids
+msgid "Resource Lines"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Resources"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Revenues"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_procurement_margin
+msgid "Sale Margin for materials in %"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_task_margin
+msgid "Sale Margin for work in %"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_price_unit
+msgid "Sale Price"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Sale description"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_filter
+msgid "Search deliverable plan lines"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_copy_version_source_version_id
+msgid "Source Planning Version"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_unit_amount
+msgid "Specifies the quantity that has been planned."
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_state
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_change_state_state
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_filter
+msgid "Status"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_target_revenue
+msgid "Target budget computed from costs and wanted margin."
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:194
+#, python-format
+msgid "There is no analytic plan journal for product %s"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:113
+#, python-format
+msgid "There is no available deliverable to make sale order!"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:203
+#, python-format
+msgid "There is no revenue account defined for this product: \"%s\" (id:%d)"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Total"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Total Price"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_account_analytic_account_deliverable_total_revenue
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_price_total
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_project_project_deliverable_total_revenue
+msgid "Total Revenue"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_crm_lead_resource_cost_total
+msgid "Total Revenue from deliverable"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_delivered_material
+msgid "Total materials sale price"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_delivered_task
+msgid "Total tasks sale price"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_product_uom_id
+msgid "UoM"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_deliverable_plan_line_make_sale_update_quotation
+msgid "Update existing quotation"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_task_margin
+msgid "Work Margin (%)"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_resource_task_total
+msgid "Work cost"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_delivered_task
+msgid "Work sale price"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:286
+#, python-format
+msgid "You cannot delete a record that refers to analytic plan lines"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_crm_make_sale
+msgid "_Create"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_crm_make_sale
+msgid "_Update"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_crm_make_sale
+msgid "or"
+msgstr ""
+
