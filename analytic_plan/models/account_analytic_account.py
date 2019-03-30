@@ -6,6 +6,7 @@
 #    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
+from odoo.addons import decimal_precision as dp
 
 
 class AccountAnalyticAccount(models.Model):
@@ -72,3 +73,11 @@ class AccountAnalyticAccount(models.Model):
         string="Currency",
         readonly=True
     )
+    plan_line_count = fields.Integer(
+        compute='_compute_plan_line_count', type='integer'
+    )
+
+    @api.depends('plan_line_ids')
+    def _compute_plan_line_count(self):
+        for record in self:
+            record.plan_line_count = len(record.plan_line_ids)

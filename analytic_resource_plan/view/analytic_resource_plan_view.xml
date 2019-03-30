@@ -165,6 +165,6 @@
             action="action_analytic_resource_plan_line_open_form"
             id="analytic_resource_plan_line_entries"
             parent="analytic_plan.project_analytic"
-            sequence="2"/>
+            sequence="10"/>
 
 </odoo>

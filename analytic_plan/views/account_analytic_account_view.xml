@@ -53,8 +53,14 @@
                         'search_default_account_id': active_id}"
                 groups="analytic.group_analytic_accounting"
                 class="oe_inline oe_stat_button"
-                icon="fa-pencil-square-o">
-          <span>Planned costs and revenues</span>
+                icon="fa-eur">
+          <field name="plan_line_count"
+                 widget="statinfo"
+                 string="Plan. Balance"/>
+          <field name="balance_plan"
+                 class="oe_inline badge"
+                 nolabel="1"
+                 modifiers="{'readonly': true}"/>
         </button>
       </xpath>
     </field>
