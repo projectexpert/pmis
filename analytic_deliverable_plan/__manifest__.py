@@ -7,7 +7,7 @@
 
 {
     'name': 'Analytic Deliverable Planning',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'category': 'Advanced Project Management',
     'license': 'AGPL-3',
     'summary': 'Deliverable planning and sale price analysis',
@@ -38,6 +38,6 @@
         'wizard/deliverable_plan_line_change_state_view.xml',
         'wizard/deliverable_plan_line_make_sale.xml',
     ],
-    'installable': True,
+    'installable': False,
     'application': True,
 }
