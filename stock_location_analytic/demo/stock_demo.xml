@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="stock_project_external" model="stock.location">
+        <field name="usage">view</field>
+        <field name="company_id"></field>
+        <field eval="1" name="active"/>
+        <field name="name">Projects External Location</field>
+        <field name="comment">Contains stock for projects not considered as asset</field>
+    </record>
+
+    <record id="stock_project_internal" model="stock.location">
+        <field name="company_id"></field>
+        <field name="usage">view</field>
+        <field name="location_id" ref="stock.stock_location_company"/>
+        <field eval="1" name="active"/>
+        <field name="name">Projects Internal Location</field>
+        <field name="comment">Contains stock for projects considered as asset</field>
+    </record>
+
+</odoo>

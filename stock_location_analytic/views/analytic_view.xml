@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_analytic_account_form_location" model="ir.ui.view">
+        <field name="name">account.analytic.account.form.location</field>
+        <field name="model">account.analytic.account</field>
+        <field name="type">form</field>
+        <field name="inherit_id"
+               ref="analytic_location.view_account_analytic_account_form"/>
+        <field name="arch" type="xml">
+            <field name="location_id" position="after">
+                <field name="picking_type_id"/>
+            </field>
+        </field>
+    </record>
+</odoo>
