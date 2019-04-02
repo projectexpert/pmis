@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Analytic Resource Plan Stock',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'author':   'Eficent, '
                 'Matmoz, '
                 'Luxim, '
