@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_account_analytic_account_form_location" model="ir.ui.view">
+        <field name="name">account.analytic.account.form.location</field>
+        <field name="model">account.analytic.account</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="stock_analytic_account.view_account_analytic_account_form_stock_move"/>
+        <field name="arch" type="xml">
+            <group name="stock" position="before">
+                <group name="location">
+                    <field name="location_id" context='{"default_analytic_account_id": active_id}'/>
+                    <field name="dest_address_id"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>
