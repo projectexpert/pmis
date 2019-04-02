@@ -18,5 +18,5 @@
     'data': [
         'views/analytic_resource_plan_line_view.xml'
     ],
-    'installable': True,
+    'installable': False,
 }

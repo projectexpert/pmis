@@ -4,7 +4,7 @@
 
 {
     'name': 'Stock Location Analytic',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'category': 'Logistics',
     'summary': 'Introduces the analytic account to the locations',
     'author': 'Eficent',
@@ -22,5 +22,5 @@
     'demo': [
         'demo/stock_demo.xml'
     ],
-    'installable': True,
+    'installable': False,
 }
