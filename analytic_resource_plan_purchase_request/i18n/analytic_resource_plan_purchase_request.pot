@@ -1,0 +1,203 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* analytic_resource_plan_purchase_request
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-13 07:34+0000\n"
+"PO-Revision-Date: 2015-11-13 07:34+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line.make.purchase.request.item,account_id:0
+msgid "Analytic Account"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: model:ir.model,name:analytic_resource_plan_purchase_request.model_analytic_resource_plan_line
+msgid "Analytic Resource Planning lines"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: selection:analytic.resource.plan.line,request_state:0
+msgid "Approved"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: view:analytic.resource.plan.line.make.purchase.request:analytic_resource_plan_purchase_request.view_resource_plan_line_make_purchase_request
+msgid "Cancel"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: view:analytic.resource.plan.line.make.purchase.request:analytic_resource_plan_purchase_request.view_resource_plan_line_make_purchase_request
+msgid "Create Purchase Request"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: model:ir.actions.act_window,name:analytic_resource_plan_purchase_request.action_resource_plan_line_purchase_request
+msgid "Create Purchase Requests"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line.make.purchase.request,create_uid:0
+#: field:analytic.resource.plan.line.make.purchase.request.item,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line.make.purchase.request,create_date:0
+#: field:analytic.resource.plan.line.make.purchase.request.item,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line.make.purchase.request,description:0
+msgid "Description"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: view:analytic.resource.plan.line.make.purchase.request:analytic_resource_plan_purchase_request.view_resource_plan_line_make_purchase_request
+msgid "Details"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: selection:analytic.resource.plan.line,request_state:0
+msgid "Draft"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line.make.purchase.request,id:0
+#: field:analytic.resource.plan.line.make.purchase.request.item,id:0
+msgid "ID"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line.make.purchase.request,item_ids:0
+msgid "Items"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line.make.purchase.request,write_uid:0
+#: field:analytic.resource.plan.line.make.purchase.request.item,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line.make.purchase.request,write_date:0
+#: field:analytic.resource.plan.line.make.purchase.request.item,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: selection:analytic.resource.plan.line,request_state:0
+msgid "No Request"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: view:analytic.resource.plan.line:analytic_resource_plan_purchase_request.view_analytic_resource_plan_line_filter
+msgid "No purchase request has been created yet"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: view:analytic.resource.plan.line:analytic_resource_plan_purchase_request.view_analytic_resource_plan_line_filter
+msgid "Not Requested"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line.make.purchase.request,origin:0
+msgid "Origin"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line.make.purchase.request.item,product_id:0
+msgid "Product"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: model:ir.model,name:analytic_resource_plan_purchase_request.model_purchase_request_line
+msgid "Purchase Request Line"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line,purchase_request_lines:0
+#: field:purchase.request.line,analytic_resource_plan_lines:0
+msgid "Purchase Request Lines"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: view:analytic.resource.plan.line:analytic_resource_plan_purchase_request.view_analytic_resource_plan_line_form
+msgid "Purchase Requests"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line.make.purchase.request.item,product_qty:0
+msgid "Quantity to request"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: selection:analytic.resource.plan.line,request_state:0
+msgid "Rejected"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: view:analytic.resource.plan.line:analytic_resource_plan_purchase_request.view_analytic_resource_plan_line_filter
+msgid "Request Status"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line,request_state:0
+msgid "Request status"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line,requested_qty:0
+msgid "Requested quantity"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line.make.purchase.request.item,line_id:0
+msgid "Resource Plan Line"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: view:purchase.request.line:analytic_resource_plan_purchase_request.purchase_request_line_form
+msgid "Resource Plan Lines"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: model:ir.model,name:analytic_resource_plan_purchase_request.model_analytic_resource_plan_line_make_purchase_request
+msgid "Resource plan make purchase request"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: model:ir.model,name:analytic_resource_plan_purchase_request.model_analytic_resource_plan_line_make_purchase_request_item
+msgid "Resource plan make purchase request item"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: view:analytic.resource.plan.line:analytic_resource_plan_purchase_request.view_analytic_resource_plan_line_filter
+msgid "Status"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: selection:analytic.resource.plan.line,request_state:0
+msgid "To be approved"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line.make.purchase.request.item,product_uom_id:0
+msgid "UoM"
+msgstr ""
+
+#. module: analytic_resource_plan_purchase_request
+#: field:analytic.resource.plan.line.make.purchase.request.item,wiz_id:0
+msgid "Wizard"
+msgstr ""
+
