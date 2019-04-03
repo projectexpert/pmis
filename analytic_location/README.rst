@@ -1,5 +1,6 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License AGPL-3
+    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
 
 ==================================
 Stock Location in Analytic Account
@@ -8,6 +9,14 @@ Stock Location in Analytic Account
 Features of this module:
 
 * Adds the stock location in the analytic account.
+
+Bug Tracker
+===========
+
+Bugs are tracked on `GitHub Issues
+<https://github.com/projectexpert/pmis/issues>`_. In case of trouble, please
+check there if your issue has already been reported. If you spotted it first,
+help us smash it by providing detailed and welcomed feedback.
 
 Credits
 =======
@@ -23,9 +32,9 @@ Contributors
 Maintainer
 ----------
 
-.. image:: https://www.luxim.si/wp-content/uploads/2017/12/pexpert_alt.png
+.. image:: https://avatars3.githubusercontent.com/u/15308657?s=200&v=4
    :alt: Project Expert
-   :target: http://project.expert
+   :target: https://github.com/projectexpert/
 
 This module is maintained by Project Expert Team.
 

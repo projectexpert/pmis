@@ -45,9 +45,9 @@ class TestAnalyticResourcePlanStock(
         # to put in the api depends
         cls.assertEqual(cls.resource_plan_line.incoming_qty, 5.0,
                         'Bad Incoming Qty')
-        cls.assertEqual(cls.resource_plan_line.virtual_available, 5.0,
+        cls.assertEqual(cls.resource_plan_line.virtual_available, 4.0,
                         'Bad virtual Qty')
-        picking_in.action_done()
+        picking_in.button_validate()
         cls.assertEqual(cls.resource_plan_line.qty_available, 5.0,
                         'Bad QTY Available')
         cls.assertEqual(cls.resource_plan_line.incoming_done_qty, 5.0,

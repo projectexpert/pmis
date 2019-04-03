@@ -67,17 +67,21 @@ class AnalyticResourcePlanLine(models.Model):
         default='none')
     purchase_request_lines = fields.Many2many(
         'purchase.request.line',
-        copy=False,
+        'purchase_request_line_analytic_resource_plan_line_line_rel',
+        'analytic_resource_plan_line_id',
+        'purchase_request_line_id',
         string='Purchase Request Lines',
+        copy=False,
         readonly=True)
 
     @api.multi
     def unlink(self):
         for line in self:
-            if line.purchase_request_lines:
+            if line.purchase_request_lines.filtered(
+                    lambda l: l.request_state not in('rejected')):
                 raise ValidationError(
-                    _('You cannot delete a record that refers to '
-                      'Purchase request lines!'))
+                    _('You cannot delete plan lines that refers to '
+                      'not rejected Purchase request lines'))
         return super(AnalyticResourcePlanLine, self).unlink()
 
     @api.multi

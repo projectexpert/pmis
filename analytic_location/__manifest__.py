@@ -19,6 +19,6 @@
     'data': [
         'view/analytic_account_view.xml',
     ],
-    'installable': False,
+    'installable': True,
     'application': False,
 }

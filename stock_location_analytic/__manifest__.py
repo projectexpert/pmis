@@ -7,7 +7,8 @@
     'version': '11.0.1.0.0',
     'category': 'Logistics',
     'summary': 'Introduces the analytic account to the locations',
-    'author': 'Eficent',
+    'author': 'Eficent, '
+              'Project Expert Team',
     "license": "AGPL-3",
     'website': 'http://www.eficent.com',
     'depends': [
@@ -22,5 +23,5 @@
     'demo': [
         'demo/stock_demo.xml'
     ],
-    'installable': False,
+    'installable': True,
 }

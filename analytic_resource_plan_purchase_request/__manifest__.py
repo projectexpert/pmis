@@ -24,5 +24,5 @@
         'views/purchase_request_view.xml',
         'views/analytic_resource_plan_view.xml',
     ],
-    'installable': False,
+    'installable': True,
 }

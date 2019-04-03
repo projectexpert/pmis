@@ -92,7 +92,7 @@ class AnalyticResourcePlanLine(models.Model):
              "Location with 'internal' type."
     )
     outgoing_qty = fields.Float(
-        string='Virtually available',
+        string='Outgoing quantity',
         default=lambda self: self.unit_amount,
         compute='_compute_quantities',
         digits=dp.get_precision('Product Unit of Measure'),
