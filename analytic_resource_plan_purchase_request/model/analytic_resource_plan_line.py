@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Eficent Business and IT Consulting Services S.L.
 #   (http://www.eficent.com)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
@@ -65,11 +64,12 @@ class AnalyticResourcePlanLine(models.Model):
         selection=_REQUEST_STATE,
         store=True,
         default='none')
+
     purchase_request_lines = fields.Many2many(
-        'purchase.request.line',
-        'purchase_request_line_analytic_resource_plan_line_line_rel',
-        'analytic_resource_plan_line_id',
-        'purchase_request_line_id',
+        comodel_name='purchase.request.line',
+        relation='purchase_request_line_analytic_resource_plan_line_line_rel',
+        column1='analytic_resource_plan_line_id',
+        column2='purchase_request_line_id',
         string='Purchase Request Lines',
         copy=False,
         readonly=True)
@@ -78,7 +78,8 @@ class AnalyticResourcePlanLine(models.Model):
     def unlink(self):
         for line in self:
             if line.purchase_request_lines.filtered(
-                    lambda l: l.request_state not in('rejected')):
+                    lambda l: l.request_state not in 'rejected'
+            ):
                 raise ValidationError(
                     _('You cannot delete plan lines that refers to '
                       'not rejected Purchase request lines'))
@@ -95,7 +96,8 @@ class AnalyticResourcePlanLine(models.Model):
     @api.multi
     def action_button_confirm(self):
         res = super(AnalyticResourcePlanLine, self).action_button_confirm()
-        self._make_purchase_request()
+        if self.resource_type == 'procurement':
+            self._make_purchase_request()
         return res
 
     @api.model
@@ -139,8 +141,9 @@ class AnalyticResourcePlanLine(models.Model):
                       'from the same company.'))
             else:
                 company_id = line_company_id
-            line_warehouse_id = \
+            line_warehouse_id = (
                 line.account_id.picking_type_id.warehouse_id or False
+            )
             if warehouse_id is not False \
                     and line_warehouse_id != warehouse_id:
                 raise ValidationError(

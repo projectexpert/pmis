@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #    Copyright 2016 MATMOZ, Slovenia (Matjaž Mozetič)
 #    Copyright 2018 EFICENT (Jordi Ballester Alomar)
 #    Copyright 2018 LUXIM, Slovenia (Matjaž Mozetič)
@@ -310,19 +309,19 @@ class AnalyticResourcePlanLine(models.Model):
         if self.resource_type == 'procurement':
             self.user_id = False
 
-    @api.multi
-    @api.constrains('resource_type', 'product_uom_id')
-    def _check_description(self):
-        for resource in self:
-            if resource.resource_type == 'task' and (
-                resource.product_uom_id.category_id != (
-                    resource.env.ref('product.uom_categ_wtime')
-                )
-            ):
-                raise ValidationError(
-                    _("When resource type is task, "
-                      "the uom category should be time")
-                )
+    # @api.multi
+    # @api.constrains('resource_type', 'product_uom_id')
+    # def _check_description(self):
+    #     for resource in self:
+    #         if resource.resource_type == 'task' and (
+    #             resource.product_uom_id.category_id != (
+    #                 resource.env.ref('product.uom_categ_wtime')
+    #             )
+    #         ):
+    #             raise ValidationError(
+    #                 _("When resource type is task, "
+    #                   "the uom category should be time")
+    #             )
 
     @api.multi
     def action_open_view_rpl_form(self):

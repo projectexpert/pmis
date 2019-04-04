@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #    Copyright 2015 MATMOZ, Slovenia (Matjaž Mozetič)
 #    Copyright 2015 EFICENT (Jordi Ballester Alomar)
 #    Copyright 2018 LUXIM, Slovenia (Matjaž Mozetič)
