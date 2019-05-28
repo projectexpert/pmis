@@ -126,6 +126,9 @@
                     <page string="Revenues" name="revenues">
                         <field name="analytic_line_plan_ids"/>
                     </page>
+                    <page string="sales" name="revenues">
+                        <field name="sale_line_ids"/>
+                    </page>
                 </notebook>
                 </sheet>
                 <div class="oe_chatter">
