@@ -63,18 +63,22 @@ class DeliverablePlanLineMakeSale(models.TransientModel):
             for deliverable in crm_id.account_id.deliverable_ids:
                 sale_order_values.update({
                     'client_order_ref': (
-                        deliverable.account_id.complete_wbs_name),
-                    'origin': deliverable.account_id.complete_wbs_code,
+                        deliverable.account_id.name),
+                    'origin': deliverable.account_id.code,
                     'account_id': deliverable.account_id.id
                 })
-                if deliverable and crm_id.account_id.pricelist_id:
-                    sale_order_values.update({
-                        'pricelist_id': deliverable.pricelist_id.id
-                    })
-                else:
+                if deliverable:
                     sale_order_values.update({
                         'pricelist_id': pricelist
                     })
+                # if deliverable and crm_id.account_id.pricelist_id:
+                #     sale_order_values.update({
+                #         'pricelist_id': deliverable.pricelist_id.id
+                #     })
+                # else:
+                #     sale_order_values.update({
+                #         'pricelist_id': pricelist
+                #     })
             order_id = sale_order.create(sale_order_values)
             order_lines = self.prepare_sale_order_line(case_id, order_id.id)
             self.create_sale_order_line(order_lines)
@@ -123,6 +127,7 @@ class DeliverablePlanLineMakeSale(models.TransientModel):
                     'product_uom_qty': deliverable_line.unit_amount,
                     'product_uom': deliverable_line.product_uom_id.id,
                     'price_unit': deliverable_line.price_unit,
+                    'deliverable_id': self
                 }
                 lines.append(vals)
         return lines
