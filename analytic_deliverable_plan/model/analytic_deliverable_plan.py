@@ -113,6 +113,14 @@ class AnalyticDeliverablePlanLine(models.Model):
         copy=True,
     )
 
+    # sale line references
+    sale_line_ids = fields.One2many(
+        comodel_name='sale.order.line',
+        inverse_name='deliverable_id',
+        string='Sale Lines',
+        copy=True,
+    )
+
     # price analysis hints
     task_margin = fields.Float(
         string='Work Margin (%)',
@@ -392,3 +400,14 @@ class ResourcePlanLine(models.Model):
     def on_change_deliverable_id(self):
         if self.deliverable_id:
             self.account_id = self.deliverable_id.account_id
+
+
+class SaleOrderLine(models.Model):
+
+    _inherit = "sale.order.line"
+
+    deliverable_id = fields.Many2one(
+        comodel_name='analytic.deliverable.plan.line',
+        string='Deliverable',
+        ondelete='cascade'
+    )
