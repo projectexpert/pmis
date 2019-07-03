@@ -41,10 +41,10 @@ class AnalyticResourcePlanLine(models.Model):
         states={'draft': [('readonly', False)]}
     )
     date = fields.Date(
-        string='Date',
+        string='Date Planned',
         required=True,
         index=True,
-        readonly=True,
+        readonly=False,
         states={'draft': [('readonly', False)]},
         default=lambda *a: time.strftime('%Y-%m-%d')
     )

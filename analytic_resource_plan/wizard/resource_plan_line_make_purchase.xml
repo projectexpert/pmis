@@ -3,9 +3,9 @@
   <!-- crm project sale's view -->
   <record id="view_crm_make_sale" model="ir.ui.view">
     <field name="name">crm.project.sale.form</field>
-    <field name="model">deliverable.plan.line.make.sale</field>
+    <field name="model">resource.plan.line.make.purchase</field>
     <field name="arch" type="xml">
-      <form string="Quotation from Project Deliverables" >
+      <form string="Quotation from Project Resource Plan" >
         <group col="4">
           <field name="partner_id" required="1"/>
           <field name="update_quotation"/>
@@ -27,21 +27,21 @@
 
   <!-- crm project sale's  action -->
   <record id="action_crm_project_sale" model="ir.actions.act_window">
-    <field name="name">Quotation from Project Deliverables</field>
+    <field name="name">Quotation from Project Resources</field>
     <field name="type">ir.actions.act_window</field>
-    <field name="res_model">deliverable.plan.line.make.sale</field>
+    <field name="res_model">resource.plan.line.make.purchase</field>
     <field name="view_type">form</field>
     <field name="view_mode">form</field>
     <field name="target">new</field>
   </record>
 
   <!--sale view-->
-  <record id="act_view_lead_deliverable" model="ir.actions.act_window">
-    <field name="name">Project Deliverable</field>
-    <field name="res_model">analytic.deliverable.plan.line</field>
+  <record id="act_view_lead_resource" model="ir.actions.act_window">
+    <field name="name">Project Resource</field>
+    <field name="res_model">analytic.resource.plan.line</field>
     <field name="view_mode">tree,form</field>
     <field name="search_view_id"
-           ref="analytic_deliverable_plan.view_analytic_deliverable_plan_line_filter"/>
+           ref="analytic_resource_plan.view_analytic_resource_plan_line_filter"/>
     <field name="context">{
       'search_default_account_id': [account_id],
       'default_account_id': account_id,
@@ -56,7 +56,7 @@
     <field name="arch" type="xml">
       <xpath expr="//button[@name='action_set_won_rainbowman']" position='before'>
         <button attrs="{'invisible': [('account_id', '=', False)]}"
-                string="Quotation (Project Deliverables)"
+                string="Quotation (Project Resources)"
                 name="%(action_crm_project_sale)d"
                 type="action"
                 class="oe_highlight"/>
@@ -64,25 +64,25 @@
       </xpath>
       <button name="toggle_active" position="after">
         <button type="action"
-                name="%(act_view_lead_deliverable)d"
+                name="%(act_view_lead_resource)d"
                 class="oe_stat_button"
                 icon="fa-tasks"
                 context="{
                 'search_default_account_id': [account_id],
                 'default_account_id': account_id,
                 'account_id':account_id}">
-          <field string="Deliverables."
-                 name="deliverable_total"
+          <field string="Resources"
+                 name="planned_cost_total"
                  widget="statinfo"/>
         </button>
       </button>
-<!--      <xpath expr="//div[hasclass('oe_title')]" position="after">-->
-<!--        <group name="topgroup">-->
-<!--          <group>-->
-<!--            <field name="account_id" string="Project"/>-->
-<!--          </group>-->
-<!--        </group>-->
-<!--      </xpath>-->
+      <xpath expr="//div[hasclass('oe_title')]" position="after">
+        <group name="topgroup">
+          <group>
+            <field name="account_id" string="Project"/>
+          </group>
+        </group>
+      </xpath>
 <!--      <field name="name" position="before">-->
 <!--          <field name="account_id"/>-->
 <!--      </field>-->

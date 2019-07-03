@@ -34,6 +34,7 @@
         'view/analytic_account_view.xml',
         'view/project_view.xml',
         'wizard/resource_plan_line_change_state_view.xml',
+        'wizard/resource_plan_line_make_purchase.xml',
     ],
     'installable': True,
 }
