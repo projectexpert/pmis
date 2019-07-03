@@ -6,7 +6,7 @@
         <field name="inherit_id"
                ref="analytic_resource_plan.view_analytic_resource_plan_line_tree"/>
         <field name="arch" type="xml">
-            <field name="account_id" position='after'>
+            <field name="account_id" position='before'>
                 <field name="deliverable_id" required="False"/>
             </field>
             <field name="account_id" position="attributes">
@@ -21,7 +21,7 @@
         <field name="inherit_id"
                ref="analytic_resource_plan.view_analytic_resource_plan_line_form"/>
         <field name="arch" type="xml">
-            <field name="account_id" position='after'>
+            <field name="account_id" position='before'>
                 <field name="deliverable_id" required="False"/>
             </field>
             <field name="account_id" position="attributes">
@@ -37,7 +37,7 @@
             <field name="inherit_id"
                    ref="analytic_resource_plan.view_analytic_resource_plan_line_filter"/>
             <field name="arch" type="xml">
-                <field name="account_id" position='after'>
+                <field name="account_id" position='before'>
                     <field name="deliverable_id" required="False"/>
                 </field>
                 <group name="group_by" position="inside">
