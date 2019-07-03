@@ -1,4 +1,4 @@
-#    Copyright 2018 LUXIM, Slovenia (Matjaž Mozetič)
+#    Copyright 2019 LUXIM, Slovenia (Matjaž Mozetič)
 #    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
@@ -6,9 +6,9 @@ from odoo.tools.translate import _
 from odoo.exceptions import ValidationError
 
 
-class DeliverablePlanLineMakeSale(models.TransientModel):
-    _name = "deliverable.plan.line.make.sale"
-    _description = "Analytic deliverable plan line make sale"
+class ResourcePlanLineMakePurchase(models.TransientModel):
+    _name = "resource.plan.line.make.purchase"
+    _description = "Analytic resource plan line make purchase"
 
     @api.multi
     def default_partner(self):
@@ -42,7 +42,8 @@ class DeliverablePlanLineMakeSale(models.TransientModel):
 
         if crm_id and crm_id.account_id:
             partner = crm_id.partner_id
-            sale_order = self.env['sale.order']
+            purchase_order = self.env['purchase.order']
+            # TODO: check vendor pricelist for purchases field name
             pricelist = partner.property_product_pricelist.id
             partner_address = partner.address_get(
                 [
@@ -52,7 +53,7 @@ class DeliverablePlanLineMakeSale(models.TransientModel):
                     'contact'
                 ]
             )
-            sale_order_values = {
+            purchase_order_values = {
                 'partner_id': partner.id,
                 'opportunity_id': crm_id.id,
                 'partner_invoice_id': partner_address['invoice'],
@@ -60,33 +61,33 @@ class DeliverablePlanLineMakeSale(models.TransientModel):
                 'date_order': fields.datetime.now(),
             }
 
-            for deliverable in crm_id.account_id.deliverable_ids:
-                sale_order_values.update({
+            for resource in crm_id.account_id.resource_ids:
+                purchase_order_values.update({
                     'client_order_ref': (
-                        deliverable.account_id.name),
-                    'origin': deliverable.account_id.code,
-                    'account_id': deliverable.account_id.id
+                        resource.account_id.name),
+                    'origin': resource.account_id.code,
+                    'account_id': resource.account_id.id
                 })
-                if deliverable:
-                    sale_order_values.update({
+                if resource:
+                    purchase_order_values.update({
                         'pricelist_id': pricelist
                     })
-                # if deliverable and crm_id.account_id.pricelist_id:
-                #     sale_order_values.update({
-                #         'pricelist_id': deliverable.pricelist_id.id
+                # if resource and crm_id.account_id.pricelist_id:
+                #     purchase_order_values.update({
+                #         'pricelist_id': resource.pricelist_id.id
                 #     })
                 # else:
-                #     sale_order_values.update({
+                #     purchase_order_values.update({
                 #         'pricelist_id': pricelist
                 #     })
-            order_id = sale_order.create(sale_order_values)
-            order_lines = self.prepare_sale_order_line(case_id, order_id.id)
-            self.create_sale_order_line(order_lines)
+            order_id = purchase_order.create(purchase_order_values)
+            order_lines = self.prepare_purchase_order_line(case_id, order_id.id)
+            self.create_purchase_order_line(order_lines)
             return {
                 'domain': str([('id', 'in', [order_id.id])]),
                 'view_type': 'form',
                 'view_mode': 'tree,form',
-                'res_model': 'sale.order',
+                'res_model': 'purchase.order',
                 'view_id': False,
                 'type': 'ir.actions.act_window',
                 'name': _('Quotation'),
@@ -97,46 +98,47 @@ class DeliverablePlanLineMakeSale(models.TransientModel):
                 'domain': str([('id', 'in', crm_id.order_ids.ids)]),
                 'view_type': 'form',
                 'view_mode': 'tree,form',
-                'res_model': 'sale.order',
+                'res_model': 'purchase.order',
                 'view_id': False,
                 'type': 'ir.actions.act_window',
                 'name': _('Quotation'),
                 'res_ids': crm_id.order_ids.ids
             }
 
-    def prepare_sale_order_line(self, case_id, order_id):
+    def prepare_purchase_order_line(self, case_id, order_id):
         lines = []
         case = self.env['crm.lead'].browse(case_id)
-        order_id = self.env['sale.order'].browse(order_id)
-        linked_deliverables = (
-                case.account_id and case.account_id.deliverable_ids or []
+        order_id = self.env['purchase.order'].browse(order_id)
+        linked_resources = (
+                case.account_id and case.account_id.resource_ids or []
         )
-        if not linked_deliverables:
+        if not linked_resources:
             raise ValidationError(
-                _("There is no available deliverable to "
-                  "make sale order!")
+                _("There is no available resource to "
+                  "make purchase order!")
             )
-        for deliverable in linked_deliverables:
-            if deliverable.state in 'draft':
+        for resource in linked_resources:
+            if resource.state in 'draft':
                 continue
-            for deliverable_line in deliverable:
+            for resource_line in resource:
                 vals = {
                     'order_id': order_id and order_id.id,
-                    'product_id': deliverable_line.product_id.id,
-                    'name': deliverable_line.name,
-                    'product_uom_qty': deliverable_line.unit_amount,
-                    'product_uom': deliverable_line.product_uom_id.id,
-                    'price_unit': deliverable_line.price_unit,
-                    'account_analytic_id': deliverable_line.account_id.id,
-                    'deliverable_id': self
+                    'product_id': resource_line.product_id.id,
+                    'name': resource_line.name,
+                    'product_qty': resource_line.unit_amount,
+                    'product_uom': resource_line.product_uom_id.id,
+                    'price_unit': resource_line.price_unit,
+                    'date_planned': resource_line.date,
+                    'account_analytic_id': resource_line.account_id.id,
+                    'resource_id': self
                 }
                 lines.append(vals)
         return lines
 
-    def create_sale_order_line(self, order_lines):
-        saleorder_line_obj = self.env['sale.order.line']
+    def create_purchase_order_line(self, order_lines):
+        purchaseorder_line_obj = self.env['purchase.order.line']
         for line in order_lines:
-            saleorder_line_obj.create(line)
+            purchaseorder_line_obj.create(line)
 
 
 # noinspection PyAttributeOutsideInit
@@ -148,24 +150,23 @@ class CrmLead(models.Model):
     #     string='Project',
     #     ondelete='set null',
     # )
-    deliverable_total = fields.Float(
-        compute='_compute_resource_cost_total',
-        string='Total Revenue from deliverable',
-        oldname='resource_cost_total'
+    planned_cost_total = fields.Float(
+        compute='_compute_planned_cost_total',
+        string='Total planned cost'
     )
-    # account_id = fields.Many2one(
-    #     comodel_name='account.analytic.account',
-    #     string='Project Account',
-    #     ondelete='set null',
-    # )
+    account_id = fields.Many2one(
+        comodel_name='account.analytic.account',
+        string='Project Account',
+        ondelete='set null',
+    )
 
     @api.multi
-    def _compute_resource_cost_total(self):
+    def _compute_planned_cost_total(self):
         self.ensure_one()
-        self.deliverable_total = sum(
-            [deliverable.price_total for deliverable in
-                self.account_id and self.account_id.deliverable_ids
-                if deliverable.state not in 'draft'])
+        self.planned_cost_total = sum(
+            [resource.price_total for resource in
+                self.account_id and self.account_id.resource_ids
+                if resource.state not in 'draft'])
 
     @api.multi
     @api.onchange('account_id')
