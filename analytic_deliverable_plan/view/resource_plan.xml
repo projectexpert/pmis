@@ -10,7 +10,7 @@
                 <field name="deliverable_id" required="False"/>
             </field>
             <field name="account_id" position="attributes">
-                <attribute name="invisible">1</attribute>
+                <attribute name="invisible">0</attribute>
             </field>
         </field>
     </record>
@@ -22,10 +22,10 @@
                ref="analytic_resource_plan.view_analytic_resource_plan_line_form"/>
         <field name="arch" type="xml">
             <field name="account_id" position='after'>
-                <field name="deliverable_id" required="True"/>
+                <field name="deliverable_id" required="False"/>
             </field>
             <field name="account_id" position="attributes">
-                <attribute name="invisible">1</attribute>
+                <attribute name="invisible">0</attribute>
             </field>
         </field>
     </record>
@@ -38,7 +38,7 @@
                    ref="analytic_resource_plan.view_analytic_resource_plan_line_filter"/>
             <field name="arch" type="xml">
                 <field name="account_id" position='after'>
-                    <field name="deliverable_id" required="True"/>
+                    <field name="deliverable_id" required="False"/>
                 </field>
                 <group name="group_by" position="inside">
                     <filter string="Deliverable"
