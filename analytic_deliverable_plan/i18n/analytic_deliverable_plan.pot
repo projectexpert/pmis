@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-30 08:06+0000\n"
-"PO-Revision-Date: 2019-03-30 08:06+0000\n"
+"POT-Creation-Date: 2019-07-05 07:30+0000\n"
+"PO-Revision-Date: 2019-07-05 07:30+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -139,6 +139,7 @@ msgstr ""
 
 #. module: analytic_deliverable_plan
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_resource_plan_line_deliverable_id
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_sale_order_line_deliverable_id
 #: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_resource_plan_line_filter
 msgid "Deliverable"
 msgstr ""
@@ -160,7 +161,7 @@ msgid "Deliverable Plan Lines"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_change_state.py:46
+#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_change_state.py:45
 #, python-format
 msgid "Deliverable Planning Lines"
 msgstr ""
@@ -191,7 +192,7 @@ msgid "Deliverables."
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:301
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:308
 #, python-format
 msgid "Details"
 msgstr ""
@@ -298,16 +299,6 @@ msgid "Product"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: model:ir.ui.view,arch_db:analytic_deliverable_plan.crm_case_form_view_oppor
-msgid "Project"
-msgstr ""
-
-#. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_crm_lead_account_id
-msgid "Project Account"
-msgstr ""
-
-#. module: analytic_deliverable_plan
 #: model:ir.actions.act_window,name:analytic_deliverable_plan.act_view_lead_deliverable
 msgid "Project Deliverable"
 msgstr ""
@@ -344,8 +335,8 @@ msgid "Qty"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:89
-#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:100
+#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:92
+#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:103
 #, python-format
 msgid "Quotation"
 msgstr ""
@@ -382,6 +373,11 @@ msgid "Revenues"
 msgstr ""
 
 #. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_sale_line_ids
+msgid "Sale Lines"
+msgstr ""
+
+#. module: analytic_deliverable_plan
 #: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_procurement_margin
 msgid "Sale Margin for materials in %"
 msgstr ""
@@ -399,6 +395,11 @@ msgstr ""
 #. module: analytic_deliverable_plan
 #: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
 msgid "Sale description"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_sale_order_line
+msgid "Sales Order Line"
 msgstr ""
 
 #. module: analytic_deliverable_plan
@@ -424,19 +425,19 @@ msgid "Target budget computed from costs and wanted margin."
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:193
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:200
 #, python-format
 msgid "There is no analytic plan journal for product %s"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:113
+#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:116
 #, python-format
 msgid "There is no available deliverable to make sale order!"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:202
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:209
 #, python-format
 msgid "There is no revenue account defined for this product: \"%s\" (id:%d)"
 msgstr ""
@@ -459,7 +460,7 @@ msgid "Total Revenue"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_crm_lead_resource_cost_total
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_crm_lead_deliverable_total
 msgid "Total Revenue from deliverable"
 msgstr ""
 
@@ -504,7 +505,7 @@ msgid "Work sale price"
 msgstr ""
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:274
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:281
 #, python-format
 msgid "You cannot delete a record that refers to analytic plan lines"
 msgstr ""
@@ -522,5 +523,10 @@ msgstr ""
 #. module: analytic_deliverable_plan
 #: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_crm_make_sale
 msgid "or"
+msgstr ""
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "sales"
 msgstr ""
 

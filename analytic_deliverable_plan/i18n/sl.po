@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-30 08:06+0000\n"
-"PO-Revision-Date: 2019-03-30 09:07+0100\n"
+"POT-Creation-Date: 2019-07-05 07:30+0000\n"
+"PO-Revision-Date: 2019-07-05 09:32+0200\n"
 "Last-Translator: Matjaž Mozetič <matjaz@matmoz.si>\n"
 "Language-Team: Slovenian <translate@matmoz.si>\n"
 "Language: sl\n"
@@ -152,6 +152,7 @@ msgstr "Datum"
 
 #. module: analytic_deliverable_plan
 #: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_resource_plan_line_deliverable_id
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_sale_order_line_deliverable_id
 #: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_resource_plan_line_filter
 msgid "Deliverable"
 msgstr "Dobava"
@@ -173,7 +174,7 @@ msgid "Deliverable Plan Lines"
 msgstr "Postavke plana dobav"
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_change_state.py:46
+#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_change_state.py:45
 #, python-format
 msgid "Deliverable Planning Lines"
 msgstr "Postavke plana dobav"
@@ -204,7 +205,7 @@ msgid "Deliverables."
 msgstr "Dobave."
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:301
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:308
 #, python-format
 msgid "Details"
 msgstr "Podrobnosti"
@@ -311,16 +312,6 @@ msgid "Product"
 msgstr "Proizvod"
 
 #. module: analytic_deliverable_plan
-#: model:ir.ui.view,arch_db:analytic_deliverable_plan.crm_case_form_view_oppor
-msgid "Project"
-msgstr "Projekt"
-
-#. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_crm_lead_account_id
-msgid "Project Account"
-msgstr "Projekt"
-
-#. module: analytic_deliverable_plan
 #: model:ir.actions.act_window,name:analytic_deliverable_plan.act_view_lead_deliverable
 msgid "Project Deliverable"
 msgstr "Projektna dobava"
@@ -358,8 +349,8 @@ msgid "Qty"
 msgstr "Kol"
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:89
-#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:100
+#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:92
+#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:103
 #, python-format
 msgid "Quotation"
 msgstr "Predračun"
@@ -396,6 +387,11 @@ msgid "Revenues"
 msgstr "Prihodki"
 
 #. module: analytic_deliverable_plan
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_analytic_deliverable_plan_line_sale_line_ids
+msgid "Sale Lines"
+msgstr "Prodajne postavke"
+
+#. module: analytic_deliverable_plan
 #: model:ir.model.fields,help:analytic_deliverable_plan.field_analytic_deliverable_plan_line_procurement_margin
 msgid "Sale Margin for materials in %"
 msgstr "Prodajna marža za material v %"
@@ -414,6 +410,11 @@ msgstr "Prodajna cena"
 #: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
 msgid "Sale description"
 msgstr "Prodajni opis"
+
+#. module: analytic_deliverable_plan
+#: model:ir.model,name:analytic_deliverable_plan.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Prodajna postavka"
 
 #. module: analytic_deliverable_plan
 #: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_filter
@@ -438,19 +439,19 @@ msgid "Target budget computed from costs and wanted margin."
 msgstr "Ciljni proračun izračunan iz stroškov in želene marže."
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:193
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:200
 #, python-format
 msgid "There is no analytic plan journal for product %s"
 msgstr "Ni dnevnika analitičnega plana za proizvod %s"
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:113
+#: code:addons/analytic_deliverable_plan/wizard/deliverable_plan_line_make_sale.py:116
 #, python-format
 msgid "There is no available deliverable to make sale order!"
 msgstr "Ni dobave na voljo za izvedbo prodajnega naloga!"
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:202
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:209
 #, python-format
 msgid "There is no revenue account defined for this product: \"%s\" (id:%d)"
 msgstr "Konto prihodkov za izdelek: \"%s\" (id:%d) ni določen."
@@ -473,7 +474,7 @@ msgid "Total Revenue"
 msgstr "Prihodki skupaj"
 
 #. module: analytic_deliverable_plan
-#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_crm_lead_resource_cost_total
+#: model:ir.model.fields,field_description:analytic_deliverable_plan.field_crm_lead_deliverable_total
 msgid "Total Revenue from deliverable"
 msgstr "Skupni prihodki iz dobave"
 
@@ -518,7 +519,7 @@ msgid "Work sale price"
 msgstr "Prodajna cena delo"
 
 #. module: analytic_deliverable_plan
-#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:274
+#: code:addons/analytic_deliverable_plan/model/analytic_deliverable_plan.py:281
 #, python-format
 msgid "You cannot delete a record that refers to analytic plan lines"
 msgstr ""
@@ -538,6 +539,17 @@ msgstr "_Posodobi"
 #: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_crm_make_sale
 msgid "or"
 msgstr "ali"
+
+#. module: analytic_deliverable_plan
+#: model:ir.ui.view,arch_db:analytic_deliverable_plan.view_analytic_deliverable_plan_line_form
+msgid "sales"
+msgstr ""
+
+#~ msgid "Project"
+#~ msgstr "Projekt"
+
+#~ msgid "Project Account"
+#~ msgstr "Projekt"
 
 #~ msgid "Analytic Deliverable Plan copy versions"
 #~ msgstr "Kopiranje verzij plana dobav"
